@@ -5,6 +5,16 @@ secrets.env
 $LOG
 .claude/settings.local.json
 
+# Local research-agent framework (not part of this lean repository)
+.agents/
+.claude/
+.codex/
+.spec-workflow/
+agents/
+goals/
+wiki/
+worktrees/
+
 # Python 缓存
 __pycache__/
 *.pyc
