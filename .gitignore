@@ -1,0 +1,42 @@
+# === 密钥：绝不进版本库（随 tar 走，但不进 git）===
+secrets.env
+.env
+.mcp.json
+$LOG
+.claude/settings.local.json
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.DS_Store
+
+# 杂项工具目录（非框架）
+.spec-workflow/
+
+# 备份（install 生成）
+*.backup-*
+*backup-*
+*.bak-*
+*.bak
+# Heavy/runtime artifacts (keep provenance in docs/reports, not git)
+data/
+runs/
+outputs/
+logs/
+software_outputs/
+external_runs/
+worktrees/
+refs/pdfs/
+refs/repos/
+refs/supp/
+refs/cache/
+refs/containers/
+refs/weights/
+# Reproducible, bulky prediction dumps; retain compact reports and metrics.
+reports/**/predictions/
+*.pt
+*.pth
+*.ckpt
+*.h5

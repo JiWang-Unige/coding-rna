@@ -1,0 +1,294 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "跨物种基因注释项目阶段报告",
+    "description": "截至 2026-08-16 的技术进展、证据边界、风险与下一阶段建议。",
+    "generatedAt": "2026-08-16T10:38:57+02:00",
+    "charts": [
+      {
+        "id": "gbf1_frontier",
+        "title": "Clean-plant 同评估器 gene-body F1",
+        "subtitle": "Arabidopsis + rice；M19/M21/M22/M23 均为 screen/non-claim，外部 caller 为 released-weight 对照。",
+        "type": "bar",
+        "dataset": "clean_plant_frontier",
+        "sourceId": "results_log",
+        "valueFormat": "number",
+        "unit": "F1",
+        "encodings": {
+          "x": { "field": "short_name", "type": "nominal", "label": "模型/实验" },
+          "y": { "field": "gbf1", "type": "quantitative", "label": "gene-body F1" },
+          "tooltip": [
+            { "field": "fpr", "type": "quantitative", "label": "intergenic FPR" },
+            { "field": "gene_ratio", "type": "quantitative", "label": "gene-count ratio" },
+            { "field": "claim_role", "type": "text", "label": "证据角色" }
+          ]
+        },
+        "layout": "full"
+      },
+      {
+        "id": "fpr_frontier",
+        "title": "Clean-plant 同评估器 intergenic FPR",
+        "subtitle": "完整 claim 的硬阈值为 0.01；越低越好，但必须同时保持 gene-body F1。",
+        "type": "bar",
+        "dataset": "clean_plant_frontier",
+        "sourceId": "results_log",
+        "valueFormat": "number",
+        "encodings": {
+          "x": { "field": "short_name", "type": "nominal", "label": "模型/实验" },
+          "y": { "field": "fpr", "type": "quantitative", "label": "intergenic FPR" },
+          "tooltip": [
+            { "field": "gbf1", "type": "quantitative", "label": "gene-body F1" },
+            { "field": "gene_ratio", "type": "quantitative", "label": "gene-count ratio" },
+            { "field": "verdict", "type": "text", "label": "阶段结论" }
+          ]
+        },
+        "layout": "full"
+      }
+    ],
+    "tables": [
+      {
+        "id": "frontier_table",
+        "title": "核心候选与外部对照的证据边界",
+        "subtitle": "精确数值按 gbF1 降序；claim role 明确区分 released baseline、适配证据与 clean-provenance screen。",
+        "dataset": "clean_plant_frontier",
+        "sourceId": "results_log",
+        "defaultSort": { "field": "gbf1", "direction": "desc" },
+        "density": "spacious",
+        "layout": "full",
+        "columns": [
+          { "field": "short_name", "label": "模型/实验", "type": "text" },
+          { "field": "gbf1", "label": "gbF1", "format": "number" },
+          { "field": "fpr", "label": "FPR", "format": "number" },
+          { "field": "gene_ratio", "label": "gene-count ratio", "format": "number" },
+          { "field": "provenance", "label": "来源状态", "type": "text" },
+          { "field": "claim_role", "label": "证据角色", "type": "text" },
+          { "field": "verdict", "label": "阶段结论", "type": "text" }
+        ]
+      }
+    ],
+    "sources": [
+      { "id": "master_plan", "label": "项目主导航", "path": "docs/11_master_plan.md" },
+      {
+        "id": "results_log",
+        "label": "实验结果中央账本",
+        "path": "docs/06_results_log.md",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "description": "将 docs/06_results_log.md 中已审核的 clean-plant 同评估器数值转录为报告比较表；模型身份、claim role 与 provenance 状态保留自项目账本。",
+          "executed_at": "2026-08-16T10:38:57+02:00",
+          "filters": [
+            "Arabidopsis thaliana + Oryza sativa clean-plant panel",
+            "统一 CDS-span gene-body evaluator 与 full-transcript intergenic ruler",
+            "只纳入报告中用于定位当前 frontier 的 released baselines 与 M11/M19/M21/M22/M23"
+          ],
+          "metric_definitions": [
+            "gbf1 = gene_body_F1_unconstrained；在 hard-FPR-valid 行中也等于相应 constrained gene-body F1",
+            "fpr = predicted intergenic false-positive bases / reference intergenic bases",
+            "gene_ratio = predicted unique gene count / reference unique gene count"
+          ],
+          "tables_used": ["docs/06_results_log.md"],
+          "sql": "SELECT * FROM (VALUES ('ANNEVO','released caller',0.9269,0.0117,0.9883,0.726,'released baseline','同面板外部对照','最高 gbF1；略超硬 FPR'),('Tiberius','released caller',0.9252,0.0073,0.9927,0.628,'released baseline','同面板外部对照','过 FPR；明显 under-call'),('Helixer','released caller',0.9220,0.0216,0.9784,0.820,'released baseline','同面板外部对照','高 gbF1；FPR 未过'),('M19 Gen-1.2B','foundation adaptation',0.8815,0.00649,0.99351,0.830,'overlap_unknown','适配/可比性证据','内部最强；不可 clean claim'),('M21 CRF','structured decoder',0.8744,0.0192,0.9808,0.690,'overlap_unknown','negative screen','路线已 abandoned'),('M22 Tversky','objective change',0.8635,0.02865,0.97135,0.648,'overlap_unknown','negative screen','不加 seed、不调参'),('M23 NT-v2','clean-provenance transfer',0.8427,0.01673,0.98327,0.867,'plants excluded in NT-v2 pretraining','clean-provenance screen','复现 M10；需结构变化'),('M11 NT-v2 cal','clean-provenance calibration',0.8170,0.00899,0.99101,1.047,'plants excluded in NT-v2 pretraining','screen context','过 FPR；gbF1 较低')) AS t(short_name,family,gbf1,fpr,specificity,gene_ratio,provenance,claim_role,verdict)"
+        }
+      },
+      { "id": "active_goal", "label": "机器可读目标合约", "path": "ACTIVE_GOAL.json" },
+      { "id": "evaluator_contract", "label": "评估器与可比性合约", "path": "docs/19_evaluator_contract.md" },
+      { "id": "findings", "label": "研究与工程发现", "path": "docs/10_findings.md" },
+      { "id": "run_tracker", "label": "运行与待办 tracker", "path": "docs/05_todo.md" }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# 跨物种基因注释项目阶段报告"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## 技术结论：评估体系已成熟，模型主张尚未闭环\n\n**项目已经完成从任务定义、SOTA 核验、统一评估器、三类外部 caller 复现，到多轮 foundation-backbone、FP-aware objective、校准与结构化 decoder 的完整探索链。** 当前最强内部适配结果是 M19 GENERanno 1.2B：`gbF1=0.8815`、`FPR=0.00649`、gene-count ratio `0.830`；它证明低 FP 与合理基因数可以同时实现，但仍落后于同面板 Tiberius/ANNEVO/Helixer 的约 `0.922–0.927` gbF1。\n\n**项目尚不能声称 SOTA。** 原因不只是指标差距：`ACTIVE_GOAL.status=draft`，published `sota_benchmark` 仍为占位值；GENERanno 的预训练/微调物种清单不完整，使 Arabidopsis/rice 结果属于 `overlap_unknown`；现有 screen 也不是最终 full/scale claim protocol。\n\n**最近两轮已经排除两条低价值路线。** M22 的 scalar `gb_tversky` 辅助损失同时损害 gbF1 与 FPR；M23 的 clean-provenance NT-v2 直接迁移精确复现 M10，说明继续相同配方加 seed 不会打开新前沿。下一步应先完成 M22+M23 联合 `$tri-review/$pivot`，然后只允许结构上明显不同、来源可审计且预先承诺保持 FPR 的方案进入下一次 GPU screen。",
+        "sourceId": "results_log"
+      },
+      {
+        "id": "milestones",
+        "type": "markdown",
+        "body": "## 已完成的阶段成果构成了可靠研究底座\n\n- **任务与指标已纠偏。** 主任务固定为跨物种真核 ab initio protein-coding gene annotation；双主轴是 full-transcript 口径的 intergenic specificity 与可比较的 gene-body F1，并用 macro specificity、FPR 和 gene-count ratio 防作弊。\n- **外部基线已真正跑通。** Tiberius、Helixer、ANNEVO 均已在统一 CDS-span evaluator 下完成本地复现/同面板评估，避免把不同标签口径或 UTR 处理混成“模型提升”。\n- **架构证据链较完整。** 随机初始化 structured decoder 证明结构可提高 recall/F1，但也会把预测溢入 intergenic；foundation backbone 随后证明 pretrained CDS signal 有用，FP-aware objective 与 validation-only calibration 能显著降低 FPR。\n- **泛化失败已被定位。** 单物种固定模型、近缘植物迁移、动物负控以及更广训练物种都测试过；增加物种覆盖只能部分改善，不能解决 gallus 等域上的 emission collapse。\n- **负结果有明确止损。** GENERanno per-base CRF 路线已通过 3/3 tri-review 正式 abandoned；M22 Tversky 不再加 seed；M23 direct NT-v2 不再重复。",
+        "sourceId": "findings"
+      },
+      {
+        "id": "gbf1_takeaway",
+        "type": "markdown",
+        "body": "## 当前性能前沿仍由 released callers 占据\n\nM19 是内部最强的“低 FPR + 尚可基因恢复”候选，但与最高外部 gbF1 仍差约 `0.045`。M23 的价值主要是来源干净，而不是性能：它比 M19 低 `0.0388` gbF1，且 FPR 高出约 `0.0102`。这意味着下一步不能只做 provenance-clean 的同配方替换，必须让 emission/head 的表达能力发生实质改变。",
+        "sourceId": "results_log"
+      },
+      { "id": "gbf1_chart_block", "type": "chart", "chartId": "gbf1_frontier" },
+      {
+        "id": "fpr_takeaway",
+        "type": "markdown",
+        "body": "## 低 FPR 已可实现，但与高 gbF1 的 Pareto 结合仍未解决\n\nTiberius 与 M19 都能通过 `FPR<=0.01`，但前者明显 under-call genes，后者的 gbF1 又低于 released-caller frontier。ANNEVO/Helixer gbF1 高，但在此面板分别略高于或明显高于硬 FPR 阈值。项目真正要解决的不是单一阈值优化，而是在来源可审计的 held-out panel 上同时越过高 gbF1、低 FPR、跨物种 macro stability 与合理 gene count。",
+        "sourceId": "results_log"
+      },
+      { "id": "fpr_chart_block", "type": "chart", "chartId": "fpr_frontier" },
+      {
+        "id": "evidence_table_intro",
+        "type": "markdown",
+        "body": "## 模型排名与 claim 资格必须分开阅读\n\n下表中的 released callers、GENERanno adaptation、NT-v2 clean-provenance screen 并不具有相同的训练来源和 claim 资格。数值用于定位技术前沿；只有冻结 published benchmark、排除预训练重叠并进入 full/scale protocol 后，才可转化为正式主张。"
+      },
+      { "id": "frontier_table_block", "type": "table", "tableId": "frontier_table" },
+      {
+        "id": "scope_definitions",
+        "type": "markdown",
+        "body": "## 评估范围与指标定义已经基本冻结\n\n**研究对象。** 输入 raw genomic DNA，输出 strand-aware CDS/intron/intergenic，并在正式 claim 中保留 phase、splice border 或等价结构信息；binary gene-body segmentation 只用于 sanity。\n\n**Axis 1。** `intergenic_specificity = 1 - intergenic_FPR`，其中 intergenic 是 genome 减去完整 transcript span（含 UTR）的补集；base-weighted 是 headline，macro specificity 负责跨物种稳定性。\n\n**Axis 2。** screen 看 unconstrained gene-body F1；full/scale 看 constrained、可与 SOTA 对齐的 gene-level/gene-body F1。full/scale 另要求 `FPR<=0.01` 与 predicted gene-count ratio `<=1.25`。\n\n**比较边界。** smoke/screen 永不 claim；split 必须 species/clade/chromosome-aware，并在需要时做 homology-aware 去冗余。",
+        "sourceId": "evaluator_contract"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "body": "## 本报告如何形成判断\n\n本报告以 2026-08-16 的持久化项目状态为准，读取主导航、ACTIVE_GOAL、结果账本、findings、评估器合同、baseline ledger 与运行 tracker；核心数值直接取自同评估器的 clean-plant 对比记录。判断严格区分：运行是否语义成功、screen 是否过门、full/scale 是否可 claim、预训练来源是否 clean。未把 smoke、单 seed、test-label oracle 或 overlap-unknown 结果提升为正式证据。"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## 当前不确定性集中在 claim 合同，而非代码能否运行\n\n1. **Published SOTA 尚未冻结。** `sota_benchmark.value=0.0` 是占位，不是目标很低；在 M2 ANNEVO-compatible full evaluation 完成前，任何 `success` 都不具备主张意义。\n2. **当前 screen anchor 仍是 provisional。** yeast/fly 属于 gene-dense、低 UTR 异常面板，需要在 UTR-rich plant/mammal 集合上重推 anchor 与 macro gate。\n3. **GENERanno provenance 未闭合。** 缺少完整 species/accession exclusion manifest，因此 M19 只能是 adaptation/comparability 证据。\n4. **当前输出标签离最终结构化 claim 仍有距离。** 现阶段大量实验采用 3-class 头；最终需补 strand/phase/splice-border 或等价结构，并进行 gene-level exactness 验证。\n5. **文档状态有陈旧项。** tracker 将 SegmentNT featcache job `8554368` 标成 RUNNING，但 Slurm 显示它已于 2026-06-12 `COMPLETED 0:0`，五个物种缓存均已写出。\n6. **报告的最新研究记录停在 2026-07-01。** 2026-08-16 的“当前状态”来自磁盘账本与 Slurm 复核；若期间存在未落盘讨论或外部结果，本报告未包含。"
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## 下一阶段建议：先收束决策，再开启一个 claim-bearing 结构轴\n\n1. **立即关闭台账与决策链。** 修正已完成 featcache 的 tracker 状态；对 M22 negative + M23 clean-provenance result 运行联合 `$tri-review/$pivot`。\n2. **在下一次 claim-grade GPU 前冻结两项合同。** 完成 ANNEVO-compatible published benchmark 的 M2 reproduction/revision；在 UTR-rich、pretraining-overlap 可排除的 held-out species panel 上重推 screen anchor/claim panel。\n3. **若继续 NT-v2，必须是结构性改变。** 优先测试能显式利用 splice/phase/boundary 与 segment consistency 的 richer emission/head 或 segment-level decoder，并把“相对 matched non-structured baseline 的 FPR 恶化不超过 0.002”写入预声明 gate。\n4. **严格停止三类重复。** 不再追加 M22 Tversky seed，不再调 M21 per-base CRF，不再重复 M10/M23 direct NT-v2 recipe。\n5. **下一次 screen 的晋升条件应同时包含。** 来源 clean；aggregate FPR `<=0.01`；gbF1 严格超过 M19 `0.8815`，并朝同面板 external frontier `~0.925` 收敛；macro specificity 与 gene-count ratio 不退化；正式输出结构满足 strand/phase/splice contract。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 需要由下一轮评审回答的问题\n\n- 下一条主线应是 clean-provenance NT-v2 上的 richer emission/head，还是先构建完全可控 provenance 的新 backbone/训练集？\n- segment-level/semi-CRF 如何与已失败的 per-base CRF 形成足够强的机制差异，并在训练前定义 FPR-preservation gate？\n- final claim panel 选择哪些 UTR-rich、held-out species，才能同时满足跨物种价值、数据质量与预训练去重？\n- published anchor 最终以 ANNEVO 的哪个 frozen release、哪个 gene-level definition 和哪个 species cohort 为准？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-16T10:38:57+02:00",
+    "status": "ready",
+    "datasets": {
+      "clean_plant_frontier": [
+        {
+          "short_name": "ANNEVO",
+          "family": "released caller",
+          "gbf1": 0.9269,
+          "fpr": 0.0117,
+          "specificity": 0.9883,
+          "gene_ratio": 0.726,
+          "provenance": "released baseline",
+          "claim_role": "同面板外部对照",
+          "verdict": "最高 gbF1；略超硬 FPR"
+        },
+        {
+          "short_name": "Tiberius",
+          "family": "released caller",
+          "gbf1": 0.9252,
+          "fpr": 0.0073,
+          "specificity": 0.9927,
+          "gene_ratio": 0.628,
+          "provenance": "released baseline",
+          "claim_role": "同面板外部对照",
+          "verdict": "过 FPR；明显 under-call"
+        },
+        {
+          "short_name": "Helixer",
+          "family": "released caller",
+          "gbf1": 0.922,
+          "fpr": 0.0216,
+          "specificity": 0.9784,
+          "gene_ratio": 0.82,
+          "provenance": "released baseline",
+          "claim_role": "同面板外部对照",
+          "verdict": "高 gbF1；FPR 未过"
+        },
+        {
+          "short_name": "M19 Gen-1.2B",
+          "family": "foundation adaptation",
+          "gbf1": 0.8815,
+          "fpr": 0.00649,
+          "specificity": 0.99351,
+          "gene_ratio": 0.83,
+          "provenance": "overlap_unknown",
+          "claim_role": "适配/可比性证据",
+          "verdict": "内部最强；不可 clean claim"
+        },
+        {
+          "short_name": "M21 CRF",
+          "family": "structured decoder",
+          "gbf1": 0.8744,
+          "fpr": 0.0192,
+          "specificity": 0.9808,
+          "gene_ratio": 0.69,
+          "provenance": "overlap_unknown",
+          "claim_role": "negative screen",
+          "verdict": "路线已 abandoned"
+        },
+        {
+          "short_name": "M22 Tversky",
+          "family": "objective change",
+          "gbf1": 0.8635,
+          "fpr": 0.02865,
+          "specificity": 0.97135,
+          "gene_ratio": 0.648,
+          "provenance": "overlap_unknown",
+          "claim_role": "negative screen",
+          "verdict": "不加 seed、不调参"
+        },
+        {
+          "short_name": "M23 NT-v2",
+          "family": "clean-provenance transfer",
+          "gbf1": 0.8427,
+          "fpr": 0.01673,
+          "specificity": 0.98327,
+          "gene_ratio": 0.867,
+          "provenance": "plants excluded in NT-v2 pretraining",
+          "claim_role": "clean-provenance screen",
+          "verdict": "复现 M10；需结构变化"
+        },
+        {
+          "short_name": "M11 NT-v2 cal",
+          "family": "clean-provenance calibration",
+          "gbf1": 0.817,
+          "fpr": 0.00899,
+          "specificity": 0.99101,
+          "gene_ratio": 1.047,
+          "provenance": "plants excluded in NT-v2 pretraining",
+          "claim_role": "screen context",
+          "verdict": "过 FPR；gbF1 较低"
+        }
+      ]
+    }
+  },
+  "sources": [
+    { "id": "master_plan", "label": "项目主导航", "path": "docs/11_master_plan.md" },
+    {
+      "id": "results_log",
+      "label": "实验结果中央账本",
+      "path": "docs/06_results_log.md",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "description": "将 docs/06_results_log.md 中已审核的 clean-plant 同评估器数值转录为报告比较表；模型身份、claim role 与 provenance 状态保留自项目账本。",
+        "executed_at": "2026-08-16T10:38:57+02:00",
+        "filters": [
+          "Arabidopsis thaliana + Oryza sativa clean-plant panel",
+          "统一 CDS-span gene-body evaluator 与 full-transcript intergenic ruler",
+          "只纳入报告中用于定位当前 frontier 的 released baselines 与 M11/M19/M21/M22/M23"
+        ],
+        "metric_definitions": [
+          "gbf1 = gene_body_F1_unconstrained；在 hard-FPR-valid 行中也等于相应 constrained gene-body F1",
+          "fpr = predicted intergenic false-positive bases / reference intergenic bases",
+          "gene_ratio = predicted unique gene count / reference unique gene count"
+        ],
+        "tables_used": ["docs/06_results_log.md"],
+        "sql": "SELECT * FROM (VALUES ('ANNEVO','released caller',0.9269,0.0117,0.9883,0.726,'released baseline','同面板外部对照','最高 gbF1；略超硬 FPR'),('Tiberius','released caller',0.9252,0.0073,0.9927,0.628,'released baseline','同面板外部对照','过 FPR；明显 under-call'),('Helixer','released caller',0.9220,0.0216,0.9784,0.820,'released baseline','同面板外部对照','高 gbF1；FPR 未过'),('M19 Gen-1.2B','foundation adaptation',0.8815,0.00649,0.99351,0.830,'overlap_unknown','适配/可比性证据','内部最强；不可 clean claim'),('M21 CRF','structured decoder',0.8744,0.0192,0.9808,0.690,'overlap_unknown','negative screen','路线已 abandoned'),('M22 Tversky','objective change',0.8635,0.02865,0.97135,0.648,'overlap_unknown','negative screen','不加 seed、不调参'),('M23 NT-v2','clean-provenance transfer',0.8427,0.01673,0.98327,0.867,'plants excluded in NT-v2 pretraining','clean-provenance screen','复现 M10；需结构变化'),('M11 NT-v2 cal','clean-provenance calibration',0.8170,0.00899,0.99101,1.047,'plants excluded in NT-v2 pretraining','screen context','过 FPR；gbF1 较低')) AS t(short_name,family,gbf1,fpr,specificity,gene_ratio,provenance,claim_role,verdict)"
+      }
+    },
+    { "id": "active_goal", "label": "机器可读目标合约", "path": "ACTIVE_GOAL.json" },
+    { "id": "evaluator_contract", "label": "评估器与可比性合约", "path": "docs/19_evaluator_contract.md" },
+    { "id": "findings", "label": "研究与工程发现", "path": "docs/10_findings.md" },
+    { "id": "run_tracker", "label": "运行与待办 tracker", "path": "docs/05_todo.md" }
+  ]
+}

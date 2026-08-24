@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "check": "non_empty",
+      "ok": true,
+      "note": "train=6 val=1 test=1"
+    },
+    {
+      "check": "id_col_present",
+      "ok": true,
+      "note": "train_ids=6 val_ids=1 test_ids=1"
+    },
+    {
+      "check": "split_id_leakage",
+      "ok": true,
+      "note": "no overlap"
+    },
+    {
+      "check": "group_split_disjoint[id]",
+      "ok": true,
+      "note": "disjoint across splits"
+    },
+    {
+      "check": "schema_match",
+      "ok": true,
+      "note": "same columns"
+    }
+  ],
+  "violations": []
+}

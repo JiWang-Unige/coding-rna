@@ -1,0 +1,168 @@
+{
+  "_comment": "Machine-readable goal contract for lwcr /pursue. REVISED 2026-06-11 (REVISE-INTERGENIC-PRIMARY-M1, tri-review 3/3 approve-with-modifications + user human gate). FOUNDATIONAL ruler change: intergenic is now the complement of the FULL-transcript span (incl UTR), NOT CDS-only — see scripts/eval_gene_body_mask.py. DUAL CO-PRIMARY design replaces the old single constrained_gene_body_F1 primary. status stays draft until sota_benchmark (M2) is frozen; draft disables full/scale SUCCESS only, screen/Track-A direction-selection works under draft.",
+  "program": "coding-rna",
+  "scope": "terminal",
+  "goal": "Build a cross-species eukaryotic ab initio protein-coding gene annotation model from raw DNA sequence, with structure-aware per-base labels and full/scale evidence strictly exceeding a frozen published SOTA benchmark, improving cross-species intergenic stability WITHOUT sacrificing gene-level F1.",
+  "primary_metric": "intergenic_specificity",
+  "direction": "higher",
+  "_metrics_note": "R6 (revise-goal 2026-06-11, REVISE-INTERGENIC-PRIMARY-M1, tri-review 3/3 + user gate). DUAL CO-PRIMARY (Pareto), reconciling the user's 'elevate intergenic stability to primary' with CLAUDE.md §0 north star (interval/gene-level F1 is the publishable, SOTA-comparable claim axis) and the reviewers' anti-gaming requirement. AXIS 1 (headline / ranking key) = intergenic_specificity = 1 - intergenic_FPR, where intergenic = genome - FULL-transcript span (incl UTR via exon features), DECOUPLED from the gene-body-F1 span_mode (a predicted-genic base in a true UTR is NO LONGER an intergenic FP). base-weighted is the headline value; macro across species is the cross-species-STABILITY gate (selling point). AXIS 2 (publishable claim, SOTA-comparable) = gene-level F1 (screen: gene_body_F1_unconstrained CDS-span; claim: constrained_gene_body_F1). PARETO RULE: a candidate is only better/promotable if it STRICTLY EXCEEDS the anchor on intergenic_specificity AND does not regress gene_body_F1 below the floor (anchor_f1-0.03=0.5276 at screen; anchor_f1=0.5576 for promotion) AND macro_intergenic_specificity holds. This kills both gaming modes proven at M1: FLOOR/ORF (highest specificity 0.8805 but F1 0.3735 < floor -> BLOCKED) and CRF-vec (highest F1 0.6186 but specificity 0.7138 < anchor -> BLOCKED). validate_goal: degenerate-bound + semantic use primary_metric (intergenic_specificity); screen claim_gate uses screen_anchor.metric (intergenic_specificity > 0.8710); the F1 co-primary + macro stability are enforced as HARD guardrails; full/scale SUCCESS requires BOTH success_criteria (both axes beat sota_benchmark).",
+  "success_criteria": [
+    {
+      "metric": "intergenic_specificity",
+      "op": ">",
+      "threshold": 0.0,
+      "_todo": "AXIS 1 claim. Set to the published-SOTA intergenic_specificity under our frozen full eval + NEW ruler (M2 /reproduce-baselines, ANNEVO-compatible). Pending."
+    },
+    {
+      "metric": "constrained_gene_body_F1",
+      "op": ">",
+      "threshold": 0.0,
+      "_todo": "AXIS 2 claim (SOTA-comparable, publishable). Set to the published-SOTA gene-level F1 under our frozen full eval (M2). Pending. BOTH axes must hold for a full/scale SUCCESS (Pareto claim).",
+      "profiles": [
+        "full",
+        "scale"
+      ],
+      "_revision_2026_06_14": "REVISE-CONSTRAINED-SOFTGATE (tri-review 3/3 APPROVE-B + user gate). Hard zero (FPR>thr=>0) was R6-pre redundant cliff. screen AXIS-2 now via gene_body_F1_unconstrained>=0.5276 HARD guardrail; full/claim keeps constrained+SOTA-comparable; full FPR<=0.01 HARD retained."
+    }
+  ],
+  "guardrails": [
+    {
+      "metric": "gene_body_F1_unconstrained",
+      "op": ">=",
+      "threshold": 0.5276,
+      "profiles": [
+        "screen",
+        "full",
+        "scale"
+      ],
+      "_note": "R6 CO-PRIMARY / anti-gaming RECALL FLOOR (tri-review 3/3 REQUIRED). HARD at screen too (unlike the advisory intergenic_FPR/gene_count guards) because without it the intergenic_specificity ranking is gameable by under-prediction. threshold = anchor_f1(0.5576) - 0.03 tolerance = 0.5276 (Codex max(0.50, anchor-0.03)). Proof it works on M1 same-budget data: FLOOR/ORF F1=0.3735 < 0.5276 BLOCKED; all real candidates (tiberius_like 0.5576, CONSTR 0.5791, CRF-vec 0.6186, helixer_like 0.5579) PASS. Track-B PROMOTION uses the stricter >= anchor_f1 (0.5576), see track_a_promotion. The inert nucleotide_gene_body_F1_drop_vs_anchor guardrail below is the future RELATIVE-drop refinement of this absolute floor."
+    },
+    {
+      "metric": "macro_intergenic_specificity",
+      "op": ">=",
+      "threshold": 0.7978,
+      "profiles": [
+        "screen",
+        "full",
+        "scale"
+      ],
+      "_note": "R6 CROSS-SPECIES STABILITY gate (tri-review 3/3 REQUIRED: macro must be a GATE, not just auxiliary — cross-clade generalization is the selling point; base-weighted alone can hide single-species collapse). threshold = anchor macro (0.8278) - 0.03 tolerance = 0.7978. Emitted by scripts/aggregate_gene_body_metrics.py as macro_intergenic_specificity. PROVISIONAL alongside the anchor: re-derive on a UTR-rich species set before heavy reliance (yeast+fly are low-UTR gene-dense outliers)."
+    },
+    {
+      "metric": "intergenic_FPR",
+      "op": "<=",
+      "threshold": 0.01,
+      "threshold_by_profile": {
+        "full": 0.01,
+        "scale": 0.01
+      },
+      "profiles": [
+        "full",
+        "scale"
+      ],
+      "_note": "R6: intergenic_FPR is now FULL-transcript-based (= 1 - intergenic_specificity; eval ruler changed 2026-06-11). ADVISORY for smoke/screen (reported in metrics + per_species_summary, NOT a hard screen gate — it is the inverse of the AXIS-1 primary, gated via screen_anchor comparison instead). HARD claim guardrail <=0.01 for full/scale only. NOTE the full/scale 0.01 bar is severe: ALL M1 same-budget references fail it (anchor 0.1290, CRF-vec 0.2862) — that is expected at screen budget and is exactly why screen NEVER claims; closing intergenic FP is the core full-data architecture challenge. Always report sensitivity at 0.005/0.01/0.02."
+    },
+    {
+      "metric": "nucleotide_gene_body_F1_drop_vs_anchor",
+      "op": "<=",
+      "threshold": 0.03,
+      "profiles": [
+        "__inert_pending_evaluator__"
+      ],
+      "_status": "inert_pending_evaluator",
+      "_note": "R3/R6: STILL DISABLED (evaluator emits placeholder 0.0 -> would always pass = false assurance). SUPERSEDED for now by the ABSOLUTE gene_body_F1_unconstrained >= 0.5276 floor above, which achieves the same anti-recall-sacrifice protection without the evaluator needing to know the anchor. To ACTIVATE the relative version, make scripts/eval_gene_body_mask.py compute the true drop of a run's nucleotide gene-body F1 vs screen_anchor's gene_body_F1, then restore profiles=[screen,full,scale]."
+    },
+    {
+      "metric": "predicted_gene_count_ratio_vs_reference",
+      "op": "<=",
+      "threshold": 1.25,
+      "profiles": [
+        "full",
+        "scale"
+      ],
+      "_note": "R2/R6 (tri-review approved). HARD claim guardrail at full/scale only; ADVISORY (reported, non-gating) for smoke/screen because the same-budget references themselves fail 1.25 (tiberius_like 1.8-4.1, helixer_like 51-153). Gene-level coherence at screen is enforced by selection discipline (track_a_promotion), not this gate; full/scale claim still requires <=1.25."
+    }
+  ],
+  "semantic_success": {
+    "_note": "M1-AGGREGATION-GATE-AUDIT + R6. Distinguish a degenerate/infra failed_run from a finite baseline hard-zeroed by a guardrail (disposition=completed_poor). The bound heuristic (primary==0.0/1.0 -> failed_run) is exempted ONLY with POSITIVE evidence of real signal: gene_body_F1_unconstrained >= 0.05 (the evaluator's constant semantic_success flag is NOT evidence). R6 EDGE NOTE: for the new primary intergenic_specificity, the value 1.0 is a LEGITIMATE optimum (zero intergenic spillover), not necessarily degenerate; a true predict-nothing collapse (spec=1.0, F1=0) still trips failed_run (fails the 0.05 exemption), while a precise model that genuinely hits spec=1.0 with real F1 would be conservatively marked completed_poor by the bound check (known non-fatal limitation; the real quality protection is the gene_body_F1>=0.5276 floor + macro gate + screen_anchor comparison, NOT this bound check). gene-count explosion is a QUALITY problem (predicted_gene_count_ratio guardrail -> not_yet), NOT an infra/degenerate failure.",
+    "degenerate_bound_check": true,
+    "degenerate_exempt_if_all": [
+      {
+        "metric": "gene_body_F1_unconstrained",
+        "op": ">=",
+        "threshold": 0.05
+      }
+    ]
+  },
+  "pretrained_ceiling": {
+    "_note": "Reference ONLY, NON-GATING. RECOMPUTED 2026-06-11 under the NEW full-transcript intergenic ruler (R6) on the SAME held-out test subset as the anchor: pretrained Tiberius/Helixer/ANNEVO whole-genome predictions filtered to test seqids, --span-mode cds, base-weighted intergenic_specificity. ceiling = max = Helixer 0.9917 bw / 0.9815 macro (Tiberius 0.9765, ANNEVO 0.9660; gbF1 ceiling = ANNEVO 0.9123). NEW-RULER bracket on intergenic_specificity: FLOOR(ORF) 0.8805 (blocked by F1 floor) < screen_anchor 0.8710 (same-budget) < pretrained_ceiling 0.9917 (full-data) — the ~0.12 anchor->ceiling gap is the data+architecture headroom. NOT read by validate_goal; NEVER a screen or claim gate.",
+    "metric": "intergenic_specificity",
+    "value": 0.9917,
+    "macro_value": 0.9815,
+    "old_ruler_gene_body_F1": 0.9213,
+    "direction": "higher",
+    "source": "max over pretrained Tiberius(0.9765)/Helixer(0.9917)/ANNEVO(0.9660) base-weighted intergenic_specificity, NEW full-transcript ruler, test subset (scripts/_recompute_ceiling_newruler.py, /tmp/ceiling_newruler). gbF1 ceiling = ANNEVO 0.9123."
+  },
+  "screen_anchor": {
+    "_note": "PROVISIONAL (user gate 2026-06-11). RECALIBRATED under the NEW full-transcript intergenic ruler (R6). Same-budget bar = max over RANDOM-INIT reference architectures (Tiberius-like, Helixer-like) trained under ONE frozen small-sample screen protocol (yeast+fly, chromosome-level split, window 2048, sample_fraction 0.3, 8 epochs, patience 3, 3 seeds, class-weighted CE), re-scored on the existing held-out test subsets with the new ruler. Metric = intergenic_specificity (base-weighted) = AXIS-1 headline; macro 0.8278 is the cross-species stability co-gate. Anchor = tiberius_like seed-mean 0.8710 (COHERENT, gene_count_ratio 2.74); helixer_like 0.7954 EXCLUDED (it is BOTH lower on specificity AND severely fragmented, gene_count_ratio 99.5). Bracket on the SAME test subset: FLOOR(ORF) intergenic_specificity 0.8805 (HIGHER than anchor!) but gene_body_F1 0.3735 < floor 0.5276 -> correctly BLOCKED, proving the dual-axis gate. screen NEVER claims published SOTA. ⚠️ PROVISIONAL: yeast+fly are gene-dense LOW-UTR OUTLIERS where the UTR ruler-fix is nearly a no-op and true_intergenic_bases is small (FPR denominator noisy); the dramatic CRF-vec ranking flip happened on the species LEAST suited to validate the new ruler. RE-DERIVE on a UTR-rich (mammal/plant) species set before any heavy reliance / Track-B HARD gating (tri-review 3/3).",
+    "metric": "intergenic_specificity",
+    "value": 0.871,
+    "macro_value": 0.8278,
+    "status": "provisional_pending_utr_rich_rederive",
+    "direction": "higher",
+    "anchor_gene_body_F1": 0.5576,
+    "source": "tiberius_like seed-mean intergenic_specificity 0.8710 base-weighted / 0.8278 macro (NEW full-transcript ruler, REVISE-INTERGENIC-PRIMARY-M1 recompute, /tmp/reanchor_newruler). helixer_like 0.7954 EXCLUDED (lower + fragmented 99.5). FLOOR(ORF) same-subset 0.8805 spec but 0.3735 F1 (blocked by floor). Old-ruler anchor was gene_body_F1=0.5576 (now AXIS-2 anchor_gene_body_F1)."
+  },
+  "sota_benchmark": {
+    "_note": "PENDING M2 baseline reproduction under the NEW ruler. R6 DUAL: a full/scale SUCCESS requires BOTH success_criteria — intergenic_specificity (AXIS 1) AND constrained_gene_body_F1 (AXIS 2, SOTA-comparable) — to strictly exceed the published SOTA reproduced under our frozen full eval. ANNEVO method = primary provenance/metric-audit source. validate_goal's claim_gate at full/scale reads this metric; set it to the AXIS that is the gating claim once frozen (recommend constrained_gene_body_F1 as the SOTA-comparable headline, with intergenic_specificity enforced via success_criteria).",
+    "metric": "constrained_gene_body_F1",
+    "value": 0.0,
+    "direction": "higher",
+    "strict_exceed": true,
+    "source": "TODO M2: freeze ANNEVO-compatible full-eval (constrained_gene_body_F1 AND intergenic_specificity) under the NEW full-transcript ruler after comparability audit."
+  },
+  "architecture_hypothesis": {
+    "primary_track": "foundation_probe_to_structured_decoder",
+    "main_decoder_candidate": "semi_crf_segment_level_decoder",
+    "_r6_note": "Tri-review 3/3 reframe: the M1 structured decoders (CONSTR, CRF-vec) RAISE gene-body recall/F1 but HURT intergenic_specificity (spill predictions into intergenic DNA). This is NOT 'structured decoders are wrong' — it is 'they need better EMISSIONS + an FP-aware objective'. The correct next lever is BETTER INPUT FEATURES (SegmentNT/GENERanno foundation probe) to reduce intergenic FP without losing recall, THEN semi-CRF + FP-aware objective for gene coherence. CRF-vec is retained as an ABLATION (recall up / specificity down), NOT scaled.",
+    "secondary_tracks": [
+      "RMT_or_long_context_backbone_in_first_track_a_set_but_run_with_parallel_cap_3",
+      "MoE_or_clade_routing_only_if_novelty_over_ANNEVO_is_clear"
+    ],
+    "first_track_a_paths": [
+      "foundation_features_plus_fp_aware_objective_to_cut_intergenic_spillover",
+      "foundation_features_plus_semi_crf_segment_decoder",
+      "tiberius_like_structured_baseline_with_crf_or_semi_crf_head_replacement",
+      "long_context_or_rmt_backbone_plus_structured_decoder"
+    ],
+    "nonclaim_probes": [
+      "SegmentNT raw/frozen features",
+      "GENERanno eukaryote CDS annotator preview"
+    ]
+  },
+  "track_a_promotion": {
+    "_note": "R6 (revise-goal 2026-06-11, tri-review 3/3). PARETO dual-axis promotion guarding against the proven gaming modes (FLOOR under-prediction; CRF-vec intergenic spillover).",
+    "screen_pass": "candidate intergenic_specificity (base-weighted) STRICTLY EXCEEDS screen_anchor (0.8710) AND gene_body_F1_unconstrained >= floor (0.5276) AND macro_intergenic_specificity >= macro gate (0.7978). Ranking key = intergenic_specificity; gene_body_F1 is eligibility + tiebreak.",
+    "promotion_stricter_f1": "Track-B PROMOTION (not just screen-pass) requires gene_body_F1_unconstrained >= anchor_gene_body_F1 (0.5576) — no F1 regression vs the reference at all, in addition to the strict specificity win.",
+    "report_seedwise": "Track A reports MUST include seed-wise intergenic_specificity (base-weighted + macro) + gene_body_F1 + predicted_gene_count_ratio + per-species rows + paired-seed CI on the specificity gap vs anchor (the M1 flip lacked CI).",
+    "beats_anchor_is_not_promotable": "Beating the anchor on specificity is a direction-selection signal, NOT automatic Track B promotion; promotion also needs the F1 non-regression + a credible plan to hold gene coherence.",
+    "provisional_anchor_caveat": "Until screen_anchor is re-derived on a UTR-rich species set, treat 0.8710/0.7978 as PROVISIONAL screen direction-selection bars, not hard Track-B gates."
+  },
+  "tuning_gap_threshold": 0.05,
+  "max_parallel_directions": 3,
+  "max_internal_iterations": 8,
+  "on_failed_run": "stop_and_notify",
+  "validate_command": "python3 scripts/validate_goal.py --goal ACTIVE_GOAL.json --metrics <metrics.json> [--run-status <status_file>]",
+  "human_gate_before_claim": true,
+  "_configure_project_note_2026_06_14": "Confirmed by $configure-project after live Baobab probe: the project is materially configured for screen/Track-B direction selection, but status intentionally remains draft because sota_benchmark.value is still 0.0 / pending M2 ANNEVO-compatible full-eval. validate_goal should withhold full/scale success until the published SOTA benchmark is frozen; screen/profile progress remains usable.",
+  "status": "draft",
+  "_revision_log": [
+    {
+      "date": "2026-06-14",
+      "id": "REVISE-CONSTRAINED-SOFTGATE",
+      "tri_review": "3/3 APPROVE-B (codex High, agy High, claude Med-High)",
+      "change": "success_criteria constrained_gene_body_F1 scoped to [full,scale]; screen AXIS-2 quality enforced by existing unconstrained>=0.5276 + macro>=0.7978 HARD guardrails; full claim + FPR<=0.01 HARD unchanged.",
+      "effect": "M9 screen no longer hard-zeroed by noise-level FPR overage; L4 -> screen PASS/progress."
+    }
+  ]
+}

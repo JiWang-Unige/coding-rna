@@ -1,0 +1,66 @@
+{
+  "all_species_ready": true,
+  "baselines": {
+    "annevo_magnoliopsida": {
+      "ready": true,
+      "repo_present": true,
+      "weight": "refs/repos/annevo-2026/saved_model/ANNEVO_Magnoliopsida.pt",
+      "weight_present": true
+    },
+    "helixer_land_plant": {
+      "download_url": "https://zenodo.org/records/10836346/files/land_plant_v0.3_m_0100.h5?download=1",
+      "preferred_weight": "refs/weights/helixer-2025/land_plant/land_plant_v0.3_m_0100.h5",
+      "preferred_weight_present": true,
+      "ready": true,
+      "sif": "refs/containers/helixer-docker_latest.sif",
+      "sif_present": true
+    },
+    "m9_l12_fixed": {
+      "dependency": "M12A-FIXEDMODEL-CROSSSPECIES outputs",
+      "ready": false,
+      "seed_outputs_present": {
+        "s0": false,
+        "s1": false,
+        "s2": false
+      }
+    },
+    "tiberius_angiosperms": {
+      "model_cfg": "refs/repos/tiberius-2024/model_cfg/angiosperms.yaml",
+      "model_cfg_present": true,
+      "ready": true,
+      "sif": "refs/repos/tiberius-2024/singularity/tiberius_2.0.5.sif",
+      "sif_present": true,
+      "status_note": "weights_url in model_cfg may download/cache on first run; record artifact before claim"
+    }
+  },
+  "blocked_baselines": [
+    "m9_l12_fixed"
+  ],
+  "config": "configs/M12B-SAMEPANEL-BASELINES.yaml",
+  "eval_species": [
+    "arabidopsis_thaliana",
+    "oryza_sativa"
+  ],
+  "overall_ready": false,
+  "ready_baselines": [
+    "annevo_magnoliopsida",
+    "tiberius_angiosperms",
+    "helixer_land_plant"
+  ],
+  "species": {
+    "arabidopsis_thaliana": {
+      "genome_fasta": true,
+      "path": "data/m1_screen/arabidopsis_thaliana",
+      "prep_report_present": false,
+      "ready": true,
+      "reference_gff3": true
+    },
+    "oryza_sativa": {
+      "genome_fasta": true,
+      "path": "data/m1_screen/oryza_sativa",
+      "prep_report_present": false,
+      "ready": true,
+      "reference_gff3": true
+    }
+  }
+}

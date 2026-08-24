@@ -1,0 +1,45 @@
+exp_id: M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-SMOKE-s0
+profile: smoke
+purpose: >
+  Minimal Slurm smoke for the M22 gb_tversky non-CRF objective branch. This
+  validates model load, LoRA train step, gb_tversky loss, argmax decode,
+  constrained post-processing, raw score writing, and CDS-span evaluator output.
+claim_status: smoke_non_claim
+parent_evidence:
+  - M22-GENERANNO-1P2B-NONCRF-GBTVERSKY implementation/code-review gate passed.
+species:
+  smoke:
+    - data/m1_screen/arabidopsis_thaliana
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+  model_task: token_classification
+trainer: src.foundation_probe.train_generanno_lora_3class
+seed: 0
+config:
+  window: 6144
+  sample_fraction: 0.12
+  limit_train_windows: 8
+  limit_val_windows: 4
+  limit_test_seqids: 1
+  limit_predict_windows: 8
+  epochs: 1
+  patience: 1
+  batch_size: 1
+  eval_batch: 4
+  predict_batch: 4
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  class_weighting: sqrt_inv
+  loss: gb_tversky
+  gb_tversky_lambda: 2.0
+  gb_tversky_alpha: 0.8
+  gb_tversky_beta: 0.2
+  decoder: none
+  postproc: constrained
+  min_cds_len: 90
+  max_fill_gap: 20
+  save_raw_scores: true
+success_condition:
+  - Slurm exits 0 and STATUS is COMPLETED.
+  - "metrics/metrics.json exists and is parseable."
+  - "train_summary.json reports loss=gb_tversky and decoder=none."

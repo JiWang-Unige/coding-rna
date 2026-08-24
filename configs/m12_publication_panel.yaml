@@ -1,0 +1,134 @@
+version: 1
+exp_family: M12-PUBLICATION-ALIGNMENT
+status: prereq_audit_v0_1
+claim_status: non_claim_until_sota_benchmark_frozen
+
+purpose: >
+  Frozen first-pass publication-alignment panel for M12A fixed-model cross-species,
+  M12B same-panel baselines, and M12C bounded GENERanno challenger. This contract
+  prevents M12 from drifting back into M9-only metric polishing.
+
+source_audit: refs/dossiers/m12_prereq_audit.md
+
+lead_panel:
+  name: clean_plant_ntv2_panel_v0_1
+  rationale:
+    - NT-v2 500M multi-species model card states plants are not included in the 850-genome pretraining set.
+    - Arabidopsis and rice already have downloaded genomes, references, checksums, and deterministic seqid splits.
+    - This panel supports a clean fixed-model M9/NT-v2 claim preflight, while GENERanno remains overlap_unknown.
+  species:
+    - key: arabidopsis_thaliana
+      display_name: Arabidopsis thaliana
+      accession: GCF_000001735.4
+      clade: Magnoliopsida
+      path: data/m1_screen/arabidopsis_thaliana
+      role_m12a: train_calibrate_primary
+      role_m12b: same_panel_eval
+      role_m12c: challenger_eval_overlap_unknown
+      ntv2_overlap: clean_plants_excluded_from_ntv2
+      generanno_overlap: unknown_public_species_list_incomplete
+    - key: oryza_sativa
+      display_name: Oryza sativa Japonica Group
+      accession: GCF_034140825.1
+      clade: Magnoliopsida
+      path: data/m1_screen/oryza_sativa
+      role_m12a: unseen_species_test_primary
+      role_m12b: same_panel_eval
+      role_m12c: challenger_eval_overlap_unknown
+      ntv2_overlap: clean_plants_excluded_from_ntv2
+      generanno_overlap: unknown_public_species_list_incomplete
+
+m12a_fixed_model:
+  exp_id: M12A-FIXEDMODEL-CROSSSPECIES
+  lead_candidate: M9-L12 + M11 validation-only calibration
+  train_species:
+    - arabidopsis_thaliana
+  calibrate_species:
+    - arabidopsis_thaliana
+  test_species:
+    - oryza_sativa
+  optional_symmetric_check:
+    train_species:
+      - oryza_sativa
+    calibrate_species:
+      - oryza_sativa
+    test_species:
+      - arabidopsis_thaliana
+  freeze_requirements:
+    - checkpoint_before_test
+    - validation_selected_decode_params_only
+    - no_test_label_parameter_selection
+    - report_fpr_sensitivity_0_005_0_01_0_02
+
+m12b_same_panel_baselines:
+  exp_id: M12B-SAMEPANEL-BASELINES
+  eval_species:
+    - arabidopsis_thaliana
+    - oryza_sativa
+  comparators:
+    - name: M9-L12-fixed
+      status: pending_m12a_checkpoint
+    - name: ANNEVO_Magnoliopsida
+      status: local_weights_available
+      weight_path: refs/repos/annevo-2026/saved_model/ANNEVO_Magnoliopsida.pt
+    - name: Tiberius_angiosperms
+      status: public_config_present_weight_run_pending
+      config_hint: refs/repos/tiberius-2024/model_cfg/angiosperms.yaml
+    - name: Helixer_land_plant
+      status: weight_download_pin_needed
+      local_cache_note: current cache only has fungi and invertebrate weights
+  evaluator:
+    gene_body_span: cds
+    intergenic_definition: full_transcript_span_complement
+    required_metrics:
+      - intergenic_specificity
+      - intergenic_FPR
+      - macro_intergenic_specificity
+      - gene_body_F1
+      - constrained_gene_body_F1
+      - gene_count_ratio
+      - fpr_sensitivity_0_005_0_01_0_02
+      - runtime_resource_notes
+
+m12c_generanno_challenger:
+  exp_id: M12C-GENERANNO-FAIR-CHALLENGER
+  scope: bounded_screen_then_stop_or_promote_to_mechanism_ablation
+  eval_species:
+    - arabidopsis_thaliana
+    - oryza_sativa
+  backbones:
+    - id: generanno_1p2b_cds_preview
+      model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+      hf_task: token-classification
+      loader: AutoModelForTokenClassification
+      backbone_attr: model
+      hidden_size: 2048
+      layers: 26
+      k: 6
+      current_trainer_status: mostly_supported_by_M10_trainer
+    - id: generanno_0p5b_base
+      model_name: GenerTeam/GENERanno-eukaryote-0.5b-base
+      hf_task: fill-mask
+      loader: AutoModelForMaskedLM
+      backbone_attr: model
+      hidden_size: 1280
+      layers: 28
+      k: 1
+      current_trainer_status: supported_by_M12C_loader_branch
+  shared_head:
+    label_scheme: three_class_intergenic_cds_gene_body_nc
+    loss: fp_aware
+    postproc: constrained
+    lora_targets: q_proj,k_proj,v_proj,o_proj
+  stop_criteria:
+    - intergenic_FPR_gt_0_02_after_fair_screen
+    - gene_count_ratio_gt_1_25_after_fair_screen
+    - gene_body_nc_or_intron_proxy_class_unlearned_on_validation
+  claim_status: mechanism_control_only_until_generanno_overlap_resolved
+
+hard_blockers_before_claim:
+  - freeze_ANNEVO_compatible_published_sota_benchmark
+  - expand_ANNEVO_supplementary_species_overlap_audit
+  - complete_same_panel_baseline_run_artifacts
+  - complete_fixed_model_no_test_tuning_protocol
+  - resolve_or_label_GENERanno_pretraining_overlap

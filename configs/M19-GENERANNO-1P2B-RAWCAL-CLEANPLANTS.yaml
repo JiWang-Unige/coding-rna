@@ -1,0 +1,61 @@
+exp_id: M19-GENERANNO-1P2B-RAWCAL-CLEANPLANTS
+profile: screen
+purpose: >
+  Follow-up to the M18 route-changing positive. Re-run the GENERanno 1.2B
+  CDS-preview + our 3-class FP-aware LoRA route with raw-score persistence and
+  two seeds, so validation-only calibration can be performed without test
+  leakage before any larger Track-B or claim-scale run.
+claim_status: non_claim_screen
+parent_evidence:
+  - M18-GENERANNO-1P2B-SPEC-OBJECTIVE-s0: FPR=0.0071, gbF1=0.8494, gene_count_ratio=0.864
+  - M18-GENERANNO-0P5B-SPEC-OBJECTIVE-s0: negative control, FPR=0.0967, gbF1=0.6561
+  - M17-SAMEPANEL-GENERALIZATION-BASELINES: released callers remain stronger on gbF1
+species:
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+  model_task: token_classification
+trainer: src.foundation_probe.train_generanno_lora_3class
+seeds: [0, 1]
+config:
+  window: 6144
+  sample_fraction: 0.12
+  limit_train_windows: 1536
+  limit_val_windows: 768
+  epochs: 3
+  patience: 1
+  batch_size: 1
+  predict_batch: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 2.5
+  postproc: constrained
+  min_cds_len: 90
+  max_fill_gap: 20
+  save_raw_scores: true
+caveats:
+  - Screen-only clean-plant panel; not a publication claim.
+  - GENERanno provenance/overlap audit remains a claim blocker.
+  - This run saves raw logits; calibration must select operating points on VAL only.
+outputs:
+  root_pattern: outputs/M19-GENERANNO-1P2B-RAWCAL-CLEANPLANTS-s{seed}
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+  raw_scores: raw_scores/
+interpretation:
+  stable_and_calibratable: >
+    Promote GENERanno 1.2B to the next structured-decoder/claim-preflight stage,
+    subject to provenance and benchmark freeze.
+  unstable_or_uncalibratable: >
+    Treat M18 as a single-seed positive; diagnose whether gbF1/specificity tradeoff
+    requires segment decoder, richer labels, or a narrower claim.

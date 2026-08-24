@@ -1,0 +1,77 @@
+exp_id: M17-SAMEPANEL-GENERALIZATION-BASELINES
+profile: screen
+purpose: >
+  Same-panel external baseline comparison for the M13/M14/M16 generalization
+  diagnostics. Evaluate released Tiberius, Helixer, and ANNEVO weights on the
+  same diagnostic species under the same CDS-span evaluator and full-transcript
+  intergenic ruler. This is NON-CLAIM until the SOTA benchmark and overlap audit
+  are frozen.
+claim_status: non_claim_screen_comparability_audit
+source_decision: docs/08_pivot_decisions.md#pivot-decision-m13m14m16-combined-generalization-diagnostics-2026-06-18
+eval_species:
+  - arabidopsis_lyrata
+  - oryza_sativa
+  - gallus_gallus
+  - drosophila_melanogaster
+species_paths:
+  arabidopsis_lyrata: data/m1_screen/arabidopsis_lyrata
+  oryza_sativa: data/m1_screen/oryza_sativa
+  gallus_gallus: data/m1_screen/gallus_gallus
+  drosophila_melanogaster: data/m1_screen/drosophila_melanogaster
+evaluator:
+  span_mode: cds
+  profile: screen
+  aggregate: scripts/aggregate_gene_body_metrics.py
+  per_species: scripts/eval_gene_body_mask.py
+baseline_species_map:
+  annevo:
+    arabidopsis_lyrata:
+      model: ANNEVO_Magnoliopsida.pt
+      lineage: Magnoliopsida
+    oryza_sativa:
+      model: ANNEVO_Magnoliopsida.pt
+      lineage: Magnoliopsida
+      caveat: Magnoliopsida weight reused for rice to match M12B comparability.
+    gallus_gallus:
+      model: ANNEVO_Aves.pt
+      lineage: Aves
+    drosophila_melanogaster:
+      model: ANNEVO_Insecta.pt
+      lineage: Insecta
+  tiberius:
+    arabidopsis_lyrata:
+      model_cfg: angiosperms
+    oryza_sativa:
+      model_cfg: angiosperms
+    gallus_gallus:
+      model_cfg: vertebrates
+    drosophila_melanogaster:
+      model_cfg: insecta
+  helixer:
+    arabidopsis_lyrata:
+      lineage: land_plant
+      model: refs/weights/helixer-2025/land_plant/land_plant_v0.3_m_0100.h5
+      subsequence_length: 64152
+    oryza_sativa:
+      lineage: land_plant
+      model: refs/weights/helixer-2025/land_plant/land_plant_v0.3_m_0100.h5
+      subsequence_length: 64152
+    gallus_gallus:
+      lineage: vertebrate
+      model: refs/weights/helixer-2025/vertebrate/vertebrate_v0.3_a_0400.h5
+      subsequence_length: 213840
+    drosophila_melanogaster:
+      lineage: invertebrate
+      model: refs/weights/helixer-2025/invertebrate/invertebrate_v0.3_m_0100.h5
+      subsequence_length: 213840
+outputs:
+  root: outputs/M17-SAMEPANEL-GENERALIZATION-BASELINES
+  prediction_template: outputs/M17-SAMEPANEL-GENERALIZATION-BASELINES-{baseline}/predictions/{species}.gff
+  metrics_template: outputs/M17-SAMEPANEL-GENERALIZATION-BASELINES-{baseline}/metrics/{species}.metrics.json
+notes:
+  - This run compares released gene callers, not retrained same-budget models.
+  - A. lyrata is scaffold-level diagnostic evidence, not final claim evidence.
+  - Animal outputs remain diagnostic until pretraining/benchmark overlap is audited.
+  - If a baseline/species combination is unavailable or fails tool-specific runtime,
+    record it in UNAVAILABLE.tsv or FAILED_SPECIES.tsv and aggregate only completed
+    species for that baseline.

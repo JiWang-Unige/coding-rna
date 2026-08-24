@@ -1,0 +1,165 @@
+version: 1
+stage: M1
+status: draft_manifest
+purpose: 'Track raw genomes, reference annotations, source URLs, checksums, and anchor
+  eligibility for unified baseline screen runs.
+
+  '
+rules:
+  random_split_allowed: false
+  screen_can_claim: false
+  anchor_requires:
+  - genome_fasta
+  - reference_gff_or_gtf
+  - source_url_or_accession
+  - checksum
+  - clade
+  - reason_not_leaking
+  - same input files for all compared baselines
+local_smoke_data:
+- data_id: tiberius_panthera_pardus_minismoke
+  species: Panthera pardus
+  clade: Mammalia
+  genome_fasta: outputs/BASE-TIBERIUS-MINISMOKE/data/inp/genome.fa
+  reference_gtf: outputs/BASE-TIBERIUS-MINISMOKE/data/inp/annot.gtf
+  source: refs/repos/tiberius-2024/test_data/Panthera_pardus/inp.tar.gz
+  checksum: TODO
+  anchor_eligible: false
+  reason_not_anchor: bundled integration smoke data; not a unified screen split
+pilot_download_queue:
+- data_id: saccharomyces_cerevisiae_refseq
+  species: Saccharomyces cerevisiae
+  clade: Fungi
+  accession: GCF_000146045.2
+  genome_fasta: data/m1_screen/saccharomyces_cerevisiae/genome.fa
+  reference_gff_or_gtf: data/m1_screen/saccharomyces_cerevisiae/reference.gff3
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/
+  checksum:
+    genome_fasta_sha256: fe42735d3e6242f8c40b457a232940e34ef15eb4502717e54a34ed118face4c1
+    reference_gff_or_gtf_sha256: b96a0c177bad15c7d81147178aab28a4ba8535e5ebdca0d7ac04604321645abc
+    raw_genomic_fna_gz_sha256: 1ec41f951b35f2752d5065edeafe6972455609d4383fb36dae12519a60b27a73
+    raw_genomic_gff_gz_sha256: be1056c0aaaecfb9f62ef0f67aff843bc1640809d1f10ea5aff337f132e0df9d
+  anchor_eligible: pending
+  reason: small pilot species; appears in ANNEVO current performance table and Helixer
+    model_overview as GCF_000146045.2_R64
+  assembly_name: R64
+  organism_name: Saccharomyces cerevisiae S288C
+  download_status: downloaded
+- data_id: drosophila_melanogaster_refseq
+  species: Drosophila melanogaster
+  clade: Insecta
+  accession: GCF_000001215.4
+  genome_fasta: data/m1_screen/drosophila_melanogaster/genome.fa
+  reference_gff_or_gtf: data/m1_screen/drosophila_melanogaster/reference.gff3
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/215/GCF_000001215.4_Release_6_plus_ISO1_MT/
+  checksum:
+    genome_fasta_sha256: 4e14dbd8ea213a19ebf27057ab62a57ca83951e79ae0c2501ae4c460b7c3d415
+    reference_gff_or_gtf_sha256: c93957511e598990f88e34a3b023ba84483fe28d6077a4a917206d2624a44416
+    raw_genomic_fna_gz_sha256: e69e907b5e87ce756236dcef93e82001cfd08f1a0ed5f22e36cbbd3a87ebc57d
+    raw_genomic_gff_gz_sha256: 9a372f10f86f4fe4222d070a101716b7565affdd6cb96efae249e8afa3b2c726
+  anchor_eligible: pending
+  reason: animal pilot species; appears in ANNEVO current performance table, Tiberius
+    insecta config, and Helixer model_overview
+  assembly_name: Release 6 plus ISO1 MT
+  organism_name: Drosophila melanogaster
+  download_status: downloaded
+- data_id: arabidopsis_thaliana_refseq
+  species: Arabidopsis thaliana
+  clade: Magnoliopsida
+  accession: GCF_000001735.4
+  genome_fasta: data/m1_screen/arabidopsis_thaliana/genome.fa
+  reference_gff_or_gtf: data/m1_screen/arabidopsis_thaliana/reference.gff3
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.4_TAIR10.1/
+  checksum:
+    genome_fasta_sha256: de99316d1d5597e9a5d40d943ff919c17d59b77116354a5d388b183b6f21075f
+    reference_gff_or_gtf_sha256: 63d0744c0a02bffc23b72283ebabeeef39a3e7e6283acec864656fde8eafefb3
+    raw_genomic_fna_gz_sha256: a182f3c71662973dc636cacd7722588c9bbe3c8ea6ce62b1bae7dac940545d47
+    raw_genomic_gff_gz_sha256: d6a3aa3c00df97cf0a458608572fbe721424a4740e64e9ddef9398c4eef7db5f
+  anchor_eligible: pending
+  reason: REANCHOR-HELDOUT-M7 held-out/UTR-rich plant species (full TAIR10.1); cross-clade
+    re-anchor before Track-B. WebFetch-verified accession (NCBI datasets API + FTP).
+  assembly_name: TAIR10.1
+  organism_name: Arabidopsis thaliana
+  download_status: downloaded
+- data_id: arabidopsis_lyrata_refseq_m13
+  species: Arabidopsis lyrata subsp. lyrata
+  clade: Magnoliopsida
+  accession: GCF_000004255.2
+  genome_fasta: data/m1_screen/arabidopsis_lyrata/genome.fa
+  reference_gff_or_gtf: data/m1_screen/arabidopsis_lyrata/reference.gff3
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/004/255/GCF_000004255.2_v.1.0/
+  checksum:
+    genome_fasta_sha256: 9e6c3a74d729e2b8d267fdba77bf74d7c0fc6335c6c15d287d9508c8b67957cd
+    reference_gff_or_gtf_sha256: 1b181a71222b0fcc437ef684f5f737365212f446f964838dedc0c33e2122b44a
+    full_genome_fasta_sha256: 5f6b7b6bab223eeb349b2aaf753dc03b805b2ac0018b6d2b52011fd8d0546340
+    full_reference_gff3_sha256: d8e60f85ef791b5b3732c9d6179eb301c31728b3c39622c73bbcca5c108670e9
+    raw_genomic_fna_gz_sha256: 2ff53c7b052e69b374c03e9a87983eb9f677737ab118ba2f4d61b0ba05f7faa5
+    raw_genomic_gff_gz_sha256: 1aab0db0d78c0b903c62a7d2a274e1010553ddc1388683439b23fb6e4f74df29
+    assembly_report_sha256: 6e9257ef77264816d0b4127475b86365048fb5ac4af47902398a1776f314d180
+  anchor_eligible: false
+  reason: "M13 close-plant diagnostic species: nearest available RefSeq Arabidopsis-relative candidate; uses top 8 large primary scaffolds (~194Mb) to reduce tiny-scaffold noise. Diagnostic only because assembly_level=Scaffold; not final clean claim evidence."
+  assembly_name: v.1.0
+  organism_name: Arabidopsis lyrata subsp. lyrata
+  annotation_release: NCBI Arabidopsis lyrata subsp. lyrata Annotation Release 101
+  subset_rule: top_8_large_primary_scaffolds_from_assembly_report
+  download_status: downloaded
+- data_id: gallus_gallus_refseq
+  species: Gallus gallus
+  clade: Aves
+  accession: GCF_016699485.2
+  genome_fasta: data/m1_screen/gallus_gallus/genome.fa
+  reference_gff_or_gtf: data/m1_screen/gallus_gallus/reference.gff3
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/699/485/GCF_016699485.2_bGalGal1.mat.broiler.GRCg7b/
+  checksum:
+    genome_fasta_sha256: c00276960581c387ff99818d21159bff8275190526f2d34ae92d531f5afb498f
+    reference_gff_or_gtf_sha256: 8081150e4adad07762ec94e000d156eb3f09f92132a7a602fff2e35d461e32e5
+    raw_genomic_fna_gz_sha256: e928d0ad3807c31c1bdbe0067a20e502000b6bc9ed2bb8bf3ca5db4ecfbf9b6b
+    raw_genomic_gff_gz_sha256: d298f52807d16a467068a18dcf384b331b823d0861837731cc77a331e07fef72
+  anchor_eligible: pending
+  reason: REANCHOR-HELDOUT-M7 held-out/UTR-rich vertebrate species (bGalGal1 GRCg7b);
+    cross-clade re-anchor before Track-B. WebFetch-verified accession (supersedes
+    older GCF_000002315.x). UTR-rich RefSeq Annotation Release 106.
+  assembly_name: bGalGal1.mat.broiler.GRCg7b
+  organism_name: Gallus gallus
+  download_status: downloaded
+- data_id: oryza_sativa_refseq
+  species: Oryza sativa
+  clade: Magnoliopsida
+  accession: GCF_034140825.1
+  genome_fasta: data/m1_screen/oryza_sativa/genome.fa
+  reference_gff_or_gtf: data/m1_screen/oryza_sativa/reference.gff3
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/034/140/825/GCF_034140825.1_ASM3414082v1/
+  checksum:
+    genome_fasta_sha256: 8291d446c4d52e071cc0ee573cb48703bfe01557448cab70b911b2e6425090ac
+    reference_gff_or_gtf_sha256: ceab64203775ab75c554f2fd07f4e3c00f001b6bbe83f96d86be155286fe693e
+    raw_genomic_fna_gz_sha256: 4288799e64966b77f6e73346d1a68b4ae33bfcdcf43867db558faa0ab0a34ed4
+    raw_genomic_gff_gz_sha256: 452fa68cd157694276d485f87c4fa9d922220e720e98d28e6230fb4f1be91019
+  anchor_eligible: pending
+  reason: "TB-GBF1-MULTICLASS-M8 SECOND truly-clean held-out plant (rice; both-layer\
+    \ clean like arabidopsis \u2014 SegmentNT backbone excludes plants AND segmentation\
+    \ fine-tune species {human,mouse,chicken,fly,zebrafish,worm} has no plant). UTR-rich\
+    \ monocot, broadens clean held-out macro."
+  assembly_name: AGIS1.0
+  organism_name: Oryza sativa Japonica Group
+  download_status: downloaded
+anchor_queue:
+  source: ANNEVO current repo performance table
+  status: not_downloaded
+  species:
+  - Homo_sapiens
+  - Rattus_norvegicus
+  - Drosophila_melanogaster
+  - Bombyx_mori
+  - Saccharomyces_cerevisiae
+  - Candida_albicans
+  - Arabidopsis_thaliana
+  - Oryza_sativa
+  - Gallus_gallus
+  - Melopsittacus_undulatus
+  - Danio_rerio
+  - Oryzias_latipes
+notes:
+- Do not update ACTIVE_GOAL.screen_anchor until anchor-eligible rows are downloaded,
+  hashed, evaluated with all baselines, and closed by result-log/tri-review/pivot.
+- Pilot species may later be promoted to anchor rows only after source/version/split/training-overlap
+  caveats are documented.

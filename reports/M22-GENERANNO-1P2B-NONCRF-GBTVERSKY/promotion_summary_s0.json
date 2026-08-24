@@ -1,0 +1,41 @@
+{
+  "all_seed_fpr_hard_valid": false,
+  "all_seed_gates_present": true,
+  "all_seeds_completed": true,
+  "any_seed_promote": false,
+  "continue_route": false,
+  "decision_rule": "continue M22 objective only if any_seed_promote is true; otherwise abandon/treat as negative without tuning this objective",
+  "exp_prefix": "M22-GENERANNO-1P2B-NONCRF-GBTVERSKY",
+  "seeds": [
+    {
+      "exp_id": "M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0",
+      "gate": {
+        "checks": {
+          "gbf1_gt_m19_s1": false,
+          "gene_count_le_1p25": true,
+          "hard_fpr_le_0p01": false
+        },
+        "exp_id": "M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0",
+        "observed": {
+          "gene_body_F1_unconstrained": 0.8635239225879124,
+          "intergenic_FPR": 0.02864953775436214,
+          "predicted_gene_count_ratio_vs_reference": 0.6482123799359658
+        },
+        "promote": false,
+        "purpose": "M22-specific continue/abandon gate; stricter than generic screen validate_goal",
+        "reference": {
+          "gene_count_ratio_max": 1.25,
+          "hard_intergenic_FPR_max": 0.01,
+          "m19_s1_gene_body_F1_unconstrained": 0.8815481561599101
+        }
+      },
+      "gate_error": null,
+      "gate_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0/metrics/m22_promotion_gate.json",
+      "metrics_available": true,
+      "metrics_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0/metrics/metrics.json",
+      "seed": 0,
+      "status": "COMPLETED",
+      "status_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0/STATUS"
+    }
+  ]
+}

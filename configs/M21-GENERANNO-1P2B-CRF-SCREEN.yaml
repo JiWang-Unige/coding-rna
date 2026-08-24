@@ -1,0 +1,62 @@
+exp_id: M21-GENERANNO-1P2B-CRF-SCREEN
+profile: screen
+purpose: >
+  Follow M20 tri-review/pivot by running a real non-claim CRF decoder screen on
+  the same clean-plant panel as M19. The goal is to test whether structured
+  decoding improves recall/gene recovery while preserving FPR<=0.01.
+claim_status: non_claim_screen
+parent_evidence:
+  - M19-GENERANNO-1P2B-RAWCAL-CLEANPLANTS-s1: gbF1=0.8815, FPR=0.0065, gene_count_ratio=0.830
+  - M20-SOTA-ERROR-ANALYSIS: Tiberius hard-FPR comparator gbF1=0.9252, FPR=0.0073, gene_count_ratio=0.628
+  - M20-CLAIM-CLEAN-PANEL-FREEZE: current GENERanno panel remains overlap_unknown and non-claim
+species:
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+  model_task: token_classification
+trainer: src.foundation_probe.train_generanno_lora_3class
+seeds: [0, 1]
+config:
+  window: 6144
+  sample_fraction: 0.12
+  limit_train_windows: 1536
+  limit_val_windows: 768
+  epochs: 3
+  patience: 1
+  batch_size: 1
+  predict_batch: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 2.5
+  decoder: crf
+  crf_aux_ce: 1.0
+  postproc: constrained
+  min_cds_len: 90
+  max_fill_gap: 20
+caveats:
+  - Screen-only clean-plant panel; not a publication claim.
+  - GENERanno provenance/overlap remains a claim blocker even if metrics improve.
+  - No smoke prediction/decode cap is used in this screen run.
+outputs:
+  root_pattern: outputs/M21-GENERANNO-1P2B-CRF-SCREEN-s{seed}
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+interpretation:
+  crf_lift_large: >
+    If gbF1 approaches 0.90+ and FPR remains <=0.01 with gene_count<=1.25,
+    keep CRF/structured decoding as a mechanism and decide how to solve
+    provenance for a claimable backbone/panel.
+  crf_lift_small_or_fpr_fail: >
+    If gbF1 lift is <0.02 or FPR/gene_count breaks, stop local GENERanno
+    decoder tuning and pivot toward semi-CRF/objective redesign or a
+    controlled-provenance backbone route.

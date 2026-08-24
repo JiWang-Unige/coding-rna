@@ -1,0 +1,37 @@
+{
+  "exp_id": "M21-CLEAN-BACKBONE-PROVENANCE-SCOUT",
+  "date": "2026-06-21",
+  "status": "completed",
+  "decision": "keep_generanno_as_non_claim_challenger; keep_nt_v2_as_clean_provenance_backbone_for_plants",
+  "backbones": {
+    "nt_v2_500m_multi_species": {
+      "provenance_status": "plant_excluded_by_public_model_and_dataset_cards",
+      "claim_role": "clean_provenance_adapted_backbone_for_plant_panel"
+    },
+    "segment_nt": {
+      "provenance_status": "supervised_head_trained_on_human_chromosomes",
+      "claim_role": "not_primary_gene_annotation_backbone; useful reference only"
+    },
+    "generanno_1p2b_cds_preview": {
+      "provenance_status": "overlap_unknown_no_public_species_accession_exclusion_manifest",
+      "claim_role": "high_signal_non_claim_adaptation_challenger"
+    },
+    "generanno_0p5b_base": {
+      "provenance_status": "overlap_unknown_eukaryotic_pretraining",
+      "claim_role": "negative_control_or_ablation_only"
+    }
+  },
+  "recommended_next": [
+    "monitor M21 CRF screen to completion",
+    "if positive, frame GENERanno as adapted CDS-pretrained backbone rather than clean held-out model",
+    "do not resume generic M9-only tuning without a transfer-focused data or architecture plan"
+  ],
+  "sources": [
+    "https://huggingface.co/InstaDeepAI/nucleotide-transformer-v2-500m-multi-species",
+    "https://huggingface.co/datasets/InstaDeepAI/multi_species_genomes",
+    "https://huggingface.co/InstaDeepAI/segment_nt",
+    "https://huggingface.co/GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview",
+    "https://huggingface.co/GenerTeam/GENERanno-eukaryote-0.5b-base",
+    "https://github.com/GenerTeam/GENERanno"
+  ]
+}

@@ -1,0 +1,45 @@
+exp_id: M10-GENERANNO-LORA-3C
+profile: smoke_then_screen
+purpose: >
+  Test the structural hypothesis that GENERanno's high CDS specificity can be retained
+  while repairing gene coherence by LoRA-tuning the pretrained encoder with our 3-class
+  intron-aware head.
+claim_status: non_claim_screen
+model: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+species:
+  smoke:
+    - data/m1_screen/arabidopsis_thaliana
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+seed: 0
+trainer: src.foundation_probe.train_generanno_lora_3class
+config:
+  window: 6144
+  sample_fraction: 0.1
+  epochs: 2
+  patience: 1
+  batch_size: 1
+  predict_batch: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  postproc: constrained
+smoke_limits:
+  limit_train_windows: 8
+  limit_val_windows: 4
+  limit_test_seqids: 1
+outputs:
+  smoke_root: outputs/M10-GENERANNO-LORA-3C-SMOKE
+  screen_root: outputs/M10-GENERANNO-LORA-3C-s0
+notes:
+  - The released GENERanno binary CDS head is intentionally not reused for prediction.
+  - The LoRA run trains only adapters plus the 3-class head; all base encoder weights stay frozen.
+  - First job is a bounded GPU smoke. Promote to screen only after smoke metrics are finite.

@@ -1,0 +1,89 @@
+{
+  "claim_paths": [
+    {
+      "allowed_claim": "A CDS-specialized pretrained backbone can be adapted with an intron-aware head and FP-aware objective.",
+      "forbidden_claim": "No-overlap held-out cross-species SOTA on Arabidopsis/rice.",
+      "label": "GENERanno adaptation/comparability paper evidence",
+      "path": "A"
+    },
+    {
+      "label": "Clean held-out claim",
+      "path": "B",
+      "requirement": "Use species/accessions provably absent from the backbone pretraining/fine-tuning data, or use a model/training route whose data provenance we control."
+    }
+  ],
+  "date": "2026-06-21",
+  "decision": "freeze_current_generanno_claim_panel_as_not_claim_clean",
+  "exp_id": "M20-CLAIM-CLEAN-PANEL-FREEZE",
+  "panel": [
+    {
+      "claim_use": "adaptation/comparability only",
+      "data_path": "data/m1_screen/arabidopsis_thaliana",
+      "generanno_overlap_status": "overlap_unknown",
+      "path_exists": true,
+      "project_role": "current clean-plant train/val/test screen species",
+      "species": "arabidopsis_thaliana"
+    },
+    {
+      "claim_use": "adaptation/comparability only",
+      "data_path": "data/m1_screen/oryza_sativa",
+      "generanno_overlap_status": "overlap_unknown",
+      "path_exists": true,
+      "project_role": "current clean-plant train/val/test screen species",
+      "species": "oryza_sativa"
+    },
+    {
+      "claim_use": "diagnostic only unless manifest exclusion is obtained",
+      "data_path": "data/m13_distance_screen/arabidopsis_lyrata",
+      "generanno_overlap_status": "overlap_unknown",
+      "path_exists": false,
+      "project_role": "close-plant diagnostic candidate",
+      "species": "arabidopsis_lyrata"
+    },
+    {
+      "claim_use": "diagnostic only",
+      "data_path": "data/m1_screen/gallus_gallus",
+      "generanno_overlap_status": "overlap_unknown",
+      "path_exists": true,
+      "project_role": "animal negative-control diagnostic",
+      "species": "gallus_gallus"
+    },
+    {
+      "claim_use": "diagnostic only",
+      "data_path": "data/m1_screen/drosophila_melanogaster",
+      "generanno_overlap_status": "overlap_unknown",
+      "path_exists": true,
+      "project_role": "animal negative-control diagnostic",
+      "species": "drosophila_melanogaster"
+    }
+  ],
+  "recommendation": "Do not spend claim-grade GENERanno GPU on the current Arabidopsis/rice clean-plant panel until a public or author-provided species/accession manifest excludes the claim species. Use M18/M19/M20 as adaptation/comparability evidence, or move the clean held-out claim to a backbone/training protocol with certifiable provenance.",
+  "sources": [
+    {
+      "local_use": "Confirms model identity/task; no complete eukaryotic species/accession exclusion list.",
+      "name": "GENERanno 1.2B CDS annotator preview model card",
+      "url": "https://huggingface.co/GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview"
+    },
+    {
+      "local_use": "Confirms broad eukaryotic pretraining; does not certify plant exclusion.",
+      "name": "GENERanno 0.5B eukaryote base model card",
+      "url": "https://huggingface.co/GenerTeam/GENERanno-eukaryote-0.5b-base"
+    },
+    {
+      "local_use": "Confirms release lineage and eukaryotic annotation focus; no full training manifest.",
+      "name": "GENERanno GitHub README",
+      "url": "https://github.com/GenerTeam/GENERanno"
+    },
+    {
+      "local_use": "RefSeq-derived broad eukaryotic corpus family; public card is not a species exclusion manifest.",
+      "name": "GENERanno eukaryote pretraining dataset card",
+      "url": "https://huggingface.co/datasets/GenerTeam/pretrain_data_eukaryote"
+    },
+    {
+      "local_use": "Prior project audit already marked Arabidopsis/rice overlap as unknown.",
+      "name": "M19 local provenance audit",
+      "url": "refs/dossiers/m19_generanno_provenance_audit.md"
+    }
+  ],
+  "status": "BLOCKED_FOR_GENERANNO_CLEAN_HELDOUT_CLAIM"
+}

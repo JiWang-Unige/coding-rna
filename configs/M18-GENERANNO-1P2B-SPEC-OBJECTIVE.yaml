@@ -1,0 +1,59 @@
+exp_id: M18-GENERANNO-1P2B-SPEC-OBJECTIVE
+profile: screen
+purpose: >
+  Parallel GENERanno challenger after M15. Keep the official 1.2B CDS annotator
+  preview encoder and our intron-aware 3-class LoRA head, but push the objective
+  toward intergenic specificity using stronger FP penalty and a more conservative
+  CDS post-processing threshold.
+claim_status: non_claim_screen
+relationship_to_m15: >
+  M15 1.2B had useful signal but missed the FPR guardrail
+  (gbF1=0.8510, FPR=0.0258, gene_count_ratio=1.177). This run tests whether the
+  failure is objective/operating-point pressure rather than backbone signal.
+species:
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+  model_task: token_classification
+trainer: src.foundation_probe.train_generanno_lora_3class
+seed: 0
+config:
+  window: 6144
+  sample_fraction: 0.12
+  limit_train_windows: 1536
+  limit_val_windows: 768
+  epochs: 3
+  patience: 1
+  batch_size: 1
+  predict_batch: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 2.5
+  postproc: constrained
+  min_cds_len: 90
+  max_fill_gap: 20
+caveats:
+  - GENERanno trainer currently does not emit raw score files, so this is not a VAL-only decode calibration experiment.
+  - If this improves specificity without destroying gbF1, the next step is adding raw-score calibration support before any larger GENERanno run.
+  - Screen-only clean-plant panel; not a publication claim.
+outputs:
+  root: outputs/M18-GENERANNO-1P2B-SPEC-OBJECTIVE-s0
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+interpretation:
+  specificity_recovers: >
+    GENERanno 1.2B signal is promising; invest in raw-score calibration and/or a
+    broader LoRA schedule.
+  gbf1_collapses: >
+    Stronger FP pressure alone trades away recall; GENERanno needs a different
+    head/decoder schedule rather than simple loss scaling.

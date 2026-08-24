@@ -1,0 +1,33 @@
+{
+  "all_seed_fpr_hard_valid": false,
+  "all_seed_gates_present": false,
+  "all_seeds_completed": false,
+  "any_seed_promote": false,
+  "continue_route": false,
+  "decision_rule": "continue M22 objective only if any_seed_promote is true; otherwise abandon/treat as negative without tuning this objective",
+  "exp_prefix": "M22-GENERANNO-1P2B-NONCRF-GBTVERSKY",
+  "seeds": [
+    {
+      "exp_id": "M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0",
+      "gate": null,
+      "gate_error": null,
+      "gate_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0/metrics/m22_promotion_gate.json",
+      "metrics_available": false,
+      "metrics_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0/metrics/metrics.json",
+      "seed": 0,
+      "status": "MISSING",
+      "status_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0/STATUS"
+    },
+    {
+      "exp_id": "M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s1",
+      "gate": null,
+      "gate_error": null,
+      "gate_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s1/metrics/m22_promotion_gate.json",
+      "metrics_available": false,
+      "metrics_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s1/metrics/metrics.json",
+      "seed": 1,
+      "status": "MISSING",
+      "status_path": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s1/STATUS"
+    }
+  ]
+}

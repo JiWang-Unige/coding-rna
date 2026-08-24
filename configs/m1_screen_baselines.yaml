@@ -1,0 +1,157 @@
+version: 1
+stage: M1
+status: draft_manifest
+purpose: >
+  Establish a unified small-budget screen_anchor after the evaluator is frozen.
+  Smoke/pilot outputs validate runners only; only anchor_profile runs can update
+  ACTIVE_GOAL.screen_anchor.
+
+evaluator:
+  contract: docs/11_evaluator_contract.md
+  command: >-
+    python scripts/eval_gene_body_mask.py
+    --reference-gtf {reference_gtf}
+    --prediction-gtf {prediction_gtf}
+    --genome-fasta {genome_fasta}
+    --experiment-id {exp_id}
+    --profile {profile}
+    --output-json outputs/{exp_id}/metrics/metrics.json
+  validate: >-
+    python scripts/validate_goal.py
+    --goal ACTIVE_GOAL.json
+    --metrics outputs/{exp_id}/metrics/metrics.json
+    --profile {profile}
+    --run-status outputs/{exp_id}/STATUS
+  sensitivity_thresholds:
+    - 0.005
+    - 0.01
+    - 0.02
+
+profiles:
+  pilot:
+    claim_policy: never
+    can_update_screen_anchor: false
+    intent: validate runner/evaluator compatibility before expensive baseline runs
+  anchor:
+    claim_policy: never
+    can_update_screen_anchor: true
+    intent: compute max(Tiberius-like, Helixer-like, ANNEVO-light/available) under one protocol
+
+data_status:
+  current_local_data:
+    - name: Tiberius Panthera pardus bundled mini-smoke
+      genome_fasta: outputs/BASE-TIBERIUS-MINISMOKE/data/inp/genome.fa
+      reference_gtf: outputs/BASE-TIBERIUS-MINISMOKE/data/inp/annot.gtf
+      use: runner/evaluator smoke only
+      can_update_screen_anchor: false
+  missing_for_anchor:
+    - frozen species/accession manifest
+    - downloaded genome FASTA and reference GFF/GTF for each anchor species
+    - checksums and source URLs
+    - species/clade-aware split rationale
+
+pilot_species_candidates:
+  - species: Saccharomyces cerevisiae
+    clade: Fungi
+    rationale: small genome; all three methods report support/performance in ANNEVO current benchmark
+    anchor_eligibility: pilot_only_until_raw_data_and_reference_are_frozen
+  - species: Drosophila melanogaster
+    clade: Insecta
+    rationale: small animal genome; appears in ANNEVO current benchmark
+    anchor_eligibility: pilot_or_anchor_after checking training/validation overlap caveats
+  - species: Arabidopsis thaliana
+    clade: Magnoliopsida
+    rationale: ANNEVO demo/reported species; useful plant runner check
+    anchor_eligibility: pilot_only_unless benchmark comparability is explicitly justified
+
+anchor_species_candidates:
+  source: ANNEVO current repo performance table, not yet downloaded
+  note: >
+    Use a size-balanced subset first only if full 12-species screen is too expensive.
+    Any reduced subset must be declared as screen_anchor_v0 and never used for full/scale claim.
+  preferred_full_set:
+    - Homo_sapiens
+    - Rattus_norvegicus
+    - Drosophila_melanogaster
+    - Bombyx_mori
+    - Saccharomyces_cerevisiae
+    - Candida_albicans
+    - Arabidopsis_thaliana
+    - Oryza_sativa
+    - Gallus_gallus
+    - Melopsittacus_undulatus
+    - Danio_rerio
+    - Oryzias_latipes
+  pilot_subset_order:
+    - Saccharomyces_cerevisiae
+    - Drosophila_melanogaster
+    - Arabidopsis_thaliana
+
+baselines:
+  tiberius_like:
+    repo: refs/repos/tiberius-2024
+    runner_status: smoke_verified
+    container: refs/repos/tiberius-2024/singularity/tiberius_2.0.5.sif
+    required_bind: /srv:/srv,/home:/home
+    model_selection:
+      Fungi: fungi
+      Insecta: insecta
+      Magnoliopsida: angiosperms
+      Mammalia: mammalia_nosofttmasking_v2
+      Aves: vertebrates
+      Actinopteri: vertebrates
+    command_template: >-
+      APPTAINER_BINDPATH=/srv:/srv,/home:/home
+      singularity exec --nv refs/repos/tiberius-2024/singularity/tiberius_2.0.5.sif
+      tiberius.py --genome {genome_fasta}
+      --model {model_name}
+      --out {prediction_gtf}
+      --batch_size 8
+    notes:
+      - Use concrete high-VRAM GPU request; 12GB cards are unsafe for Tiberius.
+      - Softmasking requirement differs by model; avoid softmasking-only configs until input preprocessing is frozen.
+  helixer_like:
+    repo: refs/repos/helixer-2025
+    runner_status: not_yet_verified
+    model_selection:
+      Fungi: fungi
+      Insecta: invertebrate
+      Magnoliopsida: land_plant
+      Mammalia: vertebrate
+      Aves: vertebrate
+      Actinopteri: vertebrate
+    command_template: >-
+      Helixer.py --lineage {lineage}
+      --fasta-path {genome_fasta}
+      --species {species}
+      --gff-output-path {prediction_gff3}
+    notes:
+      - Requires Helixer/HelixerPost environment or container setup before real screen.
+      - Output GFF3 must be accepted by scripts/eval_gene_body_mask.py or converted to GTF-compatible attributes.
+  annevo_light:
+    repo: refs/repos/annevo-2026
+    runner_status: not_yet_verified
+    model_selection:
+      Fungi: Fungi
+      Insecta: Insecta
+      Magnoliopsida: Magnoliopsida
+      Mammalia: Mammalia
+      Aves: Aves
+      Actinopteri: Actinopteri
+    command_template: >-
+      python refs/repos/annevo-2026/annotation.py
+      -g {genome_fasta}
+      -m refs/repos/annevo-2026/saved_model/ANNEVO_{lineage}.pt
+      -l {lineage}
+      -o {prediction_gff}
+      --batch_size 8
+      -t 48
+      --show_log
+    notes:
+      - ANNEVO license is non-commercial; ok for academic research but record in dossier.
+      - Current repo version differs from paper; keep repo/current and paper anchor separate.
+
+next_actions:
+  - Implement/download frozen raw data manifest for pilot subset.
+  - Verify Helixer and ANNEVO environments/containers on a tiny example before anchor runs.
+  - Submit real screen inference via $smart-sbatch; no bare foreground full/screen inference.

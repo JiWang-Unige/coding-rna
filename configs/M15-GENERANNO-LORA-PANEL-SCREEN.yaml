@@ -1,0 +1,62 @@
+exp_id: M15-GENERANNO-LORA-PANEL-SCREEN
+profile: screen
+purpose: >
+  Bounded fair-screen challenger for GENERanno backbones after M12C smoke. Compare
+  the official 1.2B CDS annotator preview and the unadjusted 0.5B base model using
+  the same intron-aware 3-class LoRA head/evaluator on the clean plant panel.
+claim_status: non_claim_screen
+panel_contract: configs/m12_publication_panel.yaml
+trainer: src.foundation_probe.train_generanno_lora_3class
+species:
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+arms:
+  - arm_id: generanno_1p2b_cds_preview
+    exp_id: M15-GENERANNO-1P2B-CDS-PANEL-SCREEN
+    model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+    model_task: token_classification
+    window: 6144
+    limit_train_windows: 1024
+    limit_val_windows: 512
+  - arm_id: generanno_0p5b_base
+    exp_id: M15-GENERANNO-0P5B-BASE-PANEL-SCREEN
+    model_name: GenerTeam/GENERanno-eukaryote-0.5b-base
+    model_task: masked_lm
+    window: 1024
+    limit_train_windows: 2048
+    limit_val_windows: 1024
+shared_config:
+  sample_fraction: 0.1
+  epochs: 2
+  patience: 1
+  batch_size: 1
+  predict_batch: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  postproc: constrained
+  min_cds_len: 60
+  max_fill_gap: 20
+interpretation:
+  1p2b_pass: >
+    GENERanno CDS-pretraining can be rescued by our 3-class intron-aware head and
+    deserves a stronger schedule/domain adaptation experiment.
+  both_fail: >
+    Pretraining alone is insufficient; our NT-v2 route likely wins through
+    species/panel adaptation plus calibration rather than generic pretrained signal.
+  base_fail_1p2b_signal: >
+    Official CDS-annotator pretraining contributes useful signal; the unadjusted
+    base model does not solve the task out of the box.
+outputs:
+  root_template: outputs/{exp_id}
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json

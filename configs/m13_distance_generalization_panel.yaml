@@ -1,0 +1,68 @@
+version: 1
+exp_family: M13-DISTANCE-GENERALIZATION-SCAN
+status: species_frozen_pre_submit
+claim_status: non_claim_diagnostic_only
+
+purpose: >
+  Bounded single-seed distance diagnostic after M12A fixed Arabidopsis->rice
+  failure. Tests whether Arabidopsis-trained calibration transfers to a close
+  Arabidopsis relative before spending GPU on broader multi-species routes.
+
+source_reports:
+  failure_sanity: reports/M13_FAILURE_SANITY/report.md
+  close_plant_freeze: reports/M13_CLOSE_PLANT_FREEZE.json
+  close_plant_check_data: reports/M13_CLOSE_PLANT_CHECK_DATA.json
+
+protocol:
+  seed: 0
+  train_species:
+    - arabidopsis_thaliana
+  calibrate_species:
+    - arabidopsis_thaliana
+  test_species:
+    - arabidopsis_lyrata
+    - oryza_sativa
+  no_test_label_tuning: true
+  one_scan_round_only: true
+  profile: screen
+
+species:
+  arabidopsis_thaliana:
+    role: train_calibrate
+    accession: GCF_000001735.4
+    path: data/m1_screen/arabidopsis_thaliana
+    assembly_level: Chromosome
+  arabidopsis_lyrata:
+    role: close_plant_test_primary
+    accession: GCF_000004255.2
+    assembly_name: v.1.0
+    annotation_release: NCBI Arabidopsis lyrata subsp. lyrata Annotation Release 101
+    path: data/m1_screen/arabidopsis_lyrata
+    source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/004/255/GCF_000004255.2_v.1.0/
+    assembly_level: Scaffold
+    subset_rule: top_8_large_primary_scaffolds
+    total_bp: 194182311
+    split_counts:
+      train: 6
+      val: 1
+      test: 1
+    check_data_status: pass
+    caveat: diagnostic_only_not_final_clean_claim
+  oryza_sativa:
+    role: far_plant_test_existing_negative_comparator
+    accession: GCF_034140825.1
+    path: data/m1_screen/oryza_sativa
+    assembly_level: Chromosome
+
+stop_rules:
+  - if_close_plant_fails_fpr_or_gene_count: stop_single_species_fixed_model_generalization_route
+  - if_close_plant_passes_but_rice_fails: reframe_as_distance_limited_near_clade_transfer
+  - if_close_plant_and_rice_both_fail: move_to_multi_species_training_or_architecture_change
+  - do_not_tune_decode_or_hyperparams_on_close_plant_or_rice_test_labels
+
+backup_species_if_scaffold_caveat_blocks:
+  - key: brassica_rapa
+    accession: GCF_000309985.2
+    assembly_level: Chromosome
+    source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/309/985/GCF_000309985.2_CAAS_Brap_v3.01/
+    reason: Brassicaceae chromosome-level backup, but less direct Arabidopsis-relative diagnostic than A. lyrata.

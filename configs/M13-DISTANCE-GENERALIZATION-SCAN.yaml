@@ -1,0 +1,68 @@
+exp_id: M13-DISTANCE-GENERALIZATION-SCAN
+profile: screen
+purpose: >
+  Bounded non-claim distance diagnostic after M12A fixed Arabidopsis->rice
+  failure. Train and validation-calibrate on Arabidopsis only, then test one
+  close Arabidopsis relative and rice without any test-label parameter tuning.
+claim_status: non_claim_diagnostic_only
+source_contract: configs/m13_distance_generalization_panel.yaml
+species:
+  train:
+    - arabidopsis_thaliana
+  calibrate:
+    - arabidopsis_thaliana
+  test:
+    - arabidopsis_lyrata
+    - oryza_sativa
+paths:
+  arabidopsis_thaliana: data/m1_screen/arabidopsis_thaliana
+  arabidopsis_lyrata: data/m1_screen/arabidopsis_lyrata
+  oryza_sativa: data/m1_screen/oryza_sativa
+seeds: [0]
+trainer: src.foundation_probe.train_unfreeze_backbone
+calibrator: scripts/experiments/M11-L12-SPEC-CALIBRATION/calibrate_decode.py
+config:
+  unfreeze_layers: 12
+  window: 2046
+  sample_fraction: 0.3
+  epochs: 4
+  patience: 2
+  batch_size: 4
+  lr: 1.0e-3
+  backbone_lr: 1.0e-5
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  save_raw_scores: true
+  split_species_policy:
+    train_species_names: [arabidopsis_thaliana]
+    val_species_names: [arabidopsis_thaliana]
+    test_species_names: [arabidopsis_lyrata, oryza_sativa]
+  calibration:
+    val_species: [arabidopsis_thaliana]
+    test_species: [arabidopsis_lyrata, oryza_sativa]
+    intergenic_biases: [0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    min_cds_lens: [60, 90, 120]
+    max_fill_gaps: [0, 20]
+    target_fpr: 0.01
+    min_gbf1: 0.70
+    max_gene_count_ratio: 1.25
+outputs:
+  root: outputs/M13-DISTANCE-GENERALIZATION-SCAN-s0
+  raw_scores:
+    val: raw_scores/val_arabidopsis_thaliana.npz
+    test_close: raw_scores/test_arabidopsis_lyrata.npz
+    test_far: raw_scores/test_oryza_sativa.npz
+  calibration: calibration/selected.json
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+interpretation:
+  close_pass_far_fail: >
+    Evidence for distance-limited near-clade transfer; do not claim universal
+    fixed cross-species annotation.
+  close_fail: >
+    Stop single-species fixed-model generalization as a main claim route; move
+    to multi-species training/domain adaptation or architecture changes.
+  all_fail: >
+    Confirms M12A failure is structural beyond rice distance and should not be
+    pursued via per-species calibration.

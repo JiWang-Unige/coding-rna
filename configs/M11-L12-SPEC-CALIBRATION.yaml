@@ -1,0 +1,42 @@
+exp_id: M11-L12-SPEC-CALIBRATION
+profile: screen
+purpose: >
+  Validation-only specificity calibration for the M9/M10 NT-v2 L12 mainline.
+  Train the same L12 model as M10, save raw val/test emissions, choose decode/FPR
+  operating point on validation seqids only, then apply once to test.
+claim_status: non_claim_screen
+species:
+  - data/m1_screen/arabidopsis_thaliana
+  - data/m1_screen/oryza_sativa
+seeds: [0, 1, 2]
+trainer: src.foundation_probe.train_unfreeze_backbone
+calibrator: scripts/experiments/M11-L12-SPEC-CALIBRATION/calibrate_decode.py
+config:
+  unfreeze_layers: 12
+  window: 2046
+  sample_fraction: 0.3
+  epochs: 4
+  patience: 2
+  batch_size: 4
+  lr: 1.0e-3
+  backbone_lr: 1.0e-5
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  save_raw_scores: true
+  calibration:
+    intergenic_biases: [0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    min_cds_lens: [60, 90, 120]
+    max_fill_gaps: [0, 20]
+    target_fpr: 0.01
+    min_gbf1: 0.70
+    max_gene_count_ratio: 1.25
+outputs:
+  root_template: outputs/M11-L12-SPEC-CALIBRATION-s{seed}
+  raw_scores: raw_scores/{val,test}_{species}.npz
+  calibration: calibration/selected.json
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+notes:
+  - Calibration parameters are selected on validation seqids only; test labels are used only once after selection.
+  - Screen evidence only; full/scale claim still needs frozen SOTA benchmark and FPR<=0.01 under full profile.

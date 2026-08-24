@@ -1,0 +1,77 @@
+exp_id: M16-MULTISPECIES-TRAIN-DISTANCE-SCAN
+profile: screen
+purpose: >
+  Bounded non-claim diagnostic for the user's generalization concern. Train and
+  validation-calibrate a single fixed M9-L12/NT-v2 model on two plant species
+  (Arabidopsis + rice), then test close plant transfer and animal negative
+  controls without any test-label tuning. This directly asks whether the M12/M13
+  fixed-model failure is mostly due to too few training species.
+claim_status: non_claim_diagnostic_only
+relationship_to_m13_m14: >
+  M13/M14 train on Arabidopsis only. M16 changes only the training/calibration
+  species set, keeping the backbone, objective, decode calibration grid, and
+  single-seed screen budget otherwise aligned.
+species:
+  train:
+    - arabidopsis_thaliana
+    - oryza_sativa
+  calibrate:
+    - arabidopsis_thaliana
+    - oryza_sativa
+  test:
+    - arabidopsis_lyrata
+    - gallus_gallus
+    - drosophila_melanogaster
+paths:
+  arabidopsis_thaliana: data/m1_screen/arabidopsis_thaliana
+  oryza_sativa: data/m1_screen/oryza_sativa
+  arabidopsis_lyrata: data/m1_screen/arabidopsis_lyrata
+  gallus_gallus: data/m1_screen/gallus_gallus
+  drosophila_melanogaster: data/m1_screen/drosophila_melanogaster
+seed: 0
+trainer: src.foundation_probe.train_unfreeze_backbone
+calibrator: scripts/experiments/M11-L12-SPEC-CALIBRATION/calibrate_decode.py
+config:
+  unfreeze_layers: 12
+  window: 2046
+  sample_fraction: 0.3
+  epochs: 4
+  patience: 2
+  batch_size: 4
+  lr: 1.0e-3
+  backbone_lr: 1.0e-5
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  save_raw_scores: true
+  split_species_policy:
+    train_species_names: [arabidopsis_thaliana, oryza_sativa]
+    val_species_names: [arabidopsis_thaliana, oryza_sativa]
+    test_species_names: [arabidopsis_lyrata, gallus_gallus, drosophila_melanogaster]
+  calibration:
+    val_species: [arabidopsis_thaliana, oryza_sativa]
+    test_species: [arabidopsis_lyrata, gallus_gallus, drosophila_melanogaster]
+    intergenic_biases: [0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    min_cds_lens: [60, 90, 120]
+    max_fill_gaps: [0, 20]
+    target_fpr: 0.01
+    min_gbf1: 0.50
+    max_gene_count_ratio: 1.25
+caveats:
+  - Diagnostic-only: animals are negative controls, not clean final-claim evidence for the NT-v2 route.
+  - This run does not solve held-out-clade benchmark design; it only tests whether training species diversity is a plausible next axis.
+  - Drosophila has many small seqids, so prediction/evaluation may dominate runtime.
+outputs:
+  root: outputs/M16-MULTISPECIES-TRAIN-DISTANCE-SCAN-s0
+  metrics: metrics/metrics.json
+  calibration: calibration/selected.json
+interpretation:
+  improves_close_and_far_vs_m13_m14: >
+    Species-diverse training is a credible mainline axis; next move should be a
+    frozen multi-species panel and fair SOTA baselines.
+  improves_close_only: >
+    Multi-species plant training helps within/near plants but not broad eukaryotes;
+    frame claim around clade-aware/domain-adapted deployment rather than universal fixed model.
+  no_improvement: >
+    Single fixed-model generalization is not rescued by simply adding rice at this
+    scale; shift to richer architecture/data strategy or explicit clade adapters.

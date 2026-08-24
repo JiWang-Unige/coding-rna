@@ -1,0 +1,74 @@
+exp_id: M22-GENERANNO-1P2B-NONCRF-GBTVERSKY
+profile: screen
+purpose: >
+  Follow M22 local design gate by testing a distinct non-CRF emission/objective
+  change on the M19 GENERanno 1.2B LoRA route. Keep argmax + constrained
+  post-processing, save raw scores, and add a gene-body Tversky auxiliary loss
+  to improve gene recovery without spending GPU on CRF/HMM or decode-only
+  calibration.
+claim_status: non_claim_screen
+parent_evidence:
+  - M19-GENERANNO-1P2B-RAWCAL-CLEANPLANTS: best seed1 gbF1=0.8815, FPR=0.0065, gene_count_ratio=0.830.
+  - M21-GENERANNO-1P2B-CRF-SCREEN: trained CRF route refuted; best seed gbF1=0.8744, FPR=0.0192.
+  - M22-NONCRF-CLAIM-ROUTE-DESIGN: calibration/postproc frontier exhausted for useful M19 seed.
+species:
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+  model_task: token_classification
+trainer: src.foundation_probe.train_generanno_lora_3class
+seeds: [0, 1]
+config:
+  window: 6144
+  sample_fraction: 0.12
+  limit_train_windows: 1536
+  limit_val_windows: 768
+  epochs: 3
+  patience: 1
+  batch_size: 1
+  eval_batch: 16
+  predict_batch: 16
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  pretokenize_windows: true
+  train_progress_every: 200
+  eval_progress_every: 20
+  class_weighting: sqrt_inv
+  loss: gb_tversky
+  gb_tversky_lambda: 2.0
+  gb_tversky_alpha: 0.8
+  gb_tversky_beta: 0.2
+  decoder: none
+  postproc: constrained
+  min_cds_len: 90
+  max_fill_gap: 20
+  save_raw_scores: true
+caveats:
+  - Screen-only clean-plant panel; not a publication claim.
+  - GENERanno provenance remains overlap_unknown; use results as adaptation/challenger evidence.
+  - This is a single fixed objective setting, not a hyperparameter sweep.
+  - Raw-score calibration must still select operating points on VAL only.
+outputs:
+  root_pattern: outputs/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s{seed}
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+  promotion_gate: metrics/m22_promotion_gate.json
+  promotion_summary: reports/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY/promotion_summary.json
+  raw_scores: raw_scores/
+promotion_rule:
+  continue: >
+    Run scripts/experiments/M22-GENERANNO-1P2B-NONCRF-GBTVERSKY/aggregate_promotion_gate.py
+    after both seeds finish. Continue only if `any_seed_promote=true`, meaning at
+    least one seed preserves hard FPR<=0.01 and improves clean-plant gbF1 beyond
+    M19 seed1 (0.8815) without gene_count_ratio > 1.25.
+  abandon: >
+    If gbF1 remains below M19 or FPR rises above 0.01, do not tune this objective;
+    pivot to clean-provenance backbone transfer or a genuinely richer emission model.

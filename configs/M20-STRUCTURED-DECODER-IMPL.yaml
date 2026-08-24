@@ -1,0 +1,24 @@
+exp_id: M20-STRUCTURED-DECODER-IMPL-SMOKE3
+profile: smoke
+purpose: >
+  Verify that the GENERanno LoRA 3-class trainer supports an optional linear-chain CRF
+  structured decoder without changing the default M19 behavior.
+backbone: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+species:
+  - data/m1_screen/arabidopsis_thaliana
+trainer: src.foundation_probe.train_generanno_lora_3class
+decoder: crf
+objective:
+  loss: fp_aware
+  fp_lambda: 2.5
+  crf_aux_ce: 1.0
+limits:
+  epochs: 1
+  limit_train_windows: 1
+  limit_val_windows: 1
+  limit_test_seqids: 1
+  limit_predict_windows: 8
+outputs:
+  root: outputs/M20-STRUCTURED-DECODER-IMPL-SMOKE3
+  metrics: outputs/M20-STRUCTURED-DECODER-IMPL-SMOKE3/metrics/metrics.json
+claim_status: smoke_only_not_claim

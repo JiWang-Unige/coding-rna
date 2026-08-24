@@ -1,0 +1,56 @@
+{
+  "exp_id": "M22-NONCRF-CLAIM-ROUTE-DESIGN",
+  "date": "2026-06-23",
+  "kind": "local_design_gate",
+  "diagnostic": "M19 validation calibration grid replayed on clean-plant test split as oracle ceiling check",
+  "num_candidates_total": 96,
+  "hard_valid_definition": {
+    "test_intergenic_fpr_max": 0.01,
+    "test_gene_count_ratio_max": 1.25
+  },
+  "seed_results": {
+    "s0": {
+      "selected": {
+        "tag": "b2p0_mcl60_mfg20",
+        "test_gbf1": 0.8421192472235876,
+        "test_fpr": 0.008308614279402549,
+        "test_gene_count_ratio": 1.082710779082177
+      },
+      "best_hard_valid": {
+        "tag": "b0p0_mcl60_mfg20",
+        "test_gbf1": 0.8602724875266755,
+        "test_fpr": 0.009411846130198144,
+        "test_gene_count_ratio": 1.0106723585912487
+      },
+      "best_fpr": {
+        "tag": "b2p0_mcl120_mfg0",
+        "test_gbf1": 0.771368963835261,
+        "test_fpr": 0.00701993922567518,
+        "test_gene_count_ratio": 1.0176093916755602
+      }
+    },
+    "s1": {
+      "selected": {
+        "tag": "b0p0_mcl60_mfg20",
+        "test_gbf1": 0.8815481561599101,
+        "test_fpr": 0.006490358812095066,
+        "test_gene_count_ratio": 0.8299092849519744
+      },
+      "best_hard_valid": {
+        "tag": "b0p0_mcl60_mfg20",
+        "test_gbf1": 0.8815481561599101,
+        "test_fpr": 0.006490358812095066,
+        "test_gene_count_ratio": 0.8299092849519744
+      },
+      "best_fpr": {
+        "tag": "b2p0_mcl120_mfg0",
+        "test_gbf1": 0.7949690089182827,
+        "test_fpr": 0.004619409729571385,
+        "test_gene_count_ratio": 0.8579242262540021
+      }
+    }
+  },
+  "decision": "do_not_spend_m22_on_calibration_or_crf_tuning",
+  "primary_next_gpu": "M22-GENERANNO-1P2B-NONCRF-EMISSION-OBJECTIVE",
+  "parallel_claim_route": "M22-NTV2-CLEAN-BACKBONE-TRANSFER"
+}

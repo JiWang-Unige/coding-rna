@@ -1,0 +1,58 @@
+exp_id: M18-GENERANNO-0P5B-SPEC-OBJECTIVE
+profile: screen
+purpose: >
+  Parallel GENERanno base-model control for M18. Use the unadjusted 0.5B base
+  encoder with the same intron-aware 3-class LoRA head and stronger FP objective
+  as M18-GENERANNO-1P2B-SPEC-OBJECTIVE, to separate generic pretraining signal
+  from the official CDS-annotator-preview advantage.
+claim_status: non_claim_screen
+relationship_to_m15: >
+  M15 showed 0.5B-base is weaker than 1.2B CDS-preview under fp_lambda=1.0
+  (gbF1=0.7623, FPR=0.0562, gene_count_ratio=1.326). This sibling run tests
+  whether a stronger specificity objective rescues the base model enough to
+  change the paper-facing interpretation.
+species:
+  screen:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-0.5b-base
+  model_task: masked_lm
+trainer: src.foundation_probe.train_generanno_lora_3class
+seed: 0
+config:
+  window: 1024
+  sample_fraction: 0.12
+  limit_train_windows: 2048
+  limit_val_windows: 1024
+  epochs: 3
+  patience: 1
+  batch_size: 1
+  predict_batch: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 2.5
+  postproc: constrained
+  min_cds_len: 90
+  max_fill_gap: 20
+caveats:
+  - Screen-only clean-plant panel; not a publication claim.
+  - The 0.5B base model uses 1 bp/token, so this run keeps the M15-proven 1024 bp window.
+  - GENERanno trainer currently does not emit raw score files; raw-score calibration remains future work.
+outputs:
+  root: outputs/M18-GENERANNO-0P5B-SPEC-OBJECTIVE-s0
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+interpretation:
+  base_recovers:
+    The generic GENERanno pretraining signal is stronger than M15 suggested; compare directly with the 1.2B CDS-preview sibling.
+  base_still_fails:
+    The official CDS-annotator-preview adaptation is a real contributor; our contribution is intron/coherence/specificity modeling on top.

@@ -1,0 +1,66 @@
+exp_id: M12B-SAMEPANEL-BASELINES
+profile: screen
+purpose: >
+  Same-panel baseline comparison contract for publication-alignment evidence.
+  Evaluate M9-L12 fixed model, ANNEVO, Tiberius, and Helixer on the same clean
+  plant panel with the same CDS-span evaluator and full-transcript intergenic ruler.
+claim_status: non_claim_until_sota_benchmark_frozen
+source_contract: configs/m12_publication_panel.yaml
+eval_species:
+  - arabidopsis_thaliana
+  - oryza_sativa
+species_paths:
+  arabidopsis_thaliana: data/m1_screen/arabidopsis_thaliana
+  oryza_sativa: data/m1_screen/oryza_sativa
+evaluator:
+  span_mode: cds
+  profile: screen
+  aggregate: scripts/aggregate_gene_body_metrics.py
+  per_species: scripts/eval_gene_body_mask.py
+baselines:
+  m9_l12_fixed:
+    status: pending_m12a_checkpoint
+    source: outputs/M12A-FIXEDMODEL-CROSSSPECIES-A2R-s{seed}
+  annevo_magnoliopsida:
+    status: ready_local_weight
+    env: annevo
+    repo: refs/repos/annevo-2026
+    weight: refs/repos/annevo-2026/saved_model/ANNEVO_Magnoliopsida.pt
+    lineage: Magnoliopsida
+    command_template: >
+      cd refs/repos/annevo-2026 && python annotation.py -g {genome} -m
+      saved_model/ANNEVO_Magnoliopsida.pt -l Magnoliopsida -o {prediction}
+      --batch_size 32 -t ${SLURM_CPUS_PER_TASK:-16} --show_log
+  tiberius_angiosperms:
+    status: config_present_weight_download_on_first_run
+    env: coding-rna
+    repo: refs/repos/tiberius-2024
+    sif: refs/repos/tiberius-2024/singularity/tiberius_2.0.5.sif
+    model_cfg: refs/repos/tiberius-2024/model_cfg/angiosperms.yaml
+    command_template: >
+      python refs/repos/tiberius-2024/tiberius.py --singularity --genome
+      {genome} --model_cfg angiosperms --out {prediction} --batch_size 4
+      --id_prefix {species}_
+  helixer_land_plant:
+    status: ready_local_weight
+    env: coding-rna_container
+    sif: refs/containers/helixer-docker_latest.sif
+    model_dir: refs/weights/helixer-2025/land_plant
+    preferred_weight: refs/weights/helixer-2025/land_plant/land_plant_v0.3_m_0100.h5
+    preferred_weight_sha256: 5de6a6ffb81e23e8e8779e58be5aab4df8e7646594f6831ca87693860671efcf
+    download_url: https://zenodo.org/records/10836346/files/land_plant_v0.3_m_0100.h5?download=1
+    subsequence_length: 64152
+    command_template: >
+      apptainer run --nv refs/containers/helixer-docker_latest.sif Helixer.py
+      --lineage land_plant --model-filepath
+      refs/weights/helixer-2025/land_plant/land_plant_v0.3_m_0100.h5
+      --subsequence-length 64152 --fasta-path {genome} --species {species}
+      --temporary-dir {tmp} --batch-size 16 --gff-output-path {prediction}
+outputs:
+  root: outputs/M12B-SAMEPANEL-BASELINES
+  availability: reports/M12B-SAMEPANEL-BASELINES.availability.json
+  prediction_template: outputs/M12B-SAMEPANEL-BASELINES/predictions/{baseline}/{species}.gff
+  metrics_template: outputs/M12B-SAMEPANEL-BASELINES/metrics/{baseline}/{species}.metrics.json
+blockers:
+  - Tiberius angiosperms config points to remote weights and may download on first run; cache/version must be recorded.
+  - M9-L12 fixed-model comparator depends on M12A outputs.

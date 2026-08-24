@@ -1,0 +1,59 @@
+exp_id: M12C-GENERANNO-FAIR-CHALLENGER-SMOKE
+profile: smoke
+purpose: >
+  Bounded smoke for the M12C fair GENERanno challenger. It verifies that both the
+  official 1.2B CDS annotator preview and the unadjusted 0.5B base model can run
+  through the same 3-class intron-aware head/evaluator before any full screen.
+claim_status: non_claim_smoke
+panel_contract: configs/m12_publication_panel.yaml
+trainer: src.foundation_probe.train_generanno_lora_3class
+species:
+  smoke:
+    - data/m1_screen/arabidopsis_thaliana
+arms:
+  - arm_id: generanno_1p2b_cds_preview
+    exp_id: M12C-GENERANNO-1P2B-CDS-SMOKE
+    model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+    model_task: token_classification
+    window: 6144
+    expected_k: 6
+    batch_size: 1
+    predict_batch: 1
+  - arm_id: generanno_0p5b_base
+    exp_id: M12C-GENERANNO-0P5B-BASE-SMOKE
+    model_name: GenerTeam/GENERanno-eukaryote-0.5b-base
+    model_task: masked_lm
+    window: 1024
+    expected_k: 1
+    batch_size: 1
+    predict_batch: 1
+shared_config:
+  sample_fraction: 0.1
+  epochs: 1
+  patience: 1
+  lr: 8.0e-4
+  lora_lr: 2.0e-5
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: q_proj,k_proj,v_proj,o_proj
+  attn_implementation: sdpa
+  bf16: true
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  postproc: constrained
+  min_cds_len: 60
+  max_fill_gap: 20
+smoke_limits:
+  limit_train_windows: 8
+  limit_val_windows: 4
+  limit_test_seqids: 1
+stop_criteria_for_later_screen:
+  - intergenic_FPR_gt_0_02_after_fair_screen
+  - gene_count_ratio_gt_1_25_after_fair_screen
+  - gene_body_nc_or_intron_proxy_class_unlearned_on_validation
+outputs:
+  root_template: outputs/{exp_id}
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json

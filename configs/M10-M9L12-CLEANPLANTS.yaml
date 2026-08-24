@@ -1,0 +1,35 @@
+exp_id: M10-M9L12-CLEANPLANTS
+profile: screen
+purpose: >
+  Multi-seed clean-plant validation of the M9 best arm: NT-v2 500m with top-12
+  layers unfrozen, 3-class FP-aware head, constrained post-processing.
+claim_status: non_claim_screen
+species:
+  - data/m1_screen/arabidopsis_thaliana
+  - data/m1_screen/oryza_sativa
+seeds: [0, 1, 2]
+trainer: src.foundation_probe.train_unfreeze_backbone
+config:
+  unfreeze_layers: 12
+  window: 2046
+  sample_fraction: 0.3
+  epochs: 4
+  patience: 2
+  batch_size: 4
+  lr: 1.0e-3
+  backbone_lr: 1.0e-5
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  postproc: constrained
+  min_cds_len: 60
+  max_fill_gap: 20
+  predict_batch: 8
+outputs:
+  root_template: outputs/M10-M9L12-CLEANPLANTS-s{seed}
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+notes:
+  - Uses chromosome/seqid-aware deterministic splits inside src.screen_anchor.data.assign_splits.
+  - Aggregates arabidopsis and rice with base-weighted primary plus macro species metrics.
+  - This is screen evidence only; ACTIVE_GOAL remains draft until published SOTA is frozen.

@@ -1,0 +1,86 @@
+{
+  "species_key": "arabidopsis_lyrata",
+  "species_name": "Arabidopsis lyrata subsp. lyrata",
+  "accession": "GCF_000004255.2",
+  "assembly_name": "v.1.0",
+  "annotation_release": "NCBI Arabidopsis lyrata subsp. lyrata Annotation Release 101",
+  "ftp": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/004/255/GCF_000004255.2_v.1.0",
+  "status": "downloaded_prepared_frozen_for_m13_diagnostic",
+  "selection_rationale": [
+    "closest available RefSeq Arabidopsis-relative candidate among checked Brassicaceae options",
+    "directly tests whether Arabidopsis-trained fixed model transfers to a near relative",
+    "uses top 8 large primary scaffolds to reduce tiny-scaffold noise while keeping screen cost bounded"
+  ],
+  "caveats": [
+    "assembly_level=Scaffold, not chromosome; use for diagnostic only, not final clean claim",
+    "do not tune decode/calibration on this species test labels",
+    "Brassica rapa GCF_000309985.2 remains chromosome-level backup if scaffold caveat dominates"
+  ],
+  "paths": {
+    "genome_fasta": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/data/m1_screen/arabidopsis_lyrata/genome.fa",
+    "reference_gff3": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/data/m1_screen/arabidopsis_lyrata/reference.gff3",
+    "full_genome_fasta": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/data/m1_screen/arabidopsis_lyrata/genome.full.fa",
+    "full_reference_gff3": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/data/m1_screen/arabidopsis_lyrata/reference.full.gff3"
+  },
+  "subset_rule": {
+    "keep_seqids": [
+      "NW_003302555.1",
+      "NW_003302554.1",
+      "NW_003302553.1",
+      "NW_003302552.1",
+      "NW_003302551.1",
+      "NW_003302550.1",
+      "NW_003302549.1",
+      "NW_003302548.1"
+    ],
+    "total_bp": 194182311,
+    "seq_lengths": {
+      "NW_003302555.1": 33132539,
+      "NW_003302554.1": 19320864,
+      "NW_003302553.1": 24464547,
+      "NW_003302552.1": 23328337,
+      "NW_003302551.1": 21221946,
+      "NW_003302550.1": 25113588,
+      "NW_003302549.1": 24649197,
+      "NW_003302548.1": 22951293
+    },
+    "reason": "top eight large primary scaffolds from assembly report; expected A. lyrata chromosome count is eight"
+  },
+  "class_fractions": {
+    "intergenic": 0.5864953631126576,
+    "CDS": 0.18510778770163056,
+    "gene_body_nc": 0.22839684918571188
+  },
+  "annotation_density": {
+    "exon_bases": 52793829,
+    "cds_union_bases": 35944658,
+    "utr_bases_est": 16849171,
+    "utr_frac_of_exon": 0.31915038782278893
+  },
+  "split": {
+    "splits": {
+      "NW_003302548.1": "train",
+      "NW_003302549.1": "train",
+      "NW_003302550.1": "train",
+      "NW_003302551.1": "val",
+      "NW_003302552.1": "test",
+      "NW_003302553.1": "train",
+      "NW_003302554.1": "train",
+      "NW_003302555.1": "train"
+    },
+    "split_counts": {
+      "train": 6,
+      "val": 1,
+      "test": 1
+    }
+  },
+  "checksums": {
+    "genome_fasta_sha256": "9e6c3a74d729e2b8d267fdba77bf74d7c0fc6335c6c15d287d9508c8b67957cd",
+    "reference_gff3_sha256": "1b181a71222b0fcc437ef684f5f737365212f446f964838dedc0c33e2122b44a",
+    "full_genome_fasta_sha256": "5f6b7b6bab223eeb349b2aaf753dc03b805b2ac0018b6d2b52011fd8d0546340",
+    "full_reference_gff3_sha256": "d8e60f85ef791b5b3732c9d6179eb301c31728b3c39622c73bbcca5c108670e9",
+    "raw_genomic_fna_gz_sha256": "2ff53c7b052e69b374c03e9a87983eb9f677737ab118ba2f4d61b0ba05f7faa5",
+    "raw_genomic_gff_gz_sha256": "1aab0db0d78c0b903c62a7d2a274e1010553ddc1388683439b23fb6e4f74df29",
+    "assembly_report_sha256": "6e9257ef77264816d0b4127475b86365048fb5ac4af47902398a1776f314d180"
+  }
+}

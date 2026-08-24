@@ -1,0 +1,60 @@
+exp_id: M23-NTV2-CLEAN-TRANSFER
+profile: screen
+purpose: >
+  Clean-provenance NT-v2 transfer-learning screen after M22 negative. Reuse the
+  proven M10/M11 NT-v2 L12 3-class setup, but run a single seed without raw-score
+  calibration, CRF, or M22 gb_tversky objective. This tests whether the public
+  clean-provenance backbone route is still the right claim-facing direction after
+  GENERanno objective/decoder screens failed.
+claim_status: non_claim_screen
+provenance:
+  backbone: InstaDeepAI/nucleotide-transformer-v2-500m-multi-species
+  public_overlap_status: clean_plants_excluded_from_ntv2
+  panel: clean_plant_ntv2_panel_v0_1
+  evidence:
+    - configs/m12_publication_panel.yaml
+    - reports/M21-CLEAN-BACKBONE-PROVENANCE-SCOUT/summary.json
+species:
+  - data/m1_screen/arabidopsis_thaliana
+  - data/m1_screen/oryza_sativa
+seeds: [0]
+trainer: src.foundation_probe.train_unfreeze_backbone
+config:
+  unfreeze_layers: 12
+  window: 2046
+  sample_fraction: 0.3
+  epochs: 4
+  patience: 2
+  batch_size: 4
+  lr: 1.0e-3
+  backbone_lr: 1.0e-5
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  postproc: constrained
+  min_cds_len: 60
+  max_fill_gap: 20
+  predict_batch: 8
+forbidden_continuations:
+  - M22 gb_tversky objective
+  - trained CRF decoder
+  - validation/test raw-score decode calibration
+outputs:
+  root: outputs/M23-NTV2-CLEAN-TRANSFER-s0
+  metrics: metrics/metrics.json
+  validate: metrics/validate_goal.json
+decision_readout:
+  compare_against:
+    - M10-M9L12-CLEANPLANTS-s0 direct non-calibrated NT-v2 route
+    - M11-L12-SPEC-CALIBRATION calibrated NT-v2 route, as context only
+    - M19-GENERANNO-1P2B-RAWCAL-CLEANPLANTS best adapted GENERanno route
+    - M22-GENERANNO-1P2B-NONCRF-GBTVERSKY-s0 negative objective screen
+  promotion_hint: >
+    If M23 matches M10 direct non-calibrated behavior, treat it as clean
+    provenance evidence but still FPR-limited. If it unexpectedly approaches
+    hard FPR <= 0.01 without calibration while keeping gbF1 competitive, reopen
+    NT-v2 as the primary claim route.
+notes:
+  - Screen only; no SOTA claim from this run.
+  - Uses chromosome/seqid-aware deterministic splits and CDS-span evaluator.
+  - Does not save raw scores, so no calibration branch can be accidentally selected.

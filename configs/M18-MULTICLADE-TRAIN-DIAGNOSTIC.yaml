@@ -1,0 +1,83 @@
+exp_id: M18-MULTICLADE-TRAIN-DIAGNOSTIC
+profile: screen
+purpose: >
+  Non-claim diagnostic for the user's question whether broader training species
+  coverage, rather than only better single-species tuning, is the missing axis.
+  Train/calibrate one fixed NT-v2 L12 model on plants plus one animal, then test
+  close plant transfer, a held-out vertebrate, and a distant fungus under the
+  same validation-only decode calibration protocol.
+claim_status: non_claim_diagnostic_only
+relationship_to_m16: >
+  M16 trains on Arabidopsis + rice and tests A. lyrata, gallus, and drosophila.
+  M18 adds drosophila to the train/calibration pool and replaces drosophila test
+  with saccharomyces, asking whether a more cross-clade training panel improves
+  fixed-model deployment without test-label calibration.
+species:
+  train:
+    - arabidopsis_thaliana
+    - oryza_sativa
+    - drosophila_melanogaster
+  calibrate:
+    - arabidopsis_thaliana
+    - oryza_sativa
+    - drosophila_melanogaster
+  test:
+    - arabidopsis_lyrata
+    - gallus_gallus
+    - saccharomyces_cerevisiae
+paths:
+  arabidopsis_thaliana: data/m1_screen/arabidopsis_thaliana
+  oryza_sativa: data/m1_screen/oryza_sativa
+  drosophila_melanogaster: data/m1_screen/drosophila_melanogaster
+  arabidopsis_lyrata: data/m1_screen/arabidopsis_lyrata
+  gallus_gallus: data/m1_screen/gallus_gallus
+  saccharomyces_cerevisiae: data/m1_screen/saccharomyces_cerevisiae
+seed: 0
+trainer: src.foundation_probe.train_unfreeze_backbone
+calibrator: scripts/experiments/M11-L12-SPEC-CALIBRATION/calibrate_decode.py
+config:
+  unfreeze_layers: 12
+  window: 2046
+  sample_fraction: 0.25
+  limit_train_windows: 8192
+  limit_val_windows: 4096
+  epochs: 4
+  patience: 2
+  batch_size: 4
+  lr: 1.0e-3
+  backbone_lr: 1.0e-5
+  class_weighting: sqrt_inv
+  loss: fp_aware
+  fp_lambda: 1.0
+  save_raw_scores: true
+  split_species_policy:
+    train_species_names: [arabidopsis_thaliana, oryza_sativa, drosophila_melanogaster]
+    val_species_names: [arabidopsis_thaliana, oryza_sativa, drosophila_melanogaster]
+    test_species_names: [arabidopsis_lyrata, gallus_gallus, saccharomyces_cerevisiae]
+  calibration:
+    val_species: [arabidopsis_thaliana, oryza_sativa, drosophila_melanogaster]
+    test_species: [arabidopsis_lyrata, gallus_gallus, saccharomyces_cerevisiae]
+    intergenic_biases: [0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    min_cds_lens: [60, 90, 120]
+    max_fill_gaps: [0, 20]
+    target_fpr: 0.01
+    min_gbf1: 0.50
+    max_gene_count_ratio: 1.25
+caveats:
+  - Diagnostic-only: Drosophila and Gallus have known pretraining-overlap caveats for NT-v2-style evidence, so this is not clean final-claim evidence.
+  - This asks whether broader supervised species coverage helps; it does not freeze the publication benchmark or solve SOTA comparability by itself.
+  - Saccharomyces is a distant compact genome and may behave differently from metazoan/plant annotation.
+outputs:
+  root: outputs/M18-MULTICLADE-TRAIN-DIAGNOSTIC-s0
+  metrics: metrics/metrics.json
+  calibration: calibration/selected.json
+interpretation:
+  improves_animals_and_fungus_vs_m16: >
+    Species-diverse training is a credible mainline axis; next step should be a
+    larger clade-balanced fixed-model train panel plus clean held-out species.
+  improves_only_seen_lineages: >
+    The model benefits from including related training domains but is not yet a
+    universal ab initio annotator; paper framing should be clade-aware/adaptive.
+  no_improvement: >
+    More species at this scale is insufficient; move priority to architecture
+    changes or pretrained gene-caller backbones rather than just adding species.
