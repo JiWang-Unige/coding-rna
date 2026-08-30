@@ -1,0 +1,185 @@
+exp_id: M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0
+profile: discovery
+status: approved_by_chatgpt_pro
+seed: 0
+fits: 1
+
+data:
+  development_species:
+    - data/m1_screen/arabidopsis_thaliana
+    - data/m1_screen/oryza_sativa
+  train_split: train
+  validation_split: val
+  primary_transcript: longest_total_cds
+  primary_transcript_tie_break: transcript_id_lexicographic
+  mask_partial_or_ambiguous_from_structure_loss: true
+  scope: primary_nuclear_chromosomes_only
+  primary_chromosome_seqids:
+    arabidopsis_thaliana: [NC_003070.9, NC_003071.7, NC_003074.8, NC_003075.7, NC_003076.8]
+    oryza_sativa: [NC_089041.1, NC_089042.1, NC_089043.1, NC_089044.1, NC_089046.1]
+    setaria_viridis: [NC_048263.2, NC_048264.2, NC_048265.2, NC_048266.2, NC_048267.2, NC_048268.2, NC_048269.2, NC_048270.2, NC_048271.2]
+  excluded_from_m25: [chloroplast, mitochondrion, unplaced_scaffold]
+  setaria:
+    species: Setaria viridis
+    assembly_accession: GCF_005286985.2
+    assembly_name: Setaria_viridis_v4.0
+    annotation_release: RS_2025_03
+    fasta: data/m25_setaria/GCF_005286985.2/genome.fa
+    reference_annotation: null
+    reference_annotation_source: null
+
+model:
+  model_name: GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview
+  model_task: token_classification
+  tokenizer: official_6mer
+  window_bp: 6144
+  nucleotide_channels: [A, C, G, T, N]
+  region_classes: [intergenic, CDS, gene_body_non_CDS]
+  boundary_heads: [start, stop, donor, acceptor]
+  phase_classes: [none, 0, 1, 2]
+  strand_inference: forward_and_reverse_complement
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  targets: [q_proj, k_proj, v_proj, o_proj]
+
+training:
+  epochs: 3
+  save_epoch_checkpoints: [1, 2, 3]
+  early_stopping: false
+  sample_fraction: 0.12
+  train_window_cap: 1536
+  validation_window_cap: 768
+  batch_size: 1
+  prediction_batch_size: 1
+  head_learning_rate: 8.0e-4
+  lora_learning_rate: 2.0e-5
+  bf16: true
+  seed: 0
+  orientation_targets:
+    forward: plus_strand_only
+    reverse_complement: minus_strand_only_mapped_to_orientation
+
+loss:
+  region:
+    name: fp_aware
+    fp_lambda: 2.5
+  boundary:
+    coefficient: 2.0
+    name: focal
+    gamma: 2.0
+    class_balance: train_set_per_boundary_type
+    positive_weight: N_negative/(N_positive+N_negative)
+    negative_weight: N_positive/(N_positive+N_negative)
+  phase:
+    coefficient: 0.5
+    name: cross_entropy
+    evaluate_on: CDS_labelled_bases
+    class_balance: inverse_sqrt_phase_0_1_2
+    include_none_in_reduction: false
+
+decode:
+  validation_pool: [arabidopsis_thaliana, oryza_sativa]
+  checkpoint_order: [1, 2, 3]
+  genic_probability_thresholds: [0.40, 0.50, 0.60]
+  boundary_probability_thresholds:
+    start: [0.10, 0.20, 0.30, 0.40, 0.50]
+    stop: [0.10, 0.20, 0.30, 0.40, 0.50]
+    donor: [0.10, 0.20, 0.30, 0.40, 0.50]
+    acceptor: [0.10, 0.20, 0.30, 0.40, 0.50]
+  snapping_radius_bp: 6
+  splice_motif: GT-AG
+  emit_complete_unique_primary_models_only: true
+  region_states:
+    intergenic: I
+    CDS: C
+    gene_body_non_CDS: G
+  state_rule: I_if_1_minus_P_intergenic_below_genic_threshold_else_C_if_P_CDS_gte_P_gene_body_non_CDS_else_G
+  transitions:
+    I_to_C: [start]
+    G_to_C: [start, acceptor]
+    C_to_G: [stop, donor]
+    C_to_I: [stop]
+    I_to_G: []
+    G_to_I: []
+  single_exon_path: I_to_C_to_I
+  UTR_paths: [I_to_G_to_C, C_to_G_to_I]
+  selection:
+    maximize: pooled_validation_exact_CDS_chain_F1
+    constraints:
+      intergenic_FPR_max: 0.020
+      gene_count_ratio: [0.80, 1.20]
+      structurally_valid_complete_transcript_fraction_min: 0.99
+    tie_break:
+      - higher_exact_CDS_interval_F1
+      - lower_intergenic_FPR
+      - fixed_checkpoint_and_threshold_enumeration_order
+    no_valid_tuple_status: STOP_M25_BRANCH
+  ablation:
+    checkpoint: same_selected_checkpoint
+    learned_boundary_and_phase_scores: ignored
+    learned_boundary_threshold_checks: bypassed
+    boundary_choice: nearest_motif_valid_then_smallest_genomic_coordinate
+    phase_source: decoded_CDS_lengths
+
+embargo:
+  forbid_before_release:
+    species_tokens: [setaria, viridis, GCF_005286985, Setaria_viridis_v4.0]
+    annotation_extensions: [.gff, .gff3, .gtf, .gbff, .gff.gz, .gff3.gz, .gtf.gz, .gbff.gz]
+  trainer_setaria_input: fasta_only
+  release_marker: outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/SETARIA_EMBARGO_RELEASED.json
+  release_requires_sha256:
+    - config_resolved
+    - primary_chromosome_allowlist
+    - checkpoint
+    - validation_decode_selection
+    - genome_fasta
+    - full_prediction_gff3
+    - ablation_prediction_gff3
+
+outputs:
+  root: outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0
+  resolved_config: config_resolved.yaml
+  primary_chromosome_allowlist: primary_chromosome_allowlist.json
+  train_summary: train_summary.json
+  validation_decode_parameters: validation_decode_parameters.json
+  validation_grid_diagnostics: validation_grid_diagnostics.json
+  selected_checkpoint: checkpoints/selected_checkpoint.pt
+  setaria_raw_scores: raw_scores/
+  full_prediction: predictions/setaria_viridis.full.gff3
+  ablation_prediction: predictions/setaria_viridis.ablation.gff3
+  embargo_release_marker: SETARIA_EMBARGO_RELEASED.json
+  structure_metrics: metrics/setaria_viridis.structure_metrics.json
+  status: STATUS
+
+success_gate:
+  exact_CDS_interval_F1_min: 0.80
+  exact_CDS_chain_F1_min: 0.55
+  exact_coding_gene_F1_min: 0.50
+  matched_gene_strand_accuracy_min: 0.98
+  exact_matched_CDS_phase_accuracy_min: 0.90
+  structurally_valid_complete_transcript_fraction_min: 0.99
+  intergenic_FPR_max: 0.020
+  gene_count_ratio: [0.80, 1.20]
+  full_minus_ablation_exact_interval_F1_min: 0.10
+  full_minus_ablation_exact_chain_F1_min: 0.10
+  full_minus_ablation_FPR_max: 0.005
+
+immediate_stop_gate:
+  annotation_embargo_violation: true
+  placeholder_strand_or_phase: true
+  structurally_valid_complete_transcript_fraction_below: 0.95
+  exact_CDS_interval_F1_below: 0.60
+  exact_CDS_chain_F1_below: 0.30
+  exact_coding_gene_F1_below: 0.25
+  intergenic_FPR_above: 0.030
+  gene_count_ratio_outside: [0.50, 1.50]
+  exact_interval_ablation_gain_below: 0.10
+  exact_chain_ablation_gain_below: 0.10
+
+caveats:
+  - GENERanno training-species and accession overlap remains unknown.
+  - This is a coding-structure MVP, not full transcript annotation.
+  - The first run uses canonical GT-AG splicing and fixed 6144-bp windows.

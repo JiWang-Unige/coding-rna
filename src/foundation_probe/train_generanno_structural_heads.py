@@ -494,6 +494,11 @@ def predictions_flat(predictions):
     return [model for models in predictions.values() for model in models]
 
 
+def _masked_mean_or_zero(values, mask):
+    selected = values[mask]
+    return selected.mean() if selected.numel() else values.sum() * 0.0
+
+
 def _map_model_from_orientation(model, sequence_length, strand):
     mapped = dict(model)
     if strand == "+":
@@ -757,7 +762,7 @@ def main():
         positive = -boundary_positive_weight * boundary * (1.0 - probability).pow(2) * F.logsigmoid(boundary_logits)
         negative = -boundary_negative_weight * (1.0 - boundary) * probability.pow(2) * F.logsigmoid(-boundary_logits)
         mask = structural_mask.unsqueeze(-1).expand_as(boundary)
-        boundary_loss = (positive + negative)[mask].mean()
+        boundary_loss = _masked_mean_or_zero(positive + negative, mask)
         phase_mask = structural_mask & (phase > 0)
         phase_loss = (
             F.cross_entropy(phase_logits[phase_mask], phase[phase_mask], weight=phase_ce_weight)
@@ -769,7 +774,7 @@ def main():
     if args.development_smoke:
         smoke_index = next(
             index for index, example in enumerate(train_dataset.examples)
-            if example[2].sum() and (example[3] > 0).any()
+            if not example[4].any()
         )
         batch = _collate([train_dataset[smoke_index]])
         ids, attention, nucleotide, region, boundary, phase, structural_mask = [value.to(device) for value in batch]
@@ -785,6 +790,7 @@ def main():
         torch.save({"heads": heads.state_dict()}, checkpoint_path)
         _save_json(os.path.join(args.out_dir, "development_smoke.json"), {
             "loss": float(loss.item()),
+            "structural_valid_count": int(structural_mask.sum().item()),
             "train_window": args.window,
             "setaria_inference_run": False,
         })
@@ -853,18 +859,26 @@ def main():
 
     best = None
     epoch_rows = []
+    validation_grid_rows = []
     enumeration_order = 0
     for epoch in range(1, 4):
         heads.train()
         backbone.train()
         total_loss = 0.0
         started = time.time()
-        for batch in train_loader:
+        for batch_index, batch in enumerate(train_loader):
             ids, attention, nucleotide, region, boundary, phase, structural_mask = [value.to(device) for value in batch]
             optimizer.zero_grad(set_to_none=True)
             with torch.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=use_amp):
                 outputs = forward(ids, attention, nucleotide)
                 loss = loss_value(*outputs, region, boundary, phase, structural_mask)
+            if not torch.isfinite(loss):
+                raise FloatingPointError(
+                    f"non-finite loss epoch={epoch} batch={batch_index} "
+                    f"region_bases={region.numel()} structural_valid={int(structural_mask.sum().item())} "
+                    f"boundary_positive={int(boundary.sum().item())} "
+                    f"phase_valid={int(((phase > 0) & structural_mask).sum().item())}"
+                )
             loss.backward()
             optimizer.step()
             total_loss += float(loss.item())
@@ -892,11 +906,31 @@ def main():
                     key: _filter_models(models, boundary_thresholds) for key, models in candidates.items()
                 }
                 metrics = _validation_metrics(predictions, validation_references, validation_lengths)
-                valid = (
-                    metrics["intergenic_FPR"] <= 0.020
-                    and 0.80 <= metrics["gene_count_ratio"] <= 1.20
-                    and metrics["structurally_valid_complete_fraction"] >= 0.99
+                constraints = {
+                    "intergenic_FPR": metrics["intergenic_FPR"] <= 0.020,
+                    "gene_count_ratio": 0.80 <= metrics["gene_count_ratio"] <= 1.20,
+                    "structurally_valid_complete_fraction": (
+                        metrics["structurally_valid_complete_fraction"] >= 0.99
+                    ),
+                }
+                valid = all(constraints.values())
+                rank = (
+                    metrics["exact_CDS_chain_F1"],
+                    metrics["exact_CDS_interval_F1"],
+                    -metrics["intergenic_FPR"],
+                    -enumeration_order,
                 )
+                validation_grid_rows.append({
+                    "epoch": epoch,
+                    "checkpoint": checkpoint_path,
+                    "region": region_threshold,
+                    **boundary_thresholds,
+                    "metrics": metrics,
+                    "constraints": constraints,
+                    "admissible": valid,
+                    "rank": list(rank),
+                    "enumeration_order": enumeration_order,
+                })
                 if not valid:
                     continue
                 row = {
@@ -907,14 +941,13 @@ def main():
                     "enumeration_order": enumeration_order,
                     "checkpoint": checkpoint_path,
                 }
-                rank = (
-                    metrics["exact_CDS_chain_F1"],
-                    metrics["exact_CDS_interval_F1"],
-                    -metrics["intergenic_FPR"],
-                    -enumeration_order,
-                )
                 if best is None or rank > best[0]:
                     best = (rank, row)
+
+    _save_json(os.path.join(args.out_dir, "validation_grid_diagnostics.json"), {
+        "selection_rule": "chain_F1; interval_F1; lower_FPR; enumeration_order",
+        "rows": validation_grid_rows,
+    })
 
     summary = {
         "experiment_id": args.exp_id,

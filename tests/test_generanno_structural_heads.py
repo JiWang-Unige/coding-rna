@@ -4,6 +4,8 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import torch
+import torch.nn.functional as F
 
 
 ROOT = Path(__file__).parents[1]
@@ -83,6 +85,32 @@ def test_primary_chromosome_allowlist_is_exact():
         assert "absent from FASTA" in str(error)
     else:
         raise AssertionError("missing primary chromosome was accepted")
+
+
+def test_empty_structural_mask_keeps_region_training_finite():
+    region_logits = torch.nn.Parameter(torch.zeros((1, 4, 3)))
+    boundary_logits = torch.nn.Parameter(torch.zeros((1, 4, 4)))
+    optimizer = torch.optim.SGD((region_logits, boundary_logits), lr=0.1)
+    region = torch.tensor([[0, 1, 2, 1]])
+    structural_mask = torch.zeros((1, 4), dtype=torch.bool)
+    boundary_per_position = boundary_logits.square()
+
+    region_loss = F.cross_entropy(region_logits.reshape(-1, 3), region.reshape(-1))
+    boundary_loss = M25._masked_mean_or_zero(
+        boundary_per_position, structural_mask.unsqueeze(-1).expand_as(boundary_logits)
+    )
+    total_loss = region_loss + boundary_loss
+
+    assert torch.isfinite(total_loss)
+    assert boundary_loss.item() == 0.0
+    optimizer.zero_grad(set_to_none=True)
+    total_loss.backward()
+    assert region_logits.grad is not None
+    assert torch.isfinite(region_logits.grad).all()
+    assert region_logits.grad.abs().sum() > 0
+    optimizer.step()
+    assert torch.isfinite(region_logits).all()
+    assert torch.isfinite(boundary_logits).all()
 
 
 def test_frozen_region_states_and_transition_candidates():
