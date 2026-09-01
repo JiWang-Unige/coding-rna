@@ -1,6 +1,6 @@
-# End-to-end technical roadmap — draft for ChatGPT Pro review
+# End-to-end technical roadmap — Pro-reviewed 2026-09-01
 
-Status: planning only. No experiment is authorized by this document.
+Status: reviewed decision contract. This document does not authorize an experiment or a Slurm submission. The sole scientifically admissible next analysis is Stage 1; its implementation and execution still require an explicit follow-up decision.
 
 ## Target outcome
 
@@ -27,32 +27,60 @@ Current state: complete.
 
 Experiment/analysis ID: `M25R-DEV-REDECODE-ERROR-DECOMPOSITION`.
 
-Use the three existing M25R checkpoints and Arabidopsis/rice development data only. For each checkpoint and selected representative decoder tuples:
+Use only the three existing M25R checkpoints, the original Arabidopsis/rice development primary nuclear chromosomes, the original validation grid and the complete set of training examples actually used by M25R. That training set is deterministically defined by the frozen config, seed, split, allowlist and sampling order; its observed size is `1,536`, but Stage 1 must not create a new sampled subset. No Setaria file, including FASTA, is needed or allowed.
 
-1. reproduce the frozen interval F1, chain F1, FPR and gene-count aggregates within absolute tolerance `1e-5`;
-2. record the number of reference coding genes surviving each stage: usable region emission, candidate region, oriented boundary candidates, legal chain, complete start/stop model, unique emitted model;
-3. assign each of the `6,450` pooled reference chains exactly once to its earliest failure stage;
-4. maintain a corresponding ledger for all emitted predictions and reconcile every stage count with the final GFF3 count;
-5. measure raw score recall around true start, stop, donor and acceptor sites before decoder filtering;
-6. separate strand mistakes, phase mistakes, boundary-offset errors, chain split/merge errors, missing models and false-positive models;
-7. validate every emitted transcript independently for strand-consistent order, legal phase continuity, start/stop completeness, non-overlapping CDS ordering and expected splice grammar;
+For each epoch, replay exactly one tuple: the highest-ranked row for that epoch under the original validation-grid rank and tie-break. Do not re-rank epochs, search thresholds or create a new selected tuple. The global epoch-1 row must reproduce interval F1 `0.1204141`, chain F1 `0.3249883`, FPR `0.0124683` and count ratio `0.3252713`.
+
+Define two reference views without changing the core denominator:
+
+- `R_all`: the exact `6,450` pooled development reference chains used by the frozen M25R evaluator;
+- `R_canonical`: the tagged subset representable by the frozen canonical start/stop and GT-AG decoder.
+
+All accounting uses `R_all`. Non-canonical chains remain visible as `unsupported_by_frozen_canonical_decoder`; they must not disappear from the denominator.
+
+The diagnostic must:
+
+1. reproduce interval F1, chain F1, FPR and gene-count ratio for all three replayed tuples within absolute tolerance `1e-5`;
+2. report train-versus-validation region metrics, start/stop/donor/acceptor AUCPR, exact/`±1`/`±3`/`±6` event recall, CDS-base phase accuracy and phase accuracy at decoded CDS starts;
+3. compute three fixed post-hoc upper bounds without altering any parameter: transition reachability within the decoder's frozen `±6 bp` radius, motif-candidate reachability under the frozen motif dictionary, and truth-assisted exact-chain recovery when an exact truth coordinate already exists in the frozen candidate set;
+4. trace attrition in the production order: region state path, non-intergenic block, ordered CDS runs, legal terminal transitions, start/stop motif candidates, ordered donor/acceptor candidates, learned boundary choice, phase check, complete-ORF/internal-stop check, frozen boundary-threshold filter and emitted GFF3;
+5. use deterministic same-chromosome/same-strand one-to-one matching so every reference chain enters exactly one earliest-failure category and every candidate lineage is reconciled with the final GFF3 count;
+6. report boundary offsets, strand and phase errors, split/fusion, missing and false-positive models, single-exon versus multi-exon strata, CDS-count strata, genes spanning more than `6,144 bp`, and events within `6 bp` of a production tile edge;
+7. independently check every emitted transcript for parent linkage, coordinates, strand, CDS order, phase continuity, start/stop completeness, in-frame ORF, internal stops and the declared splice grammar;
 8. stop for scientific review.
 
-Stage success means the diagnosis is internally reconciled, not that the model passes. Any aggregate mismatch, unassigned reference, double assignment or unexplained prediction-count difference blocks interpretation and must be fixed before proceeding.
+Development truth is permitted only for aggregate reproduction, diagnostics and upper bounds. It must not select a checkpoint, tuple, threshold, radius, motif dictionary, grammar rule or decoder. Oracle results are not model performance.
+
+Stage success means diagnostic integrity, not model success. It requires exact reference and prediction accounting, `100%` independent-validity audit coverage, unchanged weights/thresholds/decoder, and zero Setaria reads. If no transcript is emitted, report `n_emitted=0`, `n_checked=0`, `complete_empty_audit=true` and model validity fraction `not_applicable`; count and recall then carry the model failure. Any aggregate mismatch, unassigned or double-counted reference, unexplained candidate count or production-trace mismatch blocks interpretation.
+
+Stage 1 can localize a learned-emission/candidate, structural-head, data-generalization or frozen-decoder failure. It cannot by itself prove that the GENERanno backbone representation is intrinsically insufficient, because backbone, LoRA, heads, targets, loss and training budget remain coupled.
+
+### Threshold taxonomy
+
+| Rule | Status | Decision use |
+|---|---|---|
+| M25R validation FPR `<=0.020`, count `0.80–1.20` and the original validity gate | frozen historical M25R contract | explains why M25R stopped; not automatically inherited by a redesigned model |
+| Aggregate reproduction error `<=1e-5`; all `6,450` references and all candidates/predictions reconciled; validity audit coverage `100%`; no Setaria reads; no model or decoder change | hard Stage 1 integrity requirements | violation makes the diagnostic uninterpretable |
+| One stage explains `>=50%` of missing chains | operational attribution heuristic | permits the word `dominant`; below it, report a mixed failure |
+| Removing one stage has truth-assisted headroom `>=0.15` absolute | operational information-value heuristic | may justify proposing one discriminating experiment; it does not authorize it |
+| Development interval `>=0.60` and chain `>=0.50` | withdrawn first-round suggestion | not frozen; the next experiment's structural gate is set only after Stage 1 and same-range development baseline scoring |
+| Strongest baseline `+2` percentage points | publication-planning heuristic | useful target, not a journal requirement; a defensible Pareto advantage may substitute |
 
 ## Stage 2 — choose exactly one bottleneck branch
 
-The Stage 1 evidence determines the next branch. Do not blend branches in one experiment.
+Stage 1 ends before any branch is authorized. After independent review, re-score Helixer, Tiberius and ANNEVO on the exact same Arabidopsis/rice development chromosomes and evaluator. Use this paired comparison to freeze the exact-structure gate for one later branch experiment; never use baseline results to select a checkpoint, decoder or threshold.
 
 | Observed evidence | Interpretation | Minimal next branch | Stop condition |
 |---|---|---|---|
-| Low raw recall at true CDS/boundary sites before decoding | representation/emission bottleneck | Test one stronger structural representation: either longer-context/directly adapted SegmentNT or a revised GENERanno structural emission head, selected by Pro after reviewing the score upper bounds. | Stop if raw-event recall and exact-interval upper bound do not materially exceed M25R. |
-| Adequate raw event recall, but large loss at structural-head scoring | structural-supervision bottleneck | Change only the supervision/target formulation implicated by the diagnostic; retain backbone and decoder. | Stop if boundary/phase validation improves without recovering complete-gene count. |
-| Adequate emissions and head scores, but large loss in snapping/transitions/completeness/uniqueness | decoder bottleneck | Re-decode existing scores or make one minimal grammar/chain reconstruction correction; no backbone retraining first. | Stop if gene-count recovery requires FPR above the frozen limit or exact chains do not improve. |
-| Different failure profiles across Arabidopsis and rice after all internal stages are sound | data/domain bottleneck | Freeze a broader development panel or a clade-aware adaptation design; do not use Setaria labels. | Stop universal-model framing if gains require target-specific labels or thresholds. |
-| Multiple comparable losses with no dominant stage | mixed bottleneck | Choose the single stage with the largest recoverable exact-chain upper bound and test it first. | Stop if the intervention does not move the predicted bottleneck. |
+| Most chains disappear before usable region, CDS-run or transition candidates exist | learned-emission/candidate-generation bottleneck, not proven backbone failure | Propose one released SegmentNT native-long-context, fixed-context, development-only emission probe. Do not train or emit full GFF3. | Stop SegmentNT promotion if donor/acceptor and ordered splice-chain reachability do not improve consistently in both development species. |
+| Transition/motif reachability is high, but boundary/phase heads are weak on both train and validation | structural-head/supervision-fit bottleneck | Freeze backbone, LoRA and region head; propose one boundary/phase-head-only experiment. | Stop if the heads still cannot fit training targets or raw gains do not become exact structures. |
+| Train raw heads are strong but validation is weak | development data/distribution bottleneck | Propose one species-balanced fit with every other contract fixed. | Stop if only training metrics improve or one development species improves by collapsing the other. |
+| Raw candidates, phase and truth-assisted chain ceiling are high, but final emission is low | decoder/grammar bottleneck | Re-decode existing scores after changing only the single rule responsible for the largest attrition. | Stop if multiple rules are needed or the one change cannot realize its registered headroom without FPR/validity damage. |
+| No stage is dominant or no single stage has useful headroom | mixed bottleneck | Do not patch M25 incrementally; redesign the task representation and review again. | No automatic experiment. |
 
-SegmentNT is therefore conditional, not automatically the next mainline. The present 6-kb cache shows moderate exon/intron signal but weak rare-boundary signal. It becomes the next backbone only if Stage 1 shows that GENERanno emissions are the limiting factor and a longer-context SegmentNT extraction has a plausible structural upper bound. If Stage 1 shows decoder attrition despite adequate emissions, changing the backbone would not answer the causal question.
+The SegmentNT probe, if later approved, uses the same development chromosomes, transcript policy, event coordinates, one-to-one matching and upper-bound evaluator as GENERanno. It fixes one released native long-context setting, does not sweep context, does not fine-tune and reports only exon/intron and donor/acceptor emissions plus splice-event/chain reachability. It does not claim phase, start/stop, full CDS chains or complete gene models.
+
+The sequence is fixed: `Stage 1 -> review -> A/rice same-range baseline re-score -> freeze one branch gate -> consider one branch experiment`. Nothing after Stage 1 is automatic.
 
 ## Stage 3 — pre-register one development experiment
 
@@ -68,19 +96,19 @@ Before submission, freeze:
 - numeric success and stop conditions;
 - all files needed to reproduce the decision.
 
-At minimum, development admission must retain M25R's non-negotiable constraints: intergenic FPR `<=0.020`, predicted-gene-count ratio `0.80–1.20`, and independently measured structurally valid complete transcripts `>=0.99`. Pro must approve the exact structural improvement threshold before execution. A passing FPR with low complete-gene recovery is not success.
+Before a later branch is submitted, separately freeze (a) absolute usability guardrails for FPR, gene count and independent validity and (b) exact interval/chain/gene competitiveness targets informed by the paired development baselines. M25R's FPR `<=0.020`, count `0.80–1.20` and validity `>=0.99` are reasonable starting proposals, not automatically inherited law. A passing FPR with low complete-gene recovery is never success.
 
 ## Stage 4 — freeze the candidate before opening the blind test
 
 Only after a development candidate passes its registered gate:
 
-1. freeze the resolved config, model checkpoint, exact decoder parameters and chromosome allowlist;
-2. generate both full and unchanged-input/component-ablation Setaria predictions without reading Setaria annotation;
-3. freeze the complete prediction GFF3 files;
-4. record that no target-label choice occurred;
-5. release the Setaria annotation once for evaluation.
+1. freeze the candidate resolved config, model checkpoint, exact decoder parameters, chromosome allowlist and ablation;
+2. freeze Helixer, Tiberius and ANNEVO versions, weights and commands;
+3. generate candidate full/ablation and all baseline Setaria predictions from FASTA without reading Setaria annotation;
+4. record the Git commit, resolved configs, exact output paths and the absence of target-label choices;
+5. release the Setaria annotation once and score every frozen prediction with one evaluator.
 
-The registered discovery target remains:
+For historical clarity, the frozen M25/M25R Setaria discovery target was:
 
 - strand-aware exact CDS interval F1 `>=0.80`;
 - exact CDS-chain/transcript F1 `>=0.55`;
@@ -95,9 +123,11 @@ The registered discovery target remains:
 
 Failure ends that frozen branch. It does not authorize tuning on Setaria.
 
-## Stage 5 — run released callers under the identical blind contract
+A redesigned future branch must register its own blind gate before training, without consulting Setaria annotation. It may retain the historical gate, but any change must be justified from development evidence and same-range baselines rather than target labels.
 
-Run Helixer, Tiberius and ANNEVO on the same frozen Setaria primary chromosomes and score them with the same reference transcript policy and evaluator. Report:
+## Stage 5 — score released callers under the identical blind contract
+
+Use the Helixer, Tiberius and ANNEVO predictions generated before annotation release on the same frozen Setaria primary chromosomes. Score them with the same reference transcript policy and evaluator. Report:
 
 - exact strand-aware CDS interval precision/recall/F1;
 - exact CDS-chain/transcript and coding-gene precision/recall/F1;
@@ -113,7 +143,7 @@ Do not compare full-genome baseline numbers with subset candidate numbers. Do no
 If the one-fit candidate passes the blind gate:
 
 - run two additional training seeds, for three total;
-- freeze at least two additional held-out nuclear-genome species chosen before viewing their annotations for model selection;
+- plan a publication panel targeting at least six held-out nuclear-genome species in total, with accessions and scope frozen before their annotations are used for model selection;
 - keep one global decoder unless clade specialization is itself the registered method;
 - report per-species and macro metrics, chromosome-level uncertainty, gene-count behavior and failure strata;
 - distinguish same-clade transfer from broader eukaryotic transfer.
@@ -161,16 +191,10 @@ A credible submission package should contain:
 8. practical runtime/resource comparison and reproducible code/config release;
 9. transparent negative results and failure boundaries.
 
-The manuscript is **no-go** if the best model only improves coarse gene-body F1, if exact structures remain far below released callers, if gains require target-label tuning, or if the provenance prevents the intended transfer claim. A narrower adaptation/methods paper may still be viable, but it would be a different claim and possibly a different journal target.
+The manuscript is **no-go** if the best model only improves coarse gene-body F1, if exact structures remain far below released callers, if gains require target-label tuning, or if the provenance prevents the intended transfer claim. No fixed `+2 pp` margin is a journal rule: the central result must instead show a cross-species paired advantage with uncertainty support and no unacceptable FPR/count cost, or an equally strong pre-registered Pareto value such as lower false positives, better long-gene recovery, runtime or independently supported reference correction. A narrower adaptation/methods paper may still be viable, but it would be a different claim and possibly a different journal target.
 
-## Immediate decision requested from ChatGPT Pro
+## Review disposition
 
-Pro should review the repository evidence and return:
+ChatGPT Pro verified access to private commit `fe38a675f2d4a0e9349046c226a5679b850a82b0` and reviewed the frozen evidence in two rounds. The first round reconstructed M9-M25R and returned a Stage 1 go/no-go; the second round challenged unsupported thresholds, label use, upper-bound definitions, baseline timing and implementation scope. The resulting joint decision is recorded in `docs/30_chatgpt_pro_systematic_review_2026-09-01.md`.
 
-- a go/no-go on Stage 1 as the sole immediate action;
-- whether the proposed error ledger can distinguish representation, supervision and decoder failures;
-- the one next branch for each possible Stage 1 outcome;
-- exact success and stop criteria for the next development experiment;
-- whether the Setaria blind target and baseline protocol are sufficient;
-- what minimum extra evidence is required for a Nature Communications-level story;
-- which stages can be removed or simplified without weakening the claim.
+The review does not authorize Stage 1 execution, a baseline run, SegmentNT, training or external provenance contact. It freezes the questions and decision rules so a later implementation can remain minimal and auditable.
