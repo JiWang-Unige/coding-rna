@@ -2,6 +2,10 @@
 
 > 由 `/publication-plan`、`/generalization`、`/sota-randomized` 共同维护。用于回答“模型/流程为什么可靠，哪些下游任务必须做”。
 
+## 2026-09-01 superseding structural gate
+
+The tables below preserve the earlier coarse gene-body program. They are not the current promotion contract. M24 established that M19 exact CDS interval/chain performance is far below released callers, and M25R produced no development-admissible structural model because of severe complete-gene under-recovery. Current promotion requires strand-aware exact CDS interval, exact chain/transcript, coding-gene F1, strand, phase, independent structural validity, intergenic FPR, gene-count ratio and a frozen mechanistic ablation. See `docs/28_current_research_state_2026-09-01.md` and `docs/29_end_to_end_technical_roadmap_2026-09-01.md`.
+
 ## 1. Main result
 | Candidate | Dataset/split | Metric | Value | Comparator | Comparable? | Evidence path |
 |---|---|---|---:|---|---|---|

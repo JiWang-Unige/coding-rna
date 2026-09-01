@@ -2,6 +2,12 @@
 
 > 由 `/publication-plan` 维护。用于“已经有完整思路或已超越 SOTA，不是盲目迭代，而是把研究做成可投稿故事”的阶段。
 
+## 2026-09-01 superseding status
+
+The M12-era strategy below is retained as history, but its original broad fixed-caller claim is no longer current. M12–M17 showed that the NT-v2 route does not transfer as a universal fixed caller. M18/M19 established useful low-FPR GENERanno 1.2B adaptation, M24 showed that coarse gene-body quality does not translate into exact gene structures, and M25R stopped on development because complete-gene count is only `0.095–0.331x` reference across the frozen grid.
+
+The current paper route is a direct raw-FASTA structural annotator, with exact CDS intervals/chains/genes, strand, phase, validity, FPR and count evaluated together. The live state and staged Nature Communications route are in `docs/28_current_research_state_2026-09-01.md` and `docs/29_end_to_end_technical_roadmap_2026-09-01.md`. No manuscript-level performance claim is currently supported.
+
 ## 0. Target positioning
 - Target venue / journal tier: computational genomics / genome annotation method paper tier; exact venue pending after same-panel baseline evidence.
 - Backup venues: benchmark+method or resource+pipeline venues if full SOTA claim remains blocked by published-anchor comparability.

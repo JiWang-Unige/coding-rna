@@ -1,0 +1,100 @@
+{
+  "experiment_id": "M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0",
+  "slurm_job_id": "12116383",
+  "terminal_state": "COMPLETED",
+  "exit_code": "0:0",
+  "experiment_status": "STOP_M25_BRANCH",
+  "row_count": 5625,
+  "admissible_count": 0,
+  "constraint_pass_counts": {
+    "intergenic_FPR": 5625,
+    "gene_count_ratio": 0,
+    "recorded_structurally_valid_complete_fraction": 5625
+  },
+  "ranges": {
+    "exact_CDS_interval_F1": {
+      "min": 0.03509287561721138,
+      "max": 0.12057363485934916
+    },
+    "exact_CDS_chain_F1": {
+      "min": 0.12733446519524616,
+      "max": 0.3249883013570426
+    },
+    "intergenic_FPR": {
+      "min": 0.003030230931086319,
+      "max": 0.012663995201959764
+    },
+    "gene_count_ratio": {
+      "min": 0.09534883720930233,
+      "max": 0.33054263565891473
+    },
+    "recorded_structurally_valid_complete_fraction": {
+      "min": 1.0,
+      "max": 1.0,
+      "independent_measure": false
+    }
+  },
+  "best_ranked_non_admissible": {
+    "epoch": 1,
+    "region": 0.4,
+    "start": 0.5,
+    "stop": 0.5,
+    "donor": 0.1,
+    "acceptor": 0.1,
+    "enumeration_order": 601,
+    "metrics": {
+      "exact_CDS_chain_F1": 0.3249883013570426,
+      "exact_CDS_interval_F1": 0.12041407867494826,
+      "gene_count_ratio": 0.32527131782945734,
+      "intergenic_FPR": 0.012468286270247831,
+      "recorded_structurally_valid_complete_fraction": 1.0
+    }
+  },
+  "best_exact_interval_non_admissible": {
+    "epoch": 1,
+    "region": 0.4,
+    "start": 0.2,
+    "stop": 0.1,
+    "donor": 0.5,
+    "acceptor": 0.1,
+    "enumeration_order": 146,
+    "metrics": {
+      "exact_CDS_chain_F1": 0.3240848682676615,
+      "exact_CDS_interval_F1": 0.12057363485934916,
+      "gene_count_ratio": 0.32992248062015506,
+      "intergenic_FPR": 0.012662961982786627,
+      "recorded_structurally_valid_complete_fraction": 1.0
+    }
+  },
+  "best_ranked_by_epoch": [
+    {
+      "epoch": 1,
+      "exact_CDS_interval_F1": 0.12041407867494826,
+      "exact_CDS_chain_F1": 0.3249883013570426,
+      "intergenic_FPR": 0.012468286270247831,
+      "gene_count_ratio": 0.32527131782945734
+    },
+    {
+      "epoch": 2,
+      "exact_CDS_interval_F1": 0.07830221102073547,
+      "exact_CDS_chain_F1": 0.23774574049803407,
+      "intergenic_FPR": 0.0050773538189316115,
+      "gene_count_ratio": 0.18294573643410852
+    },
+    {
+      "epoch": 3,
+      "exact_CDS_interval_F1": 0.03826178809307239,
+      "exact_CDS_chain_F1": 0.14022762399887592,
+      "intergenic_FPR": 0.003415162474145484,
+      "gene_count_ratio": 0.10341085271317829
+    }
+  ],
+  "setaria_inference_run": false,
+  "setaria_annotation_accessed": false,
+  "selected_checkpoint_exists": false,
+  "validation_decode_parameters_exist": false,
+  "full_prediction_exists": false,
+  "ablation_prediction_exists": false,
+  "embargo_release_marker_exists": false,
+  "scientific_verdict": "valid_development_no_go_for_frozen_combined_contract"
+}

@@ -267,3 +267,15 @@ M21 full screen appeared silent for >1 hour because the trainer prints only afte
 ## Finding (Research/Decision) 2026-07-01 -- M23 clean NT-v2 direct transfer reproduces M10 and does not beat GENERanno adaptation
 
 `M23-NTV2-CLEAN-TRANSFER-s0` completed successfully with NT-v2 L12 + 3-class `fp_aware` + constrained postproc, no raw-score calibration, no CRF, and no M22 `gb_tversky`. Its metrics are exactly the historical `M10-M9L12-CLEANPLANTS-s0` values: gbF1 `0.8427`, FPR `0.01673`, macro specificity `0.98050`, gene_count_ratio `0.867`. This reconfirms NT-v2 as the clean-provenance plant backbone route, but direct transfer still fails hard FPR<=0.01 and is weaker than M19 GENERanno calibrated s1 (`gbF1=0.8815`, FPR `0.0065`). LESSON: do not spend more GPU on direct M10/M23-style NT-v2 seeds; a clean-provenance NT-v2 continuation needs a structural change or a claim-panel/comparability purpose.
+
+## Finding (Research) 2026-08-24 -- coarse gene-body performance does not imply exact gene structure
+
+M24 placed M19 candidates and released callers on identical Arabidopsis/rice held-out ranges. M19 exact CDS interval F1 is only `0.0531–0.1498` and coordinate pseudo-chain F1 `0.0082–0.0123`, whereas released callers reach exact interval `0.8117–0.8882` and chain `0.5850–0.7479`. M19's saved strand and phase are placeholders and cannot be treated as predictions. LESSON: gene-body F1 and FPR remain useful coarse diagnostics, but the publication mainline must now be judged by strand-aware exact intervals, complete chains/genes, phase and independently checked structural validity.
+
+## Finding (Research) 2026-08-31 -- M25R is a valid combined-system no-go dominated by complete-gene under-recovery
+
+M25R completed finite training and a complete `5,625`-tuple validation grid. All tuples satisfy FPR `<=0.020`, but all fail the `0.80–1.20` gene-count admission range; even the best-ranked tuple predicts only `0.3253x` the pooled reference chains. Exact interval/chain F1 peak at `0.1206/0.3250`, and complete-gene recovery worsens across epochs despite decreasing loss. LESSON: the immediate failure is not excess intergenic FP. The current combined representation, structural supervision and decoder loses most complete genes, but aggregate outputs do not yet identify which component is causal.
+
+## Finding (Research/Decision) 2026-08-31 -- diagnose existing M25R checkpoints before choosing GENERanno, SegmentNT or decoder work
+
+No M25R tuple was admissible, so there is no selected checkpoint, Setaria prediction, blind metric or ablation result. The annotation embargo remains intact. The next and only approved work is a development-only re-decode/error decomposition that reproduces frozen aggregates, assigns every reference chain to an earliest failure stage, reconciles prediction counts and independently validates each emitted structure. LESSON: do not retrain, promote SegmentNT, add seeds or tune decoder thresholds until this diagnostic distinguishes representation, supervision and decoding bottlenecks.

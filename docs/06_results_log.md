@@ -1699,3 +1699,21 @@ Relative to current useful references, M23 is worse than M19 GENERanno calibrate
 - Do not rerun more M23 direct-transfer seeds; this reproduces M10 s0 and does not change the frontier.
 - Run `$tri-review`/`$pivot` on the combined M22 negative + M23 clean-provenance NT-v2 result if deciding the next GPU route.
 - If staying on clean-provenance NT-v2, the next useful axis must be structurally different from direct M10/M23: objective/emission redesign, broader clean held-out panel, or claim-focused comparison, not M22 `gb_tversky`, CRF retuning, or raw-score calibration replay.
+
+## M24 direct-structure diagnostic — 2026-08-24
+
+M24 evaluated saved artifacts on identical Arabidopsis/rice held-out seqids. M19's coordinate candidates retain coarse coding signal but are not complete structural predictions: exact CDS interval F1 is `0.0531–0.1498`, coordinate pseudo-chain F1 is `0.0082–0.0123`, and strand/phase are unsupported placeholders. On the same ranges, ANNEVO, Helixer and Tiberius reach exact interval F1 `0.8117–0.8882` and exact chain F1 `0.5850–0.7479`.
+
+The existing SegmentNT 6-kb tiled feature cache has exon AUCPR `0.6569` in Arabidopsis and `0.5866` in rice, but donor/acceptor AUCPR only `0.0314–0.0443`. This is evidence about that cache extraction only, not a general rejection of SegmentNT or longer-context/directly adapted use.
+
+Primary report: `reports/M24-DIRECT-STRUCTURE-DIAGNOSTIC/report.md`.
+
+## M25 / M25R structural-head experiment — terminal 2026-08-31
+
+Initial M25 job `12094731` is implementation-invalid because four empty structural masks produced non-finite boundary-loss reductions. M25R repeated the frozen scientific experiment after the minimal repair.
+
+M25R job `12116383` completed `0:0` with finite three-epoch training (`0.8205 -> 0.6669 -> 0.6177`), three finite checkpoints and all `5,625` finite validation tuples. It terminated `STOP_M25_BRANCH`: every tuple passes intergenic FPR `<=0.020`, but every tuple fails predicted-gene-count ratio `0.80–1.20`. The best-ranked tuple has exact interval F1 `0.1204`, exact chain F1 `0.3250`, FPR `0.01247`, and count ratio `0.3253`.
+
+No checkpoint/decoder was selected; Setaria inference, blind metrics and full/ablation comparisons do not exist. The Setaria annotation embargo remains intact. This is a valid no-go for the frozen combined system, not evidence that isolates backbone representation as the cause.
+
+Primary reports: `reports/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/terminal_summary.md` and `docs/28_current_research_state_2026-09-01.md`.

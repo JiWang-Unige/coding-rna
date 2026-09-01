@@ -1,0 +1,42 @@
+{
+  "boundary_positive": {
+    "acceptor": 3382,
+    "donor": 3395,
+    "start": 774,
+    "stop": 774
+  },
+  "epochs": [
+    {
+      "checkpoint": "/home/users/j/jwang/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/checkpoints/epoch_1.pt",
+      "epoch": 1,
+      "seconds": 12930.078828334808,
+      "train_loss": 0.8205138235368091
+    },
+    {
+      "checkpoint": "/home/users/j/jwang/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/checkpoints/epoch_2.pt",
+      "epoch": 2,
+      "seconds": 12911.766657352448,
+      "train_loss": 0.6669163238780129
+    },
+    {
+      "checkpoint": "/home/users/j/jwang/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/checkpoints/epoch_3.pt",
+      "epoch": 3,
+      "seconds": 12899.855754852295,
+      "train_loss": 0.6176625575144499
+    }
+  ],
+  "experiment_id": "M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0",
+  "phase_counts": [
+    318318,
+    318027,
+    317591
+  ],
+  "region_counts": [
+    6954710,
+    1285287,
+    1197187
+  ],
+  "selection": null,
+  "train_windows": 1536,
+  "validation_windows_for_loss": 768
+}
