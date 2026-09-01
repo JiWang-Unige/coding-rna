@@ -44,6 +44,8 @@ conda activate generanno
 set -u
 export HF_HOME="${HOME}/.cache/huggingface"
 export PYTHONUNBUFFERED=1
+LOCAL_LOG_DIR="${SLURM_TMPDIR:-/tmp}/${EXP_ID}_${SLURM_JOB_ID}"
+mkdir -p "${LOCAL_LOG_DIR}"
 
 {
   echo "exp_id=${EXP_ID}"
@@ -60,11 +62,21 @@ print("transformers", transformers.__version__, "peft", peft.__version__)
 PY
 } > "${OUT_DIR}/env.txt" 2>&1
 
+set +e
 python -u scripts/experiments/M25R-DEV-REDECODE-ERROR-DECOMPOSITION/redecode_error_decomposition.py \
   --root "${ROOT}" \
   --config "${ROOT}/configs/${SOURCE_ID}.yaml" \
   --m25r-output "${ROOT}/outputs/${SOURCE_ID}" \
-  --out-dir "${OUT_DIR}"
+  --out-dir "${OUT_DIR}" \
+  > "${LOCAL_LOG_DIR}/python.out" \
+  2> "${LOCAL_LOG_DIR}/python.err"
+python_rc=$?
+set -e
+cp "${LOCAL_LOG_DIR}/python.out" "${OUT_DIR}/logs/python_${SLURM_JOB_ID}.out"
+cp "${LOCAL_LOG_DIR}/python.err" "${OUT_DIR}/logs/python_${SLURM_JOB_ID}.err"
+if [[ ${python_rc} -ne 0 ]]; then
+  exit "${python_rc}"
+fi
 
 test -s "${OUT_DIR}/stage1_diagnostic.json"
 test "$(<"${STATUS_FILE}")" = "COMPLETED_STAGE1_REVIEW_REQUIRED"
