@@ -30,6 +30,19 @@ EXPECTED_TRAIN_WINDOWS = 1536
 WINDOW_BP = 6144
 RADIUS_BP = 6
 TOLERANCES = (0, 1, 3, 6)
+VALIDITY_COMPONENTS = (
+    "parent_linkage",
+    "phase_values",
+    "phase_continuity",
+    "start_codon_feature",
+    "stop_codon_feature",
+    "splice_motif",
+    "minimum_CDS_length",
+    "frame_length",
+    "start_codon_sequence",
+    "stop_codon_sequence",
+    "internal_stop_absent",
+)
 STAGES = (
     "region_state_path",
     "non_intergenic_block",
@@ -45,11 +58,13 @@ STAGES = (
 )
 
 
-def save_json(path, payload):
+def save_json_atomic(path, payload):
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as handle:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with temporary.open("w", encoding="utf-8") as handle:
         json.dump(payload, handle, indent=2, sort_keys=True)
         handle.write("\n")
+    temporary.replace(path)
 
 
 def select_epoch_rows(grid):
@@ -502,15 +517,46 @@ def transition_upper_bounds(states, sequence, reference):
     transition_reachable = True
     motif_reachable = True
     for name, positions in reference["events"].items():
-        width = len(next(iter(m25.MOTIFS[name])))
-        for position in positions:
-            reachable = any(abs(anchor - position) <= RADIUS_BP for anchor in candidates[name])
-            transition_reachable &= reachable
-            motif_reachable &= reachable and sequence[position:position + width] in m25.MOTIFS[name]
-    return bool(transition_reachable), bool(motif_reachable), bool(motif_reachable and reference["canonical"])
+        anchors = candidates[name]
+        transition_match = event_match_count(positions, anchors, RADIUS_BP) == len(positions)
+        actual_candidates = {
+            position
+            for anchor in anchors
+            for position in motif_positions(sequence, name, anchor)
+        }
+        transition_reachable &= transition_match
+        motif_reachable &= transition_match and all(position in actual_candidates for position in positions)
+    return bool(transition_reachable), bool(motif_reachable)
 
 
-def assign_references(references, states_by_key, traces_by_key, sequences_by_key):
+def truth_assisted_exact_chain(reference, trace, sequence, boundary_logits, phase_logits, thresholds):
+    if trace is None or len(trace["runs"]) != len(reference["cds"]):
+        return False
+    for name, truth_positions in reference["events"].items():
+        candidate_rows = trace["candidate_positions"][name]
+        if len(candidate_rows) != len(truth_positions):
+            return False
+        if any(truth not in candidates for truth, candidates in zip(truth_positions, candidate_rows)):
+            return False
+
+    boundary_probability = m25._sigmoid(boundary_logits)
+    for index, name in enumerate(m25.BOUNDARY_NAMES):
+        if any(boundary_probability[position, index] < float(thresholds[name])
+               for position in reference["events"][name]):
+            return False
+
+    phase_class = np.asarray(phase_logits).argmax(axis=-1)
+    coding_length = 0
+    for index, (start, end) in enumerate(reference["cds"]):
+        expected = 0 if index == 0 else (3 - coding_length % 3) % 3
+        if int(phase_class[start]) != expected + 1:
+            return False
+        coding_length += end - start
+    return canonical_truth(sequence, reference["cds"])
+
+
+def assign_references(references, states_by_key, traces_by_key, sequences_by_key,
+                      scores_by_key, thresholds):
     assignments = {}
     matched_lineages = {}
     upper = Counter()
@@ -525,13 +571,11 @@ def assign_references(references, states_by_key, traces_by_key, sequences_by_key
         traces = traces_by_key[key]
         sequence = sequences_by_key[key]
         for reference in group:
-            transition, motif, truth_assisted = transition_upper_bounds(states, sequence, reference)
+            transition, motif = transition_upper_bounds(states, sequence, reference)
             reference["transition_reachable"] = transition
             reference["motif_reachable"] = motif
-            reference["truth_assisted_exact_chain"] = truth_assisted
             upper["transition_reachable"] += transition
             upper["motif_reachable"] += motif
-            upper["truth_assisted_exact_chain"] += truth_assisted
 
         pairs = []
         for reference in group:
@@ -556,6 +600,13 @@ def assign_references(references, states_by_key, traces_by_key, sequences_by_key
 
         for reference in group:
             trace = matched_lineages.get(reference["key"])
+            boundary_logits, phase_logits = scores_by_key[key]
+            truth_assisted = truth_assisted_exact_chain(
+                reference, trace, sequence, boundary_logits, phase_logits, thresholds
+            )
+            reference["truth_assisted_exact_chain"] = truth_assisted
+            upper["truth_assisted_exact_chain"] += truth_assisted
+
             truth_cds_overlap = sum(
                 int((states[start:end] == m25.C).sum()) for start, end in reference["cds"]
             )
@@ -686,34 +737,65 @@ def audit_gff3(path, sequences, lengths, expected_models):
             elif feature in {"CDS", "start_codon", "stop_codon"}:
                 children[attrs["Parent"]].append((feature, seqid, start, end, strand, phase))
 
-    failures = []
+    integrity_failures = []
     for transcript_id, (gene_id, seqid, start, end, strand) in transcripts.items():
         if gene_id not in genes or genes[gene_id] != (seqid, start, end, strand):
-            failures.append({"transcript": transcript_id, "reason": "parent_linkage"})
+            integrity_failures.append({"transcript": transcript_id, "reason": "parent_linkage"})
         if not children[transcript_id]:
-            failures.append({"transcript": transcript_id, "reason": "missing_children"})
+            integrity_failures.append({"transcript": transcript_id, "reason": "missing_children"})
     for transcript_id in children:
         if transcript_id not in transcripts:
-            failures.append({"transcript": transcript_id, "reason": "orphan_child"})
+            integrity_failures.append({"transcript": transcript_id, "reason": "orphan_child"})
+    if integrity_failures:
+        raise AssertionError(f"emitted GFF3 linkage audit failed: {integrity_failures}")
 
     annotation = parse_annotation(str(path), lengths, protein_coding_only=False)
     parsed = primary_transcripts(annotation)
-    codons = m25_eval.codon_features(path)
-    for transcript in parsed:
-        if not m25_eval.structurally_valid(transcript, sequences, codons):
-            failures.append({"transcript": transcript["id"], "reason": "structural_validity"})
     n_checked = len(parsed)
     if n_checked != expected_models or len(transcripts) != expected_models or len(genes) != expected_models:
         raise AssertionError("emitted GFF3 model count does not reconcile")
+
+    codons = m25_eval.codon_features(path)
+    transcript_ledger = []
+    component_failure_counts = Counter()
+    failures = []
+    for transcript in parsed:
+        components = {
+            "parent_linkage": True,
+            **m25_eval.structural_validity_components(transcript, sequences, codons),
+        }
+        failed_components = [
+            name for name in VALIDITY_COMPONENTS if not components[name]
+        ]
+        for name in failed_components:
+            component_failure_counts[name] += 1
+        transcript_ledger.append({
+            "transcript": transcript["id"],
+            "valid": not failed_components,
+            "components": components,
+            "failed_components": failed_components,
+        })
+        if failed_components:
+            failures.append({
+                "transcript": transcript["id"],
+                "failed_components": failed_components,
+            })
+
+    valid_transcripts = sum(row["valid"] for row in transcript_ledger)
     return {
         "n_emitted": expected_models,
         "n_checked": n_checked,
         "audit_coverage": safe_fraction(n_checked, expected_models) if expected_models else 1.0,
         "complete_empty_audit": expected_models == 0 and n_checked == 0,
-        "valid_transcripts": n_checked - len({row["transcript"] for row in failures}),
-        "validity_fraction": (safe_fraction(n_checked - len({row["transcript"] for row in failures}), n_checked)
+        "valid_transcripts": valid_transcripts,
+        "invalid_transcripts": n_checked - valid_transcripts,
+        "validity_fraction": (safe_fraction(valid_transcripts, n_checked)
                               if n_checked else "not_applicable"),
-        "failures": failures[:50],
+        "component_failure_counts": {
+            name: int(component_failure_counts[name]) for name in VALIDITY_COMPONENTS
+        },
+        "failures": failures,
+        "transcript_ledger": transcript_ledger,
     }
 
 
@@ -902,6 +984,7 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
     states_by_key = {}
     traces_by_key = {}
     sequences_by_key = {}
+    scores_by_key = {}
     lineage_counts = Counter()
     phase_checks = []
     epoch_dir = out_dir / f"epoch_{epoch}"
@@ -922,6 +1005,7 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
                 states_by_key[trace_key] = states
                 traces_by_key[trace_key] = traces
                 sequences_by_key[trace_key] = oriented
+                scores_by_key[trace_key] = (boundary_score, phase_score)
                 lineage_counts["non_intergenic_blocks"] += len(traces)
                 lineage_counts["prefilter_models"] += len(prefilter)
                 lineage_counts["emitted_models"] += len(emitted)
@@ -952,7 +1036,7 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
         raise AssertionError(f"epoch {epoch} frozen aggregate reproduction failed: {reproduction}")
 
     assignments, upper, overlap_multiplicity, matched_lineages = assign_references(
-        reference_records, states_by_key, traces_by_key, sequences_by_key
+        reference_records, states_by_key, traces_by_key, sequences_by_key, scores_by_key, thresholds
     )
     stage_counts = Counter(assignments.values())
     if sum(stage_counts.values()) != EXPECTED_REFERENCE_CHAINS:
@@ -984,7 +1068,14 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
     sequences = {seqid: record["seqs"][seqid] for record in species.values() for seqid in record["seqs"]}
     lengths = {seqid: len(sequence) for seqid, sequence in sequences.items()}
     validity = audit_gff3(gff_path, sequences, lengths, len(flat_predictions))
-    if validity["audit_coverage"] != 1.0 or validity["failures"]:
+    transcript_ledger = validity.pop("transcript_ledger")
+    if len(transcript_ledger) != validity["n_checked"]:
+        raise AssertionError("structural validity ledger does not reconcile")
+    validity_path = epoch_dir / "structural_validity.jsonl"
+    with validity_path.open("w", encoding="utf-8") as handle:
+        for row in transcript_ledger:
+            handle.write(json.dumps(row, sort_keys=True) + "\n")
+    if validity["audit_coverage"] != 1.0:
         raise AssertionError(f"independent GFF3 validity audit failed: {validity}")
 
     terminal_status_counts = {
@@ -1067,15 +1158,17 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
             "reference_attrition": str(attrition_path),
             "candidate_lineages": str(lineage_path),
             "replayed_predictions": str(gff_path),
+            "structural_validity": str(validity_path),
         },
     }
-    save_json(epoch_dir / "diagnostic.json", result)
+    save_json_atomic(epoch_dir / "diagnostic.json", result)
     return result
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--experiment-id", default=EXPERIMENT_ID)
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--m25r-output", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
@@ -1120,7 +1213,7 @@ def main():
         raise ValueError(f"frozen training example set changed: {len(train_dataset)}")
 
     inputs = {
-        "experiment_id": EXPERIMENT_ID,
+        "experiment_id": args.experiment_id,
         "source_experiment": config["exp_id"],
         "config": str(args.config.resolve()),
         "validation_grid": str(grid_path.resolve()),
@@ -1138,15 +1231,18 @@ def main():
         "weights_updated": False,
         "threshold_or_decoder_search": False,
     }
-    save_json(out_dir / "resolved_inputs.json", inputs)
+    save_json_atomic(out_dir / "resolved_inputs.json", inputs)
 
     epoch_results = []
     for epoch in (1, 2, 3):
         checkpoint_path = (args.m25r_output / "checkpoints" / f"epoch_{epoch}.pt").resolve()
-        epoch_results.append(run_epoch(
+        epoch_result = run_epoch(
             epoch, rows[epoch], checkpoint_path, species, validation_references, validation_lengths,
             reference_records, train_dataset, tokenizer, backbone, heads, forward, device, k, out_dir,
-        ))
+        )
+        if not (out_dir / f"epoch_{epoch}" / "diagnostic.json").is_file():
+            raise AssertionError(f"epoch {epoch} diagnostic was not persisted")
+        epoch_results.append(epoch_result)
 
     stage_integrity = {
         "aggregate_reproduction_within_1e-5": all(
@@ -1164,14 +1260,20 @@ def main():
         "weights_updated": False,
         "threshold_or_decoder_search": False,
     }
+    any_invalid = any(
+        result["independent_GFF3_validity"]["invalid_transcripts"] > 0
+        for result in epoch_results
+    )
     result = {
-        "experiment_id": EXPERIMENT_ID,
+        "experiment_id": args.experiment_id,
         "status": "COMPLETED_STAGE1_REVIEW_REQUIRED",
+        "scientific_status": ("SCIENTIFIC_NO_GO_INVALID_STRUCTURES" if any_invalid
+                              else "DIAGNOSTIC_COMPLETE_REVIEW_REQUIRED"),
         "stage_integrity": stage_integrity,
         "epochs": epoch_results,
         "scientific_next_action": "STOP_FOR_REVIEW",
     }
-    save_json(out_dir / "stage1_diagnostic.json", result)
+    save_json_atomic(out_dir / "stage1_diagnostic.json", result)
     (out_dir / "STATUS").write_text("COMPLETED_STAGE1_REVIEW_REQUIRED\n", encoding="utf-8")
     print("COMPLETED_STAGE1_REVIEW_REQUIRED", flush=True)
 

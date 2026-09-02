@@ -132,25 +132,39 @@ def expected_codon_records(tx):
     return start, stop
 
 
-def structurally_valid(tx, sequences, codons):
+def structural_validity_components(tx, sequences, codons):
     parts = ordered_cds(tx)
-    if any(phase not in {"0", "1", "2"} for _start, _end, phase in parts):
-        return False
-    phases = [int(phase) for _start, _end, phase in parts]
+    phase_values = all(phase in {"0", "1", "2"} for _start, _end, phase in parts)
+    phases = [int(phase) for _start, _end, phase in parts] if phase_values else []
     cumulative = 0
-    phase_ok = True
+    phase_continuity = phase_values
     for (start, end, _phase), phase in zip(parts, phases):
-        phase_ok &= phase == ((3 - cumulative % 3) % 3)
+        phase_continuity &= phase == ((3 - cumulative % 3) % 3)
         cumulative += end - start
     coding = transcript_sequence(tx, sequences)
     start_record, stop_record = expected_codon_records(tx)
     codon_row = codons.get(tx["id"], {})
-    codon_ok = codon_row.get("start_codon") == [start_record] and codon_row.get("stop_codon") == [stop_record]
-    motif_ok = all(donor == "GT" and acceptor == "AG" for donor, acceptor in canonical_introns(tx, sequences))
-    sequence_ok = len(coding) >= 6 and len(coding) % 3 == 0 and coding[:3] == "ATG" and coding[-3:] in {"TAA", "TAG", "TGA"}
     internal_stop = any(coding[index:index + 3] in {"TAA", "TAG", "TGA"}
                         for index in range(3, len(coding) - 3, 3))
-    return phase_ok and codon_ok and motif_ok and sequence_ok and not internal_stop
+    return {
+        "phase_values": phase_values,
+        "phase_continuity": phase_continuity,
+        "start_codon_feature": codon_row.get("start_codon") == [start_record],
+        "stop_codon_feature": codon_row.get("stop_codon") == [stop_record],
+        "splice_motif": all(
+            donor == "GT" and acceptor == "AG"
+            for donor, acceptor in canonical_introns(tx, sequences)
+        ),
+        "minimum_CDS_length": len(coding) >= 6,
+        "frame_length": len(coding) % 3 == 0,
+        "start_codon_sequence": coding[:3] == "ATG",
+        "stop_codon_sequence": coding[-3:] in {"TAA", "TAG", "TGA"},
+        "internal_stop_absent": not internal_stop,
+    }
+
+
+def structurally_valid(tx, sequences, codons):
+    return all(structural_validity_components(tx, sequences, codons).values())
 
 
 def validity_metrics(annotation, sequences, codons):
