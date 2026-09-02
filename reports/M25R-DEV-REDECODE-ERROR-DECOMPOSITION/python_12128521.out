@@ -1,0 +1,16 @@
+epoch=1 train raw-head inference
+train_raw_examples=128
+train_raw_examples=256
+train_raw_examples=384
+train_raw_examples=512
+train_raw_examples=640
+train_raw_examples=768
+train_raw_examples=896
+train_raw_examples=1024
+train_raw_examples=1152
+train_raw_examples=1280
+train_raw_examples=1408
+train_raw_examples=1536
+epoch=1 validation chromosome inference
+epoch=1 validation_done=arabidopsis_thaliana/NC_003074.8
+epoch=1 validation_done=oryza_sativa/NC_089041.1

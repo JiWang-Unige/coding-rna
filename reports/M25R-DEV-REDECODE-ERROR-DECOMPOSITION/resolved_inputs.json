@@ -1,0 +1,29 @@
+{
+  "config": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/configs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0.yaml",
+  "development_species": [
+    "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/data/m1_screen/arabidopsis_thaliana",
+    "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/data/m1_screen/oryza_sativa"
+  ],
+  "epochs": {
+    "1": {
+      "checkpoint": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/checkpoints/epoch_1.pt",
+      "grid_row_enumeration_order": 601
+    },
+    "2": {
+      "checkpoint": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/checkpoints/epoch_2.pt",
+      "grid_row_enumeration_order": 2401
+    },
+    "3": {
+      "checkpoint": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/checkpoints/epoch_3.pt",
+      "grid_row_enumeration_order": 4626
+    }
+  },
+  "experiment_id": "M25R-DEV-REDECODE-ERROR-DECOMPOSITION",
+  "reference_chains": 6450,
+  "setaria_files_read": false,
+  "source_experiment": "M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0",
+  "threshold_or_decoder_search": false,
+  "train_examples": 1536,
+  "validation_grid": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0/validation_grid_diagnostics.json",
+  "weights_updated": false
+}
