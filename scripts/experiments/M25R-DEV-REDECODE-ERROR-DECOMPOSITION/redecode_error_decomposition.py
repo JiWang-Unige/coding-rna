@@ -591,6 +591,20 @@ def assign_references(references, states_by_key, traces_by_key, sequences_by_key
 
         used_reference = set()
         used_lineage = set()
+        exact_pairs = []
+        for reference in group:
+            for trace in traces:
+                emitted = trace.get("emitted_model")
+                if emitted and tuple(emitted["cds"]) == tuple(reference["cds"]):
+                    exact_pairs.append((reference["transcript_id"], trace["lineage_id"], reference, trace))
+        for _tx_id, lineage_id, reference, trace in sorted(
+            exact_pairs, key=lambda item: (item[0], item[1])
+        ):
+            if reference["key"] in used_reference or lineage_id in used_lineage:
+                continue
+            used_reference.add(reference["key"])
+            used_lineage.add(lineage_id)
+            matched_lineages[reference["key"]] = trace
         for _negative_overlap, _negative_span, _tx_id, lineage_id, reference, trace in sorted(pairs):
             if reference["key"] in used_reference or lineage_id in used_lineage:
                 continue
@@ -1073,8 +1087,8 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
         raise AssertionError("structural validity ledger does not reconcile")
     validity_path = epoch_dir / "structural_validity.jsonl"
     with validity_path.open("w", encoding="utf-8") as handle:
-        for row in transcript_ledger:
-            handle.write(json.dumps(row, sort_keys=True) + "\n")
+        for ledger_record in transcript_ledger:
+            handle.write(json.dumps(ledger_record, sort_keys=True) + "\n")
     if validity["audit_coverage"] != 1.0:
         raise AssertionError(f"independent GFF3 validity audit failed: {validity}")
 
@@ -1090,6 +1104,10 @@ def run_epoch(epoch, row, checkpoint_path, species, validation_references, valid
 
     prediction_transcripts = model_transcripts(predictions)
     errors = prediction_error_summary(validation_references, prediction_transcripts)
+    if stage_counts["emitted_exact_chain"] != errors["exact_chains"]:
+        raise AssertionError(
+            "reference attrition exact-chain count does not reconcile with the global exact-chain metric"
+        )
     candidate_phase_accuracy = safe_fraction(
         sum(item["predicted"] == item["expected"] for item in phase_checks), len(phase_checks)
     )
