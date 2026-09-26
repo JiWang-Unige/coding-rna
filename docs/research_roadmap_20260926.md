@@ -2,7 +2,13 @@
 
 更新日期：2026-09-26。用户目标仍是完成有发表价值的研究并争取 Nature Communications；期刊录用不能由工程完成或内部门槛保证。旧 M25R 固定路线 NO-GO 不等于这个长期目标完成。本文件替代继续救 R1、堆 seed 或直接换大 backbone 的推进方式，不恢复 Auto Research 框架。
 
-## 最新阶段：M27 WT重放通过，准备原生配对干预
+## 最新阶段：M27 原生条件配对干预
+
+Pro第十轮读取2239028的五个WT结果/实现文件，支持执行已事前定义的各工具W_m，而非重新选择参考面板。现在冻结 [原生配对合同](../reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md)：ANNEVO 12位点×2、Tiberius10位点×2，共44次整chr22单SNV原生推理，全部21登记行保留。唯一双端CDS锚、密码子整体入内含子、合法ORF及外来编码混杂共同定义严格bypass；未完成和歧义进入固定分母的识别上下界，不被丢掉或填为阴性。
+
+CPU准备13227836已COMPLETED（16秒，0GPU，17测试通过），26份完整chr22单SNV输入已生成。首个mutant前公开协议、实现和输入清单；配对结果尚待完成。执行与资源见 [执行记录](../reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md)。最多6GPUh/32GiB，M27总8GPUh/50GiB不变，不重试模型失败，不训练、不访问Setaria。仅出现明确PTC=1/syn=0时，下一阶段才按登记坐标每工具最多一个案例做重现确认；本阶段不做分量交叉。
+
+## 前阶段：M27 WT重放通过
 
 第九轮Pro基于67f5c9a收窄为先验证native同DNA缓存重放，并保留工具各自WT精确集合W_m作为条件分母。17c0771在首次推理前公开协议。13227533 COMPLETED（15分49秒，0.2636 GPUh，5测试通过）：ANNEVO全chr22 530条、Tiberius575条CDS链在重放中链/strand/phase多重集合完全一致；Tiberius4次原生神经请求完整重放，重放0次神经前向，两个过滤前后链也相同。
 

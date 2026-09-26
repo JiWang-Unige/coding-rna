@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Record/replay native Tiberius 2.0.5 WT neural calls without changing decoding."""
+"""Trace native Tiberius 2.0.5; optionally record/replay WT neural calls."""
 import argparse
 import json
 import sys
@@ -15,9 +15,14 @@ def dump(path, obj):
 
 class NeuralCache:
     def __init__(self, root, mode, limit=20*1024**3):
-        self.root, self.mode, self.limit = Path(root), mode, limit
+        self.root = Path(root) if root is not None else None
+        self.mode, self.limit = mode, limit
         self.index, self.bytes, self.calls = 0, 0, []
-        if mode == "record":
+        if mode == "native":
+            self.expected = None
+        elif self.root is None:
+            raise ValueError("Record/replay requires --cache-dir")
+        elif mode == "record":
             self.root.mkdir(exist_ok=False)
             self.expected = None
         else:
@@ -26,11 +31,14 @@ class NeuralCache:
     def call(self, x, metadata, forward):
         i=self.index
         self.index += 1
-        input_path=self.root/f"{i:04d}.input.npy"
-        score_path=self.root/f"{i:04d}.scores.npy"
+        input_path=self.root/f"{i:04d}.input.npy" if self.root is not None else None
+        score_path=self.root/f"{i:04d}.scores.npy" if self.root is not None else None
         meta={**metadata,"input_shape":list(x.shape),"input_dtype":str(x.dtype)}
         started=time.monotonic()
-        if self.mode == "record":
+        if self.mode == "native":
+            y=forward()
+            meta.update(score_shape=list(y.shape),score_dtype=str(y.dtype))
+        elif self.mode == "record":
             y=forward()
             if self.bytes+x.nbytes+y.nbytes > self.limit:
                 raise RuntimeError("WT neural cache exceeds fixed 20 GiB limit")
@@ -59,7 +67,7 @@ class NeuralCache:
     def finish(self):
         if self.mode == "record":
             dump(self.root/"requests.json",self.calls)
-        elif self.index != len(self.expected):
+        elif self.mode == "replay" and self.index != len(self.expected):
             raise RuntimeError("Replay consumed fewer requests than native WT")
 
 
@@ -79,8 +87,8 @@ def snapshot(annotation):
 
 def main():
     parser=argparse.ArgumentParser(add_help=False)
-    parser.add_argument("--cache-mode",choices=["record","replay"],required=True)
-    parser.add_argument("--cache-dir",type=Path,required=True)
+    parser.add_argument("--cache-mode",choices=["record","replay","native"],required=True)
+    parser.add_argument("--cache-dir",type=Path)
     parser.add_argument("--trace",type=Path,required=True)
     ours,rest=parser.parse_known_args()
     sys.argv=[sys.argv[0]]+rest

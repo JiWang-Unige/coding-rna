@@ -10,7 +10,7 @@ The current fixed M25R route is **NO-GO**, not a publication-ready general-purpo
 
 Start with the [current research roadmap](docs/research_roadmap_20260926.md). Read the evidence by scientific question, not experiment numbering:
 
-The new [M27 WT replay result](reports/M27-ALLELIC-INTEGRITY/wt_result.md) verifies exact whole-chr22 native/cache replay for ANNEVO (530 CDS transcripts) and Tiberius (575), after [reference-only preparation](reports/M27-ALLELIC-INTEGRITY/preparation_result.md) fixed 21 paired sites. Unique WT-exact targets are 12 and 10, with 9 shared. **No mutant inference has run**: this is a measurement prerequisite, not an allelic effect, biological validation, or publication claim.
+The [M27 WT replay result](reports/M27-ALLELIC-INTEGRITY/wt_result.md) verifies exact whole-chr22 native/cache replay for ANNEVO (530 CDS transcripts) and Tiberius (575), after reference-only selection of 21 paired sites. Unique WT-exact targets are 12 and 10, with 9 shared. The next [native paired intervention](reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md) preregisters 24 ANNEVO and 20 Tiberius single-SNV runs, strict target identity, and fixed-denominator identification bounds. Its [execution record](reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md) separates preparation, running, and completed results. **Paired outcomes are not yet complete**; there is no allelic mechanism, biological-validation, or publication claim.
 
 | Question | Evidence | What it establishes |
 |---|---|---|
