@@ -1,0 +1,115 @@
+{
+  "status": "fixed_graph_reference_assisted_development_diagnostic",
+  "setaria_access": false,
+  "reference_total": 6450,
+  "partition": {
+    "B_exact": 3351,
+    "actual_graph_not_selected": 210,
+    "outside_relaxed_graph": 2865,
+    "actual_boundary_filter_loss": 24
+  },
+  "O1_individually_reachable": 3561,
+  "O1_max_nonoverlapping_reference_subset": 3560,
+  "A_B_truth_transitions": {
+    "A0_B1": 1982,
+    "A0_B0": 3079,
+    "A1_B1": 1369,
+    "A1_B0": 20
+  },
+  "per_species": {
+    "arabidopsis_thaliana": {
+      "B_exact": 2348,
+      "actual_graph_not_selected": 139,
+      "outside_relaxed_graph": 1645,
+      "actual_boundary_filter_loss": 19
+    },
+    "oryza_sativa": {
+      "B_exact": 1003,
+      "actual_graph_not_selected": 71,
+      "outside_relaxed_graph": 1220,
+      "actual_boundary_filter_loss": 5
+    }
+  },
+  "baseline_recovery_by_partition": {
+    "B_exact": {
+      "reference_count": 3351,
+      "ANNEVO": 3179,
+      "Helixer": 2980,
+      "Tiberius": 3103
+    },
+    "actual_boundary_filter_loss": {
+      "reference_count": 24,
+      "ANNEVO": 16,
+      "Helixer": 14,
+      "Tiberius": 15
+    },
+    "actual_graph_not_selected": {
+      "reference_count": 210,
+      "ANNEVO": 176,
+      "Helixer": 148,
+      "Tiberius": 166
+    },
+    "outside_relaxed_graph": {
+      "reference_count": 2865,
+      "ANNEVO": 1782,
+      "Helixer": 1307,
+      "Tiberius": 1672
+    }
+  },
+  "by_original_category": {
+    "CDS_support_fragmented_across_blocks": {
+      "outside_relaxed_graph": 949,
+      "B_exact": 590,
+      "actual_graph_not_selected": 91,
+      "actual_boundary_filter_loss": 4
+    },
+    "correct_chosen_chain_ORF_rejection": {
+      "outside_relaxed_graph": 1
+    },
+    "correct_chosen_chain_phase_rejection": {
+      "B_exact": 1098,
+      "actual_graph_not_selected": 45,
+      "actual_boundary_filter_loss": 6
+    },
+    "correct_chosen_chain_threshold_rejection": {
+      "actual_boundary_filter_loss": 3
+    },
+    "covering_block_extra_runs_no_compatible_subchain": {
+      "outside_relaxed_graph": 371,
+      "actual_graph_not_selected": 3,
+      "B_exact": 15,
+      "actual_boundary_filter_loss": 1
+    },
+    "covering_block_missing_runs": {
+      "outside_relaxed_graph": 110
+    },
+    "no_CDS_state_support": {
+      "outside_relaxed_graph": 105
+    },
+    "partial_block_span_support": {
+      "outside_relaxed_graph": 254
+    },
+    "recovered_exact": {
+      "B_exact": 1369,
+      "actual_graph_not_selected": 20
+    },
+    "same_run_count_truth_boundary_candidates_unavailable": {
+      "outside_relaxed_graph": 1075
+    },
+    "true_candidate_available_wrong_choice_other_or_mixed": {
+      "B_exact": 57,
+      "actual_boundary_filter_loss": 3,
+      "actual_graph_not_selected": 3
+    },
+    "true_candidate_available_wrong_choice_then_phase": {
+      "B_exact": 129,
+      "actual_graph_not_selected": 36,
+      "actual_boundary_filter_loss": 4
+    },
+    "whole_block_excludes_truth_compatible_subruns": {
+      "B_exact": 93,
+      "actual_graph_not_selected": 12,
+      "actual_boundary_filter_loss": 3
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # M20-SOTA-ERROR-ANALYSIS
 
-Same clean-plant panel, same CDS-span evaluator. GENERanno rows are our adapted models; ANNEVO/Tiberius/Helixer rows are released fixed-model baselines.
+Historical metrics from mixed evaluation scopes, not a verified same-panel comparison. GENERanno rows are adapted models; ANNEVO/Tiberius/Helixer rows are saved released-model baselines. Use the new M26 same-coordinate rescoring for development comparisons.
 
 ## Aggregate Metrics
 
@@ -14,9 +14,11 @@ Same clean-plant panel, same CDS-span evaluator. GENERanno rows are our adapted 
 
 2026-09-26 reporting correction: the old `gbF1` column contained `constrained_gene_body_F1`, not ordinary accuracy. Both fields above are copied from the preserved `summary.json`; no metrics were rerun. The historical constrained field is not recomputed from the separate FPR<=0.01 flag (ANNEVO demonstrates that they are different). Helixer's zero must not be described as zero prediction accuracy.
 
-Scope warning: the separate historical `interval_overlap` diagnostic did not restrict full-genome prediction intervals to the reference FASTA seqids. Those rows/CSV are quarantined from scientific comparison pending same-scope rescoring; this does not by itself invalidate the independently loaded aggregate metrics above. M24 and M25R also use different chromosome scopes and denominators and must not be merged into one performance table.
+Scope warning: the separate historical `interval_overlap` diagnostic did not restrict full-genome prediction intervals to the reference FASTA seqids. Its `cds_base_*` names are also misleading: `collect_spans` uses transcript/group minimum-to-maximum CDS/start/stop spans, including intervening introns, not a union of CDS exons. Those rows/CSV are quarantined from scientific comparison. Do not silently overwrite the historical JSON.
 
-## Interpretation
+The independently loaded aggregate rows have a separate scope mismatch: `per_species_metrics` records reference gene counts of 5,007/2,489 for LoRA versus 33,461/13,324 for the three baselines. Their historical numeric values are preserved, but the aggregate table and ranking below cannot support a same-scope performance claim. M24 and M25R also use different chromosome scopes and denominators.
+
+## Historical interpretation (preserved, not a valid same-scope ranking)
 
 - Tiberius is the strongest released fixed-model comparator under the hard FPR guardrail, but it under-calls gene count relative to reference.
 - ANNEVO has the best gbF1 among released fixed baselines on this panel, but aggregate FPR exceeds the `0.01` claim guardrail.
