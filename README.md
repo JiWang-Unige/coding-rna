@@ -10,6 +10,8 @@ The current fixed M25R route is **NO-GO**, not a publication-ready general-purpo
 
 Start with the [current research roadmap](docs/research_roadmap_20260926.md). Read the evidence by scientific question, not experiment numbering:
 
+The new [M27 allelic-intervention preparation](reports/M27-ALLELIC-INTEGRITY/preparation_result.md) fixes 21 reference-selected chr22 paired sites and verifies installed decoder interfaces. It has **no model-inference result yet**; it is not an independent biological validation or a publication claim.
+
 | Question | Evidence | What it establishes |
 |---|---|---|
 | How does the fixed decoder compare with cached callers on the same scope? | [Same-scope comparison](reports/M26-SAME-SCOPE-MECHANISM/result.md) | B improves over A but trails the three cached baselines in exact-chain F1. |
