@@ -2,6 +2,12 @@
 
 更新日期：2026-09-26。用户目标仍是完成有发表价值的研究并争取 Nature Communications；期刊录用不能由工程完成或内部门槛保证。旧 M25R 固定路线 NO-GO 不等于这个长期目标完成。本文件替代继续救 R1、堆 seed 或直接换大 backbone 的推进方式，不恢复 Auto Research 框架。
 
+## 最新阶段：R8固定延迟离散化提案关闭
+
+第七轮Pro完成固定提交1518358审阅后，执行一次等端点预算的缓存机制检验。13227158 COMPLETED（3分20秒，0GPU，5测试通过），原O1逐身份3,561重现。全局边界logit前M新增685条却丢失910条，净−225；拟南芥+148、水稻−373；联合区域支持从3,558降至3,285。保留原端点仅解除run约束只增加13条。详见 reports/M26-SAME-SCOPE-MECHANISM/endpoint_budget_result.md 与JSON。
+
+按事先停止条件结束这个global-top-M方案，不调预算、阈值、seed或窗口，不启动第二模型验证。结论不外推为所有延迟离散化均无效，也不认定backbone无信息。第八轮Pro商议后再确定新的科学方向；不能把连续局部修复当成NC主张。发表目标仍未完成。
+
 ## 最新阶段：R7关闭本地来源争议线
 
 R6完成同发布类型表与对象层级核对后，R7以明确coding资格运行来源配对。13227054 COMPLETED（51秒，0GPU，7测试通过）：两来源5,460个coding locus全部对应，7,970条可评价CDS isoform链完全一致；5,428个primary相同、9个仅选择不同、23个双方不可评价，真正残余结构争议为0。见 reports/M26-SAME-SCOPE-MECHANISM/semantic_reference_pair_result.md 及JSON。
