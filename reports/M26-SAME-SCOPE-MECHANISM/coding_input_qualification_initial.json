@@ -1,0 +1,48 @@
+{
+  "scope": "protein_coding_pair_with_other_gene_like_objects_retained",
+  "gene_like_features": {
+    "gene": 6544,
+    "transposable_element_gene": 877,
+    "pseudogene": 203
+  },
+  "gene_like_types": {
+    "novel_transcribed_region": 109,
+    "long_noncoding_rna": 497,
+    "other_rna": 43,
+    "small_nucleolar_rna": 47,
+    "antisense_rna": 23,
+    "protein_coding": 5460,
+    "antisense_long_noncoding_rna": 202,
+    "small_nuclear_rna": 19,
+    "pre_trna": 92,
+    "transposable_element_gene": 877,
+    "mirna": 50,
+    "pseudogene": 202,
+    "None": 1,
+    "ribosomal_rna": 2
+  },
+  "type_resolution": {
+    "GFF_locus_type": 7453,
+    "same_release_functional_table": 120,
+    "explicit_noncoding_vocabulary_disagreement": 50,
+    "GFF_table_disagreement": 1
+  },
+  "mRNA_parent_feature": {
+    "gene": 9474,
+    "transposable_element_gene": 879
+  },
+  "R6_reported_parent_issues_resolved_to": {
+    "transposable_element_gene": 879
+  },
+  "uORF_table_subfeatures": 19,
+  "CDS_rows": 54878,
+  "all_Chr3_feature_rows_retained": 180753,
+  "issues": [
+    [
+      "GFF_table_disagreement",
+      "AT3G20365"
+    ]
+  ],
+  "protein_coding_type_uncertainty_loci": 1,
+  "coding_view_qualified": false
+}

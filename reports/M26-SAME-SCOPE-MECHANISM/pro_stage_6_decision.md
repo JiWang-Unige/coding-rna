@@ -1,0 +1,11 @@
+# 第六轮Pro商议：按coding任务判断资格
+
+2026-09-26。内置浏览器Pro显示思考4分钟，报告实际读取e946036下input_qualification_result.md和input_qualification.json，明确历史qualified=false且没有评分；未独立重跑。
+
+采用结论：完整连接gene-like父节点，再判定coding层资格；通过后在同一次CPU批次完成来源配对。50处mirna / miRNA_primary_transcript差异非本次coding正例，不必为了词汇统一阻塞任务，但不宣布术语完全等价。新结果单列coding_view_qualified，历史qualified=false不改。
+
+接入gene/pseudogene/transposable_element_gene不扩大coding正例，不删TE/pseudo区域中的预测、不缩小预测分母、不静默改变负背景。879项必须逐条对应。phase按转录方向核验链内一致性；两来源phase不要求相同。
+
+采用唯一新增决定性输出：语义对齐后的残余结构争议—逐工具判定翻转表。先比同位点全部可评价isoform集合，再拆primary选择与真正结构差异；原始CDS也比对，避免将CDS资格变化冒充坐标变化。无法对应的locus单列；保留整数分母。
+
+据此固定semantic_reference_pair_contract.md，提交13227041（private-teodoro-gpu，2CPU/8GiB/0GPU，15分钟上限）。原4,151及五工具历史该染色体chain/FPR必须重放后才解释新比较。Setaria封存，0新推理、0训练。Pro意见是方法商议，不是结果核验或用户授权替代。
