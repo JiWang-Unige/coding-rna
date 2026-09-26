@@ -1,0 +1,445 @@
+{
+  "status": "exploratory_feature_semantics_not_independent_replication",
+  "setaria_access": false,
+  "frozen_metrics_unchanged": true,
+  "regions": [
+    "complete_primary_exon_span",
+    "other_span_of_primary_eligible_coding_gene",
+    "partial_flagged_coding_gene",
+    "other_coding_gene_without_complete_primary",
+    "noncoding_or_other_annotated_gene",
+    "outside_all_annotated_genes"
+  ],
+  "species": {
+    "arabidopsis_thaliana": {
+      "raw_feature_row_flags": {
+        "gene": {
+          "unflagged": 5235,
+          "partial_true_and_range": 1309
+        },
+        "mRNA": {
+          "unflagged": 7926,
+          "partial_true_and_range": 2427
+        },
+        "CDS": {
+          "unflagged": 54793,
+          "partial_true_and_range": 25,
+          "partial_true_only": 60
+        }
+      },
+      "coding_transcript_combinations": {
+        "gene=0;transcript=0;CDS=0;sequence_compatible=1": 7303,
+        "gene=1;transcript=1;CDS=0;sequence_compatible=1": 1524,
+        "gene=1;transcript=0;CDS=0;sequence_compatible=1": 617,
+        "gene=1;transcript=1;CDS=1;sequence_compatible=0": 24,
+        "gene=0;transcript=0;CDS=0;sequence_compatible=0": 4,
+        "gene=1;transcript=0;CDS=0;sequence_compatible=0": 2
+      },
+      "partial_gene_transcript_combinations": {
+        "gene=1;transcript=1;CDS=0;sequence_compatible=1": 1524,
+        "gene=1;transcript=0;CDS=0;sequence_compatible=1": 617,
+        "gene=1;transcript=1;CDS=1;sequence_compatible=0": 24,
+        "gene=1;transcript=0;CDS=0;sequence_compatible=0": 2
+      },
+      "coding_genes": 5460,
+      "frozen_primary_genes": 4151,
+      "partial_coding_genes": 1309,
+      "partial_genes_with_unflagged_compatible_CDS": 1290,
+      "additional_CDS_assessable_primary_candidates": 1290,
+      "additional_candidates_from_partial_genes": 1290,
+      "partial_region_bp": 2300148,
+      "partial_region_reference_CDS_union_bp": 1429753,
+      "partial_region_compatible_CDS_union_bp": 1418058,
+      "partial_region_compatible_CDS_span_union_bp": 2050521,
+      "methods": {
+        "M25R_A": {
+          "coverage_by_region_bp": {
+            "span": [
+              1204110,
+              116,
+              298924,
+              0,
+              34157,
+              8105
+            ],
+            "CDS": [
+              1103067,
+              116,
+              289483,
+              0,
+              33330,
+              7905
+            ],
+            "span_only": [
+              101043,
+              0,
+              9441,
+              0,
+              827,
+              200
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 287017,
+          "partial_span_on_compatible_CDS_span_bp": 298003,
+          "partial_predicted_CDS_on_reference_CDS_bp": 286741,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 286334,
+          "exact_additional_primary_candidate_chains": 196,
+          "exact_additional_any_compatible_isoform_chains": 201,
+          "excluded_genes_with_exact_compatible_isoform": 201
+        },
+        "M25R_B": {
+          "coverage_by_region_bp": {
+            "span": [
+              6955144,
+              7656,
+              1409588,
+              0,
+              169953,
+              107311
+            ],
+            "CDS": [
+              4334533,
+              691,
+              948924,
+              0,
+              107471,
+              22200
+            ],
+            "span_only": [
+              2620611,
+              6965,
+              460664,
+              0,
+              62482,
+              85111
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1015510,
+          "partial_span_on_compatible_CDS_span_bp": 1385585,
+          "partial_predicted_CDS_on_reference_CDS_bp": 938756,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 934569,
+          "exact_additional_primary_candidate_chains": 373,
+          "exact_additional_any_compatible_isoform_chains": 401,
+          "excluded_genes_with_exact_compatible_isoform": 401
+        },
+        "ANNEVO": {
+          "coverage_by_region_bp": {
+            "span": [
+              7783422,
+              2713,
+              1548205,
+              0,
+              240355,
+              33363
+            ],
+            "CDS": [
+              5055971,
+              2070,
+              1112793,
+              0,
+              184486,
+              15747
+            ],
+            "span_only": [
+              2727451,
+              643,
+              435412,
+              0,
+              55869,
+              17616
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1119341,
+          "partial_span_on_compatible_CDS_span_bp": 1543818,
+          "partial_predicted_CDS_on_reference_CDS_bp": 1106291,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 1104304,
+          "exact_additional_primary_candidate_chains": 492,
+          "exact_additional_any_compatible_isoform_chains": 581,
+          "excluded_genes_with_exact_compatible_isoform": 581
+        },
+        "Helixer": {
+          "coverage_by_region_bp": {
+            "span": [
+              7928563,
+              7810,
+              1808383,
+              0,
+              344746,
+              170086
+            ],
+            "CDS": [
+              5150346,
+              4296,
+              1289151,
+              0,
+              238068,
+              53252
+            ],
+            "span_only": [
+              2778217,
+              3514,
+              519232,
+              0,
+              106678,
+              116834
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1279279,
+          "partial_span_on_compatible_CDS_span_bp": 1771369,
+          "partial_predicted_CDS_on_reference_CDS_bp": 1257666,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 1250185,
+          "exact_additional_primary_candidate_chains": 449,
+          "exact_additional_any_compatible_isoform_chains": 523,
+          "excluded_genes_with_exact_compatible_isoform": 523
+        },
+        "Tiberius": {
+          "coverage_by_region_bp": {
+            "span": [
+              7791223,
+              3487,
+              1625191,
+              0,
+              157657,
+              29321
+            ],
+            "CDS": [
+              5084642,
+              2598,
+              1170741,
+              0,
+              123846,
+              16615
+            ],
+            "span_only": [
+              2706581,
+              889,
+              454450,
+              0,
+              33811,
+              12706
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1173491,
+          "partial_span_on_compatible_CDS_span_bp": 1611233,
+          "partial_predicted_CDS_on_reference_CDS_bp": 1158914,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 1153550,
+          "exact_additional_primary_candidate_chains": 485,
+          "exact_additional_any_compatible_isoform_chains": 594,
+          "excluded_genes_with_exact_compatible_isoform": 594
+        }
+      }
+    },
+    "oryza_sativa": {
+      "raw_feature_row_flags": {
+        "gene": {
+          "unflagged": 2798,
+          "partial_true_and_range": 8
+        },
+        "mRNA": {
+          "unflagged": 3380,
+          "partial_true_and_range": 8
+        },
+        "CDS": {
+          "unflagged": 18832,
+          "partial_true_only": 14,
+          "partial_true_and_range": 8
+        }
+      },
+      "coding_transcript_combinations": {
+        "gene=0;transcript=0;CDS=0;sequence_compatible=1": 3372,
+        "gene=0;transcript=0;CDS=0;sequence_compatible=0": 8,
+        "gene=1;transcript=1;CDS=1;sequence_compatible=0": 8
+      },
+      "partial_gene_transcript_combinations": {
+        "gene=1;transcript=1;CDS=1;sequence_compatible=0": 8
+      },
+      "coding_genes": 2307,
+      "frozen_primary_genes": 2299,
+      "partial_coding_genes": 8,
+      "partial_genes_with_unflagged_compatible_CDS": 0,
+      "additional_CDS_assessable_primary_candidates": 0,
+      "additional_candidates_from_partial_genes": 0,
+      "partial_region_bp": 29821,
+      "partial_region_reference_CDS_union_bp": 9504,
+      "partial_region_compatible_CDS_union_bp": 0,
+      "partial_region_compatible_CDS_span_union_bp": 0,
+      "methods": {
+        "M25R_A": {
+          "coverage_by_region_bp": {
+            "span": [
+              675662,
+              7824,
+              507,
+              0,
+              13373,
+              71421
+            ],
+            "CDS": [
+              636885,
+              7743,
+              507,
+              0,
+              12197,
+              69505
+            ],
+            "span_only": [
+              38777,
+              81,
+              0,
+              0,
+              1176,
+              1916
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 446,
+          "partial_span_on_compatible_CDS_span_bp": 0,
+          "partial_predicted_CDS_on_reference_CDS_bp": 446,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 0,
+          "exact_additional_primary_candidate_chains": 0,
+          "exact_additional_any_compatible_isoform_chains": 0,
+          "excluded_genes_with_exact_compatible_isoform": 0
+        },
+        "M25R_B": {
+          "coverage_by_region_bp": {
+            "span": [
+              4356648,
+              21252,
+              507,
+              0,
+              66084,
+              170789
+            ],
+            "CDS": [
+              2164184,
+              12708,
+              507,
+              0,
+              38281,
+              117264
+            ],
+            "span_only": [
+              2192464,
+              8544,
+              0,
+              0,
+              27803,
+              53525
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 446,
+          "partial_span_on_compatible_CDS_span_bp": 0,
+          "partial_predicted_CDS_on_reference_CDS_bp": 446,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 0,
+          "exact_additional_primary_candidate_chains": 0,
+          "exact_additional_any_compatible_isoform_chains": 0,
+          "excluded_genes_with_exact_compatible_isoform": 0
+        },
+        "ANNEVO": {
+          "coverage_by_region_bp": {
+            "span": [
+              6162866,
+              39132,
+              4468,
+              0,
+              88963,
+              289043
+            ],
+            "CDS": [
+              2810907,
+              14249,
+              1722,
+              0,
+              38306,
+              127924
+            ],
+            "span_only": [
+              3351959,
+              24883,
+              2746,
+              0,
+              50657,
+              161119
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1640,
+          "partial_span_on_compatible_CDS_span_bp": 0,
+          "partial_predicted_CDS_on_reference_CDS_bp": 1640,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 0,
+          "exact_additional_primary_candidate_chains": 0,
+          "exact_additional_any_compatible_isoform_chains": 0,
+          "excluded_genes_with_exact_compatible_isoform": 0
+        },
+        "Helixer": {
+          "coverage_by_region_bp": {
+            "span": [
+              6341274,
+              38589,
+              3961,
+              0,
+              239558,
+              368130
+            ],
+            "CDS": [
+              2896450,
+              14799,
+              1215,
+              0,
+              131196,
+              177849
+            ],
+            "span_only": [
+              3444824,
+              23790,
+              2746,
+              0,
+              108362,
+              190281
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1194,
+          "partial_span_on_compatible_CDS_span_bp": 0,
+          "partial_predicted_CDS_on_reference_CDS_bp": 1194,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 0,
+          "exact_additional_primary_candidate_chains": 0,
+          "exact_additional_any_compatible_isoform_chains": 0,
+          "excluded_genes_with_exact_compatible_isoform": 0
+        },
+        "Tiberius": {
+          "coverage_by_region_bp": {
+            "span": [
+              5844545,
+              33060,
+              4416,
+              0,
+              139978,
+              172110
+            ],
+            "CDS": [
+              2797826,
+              11281,
+              1665,
+              0,
+              86831,
+              106079
+            ],
+            "span_only": [
+              3046719,
+              21779,
+              2751,
+              0,
+              53147,
+              66031
+            ]
+          },
+          "partial_span_on_reference_CDS_bp": 1640,
+          "partial_span_on_compatible_CDS_span_bp": 0,
+          "partial_predicted_CDS_on_reference_CDS_bp": 1640,
+          "partial_predicted_CDS_on_compatible_reference_CDS_bp": 0,
+          "exact_additional_primary_candidate_chains": 0,
+          "exact_additional_any_compatible_isoform_chains": 0,
+          "excluded_genes_with_exact_compatible_isoform": 0
+        }
+      }
+    }
+  }
+}
