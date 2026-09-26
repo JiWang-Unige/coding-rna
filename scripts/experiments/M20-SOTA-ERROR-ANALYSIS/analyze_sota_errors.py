@@ -193,12 +193,12 @@ def main() -> None:
         "",
         "## Aggregate Metrics",
         "",
-        "| Model | Kind | gbF1 | Precision | Recall | Spec | FPR | Gene count ratio | FPR<=0.01 |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+        "| Model | Kind | ordinary gbF1 | historical constrained gbF1 | Precision | Recall | Spec | FPR | Gene count ratio | FPR<=0.01 |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in ranked:
         lines.append(
-            f"| {row['model']} | {row['kind']} | {_fmt(row['constrained_gene_body_F1'])} | "
+            f"| {row['model']} | {row['kind']} | {_fmt(row['gene_body_F1_unconstrained'])} | {_fmt(row['constrained_gene_body_F1'])} | "
             f"{_fmt(row['gene_body_precision'])} | {_fmt(row['gene_body_recall'])} | "
             f"{_fmt(row['intergenic_specificity'])} | {_fmt(row['intergenic_FPR'])} | "
             f"{_fmt(row['predicted_gene_count_ratio_vs_reference'])} | "
@@ -206,6 +206,10 @@ def main() -> None:
         )
     lines.extend(
         [
+            "",
+            "Ordinary and historical constrained F1 are separate preserved fields; the latter is not recomputed from the FPR<=0.01 flag. A constrained zero does not mean zero ordinary accuracy.",
+            "",
+            "Scope warning: the historical interval_overlap diagnostic lacks prediction seqid restriction and is quarantined from scientific comparison pending same-scope rescoring. Aggregate metrics above come from separate saved evaluator outputs. Do not combine M24 and M25R results across their different scopes.",
             "",
             "## Interpretation",
             "",
