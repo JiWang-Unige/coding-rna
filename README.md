@@ -12,6 +12,8 @@ Start with the [current research roadmap](docs/research_roadmap_20260926.md). Re
 
 The [M27 WT replay result](reports/M27-ALLELIC-INTEGRITY/wt_result.md) verifies exact whole-chr22 native/cache replay for ANNEVO (530 CDS transcripts) and Tiberius (575), after reference-only selection of 21 paired sites. Unique WT-exact targets are 12 and 10, with 9 shared. The next [native paired intervention](reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md) preregisters 24 ANNEVO and 20 Tiberius single-SNV runs, strict target identity, and fixed-denominator identification bounds. Its [execution record](reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md) separates preparation, running, and completed results. **Paired outcomes are not yet complete**; there is no allelic mechanism, biological-validation, or publication claim.
 
+The [M27 novelty boundary](reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) distinguishes this diagnostic from prior ACE/SGRF premature-stop experiments, early Helixer mutagenesis, and published pangenome annotation-consistency studies. A positive response in a modern caller would not by itself establish a new mechanism or a publication-level contribution.
+
 | Question | Evidence | What it establishes |
 |---|---|---|
 | How does the fixed decoder compare with cached callers on the same scope? | [Same-scope comparison](reports/M26-SAME-SCOPE-MECHANISM/result.md) | B improves over A but trails the three cached baselines in exact-chain F1. |

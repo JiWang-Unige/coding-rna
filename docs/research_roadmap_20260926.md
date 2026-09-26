@@ -8,6 +8,8 @@ Pro第十轮读取2239028的五个WT结果/实现文件，支持执行已事前�
 
 CPU准备13227836已COMPLETED（16秒，0GPU，17测试通过），26份完整chr22单SNV输入已生成。首个mutant前公开协议、实现和输入清单；配对结果尚待完成。执行与资源见 [执行记录](../reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md)。最多6GPUh/32GiB，M27总8GPUh/50GiB不变，不重试模型失败，不训练、不访问Setaria。仅出现明确PTC=1/syn=0时，下一阶段才按登记坐标每工具最多一个案例做重现确认；本阶段不做分量交叉。
 
+运行期间完成 [新颖性边界核查](../reports/M27-ALLELIC-INTEGRITY/novelty_scope.md)：SGRF 已有约19,000基因的人工早停 HMM 检验，早期 Helixer 已有神经扰动分析，泛基因组注释一致性也已有系统研究。这不改冻结运行；完整结果后须区分旧现象重现、可辨识的新机制及实际后果，不能因现代工具阳性就自动扩大论文主张。
+
 ## 前阶段：M27 WT重放通过
 
 第九轮Pro基于67f5c9a收窄为先验证native同DNA缓存重放，并保留工具各自WT精确集合W_m作为条件分母。17c0771在首次推理前公开协议。13227533 COMPLETED（15分49秒，0.2636 GPUh，5测试通过）：ANNEVO全chr22 530条、Tiberius575条CDS链在重放中链/strand/phase多重集合完全一致；Tiberius4次原生神经请求完整重放，重放0次神经前向，两个过滤前后链也相同。
