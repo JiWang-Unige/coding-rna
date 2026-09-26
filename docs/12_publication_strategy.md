@@ -2,6 +2,12 @@
 
 > 由 `/publication-plan` 维护。用于“已经有完整思路或已超越 SOTA，不是盲目迭代，而是把研究做成可投稿故事”的阶段。
 
+## 2026-09-26 superseding status
+
+The September 1 direct-annotator route below is also historical. The current authority for scientific direction is [research_roadmap_20260926.md](research_roadmap_20260926.md). Same-scope M26 comparison places B below all three cached baseline callers in exact-chain F1; semantic source pairing closes the tested DEV source-dispute line; fixed-budget global boundary selection loses 225 supported chains net and fails its predeclared follow-up gate.
+
+Do not use the old C1–C4 contribution menu, backbone-size comparison, or manuscript-readiness ticks below as current evidence of novelty, causal pretraining effects, clean generalization, or submission readiness. The user still seeks a publishable research contribution and ultimately Nature Communications; neither the fixed-route NO-GO nor a negative-result report completes that objective. A new paper claim remains unestablished. No manuscript-level superiority claim is supported.
+
 ## 2026-09-01 superseding status
 
 The M12-era strategy below is retained as history, but its original broad fixed-caller claim is no longer current. M12–M17 showed that the NT-v2 route does not transfer as a universal fixed caller. M18/M19 established useful low-FPR GENERanno 1.2B adaptation, M24 showed that coarse gene-body quality does not translate into exact gene structures, and M25R stopped on development because complete-gene count is only `0.095–0.331x` reference across the frozen grid.
