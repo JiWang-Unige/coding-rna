@@ -1,0 +1,32 @@
+{
+  "all": {
+    "n": 6450,
+    "categories": {
+      "missing_boundary_candidate": 2834,
+      "full_chain_in_graph": 3586,
+      "boundaries_present_no_same_run_fragment": 30
+    },
+    "canonical_chain_in_graph": 3585,
+    "cross_block_witness": 685,
+    "skipping_witness": 85
+  },
+  "fragmented": {
+    "n": 1634,
+    "categories": {
+      "missing_boundary_candidate": 947,
+      "full_chain_in_graph": 685,
+      "boundaries_present_no_same_run_fragment": 2
+    },
+    "canonical_chain_in_graph": 685,
+    "cross_block_witness": 685,
+    "skipping_witness": 66
+  },
+  "exact_positive_checks": 1389,
+  "reference_total": 6450,
+  "optimistic_chain_F1": 0.7144992526158446,
+  "chain_gate": 0.55,
+  "scope": "epoch1 run-preserving cross-block graph, score and phase filters relaxed",
+  "actual_predictions": false,
+  "model_loaded": false,
+  "setaria_access": false
+}
