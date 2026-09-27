@@ -2,11 +2,11 @@
 
 更新日期：2026-09-27。用户目标仍是完成有发表价值的研究并争取 Nature Communications；期刊录用不能由工程完成或内部门槛保证。旧 M25R 固定路线 NO-GO 不等于这个长期目标完成。本文件替代继续救 R1、堆 seed 或直接换大 backbone 的推进方式，不恢复 Auto Research 框架。
 
-## 最新阶段：M27预定两案例原生确认
+## 最新阶段：M27预定两案例原生确认完成
 
 Pro第12轮读取固定43e366a的结果/合同/分类实现，未访问原始产物或独立重跑；支持先执行四次原生确认并旁路保存缓存。冻结 [确认合同](../reports/M27-ALLELIC-INTEGRITY/confirmation_contract.md)：ANNEVO/POTEH与Tiberius/CRYBA4按原顺序各syn/PTC，完整链及竞争身份必须复现；全chr/过滤/请求差异另存，无法解释不得进入分量归因。缓存记录不是已验证重放，也不是分量干预。
 
-CPU准备13233925 COMPLETED，19测试通过，0GPU。确认GPU上限45分钟/1RTX3090/32GiB，无自动重试，总8GPUh与50GiB不变。15nt内含子保留为实际算法行为，不推定生物学合理；两工具没有同位点共同阳性，未知仍保留原分母。本阶段完成后再做Pro商议，不直接扩大到真实变异/新物种。
+CPU准备13233925 COMPLETED，19测试通过，0GPU。协议先公开0a8436d，确认13233933随后COMPLETED 0:0，19分39秒/0.3275GPUh。4/4目标完整结构及全chr链复现，Tiberius过滤前后和请求元数据也相同，见 [确认结果](../reports/M27-ALLELIC-INTEGRITY/confirmation_result.md)。累计4.313333/8GPUh，34.29/50GiB，无重试。15nt GC–AG内含子是可重现算法行为，不推定生物学合理；不增加原分母。下一Pro商议依据结果及 [实现边界](../reports/M27-ALLELIC-INTEGRITY/component_feasibility.md)，只决定一个神经证据/显式完整性约束冲突检验；不直接扩大真实变异/新物种。
 
 ## 前阶段：M27完整配对结果与有限确认对象
 

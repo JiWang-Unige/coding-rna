@@ -1,0 +1,3141 @@
+{
+  "stage": "native_reconfirmation_with_score_recording",
+  "planned_cases": 4,
+  "cases": [
+    {
+      "method": "ANNEVO",
+      "gene_id": "ENSG00000198062.16",
+      "allele": "syn",
+      "status": "COMPLETED",
+      "execution": {
+        "method": "ANNEVO",
+        "case_id": "01_syn",
+        "allele": "syn",
+        "gene_id": "ENSG00000198062.16",
+        "status": "COMPLETED",
+        "commands": [
+          {
+            "argv": [
+              "/usr/bin/time",
+              "-v",
+              "/home/users/j/jwang/.conda/envs/annevo/bin/python",
+              "-u",
+              "prediction.py",
+              "-g",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-PAIRED-NATIVE-R1/inputs/01_syn.fa",
+              "-m",
+              "saved_model/ANNEVO_Mammalia.pt",
+              "-l",
+              "Mammalia",
+              "-s",
+              "100",
+              "-p",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_syn/native_scores.h5",
+              "--batch_size",
+              "2",
+              "--num_workers",
+              "2"
+            ],
+            "cwd": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/refs/repos/annevo-2026",
+            "returncode": 0,
+            "seconds": 67.84885837882757,
+            "log": "outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_syn/prediction.log"
+          },
+          {
+            "argv": [
+              "/usr/bin/time",
+              "-v",
+              "/home/users/j/jwang/.conda/envs/annevo/bin/python",
+              "-u",
+              "decoding.py",
+              "-g",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-PAIRED-NATIVE-R1/inputs/01_syn.fa",
+              "-p",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_syn/native_scores.h5",
+              "-o",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_syn/prediction.gff3",
+              "-t",
+              "8",
+              "--min_intron_length",
+              "20",
+              "--min_prot_length",
+              "100",
+              "--show_log"
+            ],
+            "cwd": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/refs/repos/annevo-2026",
+            "returncode": 0,
+            "seconds": 55.2838345868513,
+            "log": "outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_syn/decode.log"
+          }
+        ],
+        "slurm_job_id": "13233933",
+        "retained_cache": {
+          "bytes": 3049112560,
+          "datasets": {
+            "predictions_forward": {
+              "shape": [
+                50818468,
+                15
+              ],
+              "dtype": "float16"
+            },
+            "predictions_reverse": {
+              "shape": [
+                50818468,
+                15
+              ],
+              "dtype": "float16"
+            }
+          }
+        },
+        "M27_bytes_after_case": 16480724226,
+        "seconds": 124.02109680511057
+      },
+      "comparison": {
+        "method": "ANNEVO",
+        "case_id": "01_syn",
+        "gene_id": "ENSG00000198062.16",
+        "allele": "syn",
+        "input_fasta": "outputs/M27-PAIRED-NATIVE-R1/inputs/01_syn.fa",
+        "target": {
+          "equal": true,
+          "old": {
+            "category": "WT_CHAIN_RETAINED",
+            "bypass_interval": [
+              0,
+              0
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    15690077,
+                    15690709,
+                    0
+                  ],
+                  [
+                    15695370,
+                    15695485,
+                    1
+                  ],
+                  [
+                    15695644,
+                    15695818,
+                    0
+                  ],
+                  [
+                    15698661,
+                    15698768,
+                    0
+                  ],
+                  [
+                    15700077,
+                    15700215,
+                    1
+                  ],
+                  [
+                    15702685,
+                    15702756,
+                    1
+                  ],
+                  [
+                    15708019,
+                    15708090,
+                    2
+                  ],
+                  [
+                    15709781,
+                    15709826,
+                    0
+                  ],
+                  [
+                    15710867,
+                    15711034,
+                    0
+                  ],
+                  [
+                    15719659,
+                    15719777,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              15690077,
+              15690709,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              15719659,
+              15719777,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              15695749,
+              15695750,
+              15695751
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      15690077,
+                      15690709,
+                      0
+                    ],
+                    [
+                      15695370,
+                      15695485,
+                      1
+                    ],
+                    [
+                      15695644,
+                      15695818,
+                      0
+                    ],
+                    [
+                      15698661,
+                      15698768,
+                      0
+                    ],
+                    [
+                      15700077,
+                      15700215,
+                      1
+                    ],
+                    [
+                      15702685,
+                      15702756,
+                      1
+                    ],
+                    [
+                      15708019,
+                      15708090,
+                      2
+                    ],
+                    [
+                      15709781,
+                      15709826,
+                      0
+                    ],
+                    [
+                      15710867,
+                      15711034,
+                      0
+                    ],
+                    [
+                      15719659,
+                      15719777,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          },
+          "new": {
+            "category": "WT_CHAIN_RETAINED",
+            "bypass_interval": [
+              0,
+              0
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    15690077,
+                    15690709,
+                    0
+                  ],
+                  [
+                    15695370,
+                    15695485,
+                    1
+                  ],
+                  [
+                    15695644,
+                    15695818,
+                    0
+                  ],
+                  [
+                    15698661,
+                    15698768,
+                    0
+                  ],
+                  [
+                    15700077,
+                    15700215,
+                    1
+                  ],
+                  [
+                    15702685,
+                    15702756,
+                    1
+                  ],
+                  [
+                    15708019,
+                    15708090,
+                    2
+                  ],
+                  [
+                    15709781,
+                    15709826,
+                    0
+                  ],
+                  [
+                    15710867,
+                    15711034,
+                    0
+                  ],
+                  [
+                    15719659,
+                    15719777,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              15690077,
+              15690709,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              15719659,
+              15719777,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              15695749,
+              15695750,
+              15695751
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      15690077,
+                      15690709,
+                      0
+                    ],
+                    [
+                      15695370,
+                      15695485,
+                      1
+                    ],
+                    [
+                      15695644,
+                      15695818,
+                      0
+                    ],
+                    [
+                      15698661,
+                      15698768,
+                      0
+                    ],
+                    [
+                      15700077,
+                      15700215,
+                      1
+                    ],
+                    [
+                      15702685,
+                      15702756,
+                      1
+                    ],
+                    [
+                      15708019,
+                      15708090,
+                      2
+                    ],
+                    [
+                      15709781,
+                      15709826,
+                      0
+                    ],
+                    [
+                      15710867,
+                      15711034,
+                      0
+                    ],
+                    [
+                      15719659,
+                      15719777,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          }
+        },
+        "whole_chr": {
+          "equal": true,
+          "old_count": 530,
+          "new_count": 530,
+          "lost": [],
+          "added": []
+        },
+        "target_pass": true,
+        "whole_context_equal": true,
+        "component_attribution_performed": false,
+        "mutant_cache_replay_verified": false
+      }
+    },
+    {
+      "method": "ANNEVO",
+      "gene_id": "ENSG00000198062.16",
+      "allele": "PTC",
+      "status": "COMPLETED",
+      "execution": {
+        "method": "ANNEVO",
+        "case_id": "01_PTC",
+        "allele": "PTC",
+        "gene_id": "ENSG00000198062.16",
+        "status": "COMPLETED",
+        "commands": [
+          {
+            "argv": [
+              "/usr/bin/time",
+              "-v",
+              "/home/users/j/jwang/.conda/envs/annevo/bin/python",
+              "-u",
+              "prediction.py",
+              "-g",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-PAIRED-NATIVE-R1/inputs/01_PTC.fa",
+              "-m",
+              "saved_model/ANNEVO_Mammalia.pt",
+              "-l",
+              "Mammalia",
+              "-s",
+              "100",
+              "-p",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_PTC/native_scores.h5",
+              "--batch_size",
+              "2",
+              "--num_workers",
+              "2"
+            ],
+            "cwd": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/refs/repos/annevo-2026",
+            "returncode": 0,
+            "seconds": 59.498459650203586,
+            "log": "outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_PTC/prediction.log"
+          },
+          {
+            "argv": [
+              "/usr/bin/time",
+              "-v",
+              "/home/users/j/jwang/.conda/envs/annevo/bin/python",
+              "-u",
+              "decoding.py",
+              "-g",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-PAIRED-NATIVE-R1/inputs/01_PTC.fa",
+              "-p",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_PTC/native_scores.h5",
+              "-o",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_PTC/prediction.gff3",
+              "-t",
+              "8",
+              "--min_intron_length",
+              "20",
+              "--min_prot_length",
+              "100",
+              "--show_log"
+            ],
+            "cwd": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/refs/repos/annevo-2026",
+            "returncode": 0,
+            "seconds": 41.33181278919801,
+            "log": "outputs/M27-NATIVE-CONFIRM-R1/ANNEVO/01_PTC/decode.log"
+          }
+        ],
+        "slurm_job_id": "13233933",
+        "retained_cache": {
+          "bytes": 3049112560,
+          "datasets": {
+            "predictions_forward": {
+              "shape": [
+                50818468,
+                15
+              ],
+              "dtype": "float16"
+            },
+            "predictions_reverse": {
+              "shape": [
+                50818468,
+                15
+              ],
+              "dtype": "float16"
+            }
+          }
+        },
+        "M27_bytes_after_case": 19530733197,
+        "seconds": 101.52131759980693
+      },
+      "comparison": {
+        "method": "ANNEVO",
+        "case_id": "01_PTC",
+        "gene_id": "ENSG00000198062.16",
+        "allele": "PTC",
+        "input_fasta": "outputs/M27-PAIRED-NATIVE-R1/inputs/01_PTC.fa",
+        "target": {
+          "equal": true,
+          "old": {
+            "category": "BYPASS",
+            "bypass_interval": [
+              1,
+              1
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    15690077,
+                    15690709,
+                    0
+                  ],
+                  [
+                    15695370,
+                    15695485,
+                    1
+                  ],
+                  [
+                    15698661,
+                    15698768,
+                    0
+                  ],
+                  [
+                    15700077,
+                    15700215,
+                    1
+                  ],
+                  [
+                    15702685,
+                    15702756,
+                    1
+                  ],
+                  [
+                    15708019,
+                    15708090,
+                    2
+                  ],
+                  [
+                    15709781,
+                    15709826,
+                    0
+                  ],
+                  [
+                    15710867,
+                    15711034,
+                    0
+                  ],
+                  [
+                    15719659,
+                    15719777,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              15690077,
+              15690709,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              15719659,
+              15719777,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              15695749,
+              15695750,
+              15695751
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      15690077,
+                      15690709,
+                      0
+                    ],
+                    [
+                      15695370,
+                      15695485,
+                      1
+                    ],
+                    [
+                      15698661,
+                      15698768,
+                      0
+                    ],
+                    [
+                      15700077,
+                      15700215,
+                      1
+                    ],
+                    [
+                      15702685,
+                      15702756,
+                      1
+                    ],
+                    [
+                      15708019,
+                      15708090,
+                      2
+                    ],
+                    [
+                      15709781,
+                      15709826,
+                      0
+                    ],
+                    [
+                      15710867,
+                      15711034,
+                      0
+                    ],
+                    [
+                      15719659,
+                      15719777,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          },
+          "new": {
+            "category": "BYPASS",
+            "bypass_interval": [
+              1,
+              1
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    15690077,
+                    15690709,
+                    0
+                  ],
+                  [
+                    15695370,
+                    15695485,
+                    1
+                  ],
+                  [
+                    15698661,
+                    15698768,
+                    0
+                  ],
+                  [
+                    15700077,
+                    15700215,
+                    1
+                  ],
+                  [
+                    15702685,
+                    15702756,
+                    1
+                  ],
+                  [
+                    15708019,
+                    15708090,
+                    2
+                  ],
+                  [
+                    15709781,
+                    15709826,
+                    0
+                  ],
+                  [
+                    15710867,
+                    15711034,
+                    0
+                  ],
+                  [
+                    15719659,
+                    15719777,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              15690077,
+              15690709,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              15719659,
+              15719777,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              15695749,
+              15695750,
+              15695751
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      15690077,
+                      15690709,
+                      0
+                    ],
+                    [
+                      15695370,
+                      15695485,
+                      1
+                    ],
+                    [
+                      15698661,
+                      15698768,
+                      0
+                    ],
+                    [
+                      15700077,
+                      15700215,
+                      1
+                    ],
+                    [
+                      15702685,
+                      15702756,
+                      1
+                    ],
+                    [
+                      15708019,
+                      15708090,
+                      2
+                    ],
+                    [
+                      15709781,
+                      15709826,
+                      0
+                    ],
+                    [
+                      15710867,
+                      15711034,
+                      0
+                    ],
+                    [
+                      15719659,
+                      15719777,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          }
+        },
+        "whole_chr": {
+          "equal": true,
+          "old_count": 530,
+          "new_count": 530,
+          "lost": [],
+          "added": []
+        },
+        "target_pass": true,
+        "whole_context_equal": true,
+        "component_attribution_performed": false,
+        "mutant_cache_replay_verified": false
+      }
+    },
+    {
+      "method": "Tiberius",
+      "gene_id": "ENSG00000196431.4",
+      "allele": "syn",
+      "status": "COMPLETED",
+      "execution": {
+        "method": "Tiberius",
+        "case_id": "09_syn",
+        "allele": "syn",
+        "gene_id": "ENSG00000196431.4",
+        "status": "COMPLETED",
+        "commands": [
+          {
+            "argv": [
+              "/usr/bin/time",
+              "-v",
+              "apptainer",
+              "exec",
+              "--nv",
+              "--cleanenv",
+              "--env",
+              "CUDA_VISIBLE_DEVICES=0",
+              "--env",
+              "PYTHONDONTWRITEBYTECODE=1",
+              "--env",
+              "OMP_NUM_THREADS=8",
+              "--bind",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna:/work",
+              "--pwd",
+              "/work",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/refs/repos/tiberius-2024/singularity/tiberius_2.0.5.sif",
+              "python",
+              "-u",
+              "scripts/experiments/M27-ALLELIC-INTEGRITY/wt_tiberius.py",
+              "--cache-mode",
+              "record",
+              "--cache-dir",
+              "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_syn/cache",
+              "--cache-limit-bytes",
+              "21474836480",
+              "--trace",
+              "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_syn/trace.json",
+              "--genome",
+              "outputs/M27-PAIRED-NATIVE-R1/inputs/09_syn.fa",
+              "--model",
+              "refs/weights/tiberius-m27-nosm-v2/tiberius_nosm_weights_v2",
+              "--no_softmasking",
+              "--seq_len",
+              "400050",
+              "--batch_size",
+              "2",
+              "--out",
+              "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_syn/prediction.gtf"
+            ],
+            "cwd": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna",
+            "returncode": 0,
+            "seconds": 457.19892155379057,
+            "log": "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_syn/native.log"
+          }
+        ],
+        "slurm_job_id": "13233933",
+        "retained_cache": {
+          "bytes": 8641081024,
+          "limit_bytes": 21474836480,
+          "requests": 4,
+          "neural_forward_calls": 4
+        },
+        "M27_bytes_after_case": 28175126373,
+        "seconds": 458.1227591196075
+      },
+      "comparison": {
+        "method": "Tiberius",
+        "case_id": "09_syn",
+        "gene_id": "ENSG00000196431.4",
+        "allele": "syn",
+        "input_fasta": "outputs/M27-PAIRED-NATIVE-R1/inputs/09_syn.fa",
+        "target": {
+          "equal": true,
+          "old": {
+            "category": "WT_CHAIN_RETAINED",
+            "bypass_interval": [
+              0,
+              0
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  [
+                    26623233,
+                    26623352,
+                    0
+                  ],
+                  [
+                    26625480,
+                    26625622,
+                    1
+                  ],
+                  [
+                    26628287,
+                    26628430,
+                    0
+                  ],
+                  [
+                    26630339,
+                    26630487,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              26622596,
+              26622635,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              26630339,
+              26630487,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              26625577,
+              26625578,
+              26625579
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      26622596,
+                      26622635,
+                      0
+                    ],
+                    [
+                      26623233,
+                      26623352,
+                      0
+                    ],
+                    [
+                      26625480,
+                      26625622,
+                      1
+                    ],
+                    [
+                      26628287,
+                      26628430,
+                      0
+                    ],
+                    [
+                      26630339,
+                      26630487,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          },
+          "new": {
+            "category": "WT_CHAIN_RETAINED",
+            "bypass_interval": [
+              0,
+              0
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  [
+                    26623233,
+                    26623352,
+                    0
+                  ],
+                  [
+                    26625480,
+                    26625622,
+                    1
+                  ],
+                  [
+                    26628287,
+                    26628430,
+                    0
+                  ],
+                  [
+                    26630339,
+                    26630487,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              26622596,
+              26622635,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              26630339,
+              26630487,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              26625577,
+              26625578,
+              26625579
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      26622596,
+                      26622635,
+                      0
+                    ],
+                    [
+                      26623233,
+                      26623352,
+                      0
+                    ],
+                    [
+                      26625480,
+                      26625622,
+                      1
+                    ],
+                    [
+                      26628287,
+                      26628430,
+                      0
+                    ],
+                    [
+                      26630339,
+                      26630487,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          }
+        },
+        "whole_chr": {
+          "equal": true,
+          "old_count": 575,
+          "new_count": 575,
+          "lost": [],
+          "added": []
+        },
+        "target_pass": true,
+        "whole_context_equal": true,
+        "filters": [
+          {
+            "name": "check_min_coding_length",
+            "before": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 706,
+                "new_count": 706,
+                "lost": [],
+                "added": []
+              }
+            },
+            "after": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 585,
+                "new_count": 585,
+                "lost": [],
+                "added": []
+              }
+            }
+          },
+          {
+            "name": "check_inframe_stop_codons",
+            "before": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 585,
+                "new_count": 585,
+                "lost": [],
+                "added": []
+              }
+            },
+            "after": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "WT_CHAIN_RETAINED",
+                  "bypass_interval": [
+                    0,
+                    0
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625622,
+                          1
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625622,
+                            1
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 575,
+                "new_count": 575,
+                "lost": [],
+                "added": []
+              }
+            }
+          }
+        ],
+        "request_metadata_equal": true,
+        "component_attribution_performed": false,
+        "mutant_cache_replay_verified": false
+      }
+    },
+    {
+      "method": "Tiberius",
+      "gene_id": "ENSG00000196431.4",
+      "allele": "PTC",
+      "status": "COMPLETED",
+      "execution": {
+        "method": "Tiberius",
+        "case_id": "09_PTC",
+        "allele": "PTC",
+        "gene_id": "ENSG00000196431.4",
+        "status": "COMPLETED",
+        "commands": [
+          {
+            "argv": [
+              "/usr/bin/time",
+              "-v",
+              "apptainer",
+              "exec",
+              "--nv",
+              "--cleanenv",
+              "--env",
+              "CUDA_VISIBLE_DEVICES=0",
+              "--env",
+              "PYTHONDONTWRITEBYTECODE=1",
+              "--env",
+              "OMP_NUM_THREADS=8",
+              "--bind",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna:/work",
+              "--pwd",
+              "/work",
+              "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/refs/repos/tiberius-2024/singularity/tiberius_2.0.5.sif",
+              "python",
+              "-u",
+              "scripts/experiments/M27-ALLELIC-INTEGRITY/wt_tiberius.py",
+              "--cache-mode",
+              "record",
+              "--cache-dir",
+              "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_PTC/cache",
+              "--cache-limit-bytes",
+              "21474836480",
+              "--trace",
+              "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_PTC/trace.json",
+              "--genome",
+              "outputs/M27-PAIRED-NATIVE-R1/inputs/09_PTC.fa",
+              "--model",
+              "refs/weights/tiberius-m27-nosm-v2/tiberius_nosm_weights_v2",
+              "--no_softmasking",
+              "--seq_len",
+              "400050",
+              "--batch_size",
+              "2",
+              "--out",
+              "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_PTC/prediction.gtf"
+            ],
+            "cwd": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna",
+            "returncode": 0,
+            "seconds": 454.27943758200854,
+            "log": "outputs/M27-NATIVE-CONFIRM-R1/Tiberius/09_PTC/native.log"
+          }
+        ],
+        "slurm_job_id": "13233933",
+        "retained_cache": {
+          "bytes": 8641081024,
+          "limit_bytes": 21474836480,
+          "requests": 4,
+          "neural_forward_calls": 4
+        },
+        "M27_bytes_after_case": 36819521995,
+        "seconds": 455.14047677489
+      },
+      "comparison": {
+        "method": "Tiberius",
+        "case_id": "09_PTC",
+        "gene_id": "ENSG00000196431.4",
+        "allele": "PTC",
+        "input_fasta": "outputs/M27-PAIRED-NATIVE-R1/inputs/09_PTC.fa",
+        "target": {
+          "equal": true,
+          "old": {
+            "category": "BYPASS",
+            "bypass_interval": [
+              1,
+              1
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  [
+                    26623233,
+                    26623352,
+                    0
+                  ],
+                  [
+                    26625480,
+                    26625574,
+                    1
+                  ],
+                  [
+                    26625589,
+                    26625622,
+                    0
+                  ],
+                  [
+                    26628287,
+                    26628430,
+                    0
+                  ],
+                  [
+                    26630339,
+                    26630487,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              26622596,
+              26622635,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              26630339,
+              26630487,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              26625577,
+              26625578,
+              26625579
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      26622596,
+                      26622635,
+                      0
+                    ],
+                    [
+                      26623233,
+                      26623352,
+                      0
+                    ],
+                    [
+                      26625480,
+                      26625574,
+                      1
+                    ],
+                    [
+                      26625589,
+                      26625622,
+                      0
+                    ],
+                    [
+                      26628287,
+                      26628430,
+                      0
+                    ],
+                    [
+                      26630339,
+                      26630487,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          },
+          "new": {
+            "category": "BYPASS",
+            "bypass_interval": [
+              1,
+              1
+            ],
+            "assigned_keys": [
+              [
+                "chr22",
+                "+",
+                [
+                  [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  [
+                    26623233,
+                    26623352,
+                    0
+                  ],
+                  [
+                    26625480,
+                    26625574,
+                    1
+                  ],
+                  [
+                    26625589,
+                    26625622,
+                    0
+                  ],
+                  [
+                    26628287,
+                    26628430,
+                    0
+                  ],
+                  [
+                    26630339,
+                    26630487,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            "WT_first_CDS_anchor": [
+              26622596,
+              26622635,
+              0
+            ],
+            "WT_last_CDS_anchor": [
+              26630339,
+              26630487,
+              1
+            ],
+            "edited_codon_positions_0based": [
+              26625577,
+              26625578,
+              26625579
+            ],
+            "coding_status": {
+              "phase_continuous": true,
+              "canonical_start_terminal_stop": true,
+              "internal_stop_count": 0,
+              "valid_ORF": true
+            },
+            "related_chains": [
+              {
+                "key": [
+                  "chr22",
+                  "+",
+                  [
+                    [
+                      26622596,
+                      26622635,
+                      0
+                    ],
+                    [
+                      26623233,
+                      26623352,
+                      0
+                    ],
+                    [
+                      26625480,
+                      26625574,
+                      1
+                    ],
+                    [
+                      26625589,
+                      26625622,
+                      0
+                    ],
+                    [
+                      26628287,
+                      26628430,
+                      0
+                    ],
+                    [
+                      26630339,
+                      26630487,
+                      1
+                    ]
+                  ]
+                ],
+                "count": 1
+              }
+            ]
+          }
+        },
+        "whole_chr": {
+          "equal": true,
+          "old_count": 575,
+          "new_count": 575,
+          "lost": [],
+          "added": []
+        },
+        "target_pass": true,
+        "whole_context_equal": true,
+        "filters": [
+          {
+            "name": "check_min_coding_length",
+            "before": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 706,
+                "new_count": 706,
+                "lost": [],
+                "added": []
+              }
+            },
+            "after": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 585,
+                "new_count": 585,
+                "lost": [],
+                "added": []
+              }
+            }
+          },
+          {
+            "name": "check_inframe_stop_codons",
+            "before": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 585,
+                "new_count": 585,
+                "lost": [],
+                "added": []
+              }
+            },
+            "after": {
+              "target": {
+                "equal": true,
+                "old": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                },
+                "new": {
+                  "category": "BYPASS",
+                  "bypass_interval": [
+                    1,
+                    1
+                  ],
+                  "assigned_keys": [
+                    [
+                      "chr22",
+                      "+",
+                      [
+                        [
+                          26622596,
+                          26622635,
+                          0
+                        ],
+                        [
+                          26623233,
+                          26623352,
+                          0
+                        ],
+                        [
+                          26625480,
+                          26625574,
+                          1
+                        ],
+                        [
+                          26625589,
+                          26625622,
+                          0
+                        ],
+                        [
+                          26628287,
+                          26628430,
+                          0
+                        ],
+                        [
+                          26630339,
+                          26630487,
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  "WT_first_CDS_anchor": [
+                    26622596,
+                    26622635,
+                    0
+                  ],
+                  "WT_last_CDS_anchor": [
+                    26630339,
+                    26630487,
+                    1
+                  ],
+                  "edited_codon_positions_0based": [
+                    26625577,
+                    26625578,
+                    26625579
+                  ],
+                  "coding_status": {
+                    "phase_continuous": true,
+                    "canonical_start_terminal_stop": true,
+                    "internal_stop_count": 0,
+                    "valid_ORF": true
+                  },
+                  "related_chains": [
+                    {
+                      "key": [
+                        "chr22",
+                        "+",
+                        [
+                          [
+                            26622596,
+                            26622635,
+                            0
+                          ],
+                          [
+                            26623233,
+                            26623352,
+                            0
+                          ],
+                          [
+                            26625480,
+                            26625574,
+                            1
+                          ],
+                          [
+                            26625589,
+                            26625622,
+                            0
+                          ],
+                          [
+                            26628287,
+                            26628430,
+                            0
+                          ],
+                          [
+                            26630339,
+                            26630487,
+                            1
+                          ]
+                        ]
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              },
+              "whole_chr": {
+                "equal": true,
+                "old_count": 575,
+                "new_count": 575,
+                "lost": [],
+                "added": []
+              }
+            }
+          }
+        ],
+        "request_metadata_equal": true,
+        "component_attribution_performed": false,
+        "mutant_cache_replay_verified": false
+      }
+    }
+  ],
+  "complete": true,
+  "all_targets_reproduced": true,
+  "all_whole_context_equal": true,
+  "mutant_cache_replay_verified": false,
+  "component_attribution_performed": false,
+  "training_runs": 0,
+  "Setaria_accessed": false
+}

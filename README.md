@@ -14,7 +14,7 @@ The [M27 paired-native result](reports/M27-ALLELIC-INTEGRITY/paired_result.md) i
 
 The [M27 novelty boundary](reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) distinguishes this diagnostic from prior ACE/SGRF premature-stop experiments, early Helixer mutagenesis, and published pangenome annotation-consistency studies. A positive response in a modern caller would not by itself establish a new mechanism or a publication-level contribution.
 
-The next [frozen native-confirmation protocol](reports/M27-ALLELIC-INTEGRITY/confirmation_contract.md) permits only four whole-chr22 reruns: ANNEVO/POTEH and Tiberius/CRYBA4, each syn/PTC. Target structure/competition and Tiberius filter identities must reproduce; whole-chromosome/request differences are separately retained. Scores are recorded without substitution; mutant cache replay and component attribution remain unverified. CPU preparation passed 19 tests; [execution record](reports/M27-ALLELIC-INTEGRITY/confirmation_execution.md).
+The [native confirmation](reports/M27-ALLELIC-INTEGRITY/confirmation_result.md) is complete: all four preregistered reruns reproduced the exact target and whole-chromosome chains, including ANNEVO/POTEH exon skipping and the Tiberius/CRYBA4 15-nt GC–AG intron. Tiberius filter snapshots and request metadata also match. Native scores are retained without substitution; mutant cache replay, component attribution, and biological truth remain unverified. This adds computational reproducibility, not independent observations to the original denominators. Total M27 usage is 4.3133/8 GPUh and 34.29/50 GiB.
 
 | Question | Evidence | What it establishes |
 |---|---|---|
