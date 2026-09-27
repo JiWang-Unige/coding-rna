@@ -4,13 +4,13 @@ Cross-species ab initio protein-coding gene annotation experiments on the UNIGE 
 
 This public repository is a lean research snapshot. It contains source code, experiment configurations, Slurm submission scripts, tests, compact metrics, and result summaries. Raw genomes, reference annotations, model weights, caches, full runtime outputs, logs, and generated prediction dumps are intentionally excluded.
 
-## Current evidence and research status — 2026-09-26
+## Current evidence and research status — 2026-09-27
 
 The current fixed M25R route is **NO-GO**, not a publication-ready general-purpose annotator. The broader research objective remains open. Engineering validity, reference-match accuracy, biological validity, and independent generalization are separate judgments.
 
 Start with the [current research roadmap](docs/research_roadmap_20260926.md). Read the evidence by scientific question, not experiment numbering:
 
-The [M27 WT replay result](reports/M27-ALLELIC-INTEGRITY/wt_result.md) verifies exact whole-chr22 native/cache replay for ANNEVO (530 CDS transcripts) and Tiberius (575), after reference-only selection of 21 paired sites. Unique WT-exact targets are 12 and 10, with 9 shared. The next [native paired intervention](reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md) preregisters 24 ANNEVO and 20 Tiberius single-SNV runs, strict target identity, and fixed-denominator identification bounds. Its [execution record](reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md) separates preparation, running, and completed results. **Paired outcomes are not yet complete**; there is no allelic mechanism, biological-validation, or publication claim.
+The [M27 paired-native result](reports/M27-ALLELIC-INTEGRITY/paired_result.md) is complete: 44/44 whole-chr22 single-SNV runs, 3.7222 allocated GPUh. Each caller has two confirmed PTC-specific strict bypass responses and two unassignable pairs; fixed-denominator identification bounds are [0.1667, 0.3333] for ANNEVO (n=12) and [0.2, 0.4] for Tiberius (n=10). These are not confidence intervals. The shared nine loci have positive lower bounds but no shared confirmed bypass locus. The [frozen contract](reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md), [raw compact results](reports/M27-ALLELIC-INTEGRITY/paired_result.json), and [execution record](reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md) distinguish native response from unproven component attribution and biological validity. The preregistered next candidates are ANNEVO/POTEH and Tiberius/CRYBA4; no publication claim is established.
 
 The [M27 novelty boundary](reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) distinguishes this diagnostic from prior ACE/SGRF premature-stop experiments, early Helixer mutagenesis, and published pangenome annotation-consistency studies. A positive response in a modern caller would not by itself establish a new mechanism or a publication-level contribution.
 
