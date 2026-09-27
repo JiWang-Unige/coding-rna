@@ -40,8 +40,9 @@ class NeuralCache:
             meta.update(score_shape=list(y.shape),score_dtype=str(y.dtype))
         elif self.mode == "record":
             y=forward()
-            if self.bytes+x.nbytes+y.nbytes > self.limit:
-                raise RuntimeError("WT neural cache exceeds fixed 20 GiB limit")
+            # Include ample header space for these ordinary numeric arrays.
+            if self.bytes+x.nbytes+y.nbytes+4096 > self.limit:
+                raise RuntimeError("Neural cache exceeds configured storage limit")
             with input_path.open("xb") as f:
                 np.save(f,x,allow_pickle=False)
             with score_path.open("xb") as f:
@@ -89,6 +90,7 @@ def main():
     parser=argparse.ArgumentParser(add_help=False)
     parser.add_argument("--cache-mode",choices=["record","replay","native"],required=True)
     parser.add_argument("--cache-dir",type=Path)
+    parser.add_argument("--cache-limit-bytes",type=int,default=20*1024**3)
     parser.add_argument("--trace",type=Path,required=True)
     ours,rest=parser.parse_known_args()
     sys.argv=[sys.argv[0]]+rest
@@ -103,7 +105,7 @@ def main():
     model_config=json.loads((Path(args.model)/"model_config.json").read_text())
     if model_config.get("inp_size") != 5 or model_config.get("clamsa") or model_config.get("hmm"):
         raise RuntimeError("Frozen no-softmask neural-only weight configuration differs")
-    cache=NeuralCache(ours.cache_dir,ours.cache_mode)
+    cache=NeuralCache(ours.cache_dir,ours.cache_mode,limit=ours.cache_limit_bytes)
     traces={"argv":rest,"model_config":model_config,"mode":ours.cache_mode,"requests":[],"filters":[],"neural_forward_calls":0}
     context={}
     native_neural=PredictionGTF.lstm_prediction

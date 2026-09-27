@@ -14,6 +14,8 @@ The [M27 paired-native result](reports/M27-ALLELIC-INTEGRITY/paired_result.md) i
 
 The [M27 novelty boundary](reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) distinguishes this diagnostic from prior ACE/SGRF premature-stop experiments, early Helixer mutagenesis, and published pangenome annotation-consistency studies. A positive response in a modern caller would not by itself establish a new mechanism or a publication-level contribution.
 
+The next [frozen native-confirmation protocol](reports/M27-ALLELIC-INTEGRITY/confirmation_contract.md) permits only four whole-chr22 reruns: ANNEVO/POTEH and Tiberius/CRYBA4, each syn/PTC. Target structure/competition and Tiberius filter identities must reproduce; whole-chromosome/request differences are separately retained. Scores are recorded without substitution; mutant cache replay and component attribution remain unverified. CPU preparation passed 19 tests; [execution record](reports/M27-ALLELIC-INTEGRITY/confirmation_execution.md).
+
 | Question | Evidence | What it establishes |
 |---|---|---|
 | How does the fixed decoder compare with cached callers on the same scope? | [Same-scope comparison](reports/M26-SAME-SCOPE-MECHANISM/result.md) | B improves over A but trails the three cached baselines in exact-chain F1. |
