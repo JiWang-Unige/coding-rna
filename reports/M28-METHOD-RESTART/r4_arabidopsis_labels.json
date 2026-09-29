@@ -1,0 +1,37 @@
+{
+  "species": "arabidopsis_thaliana",
+  "label_policy": "longest_CDS_assessable_primary_then_training_support_mask",
+  "local_only_fallback": "longest_all when no assessable isoform; certain local/junction evidence only, never complete-chain positive",
+  "draw_source": "outputs/M28-CORE-LABEL-SMOKE-R2/result/paired_training_draws.jsonl",
+  "draw_order_q_weights_unchanged": true,
+  "draws": 768,
+  "positive_list_changed_draws": 0,
+  "unique_positive_chains_exposed": 2093,
+  "primary_change_gene_ids": [
+    "gene-AT1G24150",
+    "gene-AT1G54360",
+    "gene-AT1G59620",
+    "gene-AT2G19940",
+    "gene-AT3G12915",
+    "gene-AT3G56100"
+  ],
+  "splits": {
+    "train": {
+      "windows": 12548,
+      "CDS_assessable_primaries": 17739,
+      "eligible_positive": 17594,
+      "local_only_fallback_primaries": 65,
+      "primary_chain_changes": 4
+    },
+    "val": {
+      "windows": 3818,
+      "CDS_assessable_primaries": 5437,
+      "eligible_positive": 5384,
+      "local_only_fallback_primaries": 23,
+      "primary_chain_changes": 2
+    }
+  },
+  "DEV_reference_ID_set_matches_frozen_ruler": true,
+  "optimizer_steps": 0,
+  "test_setaria_used": false
+}

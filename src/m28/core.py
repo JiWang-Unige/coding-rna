@@ -120,12 +120,17 @@ def select_nonoverlapping(chains,logits):
     if len(chains)!=len(logits): raise ValueError("One score per chain required")
     order=sorted(range(len(chains)),key=lambda i:(chains[i][-1][1],chains[i][0][0],i))
     ends=[chains[i][-1][1] for i in order]
-    value=[0.]; picks=[[]]
+    # Backpointers avoid copying the whole gene set at every chromosome candidate.
+    value=[0.]; previous_states=[]; take=[]
     for k,i in enumerate(order):
         previous=bisect.bisect_right(ends,chains[i][0][0],0,k)
         include=value[previous]+float(logits[i])
-        if include>value[-1]:
-            value.append(include);picks.append(picks[previous]+[i])
-        else:
-            value.append(value[-1]);picks.append(picks[-1])
-    return picks[-1]
+        chosen=include>value[-1]
+        previous_states.append(previous);take.append(chosen)
+        value.append(include if chosen else value[-1])
+    picked=[];k=len(order)
+    while k:
+        if take[k-1]:
+            picked.append(order[k-1]);k=previous_states[k-1]
+        else: k-=1
+    return picked[::-1]

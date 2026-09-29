@@ -28,9 +28,54 @@ def load_native(path=DEFAULT_HMM):
     spec.loader.exec_module(module)
     return module
 
+# Explicit native input columns used by viterbi_decoding, not define_columns order.
+NATIVE_EMISSION_COLUMN = {
+    "INTERGENIC":0, "CODING_EXON_0":1, "CODING_EXON_1":3, "CODING_EXON_2":2,
+    "INTRON_0":4, "INTRON_1":6, "INTRON_2":5,
+    "DSS_0":7, "DSS_1":9, "DSS_2":8,
+    "ASS_0":10, "ASS_1":12, "ASS_2":11, "START":13, "END":14}
+
+def native_path_objective_inputs(module,states,n,groups,sequence,clipped_native_p,min_intron_internal):
+    """Reuse native transition constructors, with the same zero penalties as decode_c0."""
+    initial=np.full((n,n),-np.inf,dtype=np.float32)
+    initial=module.set_transition_matrix_common_state(initial,states,min_intron_internal,0,0,0,0)
+    matrices=module.set_transition_matrix_conditional_state(initial,states,min_intron_internal,0,0,0,0)
+    transitions=np.stack([matrices[x] for x in ("A","T","C","G","N")]).astype(np.float32)
+    columns=np.empty(n,dtype=np.int32)
+    for group,members in groups.items(): columns[members]=NATIVE_EMISSION_COLUMN[group]
+    return np.log(clipped_native_p),columns,transitions,module._encode_sequence(sequence)
+
+def native_path_score(path,inputs,lo=0,hi=None):
+    """Native objective: initial state intergenic, no emission at index zero."""
+    path=np.asarray(path,dtype=np.int32)
+    logp,columns,transitions,codes=inputs
+    hi=len(path) if hi is None else hi
+    t=np.arange(max(1,lo),hi)
+    if path[0]!=0 or path[-1]!=0: return -np.inf
+    values=transitions[codes[t],path[t-1],path[t]]+logp[t,columns[path[t]]]
+    return float(values.astype(np.float64).sum())
+
+def native_chain_gains(path,chains,inputs):
+    """Replace one full gene span by intergenic; include incoming/outgoing edges."""
+    path=np.asarray(path,dtype=np.int32)
+    gains=[]
+    logp,columns,transitions,codes=inputs
+    for chain in chains:
+        a,b=chain[0][0],chain[-1][1]
+        t=np.arange(max(1,a),min(len(path),b+1))
+        original_from,original_to=path[t-1],path[t]
+        removed_from=np.where((t-1>=a)&(t-1<b),0,original_from)
+        removed_to=np.where((t>=a)&(t<b),0,original_to)
+        actual=transitions[codes[t],original_from,original_to]+logp[t,columns[original_to]]
+        removed=transitions[codes[t],removed_from,removed_to]+logp[t,columns[removed_to]]
+        if not np.isfinite(actual).all() or not np.isfinite(removed).all():
+            raise ValueError("Native chain removal is not a finite legal intergenic alternative")
+        gains.append(float(actual.astype(np.float64).sum()-removed.astype(np.float64).sum()))
+    return gains
+
 def decode_c0(sequence,probabilities,min_intron_internal=1,native_path=DEFAULT_HMM):
     if len(sequence)!=len(probabilities): raise ValueError("DNA/emission length mismatch")
-    if not sequence: return {"chains":[],"partial_paths":0}
+    if not sequence: return {"chains":[],"partial_paths":0,"gains":[]}
     module=load_native(native_path)
     states,n=module.define_state(min_intron_length=min_intron_internal)
     groups=module.define_columns(states)
@@ -52,7 +97,9 @@ def decode_c0(sequence,probabilities,min_intron_internal=1,native_path=DEFAULT_H
         if state==states["end2"] and current is not None:
             chains.append(current);current=None
     if current is not None: partial+=1
-    return {"chains":chains,"partial_paths":partial}
+    inputs=native_path_objective_inputs(module,states,n,groups,sequence,p,min_intron_internal)
+    gains=native_chain_gains(path,chains,inputs)
+    return {"chains":chains,"partial_paths":partial,"gains":gains}
 
 def genomic_chain(chain,window_start,window_end,strand):
     if strand=="+": return [(window_start+a,window_start+b) for a,b in chain]
