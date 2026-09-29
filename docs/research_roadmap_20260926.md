@@ -2,7 +2,11 @@
 
 更新日期：2026-09-29。用户目标仍是完成有发表价值的研究并争取 Nature Communications；期刊录用不能由工程完成或内部门槛保证。旧 M25R 固定路线 NO-GO 不等于这个长期目标完成。本文件替代继续救 R1、堆 seed 或直接换大 backbone 的推进方式，不恢复 Auto Research 框架。
 
-## 最新阶段：M27单边检验阴性，关闭固定先导
+## 当前阶段：M28新模型研发已重新启动
+
+用户已明确选择以新ab initio模型的性能或适用范围推进争取Nature Communications及以上，不采用复现型论文作为主目标。此前等待成果定位的条件已解除。见 [M28新方法计划](M28_method_development_plan_20260929.md) 与 [并行开发数据盘点结果](../reports/M28-METHOD-RESTART/census_result.md)：旧M25R采样存在物种prefix偏置，已以历史标签聚合计数核对；新模型比较必须包含修正采样的公平对照。第16轮Pro建议首攻重新学习候选与非加性整链竞争B1，对照共享特征的标准结构C0；没有新训练结果或新论文主张。M27保持关闭，Setaria保持封存。
+
+## 前阶段：M27单边检验阴性，关闭固定先导
 
 Pro第13轮读取2be9d884确认材料及ANNEVO固定源码后，建议只释放POTEH登记位置的一条内部编码延续边。协议/代码dfed2c4先公开，6项原生Numba/矩阵/坐标/得分测试通过后，CPU作业13290433完成两次固定整chr22解码：2分34秒，8CPU/32GiB，0GPU/新NN/训练/Setaria。见 [单边结果](../reports/M27-ALLELIC-INTEGRITY/single_edge_result.md) 与紧凑JSON。
 
