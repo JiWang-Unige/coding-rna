@@ -79,3 +79,6 @@ feature gradient1.39698e-9、parameter gradient1.49012e-8、
 判断：隔离实现通过这组CPU数值验证，可以作为未来GPU等价/完整步计时的候选；
 目前没有真实TRAIN GPU测量、完整joint loss比较或速度优势。原R4代码未修改，
 新原型不在其导入链中，不因本测试通过就热替换或扩预算。
+
+后续独立GPU R1在第一真实TRAIN窗未通过原容差，且未进入性能阶段：
+见[GPU失败记录](packed_gru_gpu_result.md)。CPU结果不升级为GPU通过。
