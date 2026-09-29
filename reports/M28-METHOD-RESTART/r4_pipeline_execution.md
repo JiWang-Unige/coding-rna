@@ -189,7 +189,7 @@ C0推理实际3,600s，MaxRSS1,510,624KiB；拟南芥正/负各1,909窗，
 水稻正链1,750窗，水稻负链尚无输出。三个JSONL均可完整解析；
 共13,571条窗口候选记录，不是去重后的基因数或正确预测数。
 未生成inference summary。B1和C0推理的raw STATUS仍为RUNNING，是被Slurm
-终止后未运行EXIT trap的过时文本；以sacct TIMEOUT和时限stderr为终态。
+终止后未被EXIT trap更新的过时文本；以sacct TIMEOUT和时限stderr为终态。
 Slurm job级ExitCode显示0:0也不覆盖TIMEOUT，batch均为0:15。
 
 四个实际占GPU的R4作业共17,148s = **4.763333 allocated GPUh**。
