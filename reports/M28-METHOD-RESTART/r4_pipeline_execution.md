@@ -101,6 +101,44 @@ scontrol update JobId=13292541 MinMemoryNode=8192
 C0 job13292356在private/gpu035，B1 job13292357在shared/gpu017。
 B1初始MaxRSS2,452,700KiB，低于8GiB请求；最终训练/DEV结果仍未完成。
 
+## C0拟合终态与同分配只读预取（UTC 2026-09-29 20:26–20:32）
+
+C0 job13292356已 **COMPLETED 0:0**，全部4,608更新完成；wall3,322s
+（0.922778 allocated GPUh），MaxRSS2,271,428KiB。
+最终checkpoint为`C0/step_004608.pt`（4,417,071 bytes），唯一主评价状态不变。
+[原始训练摘要](r4_fit_C0.json)记录三遍训练循环分别1,285.68、1,048.19、
+944.48s，共3,278.35s；训练loss不能代替DEV准确率。
+C0推断job13292540已由原afterok依赖自动启动；此处尚未完成8,690窗。
+
+B1仍在原job13292357拟合，没有重启、换checkpoint或缩减更新数。
+第一遍1,536步耗时2,728.48s，其中load共965.19s（测量分项的35.55%）。
+继续按原速度存在触及2h上限的风险，因此只增加同分配的只读缓存预取：
+[prefetch_pilot.py](../../scripts/experiments/M28-METHOD-RESTART/prefetch_pilot.py)
+按原TRAIN draws或固定DEV顺序提前读128个文件，用户态缓冲1MiB，不加载模型、
+不改缓存/训练进程/标签/顺序；TRAIN预取只读取TRAIN文件。
+父作业STATUS终止、固定窗口数完成或helper自身时限到达后退出。
+只使用父作业原已分配的CPU/RAM，无额外GPU或新allocation；父作业wall照常计费。
+
+实际step `13292357.0`（fit B1）在UTC20:29:18启动，起始已记录1,920步；
+step `13292540.0`（infer C0）起始已记录768窗。
+对应命令的共同部分为：
+
+```bash
+srun --jobid=<original-job> --overlap --exact --ntasks=1 --cpus-per-task=1 --gres=none --cpu-bind=none --immediate=10
+```
+
+B1 helper附加`--time=00:50:00`，脚本`--stage fit --arm B1 --job-id 13292357 --seconds=2900`；
+C0 helper附加`--time=00:45:00`，脚本`--stage infer --arm C0 --job-id 13292540 --seconds=2600`。
+stdout/stderr分别保留在原logs下`prefetch_fit_B1_13292357.*`和
+`prefetch_infer_C0_13292540.*`。原作业时限、资源配额和总8GPUh上限不变。
+
+首次运行观察：B1 steps1793–1920平均load0.50031s；启用后
+steps1985–2048平均load0.17522s（n=64）。
+不同窗口和同时变化的文件系统状态限制因果解释；随后steps2049–2112的
+load又回到0.50664s，不能据最初64步声称稳定加速或保证按时完成。
+这是运行观察，不是受控速度benchmark，更不是精度提升。正式成本必须包含原作业全部等待，
+不能只报预取后的热缓存速度。完成两臂拟合和完整DEV后才作正式比较。
+
 ## 下一判断
 
 依赖链是普通Slurm afterok，不恢复退役自动研究框架，也不新增审批。
