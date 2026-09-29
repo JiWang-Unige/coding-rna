@@ -15,7 +15,7 @@ from src.m28.training import joint_losses,one_hot
 def rows(path):
     with path.open() as f: return [json.loads(line) for line in f if line.strip()]
 
-def main(arm,feature_dir,out):
+def main(arm,feature_dir,out,contract='reports/M28-METHOD-RESTART/r4_pilot_contract.md'):
     out=out.resolve();out.mkdir(parents=True,exist_ok=True)
     if (out/'training.jsonl').exists(): raise FileExistsError('Training history already exists')
     source=json.loads((feature_dir/'summary.json').read_text())
@@ -102,14 +102,14 @@ def main(arm,feature_dir,out):
             checkpoint=out/('step_'+str(step).zfill(6)+'.pt')
             torch.save({'arm':arm,'seed':0,'feature_dim':2048,'hidden':128,'step':step,'revision':F.REVISION,
                         'model':model.state_dict(),'optimizer':optimizer.state_dict(),
-                        'contract':'reports/M28-METHOD-RESTART/r4_pilot_contract.md'},checkpoint)
+                        'contract':contract},checkpoint)
             epoch_summaries.append({'epoch':epoch+1,'steps':1536,'mean_losses':{k:v/1536 for k,v in sums.items()},
                                     'seconds':time.perf_counter()-epoch_begin,
                                     'checkpoint':str(checkpoint.relative_to(M.C.ROOT))})
             print(json.dumps(epoch_summaries[-1]),flush=True)
     if free_handle: free_handle.close()
     assert step==4608
-    report={'arm':arm,'optimizer_steps':step,'seed':0,'feature_revision':F.REVISION,
+    report={'arm':arm,'contract':contract,'optimizer_steps':step,'seed':0,'feature_revision':F.REVISION,
             'trainable_parameters':sum(p.numel() for p in model.parameters()),'epochs':epoch_summaries,
             'training_loop_seconds':time.perf_counter()-begin,'peak_GPU_allocated_bytes':torch.cuda.max_memory_allocated(),
             'peak_GPU_reserved_bytes':torch.cuda.max_memory_reserved(),'DEV_used_for_selection':False,
@@ -121,4 +121,5 @@ def main(arm,feature_dir,out):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--arm',choices=('C0','B1'),required=True)
     p.add_argument('--feature-dir',type=Path,required=True);p.add_argument('--output-dir',type=Path,required=True)
-    a=p.parse_args();main(a.arm,a.feature_dir,a.output_dir)
+    p.add_argument('--contract',default='reports/M28-METHOD-RESTART/r4_pilot_contract.md')
+    a=p.parse_args();main(a.arm,a.feature_dir,a.output_dir,a.contract)

@@ -1,0 +1,14 @@
+{
+  "experiment": "M28-PACKED-GRU-GPU-R2",
+  "job_id": "13294046",
+  "GPU": "NVIDIA GeForce RTX 3090",
+  "torch": "2.5.1",
+  "CUDA": "12.1",
+  "cudnn": 90100,
+  "cudnn_allow_tf32": true,
+  "matmul_allow_tf32": false,
+  "cudnn_benchmark": false,
+  "cudnn_deterministic": false,
+  "autocast_cuda": false,
+  "candidate_precision_scope": "only packed chain forward; previous flag restored before backward"
+}

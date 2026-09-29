@@ -75,7 +75,7 @@ def main(pilot,out):
         parents[species]=E.S.E.primary_transcripts(coding)
         assert len(parents[species])==old_count
         lengths[seqid]=length
-    report={'experiment':'M28-PILOT-R4','status':'complete_bounded_DEV_comparison_not_independent_generalization',
+    report={'experiment':pilot.name,'status':'complete_bounded_DEV_comparison_not_independent_generalization',
             'reference_primary_chains':7728,'historical_parent_chains':6450,
             'test_setaria_used':False,'methods':{},'fit':fitting,'inference_cost':{},
             'cached_baseline_source':'reports/M28-METHOD-RESTART/common_ruler.json',
@@ -136,7 +136,8 @@ def main(pilot,out):
     for method,values in report['methods'].items():
         compare[method]={'per_species':{s:r['exact_chain'] for s,r in values['per_species'].items()},
                          'pooled':values['pooled']['exact_chain'],'macro':values['pooled']['macro_exact_chain'],
-                         'source':'R4_completed_last_checkpoint' if method!='B1_additive' else 'R4_same_B1_candidates_additive_readout'}
+                         'source':'completed_last_checkpoint' if method!='B1_additive' else 'same_B1_candidates_additive_readout',
+                         'checkpoint':fitting['C0' if method=='C0' else 'B1']['final_checkpoint']}
     report['exact_chain_comparison']=compare
     with (out/'summary.json').open('x') as f: json.dump(report,f,indent=2);f.write('\n')
     print(json.dumps({'experiment':report['experiment'],'comparison':compare},indent=2),flush=True)
