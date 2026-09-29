@@ -4,11 +4,13 @@ Cross-species ab initio protein-coding gene annotation experiments on the UNIGE 
 
 This public repository is a lean research snapshot. It contains source code, experiment configurations, Slurm submission scripts, tests, compact metrics, and result summaries. Raw genomes, reference annotations, model weights, caches, full runtime outputs, logs, and generated prediction dumps are intentionally excluded.
 
-## Current evidence and research status — 2026-09-29
+## Current evidence and research status — 2026-09-30
 
 The current fixed M25R route is **NO-GO**, not a publication-ready general-purpose annotator. The broader research objective remains open. Engineering validity, reference-match accuracy, biological validity, and independent generalization are separate judgments.
 
 The user has now explicitly restarted **new-model development (M28)** toward a competitive FASTA-only annotator and a Nature Communications-or-higher submission objective; the earlier replication-positioning decision is no longer a blocker. See the [new-method plan](docs/M28_method_development_plan_20260929.md) and [completed parallel development census](reports/M28-METHOD-RESTART/census_result.md). The census found a historical prefix-sampling bias consistent with archived training-label counts: all 1,536 M25R training windows came from Arabidopsis under the reconstructed sampler. New architecture gains must be measured against a corrected, same-budget control. No new training performance or publication-level claim is established. M27 remains closed and Setaria remains sealed.
+
+The [M28 R2 data and model-core result](reports/M28-METHOD-RESTART/r2_result.md) is now complete: species-balanced natural-grid sampling with gene-first enrichment, shared manifests, partial/isoform-aware local supervision, cross-block feature and non-additive chain/null cores, and 16 focused tests. Three CPU jobs completed; no real-backbone run, new model fitting, free-inference candidate coverage, or accuracy improvement has been established. Native C0 decoding and B1 free candidate generation are the next implementation steps.
 
 Start with the [current research roadmap](docs/research_roadmap_20260926.md). Read the evidence by scientific question, not experiment numbering:
 

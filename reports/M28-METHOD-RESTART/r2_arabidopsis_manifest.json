@@ -1,0 +1,96 @@
+{
+  "experiment": "M28-DATA-MANIFEST-R2",
+  "species": "arabidopsis_thaliana",
+  "width": 24576,
+  "stride": 12288,
+  "flank": 256,
+  "no_model_training": true,
+  "setaria_access": false,
+  "test_sequence_or_labels_used": false,
+  "eligible_positive_policy": "longest-CDS primary; CDS itself complete (parent/tx partial not automatic exclusion), ATG/stop, phase-consistent, no internal stop, GT/GC-AG, no same-strand primary overlap",
+  "mask_policy": "unqualified/overlap fine labels and crossing-window chain targets unknown; retain certain CDS/splice local evidence; alternative-isoform conflicts masked by label builder",
+  "evaluation_reference_policy": "all original complete primaries, including unsupported/long/overlapping; no denominator filtering",
+  "sampling": {
+    "draws": 768,
+    "unique_windows": 745,
+    "strata": 6,
+    "seed": 0,
+    "uniform_fraction": 0.75,
+    "complete_positive_fraction": 0.25,
+    "with_replacement": true,
+    "unique_positive_chains_exposed": 2093,
+    "background_draws": 2,
+    "positive_exposure_min_max": [
+      1,
+      2
+    ],
+    "chromosome_draws_per_strand": {
+      "NC_003070.9": 152,
+      "NC_003071.7": 98,
+      "NC_003076.8": 134
+    },
+    "population": "equal species and strands, chromosome counts by valid length (largest remainder); importance weights undo gene-first within-stratum enrichment"
+  },
+  "splits": {
+    "train": {
+      "windows": 12548,
+      "reference_complete_primary": 13671,
+      "geometrically_covered_primary": 13669,
+      "eligible_positive_primary": 17590,
+      "positive_primary_with_256bp_flanks": 17584,
+      "parent_or_transcript_partial_with_complete_CDS_positives": 4038,
+      "unexposed_eligible_ids": [
+        "rna-NM_001198408.1",
+        "rna-NM_001333194.1",
+        "rna-NM_001333295.1",
+        "rna-NM_001334273.1",
+        "rna-NM_100699.6",
+        "rna-NM_129117.5"
+      ],
+      "reference_primary_without_training_eligibility": {
+        "nonstandard_splice": 54,
+        "split_terminal_codon": 21,
+        "primary_overlap": 26,
+        "internal_stop": 16,
+        "length_not_mod3": 11,
+        "ambiguous_CDS": 3
+      },
+      "reference_background_windows": 50,
+      "windows_with_positive": 10860,
+      "max_primary_per_window": 9,
+      "max_exons_per_primary": 65,
+      "max_motifs_per_window": {
+        "start": 629,
+        "stop": 2181,
+        "donor": 2832,
+        "acceptor": 2400
+      }
+    },
+    "val": {
+      "windows": 3818,
+      "reference_complete_primary": 4151,
+      "geometrically_covered_primary": 4150,
+      "eligible_positive_primary": 5382,
+      "positive_primary_with_256bp_flanks": 5382,
+      "parent_or_transcript_partial_with_complete_CDS_positives": 1274,
+      "unexposed_eligible_ids": [],
+      "reference_primary_without_training_eligibility": {
+        "split_terminal_codon": 9,
+        "primary_overlap": 8,
+        "nonstandard_splice": 22,
+        "internal_stop": 4,
+        "length_not_mod3": 4
+      },
+      "reference_background_windows": 12,
+      "windows_with_positive": 3210,
+      "max_primary_per_window": 9,
+      "max_exons_per_primary": 79,
+      "max_motifs_per_window": {
+        "start": 678,
+        "stop": 1815,
+        "donor": 2635,
+        "acceptor": 1992
+      }
+    }
+  }
+}
