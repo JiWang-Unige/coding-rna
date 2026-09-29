@@ -4,7 +4,7 @@ Cross-species ab initio protein-coding gene annotation experiments on the UNIGE 
 
 This public repository is a lean research snapshot. It contains source code, experiment configurations, Slurm submission scripts, tests, compact metrics, and result summaries. Raw genomes, reference annotations, model weights, caches, full runtime outputs, logs, and generated prediction dumps are intentionally excluded.
 
-## Current evidence and research status — 2026-09-27
+## Current evidence and research status — 2026-09-29
 
 The current fixed M25R route is **NO-GO**, not a publication-ready general-purpose annotator. The broader research objective remains open. Engineering validity, reference-match accuracy, biological validity, and independent generalization are separate judgments.
 
@@ -14,7 +14,9 @@ The [M27 paired-native result](reports/M27-ALLELIC-INTEGRITY/paired_result.md) i
 
 The [M27 novelty boundary](reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) distinguishes this diagnostic from prior ACE/SGRF premature-stop experiments, early Helixer mutagenesis, and published pangenome annotation-consistency studies. A positive response in a modern caller would not by itself establish a new mechanism or a publication-level contribution.
 
-The [native confirmation](reports/M27-ALLELIC-INTEGRITY/confirmation_result.md) is complete: all four preregistered reruns reproduced the exact target and whole-chromosome chains, including ANNEVO/POTEH exon skipping and the Tiberius/CRYBA4 15-nt GC–AG intron. Tiberius filter snapshots and request metadata also match. Native scores are retained without substitution; mutant cache replay, component attribution, and biological truth remain unverified. This adds computational reproducibility, not independent observations to the original denominators. Total M27 usage is 4.3133/8 GPUh and 34.29/50 GiB.
+The [native confirmation](reports/M27-ALLELIC-INTEGRITY/confirmation_result.md) reproduced all four preregistered target and whole-chromosome results, including ANNEVO/POTEH exon skipping and the Tiberius/CRYBA4 15-nt GC–AG intron. Tiberius filter snapshots and request metadata also match. These are computational repeats, not new independent observations.
+
+The [single-edge test](reports/M27-ALLELIC-INTEGRITY/single_edge_result.md) is complete and negative for its frozen restoration endpoint: ANNEVO/POTEH same-PTC cache replay exactly reproduced all 530 chains, but releasing the sole registered CDS1_TA→CDS2 edge changed neither the bypass chain nor its score; the edge was not selected. Both arms used the same native min-intron pass and no new neural calls. This fixed pilot is closed without rescue combinations. The result does not establish neural-only causation, global ORF-constraint irrelevance, selective risk diagnosis, or biological truth. Total M27 usage remains 4.3133/8 GPUh and 34.30/50 GiB; the publication objective is open.
 
 | Question | Evidence | What it establishes |
 |---|---|---|
