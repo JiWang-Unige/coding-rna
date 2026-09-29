@@ -1,6 +1,7 @@
 """Local supervision for M28. Reference-derived objects are training-only.
 
-15-class order follows ANNEVO's documented emission mapping:
+Internal 15-class order uses ascending coding phase. c0_decode.py explicitly
+permutes phase1/phase2 for ANNEVO's actual input emission order:
 intergenic; CDS0/1/2; intron0/1/2; donor0/1/2; acceptor0/1/2;
 start; stop. CDS0 is the first coding base (not GFF phase).
 """
