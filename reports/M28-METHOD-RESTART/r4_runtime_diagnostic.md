@@ -1,6 +1,6 @@
 # M28 R4运行诊断与隔离的chain-GRU实现验证
 
-2026-09-30（Bangkok）。R4原作业仍运行；本文件不是正式DEV结果，不改R4合同。
+2026-09-30（Bangkok）。记录时R4仍运行；现已因时限未完成，见[r4终态](r4_terminal.json)。本文件不是正式DEV结果，不改R4合同。
 
 ## 真实训练负载
 
@@ -82,3 +82,6 @@ feature gradient1.39698e-9、parameter gradient1.49012e-8、
 
 后续独立GPU R1在第一真实TRAIN窗未通过原容差，且未进入性能阶段：
 见[GPU失败记录](packed_gru_gpu_result.md)。CPU结果不升级为GPU通过。
+
+随后单窗链头精度诊断发现差异随cuDNN TF32 flag改变，见
+[D1结果](chain_precision_result.md)；仍未完成GPU整步等价或速度验证。

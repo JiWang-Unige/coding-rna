@@ -164,3 +164,40 @@ scancel --signal=TERM 13292357.0 13292540.0
 还是输出选择、背景负担如何。任何超时/未完成先作为执行状态处理，
 不拿半成品排名，不因希望获得Nature Communications结论而改冻结规则。
 尚未取得新模型准确率、独立泛化或投稿级主张；test和Setaria继续封存。
+
+## R4实际终态：原预算内未完成公平比较
+
+2026-09-30补记。以下覆盖前文RUNNING快照；原日志与STATUS文件不改写。
+[机器可读终态](r4_terminal.json)记录实际用量和部分产物，不是新的性能表。
+
+| 阶段 | Job | 实际状态 | 完整性 |
+|---|---:|---|---|
+| 特征缓存 | 13292334 | COMPLETED | 10,181窗 |
+| C0拟合 | 13292356 | COMPLETED | 全部4,608步，最终checkpoint已保存 |
+| B1拟合 | 13292357 | TIMEOUT | 完整训练trace仅保存至4,032；最后checkpoint为3,072 |
+| C0推理 | 13292540 | TIMEOUT | 保存5,568/8,690个DEV窗口 |
+| B1推理 | 13292541 | 未执行 | PENDING DependencyNeverSatisfied |
+| 正式评价 | 13292543 | 未执行 | PENDING DependencyNeverSatisfied |
+
+B1申请2h，Slurm终止延迟使实际wall为7,216s；该16s照计，不隐藏为恰好2h。
+MaxRSS2,714,364KiB。训练trace的4,032行连续且JSON有效，但其每64步flush，
+不能把4,032当作精确最终optimizer计数。自由候选单独每步flush至4,077，
+这也不证明第4,077次更新已完成。没有step004608或训练summary；
+半成品不参与正式排名。
+
+C0推理实际3,600s，MaxRSS1,510,624KiB；拟南芥正/负各1,909窗，
+水稻正链1,750窗，水稻负链尚无输出。三个JSONL均可完整解析；
+共13,571条窗口候选记录，不是去重后的基因数或正确预测数。
+未生成inference summary。B1和C0推理的raw STATUS仍为RUNNING，是被Slurm
+终止后未运行EXIT trap的过时文本；以sacct TIMEOUT和时限stderr为终态。
+Slurm job级ExitCode显示0:0也不覆盖TIMEOUT，batch均为0:15。
+
+四个实际占GPU的R4作业共17,148s = **4.763333 allocated GPUh**。
+虽然总8h未耗尽，B1拟合和原推理分配的阶段上限仍有效；没有挪用余额续训/补窗，
+没有修改依赖或取消未分配资源的两个pending作业。所有checkpoint、缓存、
+部分预测和失败日志保留。CPU工程/历史R3和独立GRU验证成本仍另列，不能混为免费。
+
+结论是**本冻结预算未完成检验**，不是B1架构被否证，也不是新方法达到发表要求。
+不从两种开发植物半成品作方法排名，不扫K/阈值、换seed或开启Setaria。
+已另完成一次35s链头数值原因诊断，见[精度诊断](chain_precision_result.md)；
+它只为之后的实施决策提供线索，不替代本轮缺失的完整DEV证据。
