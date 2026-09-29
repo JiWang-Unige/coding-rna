@@ -54,13 +54,13 @@ class ChainHead(nn.Module):
 
     def link_logits(self,features,pairs):
         if not pairs: return features.new_empty((0,))
-        values=[]
-        for donor,acceptor in pairs:
-            if not 0 < donor < acceptor < len(features):
-                raise ValueError("Expected oriented exon-end / next-exon-start coordinates")
-            values.append(torch.cat([features[donor-1],features[acceptor],
-                                     features.new_tensor([math.log1p(acceptor-donor)])]))
-        return self.link(torch.stack(values)).squeeze(-1)
+        indices=torch.as_tensor(pairs,device=features.device,dtype=torch.long)
+        donor,acceptor=indices[:,0],indices[:,1]
+        if ((donor<=0)|(acceptor<=donor)|(acceptor>=len(features))).any():
+            raise ValueError("Expected oriented exon-end / next-exon-start coordinates")
+        geometry=torch.log1p((acceptor-donor).to(features.dtype))[:,None]
+        values=torch.cat([features[donor-1],features[acceptor],geometry],dim=-1)
+        return self.link(values).squeeze(-1)
 
     def forward(self,features,chains,valid_bases=None):
         L=len(features) if valid_bases is None else int(valid_bases)

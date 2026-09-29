@@ -1,0 +1,378 @@
+{
+  "optimizer_steps": 0,
+  "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "GPU": "NVIDIA GeForce RTX 3090",
+  "feature_extraction_repeated": false,
+  "val_test_setaria_used": false,
+  "arms": {
+    "C0": {
+      "records": [
+        {
+          "window_id": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.5429654150029819,
+          "shared_forward_seconds": 5.188135151001916,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 4.290017268998781,
+          "weighted_loss": 3.738555908203125
+        },
+        {
+          "window_id": "oryza_sativa|NC_089046.1|26886144|-",
+          "species": "oryza_sativa",
+          "load_seconds": 0.31445195299966144,
+          "shared_forward_seconds": 0.06641517800017027,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.12209450099908281,
+          "weighted_loss": 4.603122711181641
+        },
+        {
+          "window_id": "oryza_sativa|NC_089044.1|15261696|+",
+          "species": "oryza_sativa",
+          "load_seconds": 0.43312157800028217,
+          "shared_forward_seconds": 0.06646804800038808,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11730309700215003,
+          "weighted_loss": 3.337916374206543
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003071.7|356352|+",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.2522265689985943,
+          "shared_forward_seconds": 0.06445878999875276,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11763389599946095,
+          "weighted_loss": 4.857539176940918
+        },
+        {
+          "window_id": "oryza_sativa|NC_089043.1|6193152|-",
+          "species": "oryza_sativa",
+          "load_seconds": 0.09684983599800034,
+          "shared_forward_seconds": 0.0644988900021417,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.4917994070019631,
+          "weighted_loss": 2.323125123977661
+        },
+        {
+          "window_id": "oryza_sativa|NC_089046.1|27316224|+",
+          "species": "oryza_sativa",
+          "load_seconds": 0.15392802600035793,
+          "shared_forward_seconds": 0.06433043100332725,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11753592700188165,
+          "weighted_loss": 1.2639575004577637
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003076.8|12779520|-",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.14436059999934514,
+          "shared_forward_seconds": 0.06425272100022994,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11733632699906593,
+          "weighted_loss": 4.74473762512207
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003070.9|270336|+",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.3032216290012002,
+          "shared_forward_seconds": 0.06474000999878626,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11734968699965975,
+          "weighted_loss": 2.427177906036377
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003076.8|12115968|+",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.36927728700175066,
+          "shared_forward_seconds": 0.06493082899760338,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.1173685870016925,
+          "weighted_loss": 4.782607078552246
+        },
+        {
+          "window_id": "oryza_sativa|NC_089043.1|16625664|+",
+          "species": "oryza_sativa",
+          "load_seconds": 0.40686231500149006,
+          "shared_forward_seconds": 0.06453251000129967,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11726238699702662,
+          "weighted_loss": 3.062237024307251
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003071.7|4718592|-",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.24173970399715472,
+          "shared_forward_seconds": 0.06463094999708119,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.1167298779982957,
+          "weighted_loss": 4.28031063079834
+        },
+        {
+          "window_id": "oryza_sativa|NC_089044.1|1658880|-",
+          "species": "oryza_sativa",
+          "load_seconds": 1.4328688590030652,
+          "shared_forward_seconds": 0.06660911699873395,
+          "proposal_seconds": 0.0,
+          "supervision_and_backward_seconds": 0.11694485699990764,
+          "weighted_loss": 2.421736001968384
+        }
+      ],
+      "trainable_parameters": 366191,
+      "peak_allocated_bytes": 165360128,
+      "peak_reserved_bytes": 243269632
+    },
+    "B1": {
+      "records": [
+        {
+          "window_id": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.02448645500044222,
+          "shared_forward_seconds": 0.06569247900188202,
+          "proposal_seconds": 0.13848179699925822,
+          "supervision_and_backward_seconds": 1.3293652729989844,
+          "weighted_loss": 5.9933342933654785,
+          "free_chains": 94,
+          "training_chains": 95,
+          "link_labels": {
+            "-1": 56,
+            "0": 1463,
+            "1": 10
+          },
+          "chain_labels": {
+            "0": 92,
+            "-1": 2,
+            "1": 1
+          },
+          "reference_injected": 1,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "oryza_sativa|NC_089046.1|26886144|-",
+          "species": "oryza_sativa",
+          "load_seconds": 0.02612727399900905,
+          "shared_forward_seconds": 0.06471667000005255,
+          "proposal_seconds": 0.12246179000067059,
+          "supervision_and_backward_seconds": 0.4262070879995008,
+          "weighted_loss": 8.265317916870117,
+          "free_chains": 149,
+          "training_chains": 149,
+          "link_labels": {
+            "0": 1512
+          },
+          "chain_labels": {
+            "0": 149
+          },
+          "reference_injected": 0,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "oryza_sativa|NC_089044.1|15261696|+",
+          "species": "oryza_sativa",
+          "load_seconds": 0.026264562999131158,
+          "shared_forward_seconds": 0.06506045900096069,
+          "proposal_seconds": 0.13299640599871054,
+          "supervision_and_backward_seconds": 0.2947108810003556,
+          "weighted_loss": 5.518703460693359,
+          "free_chains": 74,
+          "training_chains": 74,
+          "link_labels": {
+            "0": 1479
+          },
+          "chain_labels": {
+            "0": 73,
+            "1": 1
+          },
+          "reference_injected": 0,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003071.7|356352|+",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.024729405999096343,
+          "shared_forward_seconds": 0.06507426000098349,
+          "proposal_seconds": 0.1186158640011854,
+          "supervision_and_backward_seconds": 0.25696625300042797,
+          "weighted_loss": 8.672704696655273,
+          "free_chains": 65,
+          "training_chains": 65,
+          "link_labels": {
+            "0": 1492
+          },
+          "chain_labels": {
+            "0": 65
+          },
+          "reference_injected": 0,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "oryza_sativa|NC_089043.1|6193152|-",
+          "species": "oryza_sativa",
+          "load_seconds": 0.025017424999532523,
+          "shared_forward_seconds": 0.06510911999794189,
+          "proposal_seconds": 0.11958651399982045,
+          "supervision_and_backward_seconds": 0.3563295849999122,
+          "weighted_loss": 3.8464412689208984,
+          "free_chains": 100,
+          "training_chains": 101,
+          "link_labels": {
+            "0": 1498,
+            "1": 4,
+            "-1": 1
+          },
+          "chain_labels": {
+            "0": 100,
+            "1": 1
+          },
+          "reference_injected": 1,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "oryza_sativa|NC_089046.1|27316224|+",
+          "species": "oryza_sativa",
+          "load_seconds": 0.026997121996828355,
+          "shared_forward_seconds": 0.06575557900214335,
+          "proposal_seconds": 0.10206283799925586,
+          "supervision_and_backward_seconds": 0.35354408900093404,
+          "weighted_loss": 2.138627052307129,
+          "free_chains": 119,
+          "training_chains": 123,
+          "link_labels": {
+            "0": 1516,
+            "-1": 3,
+            "1": 21
+          },
+          "chain_labels": {
+            "0": 119,
+            "1": 4
+          },
+          "reference_injected": 4,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003076.8|12779520|-",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.023852756999986013,
+          "shared_forward_seconds": 0.06529620899891597,
+          "proposal_seconds": 0.11287499299942283,
+          "supervision_and_backward_seconds": 0.4722119640027813,
+          "weighted_loss": 8.801097869873047,
+          "free_chains": 174,
+          "training_chains": 174,
+          "link_labels": {
+            "0": 1508
+          },
+          "chain_labels": {
+            "0": 174
+          },
+          "reference_injected": 0,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003070.9|270336|+",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.025250725000660168,
+          "shared_forward_seconds": 0.06542664899825468,
+          "proposal_seconds": 0.11916174400175805,
+          "supervision_and_backward_seconds": 0.28019594000215875,
+          "weighted_loss": 4.164064884185791,
+          "free_chains": 75,
+          "training_chains": 80,
+          "link_labels": {
+            "0": 1513,
+            "-1": 10,
+            "1": 42
+          },
+          "chain_labels": {
+            "0": 75,
+            "1": 5
+          },
+          "reference_injected": 5,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003076.8|12115968|+",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.025114875003055204,
+          "shared_forward_seconds": 0.06542754899783176,
+          "proposal_seconds": 0.12074194199885824,
+          "supervision_and_backward_seconds": 0.3038355069984391,
+          "weighted_loss": 8.529022216796875,
+          "free_chains": 96,
+          "training_chains": 96,
+          "link_labels": {
+            "0": 1512
+          },
+          "chain_labels": {
+            "0": 96
+          },
+          "reference_injected": 0,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "oryza_sativa|NC_089043.1|16625664|+",
+          "species": "oryza_sativa",
+          "load_seconds": 0.023832546998164617,
+          "shared_forward_seconds": 0.06567196800097008,
+          "proposal_seconds": 0.10959081800319836,
+          "supervision_and_backward_seconds": 0.36598533100186614,
+          "weighted_loss": 5.146260738372803,
+          "free_chains": 134,
+          "training_chains": 135,
+          "link_labels": {
+            "0": 1479
+          },
+          "chain_labels": {
+            "0": 134,
+            "1": 1
+          },
+          "reference_injected": 1,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "arabidopsis_thaliana|NC_003071.7|4718592|-",
+          "species": "arabidopsis_thaliana",
+          "load_seconds": 0.024305205999553436,
+          "shared_forward_seconds": 0.06504059899816639,
+          "proposal_seconds": 0.10228714799814043,
+          "supervision_and_backward_seconds": 0.20486541599893826,
+          "weighted_loss": 7.097647666931152,
+          "free_chains": 44,
+          "training_chains": 45,
+          "link_labels": {
+            "0": 1508
+          },
+          "chain_labels": {
+            "0": 44,
+            "1": 1
+          },
+          "reference_injected": 1,
+          "link_gradient_direction_pass": true
+        },
+        {
+          "window_id": "oryza_sativa|NC_089044.1|1658880|-",
+          "species": "oryza_sativa",
+          "load_seconds": 0.025120534999587107,
+          "shared_forward_seconds": 0.06503684999916004,
+          "proposal_seconds": 0.11270631400111597,
+          "supervision_and_backward_seconds": 0.49976636500286986,
+          "weighted_loss": 4.038537979125977,
+          "free_chains": 192,
+          "training_chains": 194,
+          "link_labels": {
+            "0": 1512,
+            "1": 3
+          },
+          "chain_labels": {
+            "0": 192,
+            "1": 2
+          },
+          "reference_injected": 2,
+          "link_gradient_direction_pass": true
+        }
+      ],
+      "trainable_parameters": 565495,
+      "peak_allocated_bytes": 184058880,
+      "peak_reserved_bytes": 239075328
+    }
+  },
+  "actual_positive_and_negative_link_gradients_both_species": true
+}

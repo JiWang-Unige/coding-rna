@@ -29,6 +29,8 @@
 
 R2更新（2026-09-30）：共享manifest、局部标签、跨块特征及整链/null核心已通过三个CPU作业与16项针对性测试，见[R2结果](../reports/M28-METHOD-RESTART/r2_result.md)。尚未接通真实GLM特征、C0原生解码和B1自由候选，也没有新训练准确率；下一步直接完成这些接口及吞吐测量，不再停留在旧模型审计。训练CDS完整性与历史parent过滤不同，正式主比较需先固定CDS-assessable评价并对全部方法同口径重评分，旧6,450范围保留副表，不按训练eligibility删参考。
 
+R3更新（2026-09-30）：[真实特征与B1联合接线](../reports/M28-METHOD-RESTART/r3_integration_result.md)和[两物种共同评价](../reports/M28-METHOD-RESTART/common_ruler_result.md)已完成，尚无optimizer更新。主评价固定为7,728条CDS-assessable链；R2 longest-all与评价primary在拟南芥2个DEV gene存在差异，正式拟合前明确训练primary政策。接着完成GPU头吞吐、全染色体输出归属/去重/冲突和一次冻结的公平首训，不增加旧模型审计。
+
 Pro建议48GPUh（特征8、两臂各16、评价8）、RAM≤64GiB、缓存≤200GiB，这是**建议上限，未直接转成提交或承诺**。先冻结更小的工程吞吐测量；实际可完成的公平pilot数据量/更新数与资源合同必须在读取该pilot性能结果之前写定。优先使用私有资源，不以并行为由越过队列、成本或旧数据边界。
 
 ## 评价与继续条件

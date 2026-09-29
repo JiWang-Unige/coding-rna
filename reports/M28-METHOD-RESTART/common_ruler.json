@@ -1,0 +1,588 @@
+{
+  "status": "development_rescore_not_independent_test",
+  "policy": "M26_CDS_assessable_longest_eligible_CDS_tie_transcript_ID",
+  "input_condition": "saved_sequence_only_predictions_no_new_tool_runs",
+  "test_access": false,
+  "setaria_access": false,
+  "training_eligibility_does_not_filter_reference": true,
+  "species": {
+    "arabidopsis_thaliana": {
+      "seqid": "NC_003074.8",
+      "length": 23459830,
+      "coding_loci": 5460,
+      "CDS_assessable_primary_records": 5437,
+      "CDS_assessable_unique_primary_chains": 5437,
+      "CDS_assessable_isoform_records": 9444,
+      "historical_parent_primary_records": 4151,
+      "primary_chain_changes_vs_R2_longest_all": 2,
+      "primary_change_gene_ids": [
+        "gene-AT3G12915",
+        "gene-AT3G56100"
+      ],
+      "retained_unsupported_reference_strata": {
+        "split_terminal_codon": 9,
+        "same_strand_primary_overlap": 12,
+        "nonstandard_splice": 32,
+        "longer_than_window": 1
+      },
+      "methods": {
+        "M25R_A": {
+          "exact_chain": {
+            "tp": 1161,
+            "predicted": 1389,
+            "reference": 5437,
+            "precision": 0.8358531317494601,
+            "recall": 0.21353687695420268,
+            "f1": 0.34016993847055377
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 1385931,
+            "predicted": 1433901,
+            "reference": 6601350,
+            "precision": 0.9665458075557517,
+            "recall": 0.20994660183144356,
+            "f1": 0.3449627149170574
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 24,
+          "reference_nonexact_primary": 228,
+          "prediction_records": 1389,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 8105,
+            "predicted_CDS_bp": 7905,
+            "span_FPR": 0.0009904190248435705,
+            "wholly_background_unique_chains": 19,
+            "wholly_background_chains_per_Mb": 2.321771927455625
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 965,
+            "predicted": 1389,
+            "reference": 4151,
+            "precision": 0.6947444204463643,
+            "recall": 0.23247410262587329,
+            "f1": 0.3483754512635379
+          },
+          "prediction_path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/A_predictions.gff3"
+        },
+        "M25R_B": {
+          "exact_chain": {
+            "tp": 2721,
+            "predicted": 4317,
+            "reference": 5437,
+            "precision": 0.6302988186240445,
+            "recall": 0.5004598123965422,
+            "f1": 0.557924953865081
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 5233699,
+            "predicted": 5413819,
+            "reference": 6601350,
+            "precision": 0.966729585898605,
+            "recall": 0.792822528725185,
+            "f1": 0.8711819201211402
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 151,
+          "reference_nonexact_primary": 1596,
+          "prediction_records": 4317,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 107311,
+            "predicted_CDS_bp": 22200,
+            "span_FPR": 0.013113245647746873,
+            "wholly_background_unique_chains": 34,
+            "wholly_background_chains_per_Mb": 4.1547497649205924
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 2348,
+            "predicted": 4317,
+            "reference": 4151,
+            "precision": 0.5438962242297892,
+            "recall": 0.5656468320886533,
+            "f1": 0.5545583372697213
+          },
+          "prediction_path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/B_predictions.gff3"
+        },
+        "ANNEVO": {
+          "exact_chain": {
+            "tp": 3942,
+            "predicted": 4898,
+            "reference": 5437,
+            "precision": 0.8048182931808902,
+            "recall": 0.7250321868677579,
+            "f1": 0.7628447024673439
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 6149508,
+            "predicted": 6371067,
+            "reference": 6601350,
+            "precision": 0.9652241924311893,
+            "recall": 0.93155309141312,
+            "f1": 0.9480897815727015
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 391,
+          "reference_nonexact_primary": 956,
+          "prediction_records": 4898,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 33363,
+            "predicted_CDS_bp": 15747,
+            "span_FPR": 0.00407690930608958,
+            "wholly_background_unique_chains": 13,
+            "wholly_background_chains_per_Mb": 1.5885807924696382
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 3450,
+            "predicted": 4898,
+            "reference": 4151,
+            "precision": 0.7043691302572479,
+            "recall": 0.8311250301132257,
+            "f1": 0.7625151950491768
+          },
+          "prediction_path": "outputs/M12B-SAMEPANEL-BASELINES-ANNEVO/predictions/arabidopsis_thaliana.gff"
+        },
+        "Helixer": {
+          "exact_chain": {
+            "tp": 3513,
+            "predicted": 5340,
+            "reference": 5437,
+            "precision": 0.6578651685393259,
+            "recall": 0.6461283796211146,
+            "f1": 0.6519439547183817
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 6339435,
+            "predicted": 6735113,
+            "reference": 6601350,
+            "precision": 0.9412514682381721,
+            "recall": 0.9603240246313254,
+            "f1": 0.9506920987971098
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 320,
+          "reference_nonexact_primary": 1827,
+          "prediction_records": 5340,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 170086,
+            "predicted_CDS_bp": 53252,
+            "span_FPR": 0.02078425789753776,
+            "wholly_background_unique_chains": 56,
+            "wholly_background_chains_per_Mb": 6.843117259869211
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 3064,
+            "predicted": 5340,
+            "reference": 4151,
+            "precision": 0.5737827715355805,
+            "recall": 0.7381353890628765,
+            "f1": 0.6456643135602149
+          },
+          "prediction_path": "outputs/M12B-SAMEPANEL-BASELINES-HELIXER/predictions/arabidopsis_thaliana.gff3"
+        },
+        "Tiberius": {
+          "exact_chain": {
+            "tp": 3865,
+            "predicted": 4984,
+            "reference": 5437,
+            "precision": 0.7754815409309791,
+            "recall": 0.7108699650542578,
+            "f1": 0.7417714230879954
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 6214897,
+            "predicted": 6398442,
+            "reference": 6601350,
+            "precision": 0.9713141105287818,
+            "recall": 0.9414584895513797,
+            "f1": 0.9561532984527752
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 427,
+          "reference_nonexact_primary": 1119,
+          "prediction_records": 4984,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 29321,
+            "predicted_CDS_bp": 16615,
+            "span_FPR": 0.00358298287815402,
+            "wholly_background_unique_chains": 16,
+            "wholly_background_chains_per_Mb": 1.9551763599626317
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 3380,
+            "predicted": 4984,
+            "reference": 4151,
+            "precision": 0.6781701444622793,
+            "recall": 0.8142616237051313,
+            "f1": 0.7400109469074986
+          },
+          "prediction_path": "outputs/M12B-SAMEPANEL-BASELINES-TIBERIUS/predictions/arabidopsis_thaliana.gtf"
+        }
+      }
+    },
+    "oryza_sativa": {
+      "seqid": "NC_089041.1",
+      "length": 29936421,
+      "coding_loci": 2307,
+      "CDS_assessable_primary_records": 2291,
+      "CDS_assessable_unique_primary_chains": 2291,
+      "CDS_assessable_isoform_records": 3372,
+      "historical_parent_primary_records": 2299,
+      "primary_chain_changes_vs_R2_longest_all": 0,
+      "primary_change_gene_ids": [],
+      "retained_unsupported_reference_strata": {
+        "nonstandard_splice": 38,
+        "split_terminal_codon": 5,
+        "longer_than_window": 2,
+        "same_strand_primary_overlap": 9
+      },
+      "methods": {
+        "M25R_A": {
+          "exact_chain": {
+            "tp": 424,
+            "predicted": 709,
+            "reference": 2291,
+            "precision": 0.5980253878702397,
+            "recall": 0.18507202095154954,
+            "f1": 0.2826666666666667
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 621536,
+            "predicted": 726837,
+            "reference": 3063207,
+            "precision": 0.8551243263620316,
+            "recall": 0.20290368884636265,
+            "f1": 0.32798352736802
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 8,
+          "reference_nonexact_primary": 285,
+          "prediction_records": 709,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 71421,
+            "predicted_CDS_bp": 69505,
+            "span_FPR": 0.0036120401540764907,
+            "wholly_background_unique_chains": 96,
+            "wholly_background_chains_per_Mb": 4.8550966073191795
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 424,
+            "predicted": 709,
+            "reference": 2299,
+            "precision": 0.5980253878702397,
+            "recall": 0.18442801217920834,
+            "f1": 0.28191489361702127
+          },
+          "prediction_path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/A_predictions.gff3"
+        },
+        "M25R_B": {
+          "exact_chain": {
+            "tp": 1003,
+            "predicted": 1871,
+            "reference": 2291,
+            "precision": 0.5360769641902726,
+            "recall": 0.4378000872981231,
+            "f1": 0.48197981739548296
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2118349,
+            "predicted": 2332944,
+            "reference": 3063207,
+            "precision": 0.908015365992497,
+            "recall": 0.69154614755059,
+            "f1": 0.7851333292934167
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 35,
+          "reference_nonexact_primary": 868,
+          "prediction_records": 1871,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 170789,
+            "predicted_CDS_bp": 117264,
+            "span_FPR": 0.008637469734035785,
+            "wholly_background_unique_chains": 145,
+            "wholly_background_chains_per_Mb": 7.333218833971677
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 1003,
+            "predicted": 1871,
+            "reference": 2299,
+            "precision": 0.5360769641902726,
+            "recall": 0.4362766420182688,
+            "f1": 0.48105515587529973
+          },
+          "prediction_path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/B_predictions.gff3"
+        },
+        "ANNEVO": {
+          "exact_chain": {
+            "tp": 1703,
+            "predicted": 2284,
+            "reference": 2291,
+            "precision": 0.7456217162872154,
+            "recall": 0.7433435181143605,
+            "f1": 0.7444808743169399
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2774359,
+            "predicted": 2993108,
+            "reference": 3063207,
+            "precision": 0.9269157678239476,
+            "recall": 0.9057040546068222,
+            "f1": 0.9161871534092926
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 104,
+          "reference_nonexact_primary": 581,
+          "prediction_records": 2284,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 289043,
+            "predicted_CDS_bp": 127924,
+            "span_FPR": 0.014618038423639141,
+            "wholly_background_unique_chains": 133,
+            "wholly_background_chains_per_Mb": 6.72633175805678
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 1703,
+            "predicted": 2284,
+            "reference": 2299,
+            "precision": 0.7456217162872154,
+            "recall": 0.7407568508046977,
+            "f1": 0.7431813222779838
+          },
+          "prediction_path": "outputs/M12B-SAMEPANEL-BASELINES-ANNEVO/predictions/oryza_sativa.gff"
+        },
+        "Helixer": {
+          "exact_chain": {
+            "tp": 1385,
+            "predicted": 2559,
+            "reference": 2291,
+            "precision": 0.5412270418132082,
+            "recall": 0.6045395024006984,
+            "f1": 0.5711340206185567
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2814018,
+            "predicted": 3221509,
+            "reference": 3063207,
+            "precision": 0.8735092777949712,
+            "recall": 0.9186509432761155,
+            "f1": 0.8955115871584333
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 74,
+          "reference_nonexact_primary": 1174,
+          "prediction_records": 2559,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 368130,
+            "predicted_CDS_bp": 177849,
+            "span_FPR": 0.018617778271379268,
+            "wholly_background_unique_chains": 202,
+            "wholly_background_chains_per_Mb": 10.215932444567441
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 1385,
+            "predicted": 2559,
+            "reference": 2299,
+            "precision": 0.5412270418132082,
+            "recall": 0.6024358416702914,
+            "f1": 0.5701934952655414
+          },
+          "prediction_path": "outputs/M12B-SAMEPANEL-BASELINES-HELIXER/predictions/oryza_sativa.gff3"
+        },
+        "Tiberius": {
+          "exact_chain": {
+            "tp": 1576,
+            "predicted": 2443,
+            "reference": 2291,
+            "precision": 0.6451084731887025,
+            "recall": 0.687909209951986,
+            "f1": 0.665821715251373
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2755792,
+            "predicted": 3003682,
+            "reference": 3063207,
+            "precision": 0.9174712902364498,
+            "recall": 0.8996427600224209,
+            "f1": 0.908469563230842
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 90,
+          "reference_nonexact_primary": 867,
+          "prediction_records": 2443,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 172110,
+            "predicted_CDS_bp": 106079,
+            "span_FPR": 0.008704277886309416,
+            "wholly_background_unique_chains": 149,
+            "wholly_background_chains_per_Mb": 7.53551452594331
+          },
+          "historical_parent_exact_chain_replayed": {
+            "tp": 1576,
+            "predicted": 2443,
+            "reference": 2299,
+            "precision": 0.6451084731887025,
+            "recall": 0.6855154414963027,
+            "f1": 0.6646984394770139
+          },
+          "prediction_path": "outputs/M12B-SAMEPANEL-BASELINES-TIBERIUS/predictions/oryza_sativa.gtf"
+        }
+      }
+    }
+  },
+  "pooled": {
+    "M25R_A": {
+      "exact_chain": {
+        "tp": 1585,
+        "predicted": 2098,
+        "reference": 7728,
+        "precision": 0.7554814108674929,
+        "recall": 0.2050983436853002,
+        "f1": 0.32261347445552613
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 2007467,
+        "predicted": 2160738,
+        "reference": 9664557,
+        "precision": 0.9290654396784802,
+        "recall": 0.20771433186228816,
+        "f1": 0.33952083224985086
+      },
+      "background": {
+        "bp": 27956441,
+        "predicted_span_bp": 79526,
+        "predicted_CDS_bp": 77410,
+        "wholly_background_unique_chains": 115,
+        "span_FPR": 0.002844639630631095,
+        "wholly_background_chains_per_Mb": 4.113542206606342
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 32
+    },
+    "M25R_B": {
+      "exact_chain": {
+        "tp": 3724,
+        "predicted": 6188,
+        "reference": 7728,
+        "precision": 0.6018099547511312,
+        "recall": 0.48188405797101447,
+        "f1": 0.5352112676056338
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 7352048,
+        "predicted": 7746763,
+        "reference": 9664557,
+        "precision": 0.9490477506540473,
+        "recall": 0.7607227108288565,
+        "f1": 0.8445135693330545
+      },
+      "background": {
+        "bp": 27956441,
+        "predicted_span_bp": 278100,
+        "predicted_CDS_bp": 139464,
+        "wholly_background_unique_chains": 179,
+        "span_FPR": 0.009947618153541074,
+        "wholly_background_chains_per_Mb": 6.402817869413349
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 186
+    },
+    "ANNEVO": {
+      "exact_chain": {
+        "tp": 5645,
+        "predicted": 7182,
+        "reference": 7728,
+        "precision": 0.7859927596769702,
+        "recall": 0.7304606625258799,
+        "f1": 0.7572099262240107
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 8923867,
+        "predicted": 9364175,
+        "reference": 9664557,
+        "precision": 0.9529795203528341,
+        "recall": 0.9233601705696391,
+        "f1": 0.9379360642632415
+      },
+      "background": {
+        "bp": 27956441,
+        "predicted_span_bp": 322406,
+        "predicted_CDS_bp": 143671,
+        "wholly_background_unique_chains": 146,
+        "span_FPR": 0.011532440770983688,
+        "wholly_background_chains_per_Mb": 5.2224101057784855
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 495
+    },
+    "Helixer": {
+      "exact_chain": {
+        "tp": 4898,
+        "predicted": 7899,
+        "reference": 7728,
+        "precision": 0.6200784909482213,
+        "recall": 0.6337991718426501,
+        "f1": 0.6268637614385358
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 9153453,
+        "predicted": 9956622,
+        "reference": 9664557,
+        "precision": 0.9193331834833139,
+        "recall": 0.9471156308561272,
+        "f1": 0.9330176336498434
+      },
+      "background": {
+        "bp": 27956441,
+        "predicted_span_bp": 538216,
+        "predicted_CDS_bp": 231101,
+        "wholly_background_unique_chains": 258,
+        "span_FPR": 0.01925194984583338,
+        "wholly_background_chains_per_Mb": 9.22864251569075
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 394
+    },
+    "Tiberius": {
+      "exact_chain": {
+        "tp": 5441,
+        "predicted": 7427,
+        "reference": 7728,
+        "precision": 0.7325972801938871,
+        "recall": 0.7040631469979296,
+        "f1": 0.7180468492246783
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 8970689,
+        "predicted": 9402124,
+        "reference": 9664557,
+        "precision": 0.9541130280774854,
+        "recall": 0.9282048830587889,
+        "f1": 0.9409806562558004
+      },
+      "background": {
+        "bp": 27956441,
+        "predicted_span_bp": 201431,
+        "predicted_CDS_bp": 122694,
+        "wholly_background_unique_chains": 165,
+        "span_FPR": 0.007205173219294974,
+        "wholly_background_chains_per_Mb": 5.902038818174316
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 517
+    }
+  }
+}

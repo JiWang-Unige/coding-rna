@@ -1,0 +1,348 @@
+{
+  "experiment": "M28-B1-INTEGRATION-R3",
+  "species": "arabidopsis_thaliana",
+  "head_seed": 0,
+  "head_fitted": false,
+  "backbone_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "head_hidden": 128,
+  "budget": {
+    "bin_bp": 1024,
+    "sites_per_bin": 8,
+    "ends_per_start_kind": 8,
+    "intron_links_per_donor": 8,
+    "beam_per_carry": 2,
+    "chains_per_kb": 8,
+    "max_exons": 128,
+    "min_intron_bp": 5
+  },
+  "loss": "per-window class-balanced endpoint/link/chain BCE + local fine/grouped likelihood; coefficients all1 for smoke",
+  "gradient_check": {
+    "window_id": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+    "losses": {
+      "local": 3.4671990871429443,
+      "endpoint": 0.6972262263298035,
+      "link": 0.7487235069274902,
+      "chain": 0.6452120542526245
+    },
+    "gradient_norms": {
+      "local": {
+        "shared": 41.688010346153824,
+        "segmentation": 8.867161990225645,
+        "endpoint": 0.0,
+        "link": 0.0,
+        "chain": 0.0
+      },
+      "endpoint": {
+        "shared": 4.6034249300761365,
+        "segmentation": 0.0,
+        "endpoint": 1.089759857933639,
+        "link": 0.0,
+        "chain": 0.0
+      },
+      "link": {
+        "shared": 3.526493872897017,
+        "segmentation": 0.0,
+        "endpoint": 0.0,
+        "link": 1.4930596723477334,
+        "chain": 0.0
+      },
+      "chain": {
+        "shared": 16.714472219951425,
+        "segmentation": 0.0,
+        "endpoint": 0.0,
+        "link": 0.0,
+        "chain": 5.444628055063577
+      }
+    },
+    "chain_labels": {
+      "0": 92,
+      "-1": 2,
+      "1": 1
+    },
+    "link_labels": {
+      "-1": 56,
+      "0": 1463,
+      "1": 10
+    },
+    "origins": {
+      "free": 94,
+      "reference_injected": 1
+    },
+    "frozen_features_require_grad": false,
+    "masked_endpoint_gradient_abs_sum": 0.0,
+    "positive_negative_unknown_gradient_check": true,
+    "seconds": 11.803913775998808
+  },
+  "integration_pass": true,
+  "optimizer_steps": 0,
+  "reference_used_for_free_generation": false,
+  "val_test_setaria_used": false,
+  "scope": "six isolated TRAIN windows, not chromosome-level assessment; no performance/architecture conclusion",
+  "records": [
+    {
+      "window_id": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+      "ordinal": 0,
+      "free_chains": 94,
+      "free_reference_labels": {
+        "0": 92,
+        "-1": 2
+      },
+      "supported_training_positives": 1,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 30,
+      "untrained_additive_selected": 30,
+      "untrained_C0_chains": 3,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.48583581899947603,
+      "C0_decode_seconds": 6.6047782720015675,
+      "counts": {
+        "raw_sites": {
+          "start": 442,
+          "stop": 1290,
+          "donor": 2085,
+          "acceptor": 1539
+        },
+        "kept_sites": {
+          "start": 192,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 71517,
+        "legal_exon_edges": 464,
+        "exon_edges_retained": 464,
+        "intron_links_considered": 18420,
+        "intron_links_retained": 1519,
+        "beam_states_considered": 2151,
+        "beam_states_pruned": 1241,
+        "duplicate_states": 0,
+        "extensions": 719,
+        "ORF_rejected_context_edges": 71053,
+        "max_exon_pruned": 0,
+        "complete_paths": 94,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003071.7|356352|+",
+      "ordinal": 3,
+      "free_chains": 65,
+      "free_reference_labels": {
+        "0": 65
+      },
+      "supported_training_positives": 0,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 18,
+      "untrained_additive_selected": 18,
+      "untrained_C0_chains": 6,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.4393580149990157,
+      "C0_decode_seconds": 0.07368360699911136,
+      "counts": {
+        "raw_sites": {
+          "start": 404,
+          "stop": 1467,
+          "donor": 1957,
+          "acceptor": 1422
+        },
+        "kept_sites": {
+          "start": 192,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 61364,
+        "legal_exon_edges": 291,
+        "exon_edges_retained": 291,
+        "intron_links_considered": 18387,
+        "intron_links_retained": 1492,
+        "beam_states_considered": 1662,
+        "beam_states_pruned": 822,
+        "duplicate_states": 0,
+        "extensions": 415,
+        "ORF_rejected_context_edges": 61073,
+        "max_exon_pruned": 0,
+        "complete_paths": 65,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003076.8|12779520|-",
+      "ordinal": 6,
+      "free_chains": 174,
+      "free_reference_labels": {
+        "0": 174
+      },
+      "supported_training_positives": 0,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 26,
+      "untrained_additive_selected": 26,
+      "untrained_C0_chains": 2,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.481101844998193,
+      "C0_decode_seconds": 0.07203400499929558,
+      "counts": {
+        "raw_sites": {
+          "start": 428,
+          "stop": 1312,
+          "donor": 2196,
+          "acceptor": 1744
+        },
+        "kept_sites": {
+          "start": 192,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 56286,
+        "legal_exon_edges": 244,
+        "exon_edges_retained": 244,
+        "intron_links_considered": 18404,
+        "intron_links_retained": 1508,
+        "beam_states_considered": 1102,
+        "beam_states_pruned": 436,
+        "duplicate_states": 0,
+        "extensions": 358,
+        "ORF_rejected_context_edges": 56042,
+        "max_exon_pruned": 0,
+        "complete_paths": 174,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003070.9|270336|+",
+      "ordinal": 7,
+      "free_chains": 75,
+      "free_reference_labels": {
+        "0": 75
+      },
+      "supported_training_positives": 5,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 23,
+      "untrained_additive_selected": 23,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.42695166500197956,
+      "C0_decode_seconds": 0.07200857499992708,
+      "counts": {
+        "raw_sites": {
+          "start": 504,
+          "stop": 1246,
+          "donor": 2266,
+          "acceptor": 1604
+        },
+        "kept_sites": {
+          "start": 192,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 60762,
+        "legal_exon_edges": 222,
+        "exon_edges_retained": 217,
+        "intron_links_considered": 18385,
+        "intron_links_retained": 1521,
+        "beam_states_considered": 1439,
+        "beam_states_pruned": 647,
+        "duplicate_states": 0,
+        "extensions": 270,
+        "ORF_rejected_context_edges": 60540,
+        "max_exon_pruned": 0,
+        "complete_paths": 75,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003076.8|12115968|+",
+      "ordinal": 8,
+      "free_chains": 96,
+      "free_reference_labels": {
+        "0": 96
+      },
+      "supported_training_positives": 0,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 20,
+      "untrained_additive_selected": 20,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.4434654850010702,
+      "C0_decode_seconds": 0.0721229549999407,
+      "counts": {
+        "raw_sites": {
+          "start": 520,
+          "stop": 1352,
+          "donor": 2343,
+          "acceptor": 1771
+        },
+        "kept_sites": {
+          "start": 192,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 60643,
+        "legal_exon_edges": 336,
+        "exon_edges_retained": 297,
+        "intron_links_considered": 18387,
+        "intron_links_retained": 1512,
+        "beam_states_considered": 1494,
+        "beam_states_pruned": 670,
+        "duplicate_states": 0,
+        "extensions": 402,
+        "ORF_rejected_context_edges": 60307,
+        "max_exon_pruned": 0,
+        "complete_paths": 96,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003071.7|4718592|-",
+      "ordinal": 10,
+      "free_chains": 44,
+      "free_reference_labels": {
+        "0": 44
+      },
+      "supported_training_positives": 1,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 17,
+      "untrained_additive_selected": 17,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.3997875550012395,
+      "C0_decode_seconds": 0.07184113599942066,
+      "counts": {
+        "raw_sites": {
+          "start": 439,
+          "stop": 1388,
+          "donor": 2055,
+          "acceptor": 1485
+        },
+        "kept_sites": {
+          "start": 189,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 47469,
+        "legal_exon_edges": 287,
+        "exon_edges_retained": 287,
+        "intron_links_considered": 18418,
+        "intron_links_retained": 1508,
+        "beam_states_considered": 1417,
+        "beam_states_pruned": 775,
+        "duplicate_states": 0,
+        "extensions": 436,
+        "ORF_rejected_context_edges": 47182,
+        "max_exon_pruned": 0,
+        "complete_paths": 44,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    }
+  ]
+}
