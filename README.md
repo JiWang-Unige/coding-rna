@@ -18,6 +18,8 @@ The [native confirmation](reports/M27-ALLELIC-INTEGRITY/confirmation_result.md) 
 
 The [single-edge test](reports/M27-ALLELIC-INTEGRITY/single_edge_result.md) is complete and negative for its frozen restoration endpoint: ANNEVO/POTEH same-PTC cache replay exactly reproduced all 530 chains, but releasing the sole registered CDS1_TA→CDS2 edge changed neither the bypass chain nor its score; the edge was not selected. Both arms used the same native min-intron pass and no new neural calls. This fixed pilot is closed without rescue combinations. The result does not establish neural-only causation, global ORF-constraint irrelevance, selective risk diagnosis, or biological truth. Total M27 usage remains 4.3133/8 GPUh and 34.30/50 GiB; the publication objective is open.
 
+The [M27 writing package](docs/M27_manuscript_writing_package_20260929.md) contains a bounded abstract, three proposed figure captions and a claim-evidence matrix, with a separate [cross-stage evidence map](docs/manuscript_evidence_map_20260929.md). It is a quantitative replication/limited implementation-study draft, not a new mechanism claim, completed manuscript, rendered figures or submitted paper. Current experimental expansion is closed; no additional models or cases were run for this writing stage.
+
 | Question | Evidence | What it establishes |
 |---|---|---|
 | How does the fixed decoder compare with cached callers on the same scope? | [Same-scope comparison](reports/M26-SAME-SCOPE-MECHANISM/result.md) | B improves over A but trails the three cached baselines in exact-chain F1. |
