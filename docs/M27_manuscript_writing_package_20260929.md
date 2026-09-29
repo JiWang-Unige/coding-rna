@@ -40,7 +40,7 @@ Data: paired_result.json and confirmation_result.json; detailed selected structu
 
 **A, Exact replay and the local intervention.** Both arms use the same complete 01_PTC chromosome and its native ANNEVO score cache from the confirmation run. The replay arm must reproduce all 530 whole-chromosome CDS chains and the target's original 174-nt exon-skipping assignment before the intervention executes. In the intervention arm, at plus-strand zero-based position15695751 (the third base of the registered TAA), a copy of the A-conditioned transition matrix replaces only CDS1_TA→CDS2 from negative infinity with the ordinary continuation score0. Only this genomic position references the modified matrix; no DNA, emissions, other transition or normalization is changed. The actual target decoding region is [15689950,15720000), with local edited-base index5801.
 
-**B, Native control flow and selected output.** Both arms use the original float32 core and a single min_intron_length=1 pass; neither triggers the native short-intron rerun at20. Candidate regions and recorded target emission arrays match. The released edge is not selected. Both final outputs retain the same bypass chain, and all530 chromosome-wide chains are unchanged. No non-target chain or target-external hidden-state difference is observed. The preregistered endpoint—restoration of the original coordinate/phase chain while retaining the PTC—is not met; this is a scientific negative, not a failed job.
+**B, Native control flow and selected output.** Both arms use the original float32 core and a single min_intron_length=1 pass; neither triggers the native short-intron rerun at20. Candidate regions and recorded target emission arrays match. The released edge is not selected. Both final outputs retain the same bypass chain, and all530 chromosome-wide chains are unchanged. No non-target CDS-chain differences were detected chromosome-wide; outside the target span, no hidden-state differences were detected within the recorded decoding region. The preregistered endpoint—restoration of the original coordinate/phase chain while retaining the PTC—is not met; this is a scientific negative, not a failed job.
 
 **C, Scores of the two actually selected paths.** Sum the native floor-transformed, class-mapped log-emissions over the entire fixed target span [15690077,15719777), including introns: E=−1253.5999851226807, transition sum=−10 and total=−1263.5999851226807 in both arms. Over the complete decoding region, excluding native unscored t=0, the corresponding values are E=−1276.0396003723145, transition sum=−10 and total=−1286.0396003723145. Both emission differences are0, below the prespecified absolute tolerance0.001nats. The two selected paths also have equal totals when rescored on the common released graph. **This does not compare the original reference-chain score against the bypass score:** the original chain was not recovered, and its score was not established by this experiment. Equal scores do not establish unique optimal paths.
 
@@ -64,6 +64,12 @@ M26的A→B/R3是独立实现资产，参考政策问题属于测量勘误，R8�
 
 ## 一次性后续判断
 
-本写作包完成了Pro第14轮建议的下一交付范围，不消耗剩余GPU预算。下一次审阅只判断摘要、图注和矩阵是否忠于证据，以及复现型主张是否能成为作者愿意承担的完整稿；不把“还不够NC”自动转化为再补实验。
+本写作包完成了Pro第14轮建议的下一交付范围，不消耗剩余GPU预算。第15轮Pro已完成一次性写作审阅，只要求收紧隐藏状态比较的地域范围；已修正，不再循环审阅同一骨架，也不把“还不够NC”自动转化为再补实验。
 
 若接受复现型定位，可继续完整稿、真实图件与复现产物索引；若要求必须具有尚未成立的机制/诊断/生物学推进，则本稿按技术/复现报告归档，当前实验线保持关闭。新科学问题需独立立项，不能从本次关闭自动授权。作者名单、投稿目标、声明和正式提交均未决定；本文件不作代作者承诺。
+
+## 第15轮审阅与交付记录
+
+Pro报告完整读取77743384033212e4f0c1b396f8d2b23c2be3016d的本文件及证据映射（2分43秒），未访问Baobab原始缓存、未独立重跑。其唯一实质修订建议是区分全chr CDS链比较与仅目标解码region内的隐藏状态比较；Figure3B已按此收紧。其余数值、条件分母、未知界限和阴性解释未发现改变科学解释的错误。此记录不是外部同行评议，也不代表作者接受投稿定位。
+
+若作者选择复现型完整稿，限定下一制作范围为：正文/方法；由冻结JSON生成三图及源数据表；逐图绑定提交、字段、脚本/命令和公开/远程保存/可重新生成状态的复现索引。当前尚未执行这三个完整稿制作交付，不虚报完成。正式署名、机构声明、投稿选择和提交均未进行。
