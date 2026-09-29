@@ -38,3 +38,34 @@ sbatch --parsable --dependency=afterok:13294133:13294138 sbatch/M28-PILOT-R5-EVA
 任何失败按合同保留并停止，不延时或自动重提；只有最后checkpoint和全DEV都完整，
 才生成正式比较。原R4两个DependencyNeverSatisfied作业未修改或取消。
 目前尚无新的DEV准确率、独立泛化或论文主张；test/Setaria继续封存。
+
+## 阶段完成：C0全DEV推理（2026-09-30）
+
+Job **13294133** 的作业及batch均为 `COMPLETED, ExitCode=0:0`，
+`infer_C0/STATUS` 为COMPLETED；正常生成summary及四个scope文件。
+Slurm原始起止时间为2026-09-29T23:58:41至2026-09-30T01:04:59，
+实际分配 **3,978s = 1.105 GPUh**（1×RTX3090、2CPU、8GiB），
+低于本阶段2h硬限。batch MaxRSS为1,307,476KiB，stderr为空。
+这是已完成C0推理的新增成本，不包含仍在运行的B1或更早研究成本。
+
+| DEV范围 | 方向 | 窗口数 | 窗口内链记录数 |
+|---|---|---:|---:|
+| Arabidopsis NC_003074.8 | + | 1,909 | 5,807 |
+| Arabidopsis NC_003074.8 | - | 1,909 | 6,005 |
+| Rice NC_089041.1 | + | 2,436 | 2,905 |
+| Rice NC_089041.1 | - | 2,436 | 2,495 |
+| 合计 | | **8,690** | **17,212** |
+
+完成后直接解析全部四个JSONL（合计3,090,312字节）：与summary窗口列表逐项核对
+window ID及顺序、无重复ID、window_index连续、链与分数等长、分数有限、
+每窗reference_used=false，均通过；各scope链记录数与summary一致。
+运行代码在推理前核对固定DEV网格，逐窗核对缓存revision及几何，结束前核对8,690窗。
+summary确认使用原已完成C0 `outputs/M28-PILOT-R4/C0/step_004608.pt`，
+4,608更新，冻结revision `b0483c23b6b63787b61a6d3a204a9b517d6ba345`；
+reference_used/test_setaria_used均为false。未拼接R4部分预测。
+
+**17,212是重叠窗口内的链记录，不是去重基因数、精确链数或生物学真阳性。**
+这里只确认推理产物完整及计算成本，不是模型性能PASS或独立复现。
+B1拟合继续原作业13294132；13294138与13294139仍等待原afterok依赖。
+不提前生成C0单臂排名，不改变任何阈值、候选预算、训练步数或资源上限；
+完整方案的科学判断继续等待B1最终checkpoint、全DEV推理及共同评分。
