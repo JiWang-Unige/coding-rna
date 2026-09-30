@@ -1,0 +1,202 @@
+{
+  "experiment": "M28-B2-PREPARATION",
+  "recorded_before_checkpoint_or_feature_read": true,
+  "optimizer_step": false,
+  "DEV_forward": false,
+  "test_setaria_used": false,
+  "selection_rule": "first original draw per species/chromosome/strand stratum",
+  "draws": [
+    {
+      "draw_ordinal": 0,
+      "window_id": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+      "stratum_probability": 0.0003745616849817868,
+      "importance_weight_uniform_within_stratum": 1.078266244301939,
+      "stratum": [
+        "NC_003070.9",
+        "-"
+      ],
+      "stratum_size": 2476,
+      "probability_per_species_draw": 7.41320001526453e-05,
+      "probability_per_paired_species_draw": 3.706600007632265e-05,
+      "ordinal": 198,
+      "species": "arabidopsis_thaliana",
+      "shared_ordinal": 0
+    },
+    {
+      "draw_ordinal": 1,
+      "window_id": "oryza_sativa|NC_089046.1|26886144|-",
+      "stratum_probability": 0.00032608695652173916,
+      "importance_weight_uniform_within_stratum": 1.333333333333333,
+      "stratum": [
+        "NC_089046.1",
+        "-"
+      ],
+      "stratum_size": 2300,
+      "probability_per_species_draw": 5.774456521739131e-05,
+      "probability_per_paired_species_draw": 2.8872282608695656e-05,
+      "ordinal": 717,
+      "species": "oryza_sativa",
+      "shared_ordinal": 1
+    },
+    {
+      "draw_ordinal": 2,
+      "window_id": "oryza_sativa|NC_089044.1|15261696|+",
+      "stratum_probability": 0.0005456701432637553,
+      "importance_weight_uniform_within_stratum": 0.9412475456879624,
+      "stratum": [
+        "NC_089044.1",
+        "+"
+      ],
+      "stratum_size": 1947,
+      "probability_per_species_draw": 8.170841988975503e-05,
+      "probability_per_paired_species_draw": 4.0854209944877515e-05,
+      "ordinal": 361,
+      "species": "oryza_sativa",
+      "shared_ordinal": 2
+    },
+    {
+      "draw_ordinal": 3,
+      "window_id": "arabidopsis_thaliana|NC_003071.7|356352|+",
+      "stratum_probability": 0.0004678727386150967,
+      "importance_weight_uniform_within_stratum": 1.3333333333333333,
+      "stratum": [
+        "NC_003071.7",
+        "+"
+      ],
+      "stratum_size": 1603,
+      "probability_per_species_draw": 5.9702510917030565e-05,
+      "probability_per_paired_species_draw": 2.9851255458515282e-05,
+      "ordinal": 365,
+      "species": "arabidopsis_thaliana",
+      "shared_ordinal": 3
+    },
+    {
+      "draw_ordinal": 4,
+      "window_id": "oryza_sativa|NC_089043.1|6193152|-",
+      "stratum_probability": 0.0006389685280510849,
+      "importance_weight_uniform_within_stratum": 0.7002336944975568,
+      "stratum": [
+        "NC_089043.1",
+        "-"
+      ],
+      "stratum_size": 2235,
+      "probability_per_species_draw": 0.00011065470602968007,
+      "probability_per_paired_species_draw": 5.532735301484004e-05,
+      "ordinal": 173,
+      "species": "oryza_sativa",
+      "shared_ordinal": 4
+    },
+    {
+      "draw_ordinal": 6,
+      "window_id": "oryza_sativa|NC_089046.1|27316224|+",
+      "stratum_probability": 0.0010790990047145103,
+      "importance_weight_uniform_within_stratum": 0.4029126213592233,
+      "stratum": [
+        "NC_089046.1",
+        "+"
+      ],
+      "stratum_size": 2300,
+      "probability_per_species_draw": 0.00019109044875152787,
+      "probability_per_paired_species_draw": 9.554522437576393e-05,
+      "ordinal": 509,
+      "species": "oryza_sativa",
+      "shared_ordinal": 6
+    },
+    {
+      "draw_ordinal": 8,
+      "window_id": "arabidopsis_thaliana|NC_003076.8|12779520|-",
+      "stratum_probability": 0.0003416856492027335,
+      "importance_weight_uniform_within_stratum": 1.3333333333333333,
+      "stratum": [
+        "NC_003076.8",
+        "-"
+      ],
+      "stratum_size": 2195,
+      "probability_per_species_draw": 5.9617027334851934e-05,
+      "probability_per_paired_species_draw": 2.9808513667425967e-05,
+      "ordinal": 711,
+      "species": "arabidopsis_thaliana",
+      "shared_ordinal": 8
+    },
+    {
+      "draw_ordinal": 10,
+      "window_id": "arabidopsis_thaliana|NC_003070.9|270336|+",
+      "stratum_probability": 0.0005134046883763614,
+      "importance_weight_uniform_within_stratum": 0.7866644587956063,
+      "stratum": [
+        "NC_003070.9",
+        "+"
+      ],
+      "stratum_size": 2476,
+      "probability_per_species_draw": 0.00010161134457448819,
+      "probability_per_paired_species_draw": 5.0805672287244096e-05,
+      "ordinal": 150,
+      "species": "arabidopsis_thaliana",
+      "shared_ordinal": 10
+    },
+    {
+      "draw_ordinal": 11,
+      "window_id": "arabidopsis_thaliana|NC_003076.8|12115968|+",
+      "stratum_probability": 0.0003416856492027335,
+      "importance_weight_uniform_within_stratum": 1.3333333333333333,
+      "stratum": [
+        "NC_003076.8",
+        "+"
+      ],
+      "stratum_size": 2195,
+      "probability_per_species_draw": 5.9617027334851934e-05,
+      "probability_per_paired_species_draw": 2.9808513667425967e-05,
+      "ordinal": 550,
+      "species": "arabidopsis_thaliana",
+      "shared_ordinal": 11
+    },
+    {
+      "draw_ordinal": 14,
+      "window_id": "oryza_sativa|NC_089043.1|16625664|+",
+      "stratum_probability": 0.0004966529440254618,
+      "importance_weight_uniform_within_stratum": 0.9008852125961399,
+      "stratum": [
+        "NC_089043.1",
+        "+"
+      ],
+      "stratum_size": 2235,
+      "probability_per_species_draw": 8.600890827524274e-05,
+      "probability_per_paired_species_draw": 4.300445413762137e-05,
+      "ordinal": 82,
+      "species": "oryza_sativa",
+      "shared_ordinal": 14
+    },
+    {
+      "draw_ordinal": 19,
+      "window_id": "arabidopsis_thaliana|NC_003071.7|4718592|-",
+      "stratum_probability": 0.0005269464626226581,
+      "importance_weight_uniform_within_stratum": 1.183859011119659,
+      "stratum": [
+        "NC_003071.7",
+        "-"
+      ],
+      "stratum_size": 1603,
+      "probability_per_species_draw": 6.724056424091209e-05,
+      "probability_per_paired_species_draw": 3.3620282120456045e-05,
+      "ordinal": 470,
+      "species": "arabidopsis_thaliana",
+      "shared_ordinal": 19
+    },
+    {
+      "draw_ordinal": 29,
+      "window_id": "oryza_sativa|NC_089044.1|1658880|-",
+      "stratum_probability": 0.0007090422092178481,
+      "importance_weight_uniform_within_stratum": 0.7243725076237392,
+      "stratum": [
+        "NC_089044.1",
+        "-"
+      ],
+      "stratum_size": 1947,
+      "probability_per_species_draw": 0.00010617168497402674,
+      "probability_per_paired_species_draw": 5.308584248701337e-05,
+      "ordinal": 474,
+      "species": "oryza_sativa",
+      "shared_ordinal": 29
+    }
+  ]
+}

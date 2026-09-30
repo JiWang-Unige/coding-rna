@@ -1,0 +1,1410 @@
+{
+  "experiment": "M28-R6-CANDIDATE-TRACE",
+  "status": "pre_forward_sample_preparation_not_executed",
+  "source_result_commit": "c1ecee5a734a75da10ff928f7f6ed87cfe84813c",
+  "new_forward_pass": false,
+  "checkpoint_loaded": false,
+  "test_setaria_used": false,
+  "selection": "one lexicographically first reference_id per predeclared supported owner-contained stratum and scope",
+  "anchor_count": 20,
+  "window_count": 23,
+  "missing_strata": [],
+  "anchors": [
+    {
+      "stratum": "missing_links_ready_single",
+      "reference_id": "rna-NM_001035553.2",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "chain": [
+        [
+          1084135,
+          1085662
+        ]
+      ],
+      "owner_index": 87,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|1069056|+"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "+",
+        "reference_id": "rna-NM_001035553.2",
+        "category": "absent_from_final_free",
+        "exons": 1,
+        "span_bp": 1527,
+        "CDS_bp": 1527,
+        "max_intron_bp": 0,
+        "containing_windows": 2,
+        "owner_index": 87,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_links_ready_multi",
+      "reference_id": "rna-NM_001035544.2",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "chain": [
+        [
+          359135,
+          359169
+        ],
+        [
+          359250,
+          360734
+        ]
+      ],
+      "owner_index": 28,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|344064|+"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "+",
+        "reference_id": "rna-NM_001035544.2",
+        "category": "absent_from_final_free",
+        "exons": 2,
+        "span_bp": 1599,
+        "CDS_bp": 1518,
+        "max_intron_bp": 81,
+        "containing_windows": 2,
+        "owner_index": 28,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "nonowner_positive",
+      "reference_id": "rna-NM_001035566.2",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "chain": [
+        [
+          1540561,
+          1540660
+        ],
+        [
+          1540746,
+          1540845
+        ],
+        [
+          1540924,
+          1540990
+        ],
+        [
+          1541120,
+          1541198
+        ],
+        [
+          1541465,
+          1541640
+        ],
+        [
+          1541860,
+          1542120
+        ],
+        [
+          1542225,
+          1542574
+        ],
+        [
+          1542792,
+          1542861
+        ],
+        [
+          1543031,
+          1543297
+        ],
+        [
+          1543379,
+          1543436
+        ],
+        [
+          1543651,
+          1543978
+        ],
+        [
+          1544054,
+          1544233
+        ],
+        [
+          1544310,
+          1544587
+        ],
+        [
+          1544676,
+          1544865
+        ],
+        [
+          1544974,
+          1545127
+        ],
+        [
+          1545283,
+          1545361
+        ],
+        [
+          1545438,
+          1545711
+        ],
+        [
+          1545974,
+          1546139
+        ]
+      ],
+      "owner_index": 125,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|1523712|+",
+        "arabidopsis_thaliana|NC_003074.8|1536000|+"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "+",
+        "reference_id": "rna-NM_001035566.2",
+        "category": "free_nonowner_only",
+        "exons": 18,
+        "span_bp": 5578,
+        "CDS_bp": 3159,
+        "max_intron_bp": 267,
+        "containing_windows": 2,
+        "owner_index": 125,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 1,
+        "best_observed_gain": 1.8021893501281738,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "selected_exact",
+      "reference_id": "rna-NM_001035555.2",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "chain": [
+        [
+          1224965,
+          1225050
+        ],
+        [
+          1225164,
+          1225325
+        ]
+      ],
+      "owner_index": 99,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|1216512|+"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "+",
+        "reference_id": "rna-NM_001035555.2",
+        "category": "selected_exact",
+        "exons": 2,
+        "span_bp": 360,
+        "CDS_bp": 246,
+        "max_intron_bp": 114,
+        "containing_windows": 2,
+        "owner_index": 99,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 1,
+        "best_observed_gain": 7.353188514709473,
+        "owner_gain": 7.353188514709473,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_necessary_link",
+      "reference_id": "rna-NM_001035577.1",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "chain": [
+        [
+          2252091,
+          2252363
+        ],
+        [
+          2252624,
+          2252741
+        ],
+        [
+          2252844,
+          2252932
+        ],
+        [
+          2253185,
+          2253332
+        ]
+      ],
+      "owner_index": 182,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|2236416|+"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "+",
+        "reference_id": "rna-NM_001035577.1",
+        "category": "absent_from_final_free",
+        "exons": 4,
+        "span_bp": 1241,
+        "CDS_bp": 624,
+        "max_intron_bp": 261,
+        "containing_windows": 2,
+        "owner_index": 182,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": false,
+        "all_links_in_owner": false,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": true
+      }
+    },
+    {
+      "stratum": "missing_links_ready_single",
+      "reference_id": "rna-NM_001035539.1",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "chain": [
+        [
+          127556,
+          128465
+        ]
+      ],
+      "owner_index": 9,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|110592|-"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "-",
+        "reference_id": "rna-NM_001035539.1",
+        "category": "absent_from_final_free",
+        "exons": 1,
+        "span_bp": 909,
+        "CDS_bp": 909,
+        "max_intron_bp": 0,
+        "containing_windows": 2,
+        "owner_index": 9,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_links_ready_multi",
+      "reference_id": "rna-NM_001035542.1",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "chain": [
+        [
+          213076,
+          213212
+        ],
+        [
+          213310,
+          213619
+        ],
+        [
+          213715,
+          213993
+        ],
+        [
+          214069,
+          214420
+        ],
+        [
+          214519,
+          214789
+        ],
+        [
+          215400,
+          215469
+        ],
+        [
+          215614,
+          215773
+        ],
+        [
+          215854,
+          216142
+        ]
+      ],
+      "owner_index": 16,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|196608|-"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "-",
+        "reference_id": "rna-NM_001035542.1",
+        "category": "absent_from_final_free",
+        "exons": 8,
+        "span_bp": 3066,
+        "CDS_bp": 1860,
+        "max_intron_bp": 611,
+        "containing_windows": 2,
+        "owner_index": 16,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "nonowner_positive",
+      "reference_id": "rna-NM_001035538.2",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "chain": [
+        [
+          121119,
+          121440
+        ]
+      ],
+      "owner_index": 9,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|98304|-",
+        "arabidopsis_thaliana|NC_003074.8|110592|-"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "-",
+        "reference_id": "rna-NM_001035538.2",
+        "category": "free_nonowner_only",
+        "exons": 1,
+        "span_bp": 321,
+        "CDS_bp": 321,
+        "max_intron_bp": 0,
+        "containing_windows": 2,
+        "owner_index": 9,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 1,
+        "best_observed_gain": 8.766863822937012,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "selected_exact",
+      "reference_id": "rna-NM_001035561.1",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "chain": [
+        [
+          1368247,
+          1368435
+        ],
+        [
+          1368620,
+          1368678
+        ]
+      ],
+      "owner_index": 110,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|1351680|-"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "-",
+        "reference_id": "rna-NM_001035561.1",
+        "category": "selected_exact",
+        "exons": 2,
+        "span_bp": 431,
+        "CDS_bp": 246,
+        "max_intron_bp": 185,
+        "containing_windows": 2,
+        "owner_index": 110,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 2,
+        "best_observed_gain": 7.604122638702393,
+        "owner_gain": 5.955307960510254,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_necessary_link",
+      "reference_id": "rna-NM_001035551.2",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "chain": [
+        [
+          705563,
+          705722
+        ],
+        [
+          705821,
+          705927
+        ],
+        [
+          706206,
+          706302
+        ],
+        [
+          707079,
+          707106
+        ],
+        [
+          707486,
+          707578
+        ]
+      ],
+      "owner_index": 57,
+      "window_ids": [
+        "arabidopsis_thaliana|NC_003074.8|700416|-"
+      ],
+      "frozen_D1_case": {
+        "species": "arabidopsis_thaliana",
+        "seqid": "NC_003074.8",
+        "strand": "-",
+        "reference_id": "rna-NM_001035551.2",
+        "category": "absent_from_final_free",
+        "exons": 5,
+        "span_bp": 2015,
+        "CDS_bp": 480,
+        "max_intron_bp": 777,
+        "containing_windows": 2,
+        "owner_index": 57,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": false,
+        "all_links_in_owner": false,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_links_ready_single",
+      "reference_id": "rna-NM_001403225.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "chain": [
+        [
+          26781518,
+          26782136
+        ]
+      ],
+      "owner_index": 2179,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|26775552|+"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "+",
+        "reference_id": "rna-NM_001403225.1",
+        "category": "absent_from_final_free",
+        "exons": 1,
+        "span_bp": 618,
+        "CDS_bp": 618,
+        "max_intron_bp": 0,
+        "containing_windows": 2,
+        "owner_index": 2179,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_links_ready_multi",
+      "reference_id": "rna-NM_001403018.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "chain": [
+        [
+          2812663,
+          2812803
+        ],
+        [
+          2813368,
+          2813493
+        ],
+        [
+          2813698,
+          2813745
+        ],
+        [
+          2813860,
+          2813938
+        ],
+        [
+          2814026,
+          2814151
+        ],
+        [
+          2814304,
+          2814371
+        ],
+        [
+          2814454,
+          2814517
+        ],
+        [
+          2814676,
+          2814746
+        ],
+        [
+          2814830,
+          2814931
+        ],
+        [
+          2815025,
+          2815130
+        ],
+        [
+          2815211,
+          2815400
+        ]
+      ],
+      "owner_index": 228,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|2801664|+"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "+",
+        "reference_id": "rna-NM_001403018.1",
+        "category": "absent_from_final_free",
+        "exons": 11,
+        "span_bp": 2737,
+        "CDS_bp": 1110,
+        "max_intron_bp": 565,
+        "containing_windows": 1,
+        "owner_index": 228,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "nonowner_positive",
+      "reference_id": "rna-NM_001403108.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "chain": [
+        [
+          21845705,
+          21847421
+        ]
+      ],
+      "owner_index": 1777,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|21823488|+",
+        "oryza_sativa|NC_089041.1|21835776|+"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "+",
+        "reference_id": "rna-NM_001403108.1",
+        "category": "free_nonowner_only",
+        "exons": 1,
+        "span_bp": 1716,
+        "CDS_bp": 1716,
+        "max_intron_bp": 0,
+        "containing_windows": 2,
+        "owner_index": 1777,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 1,
+        "best_observed_gain": 6.015288829803467,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "selected_exact",
+      "reference_id": "rna-NM_001402977.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "chain": [
+        [
+          353659,
+          353716
+        ],
+        [
+          353853,
+          355372
+        ],
+        [
+          355486,
+          355633
+        ],
+        [
+          356033,
+          356596
+        ]
+      ],
+      "owner_index": 28,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|344064|+"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "+",
+        "reference_id": "rna-NM_001402977.1",
+        "category": "selected_exact",
+        "exons": 4,
+        "span_bp": 2937,
+        "CDS_bp": 2286,
+        "max_intron_bp": 400,
+        "containing_windows": 1,
+        "owner_index": 28,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 1,
+        "best_observed_gain": 6.020408630371094,
+        "owner_gain": 6.020408630371094,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_necessary_link",
+      "reference_id": "rna-NM_001423004.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "chain": [
+        [
+          27922286,
+          27922476
+        ],
+        [
+          27922620,
+          27922834
+        ],
+        [
+          27922925,
+          27923031
+        ],
+        [
+          27923462,
+          27923728
+        ],
+        [
+          27924388,
+          27924668
+        ],
+        [
+          27924903,
+          27925011
+        ],
+        [
+          27925463,
+          27925550
+        ],
+        [
+          27925635,
+          27925740
+        ],
+        [
+          27926182,
+          27926313
+        ],
+        [
+          27926436,
+          27926497
+        ]
+      ],
+      "owner_index": 2271,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|27906048|+"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "+",
+        "reference_id": "rna-NM_001423004.1",
+        "category": "absent_from_final_free",
+        "exons": 10,
+        "span_bp": 4211,
+        "CDS_bp": 1548,
+        "max_intron_bp": 660,
+        "containing_windows": 2,
+        "owner_index": 2271,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": false,
+        "all_links_in_owner": false,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": true
+      }
+    },
+    {
+      "stratum": "missing_links_ready_single",
+      "reference_id": "rna-NM_001422982.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "chain": [
+        [
+          26525378,
+          26527136
+        ]
+      ],
+      "owner_index": 2158,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|26517504|-"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "-",
+        "reference_id": "rna-NM_001422982.1",
+        "category": "absent_from_final_free",
+        "exons": 1,
+        "span_bp": 1758,
+        "CDS_bp": 1758,
+        "max_intron_bp": 0,
+        "containing_windows": 2,
+        "owner_index": 2158,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_links_ready_multi",
+      "reference_id": "rna-NM_001402985.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "chain": [
+        [
+          481490,
+          481620
+        ],
+        [
+          481772,
+          481936
+        ],
+        [
+          482447,
+          482489
+        ],
+        [
+          482625,
+          482667
+        ],
+        [
+          483042,
+          483142
+        ],
+        [
+          483291,
+          483356
+        ],
+        [
+          484690,
+          484769
+        ],
+        [
+          487185,
+          487370
+        ]
+      ],
+      "owner_index": 38,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|466944|-"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "-",
+        "reference_id": "rna-NM_001402985.1",
+        "category": "absent_from_final_free",
+        "exons": 8,
+        "span_bp": 5880,
+        "CDS_bp": 807,
+        "max_intron_bp": 2416,
+        "containing_windows": 2,
+        "owner_index": 38,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": true
+      }
+    },
+    {
+      "stratum": "nonowner_positive",
+      "reference_id": "rna-NM_001402997.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "chain": [
+        [
+          2646669,
+          2646729
+        ],
+        [
+          2646820,
+          2647065
+        ],
+        [
+          2647387,
+          2649110
+        ],
+        [
+          2649216,
+          2649560
+        ],
+        [
+          2650182,
+          2650306
+        ],
+        [
+          2650988,
+          2651238
+        ],
+        [
+          2652124,
+          2652210
+        ]
+      ],
+      "owner_index": 215,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|2629632|-",
+        "oryza_sativa|NC_089041.1|2641920|-"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "-",
+        "reference_id": "rna-NM_001402997.1",
+        "category": "free_nonowner_only",
+        "exons": 7,
+        "span_bp": 5541,
+        "CDS_bp": 2832,
+        "max_intron_bp": 886,
+        "containing_windows": 2,
+        "owner_index": 215,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 1,
+        "best_observed_gain": 5.590832233428955,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "selected_exact",
+      "reference_id": "rna-NM_001402972.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "chain": [
+        [
+          357094,
+          358195
+        ],
+        [
+          360752,
+          361075
+        ],
+        [
+          361191,
+          361324
+        ]
+      ],
+      "owner_index": 28,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|344064|-"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "-",
+        "reference_id": "rna-NM_001402972.1",
+        "category": "selected_exact",
+        "exons": 3,
+        "span_bp": 4230,
+        "CDS_bp": 1557,
+        "max_intron_bp": 2557,
+        "containing_windows": 2,
+        "owner_index": 28,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": true,
+        "all_links_in_owner": true,
+        "unsupported_labels": [],
+        "C0_selected_exact": true,
+        "seen_window_count": 1,
+        "best_observed_gain": 8.290568351745605,
+        "owner_gain": 8.290568351745605,
+        "selected_overlap_count": 1,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    },
+    {
+      "stratum": "missing_necessary_link",
+      "reference_id": "rna-NM_001422227.1",
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "chain": [
+        [
+          23417281,
+          23417339
+        ],
+        [
+          23417427,
+          23417522
+        ],
+        [
+          23418298,
+          23418347
+        ],
+        [
+          23418434,
+          23418494
+        ],
+        [
+          23418586,
+          23418708
+        ],
+        [
+          23418805,
+          23418847
+        ],
+        [
+          23418950,
+          23418999
+        ],
+        [
+          23419101,
+          23419173
+        ],
+        [
+          23419644,
+          23419745
+        ],
+        [
+          23419841,
+          23419917
+        ],
+        [
+          23420008,
+          23420088
+        ],
+        [
+          23420202,
+          23420314
+        ],
+        [
+          23420397,
+          23420461
+        ],
+        [
+          23420546,
+          23420610
+        ],
+        [
+          23421550,
+          23421577
+        ]
+      ],
+      "owner_index": 1905,
+      "window_ids": [
+        "oryza_sativa|NC_089041.1|23408640|-"
+      ],
+      "frozen_D1_case": {
+        "species": "oryza_sativa",
+        "seqid": "NC_089041.1",
+        "strand": "-",
+        "reference_id": "rna-NM_001422227.1",
+        "category": "absent_from_final_free",
+        "exons": 15,
+        "span_bp": 4296,
+        "CDS_bp": 1071,
+        "max_intron_bp": 940,
+        "containing_windows": 1,
+        "owner_index": 1905,
+        "owner_contains": true,
+        "all_links_in_any_containing_window": false,
+        "all_links_in_owner": false,
+        "unsupported_labels": [],
+        "C0_selected_exact": false,
+        "seen_window_count": 0,
+        "best_observed_gain": null,
+        "owner_gain": null,
+        "selected_overlap_count": 0,
+        "overlap_with_other_exact_reference": false,
+        "overlap_with_reference_nonexact": false
+      }
+    }
+  ],
+  "windows": [
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|344064|+",
+      "scope_file": "scope_00.jsonl",
+      "window_index": 28,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "start": 344064,
+      "end": 368640
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1069056|+",
+      "scope_file": "scope_00.jsonl",
+      "window_index": 87,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "start": 1069056,
+      "end": 1093632
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1216512|+",
+      "scope_file": "scope_00.jsonl",
+      "window_index": 99,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "start": 1216512,
+      "end": 1241088
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1523712|+",
+      "scope_file": "scope_00.jsonl",
+      "window_index": 124,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "start": 1523712,
+      "end": 1548288
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1536000|+",
+      "scope_file": "scope_00.jsonl",
+      "window_index": 125,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "start": 1536000,
+      "end": 1560576
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|2236416|+",
+      "scope_file": "scope_00.jsonl",
+      "window_index": 182,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "start": 2236416,
+      "end": 2260992
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|98304|-",
+      "scope_file": "scope_01.jsonl",
+      "window_index": 8,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "start": 98304,
+      "end": 122880
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|110592|-",
+      "scope_file": "scope_01.jsonl",
+      "window_index": 9,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "start": 110592,
+      "end": 135168
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|196608|-",
+      "scope_file": "scope_01.jsonl",
+      "window_index": 16,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "start": 196608,
+      "end": 221184
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|700416|-",
+      "scope_file": "scope_01.jsonl",
+      "window_index": 57,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "start": 700416,
+      "end": 724992
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1351680|-",
+      "scope_file": "scope_01.jsonl",
+      "window_index": 110,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "start": 1351680,
+      "end": 1376256
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|344064|+",
+      "scope_file": "scope_02.jsonl",
+      "window_index": 28,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "start": 344064,
+      "end": 368640
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|2801664|+",
+      "scope_file": "scope_02.jsonl",
+      "window_index": 228,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "start": 2801664,
+      "end": 2826240
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|21823488|+",
+      "scope_file": "scope_02.jsonl",
+      "window_index": 1776,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "start": 21823488,
+      "end": 21848064
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|21835776|+",
+      "scope_file": "scope_02.jsonl",
+      "window_index": 1777,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "start": 21835776,
+      "end": 21860352
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|26775552|+",
+      "scope_file": "scope_02.jsonl",
+      "window_index": 2179,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "start": 26775552,
+      "end": 26800128
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|27906048|+",
+      "scope_file": "scope_02.jsonl",
+      "window_index": 2271,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "start": 27906048,
+      "end": 27930624
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|344064|-",
+      "scope_file": "scope_03.jsonl",
+      "window_index": 28,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "start": 344064,
+      "end": 368640
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|466944|-",
+      "scope_file": "scope_03.jsonl",
+      "window_index": 38,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "start": 466944,
+      "end": 491520
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|2629632|-",
+      "scope_file": "scope_03.jsonl",
+      "window_index": 214,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "start": 2629632,
+      "end": 2654208
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|2641920|-",
+      "scope_file": "scope_03.jsonl",
+      "window_index": 215,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "start": 2641920,
+      "end": 2666496
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|23408640|-",
+      "scope_file": "scope_03.jsonl",
+      "window_index": 1905,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "start": 23408640,
+      "end": 23433216
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|26517504|-",
+      "scope_file": "scope_03.jsonl",
+      "window_index": 2158,
+      "species": "oryza_sativa",
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "start": 26517504,
+      "end": 26542080
+    }
+  ]
+}

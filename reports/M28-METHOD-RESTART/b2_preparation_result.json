@@ -1,0 +1,31 @@
+{
+  "experiment": "M28-B2-PREPARATION",
+  "completed": true,
+  "windows": 12,
+  "optimizer_steps": 0,
+  "fitting": false,
+  "head_seed": 0,
+  "trainable_parameters": 184369,
+  "base_checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt",
+  "base_trainable_parameters": 0,
+  "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "DEV_forward_used": false,
+  "test_setaria_used": false,
+  "known_rank_pairs": 21,
+  "first_cut_events": 10,
+  "unknown_competitors": 0,
+  "record_count": 12,
+  "sample_manifest": "reports/M28-METHOD-RESTART/b2_preparation_sample.json",
+  "wall_seconds": 39.741769551998004,
+  "seconds_total_by_stage": {
+    "load_seconds": 6.653631441004109,
+    "frozen_forward_seconds": 4.956688433987438,
+    "control_search_and_replay_seconds": 7.661408910003956,
+    "untrained_early_search_seconds": 13.87296997498197,
+    "loss_backward_seconds": 2.135327981042792
+  },
+  "peak_gpu_allocated_bytes": 122626560,
+  "peak_gpu_reserved_bytes": 144703488,
+  "new_method_performance_claim": false,
+  "head_updated": false
+}

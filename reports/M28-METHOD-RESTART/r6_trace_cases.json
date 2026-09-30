@@ -1,0 +1,4397 @@
+{
+  "source_trace": "outputs/M28-R6-CANDIDATE-TRACE/window_traces.jsonl",
+  "complete_trace_bytes": 11509095,
+  "excerpt_not_all_competitors": true,
+  "rows": [
+    {
+      "reference_id": "rna-NM_001035544.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "stratum": "missing_links_ready_multi",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|344064|+",
+      "window_index": 28,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "entry_beam",
+      "rank": 11,
+      "limit": 2,
+      "cutoff_gap": 704.0905953283967,
+      "exon_index": 1,
+      "position": 15186,
+      "carry": "G",
+      "oriented_chain": [
+        [
+          15071,
+          15105
+        ],
+        [
+          15186,
+          16670
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            15071,
+            15105
+          ]
+        ],
+        "carry": "G",
+        "proposal_score": 32.13942872762297,
+        "endpoint_components": {
+          "start": 7.438376426696777,
+          "acceptor": 7.321910858154297,
+          "donor": 8.119869232177734,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 3.6104117560348374,
+        "link_sum": 5.648860454559326,
+        "components_sum": 32.13942872762297
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              959,
+              1254
+            ],
+            [
+              1326,
+              1378
+            ],
+            [
+              1464,
+              1520
+            ],
+            [
+              1587,
+              1746
+            ],
+            [
+              1856,
+              1961
+            ],
+            [
+              2180,
+              2287
+            ],
+            [
+              2368,
+              2490
+            ],
+            [
+              2578,
+              2687
+            ],
+            [
+              2822,
+              2953
+            ],
+            [
+              3057,
+              3427
+            ],
+            [
+              3596,
+              3710
+            ],
+            [
+              3777,
+              3858
+            ],
+            [
+              6950,
+              7191
+            ],
+            [
+              7273,
+              7519
+            ],
+            [
+              7695,
+              7746
+            ],
+            [
+              7858,
+              8119
+            ],
+            [
+              8232,
+              8285
+            ],
+            [
+              8436,
+              8573
+            ],
+            [
+              8637,
+              8892
+            ],
+            [
+              11046,
+              11272
+            ],
+            [
+              11339,
+              11585
+            ],
+            [
+              11683,
+              11710
+            ],
+            [
+              11763,
+              11898
+            ],
+            [
+              11991,
+              12116
+            ],
+            [
+              12200,
+              12340
+            ],
+            [
+              12522,
+              12593
+            ],
+            [
+              12719,
+              12881
+            ],
+            [
+              12991,
+              13078
+            ],
+            [
+              13151,
+              13325
+            ],
+            [
+              13451,
+              13496
+            ],
+            [
+              13706,
+              14076
+            ],
+            [
+              14996,
+              15020
+            ]
+          ],
+          "carry": "G",
+          "proposal_score": 738.5617979966777,
+          "endpoint_components": {
+            "start": 8.625686645507812,
+            "acceptor": 219.34417867660522,
+            "donor": 231.88565969467163,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 166.3643824808973,
+          "link_sum": 112.34189049899578,
+          "components_sum": 738.5617979966778
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              959,
+              1254
+            ],
+            [
+              1326,
+              1378
+            ],
+            [
+              1464,
+              1520
+            ],
+            [
+              1587,
+              1746
+            ],
+            [
+              1856,
+              1961
+            ],
+            [
+              2180,
+              2287
+            ],
+            [
+              2368,
+              2490
+            ],
+            [
+              2578,
+              2687
+            ],
+            [
+              2822,
+              2953
+            ],
+            [
+              3057,
+              3427
+            ],
+            [
+              3596,
+              3710
+            ],
+            [
+              3777,
+              3858
+            ],
+            [
+              6950,
+              7191
+            ],
+            [
+              7273,
+              7519
+            ],
+            [
+              7695,
+              7746
+            ],
+            [
+              7858,
+              8119
+            ],
+            [
+              8232,
+              8285
+            ],
+            [
+              8436,
+              8573
+            ],
+            [
+              8637,
+              8892
+            ],
+            [
+              11046,
+              11272
+            ],
+            [
+              11339,
+              11585
+            ],
+            [
+              11683,
+              11710
+            ],
+            [
+              11763,
+              11898
+            ],
+            [
+              11991,
+              12116
+            ],
+            [
+              12200,
+              12340
+            ],
+            [
+              12522,
+              12593
+            ],
+            [
+              12719,
+              12881
+            ],
+            [
+              12991,
+              13078
+            ],
+            [
+              13151,
+              13325
+            ],
+            [
+              13451,
+              13496
+            ],
+            [
+              13706,
+              14076
+            ],
+            [
+              14153,
+              14206
+            ],
+            [
+              14996,
+              15006
+            ]
+          ],
+          "carry": "G",
+          "proposal_score": 736.2300240560197,
+          "endpoint_components": {
+            "start": 8.625686645507812,
+            "acceptor": 226.12088203430176,
+            "donor": 227.39027861505747,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 166.2880624471927,
+          "link_sum": 107.80511431396008,
+          "components_sum": 736.2300240560198
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001035553.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "stratum": "missing_links_ready_single",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1069056|+",
+      "window_index": 87,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 343,
+      "limit": 192,
+      "cutoff_gap": 242.64076168634273,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          15079,
+          16606
+        ]
+      ],
+      "final_rank": 343,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            15079,
+            16606
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 21.929777450337227,
+        "endpoint_components": {
+          "start": 8.04951286315918,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 7.983944892883301
+        },
+        "CDS_region_sum": 5.896319694294746,
+        "link_sum": 0.0,
+        "components_sum": 21.929777450337227
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              8304,
+              8560
+            ],
+            [
+              8743,
+              9951
+            ],
+            [
+              10039,
+              10352
+            ],
+            [
+              10441,
+              10776
+            ],
+            [
+              10865,
+              10878
+            ],
+            [
+              12129,
+              12159
+            ],
+            [
+              12248,
+              12349
+            ],
+            [
+              12712,
+              12828
+            ],
+            [
+              12922,
+              13022
+            ],
+            [
+              13132,
+              13279
+            ],
+            [
+              13374,
+              13435
+            ],
+            [
+              13528,
+              13769
+            ],
+            [
+              13858,
+              14075
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 320.123575635687,
+          "endpoint_components": {
+            "start": 9.052281379699707,
+            "acceptor": 84.09974193572998,
+            "donor": 94.9058096408844,
+            "stop": 6.859705924987793
+          },
+          "CDS_region_sum": 74.07916349960917,
+          "link_sum": 51.126873254776,
+          "components_sum": 320.1235756356871
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              6242,
+              6721
+            ],
+            [
+              8243,
+              8560
+            ],
+            [
+              8743,
+              9951
+            ],
+            [
+              10039,
+              10352
+            ],
+            [
+              10441,
+              10776
+            ],
+            [
+              10865,
+              10878
+            ],
+            [
+              12129,
+              12159
+            ],
+            [
+              12248,
+              12349
+            ],
+            [
+              12712,
+              12828
+            ],
+            [
+              12922,
+              13022
+            ],
+            [
+              13132,
+              13279
+            ],
+            [
+              13374,
+              13435
+            ],
+            [
+              13528,
+              13769
+            ],
+            [
+              13858,
+              14075
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 318.83527816159926,
+          "endpoint_components": {
+            "start": 8.690353393554688,
+            "acceptor": 84.94175058603287,
+            "donor": 95.27458488941193,
+            "stop": 6.859705924987793
+          },
+          "CDS_region_sum": 77.34950036628447,
+          "link_sum": 45.719383001327515,
+          "components_sum": 318.83527816159926
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              8304,
+              8560
+            ],
+            [
+              8743,
+              9951
+            ],
+            [
+              10039,
+              10352
+            ],
+            [
+              10441,
+              10776
+            ],
+            [
+              10865,
+              10878
+            ],
+            [
+              12129,
+              12159
+            ],
+            [
+              12248,
+              12349
+            ],
+            [
+              12712,
+              12828
+            ],
+            [
+              12922,
+              13022
+            ],
+            [
+              13132,
+              13279
+            ],
+            [
+              13374,
+              13435
+            ],
+            [
+              13528,
+              13769
+            ],
+            [
+              13858,
+              14008
+            ],
+            [
+              16915,
+              17099
+            ],
+            [
+              17688,
+              17813
+            ],
+            [
+              17999,
+              18407
+            ],
+            [
+              21210,
+              21322
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 264.57053913667994,
+          "endpoint_components": {
+            "start": 9.052281379699707,
+            "acceptor": 81.04676541686058,
+            "donor": 86.79385542869568,
+            "stop": 1.4597809314727783
+          },
+          "CDS_region_sum": 58.907394697221214,
+          "link_sum": 27.310461282730103,
+          "components_sum": 264.57053913668005
+        }
+      ],
+      "surviving_competitors_total": 192
+    },
+    {
+      "reference_id": "rna-NM_001035555.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "stratum": "selected_exact",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1216512|+",
+      "window_index": 99,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          8453,
+          8538
+        ],
+        [
+          8652,
+          8813
+        ]
+      ],
+      "final_rank": 2,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 7.353188514709473,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001035566.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "stratum": "nonowner_positive",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1523712|+",
+      "window_index": 124,
+      "is_owner": false,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          16849,
+          16948
+        ],
+        [
+          17034,
+          17133
+        ],
+        [
+          17212,
+          17278
+        ],
+        [
+          17408,
+          17486
+        ],
+        [
+          17753,
+          17928
+        ],
+        [
+          18148,
+          18408
+        ],
+        [
+          18513,
+          18862
+        ],
+        [
+          19080,
+          19149
+        ],
+        [
+          19319,
+          19585
+        ],
+        [
+          19667,
+          19724
+        ],
+        [
+          19939,
+          20266
+        ],
+        [
+          20342,
+          20521
+        ],
+        [
+          20598,
+          20875
+        ],
+        [
+          20964,
+          21153
+        ],
+        [
+          21262,
+          21415
+        ],
+        [
+          21571,
+          21649
+        ],
+        [
+          21726,
+          21999
+        ],
+        [
+          22262,
+          22427
+        ]
+      ],
+      "final_rank": 1,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 1.8021893501281738,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001035566.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "stratum": "nonowner_positive",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1536000|+",
+      "window_index": 125,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 277,
+      "limit": 192,
+      "cutoff_gap": 343.84200968120024,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          4561,
+          4660
+        ],
+        [
+          4746,
+          4845
+        ],
+        [
+          4924,
+          4990
+        ],
+        [
+          5120,
+          5198
+        ],
+        [
+          5465,
+          5640
+        ],
+        [
+          5860,
+          6120
+        ],
+        [
+          6225,
+          6574
+        ],
+        [
+          6792,
+          6861
+        ],
+        [
+          7031,
+          7297
+        ],
+        [
+          7379,
+          7436
+        ],
+        [
+          7651,
+          7978
+        ],
+        [
+          8054,
+          8233
+        ],
+        [
+          8310,
+          8587
+        ],
+        [
+          8676,
+          8865
+        ],
+        [
+          8974,
+          9127
+        ],
+        [
+          9283,
+          9361
+        ],
+        [
+          9438,
+          9711
+        ],
+        [
+          9974,
+          10139
+        ]
+      ],
+      "final_rank": 277,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            4561,
+            4660
+          ],
+          [
+            4746,
+            4845
+          ],
+          [
+            4924,
+            4990
+          ],
+          [
+            5120,
+            5198
+          ],
+          [
+            5465,
+            5640
+          ],
+          [
+            5860,
+            6120
+          ],
+          [
+            6225,
+            6574
+          ],
+          [
+            6792,
+            6861
+          ],
+          [
+            7031,
+            7297
+          ],
+          [
+            7379,
+            7436
+          ],
+          [
+            7651,
+            7978
+          ],
+          [
+            8054,
+            8233
+          ],
+          [
+            8310,
+            8587
+          ],
+          [
+            8676,
+            8865
+          ],
+          [
+            8974,
+            9127
+          ],
+          [
+            9283,
+            9361
+          ],
+          [
+            9438,
+            9711
+          ],
+          [
+            9974,
+            10139
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 449.917292150271,
+        "endpoint_components": {
+          "start": 9.222037315368652,
+          "acceptor": 114.75886368751526,
+          "donor": 139.820463180542,
+          "stop": 7.275997638702393
+        },
+        "CDS_region_sum": 103.00212201715703,
+        "link_sum": 75.83780831098557,
+        "components_sum": 449.9172921502709
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              4561,
+              4660
+            ],
+            [
+              4746,
+              4845
+            ],
+            [
+              4924,
+              4990
+            ],
+            [
+              5120,
+              5198
+            ],
+            [
+              5465,
+              5640
+            ],
+            [
+              5860,
+              6120
+            ],
+            [
+              6225,
+              6574
+            ],
+            [
+              6792,
+              6861
+            ],
+            [
+              7031,
+              7297
+            ],
+            [
+              7379,
+              7436
+            ],
+            [
+              7651,
+              7978
+            ],
+            [
+              8054,
+              8233
+            ],
+            [
+              8310,
+              8587
+            ],
+            [
+              8676,
+              8865
+            ],
+            [
+              8974,
+              9127
+            ],
+            [
+              9283,
+              9361
+            ],
+            [
+              9438,
+              9711
+            ],
+            [
+              14412,
+              14475
+            ],
+            [
+              14735,
+              14825
+            ],
+            [
+              14943,
+              15003
+            ],
+            [
+              15140,
+              15206
+            ],
+            [
+              15282,
+              15348
+            ],
+            [
+              15439,
+              15515
+            ],
+            [
+              15614,
+              15679
+            ],
+            [
+              15779,
+              15872
+            ],
+            [
+              16033,
+              16114
+            ],
+            [
+              16230,
+              16315
+            ],
+            [
+              16403,
+              16447
+            ],
+            [
+              16589,
+              16652
+            ],
+            [
+              16760,
+              16874
+            ],
+            [
+              17152,
+              17212
+            ],
+            [
+              17320,
+              17435
+            ],
+            [
+              17823,
+              17936
+            ],
+            [
+              18773,
+              19101
+            ],
+            [
+              19184,
+              19399
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 855.2780798353565,
+          "endpoint_components": {
+            "start": 9.222037315368652,
+            "acceptor": 228.11090106889606,
+            "donor": 273.00404810905457,
+            "stop": 7.532500267028809
+          },
+          "CDS_region_sum": 192.7381512090873,
+          "link_sum": 144.67044186592102,
+          "components_sum": 855.2780798353564
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              4561,
+              4660
+            ],
+            [
+              4746,
+              4845
+            ],
+            [
+              4924,
+              4990
+            ],
+            [
+              5120,
+              5198
+            ],
+            [
+              5465,
+              5640
+            ],
+            [
+              5860,
+              6120
+            ],
+            [
+              6225,
+              6574
+            ],
+            [
+              6792,
+              6861
+            ],
+            [
+              7031,
+              7297
+            ],
+            [
+              7379,
+              7436
+            ],
+            [
+              7651,
+              7978
+            ],
+            [
+              8054,
+              8233
+            ],
+            [
+              8310,
+              8587
+            ],
+            [
+              8676,
+              8865
+            ],
+            [
+              8974,
+              9127
+            ],
+            [
+              9283,
+              9361
+            ],
+            [
+              9438,
+              9711
+            ],
+            [
+              14412,
+              14475
+            ],
+            [
+              14735,
+              14825
+            ],
+            [
+              14943,
+              15003
+            ],
+            [
+              15140,
+              15206
+            ],
+            [
+              15282,
+              15348
+            ],
+            [
+              15439,
+              15515
+            ],
+            [
+              15614,
+              15679
+            ],
+            [
+              15779,
+              15872
+            ],
+            [
+              16033,
+              16114
+            ],
+            [
+              16230,
+              16315
+            ],
+            [
+              16403,
+              16447
+            ],
+            [
+              16589,
+              16652
+            ],
+            [
+              16760,
+              16874
+            ],
+            [
+              17152,
+              17212
+            ],
+            [
+              17320,
+              17435
+            ],
+            [
+              17823,
+              17936
+            ],
+            [
+              18773,
+              19101
+            ],
+            [
+              19184,
+              19357
+            ],
+            [
+              19362,
+              19395
+            ],
+            [
+              19540,
+              19552
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 853.0276380303004,
+          "endpoint_components": {
+            "start": 9.222037315368652,
+            "acceptor": 228.83394832536578,
+            "donor": 279.03182578086853,
+            "stop": 2.0261483192443848
+          },
+          "CDS_region_sum": 191.82871681551103,
+          "link_sum": 142.0849614739418,
+          "components_sum": 853.0276380303002
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              4561,
+              4660
+            ],
+            [
+              4746,
+              4845
+            ],
+            [
+              4924,
+              4990
+            ],
+            [
+              5120,
+              5198
+            ],
+            [
+              5465,
+              5640
+            ],
+            [
+              5860,
+              6120
+            ],
+            [
+              6225,
+              6574
+            ],
+            [
+              6792,
+              6861
+            ],
+            [
+              7031,
+              7297
+            ],
+            [
+              7379,
+              7436
+            ],
+            [
+              7651,
+              7978
+            ],
+            [
+              8054,
+              8233
+            ],
+            [
+              8310,
+              8587
+            ],
+            [
+              8676,
+              8865
+            ],
+            [
+              8974,
+              9127
+            ],
+            [
+              9283,
+              9361
+            ],
+            [
+              9438,
+              9711
+            ],
+            [
+              14412,
+              14475
+            ],
+            [
+              14735,
+              14825
+            ],
+            [
+              14943,
+              15003
+            ],
+            [
+              15140,
+              15206
+            ],
+            [
+              15282,
+              15348
+            ],
+            [
+              15439,
+              15515
+            ],
+            [
+              15614,
+              15679
+            ],
+            [
+              15779,
+              15872
+            ],
+            [
+              16033,
+              16114
+            ],
+            [
+              16230,
+              16315
+            ],
+            [
+              16403,
+              16447
+            ],
+            [
+              16589,
+              16652
+            ],
+            [
+              16760,
+              16874
+            ],
+            [
+              17152,
+              17212
+            ],
+            [
+              17320,
+              17435
+            ],
+            [
+              17823,
+              17936
+            ],
+            [
+              18773,
+              19101
+            ],
+            [
+              19184,
+              19357
+            ],
+            [
+              19362,
+              19395
+            ],
+            [
+              19776,
+              19878
+            ],
+            [
+              21696,
+              21735
+            ],
+            [
+              23711,
+              23721
+            ],
+            [
+              24017,
+              24088
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 793.7593018314712,
+          "endpoint_components": {
+            "start": 9.222037315368652,
+            "acceptor": 224.42007223889232,
+            "donor": 271.4078652858734,
+            "stop": -0.9311617612838745
+          },
+          "CDS_region_sum": 171.5862268297843,
+          "link_sum": 118.0542619228363,
+          "components_sum": 793.7593018314711
+        }
+      ],
+      "surviving_competitors_total": 192
+    },
+    {
+      "reference_id": "rna-NM_001035577.1",
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "stratum": "missing_necessary_link",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|2236416|+",
+      "window_index": 182,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "intron_link",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          15675,
+          15947
+        ],
+        [
+          16208,
+          16325
+        ],
+        [
+          16428,
+          16516
+        ],
+        [
+          16769,
+          16916
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001035538.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "stratum": "nonowner_positive",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|98304|-",
+      "window_index": 8,
+      "is_owner": false,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          1440,
+          1761
+        ]
+      ],
+      "final_rank": 131,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 8.766863822937012,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001035539.1",
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "stratum": "missing_links_ready_single",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|110592|-",
+      "window_index": 9,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 313,
+      "limit": 192,
+      "cutoff_gap": 208.78628852354367,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          6703,
+          7612
+        ]
+      ],
+      "final_rank": 313,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            6703,
+            7612
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 19.23656108700039,
+        "endpoint_components": {
+          "start": 7.538898468017578,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 5.603661060333252
+        },
+        "CDS_region_sum": 6.094001558649561,
+        "link_sum": 0.0,
+        "components_sum": 19.23656108700039
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              8363,
+              8458
+            ],
+            [
+              8537,
+              8605
+            ],
+            [
+              8781,
+              8834
+            ],
+            [
+              8904,
+              8982
+            ],
+            [
+              9071,
+              9125
+            ],
+            [
+              9250,
+              9329
+            ],
+            [
+              9542,
+              9610
+            ],
+            [
+              9704,
+              9777
+            ],
+            [
+              9873,
+              9935
+            ],
+            [
+              10038,
+              10399
+            ],
+            [
+              10499,
+              10555
+            ],
+            [
+              11382,
+              11757
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 273.8635249319373,
+          "endpoint_components": {
+            "start": 8.399833679199219,
+            "acceptor": 67.53925251960754,
+            "donor": 84.75906099379063,
+            "stop": 7.696502208709717
+          },
+          "CDS_region_sum": 65.78735196915255,
+          "link_sum": 39.68152356147766,
+          "components_sum": 273.8635249319373
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              8363,
+              8458
+            ],
+            [
+              8537,
+              8605
+            ],
+            [
+              8781,
+              8834
+            ],
+            [
+              8904,
+              8982
+            ],
+            [
+              9071,
+              9125
+            ],
+            [
+              9250,
+              9329
+            ],
+            [
+              9542,
+              9610
+            ],
+            [
+              9704,
+              9777
+            ],
+            [
+              9873,
+              9935
+            ],
+            [
+              10038,
+              10399
+            ],
+            [
+              10499,
+              10573
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 273.71384465014324,
+          "endpoint_components": {
+            "start": 8.399833679199219,
+            "acceptor": 68.94035625457764,
+            "donor": 84.73377704620361,
+            "stop": 7.064624309539795
+          },
+          "CDS_region_sum": 61.7266634634672,
+          "link_sum": 42.84858989715576,
+          "components_sum": 273.7138446501432
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              8363,
+              8458
+            ],
+            [
+              8537,
+              8605
+            ],
+            [
+              8781,
+              8834
+            ],
+            [
+              8904,
+              8982
+            ],
+            [
+              9071,
+              9125
+            ],
+            [
+              9250,
+              9329
+            ],
+            [
+              9542,
+              9610
+            ],
+            [
+              9704,
+              9777
+            ],
+            [
+              9873,
+              9935
+            ],
+            [
+              10038,
+              10399
+            ],
+            [
+              10499,
+              10555
+            ],
+            [
+              11382,
+              11736
+            ],
+            [
+              13677,
+              14036
+            ],
+            [
+              14295,
+              14327
+            ],
+            [
+              16393,
+              16440
+            ],
+            [
+              16709,
+              16805
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 228.02284961054406,
+          "endpoint_components": {
+            "start": 8.399833679199219,
+            "acceptor": 64.59141477942467,
+            "donor": 81.1130068153143,
+            "stop": 1.2915873527526855
+          },
+          "CDS_region_sum": 51.769211745358305,
+          "link_sum": 20.857795238494873,
+          "components_sum": 228.02284961054403
+        }
+      ],
+      "surviving_competitors_total": 192
+    },
+    {
+      "reference_id": "rna-NM_001035538.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "stratum": "nonowner_positive",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|110592|-",
+      "window_index": 9,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 310,
+      "limit": 192,
+      "cutoff_gap": 208.26942369150268,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          13728,
+          14049
+        ]
+      ],
+      "final_rank": 310,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            13728,
+            14049
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 19.75342591904137,
+        "endpoint_components": {
+          "start": 8.284470558166504,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 7.7989068031311035
+        },
+        "CDS_region_sum": 3.6700485577437636,
+        "link_sum": 0.0,
+        "components_sum": 19.75342591904137
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              8363,
+              8458
+            ],
+            [
+              8537,
+              8605
+            ],
+            [
+              8781,
+              8834
+            ],
+            [
+              8904,
+              8982
+            ],
+            [
+              9071,
+              9125
+            ],
+            [
+              9250,
+              9329
+            ],
+            [
+              9542,
+              9610
+            ],
+            [
+              9704,
+              9777
+            ],
+            [
+              9873,
+              9935
+            ],
+            [
+              10038,
+              10399
+            ],
+            [
+              10499,
+              10555
+            ],
+            [
+              11382,
+              11757
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 273.8635249319373,
+          "endpoint_components": {
+            "start": 8.399833679199219,
+            "acceptor": 67.53925251960754,
+            "donor": 84.75906099379063,
+            "stop": 7.696502208709717
+          },
+          "CDS_region_sum": 65.78735196915255,
+          "link_sum": 39.68152356147766,
+          "components_sum": 273.8635249319373
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              8363,
+              8458
+            ],
+            [
+              8537,
+              8605
+            ],
+            [
+              8781,
+              8834
+            ],
+            [
+              8904,
+              8982
+            ],
+            [
+              9071,
+              9125
+            ],
+            [
+              9250,
+              9329
+            ],
+            [
+              9542,
+              9610
+            ],
+            [
+              9704,
+              9777
+            ],
+            [
+              9873,
+              9935
+            ],
+            [
+              10038,
+              10399
+            ],
+            [
+              10499,
+              10573
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 273.71384465014324,
+          "endpoint_components": {
+            "start": 8.399833679199219,
+            "acceptor": 68.94035625457764,
+            "donor": 84.73377704620361,
+            "stop": 7.064624309539795
+          },
+          "CDS_region_sum": 61.7266634634672,
+          "link_sum": 42.84858989715576,
+          "components_sum": 273.7138446501432
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              8363,
+              8458
+            ],
+            [
+              8537,
+              8605
+            ],
+            [
+              8781,
+              8834
+            ],
+            [
+              8904,
+              8982
+            ],
+            [
+              9071,
+              9125
+            ],
+            [
+              9250,
+              9329
+            ],
+            [
+              9542,
+              9610
+            ],
+            [
+              9704,
+              9777
+            ],
+            [
+              9873,
+              9935
+            ],
+            [
+              10038,
+              10399
+            ],
+            [
+              10499,
+              10555
+            ],
+            [
+              11382,
+              11736
+            ],
+            [
+              13677,
+              14036
+            ],
+            [
+              14295,
+              14327
+            ],
+            [
+              16393,
+              16440
+            ],
+            [
+              16709,
+              16805
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 228.02284961054406,
+          "endpoint_components": {
+            "start": 8.399833679199219,
+            "acceptor": 64.59141477942467,
+            "donor": 81.1130068153143,
+            "stop": 1.2915873527526855
+          },
+          "CDS_region_sum": 51.769211745358305,
+          "link_sum": 20.857795238494873,
+          "components_sum": 228.02284961054403
+        }
+      ],
+      "surviving_competitors_total": 192
+    },
+    {
+      "reference_id": "rna-NM_001035542.1",
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "stratum": "missing_links_ready_multi",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|196608|-",
+      "window_index": 16,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "donor_beam",
+      "rank": 9,
+      "limit": 2,
+      "cutoff_gap": 195.07258861683246,
+      "exon_index": 0,
+      "position": 5330,
+      "carry": "",
+      "oriented_chain": [
+        [
+          5042,
+          5330
+        ],
+        [
+          5411,
+          5570
+        ],
+        [
+          5715,
+          5784
+        ],
+        [
+          6395,
+          6665
+        ],
+        [
+          6764,
+          7115
+        ],
+        [
+          7191,
+          7469
+        ],
+        [
+          7565,
+          7874
+        ],
+        [
+          7972,
+          8108
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            5042,
+            5330
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 19.360445276774612,
+        "endpoint_components": {
+          "start": 5.447550296783447,
+          "acceptor": 0.0,
+          "donor": 8.153944969177246,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 5.758950010813919,
+        "link_sum": 0.0,
+        "components_sum": 19.360445276774612
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              2328,
+              2625
+            ],
+            [
+              2736,
+              2859
+            ],
+            [
+              2927,
+              3080
+            ],
+            [
+              3188,
+              3274
+            ],
+            [
+              3375,
+              3457
+            ],
+            [
+              3544,
+              3664
+            ],
+            [
+              3748,
+              3826
+            ],
+            [
+              3933,
+              4063
+            ],
+            [
+              4155,
+              4231
+            ],
+            [
+              4592,
+              4711
+            ],
+            [
+              5031,
+              5330
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 218.85161749485277,
+          "endpoint_components": {
+            "start": 6.162044525146484,
+            "acceptor": 52.01332437992096,
+            "donor": 75.40791845321655,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 49.96670774582173,
+          "link_sum": 35.30162239074707,
+          "components_sum": 218.8516174948528
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              2328,
+              2625
+            ],
+            [
+              2736,
+              2859
+            ],
+            [
+              2927,
+              3080
+            ],
+            [
+              3188,
+              3274
+            ],
+            [
+              3375,
+              3457
+            ],
+            [
+              3544,
+              3664
+            ],
+            [
+              3748,
+              3826
+            ],
+            [
+              3933,
+              4063
+            ],
+            [
+              4155,
+              4231
+            ],
+            [
+              4592,
+              4711
+            ],
+            [
+              5034,
+              5330
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 214.43303389360707,
+          "endpoint_components": {
+            "start": 6.162044525146484,
+            "acceptor": 48.65789359807968,
+            "donor": 75.40791845321655,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 50.079155931971506,
+          "link_sum": 34.12602138519287,
+          "components_sum": 214.4330338936071
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001035551.2",
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "stratum": "missing_necessary_link",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|700416|-",
+      "window_index": 57,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "donor_beam",
+      "rank": 5,
+      "limit": 2,
+      "cutoff_gap": 15.24289869598502,
+      "exon_index": 2,
+      "position": 18786,
+      "carry": "AT",
+      "oriented_chain": [
+        [
+          17414,
+          17506
+        ],
+        [
+          17886,
+          17913
+        ],
+        [
+          18690,
+          18786
+        ],
+        [
+          19065,
+          19171
+        ],
+        [
+          19270,
+          19429
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            17414,
+            17506
+          ],
+          [
+            17886,
+            17913
+          ],
+          [
+            18690,
+            18786
+          ]
+        ],
+        "carry": "AT",
+        "proposal_score": 72.37501204224718,
+        "endpoint_components": {
+          "start": 8.593599319458008,
+          "acceptor": 16.788817882537842,
+          "donor": 19.079895615577698,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 13.759793760501271,
+        "link_sum": 14.152905464172363,
+        "components_sum": 72.37501204224718
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              1428,
+              1542
+            ],
+            [
+              1917,
+              2392
+            ],
+            [
+              2489,
+              2693
+            ],
+            [
+              17886,
+              17917
+            ],
+            [
+              18690,
+              18786
+            ]
+          ],
+          "carry": "AT",
+          "proposal_score": 90.222496658852,
+          "endpoint_components": {
+            "start": 6.753679275512695,
+            "acceptor": 33.083993434906006,
+            "donor": 23.782710671424866,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 25.093975812485116,
+          "link_sum": 1.5081374645233154,
+          "components_sum": 90.222496658852
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              1497,
+              1542
+            ],
+            [
+              1917,
+              2392
+            ],
+            [
+              2489,
+              2693
+            ],
+            [
+              17886,
+              17917
+            ],
+            [
+              18690,
+              18786
+            ]
+          ],
+          "carry": "AT",
+          "proposal_score": 87.6179107382322,
+          "endpoint_components": {
+            "start": 3.959496259689331,
+            "acceptor": 33.083993434906006,
+            "donor": 23.782710671424866,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 25.283572907688676,
+          "link_sum": 1.5081374645233154,
+          "components_sum": 87.6179107382322
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001035561.1",
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "stratum": "selected_exact",
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1351680|-",
+      "window_index": 110,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          7578,
+          7636
+        ],
+        [
+          7821,
+          8009
+        ]
+      ],
+      "final_rank": 1,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 5.955307960510254,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001402977.1",
+      "species": "oryza_sativa",
+      "strand": "+",
+      "stratum": "selected_exact",
+      "window_id": "oryza_sativa|NC_089041.1|344064|+",
+      "window_index": 28,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          9595,
+          9652
+        ],
+        [
+          9789,
+          11308
+        ],
+        [
+          11422,
+          11569
+        ],
+        [
+          11969,
+          12532
+        ]
+      ],
+      "final_rank": 1,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 6.020408630371094,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001403018.1",
+      "species": "oryza_sativa",
+      "strand": "+",
+      "stratum": "missing_links_ready_multi",
+      "window_id": "oryza_sativa|NC_089041.1|2801664|+",
+      "window_index": 228,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "entry_beam",
+      "rank": 3,
+      "limit": 2,
+      "cutoff_gap": 106.46138035910982,
+      "exon_index": 0,
+      "position": 10999,
+      "carry": "",
+      "oriented_chain": [
+        [
+          10999,
+          11139
+        ],
+        [
+          11704,
+          11829
+        ],
+        [
+          12034,
+          12081
+        ],
+        [
+          12196,
+          12274
+        ],
+        [
+          12362,
+          12487
+        ],
+        [
+          12640,
+          12707
+        ],
+        [
+          12790,
+          12853
+        ],
+        [
+          13012,
+          13082
+        ],
+        [
+          13166,
+          13267
+        ],
+        [
+          13361,
+          13466
+        ],
+        [
+          13547,
+          13736
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [],
+        "carry": "",
+        "proposal_score": 8.885309219360352,
+        "endpoint_components": {
+          "start": 8.885309219360352,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 0.0,
+        "link_sum": 0.0,
+        "components_sum": 8.885309219360352
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              3946,
+              4327
+            ],
+            [
+              4818,
+              5016
+            ],
+            [
+              5057,
+              5152
+            ],
+            [
+              6884,
+              6952
+            ],
+            [
+              7924,
+              8164
+            ],
+            [
+              8246,
+              8560
+            ],
+            [
+              9128,
+              9221
+            ],
+            [
+              9313,
+              9403
+            ],
+            [
+              10672,
+              10696
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 116.22449008828977,
+          "endpoint_components": {
+            "start": 7.826915264129639,
+            "acceptor": 47.554620906710625,
+            "donor": 44.17715680599213,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 3.0954344243464558,
+          "link_sum": 13.5703626871109,
+          "components_sum": 116.22449008828974
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              3946,
+              4327
+            ],
+            [
+              4818,
+              5016
+            ],
+            [
+              5057,
+              5152
+            ],
+            [
+              6884,
+              6952
+            ],
+            [
+              7924,
+              8164
+            ],
+            [
+              8246,
+              8560
+            ],
+            [
+              9128,
+              9221
+            ],
+            [
+              9313,
+              9457
+            ],
+            [
+              10672,
+              10696
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 115.34668957847018,
+          "endpoint_components": {
+            "start": 7.826915264129639,
+            "acceptor": 47.554620906710625,
+            "donor": 42.41008412837982,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 3.105889033850593,
+          "link_sum": 14.449180245399475,
+          "components_sum": 115.34668957847015
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001403108.1",
+      "species": "oryza_sativa",
+      "strand": "+",
+      "stratum": "nonowner_positive",
+      "window_id": "oryza_sativa|NC_089041.1|21823488|+",
+      "window_index": 1776,
+      "is_owner": false,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          22217,
+          23933
+        ]
+      ],
+      "final_rank": 1,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 6.015288829803467,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001403108.1",
+      "species": "oryza_sativa",
+      "strand": "+",
+      "stratum": "nonowner_positive",
+      "window_id": "oryza_sativa|NC_089041.1|21835776|+",
+      "window_index": 1777,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 289,
+      "limit": 192,
+      "cutoff_gap": 98.75751945417375,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          9929,
+          11645
+        ]
+      ],
+      "final_rank": 289,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            9929,
+            11645
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 21.362498282551563,
+        "endpoint_components": {
+          "start": 7.353013515472412,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 8.192988395690918
+        },
+        "CDS_region_sum": 5.816496371388235,
+        "link_sum": 0.0,
+        "components_sum": 21.362498282551563
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              13774,
+              13893
+            ],
+            [
+              15140,
+              15231
+            ],
+            [
+              15436,
+              15580
+            ],
+            [
+              15694,
+              15910
+            ],
+            [
+              16160,
+              16311
+            ],
+            [
+              17947,
+              18050
+            ],
+            [
+              19272,
+              19328
+            ],
+            [
+              19425,
+              19517
+            ],
+            [
+              19948,
+              20051
+            ],
+            [
+              20142,
+              20280
+            ],
+            [
+              20499,
+              20749
+            ],
+            [
+              21985,
+              22748
+            ],
+            [
+              22979,
+              23173
+            ],
+            [
+              24099,
+              24136
+            ],
+            [
+              24266,
+              24331
+            ],
+            [
+              24450,
+              24463
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 348.57159375992063,
+          "endpoint_components": {
+            "start": 7.336864471435547,
+            "acceptor": 100.55811870098114,
+            "donor": 111.82279139757156,
+            "stop": 3.0167791843414307
+          },
+          "CDS_region_sum": 71.54371839609388,
+          "link_sum": 54.29332160949707,
+          "components_sum": 348.57159375992063
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              13774,
+              13893
+            ],
+            [
+              15140,
+              15231
+            ],
+            [
+              15436,
+              15580
+            ],
+            [
+              15694,
+              15910
+            ],
+            [
+              16160,
+              16325
+            ],
+            [
+              17947,
+              18050
+            ],
+            [
+              18662,
+              18756
+            ],
+            [
+              19272,
+              19328
+            ],
+            [
+              19425,
+              19517
+            ],
+            [
+              19948,
+              20051
+            ],
+            [
+              20142,
+              20280
+            ],
+            [
+              20499,
+              20749
+            ],
+            [
+              21985,
+              22748
+            ],
+            [
+              22979,
+              23173
+            ],
+            [
+              24099,
+              24136
+            ],
+            [
+              24266,
+              24331
+            ],
+            [
+              24450,
+              24463
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 346.8548485157863,
+          "endpoint_components": {
+            "start": 7.336864471435547,
+            "acceptor": 104.48146784305573,
+            "donor": 113.83085975050926,
+            "stop": 3.0167791843414307
+          },
+          "CDS_region_sum": 68.46613029817493,
+          "link_sum": 49.72274696826935,
+          "components_sum": 346.8548485157862
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              13774,
+              13893
+            ],
+            [
+              15140,
+              15231
+            ],
+            [
+              15436,
+              15580
+            ],
+            [
+              15694,
+              15910
+            ],
+            [
+              16160,
+              16325
+            ],
+            [
+              17799,
+              18050
+            ],
+            [
+              19948,
+              19966
+            ],
+            [
+              21951,
+              21955
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 120.12001773672532,
+          "endpoint_components": {
+            "start": 7.336864471435547,
+            "acceptor": 35.897398829460144,
+            "donor": 41.77794227004051,
+            "stop": -2.720508098602295
+          },
+          "CDS_region_sum": 25.02594041781852,
+          "link_sum": 12.802379846572876,
+          "components_sum": 120.1200177367253
+        }
+      ],
+      "surviving_competitors_total": 192
+    },
+    {
+      "reference_id": "rna-NM_001403225.1",
+      "species": "oryza_sativa",
+      "strand": "+",
+      "stratum": "missing_links_ready_single",
+      "window_id": "oryza_sativa|NC_089041.1|26775552|+",
+      "window_index": 2179,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 732,
+      "limit": 192,
+      "cutoff_gap": 60.01383526225094,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          5966,
+          6584
+        ]
+      ],
+      "final_rank": 732,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            5966,
+            6584
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 22.798456019583263,
+        "endpoint_components": {
+          "start": 9.263242721557617,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 8.674025535583496
+        },
+        "CDS_region_sum": 4.8611877624421505,
+        "link_sum": 0.0,
+        "components_sum": 22.798456019583263
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              262,
+              380
+            ],
+            [
+              492,
+              641
+            ],
+            [
+              740,
+              1101
+            ],
+            [
+              1106,
+              1127
+            ],
+            [
+              3333,
+              3482
+            ],
+            [
+              3596,
+              3983
+            ],
+            [
+              5957,
+              6584
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 120.08146044181251,
+          "endpoint_components": {
+            "start": 6.426449298858643,
+            "acceptor": 24.958830952644348,
+            "donor": 32.295991361141205,
+            "stop": 8.674025535583496
+          },
+          "CDS_region_sum": 33.94300862716102,
+          "link_sum": 13.783154666423798,
+          "components_sum": 120.08146044181251
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              262,
+              380
+            ],
+            [
+              492,
+              641
+            ],
+            [
+              740,
+              1101
+            ],
+            [
+              1106,
+              1127
+            ],
+            [
+              3333,
+              3482
+            ],
+            [
+              3596,
+              3931
+            ],
+            [
+              5947,
+              6584
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 119.41940165353178,
+          "endpoint_components": {
+            "start": 6.426449298858643,
+            "acceptor": 27.3259819149971,
+            "donor": 30.825594902038574,
+            "stop": 8.674025535583496
+          },
+          "CDS_region_sum": 33.84291244340301,
+          "link_sum": 12.32443755865097,
+          "components_sum": 119.41940165353179
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              262,
+              380
+            ],
+            [
+              492,
+              641
+            ],
+            [
+              740,
+              1101
+            ],
+            [
+              1106,
+              1127
+            ],
+            [
+              3333,
+              3482
+            ],
+            [
+              3596,
+              3931
+            ],
+            [
+              5947,
+              6399
+            ],
+            [
+              12280,
+              12473
+            ],
+            [
+              14437,
+              14501
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 82.8122912818342,
+          "endpoint_components": {
+            "start": 6.426449298858643,
+            "acceptor": 23.27005034685135,
+            "donor": 26.897343039512634,
+            "stop": -0.5795025825500488
+          },
+          "CDS_region_sum": 23.934750097408873,
+          "link_sum": 2.863201081752777,
+          "components_sum": 82.81229128183423
+        }
+      ],
+      "surviving_competitors_total": 192
+    },
+    {
+      "reference_id": "rna-NM_001423004.1",
+      "species": "oryza_sativa",
+      "strand": "+",
+      "stratum": "missing_necessary_link",
+      "window_id": "oryza_sativa|NC_089041.1|27906048|+",
+      "window_index": 2271,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "donor_beam",
+      "rank": 19,
+      "limit": 2,
+      "cutoff_gap": 72.40429866089548,
+      "exon_index": 0,
+      "position": 16428,
+      "carry": "G",
+      "oriented_chain": [
+        [
+          16238,
+          16428
+        ],
+        [
+          16572,
+          16786
+        ],
+        [
+          16877,
+          16983
+        ],
+        [
+          17414,
+          17680
+        ],
+        [
+          18340,
+          18620
+        ],
+        [
+          18855,
+          18963
+        ],
+        [
+          19415,
+          19502
+        ],
+        [
+          19587,
+          19692
+        ],
+        [
+          20134,
+          20265
+        ],
+        [
+          20388,
+          20449
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            16238,
+            16428
+          ]
+        ],
+        "carry": "G",
+        "proposal_score": 21.939277934915413,
+        "endpoint_components": {
+          "start": 8.516864776611328,
+          "acceptor": 0.0,
+          "donor": 7.798808574676514,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 5.623604583627572,
+        "link_sum": 0.0,
+        "components_sum": 21.939277934915413
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              6127,
+              6189
+            ],
+            [
+              6771,
+              6907
+            ],
+            [
+              7043,
+              7181
+            ],
+            [
+              7285,
+              7407
+            ],
+            [
+              7582,
+              7665
+            ],
+            [
+              8368,
+              8402
+            ],
+            [
+              16000,
+              16428
+            ]
+          ],
+          "carry": "G",
+          "proposal_score": 96.00839485599701,
+          "endpoint_components": {
+            "start": 7.19397497177124,
+            "acceptor": 26.799188554286957,
+            "donor": 39.18475365638733,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 12.376944977781209,
+          "link_sum": 10.453532695770264,
+          "components_sum": 96.008394855997
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              6127,
+              6189
+            ],
+            [
+              6771,
+              6907
+            ],
+            [
+              7043,
+              7181
+            ],
+            [
+              7285,
+              7407
+            ],
+            [
+              7582,
+              7741
+            ],
+            [
+              8378,
+              8402
+            ],
+            [
+              16000,
+              16428
+            ]
+          ],
+          "carry": "G",
+          "proposal_score": 94.34357659581089,
+          "endpoint_components": {
+            "start": 7.19397497177124,
+            "acceptor": 26.240648925304413,
+            "donor": 38.87069833278656,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 11.39024339678668,
+          "link_sum": 10.648010969161987,
+          "components_sum": 94.34357659581087
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001402972.1",
+      "species": "oryza_sativa",
+      "strand": "-",
+      "stratum": "selected_exact",
+      "window_id": "oryza_sativa|NC_089041.1|344064|-",
+      "window_index": 28,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          7316,
+          7449
+        ],
+        [
+          7565,
+          7888
+        ],
+        [
+          10445,
+          11546
+        ]
+      ],
+      "final_rank": 149,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 8.290568351745605,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001402985.1",
+      "species": "oryza_sativa",
+      "strand": "-",
+      "stratum": "missing_links_ready_multi",
+      "window_id": "oryza_sativa|NC_089041.1|466944|-",
+      "window_index": 38,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "donor_beam",
+      "rank": 3,
+      "limit": 2,
+      "cutoff_gap": 11.920797877489576,
+      "exon_index": 5,
+      "position": 9073,
+      "carry": "",
+      "oriented_chain": [
+        [
+          4150,
+          4335
+        ],
+        [
+          6751,
+          6830
+        ],
+        [
+          8164,
+          8229
+        ],
+        [
+          8378,
+          8478
+        ],
+        [
+          8853,
+          8895
+        ],
+        [
+          9031,
+          9073
+        ],
+        [
+          9584,
+          9748
+        ],
+        [
+          9900,
+          10030
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            4150,
+            4335
+          ],
+          [
+            6751,
+            6830
+          ],
+          [
+            8164,
+            8229
+          ],
+          [
+            8378,
+            8478
+          ],
+          [
+            8853,
+            8895
+          ],
+          [
+            9031,
+            9073
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 155.94093692806663,
+        "endpoint_components": {
+          "start": 6.064081192016602,
+          "acceptor": 41.44822406768799,
+          "donor": 53.88092803955078,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 26.569105510982872,
+        "link_sum": 27.97859811782837,
+        "components_sum": 155.9409369280666
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              4150,
+              4335
+            ],
+            [
+              6751,
+              6830
+            ],
+            [
+              7523,
+              7610
+            ],
+            [
+              8164,
+              8229
+            ],
+            [
+              8378,
+              8478
+            ],
+            [
+              8853,
+              8895
+            ],
+            [
+              9031,
+              9073
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 175.78809999690293,
+          "endpoint_components": {
+            "start": 6.064081192016602,
+            "acceptor": 47.82632064819336,
+            "donor": 62.50994396209717,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 26.856267206528152,
+          "link_sum": 32.53148698806763,
+          "components_sum": 175.7880999969029
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              4150,
+              4335
+            ],
+            [
+              6751,
+              6830
+            ],
+            [
+              7523,
+              7610
+            ],
+            [
+              8164,
+              8229
+            ],
+            [
+              8378,
+              8478
+            ],
+            [
+              8853,
+              8895
+            ],
+            [
+              9034,
+              9073
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 167.8617348055562,
+          "endpoint_components": {
+            "start": 6.064081192016602,
+            "acceptor": 43.40637159347534,
+            "donor": 62.50994396209717,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 27.055672584029104,
+          "link_sum": 28.82566547393799,
+          "components_sum": 167.8617348055562
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001402997.1",
+      "species": "oryza_sativa",
+      "strand": "-",
+      "stratum": "nonowner_positive",
+      "window_id": "oryza_sativa|NC_089041.1|2629632|-",
+      "window_index": 214,
+      "is_owner": false,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "survived_final",
+      "rank": null,
+      "limit": null,
+      "cutoff_gap": null,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          1998,
+          2084
+        ],
+        [
+          2970,
+          3220
+        ],
+        [
+          3902,
+          4026
+        ],
+        [
+          4648,
+          4992
+        ],
+        [
+          5098,
+          6821
+        ],
+        [
+          7143,
+          7388
+        ],
+        [
+          7479,
+          7539
+        ]
+      ],
+      "final_rank": 60,
+      "final_survived": true,
+      "frozen_R5_chain_gain": 5.590832233428955,
+      "surviving_competitors_excerpt": [],
+      "surviving_competitors_total": 0
+    },
+    {
+      "reference_id": "rna-NM_001402997.1",
+      "species": "oryza_sativa",
+      "strand": "-",
+      "stratum": "nonowner_positive",
+      "window_id": "oryza_sativa|NC_089041.1|2641920|-",
+      "window_index": 215,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "donor_beam",
+      "rank": 11,
+      "limit": 2,
+      "cutoff_gap": 284.9595675472461,
+      "exon_index": 0,
+      "position": 14372,
+      "carry": "AG",
+      "oriented_chain": [
+        [
+          14286,
+          14372
+        ],
+        [
+          15258,
+          15508
+        ],
+        [
+          16190,
+          16314
+        ],
+        [
+          16936,
+          17280
+        ],
+        [
+          17386,
+          19109
+        ],
+        [
+          19431,
+          19676
+        ],
+        [
+          19767,
+          19827
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            14286,
+            14372
+          ]
+        ],
+        "carry": "AG",
+        "proposal_score": 19.401908205039522,
+        "endpoint_components": {
+          "start": 4.931728839874268,
+          "acceptor": 0.0,
+          "donor": 9.528861045837402,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 4.941318319327852,
+        "link_sum": 0.0,
+        "components_sum": 19.401908205039522
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              7212,
+              7383
+            ],
+            [
+              7911,
+              7974
+            ],
+            [
+              8569,
+              8641
+            ],
+            [
+              8726,
+              8834
+            ],
+            [
+              8922,
+              9003
+            ],
+            [
+              9239,
+              9293
+            ],
+            [
+              9420,
+              9546
+            ],
+            [
+              9640,
+              9730
+            ],
+            [
+              9815,
+              9935
+            ],
+            [
+              10022,
+              10139
+            ],
+            [
+              10257,
+              10374
+            ],
+            [
+              10463,
+              10520
+            ],
+            [
+              10638,
+              10713
+            ],
+            [
+              10809,
+              10898
+            ],
+            [
+              11593,
+              11674
+            ],
+            [
+              12372,
+              12418
+            ],
+            [
+              14130,
+              14372
+            ]
+          ],
+          "carry": "AG",
+          "proposal_score": 306.0595938364395,
+          "endpoint_components": {
+            "start": 5.731867790222168,
+            "acceptor": 88.74610185623169,
+            "donor": 111.75431317090988,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 55.465019444597694,
+          "link_sum": 44.36229157447815,
+          "components_sum": 306.0595938364396
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              7212,
+              7383
+            ],
+            [
+              7911,
+              7974
+            ],
+            [
+              8569,
+              8641
+            ],
+            [
+              8726,
+              8834
+            ],
+            [
+              8922,
+              9003
+            ],
+            [
+              9239,
+              9293
+            ],
+            [
+              9420,
+              9546
+            ],
+            [
+              9640,
+              9730
+            ],
+            [
+              9815,
+              9935
+            ],
+            [
+              10022,
+              10139
+            ],
+            [
+              10257,
+              10374
+            ],
+            [
+              10463,
+              10520
+            ],
+            [
+              10638,
+              10713
+            ],
+            [
+              10809,
+              10898
+            ],
+            [
+              11593,
+              11653
+            ],
+            [
+              12372,
+              12418
+            ],
+            [
+              14130,
+              14372
+            ]
+          ],
+          "carry": "AG",
+          "proposal_score": 304.3614757522856,
+          "endpoint_components": {
+            "start": 5.731867790222168,
+            "acceptor": 88.74610185623169,
+            "donor": 110.83879631757736,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 55.390442715576874,
+          "link_sum": 43.65426707267761,
+          "components_sum": 304.3614757522857
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001422227.1",
+      "species": "oryza_sativa",
+      "strand": "-",
+      "stratum": "missing_necessary_link",
+      "window_id": "oryza_sativa|NC_089041.1|23408640|-",
+      "window_index": 1905,
+      "is_owner": true,
+      "mechanism_witness": false,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "entry_beam",
+      "rank": 3,
+      "limit": 2,
+      "cutoff_gap": 240.00173304345896,
+      "exon_index": 0,
+      "position": 11639,
+      "carry": "",
+      "oriented_chain": [
+        [
+          11639,
+          11666
+        ],
+        [
+          12606,
+          12670
+        ],
+        [
+          12755,
+          12819
+        ],
+        [
+          12902,
+          13014
+        ],
+        [
+          13128,
+          13208
+        ],
+        [
+          13299,
+          13375
+        ],
+        [
+          13471,
+          13572
+        ],
+        [
+          14043,
+          14115
+        ],
+        [
+          14217,
+          14266
+        ],
+        [
+          14369,
+          14411
+        ],
+        [
+          14508,
+          14630
+        ],
+        [
+          14722,
+          14782
+        ],
+        [
+          14869,
+          14918
+        ],
+        [
+          15694,
+          15789
+        ],
+        [
+          15877,
+          15935
+        ]
+      ],
+      "final_rank": null,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [],
+        "carry": "",
+        "proposal_score": 7.004581451416016,
+        "endpoint_components": {
+          "start": 7.004581451416016,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 0.0
+        },
+        "CDS_region_sum": 0.0,
+        "link_sum": 0.0,
+        "components_sum": 7.004581451416016
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              4884,
+              5091
+            ],
+            [
+              5224,
+              5290
+            ],
+            [
+              6159,
+              6246
+            ],
+            [
+              6333,
+              6432
+            ],
+            [
+              6738,
+              6820
+            ],
+            [
+              6965,
+              7024
+            ],
+            [
+              7111,
+              7202
+            ],
+            [
+              7449,
+              7517
+            ],
+            [
+              7615,
+              7681
+            ],
+            [
+              7895,
+              7984
+            ],
+            [
+              8472,
+              8578
+            ],
+            [
+              8988,
+              9053
+            ],
+            [
+              9199,
+              9250
+            ],
+            [
+              9533,
+              9734
+            ],
+            [
+              10721,
+              10785
+            ],
+            [
+              11213,
+              11240
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 247.94582462649987,
+          "endpoint_components": {
+            "start": 9.009918212890625,
+            "acceptor": 72.76114881038666,
+            "donor": 94.80754089355469,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 32.61726850610416,
+          "link_sum": 38.74994820356369,
+          "components_sum": 247.9458246264998
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              4884,
+              5091
+            ],
+            [
+              5224,
+              5290
+            ],
+            [
+              6159,
+              6246
+            ],
+            [
+              6333,
+              6432
+            ],
+            [
+              6738,
+              6820
+            ],
+            [
+              6965,
+              7024
+            ],
+            [
+              7111,
+              7202
+            ],
+            [
+              7449,
+              7517
+            ],
+            [
+              7615,
+              7685
+            ],
+            [
+              7890,
+              7984
+            ],
+            [
+              8472,
+              8578
+            ],
+            [
+              8988,
+              9053
+            ],
+            [
+              9199,
+              9250
+            ],
+            [
+              9533,
+              9734
+            ],
+            [
+              10721,
+              10785
+            ],
+            [
+              11213,
+              11240
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 247.00631449487497,
+          "endpoint_components": {
+            "start": 9.009918212890625,
+            "acceptor": 74.49856841564178,
+            "donor": 92.13407850265503,
+            "stop": 0.0
+          },
+          "CDS_region_sum": 32.09690014388844,
+          "link_sum": 39.26684921979904,
+          "components_sum": 247.0063144948749
+        }
+      ],
+      "surviving_competitors_total": 2
+    },
+    {
+      "reference_id": "rna-NM_001422982.1",
+      "species": "oryza_sativa",
+      "strand": "-",
+      "stratum": "missing_links_ready_single",
+      "window_id": "oryza_sativa|NC_089041.1|26517504|-",
+      "window_index": 2158,
+      "is_owner": true,
+      "mechanism_witness": true,
+      "reference_ORF_grammar_legal": true,
+      "all_conditional_reference_edges_retained": true,
+      "stage": "final_chain_cut",
+      "rank": 620,
+      "limit": 192,
+      "cutoff_gap": 189.00267469869246,
+      "exon_index": null,
+      "position": null,
+      "carry": null,
+      "oriented_chain": [
+        [
+          14944,
+          16702
+        ]
+      ],
+      "final_rank": 620,
+      "final_survived": false,
+      "frozen_R5_chain_gain": null,
+      "target_components": {
+        "prefix": [
+          [
+            14944,
+            16702
+          ]
+        ],
+        "carry": "",
+        "proposal_score": 21.96681862947279,
+        "endpoint_components": {
+          "start": 7.865139961242676,
+          "acceptor": 0.0,
+          "donor": 0.0,
+          "stop": 8.294014930725098
+        },
+        "CDS_region_sum": 5.807663737505019,
+        "link_sum": 0.0,
+        "components_sum": 21.96681862947279
+      },
+      "surviving_competitors_excerpt": [
+        {
+          "retained_rank": 1,
+          "prefix": [
+            [
+              4,
+              21
+            ],
+            [
+              142,
+              252
+            ],
+            [
+              472,
+              675
+            ],
+            [
+              774,
+              1013
+            ],
+            [
+              1114,
+              1310
+            ],
+            [
+              1397,
+              1775
+            ],
+            [
+              1867,
+              1954
+            ],
+            [
+              2067,
+              2077
+            ],
+            [
+              3591,
+              3944
+            ],
+            [
+              4163,
+              4331
+            ],
+            [
+              5020,
+              5257
+            ],
+            [
+              5392,
+              5613
+            ],
+            [
+              5763,
+              6030
+            ],
+            [
+              6860,
+              6910
+            ],
+            [
+              14930,
+              16615
+            ],
+            [
+              19138,
+              19903
+            ],
+            [
+              21124,
+              21447
+            ],
+            [
+              21778,
+              21982
+            ],
+            [
+              22086,
+              22171
+            ],
+            [
+              22571,
+              22670
+            ],
+            [
+              22799,
+              22922
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 377.81223619308514,
+          "endpoint_components": {
+            "start": 1.7029439210891724,
+            "acceptor": 99.07626360654831,
+            "donor": 134.91122126579285,
+            "stop": 8.932435989379883
+          },
+          "CDS_region_sum": 75.47061592664765,
+          "link_sum": 57.71875548362732,
+          "components_sum": 377.8122361930852
+        },
+        {
+          "retained_rank": 2,
+          "prefix": [
+            [
+              4,
+              21
+            ],
+            [
+              142,
+              252
+            ],
+            [
+              472,
+              675
+            ],
+            [
+              774,
+              1013
+            ],
+            [
+              1114,
+              1310
+            ],
+            [
+              1397,
+              1775
+            ],
+            [
+              1867,
+              1954
+            ],
+            [
+              2067,
+              2135
+            ],
+            [
+              3676,
+              3944
+            ],
+            [
+              4163,
+              4331
+            ],
+            [
+              5020,
+              5257
+            ],
+            [
+              5392,
+              5613
+            ],
+            [
+              5763,
+              6030
+            ],
+            [
+              6860,
+              6910
+            ],
+            [
+              14930,
+              16615
+            ],
+            [
+              19138,
+              19903
+            ],
+            [
+              21124,
+              21447
+            ],
+            [
+              21778,
+              21982
+            ],
+            [
+              22086,
+              22171
+            ],
+            [
+              22571,
+              22670
+            ],
+            [
+              22799,
+              22922
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 377.7207175824197,
+          "endpoint_components": {
+            "start": 1.7029439210891724,
+            "acceptor": 100.5563994050026,
+            "donor": 132.55512356758118,
+            "stop": 8.932435989379883
+          },
+          "CDS_region_sum": 76.2895614835771,
+          "link_sum": 57.684253215789795,
+          "components_sum": 377.72071758241975
+        },
+        {
+          "retained_rank": 192,
+          "prefix": [
+            [
+              4,
+              21
+            ],
+            [
+              142,
+              252
+            ],
+            [
+              472,
+              675
+            ],
+            [
+              774,
+              1013
+            ],
+            [
+              1114,
+              1310
+            ],
+            [
+              1397,
+              1775
+            ],
+            [
+              1867,
+              1954
+            ],
+            [
+              2067,
+              2135
+            ],
+            [
+              3676,
+              3944
+            ],
+            [
+              4163,
+              4331
+            ],
+            [
+              5020,
+              5257
+            ],
+            [
+              5392,
+              5613
+            ],
+            [
+              5763,
+              6030
+            ],
+            [
+              6860,
+              6910
+            ],
+            [
+              14930,
+              16615
+            ],
+            [
+              17421,
+              17442
+            ]
+          ],
+          "carry": "",
+          "proposal_score": 210.96949332816524,
+          "endpoint_components": {
+            "start": 1.7029439210891724,
+            "acceptor": 59.71097284555435,
+            "donor": 88.28057026863098,
+            "stop": -4.051311492919922
+          },
+          "CDS_region_sum": 35.99425411088386,
+          "link_sum": 29.332063674926758,
+          "components_sum": 210.96949332816519
+        }
+      ],
+      "surviving_competitors_total": 192
+    }
+  ]
+}

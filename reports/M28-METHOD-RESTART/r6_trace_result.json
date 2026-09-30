@@ -1,0 +1,163 @@
+{
+  "experiment": "M28-R6-CANDIDATE-TRACE",
+  "completed": true,
+  "fitting": false,
+  "new_forward_pass": true,
+  "windows": 23,
+  "anchors": 20,
+  "case_window_pairs": 24,
+  "checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt",
+  "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "reference_used_for_observation_only": true,
+  "reference_used_by_candidate_ranking": false,
+  "test_setaria_used": false,
+  "sample_manifest": "reports/M28-METHOD-RESTART/r6_trace_sample.json",
+  "replay": [
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|344064|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1069056|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1216512|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1523712|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1536000|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|2236416|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|98304|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|110592|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|196608|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|700416|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "arabidopsis_thaliana|NC_003074.8|1351680|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|344064|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|2801664|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|21823488|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|21835776|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|26775552|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|27906048|+",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|344064|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|466944|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|2629632|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|2641920|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|23408640|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    },
+    {
+      "window_id": "oryza_sativa|NC_089041.1|26517504|-",
+      "shadow_max_abs": 0.0,
+      "saved_max_abs": 0.0
+    }
+  ],
+  "species_mechanism_witnesses": {
+    "arabidopsis_thaliana": [
+      "rna-NM_001035538.2",
+      "rna-NM_001035539.1",
+      "rna-NM_001035542.1",
+      "rna-NM_001035544.2",
+      "rna-NM_001035553.2",
+      "rna-NM_001035566.2"
+    ],
+    "oryza_sativa": [
+      "rna-NM_001402985.1",
+      "rna-NM_001402997.1",
+      "rna-NM_001403018.1",
+      "rna-NM_001403108.1",
+      "rna-NM_001403225.1",
+      "rna-NM_001422982.1"
+    ]
+  },
+  "decision": "prepare_B2_prefix_search_contract",
+  "first_cut_counts_case_window_pairs": {
+    "entry_beam": 3,
+    "final_chain_cut": 7,
+    "survived_final": 8,
+    "intron_link": 1,
+    "donor_beam": 5
+  },
+  "wall_seconds": 74.63999122699897,
+  "peak_gpu_allocated_bytes": 105871872,
+  "peak_gpu_reserved_bytes": 119537664,
+  "small_sample_no_population_attribution": true,
+  "no_new_performance_ranking": true
+}
