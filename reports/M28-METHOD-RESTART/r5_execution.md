@@ -1,4 +1,4 @@
-# M28 R5执行记录：原实现的完整比较正在运行
+# M28 R5 原实现完整比较的执行及终态记录
 
 2026-09-30。按[执行前合同](r5_execution_contract.md)启动，
 不是模型性能结果；也不是被关闭的GRU优化重试或R4中间权重续训。
@@ -69,3 +69,21 @@ reference_used/test_setaria_used均为false。未拼接R4部分预测。
 B1拟合继续原作业13294132；13294138与13294139仍等待原afterok依赖。
 不提前生成C0单臂排名，不改变任何阈值、候选预算、训练步数或资源上限；
 完整方案的科学判断继续等待B1最终checkpoint、全DEV推理及共同评分。
+
+## 完整R5和只读D1已完成 2026 09 30
+
+上文RUNNING/PENDING为历史提交和C0阶段快照，不代表当前状态。
+四个R5作业及batch均COMPLETED/0:0：13294132拟合7,053秒，
+13294133 C0推理3,978秒，13294138 B1推理6,496秒，13294139评价176秒×2CPU。
+两臂均使用最后step004608、完整8,690窗；新GPU消耗4.868611h，原评价CPU消耗0.097778h。
+
+完整结果和来源见[r5_result.md](r5_result.md)及[r5_result.json](r5_result.json)。
+固定7,728条primary参考的micro chain F1为C0 0.420290、B1 0.308378；
+B1拟南芥下降、水稻改善，未达到两物种方向一致收益的继续扩展条件。
+这不改判旧R4失败，不证明架构普遍无效或训练充分收敛，不产生独立泛化/论文主张。
+
+只读D1单次作业13305700随后COMPLETED/0:0，81秒×2CPU，0GPU；
+原评价与D1合计0.142778 allocated CPUh。范围与结果分别见
+[r5_attrition_plan.md](r5_attrition_plan.md)和[r5_attrition_result.md](r5_attrition_result.md)。
+精确链3,204→2,336→1,800完全复现，没有新forward、阈值/输出修改或test/Setaria访问。
+R5等待监控已成功向原主对话交接并暂停；该旧作业集合不再持续监控。

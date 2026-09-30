@@ -1,0 +1,1227 @@
+{
+  "experiment": "M28-PILOT-R5",
+  "status": "complete_bounded_DEV_comparison_not_independent_generalization",
+  "reference_primary_chains": 7728,
+  "historical_parent_chains": 6450,
+  "test_setaria_used": false,
+  "methods": {
+    "C0": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "exact_chain": {
+            "tp": 2431,
+            "predicted": 5531,
+            "reference": 5437,
+            "precision": 0.4395226902910866,
+            "recall": 0.44712157439764577,
+            "f1": 0.4432895696571845
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 6278039,
+            "predicted": 6609212,
+            "reference": 6601350,
+            "precision": 0.9498922110532996,
+            "recall": 0.9510235027683731,
+            "f1": 0.9504575202780926
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 179,
+          "reference_nonexact_primary": 3100,
+          "prediction_records": 5531,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 54809,
+            "predicted_CDS_bp": 30170,
+            "span_FPR": 0.0066975788195744925,
+            "wholly_background_unique_chains": 43,
+            "wholly_background_chains_per_Mb": 5.254536467399572
+          },
+          "historical_parent_exact_chain": {
+            "tp": 2077,
+            "predicted": 5531,
+            "reference": 4151,
+            "precision": 0.375519797504972,
+            "recall": 0.5003613587087449,
+            "f1": 0.429043586035943
+          },
+          "CDS_structure_diagnostic": {
+            "fully_supported": 5530,
+            "predictions": 5531,
+            "failure_counts_nonexclusive": {
+              "ambiguous_CDS": 1
+            }
+          }
+        },
+        "oryza_sativa": {
+          "exact_chain": {
+            "tp": 875,
+            "predicted": 2473,
+            "reference": 2291,
+            "precision": 0.3538212697128993,
+            "recall": 0.38192928852029684,
+            "f1": 0.36733837111670864
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2735012,
+            "predicted": 2990337,
+            "reference": 3063207,
+            "precision": 0.9146166468862874,
+            "recall": 0.8928590199748172,
+            "f1": 0.9036068788795456
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 29,
+          "reference_nonexact_primary": 1598,
+          "prediction_records": 2473,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 198252,
+            "predicted_CDS_bp": 116194,
+            "span_FPR": 0.010026381381190021,
+            "wholly_background_unique_chains": 150,
+            "wholly_background_chains_per_Mb": 7.586088448936218
+          },
+          "historical_parent_exact_chain": {
+            "tp": 875,
+            "predicted": 2473,
+            "reference": 2299,
+            "precision": 0.3538212697128993,
+            "recall": 0.3806002609830361,
+            "f1": 0.36672254819782063
+          },
+          "CDS_structure_diagnostic": {
+            "fully_supported": 2473,
+            "predictions": 2473,
+            "failure_counts_nonexclusive": {}
+          }
+        }
+      },
+      "pooled": {
+        "exact_chain": {
+          "tp": 3306,
+          "predicted": 8004,
+          "reference": 7728,
+          "precision": 0.41304347826086957,
+          "recall": 0.4277950310559006,
+          "f1": 0.42028985507246375
+        },
+        "CDS_base_unstranded_union": {
+          "tp": 9013051,
+          "predicted": 9599549,
+          "reference": 9664557,
+          "precision": 0.9389035880748148,
+          "recall": 0.9325881155235568,
+          "f1": 0.9357351958092424
+        },
+        "historical_parent_exact_chain": {
+          "tp": 2952,
+          "predicted": 8004,
+          "reference": 6450,
+          "precision": 0.36881559220389803,
+          "recall": 0.4576744186046512,
+          "f1": 0.40846824408468246
+        },
+        "macro_exact_chain": {
+          "precision": 0.39667198000199294,
+          "recall": 0.4145254314589713,
+          "f1": 0.4053139703869466
+        },
+        "background": {
+          "bp": 27956441,
+          "predicted_span_bp": 253061,
+          "predicted_CDS_bp": 146364,
+          "wholly_background_unique_chains": 193,
+          "span_FPR": 0.009051974820400065,
+          "wholly_background_chains_per_Mb": 6.903596920652382
+        },
+        "actual_free_primary_coverage": 0.4298654244306418,
+        "owner_primary_coverage": 0.4277950310559006
+      },
+      "stages": {
+        "arabidopsis_thaliana|+": {
+          "reference": 2666,
+          "exact_reference_hits": {
+            "free_unique": 1211,
+            "owner_unique": 1210,
+            "selected_unique": 1210
+          },
+          "not_in_actual_free_candidates": 1455,
+          "lost_at_owner": 1,
+          "lost_at_conflict_or_nonpositive_gain": 0,
+          "candidate_counts": {
+            "free_records": 5807,
+            "free_unique": 3513,
+            "owner_records": 2726,
+            "owner_unique": 2726,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 787,
+            "selected_unique": 2726,
+            "score_field": "score"
+          },
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "+"
+        },
+        "arabidopsis_thaliana|-": {
+          "reference": 2771,
+          "exact_reference_hits": {
+            "free_unique": 1227,
+            "owner_unique": 1221,
+            "selected_unique": 1221
+          },
+          "not_in_actual_free_candidates": 1544,
+          "lost_at_owner": 6,
+          "lost_at_conflict_or_nonpositive_gain": 0,
+          "candidate_counts": {
+            "free_records": 6005,
+            "free_unique": 3674,
+            "owner_records": 2805,
+            "owner_unique": 2805,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 869,
+            "selected_unique": 2805,
+            "score_field": "score"
+          },
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "-"
+        },
+        "oryza_sativa|+": {
+          "reference": 1227,
+          "exact_reference_hits": {
+            "free_unique": 494,
+            "owner_unique": 490,
+            "selected_unique": 490
+          },
+          "not_in_actual_free_candidates": 733,
+          "lost_at_owner": 4,
+          "lost_at_conflict_or_nonpositive_gain": 0,
+          "candidate_counts": {
+            "free_records": 2905,
+            "free_unique": 1900,
+            "owner_records": 1344,
+            "owner_unique": 1344,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 556,
+            "selected_unique": 1342,
+            "score_field": "score"
+          },
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "+"
+        },
+        "oryza_sativa|-": {
+          "reference": 1064,
+          "exact_reference_hits": {
+            "free_unique": 390,
+            "owner_unique": 385,
+            "selected_unique": 385
+          },
+          "not_in_actual_free_candidates": 674,
+          "lost_at_owner": 5,
+          "lost_at_conflict_or_nonpositive_gain": 0,
+          "candidate_counts": {
+            "free_records": 2495,
+            "free_unique": 1691,
+            "owner_records": 1138,
+            "owner_unique": 1138,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 553,
+            "selected_unique": 1131,
+            "score_field": "score"
+          },
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "-"
+        }
+      },
+      "GFF3": "outputs/M28-PILOT-R5/evaluation/C0.gff3"
+    },
+    "B1": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "exact_chain": {
+            "tp": 982,
+            "predicted": 2214,
+            "reference": 5437,
+            "precision": 0.44354110207768743,
+            "recall": 0.18061430936178038,
+            "f1": 0.2566984707881323
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2287160,
+            "predicted": 2560704,
+            "reference": 6601350,
+            "precision": 0.893176251530829,
+            "recall": 0.34646852537738493,
+            "f1": 0.4992679589096506
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 76,
+          "reference_nonexact_primary": 1232,
+          "prediction_records": 2214,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 548471,
+            "predicted_CDS_bp": 41224,
+            "span_FPR": 0.06702234583281654,
+            "wholly_background_unique_chains": 124,
+            "wholly_background_chains_per_Mb": 15.152616789710395
+          },
+          "historical_parent_exact_chain": {
+            "tp": 833,
+            "predicted": 2214,
+            "reference": 4151,
+            "precision": 0.37624209575429085,
+            "recall": 0.20067453625632378,
+            "f1": 0.2617439120188531
+          },
+          "CDS_structure_diagnostic": {
+            "fully_supported": 2214,
+            "predictions": 2214,
+            "failure_counts_nonexclusive": {}
+          }
+        },
+        "oryza_sativa": {
+          "exact_chain": {
+            "tp": 818,
+            "predicted": 1732,
+            "reference": 2291,
+            "precision": 0.4722863741339492,
+            "recall": 0.35704932343954604,
+            "f1": 0.4066616952522993
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 1745740,
+            "predicted": 2149664,
+            "reference": 3063207,
+            "precision": 0.8120990071006445,
+            "recall": 0.5699059841532094,
+            "f1": 0.6697806256859224
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 33,
+          "reference_nonexact_primary": 914,
+          "prediction_records": 1732,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 591032,
+            "predicted_CDS_bp": 268941,
+            "span_FPR": 0.029890806854344473,
+            "wholly_background_unique_chains": 274,
+            "wholly_background_chains_per_Mb": 13.857254900056825
+          },
+          "historical_parent_exact_chain": {
+            "tp": 818,
+            "predicted": 1732,
+            "reference": 2299,
+            "precision": 0.4722863741339492,
+            "recall": 0.355806872553284,
+            "f1": 0.4058546266435128
+          },
+          "CDS_structure_diagnostic": {
+            "fully_supported": 1732,
+            "predictions": 1732,
+            "failure_counts_nonexclusive": {}
+          }
+        }
+      },
+      "pooled": {
+        "exact_chain": {
+          "tp": 1800,
+          "predicted": 3946,
+          "reference": 7728,
+          "precision": 0.45615813482007095,
+          "recall": 0.2329192546583851,
+          "f1": 0.3083775912283707
+        },
+        "CDS_base_unstranded_union": {
+          "tp": 4032900,
+          "predicted": 4710368,
+          "reference": 9664557,
+          "precision": 0.8561751438528794,
+          "recall": 0.4172876211501469,
+          "f1": 0.5611020579237804
+        },
+        "historical_parent_exact_chain": {
+          "tp": 1651,
+          "predicted": 3946,
+          "reference": 6450,
+          "precision": 0.41839837810440955,
+          "recall": 0.255968992248062,
+          "f1": 0.31762216237014235
+        },
+        "macro_exact_chain": {
+          "precision": 0.4579137381058183,
+          "recall": 0.2688318164006632,
+          "f1": 0.3316800830202158
+        },
+        "background": {
+          "bp": 27956441,
+          "predicted_span_bp": 1139503,
+          "predicted_CDS_bp": 310165,
+          "wholly_background_unique_chains": 398,
+          "span_FPR": 0.04075994508743084,
+          "wholly_background_chains_per_Mb": 14.236433028081079
+        },
+        "actual_free_primary_coverage": 0.41459627329192544,
+        "owner_primary_coverage": 0.3022774327122153
+      },
+      "stages": {
+        "arabidopsis_thaliana|+": {
+          "reference": 2666,
+          "exact_reference_hits": {
+            "free_unique": 933,
+            "owner_unique": 616,
+            "selected_unique": 487
+          },
+          "not_in_actual_free_candidates": 1733,
+          "lost_at_owner": 317,
+          "lost_at_conflict_or_nonpositive_gain": 129,
+          "candidate_counts": {
+            "free_records": 366528,
+            "free_unique": 332034,
+            "owner_records": 259082,
+            "owner_unique": 259082,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 72952,
+            "selected_unique": 1081,
+            "score_field": "score"
+          },
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "+"
+        },
+        "arabidopsis_thaliana|-": {
+          "reference": 2771,
+          "exact_reference_hits": {
+            "free_unique": 956,
+            "owner_unique": 641,
+            "selected_unique": 495
+          },
+          "not_in_actual_free_candidates": 1815,
+          "lost_at_owner": 315,
+          "lost_at_conflict_or_nonpositive_gain": 146,
+          "candidate_counts": {
+            "free_records": 366528,
+            "free_unique": 336774,
+            "owner_records": 262111,
+            "owner_unique": 262111,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 74663,
+            "selected_unique": 1133,
+            "score_field": "score"
+          },
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "-"
+        },
+        "oryza_sativa|+": {
+          "reference": 1227,
+          "exact_reference_hits": {
+            "free_unique": 699,
+            "owner_unique": 564,
+            "selected_unique": 430
+          },
+          "not_in_actual_free_candidates": 528,
+          "lost_at_owner": 135,
+          "lost_at_conflict_or_nonpositive_gain": 134,
+          "candidate_counts": {
+            "free_records": 467712,
+            "free_unique": 385275,
+            "owner_records": 281042,
+            "owner_unique": 281042,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 104233,
+            "selected_unique": 901,
+            "score_field": "score"
+          },
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "+"
+        },
+        "oryza_sativa|-": {
+          "reference": 1064,
+          "exact_reference_hits": {
+            "free_unique": 616,
+            "owner_unique": 515,
+            "selected_unique": 388
+          },
+          "not_in_actual_free_candidates": 448,
+          "lost_at_owner": 101,
+          "lost_at_conflict_or_nonpositive_gain": 127,
+          "candidate_counts": {
+            "free_records": 467712,
+            "free_unique": 380737,
+            "owner_records": 276635,
+            "owner_unique": 276635,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 104102,
+            "selected_unique": 831,
+            "score_field": "score"
+          },
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "-"
+        }
+      },
+      "GFF3": "outputs/M28-PILOT-R5/evaluation/B1.gff3"
+    },
+    "B1_additive": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "exact_chain": {
+            "tp": 271,
+            "predicted": 1991,
+            "reference": 5437,
+            "precision": 0.13611250627825214,
+            "recall": 0.04984366378517565,
+            "f1": 0.07296715131933226
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 689316,
+            "predicted": 832952,
+            "reference": 6601350,
+            "precision": 0.8275578904906885,
+            "recall": 0.10442045945147584,
+            "f1": 0.18544202266736004
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 7,
+          "reference_nonexact_primary": 1720,
+          "prediction_records": 1991,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 8183405,
+            "predicted_span_bp": 174522,
+            "predicted_CDS_bp": 52780,
+            "span_FPR": 0.0213263305433374,
+            "wholly_background_unique_chains": 340,
+            "wholly_background_chains_per_Mb": 41.54749764920592
+          },
+          "historical_parent_exact_chain": {
+            "tp": 212,
+            "predicted": 1991,
+            "reference": 4151,
+            "precision": 0.10647915620291311,
+            "recall": 0.051072030835943145,
+            "f1": 0.06903288830999674
+          },
+          "CDS_structure_diagnostic": {
+            "fully_supported": 1991,
+            "predictions": 1991,
+            "failure_counts_nonexclusive": {}
+          }
+        },
+        "oryza_sativa": {
+          "exact_chain": {
+            "tp": 48,
+            "predicted": 221,
+            "reference": 2291,
+            "precision": 0.2171945701357466,
+            "recall": 0.020951549541684853,
+            "f1": 0.03821656050955414
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 147766,
+            "predicted": 202920,
+            "reference": 3063207,
+            "precision": 0.7281983047506406,
+            "recall": 0.04823898613446626,
+            "f1": 0.09048392790604896
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 3,
+          "reference_nonexact_primary": 173,
+          "prediction_records": 221,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19773036,
+            "predicted_span_bp": 78358,
+            "predicted_CDS_bp": 24399,
+            "span_FPR": 0.003962871457878294,
+            "wholly_background_unique_chains": 59,
+            "wholly_background_chains_per_Mb": 2.983861456581579
+          },
+          "historical_parent_exact_chain": {
+            "tp": 48,
+            "predicted": 221,
+            "reference": 2299,
+            "precision": 0.2171945701357466,
+            "recall": 0.020878642888212267,
+            "f1": 0.0380952380952381
+          },
+          "CDS_structure_diagnostic": {
+            "fully_supported": 221,
+            "predictions": 221,
+            "failure_counts_nonexclusive": {}
+          }
+        }
+      },
+      "pooled": {
+        "exact_chain": {
+          "tp": 319,
+          "predicted": 2212,
+          "reference": 7728,
+          "precision": 0.1442133815551537,
+          "recall": 0.04127846790890269,
+          "f1": 0.0641851106639839
+        },
+        "CDS_base_unstranded_union": {
+          "tp": 837082,
+          "predicted": 1035872,
+          "reference": 9664557,
+          "precision": 0.8080940502301442,
+          "recall": 0.08661359232502845,
+          "f1": 0.15645765230534214
+        },
+        "historical_parent_exact_chain": {
+          "tp": 260,
+          "predicted": 2212,
+          "reference": 6450,
+          "precision": 0.11754068716094032,
+          "recall": 0.040310077519379844,
+          "f1": 0.06003232509812976
+        },
+        "macro_exact_chain": {
+          "precision": 0.17665353820699936,
+          "recall": 0.03539760666343025,
+          "f1": 0.0555918559144432
+        },
+        "background": {
+          "bp": 27956441,
+          "predicted_span_bp": 252880,
+          "predicted_CDS_bp": 77179,
+          "wholly_background_unique_chains": 399,
+          "span_FPR": 0.009045500462666188,
+          "wholly_background_chains_per_Mb": 14.272202960312438
+        },
+        "actual_free_primary_coverage": 0.41459627329192544,
+        "owner_primary_coverage": 0.3022774327122153
+      },
+      "stages": {
+        "arabidopsis_thaliana|+": {
+          "reference": 2666,
+          "exact_reference_hits": {
+            "free_unique": 933,
+            "owner_unique": 616,
+            "selected_unique": 129
+          },
+          "not_in_actual_free_candidates": 1733,
+          "lost_at_owner": 317,
+          "lost_at_conflict_or_nonpositive_gain": 487,
+          "candidate_counts": {
+            "free_records": 366528,
+            "free_unique": 332034,
+            "owner_records": 259082,
+            "owner_unique": 259082,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 72952,
+            "selected_unique": 920,
+            "score_field": "additive_only_score"
+          },
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "+"
+        },
+        "arabidopsis_thaliana|-": {
+          "reference": 2771,
+          "exact_reference_hits": {
+            "free_unique": 956,
+            "owner_unique": 641,
+            "selected_unique": 142
+          },
+          "not_in_actual_free_candidates": 1815,
+          "lost_at_owner": 315,
+          "lost_at_conflict_or_nonpositive_gain": 499,
+          "candidate_counts": {
+            "free_records": 366528,
+            "free_unique": 336774,
+            "owner_records": 262111,
+            "owner_unique": 262111,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 74663,
+            "selected_unique": 1071,
+            "score_field": "additive_only_score"
+          },
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "-"
+        },
+        "oryza_sativa|+": {
+          "reference": 1227,
+          "exact_reference_hits": {
+            "free_unique": 699,
+            "owner_unique": 564,
+            "selected_unique": 22
+          },
+          "not_in_actual_free_candidates": 528,
+          "lost_at_owner": 135,
+          "lost_at_conflict_or_nonpositive_gain": 542,
+          "candidate_counts": {
+            "free_records": 467712,
+            "free_unique": 385275,
+            "owner_records": 281042,
+            "owner_unique": 281042,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 104233,
+            "selected_unique": 116,
+            "score_field": "additive_only_score"
+          },
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "+"
+        },
+        "oryza_sativa|-": {
+          "reference": 1064,
+          "exact_reference_hits": {
+            "free_unique": 616,
+            "owner_unique": 515,
+            "selected_unique": 26
+          },
+          "not_in_actual_free_candidates": 448,
+          "lost_at_owner": 101,
+          "lost_at_conflict_or_nonpositive_gain": 489,
+          "candidate_counts": {
+            "free_records": 467712,
+            "free_unique": 380737,
+            "owner_records": 276635,
+            "owner_unique": 276635,
+            "duplicate_owner_records": 0,
+            "nonowner_only_unique_lost": 104102,
+            "selected_unique": 105,
+            "score_field": "additive_only_score"
+          },
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "-"
+        }
+      },
+      "GFF3": "outputs/M28-PILOT-R5/evaluation/B1_additive.gff3"
+    }
+  },
+  "fit": {
+    "C0": {
+      "arm": "C0",
+      "optimizer_steps": 4608,
+      "seed": 0,
+      "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+      "trainable_parameters": 366191,
+      "epochs": [
+        {
+          "epoch": 1,
+          "steps": 1536,
+          "mean_losses": {
+            "local": 0.2951620943931251,
+            "weighted_total": 0.26109560538240356
+          },
+          "seconds": 1285.6799607069988,
+          "checkpoint": "outputs/M28-PILOT-R4/C0/step_001536.pt"
+        },
+        {
+          "epoch": 2,
+          "steps": 1536,
+          "mean_losses": {
+            "local": 0.2519983802706065,
+            "weighted_total": 0.22159970871617438
+          },
+          "seconds": 1048.187297853001,
+          "checkpoint": "outputs/M28-PILOT-R4/C0/step_003072.pt"
+        },
+        {
+          "epoch": 3,
+          "steps": 1536,
+          "mean_losses": {
+            "local": 0.23237684133308298,
+            "weighted_total": 0.20443320672863288
+          },
+          "seconds": 944.4769469620005,
+          "checkpoint": "outputs/M28-PILOT-R4/C0/step_004608.pt"
+        }
+      ],
+      "training_loop_seconds": 3278.347735932999,
+      "peak_GPU_allocated_bytes": 168165376,
+      "peak_GPU_reserved_bytes": 247463936,
+      "DEV_used_for_selection": false,
+      "final_checkpoint": "outputs/M28-PILOT-R4/C0/step_004608.pt",
+      "test_setaria_used": false,
+      "main_evaluation": "last_step_004608_only"
+    },
+    "B1": {
+      "arm": "B1",
+      "contract": "reports/M28-METHOD-RESTART/r5_execution_contract.md",
+      "optimizer_steps": 4608,
+      "seed": 0,
+      "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+      "trainable_parameters": 565495,
+      "epochs": [
+        {
+          "epoch": 1,
+          "steps": 1536,
+          "mean_losses": {
+            "local": 0.3200850418908203,
+            "endpoint": 0.11951268357362703,
+            "link": 0.21268789384733586,
+            "chain": 0.3201314241963284,
+            "weighted_total": 0.868881415522992
+          },
+          "seconds": 2340.361732982994,
+          "checkpoint": "outputs/M28-PILOT-R5/B1/step_001536.pt"
+        },
+        {
+          "epoch": 2,
+          "steps": 1536,
+          "mean_losses": {
+            "local": 0.2787493081783812,
+            "endpoint": 0.06500832469176505,
+            "link": 0.15222559690172233,
+            "chain": 0.21975017647785458,
+            "weighted_total": 0.6422265299970604
+          },
+          "seconds": 2446.239293478,
+          "checkpoint": "outputs/M28-PILOT-R5/B1/step_003072.pt"
+        },
+        {
+          "epoch": 3,
+          "steps": 1536,
+          "mean_losses": {
+            "local": 0.2650284680783746,
+            "endpoint": 0.048293105301373394,
+            "link": 0.13072497297660135,
+            "chain": 0.18918646452799712,
+            "weighted_total": 0.5678950607216393
+          },
+          "seconds": 2235.160683850998,
+          "checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt"
+        }
+      ],
+      "training_loop_seconds": 7021.787635638997,
+      "peak_GPU_allocated_bytes": 253710848,
+      "peak_GPU_reserved_bytes": 322961408,
+      "DEV_used_for_selection": false,
+      "final_checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt",
+      "test_setaria_used": false,
+      "main_evaluation": "last_step_004608_only"
+    }
+  },
+  "inference_cost": {
+    "C0": {
+      "arm": "C0",
+      "inference_complete": true,
+      "windows": 8690,
+      "checkpoint": "outputs/M28-PILOT-R4/C0/step_004608.pt",
+      "optimizer_steps": 4608,
+      "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+      "reference_used": false,
+      "test_setaria_used": false,
+      "wall_loop_seconds": 3945.364895936,
+      "peak_GPU_allocated_bytes": 105072128,
+      "peak_GPU_reserved_bytes": 117440512,
+      "scope_timings": [
+        {
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "+",
+          "file": "scope_00.jsonl",
+          "candidate_records": 5807,
+          "seconds": {
+            "load_seconds": 650.0950680372407,
+            "shared_forward_seconds": 128.29950044576253,
+            "candidate_decode_score_seconds": 153.81346987616416,
+            "serialization_seconds": 0.08102478285582038
+          }
+        },
+        {
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "-",
+          "file": "scope_01.jsonl",
+          "candidate_records": 6005,
+          "seconds": {
+            "load_seconds": 516.5239455340561,
+            "shared_forward_seconds": 125.17948357280693,
+            "candidate_decode_score_seconds": 148.67571524816594,
+            "serialization_seconds": 0.08144478703616187
+          }
+        },
+        {
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "+",
+          "file": "scope_02.jsonl",
+          "candidate_records": 2905,
+          "seconds": {
+            "load_seconds": 813.4371193021143,
+            "shared_forward_seconds": 160.18505645918776,
+            "candidate_decode_score_seconds": 188.19472881002002,
+            "serialization_seconds": 0.08343931999115739
+          }
+        },
+        {
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "-",
+          "file": "scope_03.jsonl",
+          "candidate_records": 2495,
+          "seconds": {
+            "load_seconds": 712.0339540217537,
+            "shared_forward_seconds": 159.99614701804967,
+            "candidate_decode_score_seconds": 188.02387966910464,
+            "serialization_seconds": 0.08085516102437396
+          }
+        }
+      ]
+    },
+    "B1": {
+      "arm": "B1",
+      "inference_complete": true,
+      "windows": 8690,
+      "checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt",
+      "optimizer_steps": 4608,
+      "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+      "reference_used": false,
+      "test_setaria_used": false,
+      "wall_loop_seconds": 6446.028374483001,
+      "peak_GPU_allocated_bytes": 105871872,
+      "peak_GPU_reserved_bytes": 119537664,
+      "scope_timings": [
+        {
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "+",
+          "file": "scope_00.jsonl",
+          "candidate_records": 366528,
+          "seconds": {
+            "load_seconds": 446.91883395810146,
+            "shared_forward_seconds": 128.2346725041134,
+            "candidate_decode_score_seconds": 988.7908005009231,
+            "serialization_seconds": 3.187432718157652
+          }
+        },
+        {
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003074.8",
+          "strand": "-",
+          "file": "scope_01.jsonl",
+          "candidate_records": 366528,
+          "seconds": {
+            "load_seconds": 375.9708914079165,
+            "shared_forward_seconds": 123.97335130214196,
+            "candidate_decode_score_seconds": 995.636128071179,
+            "serialization_seconds": 3.2345261922018835
+          }
+        },
+        {
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "+",
+          "file": "scope_02.jsonl",
+          "candidate_records": 467712,
+          "seconds": {
+            "load_seconds": 445.81501915178524,
+            "shared_forward_seconds": 157.1857696897714,
+            "candidate_decode_score_seconds": 1102.09980570279,
+            "serialization_seconds": 2.986977087952255
+          }
+        },
+        {
+          "species": "oryza_sativa",
+          "seqid": "NC_089041.1",
+          "strand": "-",
+          "file": "scope_03.jsonl",
+          "candidate_records": 467712,
+          "seconds": {
+            "load_seconds": 417.0211056778935,
+            "shared_forward_seconds": 157.62878050390282,
+            "candidate_decode_score_seconds": 1092.3301188130717,
+            "serialization_seconds": 2.955515980007476
+          }
+        }
+      ]
+    }
+  },
+  "cached_baseline_source": "reports/M28-METHOD-RESTART/common_ruler.json",
+  "candidate_semantics": "C0 native decoded chains; B1 actual pruned free proposals, no reference injection",
+  "scope_limit": "B1 versus C0 is a whole-system comparison, not isolated nonadditive-GRU causation",
+  "exact_chain_comparison": {
+    "M25R_A": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 1161,
+          "predicted": 1389,
+          "reference": 5437,
+          "precision": 0.8358531317494601,
+          "recall": 0.21353687695420268,
+          "f1": 0.34016993847055377
+        },
+        "oryza_sativa": {
+          "tp": 424,
+          "predicted": 709,
+          "reference": 2291,
+          "precision": 0.5980253878702397,
+          "recall": 0.18507202095154954,
+          "f1": 0.2826666666666667
+        }
+      },
+      "pooled": {
+        "tp": 1585,
+        "predicted": 2098,
+        "reference": 7728,
+        "precision": 0.7554814108674929,
+        "recall": 0.2050983436853002,
+        "f1": 0.32261347445552613
+      },
+      "macro": {
+        "precision": 0.7169392598098498,
+        "recall": 0.1993044489528761,
+        "f1": 0.31141830256861025
+      },
+      "source": "unchanged_historical_cache"
+    },
+    "M25R_B": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 2721,
+          "predicted": 4317,
+          "reference": 5437,
+          "precision": 0.6302988186240445,
+          "recall": 0.5004598123965422,
+          "f1": 0.557924953865081
+        },
+        "oryza_sativa": {
+          "tp": 1003,
+          "predicted": 1871,
+          "reference": 2291,
+          "precision": 0.5360769641902726,
+          "recall": 0.4378000872981231,
+          "f1": 0.48197981739548296
+        }
+      },
+      "pooled": {
+        "tp": 3724,
+        "predicted": 6188,
+        "reference": 7728,
+        "precision": 0.6018099547511312,
+        "recall": 0.48188405797101447,
+        "f1": 0.5352112676056338
+      },
+      "macro": {
+        "precision": 0.5831878914071585,
+        "recall": 0.4691299498473327,
+        "f1": 0.519952385630282
+      },
+      "source": "unchanged_historical_cache"
+    },
+    "ANNEVO": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 3942,
+          "predicted": 4898,
+          "reference": 5437,
+          "precision": 0.8048182931808902,
+          "recall": 0.7250321868677579,
+          "f1": 0.7628447024673439
+        },
+        "oryza_sativa": {
+          "tp": 1703,
+          "predicted": 2284,
+          "reference": 2291,
+          "precision": 0.7456217162872154,
+          "recall": 0.7433435181143605,
+          "f1": 0.7444808743169399
+        }
+      },
+      "pooled": {
+        "tp": 5645,
+        "predicted": 7182,
+        "reference": 7728,
+        "precision": 0.7859927596769702,
+        "recall": 0.7304606625258799,
+        "f1": 0.7572099262240107
+      },
+      "macro": {
+        "precision": 0.7752200047340527,
+        "recall": 0.7341878524910592,
+        "f1": 0.7536627883921418
+      },
+      "source": "unchanged_historical_cache"
+    },
+    "Helixer": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 3513,
+          "predicted": 5340,
+          "reference": 5437,
+          "precision": 0.6578651685393259,
+          "recall": 0.6461283796211146,
+          "f1": 0.6519439547183817
+        },
+        "oryza_sativa": {
+          "tp": 1385,
+          "predicted": 2559,
+          "reference": 2291,
+          "precision": 0.5412270418132082,
+          "recall": 0.6045395024006984,
+          "f1": 0.5711340206185567
+        }
+      },
+      "pooled": {
+        "tp": 4898,
+        "predicted": 7899,
+        "reference": 7728,
+        "precision": 0.6200784909482213,
+        "recall": 0.6337991718426501,
+        "f1": 0.6268637614385358
+      },
+      "macro": {
+        "precision": 0.599546105176267,
+        "recall": 0.6253339410109064,
+        "f1": 0.6115389876684691
+      },
+      "source": "unchanged_historical_cache"
+    },
+    "Tiberius": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 3865,
+          "predicted": 4984,
+          "reference": 5437,
+          "precision": 0.7754815409309791,
+          "recall": 0.7108699650542578,
+          "f1": 0.7417714230879954
+        },
+        "oryza_sativa": {
+          "tp": 1576,
+          "predicted": 2443,
+          "reference": 2291,
+          "precision": 0.6451084731887025,
+          "recall": 0.687909209951986,
+          "f1": 0.665821715251373
+        }
+      },
+      "pooled": {
+        "tp": 5441,
+        "predicted": 7427,
+        "reference": 7728,
+        "precision": 0.7325972801938871,
+        "recall": 0.7040631469979296,
+        "f1": 0.7180468492246783
+      },
+      "macro": {
+        "precision": 0.7102950070598408,
+        "recall": 0.699389587503122,
+        "f1": 0.7037965691696841
+      },
+      "source": "unchanged_historical_cache"
+    },
+    "C0": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 2431,
+          "predicted": 5531,
+          "reference": 5437,
+          "precision": 0.4395226902910866,
+          "recall": 0.44712157439764577,
+          "f1": 0.4432895696571845
+        },
+        "oryza_sativa": {
+          "tp": 875,
+          "predicted": 2473,
+          "reference": 2291,
+          "precision": 0.3538212697128993,
+          "recall": 0.38192928852029684,
+          "f1": 0.36733837111670864
+        }
+      },
+      "pooled": {
+        "tp": 3306,
+        "predicted": 8004,
+        "reference": 7728,
+        "precision": 0.41304347826086957,
+        "recall": 0.4277950310559006,
+        "f1": 0.42028985507246375
+      },
+      "macro": {
+        "precision": 0.39667198000199294,
+        "recall": 0.4145254314589713,
+        "f1": 0.4053139703869466
+      },
+      "source": "completed_last_checkpoint",
+      "checkpoint": "outputs/M28-PILOT-R4/C0/step_004608.pt"
+    },
+    "B1": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 982,
+          "predicted": 2214,
+          "reference": 5437,
+          "precision": 0.44354110207768743,
+          "recall": 0.18061430936178038,
+          "f1": 0.2566984707881323
+        },
+        "oryza_sativa": {
+          "tp": 818,
+          "predicted": 1732,
+          "reference": 2291,
+          "precision": 0.4722863741339492,
+          "recall": 0.35704932343954604,
+          "f1": 0.4066616952522993
+        }
+      },
+      "pooled": {
+        "tp": 1800,
+        "predicted": 3946,
+        "reference": 7728,
+        "precision": 0.45615813482007095,
+        "recall": 0.2329192546583851,
+        "f1": 0.3083775912283707
+      },
+      "macro": {
+        "precision": 0.4579137381058183,
+        "recall": 0.2688318164006632,
+        "f1": 0.3316800830202158
+      },
+      "source": "completed_last_checkpoint",
+      "checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt"
+    },
+    "B1_additive": {
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "tp": 271,
+          "predicted": 1991,
+          "reference": 5437,
+          "precision": 0.13611250627825214,
+          "recall": 0.04984366378517565,
+          "f1": 0.07296715131933226
+        },
+        "oryza_sativa": {
+          "tp": 48,
+          "predicted": 221,
+          "reference": 2291,
+          "precision": 0.2171945701357466,
+          "recall": 0.020951549541684853,
+          "f1": 0.03821656050955414
+        }
+      },
+      "pooled": {
+        "tp": 319,
+        "predicted": 2212,
+        "reference": 7728,
+        "precision": 0.1442133815551537,
+        "recall": 0.04127846790890269,
+        "f1": 0.0641851106639839
+      },
+      "macro": {
+        "precision": 0.17665353820699936,
+        "recall": 0.03539760666343025,
+        "f1": 0.0555918559144432
+      },
+      "source": "same_B1_candidates_additive_readout",
+      "checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt"
+    }
+  }
+}
