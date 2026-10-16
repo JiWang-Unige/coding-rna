@@ -19,7 +19,7 @@
 
 ## 比较资产的资格仍需逐个确定
 
-当前下游头只在本项目允许的拟南芥／水稻TRAIN拟合；这不抹去上游encoder暴露。GENERanno 1.2B preview的物种／assembly／注释监督暴露仍unknown。ANNEVO当前Magnoliopsida权重的作者说明仅给出排除模式物种的陈述和部分例子，不能推断这4项均已排除。Helixer a0080需逐候选核对实际训练列，不能用论文train_val池或不同权重列替代。既有来源边界见[pretrained_exposure.md](pretrained_exposure.md)。
+当前下游头只在本项目允许的拟南芥／水稻TRAIN拟合；这不抹去上游encoder暴露。GENERanno 1.2B preview的物种／assembly／注释监督暴露仍unknown。ANNEVO当前Magnoliopsida权重的作者说明仅给出排除模式物种的陈述和部分例子，不能推断这4项均已排除。Helixer a0080需逐候选核对实际训练列，不能用论文train_val池或不同权重列替代。既有来源边界见[pretrained_exposure.md](../../../paper/supplement/pretrained_exposure.md)。
 
 Tiberius当前固定[angiosperms配置](https://github.com/Gaius-Augustus/Tiberius/blob/871d4979568ae09e56de7eca5d7489046ee833ea/model_cfg/angiosperms.yaml)明确含 `BrapassprapavarrapaVT123v1.1`：Brassica rapa已有作者披露的物种训练暴露，即使本表是不同cultivar／assembly也不能写成species-unseen。该配置未列本表另外三个名字，不等于已审计所有预训练、验证或同源来源。配置target声明为Mesangiospermae；因此Amborella先保留为适用范围待核实的远缘探索对象，不能直接放入公平主表后用外推劣势宣称普遍优越。
 

@@ -27,7 +27,7 @@
 
 ## B1自由候选与训练分支
 
-[candidates.py](../../src/m28/candidates.py)只接受DNA与模型输出，无参考参数或注释导入。
+[candidates.py](../../../pipeline/m28/src/m28/candidates.py)只接受DNA与模型输出，无参考参数或注释导入。
 GT/GC–AG候选携带跨exon未完成密码子，检查跨边界internal stop。
 每1kb/类型8端点、每起点/carry/终点类型8合法exon边、每donor8连接、
 每事件/carry2条beam、最终8链/kb、最多128exon，均为预先固定工程限额，未扫描。
@@ -37,7 +37,7 @@ GT/GC–AG候选携带跨exon未完成密码子，检查跨边界internal stop�
 拟南芥548、水稻768。它们分别匹配0/7与1/9个可支持训练正例实例；
 这是未训练头、孤立训练窗诊断，**不是DEV性能、候选理论上界或架构否决**。
 
-[training.py](../../src/m28/training.py)按窗归一化local fine/grouped似然及端点、
+[training.py](../../../pipeline/m28/src/m28/training.py)按窗归一化local fine/grouped似然及端点、
 连接、完整链/null的masked类均衡BCE，之后施加保存的抽样权重。
 参考链/正连接只在训练分支注入，来源分free/reference_injected；未知和其他isoform
 保护不变。局部、端点、连接、链loss分别对对应头及shared层具有非零梯度；

@@ -12,7 +12,7 @@
 | Chang 等，ICML 2015，[Learning to Search Better than Your Teacher](https://proceedings.mlr.press/v37/changb15.html)，第2节、Algorithm 1；[原文](https://proceedings.mlr.press/v37/changb15.pdf) | 用学习策略 roll-in，对动作偏离进行完整 roll-out，以终态结构损失生成 cost-sensitive 监督；roll-out 可混合参考和学习策略。 | A9 在固定 teacher 历史上列举 entry/end 事件，再给精确前缀相容性标签，没有对每个替代动作完整续接并计算终态损失。它不是 LOLS 的实现。 |
 | Bhardwaj、Choudhury、Scherer，CoRL 2017，[Learning Heuristic Search via Imitation](https://proceedings.mlr.press/v78/bhardwaj17a.html)，第2.2、3.2、3.3节、Algorithm 2；[作者原文](https://mohakbhardwaj.github.io/SaIL/pdfs/bhardwaj17a.pdf) | SaIL 在搜索状态上用 clairvoyant oracle 的 cost-to-go 监督 frontier 选择，并聚合当前混合策略的搜索数据；其主要目标是减少到达可行解的搜索展开。 | A9 不学习该搜索代价，beam 截断也不是该 best-first frontier 过程。原方法的搜索效率目标不能直接替代本项目完整 CDS 链准确率或背景负担目标。 |
 
-SaIL 的会议年份由 PMLR 正式条目核实为2017；PDF抽取首次仅返回摘要及聚合元数据，因此方法事实改由作者托管原文核对，不使用抽取器的 citation count、日期或“preprint”标签作发表事实。既有 early-update、LaSO、BSO 和基因结构图证据见[相关工作记录](../../docs/M28_learned_search_related_work_20261001.md)，这里不重写 B2 的历史合同或结果。
+SaIL 的会议年份由 PMLR 正式条目核实为2017；PDF抽取首次仅返回摘要及聚合元数据，因此方法事实改由作者托管原文核对，不使用抽取器的 citation count、日期或“preprint”标签作发表事实。既有 early-update、LaSO、BSO 和基因结构图证据见[相关工作记录](../../../paper/manuscript/M28_learned_search_related_work_20261001.md)，这里不重写 B2 的历史合同或结果。
 
 ## 对照当前实际源码
 

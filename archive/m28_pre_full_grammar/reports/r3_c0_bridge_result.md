@@ -4,7 +4,7 @@
 
 ## 确认的接口与修复边界
 
-R2内部列顺序与ANNEVO原生NN发射顺序不一致。读取实际viterbi_decoding实现后，在[new C0 bridge](../../src/m28/c0_decode.py)显式使用以下排列，而不是修改标签：
+R2内部列顺序与ANNEVO原生NN发射顺序不一致。读取实际viterbi_decoding实现后，在[new C0 bridge](../../../pipeline/m28/src/m28/c0_decode.py)显式使用以下排列，而不是修改标签：
 
 ```text
 [0,1,3,2,4,6,5,7,9,8,10,12,11,13,14]

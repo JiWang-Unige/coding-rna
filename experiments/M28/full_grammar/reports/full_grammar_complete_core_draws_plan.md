@@ -8,7 +8,7 @@ fit13462537、核验13462559、六raw13462591_0–5和评价13462628全部root�
 
 完整链F1为AT69.2642%、Rice43.7637%、pooled63.6761%，相对FRESH pooled+0.6032百分点，但参考TP为13897，比FRESH14140少243；恢复1531、丢失1774，AT净+171、Rice净−414。6145条完整fine核心覆盖比FRESH4505多1640，不等于更高恢复；pooled四覆盖层净变化均负，两者均覆盖−63、仅方案−90、仅FRESH−26、两者均无−64。pooled预测降至20961，precision66.2993%上升、recall61.2526%下降，纯背景链278少于FRESH498，说明是完整输出precision／recall权衡。
 
-相对同9216结构控制则恢复2249、丢失1048、净+1201；209条grammar不支持参考仍在分母。当前结果不支持把追加完整链覆盖视为必然恢复收益或单独因果机制，不放行本支路DEV或改变原家族。结果已写入[工作稿](../../docs/M28_full_grammar_results_working.md#reference-recovery-losses-and-additional-fit-supervision)；以下准备／RUNNING记录保留其历史日期，不再是当前状态。主直接处理不等于监控自动交接。
+相对同9216结构控制则恢复2249、丢失1048、净+1201；209条grammar不支持参考仍在分母。当前结果不支持把追加完整链覆盖视为必然恢复收益或单独因果机制，不放行本支路DEV或改变原家族。结果已写入[工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md#reference-recovery-losses-and-additional-fit-supervision)；以下准备／RUNNING记录保留其历史日期，不再是当前状态。主直接处理不等于监控自动交接。
 
 ## 固定范围和目标
 

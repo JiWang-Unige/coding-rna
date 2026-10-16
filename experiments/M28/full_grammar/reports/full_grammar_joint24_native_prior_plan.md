@@ -6,7 +6,7 @@
 
 组合fit13457841、核验13457846、六raw13457849_0–5及评价13457852已全部COMPLETED 0:0；评价于10-10 UTC05:12:08结束。预定四格汇总13460976于05:12:23完成，root／batch／extern成功，STATUS／JOBID／summary／comparison齐全。主核对全部四格来源、22688参考、主要测量与已完成评价直接相等、micro／macro／worst及六种预定差值算术；不按分数移除任何格。
 
-四格pooled链F1依F00／F01／F10／F11为55.7453%／64.3390%／66.9628%／62.4512%。组合比联合编码单独支路低4.5115百分点、比先验单独支路低1.8877；预定F11−F10−F01+F00为pooled−13.1052、AT−9.9675、Rice−23.5104百分点。组合仍比结构控制高6.7059百分点，且纯背景链190少于两个组件的259／320，不能省略这项端点权衡。当前不支持在完整链F1尺度上声称两个改动互补，但也不把单seed TRAIN描述量升级为因果拮抗、显著性或泛化。完整记录见[结果工作稿](../../docs/M28_full_grammar_results_working.md#reference-recovery-losses-and-additional-fit-supervision)。无新训练、调参、DEV候选变更或封存访问。
+四格pooled链F1依F00／F01／F10／F11为55.7453%／64.3390%／66.9628%／62.4512%。组合比联合编码单独支路低4.5115百分点、比先验单独支路低1.8877；预定F11−F10−F01+F00为pooled−13.1052、AT−9.9675、Rice−23.5104百分点。组合仍比结构控制高6.7059百分点，且纯背景链190少于两个组件的259／320，不能省略这项端点权衡。当前不支持在完整链F1尺度上声称两个改动互补，但也不把单seed TRAIN描述量升级为因果拮抗、显著性或泛化。完整记录见[结果工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md#reference-recovery-losses-and-additional-fit-supervision)。无新训练、调参、DEV候选变更或封存访问。
 
 ## 固定四格比较
 

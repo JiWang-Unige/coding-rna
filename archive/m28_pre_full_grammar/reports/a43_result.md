@@ -32,7 +32,7 @@
 | readout | 13424410 | 06:38:53–06:44:45 | 5:52 |
 | CPU | 13424413 | 06:44:46–06:49:04 | 4:18 |
 
-CPU [核验实现](../../scripts/experiments/M28-METHOD-RESTART/verify_natural_competitor_train.py)的七项实际证明全部 true：原 draw／importance／有限集合 NLL／4608 步；三份有限模型与 AdamW 曝光；末模型发射身份与完整 32 分片；新预测 DNA 语法和直接整窗 FP64 log-probability 评分；同一 A43 势下完整语法目标不低于原自然池重评分目标；原 R4 unknown／较强基线／完整分母；逐物种计数与原五条件重算。
+CPU [核验实现](../scripts/verify_natural_competitor_train.py)的七项实际证明全部 true：原 draw／importance／有限集合 NLL／4608 步；三份有限模型与 AdamW 曝光；末模型发射身份与完整 32 分片；新预测 DNA 语法和直接整窗 FP64 log-probability 评分；同一 A43 势下完整语法目标不低于原自然池重评分目标；原 R4 unknown／较强基线／完整分母；逐物种计数与原五条件重算。
 
 最大直接 log-probability 评分误差为 `2.842170943040401e-14`；完整语法目标减同模型原自然池重评分目标的最小值为 `0.0`。旧池仅用于核验目标下界，不是预测候选输入或新的科学基线。未执行独立神经前向重放或独立完整语法 DP 重放，七证明不扩大到这些范围。
 
@@ -48,8 +48,8 @@ CPU [核验实现](../../scripts/experiments/M28-METHOD-RESTART/verify_natural_c
 
 ## 下一机制的准备边界
 
-[local_structured_emission.py](../../src/m28/local_structured_emission.py)只组合原局部 fine／grouped-region loss 与有限结构 loss，保留各自 mask、分母和 unknown 保护；原 importance 由未来调用者只乘一次。两项系数必须显式传入，无默认研究权重，没有修改 A43 训练或推理路线。
+[local_structured_emission.py](../src/m28/local_structured_emission.py)只组合原局部 fine／grouped-region loss 与有限结构 loss，保留各自 mask、分母和 unknown 保护；原 importance 由未来调用者只乘一次。两项系数必须显式传入，无默认研究权重，没有修改 A43 训练或推理路线。
 
-唯一人工检查作业 13425410 于 06:51:05–06:51:14 UTC 运行，root／batch／extern 均 COMPLETED／0:0；[七项检查](../../tests/test_m28_local_structured_emission.py)全部 PASS，测试耗时 1.644 秒。实际 private／generanno／gpu034／0GPU2CPU8GiB2分钟／no-requeue／Restarts0，STATUS／JOBID 和唯一日志一致，batch MaxRSS 474072K。只用人工 logits、单-exon 竞争几何及模拟 R4 元数据，没有真实 catalog／缓存／checkpoint／模型拟合／optimizer。
+唯一人工检查作业 13425410 于 06:51:05–06:51:14 UTC 运行，root／batch／extern 均 COMPLETED／0:0；[七项检查](../tests/test_m28_local_structured_emission.py)全部 PASS，测试耗时 1.644 秒。实际 private／generanno／gpu034／0GPU2CPU8GiB2分钟／no-requeue／Restarts0，STATUS／JOBID 和唯一日志一致，batch MaxRSS 474072K。只用人工 logits、单-exon 竞争几何及模拟 R4 元数据，没有真实 catalog／缓存／checkpoint／模型拟合／optimizer。
 
 这一 PASS 只支持新损失接线。下一科学实验需先固定原 R4 局部监督来源与 mask、两个分母、显式权重和同容量／同曝光的局部单独训练对照，再判断结构竞争是否带来收益；本轮未选择权重或启动新 fit。raw／DEV、独立物种、Setaria、A33 及公开发布仍未放行。完整 raw-FASTA 模型、独立泛化、原生对标优势及论文目标均未达到。

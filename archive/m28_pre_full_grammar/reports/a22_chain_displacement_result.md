@@ -8,7 +8,7 @@ CPU作业13391139的root／batch／extern均COMPLETED、ExitCode0:0，耗时13�
 
 四项合成检查全部通过，实际诊断耗时4.633秒。来源A12、A15、A21身份、原1491窗和16321自然候选／窗口配对，以及三方法每窗和逐物种选择计数与已闭合结果一致。所有未选正gain正链的逐链／每窗联合可交换集合核对通过：实际选中冲突集合的移除总gain不小于可插入正确链总gain。没有证据表明本次非重叠选择器算错optimum。
 
-536个原reference_injected正链只作为诊断metadata，不进入自然选择。所有自然1／0／-1共同按原操作点0选择，无标签过滤、阈值扫描、新候选搜索、模型／GLM前向、优化、特征或参考catalog读取。定义与资源在[事前协议](a22_chain_displacement_protocol.md)固定；[实现](../../scripts/experiments/M28-METHOD-RESTART/audit_chain_displacement.py)和[四项检查](../../tests/test_m28_chain_displacement.py)保存于项目。
+536个原reference_injected正链只作为诊断metadata，不进入自然选择。所有自然1／0／-1共同按原操作点0选择，无标签过滤、阈值扫描、新候选搜索、模型／GLM前向、优化、特征或参考catalog读取。定义与资源在[事前协议](a22_chain_displacement_protocol.md)固定；[实现](../scripts/audit_chain_displacement.py)和[四项检查](../tests/test_m28_chain_displacement.py)保存于项目。
 
 ## 选中已知非匹配的来源
 

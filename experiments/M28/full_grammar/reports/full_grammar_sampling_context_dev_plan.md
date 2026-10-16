@@ -24,7 +24,7 @@ ANNEVO／Tiberius／Helixer复用原六份成功原生输出和原operation poin
 
 原八方法报告保留原义；另一个扩展比较表可并列原八方法和这两个预先指定候选，共十方法。它必须完整保留候选、相同参考分母及复用基线逐物种计数和汇总值，不能只挑两新候选中的赢家，也不能把新增方法当作原八方法冻结时已有的确认性设计。表内任何复用基线或输入差异先查清再汇总，不将不同评价来源拼成一个排名。
 
-这是单seed、两条历史复用同物种开发染色体的描述性比较，不把gene当独立生物重复计算确认性置信区间。上游物种及annotation暴露限制仍适用，见[预训练暴露记录](pretrained_exposure.md)；开发表现不等于clean zero-shot、独立泛化、完整gene／UTR／所有isoform能力或论文成功。DEV结果不用于训练损失、抽样、head、阈值、上下文、学习率、checkpoint或后续训练选择。sealed／held-out／Setaria不放行，无公开发布或Git提交。
+这是单seed、两条历史复用同物种开发染色体的描述性比较，不把gene当独立生物重复计算确认性置信区间。上游物种及annotation暴露限制仍适用，见[预训练暴露记录](../../../../paper/supplement/pretrained_exposure.md)；开发表现不等于clean zero-shot、独立泛化、完整gene／UTR／所有isoform能力或论文成功。DEV结果不用于训练损失、抽样、head、阈值、上下文、学习率、checkpoint或后续训练选择。sealed／held-out／Setaria不放行，无公开发布或Git提交。
 
 ## 后续实施
 
@@ -48,7 +48,7 @@ CPU检查作业13453843通过`sbatch sbatch/M28-FULL-GRAMMAR-SAMPLING-CONTEXT-DE
 
 ## 2026-10-11实际DEV提交与启动
 
-原三个目标、双头CDS、新抽样和联合编码共六条TRAIN前置已完成末权重、全部更新核验、六染色体raw、同尺端到端评价及主对话结果处理；各Slurm root／batch／extern均COMPLETED 0:0。新抽样13453573→13453581→13453582_0–5→13453583的最终评价于10-10 UTC02:43:59结束；联合编码13453777→13453778→13453779_0–5→13453780于02:01:26结束。主对话核对原22688参考分母、输入身份、逐染色体／逐物种／pooled计数和macro／worst，不以分数筛选候选。结果见[结果工作稿](../../docs/M28_full_grammar_results_working.md)。
+原三个目标、双头CDS、新抽样和联合编码共六条TRAIN前置已完成末权重、全部更新核验、六染色体raw、同尺端到端评价及主对话结果处理；各Slurm root／batch／extern均COMPLETED 0:0。新抽样13453573→13453581→13453582_0–5→13453583的最终评价于10-10 UTC02:43:59结束；联合编码13453777→13453778→13453779_0–5→13453780于02:01:26结束。主对话核对原22688参考分母、输入身份、逐染色体／逐物种／pooled计数和macro／worst，不以分数筛选候选。结果见[结果工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md)。
 
 10-11 UTC12:49:39–40实际提交FRESH_DRAWS raw13493573_0–1及完整数组afterok比较13493576；JOINT24576 raw13493577_0–1及完整数组afterok比较13493578。两者都用各自固定step_009216.pt，不选择中间权重。独立十方法扩展13493579依赖afterok13493572:13493576:13493578；13493572为原八方法汇总，且扩展程序仍核对全部七份固定M28比较。未改变原八方法，也未加入combo／complete-core为DEV候选。
 
@@ -81,6 +81,6 @@ CPU检查作业13453843通过`sbatch sbatch/M28-FULL-GRAMMAR-SAMPLING-CONTEXT-DE
 
 联合编码比Helixer少42个pooled TP、少1047个预测，precision高7.8057个百分点而recall低0.5435；AT净TP多92、Rice少134。完整链F1超过Helixer不能称两物种recall都更好。纯背景链121比Helixer少442，但比STRUCT多42；共同背景区域27,956,441 bp内span FPR为0.6851%，不能把121条纯背景链当全部非exact错误。基线和候选的其余isoform、结构及背景定义均保留。
 
-来源为各branch `outputs/M28-FULL-GRAMMAR-SAMPLING-CONTEXT-DEV-COMPARISON/<branch>/summary.json`及`outputs/M28-FULL-GRAMMAR-SAMPLING-CONTEXT-DEV-FAMILY/{summary.json,comparison.md}`。原八项来源见[八方法终态](full_grammar_native_cds_prior_dev_plan.md#完整八方法-dev-终态与结果)，新增比较job13493576／13493578。完整结果同步到[结果工作稿](../../docs/M28_full_grammar_results_working.md#complete-frozen-dev-family-and-predeclared-extension)。
+来源为各branch `outputs/M28-FULL-GRAMMAR-SAMPLING-CONTEXT-DEV-COMPARISON/<branch>/summary.json`及`outputs/M28-FULL-GRAMMAR-SAMPLING-CONTEXT-DEV-FAMILY/{summary.json,comparison.md}`。原八项来源见[八方法终态](full_grammar_native_cds_prior_dev_plan.md#完整八方法-dev-终态与结果)，新增比较job13493576／13493578。完整结果同步到[结果工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md#complete-frozen-dev-family-and-predeclared-extension)。
 
 原监控13:40:58 UTC自动完成整批结构检查并向原主交接一次，同一心跳暂停供新任务复用；终态自动回传已实际观察，不再写作未验证。单seed、历史复用DEV、上游annotation暴露限制不变；不据此选模型／checkpoint／上下文或改变下一轮训练，不声称独立泛化、机制因果、新颖性或论文目标完成。新的两模型TRAIN评分回放方案在主读取这些新指标前已经固定，DEV不是其设置来源。无sealed／held-out／Setaria访问、公开发布或Git提交。

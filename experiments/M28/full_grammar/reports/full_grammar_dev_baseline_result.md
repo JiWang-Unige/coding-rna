@@ -8,7 +8,7 @@
 
 拟南芥NC_003074.8（23459830bp）和水稻NC_089041.1（29936421bp）完整预测先于reference选择。13449922_0–1及afterok共同评价13449926的root/batch/extern均COMPLETED/0:0，STATUS和规定产物齐全；数组显示ID与实际数字JobIDRaw分别为13449922_0→13449923、13449922_1→13449922。评价核对最终模型身份、全部raw网格及两链joint输出、六次历史原生运行的成功终态／固定版本和权重／原生命令及操作点／GFF完成标记，再对candidate、baseline preparation及original source三路FASTA记录逐base直接比较，全部相等后才解析参考。
 
-复用2026-10-03六份固定原生输出，不重新执行基线或宣称其为今日最新版本：ANNEVO 2.3.3／Magnoliopsida，Tiberius实际2.0.8隔离包／基础SIF实际2.0.7／angiosperms，Helixer 0.3.7／land_plant_v0.3_a_0080.h5；源码和完整资产收据见[原生基线记录](native_baseline_result.md)。同原始FASTA、大写与原生固定预处理，不加mask、RNA、蛋白或参考边界；M28仅在模型输入时将非ACGT转N，不改变长度或参考尺。
+复用2026-10-03六份固定原生输出，不重新执行基线或宣称其为今日最新版本：ANNEVO 2.3.3／Magnoliopsida，Tiberius实际2.0.8隔离包／基础SIF实际2.0.7／angiosperms，Helixer 0.3.7／land_plant_v0.3_a_0080.h5；源码和完整资产收据见[原生基线记录](../../../../benchmarks/native_baselines/reports/native_baseline_result.md)。同原始FASTA、大写与原生固定预处理，不加mask、RNA、蛋白或参考边界；M28仅在模型输入时将非ACGT转N，不改变长度或参考尺。
 
 共同参考固定为M26 CDS-assessable最长eligible CDS、平分取transcript ID：拟南芥5437、水稻2291、合计7728 unique primary链。所有方法从完整原生预测选每gene最长CDS、ID平分，`complete_only=False`；不按reference匹配、motif、cap、长链、DNA合法性或overlap删除基线预测。exact key包含seqid、strand及全部半开CDS边界，phase另核验。M28 GFF数量、实际DNA／ORF／phase／cap和同strand非重叠符合生产约束；四方法所有parsed prediction records均phase-chain consistent、重复链数均0。其他assessable isoform命中不加入primary TP，不评价UTR、全部isoform或非编码gene。
 
@@ -89,7 +89,7 @@ M28内部raw主循环为1785.656／2158.582秒，原生编码合计2829.012秒�
 
 ## 结论资格与后续边界
 
-这两条DEV已被多轮开发使用，不是独立测试；固定本次checkpoint不能抹去历史开发依赖。冻结GENERanno上游species／annotation／同源暴露unknown；ANNEVO植物权重作者声明排除拟南芥／水稻但未经独立审计，Helixer权重包含两物种，Tiberius包含水稻，见[预训练暴露记录](pretrained_exposure.md)。严格raw FASTA输入与clean zero-shot是不同条件。当前比较可以回答这个固定开发面板下的真实性能差异，不能回答无偏跨物种泛化或因果机制优势。
+这两条DEV已被多轮开发使用，不是独立测试；固定本次checkpoint不能抹去历史开发依赖。冻结GENERanno上游species／annotation／同源暴露unknown；ANNEVO植物权重作者声明排除拟南芥／水稻但未经独立审计，Helixer权重包含两物种，Tiberius包含水稻，见[预训练暴露记录](../../../../paper/supplement/pretrained_exposure.md)。严格raw FASTA输入与clean zero-shot是不同条件。当前比较可以回答这个固定开发面板下的真实性能差异，不能回答无偏跨物种泛化或因果机制优势。
 
 工程接入及固定DEV比较完成，不意味着研究或论文成功。当前候选尚未显示相对三原生工具的准确率竞争力，也没有更广适用范围的实证；这是有限TRAIN discovery fit的负面开发结果，不是对所有GLM／结构化基因模型的否定。继续原模型与发表goal需要解释局部结构和整链缺口、准备与假设相对应的后续机制对照，并取得充分训练和独立面板证据。现阶段仍不改训练参数、不增训、不重开封存数据或失败旧路线、不修改冻结指标和阈值、不公开未发表研究。
 

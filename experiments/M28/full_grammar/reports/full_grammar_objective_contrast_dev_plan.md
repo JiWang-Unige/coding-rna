@@ -24,7 +24,7 @@
 
 ## 科学解释和执行状态
 
-该 DEV 已被多轮开发使用，模型和基线的上游物种 / annotation 暴露有方法相关差异或未知，详见[pretrained_exposure.md](pretrained_exposure.md)。此比较是同物种开发集读数，不能声称独立泛化、clean zero-shot、全基因 / UTR / 所有 isoform 能力或论文竞争优势已成立。目标家族对照只有一个 seed，且梯度尺度不匹配；它不能单独建立因果机制、新颖性或收敛结论。
+该 DEV 已被多轮开发使用，模型和基线的上游物种 / annotation 暴露有方法相关差异或未知，详见[pretrained_exposure.md](../../../../paper/supplement/pretrained_exposure.md)。此比较是同物种开发集读数，不能声称独立泛化、clean zero-shot、全基因 / UTR / 所有 isoform 能力或论文竞争优势已成立。目标家族对照只有一个 seed，且梯度尺度不匹配；它不能单独建立因果机制、新颖性或收敛结论。
 
 准备代码显式传入候选路径、末权重、身份、协议和方法名，复用原评价函数；原默认 final4608 入口保持不变。人工检查只验证新权重身份、不同 arm 错配、TRAIN 未关闭时不触碰 DEV、原 IUPAC 输入保留及旧路径回归，不运行编码器或研究数据。结果解释、真实 checkpoint / 输入及全部产物核验仍待当前 TRAIN 流程完成后进行。封存 / held-out / Setaria 不放行，不公开论文或模型，不修改现有监控对象。
 

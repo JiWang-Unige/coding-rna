@@ -16,7 +16,7 @@
 
 GPU两阶段合计7639 allocated GPU秒；三阶段累计分配7723秒，另有历史准备计时110秒，互不混称。用户已取消成本gate及人为合计资源/容量上限；原preparation的budget_gate=false仍作为历史计时事实保留，不影响本轮科学判定。
 
-主要来源：[原始评价summary](../../outputs/M28-A-EVALUATION/summary.json)、[拟合summary](../../outputs/M28-A-FIRST-FIT/summary.json)、[推理summary](../../outputs/M28-A-DEV-INFER/summary.json)、[A GFF3](../../outputs/M28-A-EVALUATION/A.gff3)、[固定提案](a_first_fit_proposal.md)、[执行记录](a_execution.md)、[C0/B1原同口径结果](r5_result.json)。没有修改原summary、checkpoint、自由候选或GFF3。
+主要来源：[原始评价summary](../../../outputs/M28-A-EVALUATION/summary.json)、[拟合summary](../../../outputs/M28-A-FIRST-FIT/summary.json)、[推理summary](../../../outputs/M28-A-DEV-INFER/summary.json)、[A GFF3](../../../outputs/M28-A-EVALUATION/A.gff3)、[固定提案](a_first_fit_proposal.md)、[执行记录](a_execution.md)、[C0/B1原同口径结果](r5_result.json)。没有修改原summary、checkpoint、自由候选或GFF3。
 
 ## 同一主分母的完整链结果
 
@@ -94,7 +94,7 @@ A全部6261条输出满足当前CDS结构检查，零重复链；导出GFF3回�
 
 ## 同窗query冗余只读诊断
 
-为区分“Q16容量不足”与“多个query重复预测同一链”，只读处理全部8690个已保存方向窗，不重新解码、不读取参考、不扫阈值或改变任何候选。job13347285在private-teodoro-gpu用1CPU/2GiB、0GPU完成，root COMPLETED/0:0，STATUS=COMPLETED，Slurm分配2秒，stderr为空。脚本[diagnose_query_diversity.py](../../scripts/experiments/M28-METHOD-RESTART/diagnose_query_diversity.py)与[原始diagnostic summary](../../outputs/M28-A-QUERY-DIVERSITY/summary.json)保留。计数与已完成inference summary对齐；脚本只核对输入范围和计数，不重跑评价器。
+为区分“Q16容量不足”与“多个query重复预测同一链”，只读处理全部8690个已保存方向窗，不重新解码、不读取参考、不扫阈值或改变任何候选。job13347285在private-teodoro-gpu用1CPU/2GiB、0GPU完成，root COMPLETED/0:0，STATUS=COMPLETED，Slurm分配2秒，stderr为空。脚本[diagnose_query_diversity.py](../scripts/diagnose_query_diversity.py)与[原始diagnostic summary](../../../outputs/M28-A-QUERY-DIVERSITY/summary.json)保留。计数与已完成inference summary对齐；脚本只核对输入范围和计数，不重跑评价器。
 
 | 同一方向窗内统计加总 | 拟南芥 | 水稻 | 合计 |
 |---|---:|---:|---:|

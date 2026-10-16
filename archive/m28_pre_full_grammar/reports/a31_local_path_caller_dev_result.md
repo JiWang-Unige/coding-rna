@@ -21,7 +21,7 @@ CPU评价在打开参考前重建实际自然池、owner、DP选择及非空GFF�
 
 ## 完整链性能
 
-下表同一两条DEV、同一7728条primary，而非原论文数字拼接。原生对照资产与暴露边界见[native_baseline_result.md](native_baseline_result.md)及[pretrained_exposure.md](pretrained_exposure.md)。
+下表同一两条DEV、同一7728条primary，而非原论文数字拼接。原生对照资产与暴露边界见[native_baseline_result.md](../../../benchmarks/native_baselines/reports/native_baseline_result.md)及[pretrained_exposure.md](../../../paper/supplement/pretrained_exposure.md)。
 
 | 方法 | 拟南芥F1 % | 水稻F1 % | 合并Micro F1 % |
 | --- | ---: | ---: | ---: |

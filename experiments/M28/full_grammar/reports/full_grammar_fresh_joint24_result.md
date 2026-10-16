@@ -69,12 +69,12 @@ F11的unstranded CDS-base F1为95.236061%，略低于F01的95.389874%；referenc
 
 B已main-consumed，原心跳关闭其监控对象并保留C/D/E；未观察到B的监控终态发送，记为NOT_SENT_BY_WATCHER而非YES。不更换checkpoint、抽样、参数、阈值或进行新增拟合。冻结三候选DEV仍包含B/C/D全体，不因TRAIN排名增删；须待C/D各自完整fit／verify／六raw／评价／配对结果均由主消费后才接续。E仍为单独TRAIN探索，不自动加入DEV。原八／十方法历史结果不改写，封存及对外发布边界仍保持。
 
-- [实际评价13494898](../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-TRAIN-DIAGNOSTIC/summary.json)
-- [四格输入与算术收据13494899](../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-FOUR-CELL/summary.json)
-- [原始四格表](../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-FOUR-CELL/comparison.md)
-- [原生共同基线13461307](../../outputs/M28-NATIVE-TRAIN-BASELINE-EVAL/summary.json)
-- [Carbon-A固定默认结果](carbon_a_original_train_result.md)
-- [Carbon-A短窗口结果](carbon_a_context24_train_result.md)
+- [实际评价13494898](../../../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-TRAIN-DIAGNOSTIC/summary.json)
+- [四格输入与算术收据13494899](../../../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-FOUR-CELL/summary.json)
+- [原始四格表](../../../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-FOUR-CELL/comparison.md)
+- [原生共同基线13461307](../../../../outputs/M28-NATIVE-TRAIN-BASELINE-EVAL/summary.json)
+- [Carbon-A固定默认结果](../../../../benchmarks/carbon_a/reports/carbon_a_original_train_result.md)
+- [Carbon-A短窗口结果](../../../../benchmarks/carbon_a/reports/carbon_a_context24_train_result.md)
 - [冻结B/C/D DEV方案](full_grammar_joint_controls_dev_plan.md)
 
 本机只保存本次收据、结果JSON和四格表；大体积FASTA、GFF、完整训练日志及权重继续保留在Baobab原根。

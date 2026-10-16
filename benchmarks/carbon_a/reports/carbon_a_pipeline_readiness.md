@@ -6,9 +6,9 @@
 
 Carbon-A现在具备可追溯的完整流程入口，应作为共享原始编码器权重的匹配对照准备，而不是只用逐碱基概率或数据库显示替代。作者[固定provenance](https://huggingface.co/HuggingFaceBio/Carbon-A-1.2B/raw/f6789ee79e6ef397de333577ffec1cb734496620/provenance.json)仍将主权重接到本项目原GENERanno revision b0483c23b6b63787b61a6d3a204a9b517d6ba345；这是来源关系，不是新的独立encoder。整个原生管线与本模型还存在上下文、评分、辅助网络监督及过滤差异，不能把最终差值归给解码器一项。
 
-主模型与两份新辅助权重的监督来源须分别披露，见[分阶段训练暴露](pretrained_exposure.md)。当前固定provenance与辅助权重头没有补齐transition/confidence各自的训练／验证数据；不能把主模型的2055 assemblies清单转作辅助网络清单，也不能把未过滤输出称为无监督解码。
+主模型与两份新辅助权重的监督来源须分别披露，见[分阶段训练暴露](../../../paper/supplement/pretrained_exposure.md)。当前固定provenance与辅助权重头没有补齐transition/confidence各自的训练／验证数据；不能把主模型的2055 assemblies清单转作辅助网络清单，也不能把未过滤输出称为无监督解码。
 
-ANNEVO／Tiberius／Helixer的18组原六TRAIN预测及同尺评价已经完成，见[native_train_baseline_result.md](native_train_baseline_result.md)；旧“缓存只覆盖两条DEV”的表述已过时。新增Carbon-A准备不替换这些基线、不回写历史八／十方法家族，也不增加已准备六方法DEV表的候选。以下旧revision与浏览器核对保留其对应快照范围。
+ANNEVO／Tiberius／Helixer的18组原六TRAIN预测及同尺评价已经完成，见[native_train_baseline_result.md](../../native_baselines/reports/native_train_baseline_result.md)；旧“缓存只覆盖两条DEV”的表述已过时。新增Carbon-A准备不替换这些基线、不回写历史八／十方法家族，也不增加已准备六方法DEV表的候选。以下旧revision与浏览器核对保留其对应快照范围。
 
 ## 新完整流程的固定资产与操作点
 
@@ -165,7 +165,7 @@ run_carbon_a_train.py与evaluate_carbon_a_train.py已准备，但在支持环境
 
 ## 历史快照缺口与完整运行资格
 
-此前已读取的43页技术报告第24–25页描述 transition TCN、Viterbi 语法、confidence TCN 及 GFF3/CDS/protein 输出，方法与上游训练暴露证据见[pretrained_exposure.md](pretrained_exposure.md)。公开模型卡的范围较窄，不能据此否认作者报告的完整方法。
+此前已读取的43页技术报告第24–25页描述 transition TCN、Viterbi 语法、confidence TCN 及 GFF3/CDS/protein 输出，方法与上游训练暴露证据见[pretrained_exposure.md](../../../paper/supplement/pretrained_exposure.md)。公开模型卡的范围较窄，不能据此否认作者报告的完整方法。
 
 2026-10-09 14:46的旧快照尚需定位下列对象；17:10发布已补齐前三项的原生入口与公开权重，支持环境及本项目运行验证仍待完成：
 

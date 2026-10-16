@@ -62,5 +62,5 @@ M25R-B新政策TP3,724/预测6,188/参考7,728。它仍低于三种缓存基线�
 全部输入是现存sequence-only工具输出，不能声称本轮已重跑各工具最新版本。
 参考JSONL与原始输出留在远程；test和Setaria未读取。
 
-实现：[common_ruler.py](../../scripts/experiments/M28-METHOD-RESTART/common_ruler.py)；
-Slurm：[M28-COMMON-RULER.sbatch](../../sbatch/M28-COMMON-RULER.sbatch)。
+实现：[common_ruler.py](../../../pipeline/m28/scripts/common_ruler.py)；
+Slurm：[M28-COMMON-RULER.sbatch](../../../pipeline/m28/sbatch/00_upstream/M28-COMMON-RULER.sbatch)。

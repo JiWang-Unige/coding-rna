@@ -23,7 +23,7 @@ A6 fit13358977／infer13358978／eval13358979和A7 CPU13359152的root、batch、
 
 A6两个物种F1均未严格超过事前固定A（53.39755／56.37675%）；背景均低于R5 C0（54,809／198,252bp），所以背景条件通过、F1条件失败。A7对同一A6，拟南芥F1提高1.16468个百分点但背景增加4698bp；水稻F1降低0.74086个百分点、背景增加13193bp，所以匹配owner gate失败。没有用pooled微升替代逐物种gate，没有把历史6450副分母用于主结论。
 
-与当前完整native同尺结果相比，ANNEVO、Tiberius、Helixer的pooled F1分别75.70250／71.80468／62.85117%；A6/A7仍低于全部三者。A6 pooled precision接近ANNEVO（78.33235 vs78.57441%），但recall仅34.52381 vs73.03313%，不能据precision单项称竞争成功。这里仍是两DEV开发比较；具体资产与不对称／未知训练暴露见[native结果](native_baseline_result.md)及[暴露记录](pretrained_exposure.md)。
+与当前完整native同尺结果相比，ANNEVO、Tiberius、Helixer的pooled F1分别75.70250／71.80468／62.85117%；A6/A7仍低于全部三者。A6 pooled precision接近ANNEVO（78.33235 vs78.57441%），但recall仅34.52381 vs73.03313%，不能据precision单项称竞争成功。这里仍是两DEV开发比较；具体资产与不对称／未知训练暴露见[native结果](../../../benchmarks/native_baselines/reports/native_baseline_result.md)及[暴露记录](../../../paper/supplement/pretrained_exposure.md)。
 
 ## 配对身份与瓶颈变化
 

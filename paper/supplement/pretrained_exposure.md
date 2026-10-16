@@ -12,7 +12,7 @@
 | Helixer | 0.3.7/d17bb496b8842542590644b2437798711c0125d5，land_plant_v0.3_a_0080.h5 | 补充表S29把该权重对应到seed_009_017；S23该列含Athaliana与Osativa，S18对应TAIR10与v7.0。两物种均是作者列出的训练物种，不是物种未见。[补充表S18、S23、S29](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41592-025-02939-1/MediaObjects/41592_2025_2939_MOESM1_ESM.pdf) |
 | Tiberius | 2.0.8隔离包871d4979568ae09e56de7eca5d7489046ee833ea，原angiosperms模型 | 固定配置训练列表含OsativaKitaakev3.1与Sviridisv4.1，未列拟南芥。水稻已知作者声明物种暴露；未列拟南芥不扩写成独立审计过的完整未见证明。[固定配置](https://github.com/Gaius-Augustus/Tiberius/blob/871d4979568ae09e56de7eca5d7489046ee833ea/model_cfg/angiosperms.yaml) |
 
-模型资产、运行参数与原生执行收据见[native_baseline_preparation.md](native_baseline_preparation.md)。表中作者训练物种与本项目具体DEV序列是否有坐标、样本或同源重叠尚未核对；物种训练暴露不自动等于泄漏，也不能由同物种不同assembly反推独立泛化。
+模型资产、运行参数与原生执行收据见[native_baseline_preparation.md](../../benchmarks/native_baselines/reports/native_baseline_preparation.md)。表中作者训练物种与本项目具体DEV序列是否有坐标、样本或同源重叠尚未核对；物种训练暴露不自动等于泄漏，也不能由同物种不同assembly反推独立泛化。
 
 ## ANNEVO 新植物模型不能套用旧论文清单
 
@@ -24,7 +24,7 @@
 
 本节是2026-10-03的历史判断；上游来源披露已由文末2026-10-09的Carbon-A补充更新，尚未核实的坐标与同源隔离边界不变。
 
-本项目feature_smoke.py与cache_full_train.py加载原AutoModelForTokenClassification，再取full.model并冻结。移除分类头、冻结encoder、当前forward不读取标签，都不抹去上游checkpoint可能继承的注释知识。确切revision模型卡没有提供训练或验证物种/assembly清单；既有[方法暴露说明](../../docs/M28_implemented_methods_B2.md)继续有效，不使用较小eukaryote-0.5b-base或prokaryote论文的数据规模来替代本1.2B checkpoint的真实暴露。
+本项目feature_smoke.py与cache_full_train.py加载原AutoModelForTokenClassification，再取full.model并冻结。移除分类头、冻结encoder、当前forward不读取标签，都不抹去上游checkpoint可能继承的注释知识。确切revision模型卡没有提供训练或验证物种/assembly清单；既有[方法暴露说明](../../archive/m28_pre_full_grammar/docs/M28_implemented_methods_B2.md)继续有效，不使用较小eukaryote-0.5b-base或prokaryote论文的数据规模来替代本1.2B checkpoint的真实暴露。
 
 因此，正文可描述“基于发布CDS注释checkpoint的冻结表示，进行raw-FASTA直接注释的开发比较”，不能描述为“所有模型均从未接触过目标物种”或“纯无监督预训练下的跨物种泛化”。后续独立面板必须分别标注每种模型的暴露资格；GENERanno未知仍需保留，不靠下游head未见标签替代。
 
@@ -105,13 +105,13 @@ ANNEVO固定42c920f70f52f96c7c06c665a639ec47d9304fff的model_training目录有16
 
 本次读取公开来源文字、模型代码和43页技术报告的相关方法／表格，并渲染核对Fig 12、Table S3及Table S8。三次定向检索均请求5条结果，其中一次传输失败后转用公开搜索；不把请求额度当作完整已审阅文献数。没有读取训练H5、候选DNA／参考、DEV或sealed/Setaria数据，没有执行新训练、改阈值或改作业。本来源更新只改变方法归属、暴露表述及下一诊断优先级；三条已提交目标函数训练、其TRAIN闭环与已准备的冻结DEV方案保持不变。
 
-同日后续已完成[原生上下文TRAIN诊断](full_grammar_native_context_diagnostic.md)：原八见证、四条件、固定4608步权重，短块基线精确重放；共同编码改善物种汇总NLL和部分精确链命中，但每条件仍有两个窗口NLL变差，且收益不随长度单调增加。此处为本项目新执行的TRAIN结果，不是Carbon-A作者评价或新独立测试。下一步核验原1491个TRAIN视图的完整效果，不改变上述上游暴露资格或冻结DEV规则。
+同日后续已完成[原生上下文TRAIN诊断](../../experiments/M28/full_grammar/reports/full_grammar_native_context_diagnostic.md)：原八见证、四条件、固定4608步权重，短块基线精确重放；共同编码改善物种汇总NLL和部分精确链命中，但每条件仍有两个窗口NLL变差，且收益不随长度单调增加。此处为本项目新执行的TRAIN结果，不是Carbon-A作者评价或新独立测试。下一步核验原1491个TRAIN视图的完整效果，不改变上述上游暴露资格或冻结DEV规则。
 
-2026-10-09 14:46 UTC的资产追溯当时只定位了概率推理入口及数据库概率segment检索；“完整流程仍缺可固定重跑的transition/confidence资产和调用配置”是该时点的历史结论。随后同日17:10 UTC发布的新仓库快照已补齐完整原生流水线，当前接入状态见[完整Carbon-A资产与比较资格追溯](carbon_a_pipeline_readiness.md)及下一节。数据库结构缓存的输入、覆盖与口径仍未获得匹配资格；补齐可执行资产不等于本项目已经复现作者性能，也不改变冻结DEV家族。
+2026-10-09 14:46 UTC的资产追溯当时只定位了概率推理入口及数据库概率segment检索；“完整流程仍缺可固定重跑的transition/confidence资产和调用配置”是该时点的历史结论。随后同日17:10 UTC发布的新仓库快照已补齐完整原生流水线，当前接入状态见[完整Carbon-A资产与比较资格追溯](../../benchmarks/carbon_a/reports/carbon_a_pipeline_readiness.md)及下一节。数据库结构缓存的输入、覆盖与口径仍未获得匹配资格；补齐可执行资产不等于本项目已经复现作者性能，也不改变冻结DEV家族。
 
 ## 完整Carbon-A流程的分阶段训练暴露
 
-2026-10-11的历史接入状态：固定release为[f6789ee79e6ef397de333577ffec1cb734496620](https://huggingface.co/HuggingFaceBio/Carbon-A-1.2B/tree/f6789ee79e6ef397de333577ffec1cb734496620)，已取得完整调用代码、两份辅助权重及配置；主权重复用原b0483c23资产。当时原两物种／六条TRAIN的独立原生对照已准备，隔离环境与人工序列原生预检已提交，尚无这六条TRAIN的Carbon-A性能结果；现已完成的固定比较见[原TRAIN结果](carbon_a_original_train_result.md)。运行收据继续在readiness及结果记录维护，不在此重复作业台账。
+2026-10-11的历史接入状态：固定release为[f6789ee79e6ef397de333577ffec1cb734496620](https://huggingface.co/HuggingFaceBio/Carbon-A-1.2B/tree/f6789ee79e6ef397de333577ffec1cb734496620)，已取得完整调用代码、两份辅助权重及配置；主权重复用原b0483c23资产。当时原两物种／六条TRAIN的独立原生对照已准备，隔离环境与人工序列原生预检已提交，尚无这六条TRAIN的Carbon-A性能结果；现已完成的固定比较见[原TRAIN结果](../../benchmarks/carbon_a/reports/carbon_a_original_train_result.md)。运行收据继续在readiness及结果记录维护，不在此重复作业台账。
 
 此次实际读取了固定release的README、provenance.json、两份网络实现及safetensors文件头。它们支持下列分阶段判断，不补写尚未核实的训练数据：
 

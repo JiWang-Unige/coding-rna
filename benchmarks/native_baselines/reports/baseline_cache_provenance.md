@@ -4,7 +4,7 @@
 
 ## 评分链路与实际缓存
 
-当前共同评价器[common_ruler.py](../../scripts/experiments/M28-METHOD-RESTART/common_ruler.py)读取下列M12B缓存，在固定拟南芥NC_003074.8和水稻NC_089041.1上重评分；主分母为5437和2291条CDS-assessable primary链。原M12B的CDS-span指标不是这里的exact-chain F1，不能把历史metrics.json中的数值直接替换当前共同评价结果。
+当前共同评价器[common_ruler.py](../../../pipeline/m28/scripts/common_ruler.py)读取下列M12B缓存，在固定拟南芥NC_003074.8和水稻NC_089041.1上重评分；主分母为5437和2291条CDS-assessable primary链。原M12B的CDS-span指标不是这里的exact-chain F1，不能把历史metrics.json中的数值直接替换当前共同评价结果。
 
 | 方法 | 拟南芥与水稻缓存文件 | 读取到的配置或命令 | 仍未由收据证明的内容 |
 |---|---|---|---|

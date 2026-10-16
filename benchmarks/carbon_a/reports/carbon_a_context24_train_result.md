@@ -60,10 +60,10 @@
 
 ## 可追溯来源
 
-- [新raw收据（NC_003070.9，其余同根）](../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-RAW/NC_003070.9/summary.json)
-- [实际短窗口评价13507526](../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-EVAL/summary.json)
-- [实际固定比较13507618](../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-COMPARISON/summary.json)
-- [未改默认评价13503419](../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)
-- [已完成joint评价13453780](../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)
+- [新raw收据（NC_003070.9，其余同根）](../../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-RAW/NC_003070.9/summary.json)
+- [实际短窗口评价13507526](../../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-EVAL/summary.json)
+- [实际固定比较13507618](../../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-COMPARISON/summary.json)
+- [未改默认评价13503419](../../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)
+- [已完成joint评价13453780](../../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)
 
 本机保存六条raw元数据及两份结果JSON；大体积DNA、概率和原生预测产物继续保留在Baobab原输出根，不在本机重复下载。

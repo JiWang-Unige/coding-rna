@@ -4,7 +4,7 @@
 
 ## 对比与边界
 
-已完成原生Carbon-A在固定confidence≥0.1或NA口径下pooled整链F1为78.171555%，未过滤为76.063450%；已完成joint 24,576 bp候选为66.962764%。来源为[原生评价](../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)和[joint评价](../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)。既有配对诊断显示净恢复差距主要落在多CDS参考，超过24,576 bp的参考仅9条；这不能排除长窗口对较短基因的影响，也不能确定上下文是差距原因。
+已完成原生Carbon-A在固定confidence≥0.1或NA口径下pooled整链F1为78.171555%，未过滤为76.063450%；已完成joint 24,576 bp候选为66.962764%。来源为[原生评价](../../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)和[joint评价](../../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)。既有配对诊断显示净恢复差距主要落在多CDS参考，超过24,576 bp的参考仅9条；这不能排除长窗口对较短基因的影响，也不能确定上下文是差距原因。
 
 | 条件 | 上下文tokens | 上下文bp | 重叠tokens／bp | 主窗口stride bp | 重叠比例 |
 | --- | ---: | ---: | ---: | ---: | ---: |

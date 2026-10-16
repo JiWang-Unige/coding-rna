@@ -28,7 +28,7 @@ Tiberius旧资产为2.0.5；目标官方源码声明2.0.8，Docker发布同名�
 
 OCI内容地址来自发布方registry，不新增自制输出摘要；它固定实际拉取资产，防止latest漂移。容器内实际包版本和源码身份在准备后核实，不能仅凭文件名推定。Helixer权重来自固定提交的[官方优先级列表](https://github.com/usadellab/Helixer/blob/d17bb496b8842542590644b2437798711c0125d5/resources/model_list.csv)；官方选择器按priority升序，旧缓存指定m_0100不能冒充当前默认a_0080。选择变化不是DEV调参。
 
-Tiberius显式配置softmasking=false、clamsa=false、default_seq_len200070；作者训练元数据包含水稻Kitaake和Setaria viridis。这里只读模型来源说明，不打开这些新的基因组或Setaria评价数据，不声称水稻为该模型未见物种。已补齐[当前预训练暴露记录](pretrained_exposure.md)：ANNEVO实际植物权重的作者声明排除拟南芥/水稻，Helixer实际a_0080训练列表包含两者，GENERanno上游暴露仍未知；不能称整张表为干净zero-shot。
+Tiberius显式配置softmasking=false、clamsa=false、default_seq_len200070；作者训练元数据包含水稻Kitaake和Setaria viridis。这里只读模型来源说明，不打开这些新的基因组或Setaria评价数据，不声称水稻为该模型未见物种。已补齐[当前预训练暴露记录](../../../paper/supplement/pretrained_exposure.md)：ANNEVO实际植物权重的作者声明排除拟南芥/水稻，Helixer实际a_0080训练列表包含两者，GENERanno上游暴露仍未知；不能称整张表为干净zero-shot。
 
 模型下载使用官方固定Git提交、Zenodo条目及Tiberius作者站点；保留源URL、最终URL、HTTP版本字段、实际大小和运行内副本。Tiberius模型URL自身不是内容寻址的不可变版本，明确保留这个来源限制，不以新自制哈希替代真实训练暴露审计。旧资产完全不覆盖。
 

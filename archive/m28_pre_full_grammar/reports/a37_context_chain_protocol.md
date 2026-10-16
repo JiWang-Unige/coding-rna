@@ -10,7 +10,7 @@
 
 模型612324参数＝上下文364256＋整链头248068，feature_dim2048／H128。fresh seed0的一次随机流先构造SharedContext再构造头，不继承A3、A21或A36训练权重；头初始tensor因此不冒称与单独seed0的A21头相同。gain为exon additive＋junction additive＋有序链nonadditive−窗口null，FP32。空集相对gain为0，操作点固定0；不是A36的单位角色分数，也不做尺度匹配／阈值扫描。复用现有有序头的方向化半开池化、累计相位、相触连接及valid-length语义，不改原头实现。
 
-这是组合模型假说，不是容量或总训练曝光匹配的因果消融，也不是新结构目标。可微结构层、神经表示联合学习已有[直接先例](../../docs/M28_complete_chain_competition_prior_work_20261003.md)；只有后续真实完整链收益、机制控制和独立适用范围才能支持论文贡献。
+这是组合模型假说，不是容量或总训练曝光匹配的因果消融，也不是新结构目标。可微结构层、神经表示联合学习已有[直接先例](../../../paper/manuscript/M28_complete_chain_competition_prior_work_20261003.md)；只有后续真实完整链收益、机制控制和独立适用范围才能支持论文贡献。
 
 ## 固定数据目标与曝光
 

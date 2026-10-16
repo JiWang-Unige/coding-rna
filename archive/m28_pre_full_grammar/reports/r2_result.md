@@ -12,10 +12,10 @@
 
 均为 private-teodoro-gpu/gpu035，2 CPU、8GiB、0 GPU。前两项限时15min，第三项10min；总实际分配约0.0761 CPUh、0 GPUh。5项 manifest 测试、6项核心测试、5项标签测试通过。原始输出约51MiB和8.9MiB，留在远程新目录；未改数据、旧 checkpoint 或冻结结果。
 
-- [manifest.py](../../scripts/experiments/M28-METHOD-RESTART/manifest.py)：自然网格、尾窗、方向、CDS资格、gene-first边际概率、训练抽样。
-- [core.py](../../src/m28/core.py)：冻结局部特征投影、跨全部 token 的双向GRU、碱基卷积分支、C0十五类头、B1端点/连接及整链头。
-- [labels.py](../../src/m28/labels.py)：局部细分类与部分结构的分组似然、替代isoform冲突mask、候选正/负/未知标记。
-- [inspect_r2.py](../../scripts/experiments/M28-METHOD-RESTART/inspect_r2.py)：两物种共用的随机顺序、全窗概率、逐gene曝光，以及实际样本标签 smoke。
+- [manifest.py](../../../pipeline/m28/scripts/manifest.py)：自然网格、尾窗、方向、CDS资格、gene-first边际概率、训练抽样。
+- [core.py](../../../pipeline/m28/src/m28/core.py)：冻结局部特征投影、跨全部 token 的双向GRU、碱基卷积分支、C0十五类头、B1端点/连接及整链头。
+- [labels.py](../../../pipeline/m28/src/m28/labels.py)：局部细分类与部分结构的分组似然、替代isoform冲突mask、候选正/负/未知标记。
+- [inspect_r2.py](../../../pipeline/m28/scripts/inspect_r2.py)：两物种共用的随机顺序、全窗概率、逐gene曝光，以及实际样本标签 smoke。
 - 固定数据及执行边界见[r2_contract.md](r2_contract.md)。
 
 ## 训练曝光得到纠正，但不是消融性能
@@ -40,7 +40,7 @@
 
 本次训练以CDS自身的起止、phase和序列兼容性判断完整性；因此父级partial但CDS完整的拟南芥结构可参与监督。旧parent过滤的4,151条拟南芥评价primary不被静默替换。
 
-这不是首次发现参考语义问题：[M26已有CDS-assessable对照](../M26-SAME-SCOPE-MECHANISM/semantic_reference_pair_result.md)报告过同一DEV拟南芥来源对齐及5,437个CDS-assessable primary。本阶段新的量是**训练窗口和监督曝光**，不是新参考来源机制。
+这不是首次发现参考语义问题：[M26已有CDS-assessable对照](../../../experiments/M26/reports/M26-SAME-SCOPE-MECHANISM/semantic_reference_pair_result.md)报告过同一DEV拟南芥来源对齐及5,437个CDS-assessable primary。本阶段新的量是**训练窗口和监督曝光**，不是新参考来源机制。
 
 正式C0/B1主比较前，沿用可解释的CDS-assessable评价政策并同口径重评分所有方法；原6,450表保留为历史连续性副表。具体primary与可评价规则须先固定，不能根据新模型成绩选分母。训练的5,382个拟南芥val可用primary不等于该历史5,437或新主评价分母：训练还排除了非标准剪接、切分端点密码子及重叠等实现不支持项。训练eligibility绝不充当评价过滤器。manifest中的结构失败原因计数非互斥，也不是全部primary选择差异的分解。
 

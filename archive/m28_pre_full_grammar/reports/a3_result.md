@@ -105,7 +105,7 @@ A3自然free覆盖57.4922%，owner覆盖50.4400%；3285/7728条主参考没有�
 | Helixer | 65.1944 | 57.1134 | 62.6864 |
 | A3 | 51.7567 | 53.5236 | 52.3200 |
 
-A3在两物种均低于这三份历史工具结果。历史权重/容器与基础GLM训练暴露的可追溯限制见[baseline_cache_provenance.md](baseline_cache_provenance.md)；不把该表升级为最新SOTA公平比较或泛化证据。
+A3在两物种均低于这三份历史工具结果。历史权重/容器与基础GLM训练暴露的可追溯限制见[baseline_cache_provenance.md](../../../benchmarks/native_baselines/reports/baseline_cache_provenance.md)；不把该表升级为最新SOTA公平比较或泛化证据。
 
 ## 本轮验证与证据路径
 

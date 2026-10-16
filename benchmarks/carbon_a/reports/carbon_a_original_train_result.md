@@ -1,10 +1,10 @@
 # Carbon-A：原六 TRAIN 完整结构比较
 
-2026-10-11 UTC的固定比较。原生 Carbon-A 完整流程和两种预先声明的置信度操作点均已完成；它在本面板上的整链成绩高于我们已完成的候选，但不构成独立泛化或解码器因果证据。后续完成状态于2026-10-13更新：B fresh×joint原TRAIN结果见[独立四格记录](full_grammar_fresh_joint24_result.md)；[C uniform-coarse](full_grammar_uniform_coarse_result.md)、[D codon-energy](full_grammar_codon_result.md)、[E rank4 q/v](full_grammar_joint_lora_result.md)及[M dense q/v](full_grammar_dense_qv_result.md)各自固定TRAIN闭环均已完成。下面保留原固定Carbon-A比较及其观察口径，不回写旧家族或新学习率对照结果。
+2026-10-11 UTC的固定比较。原生 Carbon-A 完整流程和两种预先声明的置信度操作点均已完成；它在本面板上的整链成绩高于我们已完成的候选，但不构成独立泛化或解码器因果证据。后续完成状态于2026-10-13更新：B fresh×joint原TRAIN结果见[独立四格记录](../../../experiments/M28/full_grammar/reports/full_grammar_fresh_joint24_result.md)；[C uniform-coarse](../../../experiments/M28/full_grammar/reports/full_grammar_uniform_coarse_result.md)、[D codon-energy](../../../experiments/M28/full_grammar/reports/full_grammar_codon_result.md)、[E rank4 q/v](../../../experiments/M28/full_grammar/reports/full_grammar_joint_lora_result.md)及[M dense q/v](../../../experiments/M28/full_grammar/reports/full_grammar_dense_qv_result.md)各自固定TRAIN闭环均已完成。下面保留原固定Carbon-A比较及其观察口径，不回写旧家族或新学习率对照结果。
 
 ## 完成证据与共同尺
 
-评价作业 13503419 的 root／batch／extern 均为 COMPLETED 0:0，实际 UTC 23:33:10–23:42:57，9分47秒；[评价收据](../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)和 STATUS 为完成状态。六条原 TRAIN 染色体共156,779,632 bp，保留22,688条 primary参考（拟南芥17,739、水稻4,949）。坐标、strand和完整有序CDS区间须全部相同才计为primary TP；使用唯一结构key，而非GFF记录数。逐染色体、分物种和pooled的TP／预测／参考及PRF直接重算一致，species macro和worst也一致。unsupported参考保留，未按训练资格筛除，推理未使用参考。
+评价作业 13503419 的 root／batch／extern 均为 COMPLETED 0:0，实际 UTC 23:33:10–23:42:57，9分47秒；[评价收据](../../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)和 STATUS 为完成状态。六条原 TRAIN 染色体共156,779,632 bp，保留22,688条 primary参考（拟南芥17,739、水稻4,949）。坐标、strand和完整有序CDS区间须全部相同才计为primary TP；使用唯一结构key，而非GFF记录数。逐染色体、分物种和pooled的TP／预测／参考及PRF直接重算一致，species macro和worst也一致。unsupported参考保留，未按训练资格筛除，推理未使用参考。
 
 固定revision为f6789ee79e6ef397de333577ffec1cb734496620；标准原生上下文98,304 bp、重叠6,144 bp、BF16／FlashAttention-2、batch8、dispatch4、GPU Viterbi及其余作者默认约束不变。两种操作点为confidence≥0.1或NA，以及未过滤；没有根据观察成绩选阈值。未使用DEV或sealed数据，更新0，冻结DEV家族未改。
 
@@ -12,7 +12,7 @@
 
 ## 完整链结果
 
-表中均为F1百分数。旧工具来源为[原生基线评价](../../outputs/M28-NATIVE-TRAIN-BASELINE-EVAL/summary.json)，初始及joint来源分别为[4608步诊断](../../outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-DIAGNOSTIC/summary.json)和[joint诊断](../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)；不回写原历史家族。
+表中均为F1百分数。旧工具来源为[原生基线评价](../../../outputs/M28-NATIVE-TRAIN-BASELINE-EVAL/summary.json)，初始及joint来源分别为[4608步诊断](../../../outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-DIAGNOSTIC/summary.json)和[joint诊断](../../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)；不回写原历史家族。
 
 | 方法 | 拟南芥 | 水稻 | Pooled | Species macro | Worst species |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -30,7 +30,7 @@
 
 ## 固定过滤的得失
 
-只读算术诊断13504740的root／batch／extern均COMPLETED 0:0，UTC23:44:55启动并结束，使用已完成评价JSON而非新预测或标签。其[结果](../../outputs/M28-CARBON-A-CONFIDENCE-DIAGNOSTIC/summary.json)保留每条染色体、每物种与pooled的固定端点。
+只读算术诊断13504740的root／batch／extern均COMPLETED 0:0，UTC23:44:55启动并结束，使用已完成评价JSON而非新预测或标签。其[结果](../../../outputs/M28-CARBON-A-CONFIDENCE-DIAGNOSTIC/summary.json)保留每条染色体、每物种与pooled的固定端点。
 
 过滤移除1,532条唯一预测，其中127条原primary命中丢失，余1,405条是非primary-exact的benchmark残差；并非均为生物学假基因。没有重复记录移除。拟南芥移除1,229／丢失95个命中，水稻移除303／丢失32个命中。Pooled召回下降0.560个百分点，而F1上升2.108点；六条染色体的F1均上升，但不能据此调阈值或声称独立统计显著。
 
@@ -38,7 +38,7 @@
 
 ## 与 joint 候选的逐参考链配对
 
-只读配对作业13504864的root／batch／extern均COMPLETED 0:0，UTC23:54:58–23:55:39，41秒。它复用已完成的原primary参考记录13461637及既有GFF，不读DNA、参考GFF或checkpoint，不执行forward／更新／预测修改。六条染色体上两固定Carbon-A口径与joint的TP、唯一预测和重复数全部复现；每条染色体、每物种及pooled的参考交集与分层加总均一致，详见[配对结果](../../outputs/M28-CARBON-A-JOINT24-PAIRED/summary.json)和[执行程序](../../scripts/experiments/M28-METHOD-RESTART/compare_carbon_a_joint24_train.py)。以下为参考级召回计数，不是分层prediction precision或F1。
+只读配对作业13504864的root／batch／extern均COMPLETED 0:0，UTC23:54:58–23:55:39，41秒。它复用已完成的原primary参考记录13461637及既有GFF，不读DNA、参考GFF或checkpoint，不执行forward／更新／预测修改。六条染色体上两固定Carbon-A口径与joint的TP、唯一预测和重复数全部复现；每条染色体、每物种及pooled的参考交集与分层加总均一致，详见[配对结果](../../../outputs/M28-CARBON-A-JOINT24-PAIRED/summary.json)和[执行程序](../scripts/compare_carbon_a_joint24_train.py)。以下为参考级召回计数，不是分层prediction precision或F1。
 
 | 固定 Carbon-A 口径 | 双方命中 | Carbon-A独有 | joint独有 | 双方均遗漏 | 净primary差 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -87,13 +87,13 @@ CDS段数预先分为1、2–5和≥6；基因跨度预先按24,576 bp分层，�
 
 默认固定过滤的1,532条移除量分解为127 primary命中、9其他可评价isoform匹配及1,396条两类均不精确匹配；短窗口1,502条分解为142／16／1,344。前两项是精确几何匹配资格，最后一项不是生物学假结构判定。集合差算术依赖预定过滤输出确为同一未过滤输出的子集，不能当成独立模型或重选阈值的依据。
 
-这里是全输出唯一预测计数，不是逐gene／逐primary参考的损失归因、同gene恢复数、表达或UTR证据，也不证明完整isoform召回或独立生物学有效性。不能将这些总数直接解释为joint丢失primary的原因；先前[LOCAL逐参考isoform诊断](full_grammar_objective_contrast_contract.md#主链变化中的同基因其他可评价-cds-isoform)是不同模型、不同分母和配对单位，不能借用其结果解释当前joint。现有primary排名、阈值、checkpoint、冻结DEV及B/C/D/E均不变。
+这里是全输出唯一预测计数，不是逐gene／逐primary参考的损失归因、同gene恢复数、表达或UTR证据，也不证明完整isoform召回或独立生物学有效性。不能将这些总数直接解释为joint丢失primary的原因；先前[LOCAL逐参考isoform诊断](../../../experiments/M28/full_grammar/reports/full_grammar_objective_contrast_contract.md#主链变化中的同基因其他可评价-cds-isoform)是不同模型、不同分母和配对单位，不能借用其结果解释当前joint。现有primary排名、阈值、checkpoint、冻结DEV及B/C/D/E均不变。
 
-来源为[默认评价](../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)、[短窗口评价](../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-EVAL/summary.json)、[已完成joint评价](../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)，以及远端scripts/experiments/M28-METHOD-RESTART/common_ruler.py的既有score实现。
+来源为[默认评价](../../../outputs/M28-CARBON-A-TRAIN-EVAL/summary.json)、[短窗口评价](../../../outputs/M28-CARBON-A-CONTEXT24-TRAIN-EVAL/summary.json)、[已完成joint评价](../../../outputs/M28-FULL-GRAMMAR-JOINT24-TRAIN-DIAGNOSTIC/summary.json)，以及远端scripts/experiments/M28-METHOD-RESTART/common_ruler.py的既有score实现。
 
 ## 结论边界与下一步
 
-这是本项目重新执行的完整raw-FASTA原生流程，不是作者预计算缓存。主权重共享原b0483c23b6b63787b61a6d3a204a9b517d6ba345来源；上下文、原生CDS heads、transition／confidence辅助网络、结构评分和过滤同时不同，未过滤仍保留learned transition。主模型已包含本面板物种／assembly的上游注释暴露，辅助网络各自训练与验证暴露尚未补齐，见[暴露记录](pretrained_exposure.md)。不能称独立encoder、干净zero-shot、纯decoder消融、独立泛化或匹配速度优势。
+这是本项目重新执行的完整raw-FASTA原生流程，不是作者预计算缓存。主权重共享原b0483c23b6b63787b61a6d3a204a9b517d6ba345来源；上下文、原生CDS heads、transition／confidence辅助网络、结构评分和过滤同时不同，未过滤仍保留learned transition。主模型已包含本面板物种／assembly的上游注释暴露，辅助网络各自训练与验证暴露尚未补齐，见[暴露记录](../../../paper/supplement/pretrained_exposure.md)。不能称独立encoder、干净zero-shot、纯decoder消融、独立泛化或匹配速度优势。
 
 继续消费B/C/D/E原范围的固定终态及预先声明的机制诊断。只有原已冻结DEV计划中的候选按该计划接续；E和Carbon-A不自动加入。此结果不放行封存／新物种数据，不改变冻结阈值、公开发布或论文claim边界。研究goal保持未完成。
 

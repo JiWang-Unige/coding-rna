@@ -22,7 +22,7 @@ Paired analysis localized most losses of previously selected matching candidates
 
 All counts refer to candidate pairs in 1,491 original TRAIN windows, not unique genes or chromosome-level annotation F1. The common natural readout pool contained 16,321 candidates, and the original reference-window denominators remained 2,916 overall and 1,086 for the at-least-five-exon subset. Unknown candidates were retained as a separate protected category, and known nonmatch was defined relative to the primary reference rather than as a biological false-positive determination. Training supervision and capacity differed between these models, so the descriptive comparisons do not isolate a causal benefit or failure of structured prediction, joint context learning or the null component. They motivate a separate test of absolute chain-versus-empty constraints, not a claim of generalization or superior genome annotation.
 
-该段用于后续论文的探索性方法开发或补充结果，不代替正文所需的完整 raw-FASTA 与独立泛化证据。计数和转移依据分别见 [A36 闭合结果](../../a36_structured_emission_result.md)、[A37 闭合结果](../../a37_context_chain_result.md)；A38 结果仍不纳入此段。
+该段用于后续论文的探索性方法开发或补充结果，不代替正文所需的完整 raw-FASTA 与独立泛化证据。计数和转移依据分别见 [A36 闭合结果](../../../../archive/m28_pre_full_grammar/reports/a36_structured_emission_result.md)、[A37 闭合结果](../../../../archive/m28_pre_full_grammar/reports/a37_context_chain_result.md)；A38 结果仍不纳入此段。
 
 ## 来源和复现
 

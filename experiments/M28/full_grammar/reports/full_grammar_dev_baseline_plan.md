@@ -18,7 +18,7 @@
 
 ## 固定基线与复用边界
 
-复用2026-10-03六次原生运行13358414_0–5及共同评价13358432所记录的固定资产，不称其为未经重新查询的“今日最新版本”。具体证据在[native_baseline_preparation.md](native_baseline_preparation.md)、[native_baseline_result.md](native_baseline_result.md)；准备阶段未重新读取DEV产物，获授权后的共同评价将按下述边界核对并复用。
+复用2026-10-03六次原生运行13358414_0–5及共同评价13358432所记录的固定资产，不称其为未经重新查询的“今日最新版本”。具体证据在[native_baseline_preparation.md](../../../../benchmarks/native_baselines/reports/native_baseline_preparation.md)、[native_baseline_result.md](../../../../benchmarks/native_baselines/reports/native_baseline_result.md)；准备阶段未重新读取DEV产物，获授权后的共同评价将按下述边界核对并复用。
 
 | 工具 | 固定源码／权重 | 原生运行操作点 |
 | --- | --- | --- |
@@ -66,7 +66,7 @@ UTC 03:18后，原心跳更新成功；本机实际保存字段当时为ACTIVE�
 
 ## 资格与下一步
 
-这两条DEV已经被多轮研究使用，当前checkpoint在此次比较前固定不能抹去历史开发依赖。GENERanno为发布CDS注释checkpoint的冻结backbone，其上游物种/annotation/同源暴露仍unknown；ANNEVO植物权重作者声明排除拟南芥/水稻但未独立审计；Helixer当前权重明确包含两物种；Tiberius包含水稻。详见[pretrained_exposure.md](pretrained_exposure.md)。raw FASTA输入与各方法未见物种是不同条件，不能统一称clean zero-shot。
+这两条DEV已经被多轮研究使用，当前checkpoint在此次比较前固定不能抹去历史开发依赖。GENERanno为发布CDS注释checkpoint的冻结backbone，其上游物种/annotation/同源暴露仍unknown；ANNEVO植物权重作者声明排除拟南芥/水稻但未独立审计；Helixer当前权重明确包含两物种；Tiberius包含水稻。详见[pretrained_exposure.md](../../../../paper/supplement/pretrained_exposure.md)。raw FASTA输入与各方法未见物种是不同条件，不能统一称clean zero-shot。
 
 原TRAIN共同尺诊断已完成：拟南芥完整链F1=50.4871%，水稻=28.2780%，pooled=45.5901%；CDS-base F1分别93.0848%、80.8511%、90.3601%。这是有限原draw首训后的训练染色体描述性读数，不是DEV、独立泛化或基线比较；不能以loss下降或base指标替代完整gene准确率。该结果不触发任何自动改参／增训，也不改变本固定候选。
 

@@ -60,7 +60,7 @@ Data: single_edge_result.json and single_edge_contract.md; code edge_decode.py a
 | 已得到可区分不可靠修复/合理纠错的风险信号 | 不支持；candidate=false，无双向验证 | 只能列未实现目标 | 不以分数提高/结构合法/基准匹配代替诊断价值 |
 | 新通用方法、clean zero-shot或NC级贡献 | 不支持 | 不进入标题/摘要结论 | 训练暴露未知；新颖性受先行工作限制；无独立泛化/决策收益 |
 
-M26的A→B/R3是独立实现资产，参考政策问题属于测量勘误，R8属于有限阴性；不作为本稿的机制证据。完整跨阶段映射见 [证据映射](manuscript_evidence_map_20260929.md)。最接近文献与核查时间见 [新颖性边界](../reports/M27-ALLELIC-INTEGRITY/novelty_scope.md)；本写作包未开展新的文献检索，不声称穷尽相关研究。
+M26的A→B/R3是独立实现资产，参考政策问题属于测量勘误，R8属于有限阴性；不作为本稿的机制证据。完整跨阶段映射见 [证据映射](manuscript_evidence_map_20260929.md)。最接近文献与核查时间见 [新颖性边界](../../experiments/M27/reports/M27-ALLELIC-INTEGRITY/novelty_scope.md)；本写作包未开展新的文献检索，不声称穷尽相关研究。
 
 ## 一次性后续判断
 

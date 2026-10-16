@@ -46,7 +46,7 @@
 
 ## 独立数值复算与解释
 
-主读取四个实际completed评价JSON的原始计数，与最终 [96KB汇总](../../outputs/M28-FULL-GRAMMAR-QV-LR-FOUR-CELL/summary.json) 逐项比较；不调用producer summarize。独立重算36个原chr／species／pooled行的完整链及base PRF、六chr加总、phase／duplicate／其他isoform／nonprimary、全部background计数／分母／rates、每格macro／worst及全部11scope各measure的高减低和差中差，全部一致。原参考人口／unsupported strata、权重来源及四份对B／规范原DNA的访问前相等收据一致。没有重读DNA／参考GFF／checkpoint、执行native forward、再次评分或训练。零预测合法，未用结果筛样本。
+主读取四个实际completed评价JSON的原始计数，与最终 [96KB汇总](../../../../outputs/M28-FULL-GRAMMAR-QV-LR-FOUR-CELL/summary.json) 逐项比较；不调用producer summarize。独立重算36个原chr／species／pooled行的完整链及base PRF、六chr加总、phase／duplicate／其他isoform／nonprimary、全部background计数／分母／rates、每格macro／worst及全部11scope各measure的高减低和差中差，全部一致。原参考人口／unsupported strata、权重来源及四份对B／规范原DNA的访问前相等收据一致。没有重读DNA／参考GFF／checkpoint、执行native forward、再次评分或训练。零预测合法，未用结果筛样本。
 
 学习率敏感性在两物种中方向相反：rank4高lr比低lr的AT／rice F1高4.900917／13.458467pp，全秩高lr却低9.282959／26.578040pp；pooled差中差−20.247354pp。在相同低lr下全秩pooled高于rank4 6.271397pp，而高lr下rank4高于全秩13.975957pp。因此原E／M对比不能孤立解释成rank4普遍更好，或学习率普遍提高／降低性能。不同参数化、BF16 forward舍入、共同clip及optimizer轨迹仍不等同，每格仅单fit／seed；这是固定TRAIN优化敏感性读出，不是纯rank因果、全范围最优lr或独立泛化证据。
 

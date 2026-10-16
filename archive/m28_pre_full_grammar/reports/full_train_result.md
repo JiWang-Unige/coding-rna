@@ -44,7 +44,7 @@ Q 的6772条最终输出都通过现有完整 CDS 结构检查；C0 为7714／77
 
 ## 与已完成原生基线的同尺比较
 
-下表采用[原生基线完成结果](native_baseline_result.md)，不是 FULL 原评价中附带的旧缓存工具数字。终态核验将原生比较单独加入新 receipt，没有覆盖原 FULL summary 或冻结 gate。7728 条参考的物种／ID／染色体／方向／CDS 坐标与原生参考表逐项一致，background 分母也一致。
+下表采用[原生基线完成结果](../../../benchmarks/native_baselines/reports/native_baseline_result.md)，不是 FULL 原评价中附带的旧缓存工具数字。终态核验将原生比较单独加入新 receipt，没有覆盖原 FULL summary 或冻结 gate。7728 条参考的物种／ID／染色体／方向／CDS 坐标与原生参考表逐项一致，background 分母也一致。
 
 | 方法 | 拟南芥 exact-chain F1 % | 水稻 exact-chain F1 % | pooled exact-chain F1 % |
 |---|---|---|---|

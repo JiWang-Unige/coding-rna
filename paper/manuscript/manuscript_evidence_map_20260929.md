@@ -20,7 +20,7 @@
 | M27预定确认 | 两工具首阳性各syn/PTC，全chr/目标及Tiberius过滤/请求复现 | 四次计算复现及后续可记录接口 | 不是新增独立样本；不是因果或生物学验证 |
 | M27单边检验 | 同PTC缓存重放530链相同；释放一条边后输出/分数不变、边未被使用 | 该特定干预不足以逆转输出，按协议结束pilot | 不支持风险诊断、NN单独致因或所有ORF约束无关 |
 
-证据入口：[M26同范围](../reports/M26-SAME-SCOPE-MECHANISM/result.md)、[图支持](../reports/M26-SAME-SCOPE-MECHANISM/support_result.md)、[来源配对](../reports/M26-SAME-SCOPE-MECHANISM/semantic_reference_pair_result.md)、[端点预算](../reports/M26-SAME-SCOPE-MECHANISM/endpoint_budget_result.md)、[M27配对](../reports/M27-ALLELIC-INTEGRITY/paired_result.md)、[确认](../reports/M27-ALLELIC-INTEGRITY/confirmation_result.md)、[单边](../reports/M27-ALLELIC-INTEGRITY/single_edge_result.md)。
+证据入口：[M26同范围](../../experiments/M26/reports/M26-SAME-SCOPE-MECHANISM/result.md)、[图支持](../../experiments/M26/reports/M26-SAME-SCOPE-MECHANISM/support_result.md)、[来源配对](../../experiments/M26/reports/M26-SAME-SCOPE-MECHANISM/semantic_reference_pair_result.md)、[端点预算](../../experiments/M26/reports/M26-SAME-SCOPE-MECHANISM/endpoint_budget_result.md)、[M27配对](../../experiments/M27/reports/M27-ALLELIC-INTEGRITY/paired_result.md)、[确认](../../experiments/M27/reports/M27-ALLELIC-INTEGRITY/confirmation_result.md)、[单边](../../experiments/M27/reports/M27-ALLELIC-INTEGRITY/single_edge_result.md)。
 
 ## 可写的三图骨架（不是已完成的图）
 
@@ -36,7 +36,7 @@ M26不作为这三图的异物拼入；它有不同物种、参考政策、模�
 
 公开仓库已授权，但论文投稿、作者排序、机构声明、伦理/数据声明及期刊承诺尚未决定；不代作者提交。当前公开快照缺大规模runtime输入，必须清楚区分“代码/紧凑证据可读”与“他人可一键复现”；不能写available upon request以代替实际数据可用性方案。
 
-新颖性边界以 [已核查先行研究](../reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) 为依据，检索日期2026-09-26，不宣称穷尽全部文献或代表之后没有新研究。现阶段选择性风险双向验证没有启动依据；若要新研究，需要另一个可被证伪的问题与真正独立的裁决材料，不从本次阴性自动推出。
+新颖性边界以 [已核查先行研究](../../experiments/M27/reports/M27-ALLELIC-INTEGRITY/novelty_scope.md) 为依据，检索日期2026-09-26，不宣称穷尽全部文献或代表之后没有新研究。现阶段选择性风险双向验证没有启动依据；若要新研究，需要另一个可被证伪的问题与真正独立的裁决材料，不从本次阴性自动推出。
 
 ## 下一阶段决策状态
 

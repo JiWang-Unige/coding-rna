@@ -8,7 +8,7 @@
 
 相对原4608锚点，联合编码恢复5316、丢失356、净增4960；相对同9216结构控制则恢复2956、丢失726、净增2230。LOCAL虽恢复2119却丢失2542、净减423，负结果完整保留。新抽样在三基线一致缺口中恢复3703／4954，多于联合编码的3651，但完整输出F1更低、背景链更多；不能用子集恢复数替代完整性能。
 
-独立匹配监督读出13462281也已完成并由主处理：FRESH相对STRUCT净TP+1444，其中追加训练中两者均无完整fine核心的16681参考组净增1046；该标记排除共同起点曝光，不代表独立未见。完整主要计数、逐物种代价与解释已合并到[结果工作稿](../../docs/M28_full_grammar_results_working.md#reference-recovery-losses-and-additional-fit-supervision)。这是主直接处理，不伪称新监控自动回传；旧任务不再作为外部等待对象。原冻结DEV家族不变，sealed／held-out／Setaria未放行。
+独立匹配监督读出13462281也已完成并由主处理：FRESH相对STRUCT净TP+1444，其中追加训练中两者均无完整fine核心的16681参考组净增1046；该标记排除共同起点曝光，不代表独立未见。完整主要计数、逐物种代价与解释已合并到[结果工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md#reference-recovery-losses-and-additional-fit-supervision)。这是主直接处理，不伪称新监控自动回传；旧任务不再作为外部等待对象。原冻结DEV家族不变，sealed／held-out／Setaria未放行。
 
 ## 完整候选与既有来源
 

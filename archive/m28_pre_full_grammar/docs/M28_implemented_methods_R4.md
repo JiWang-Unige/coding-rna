@@ -3,7 +3,7 @@
 2026-09-30. This is an implementation-grounded Methods draft, not a results section
 or a claim of novelty. The implementation is fixed at
 [2bb6d3a](https://github.com/JiWang-Unige/coding-rna/tree/2bb6d3a249d81f0af3a97b5454fdd71072affb40).
-The [R4 pre-fit contract](../reports/M28-METHOD-RESTART/r4_pilot_contract.md)
+The [R4 pre-fit contract](../reports/r4_pilot_contract.md)
 controls the running pilot. At drafting, complete paired fit/DEV results are still
 pending; the procedures below describe the configured analysis, not its success.
 
@@ -17,7 +17,7 @@ Internal intervals are zero-based and half-open.
 
 The pilot uses the existing Arabidopsis thaliana and Oryza sativa TRAIN/DEV
 allowlists, reconstructed and checked against the saved chromosome split files by
-[census.py](../scripts/experiments/M28-METHOD-RESTART/census.py). It does not use the
+[census.py](../../../pipeline/m28/scripts/census.py). It does not use the
 legacy M25R training sampler or its fitted LoRA/head. The DEV chromosomes are
 NC_003074.8 (23,459,830 bp) and NC_089041.1 (29,936,421 bp). Test chromosomes and
 Setaria remain sealed. Chromosome separation is not asserted to provide homology
@@ -33,8 +33,8 @@ for the selected primary when scoring. Genes without an assessable complete
 isoform can provide certain local supervision from the longest available
 isoform but cannot become complete-chain positives. Reference construction and
 training-label alignment are implemented in
-[common_ruler.py](../scripts/experiments/M28-METHOD-RESTART/common_ruler.py) and
-[align_labels.py](../scripts/experiments/M28-METHOD-RESTART/align_labels.py).
+[common_ruler.py](../../../pipeline/m28/scripts/common_ruler.py) and
+[align_labels.py](../../../pipeline/m28/scripts/align_labels.py).
 
 ## Shared sequence representation
 
@@ -59,8 +59,8 @@ by GELU. The concatenated 160-dimensional representation is mapped to 128
 dimensions by a linear layer, GELU and layer normalization. Padded bases are
 masked. A shared linear head produces 15 local-state logits: intergenic,
 phase-specific CDS/intron/donor/acceptor states, start and stop.
-See [core.py](../src/m28/core.py) and
-[cache_features.py](../scripts/experiments/M28-METHOD-RESTART/cache_features.py).
+See [core.py](../../../pipeline/m28/src/m28/core.py) and
+[cache_features.py](../../../pipeline/m28/scripts/cache_features.py).
 
 ## B1 proposals and complete-chain scores
 
@@ -97,8 +97,8 @@ Discrete site selection, pruning and proposal generation are outside autograd.
 Loss gradients reach the neural scoring modules and shared features for the
 selected/injected structures. The nonadditive network reranks a bounded
 additive proposal pool; it is not a globally optimal nonadditive decoder.
-See [candidates.py](../src/m28/candidates.py),
-[core.py](../src/m28/core.py) and [training.py](../src/m28/training.py).
+See [candidates.py](../../../pipeline/m28/src/m28/candidates.py),
+[core.py](../../../pipeline/m28/src/m28/core.py) and [training.py](../../../pipeline/m28/src/m28/training.py).
 
 ## Paired training and C0 control
 
@@ -119,7 +119,7 @@ binary losses, all with coefficient one. Each binary output column averages its
 known positive and negative class means with equal mass when both are present;
 one observed class has unit mass and no known examples contribute zero.
 Alternative-isoform conflicts, partial/unsupported structures and noncallable
-bases are masked according to [labels.py](../src/m28/labels.py).
+bases are masked according to [labels.py](../../../pipeline/m28/src/m28/labels.py).
 
 For each B1 training window, free proposals are generated and saved using only
 DNA and neural scores before reference-derived targets or injections are built.
@@ -144,8 +144,8 @@ zero transition penalties, and uses internal minimum intron length one
 difference obtained by replacing that gene's entire span with intergenic states,
 including incoming/outgoing transitions. This is neither CDS-length-normalized
 nor a full-chromosome HMM run. C0 does not call the ANNEVO neural model.
-See [c0_decode.py](../src/m28/c0_decode.py) and
-[fit_pilot.py](../scripts/experiments/M28-METHOD-RESTART/fit_pilot.py).
+See [c0_decode.py](../../../pipeline/m28/src/m28/c0_decode.py) and
+[fit_pilot.py](../../../pipeline/m28/scripts/fit_pilot.py).
 
 ## Chromosome output and evaluation
 
@@ -180,10 +180,10 @@ owner and final selection stages. B1's additive-only readout uses the same
 fitted model and free candidates; it is a diagnostic, not a separately trained
 causal ablation. B1 versus C0 is a whole-system comparison, not an isolated
 effect of the chain GRU.
-See [assembly.py](../src/m28/assembly.py),
-[export.py](../src/m28/export.py),
-[infer_pilot.py](../scripts/experiments/M28-METHOD-RESTART/infer_pilot.py) and
-[evaluate_pilot.py](../scripts/experiments/M28-METHOD-RESTART/evaluate_pilot.py).
+See [assembly.py](../../../pipeline/m28/src/m28/assembly.py),
+[export.py](../../../pipeline/m28/src/m28/export.py),
+[infer_pilot.py](../../../pipeline/m28/scripts/infer_pilot.py) and
+[evaluate_pilot.py](../../../pipeline/m28/scripts/evaluate_pilot.py).
 
 ## Execution and claim limits
 

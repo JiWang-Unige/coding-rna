@@ -8,7 +8,7 @@ K为本窗原known 0／1候选，N为其数量，g_i为相对window null的gain�
 
 以下除以N的公式要求N>0；N=0仍按原实现返回可微零，不使用这些除法，也不删除对应draw。该语义已由原目标检查覆盖，本次不重跑未修改的空池检查。
 
-现有[chain_set.py](../../src/m28/chain_set.py)精确计算log Z_C和( log Z_C−Σ_{i∈P}g_i )／N。[core.chain_loss](../../src/m28/core.py)计算( log Z_all−Σ_{i∈P}g_i )／N；[当前复合实现](../../src/m28/null_anchored_chain_set.py)取两者等权均值。因此集合分布就是独立Bernoulli候选集合在事件C上的条件分布：L_set=L_BCE+log Pr_independent(C)／N，而L_A39=L_BCE+log Pr_independent(C)／(2N)。
+现有[chain_set.py](../src/m28/chain_set.py)精确计算log Z_C和( log Z_C−Σ_{i∈P}g_i )／N。[core.chain_loss](../../../pipeline/m28/src/m28/core.py)计算( log Z_all−Σ_{i∈P}g_i )／N；[当前复合实现](../src/m28/null_anchored_chain_set.py)取两者等权均值。因此集合分布就是独立Bernoulli候选集合在事件C上的条件分布：L_set=L_BCE+log Pr_independent(C)／N，而L_A39=L_BCE+log Pr_independent(C)／(2N)。
 
 log Pr(C)≤0。这是条件归一化恒等式，不是一个正的“非法集合质量惩罚”。本关系只适用于当前一元gain之和、硬跨度约束及原known集合；额外成对势或其他分区不自动满足以下界。known非匹配仍只是primary参考相对0，不是生物学真负。
 

@@ -31,7 +31,7 @@ macro F1为57.46811%。冻结条件要求两物种F1均严格高于原固定A（
 | 原生Tiberius | 74.17714 | 66.58217 | 71.80468 |
 | 原生Helixer | 67.45638 | 53.52427 | 62.85117 |
 
-A10水稻F1高于Helixer，但不能称总体或两物种更好；micro仍低于全部三种native。这里是已完成native运行，不用历史cached benchmark替代它们。原生模型及GEN上游训练／validation／未知曝光边界见[native_baseline_result.md](native_baseline_result.md)与[independent_transfer_candidates.md](independent_transfer_candidates.md)；反复使用的这两物种DEV不是独立泛化测试。
+A10水稻F1高于Helixer，但不能称总体或两物种更好；micro仍低于全部三种native。这里是已完成native运行，不用历史cached benchmark替代它们。原生模型及GEN上游训练／validation／未知曝光边界见[native_baseline_result.md](../../../benchmarks/native_baselines/reports/native_baseline_result.md)与[independent_transfer_candidates.md](independent_transfer_candidates.md)；反复使用的这两物种DEV不是独立泛化测试。
 
 ## 命中变动与当前瓶颈
 

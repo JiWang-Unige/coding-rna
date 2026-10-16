@@ -1,6 +1,6 @@
 # M28 固定 TRAIN 见证的原生编码上下文诊断
 
-2026-10-09。检验原生长上下文是否改变固定4608步head的结构信息。使用已完成13429053的原有八个TRAIN见证，不按本轮性能选窗口，不读取DEV或封存数据。Carbon-A来源及上下文消融见[pretrained_exposure.md](pretrained_exposure.md)；作者结果是诊断动机，不是本项目差距的因果证据。
+2026-10-09。检验原生长上下文是否改变固定4608步head的结构信息。使用已完成13429053的原有八个TRAIN见证，不按本轮性能选窗口，不读取DEV或封存数据。Carbon-A来源及上下文消融见[pretrained_exposure.md](../../../../paper/supplement/pretrained_exposure.md)；作者结果是诊断动机，不是本项目差距的因果证据。
 
 ## 固定因素和四种编码条件
 

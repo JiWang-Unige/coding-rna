@@ -8,7 +8,7 @@
 
 新机制让表示和15类发射直接接受完整链集合监督：复用现有SharedContext的GEN投影、双向GRU、局部DNA卷积、融合与15类线性头，fresh seed0，feature_dim2048／H128／366191可训练参数。GEN本身仍冻结，仅用原四块6144bp缓存；原A3查询生成器不更新，也不把其已训练hidden当成新模型输入。当前新模型不含query、ChainHead或link头。
 
-A14／A15曾在冻结A3表示上训练165635参数的候选ChainHead；本轮训练的是从原缓存和DNA学习的表示与发射，不是给原发射加六个权重。候选集合似然、结构学习和相位发射本身已有先例，见[既有方法边界](../../docs/M28_complete_chain_competition_prior_work_20261003.md)，不据实现差异宣称论文创新。
+A14／A15曾在冻结A3表示上训练165635参数的候选ChainHead；本轮训练的是从原缓存和DNA学习的表示与发射，不是给原发射加六个权重。候选集合似然、结构学习和相位发射本身已有先例，见[既有方法边界](../../../paper/manuscript/M28_complete_chain_competition_prior_work_20261003.md)，不据实现差异宣称论文创新。
 
 ## 固定科学选择
 

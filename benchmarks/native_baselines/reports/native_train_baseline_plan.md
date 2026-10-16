@@ -15,7 +15,7 @@
 | 水稻 | NC_089044.1 | 23931887 | 1601 |
 | 水稻 | NC_089046.1 | 28271460 | 1710 |
 
-复用原 DEV 对比已验证的隔离资产及操作点：ANNEVO 源码42c920f、Magnoliopsida权重、batch32；Tiberius 隔离2.0.8源码871d497及实际2.0.7依赖 SIF、angiosperms权重、batch4、seq_len200070、unmasked且无ClaMSA；Helixer 0.3.7源码d17bb49、land_plant_v0.3_a_0080权重、batch16、64152 subsequence、deterministic、原生后处理默认。详细身份与暴露限制沿用[native_baseline_preparation.md](native_baseline_preparation.md)和[pretrained_exposure.md](pretrained_exposure.md)，不把各工具的上游暴露统一称为未见。
+复用原 DEV 对比已验证的隔离资产及操作点：ANNEVO 源码42c920f、Magnoliopsida权重、batch32；Tiberius 隔离2.0.8源码871d497及实际2.0.7依赖 SIF、angiosperms权重、batch4、seq_len200070、unmasked且无ClaMSA；Helixer 0.3.7源码d17bb49、land_plant_v0.3_a_0080权重、batch16、64152 subsequence、deterministic、原生后处理默认。详细身份与暴露限制沿用[native_baseline_preparation.md](native_baseline_preparation.md)和[pretrained_exposure.md](../../../paper/supplement/pretrained_exposure.md)，不把各工具的上游暴露统一称为未见。
 
 `run_native_baseline.commands` 仅增加明确 FASTA 参数。未传参数时原 DEV 命令保持不变；TRAIN runner 通过只读单文件容器挂载指定共享 FASTA，其他参数逐项保持原样。原生 GFF、日志、GPU 探测和权重收据分别保存在新目录，不覆盖旧 DEV 或原 TRAIN 结果。
 

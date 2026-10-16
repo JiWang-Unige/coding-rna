@@ -4,25 +4,25 @@
 
 ## 当前阶段：M28新模型研发已重新启动
 
-用户已明确选择以新ab initio模型的性能或适用范围推进争取Nature Communications及以上，不采用复现型论文作为主目标。此前等待成果定位的条件已解除。见 [M28新方法计划](M28_method_development_plan_20260929.md) 与 [并行开发数据盘点结果](../reports/M28-METHOD-RESTART/census_result.md)：旧M25R采样存在物种prefix偏置，已以历史标签聚合计数核对；新模型比较必须包含修正采样的公平对照。第16轮Pro建议首攻重新学习候选与非加性整链竞争B1，对照共享特征的标准结构C0；没有新训练结果或新论文主张。M27保持关闭，Setaria保持封存。
+用户已明确选择以新ab initio模型的性能或适用范围推进争取Nature Communications及以上，不采用复现型论文作为主目标。此前等待成果定位的条件已解除。见 [M28新方法计划](M28_method_development_plan_20260929.md) 与 [并行开发数据盘点结果](../archive/m28_pre_full_grammar/reports/census_result.md)：旧M25R采样存在物种prefix偏置，已以历史标签聚合计数核对；新模型比较必须包含修正采样的公平对照。第16轮Pro建议首攻重新学习候选与非加性整链竞争B1，对照共享特征的标准结构C0；没有新训练结果或新论文主张。M27保持关闭，Setaria保持封存。
 
 ## 前阶段：M27单边检验阴性，关闭固定先导
 
-Pro第13轮读取2be9d884确认材料及ANNEVO固定源码后，建议只释放POTEH登记位置的一条内部编码延续边。协议/代码dfed2c4先公开，6项原生Numba/矩阵/坐标/得分测试通过后，CPU作业13290433完成两次固定整chr22解码：2分34秒，8CPU/32GiB，0GPU/新NN/训练/Setaria。见 [单边结果](../reports/M27-ALLELIC-INTEGRITY/single_edge_result.md) 与紧凑JSON。
+Pro第13轮读取2be9d884确认材料及ANNEVO固定源码后，建议只释放POTEH登记位置的一条内部编码延续边。协议/代码dfed2c4先公开，6项原生Numba/矩阵/坐标/得分测试通过后，CPU作业13290433完成两次固定整chr22解码：2分34秒，8CPU/32GiB，0GPU/新NN/训练/Setaria。见 [单边结果](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/single_edge_result.md) 与紧凑JSON。
 
 同PTC缓存重放完全复现530条链。仅释放CDS1_TA→CDS2后，该边未被实际选中，174ntCDS跳过和全chr链均不变，发射差0；两臂相同min1 pass，无目标外状态变化。原坐标链恢复门槛未通过，结束该固定pilot，不追加边/组合/位点。局部阴性不能外推为所有ORF约束无关或NN单独致因；差0也不是原参考链与bypass得分相等。未建立选择性风险信号，不自动扩真实变异/物种。发表目标仍未完成。
 
-Pro第14轮实际读取6350e2bc的结果/合同/代码，未独立重跑；认可关闭并选择写作，不建议默认再找公开数据立项。已完成 [M27写作包](M27_manuscript_writing_package_20260929.md)：受限摘要、三图完整图注及主张矩阵；另有 [跨阶段证据映射](manuscript_evidence_map_20260929.md)。当前定位是定量复现／受限实现研究，尚无新机制/方法推进。第15轮一次性写作审阅已完成，唯一的隐藏状态观测范围措辞已修正；下一步待作者选择是否接受复现型完整稿；不把“未达NC”自动变成追加实验，作者/期刊/正式提交尚未决定。
+Pro第14轮实际读取6350e2bc的结果/合同/代码，未独立重跑；认可关闭并选择写作，不建议默认再找公开数据立项。已完成 [M27写作包](../paper/manuscript/M27_manuscript_writing_package_20260929.md)：受限摘要、三图完整图注及主张矩阵；另有 [跨阶段证据映射](../paper/manuscript/manuscript_evidence_map_20260929.md)。当前定位是定量复现／受限实现研究，尚无新机制/方法推进。第15轮一次性写作审阅已完成，唯一的隐藏状态观测范围措辞已修正；下一步待作者选择是否接受复现型完整稿；不把“未达NC”自动变成追加实验，作者/期刊/正式提交尚未决定。
 
 ## 前阶段：M27预定两案例原生确认完成
 
-Pro第12轮读取固定43e366a的结果/合同/分类实现，未访问原始产物或独立重跑；支持先执行四次原生确认并旁路保存缓存。冻结 [确认合同](../reports/M27-ALLELIC-INTEGRITY/confirmation_contract.md)：ANNEVO/POTEH与Tiberius/CRYBA4按原顺序各syn/PTC，完整链及竞争身份必须复现；全chr/过滤/请求差异另存，无法解释不得进入分量归因。缓存记录不是已验证重放，也不是分量干预。
+Pro第12轮读取固定43e366a的结果/合同/分类实现，未访问原始产物或独立重跑；支持先执行四次原生确认并旁路保存缓存。冻结 [确认合同](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/confirmation_contract.md)：ANNEVO/POTEH与Tiberius/CRYBA4按原顺序各syn/PTC，完整链及竞争身份必须复现；全chr/过滤/请求差异另存，无法解释不得进入分量归因。缓存记录不是已验证重放，也不是分量干预。
 
-CPU准备13233925 COMPLETED，19测试通过，0GPU。协议先公开0a8436d，确认13233933随后COMPLETED 0:0，19分39秒/0.3275GPUh。4/4目标完整结构及全chr链复现，Tiberius过滤前后和请求元数据也相同，见 [确认结果](../reports/M27-ALLELIC-INTEGRITY/confirmation_result.md)。累计4.313333/8GPUh，34.29/50GiB，无重试。15nt GC–AG内含子是可重现算法行为，不推定生物学合理；不增加原分母。下一Pro商议依据结果及 [实现边界](../reports/M27-ALLELIC-INTEGRITY/component_feasibility.md)，只决定一个神经证据/显式完整性约束冲突检验；不直接扩大真实变异/新物种。
+CPU准备13233925 COMPLETED，19测试通过，0GPU。协议先公开0a8436d，确认13233933随后COMPLETED 0:0，19分39秒/0.3275GPUh。4/4目标完整结构及全chr链复现，Tiberius过滤前后和请求元数据也相同，见 [确认结果](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/confirmation_result.md)。累计4.313333/8GPUh，34.29/50GiB，无重试。15nt GC–AG内含子是可重现算法行为，不推定生物学合理；不增加原分母。下一Pro商议依据结果及 [实现边界](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/component_feasibility.md)，只决定一个神经证据/显式完整性约束冲突检验；不直接扩大真实变异/新物种。
 
 ## 前阶段：M27完整配对结果与有限确认对象
 
-13227849全部44次原生推理COMPLETED 0:0，耗时3:43:20；含WT累计3.985833 GPUh，8GPUh内剩余4.014167。ANNEVO n=12与Tiberius n=10各出现2个明确PTC特异bypass、2个不可归属；识别界限分别[0.166667,0.333333]、[0.2,0.4]。共同9两工具均为[0.111111,0.333333]，但明确阳性不在同一个共同位点，不能称同位点机制复现。全部同义条件保留WT链。见 [完整结果](../reports/M27-ALLELIC-INTEGRITY/paired_result.md) 与原始JSON。
+13227849全部44次原生推理COMPLETED 0:0，耗时3:43:20；含WT累计3.985833 GPUh，8GPUh内剩余4.014167。ANNEVO n=12与Tiberius n=10各出现2个明确PTC特异bypass、2个不可归属；识别界限分别[0.166667,0.333333]、[0.2,0.4]。共同9两工具均为[0.111111,0.333333]，但明确阳性不在同一个共同位点，不能称同位点机制复现。全部同义条件保留WT链。见 [完整结果](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/paired_result.md) 与原始JSON。
 
 Pro第11轮已经读取bb5f773的文献说明与冻结合同，未读中途病例、未重跑；它将该路线定位为已知现象在现代工具中的有限复现，候选新问题是神经证据与完整性约束的冲突能否选择性识别不可靠修复，而非单纯发现绕行。这个风险信号尚未建立，真实损伤与合理纠错的双向验证也尚未执行。
 
@@ -30,17 +30,17 @@ Pro第11轮已经读取bb5f773的文献说明与冻结合同，未读中途病�
 
 ## 前阶段：M27 原生条件配对干预
 
-Pro第十轮读取2239028的五个WT结果/实现文件，支持执行已事前定义的各工具W_m，而非重新选择参考面板。现在冻结 [原生配对合同](../reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md)：ANNEVO 12位点×2、Tiberius10位点×2，共44次整chr22单SNV原生推理，全部21登记行保留。唯一双端CDS锚、密码子整体入内含子、合法ORF及外来编码混杂共同定义严格bypass；未完成和歧义进入固定分母的识别上下界，不被丢掉或填为阴性。
+Pro第十轮读取2239028的五个WT结果/实现文件，支持执行已事前定义的各工具W_m，而非重新选择参考面板。现在冻结 [原生配对合同](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/paired_native_contract.md)：ANNEVO 12位点×2、Tiberius10位点×2，共44次整chr22单SNV原生推理，全部21登记行保留。唯一双端CDS锚、密码子整体入内含子、合法ORF及外来编码混杂共同定义严格bypass；未完成和歧义进入固定分母的识别上下界，不被丢掉或填为阴性。
 
-CPU准备13227836已COMPLETED（16秒，0GPU，17测试通过），26份完整chr22单SNV输入已生成。首个mutant前公开协议、实现和输入清单；配对结果尚待完成。执行与资源见 [执行记录](../reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md)。最多6GPUh/32GiB，M27总8GPUh/50GiB不变，不重试模型失败，不训练、不访问Setaria。仅出现明确PTC=1/syn=0时，下一阶段才按登记坐标每工具最多一个案例做重现确认；本阶段不做分量交叉。
+CPU准备13227836已COMPLETED（16秒，0GPU，17测试通过），26份完整chr22单SNV输入已生成。首个mutant前公开协议、实现和输入清单；配对结果尚待完成。执行与资源见 [执行记录](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/paired_native_execution.md)。最多6GPUh/32GiB，M27总8GPUh/50GiB不变，不重试模型失败，不训练、不访问Setaria。仅出现明确PTC=1/syn=0时，下一阶段才按登记坐标每工具最多一个案例做重现确认；本阶段不做分量交叉。
 
-运行期间完成 [新颖性边界核查](../reports/M27-ALLELIC-INTEGRITY/novelty_scope.md)：SGRF 已有约19,000基因的人工早停 HMM 检验，早期 Helixer 已有神经扰动分析，泛基因组注释一致性也已有系统研究。这不改冻结运行；完整结果后须区分旧现象重现、可辨识的新机制及实际后果，不能因现代工具阳性就自动扩大论文主张。
+运行期间完成 [新颖性边界核查](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/novelty_scope.md)：SGRF 已有约19,000基因的人工早停 HMM 检验，早期 Helixer 已有神经扰动分析，泛基因组注释一致性也已有系统研究。这不改冻结运行；完整结果后须区分旧现象重现、可辨识的新机制及实际后果，不能因现代工具阳性就自动扩大论文主张。
 
 ## 前阶段：M27 WT重放通过
 
 第九轮Pro基于67f5c9a收窄为先验证native同DNA缓存重放，并保留工具各自WT精确集合W_m作为条件分母。17c0771在首次推理前公开协议。13227533 COMPLETED（15分49秒，0.2636 GPUh，5测试通过）：ANNEVO全chr22 530条、Tiberius575条CDS链在重放中链/strand/phase多重集合完全一致；Tiberius4次原生神经请求完整重放，重放0次神经前向，两个过滤前后链也相同。
 
-全部21预登记位点保留：ANNEVO唯一WT精确12，Tiberius10，共同9，均无重复exact身份歧义。0训练、0mutant推理、Setaria未访问。详见 [WT结果](../reports/M27-ALLELIC-INTEGRITY/wt_result.md) 与原始紧凑JSON。
+全部21预登记位点保留：ANNEVO唯一WT精确12，Tiberius10，共同9，均无重复exact身份歧义。0训练、0mutant推理、Setaria未访问。详见 [WT结果](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/wt_result.md) 与原始紧凑JSON。
 
 这只打开可解释配对干预的前提，不证明PTC绕行或论文新意。全部21双工具配对按实测成本连同WT约7.88GPUh，过于贴近8GPUh总预算；仅测已定义各自W_m约4.03GPUh，保留所有未测行和条件边界。下一步在Pro第十轮商议后冻结响应身份、分类、分母、资源与停止条件，不能用省算力改变scientific estimand或把未测当阴性。没有启动分量交叉或真实生物学外推。
 
@@ -50,7 +50,7 @@ Pro 第八轮完成 R8 固定提交审阅后，提出“内部提前终止是否
 
 按参考先行的 CPU 准备合同，固定 GRCh38 chr22 / GENCODE 49 筛得 21 个同位点 Tyr synonymous/PTC 配对，全部保留；没有凑足 24 或读取任何预测。5 项测试通过。13227362 的参考步骤成功、容器路径步骤失败；唯一挂载修复 13227380 COMPLETED（68 秒）确认实际 Tiberius 2.0.5 神经/HMM 分离接口。合计 0 GPU、0 模型加载、0 训练，原失败记录保留。
 
-结果与限制：[M27 preparation_result](../reports/M27-ALLELIC-INTEGRITY/preparation_result.md)。尚未冻结或启动完整模型干预：Tiberius 动态重推理和 DNA 后过滤必须纳入控制；43 份完整神经缓存超过原建议 50 GiB 上限。下一步带具体位点、接口及预算事实向 Pro 商议，先确定可解释、可重放的 WT 验证阶段。Setaria 封存不变，旧 R7/R8 不再重开。论文目标保持进行中。
+结果与限制：[M27 preparation_result](../experiments/M27/reports/M27-ALLELIC-INTEGRITY/preparation_result.md)。尚未冻结或启动完整模型干预：Tiberius 动态重推理和 DNA 后过滤必须纳入控制；43 份完整神经缓存超过原建议 50 GiB 上限。下一步带具体位点、接口及预算事实向 Pro 商议，先确定可解释、可重放的 WT 验证阶段。Setaria 封存不变，旧 R7/R8 不再重开。论文目标保持进行中。
 
 ## 前阶段：R8固定延迟离散化提案关闭
 

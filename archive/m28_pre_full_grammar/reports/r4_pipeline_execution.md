@@ -6,14 +6,14 @@ checkpoint或操作点。此前“DEV runner待接”的准备项已落实。
 
 ## 本轮代码
 
-- [infer_pilot.py](../../scripts/experiments/M28-METHOD-RESTART/infer_pilot.py)：
+- [infer_pilot.py](../../../pipeline/m28/scripts/infer_pilot.py)：
   只读取最后step004608 checkpoint和同一冻结特征/DNA，覆盖全部8,690个DEV
   方向窗口；缺窗、重复窗、越出两条允许染色体或checkpoint不符则停止。
   不读取参考标签、不注入参考候选。C0保存原生链及gain；B1保存实际剪枝后
   自由候选、完整链score及同候选additive-only score。
-- [export.py](../../src/m28/export.py)：将全局半开CDS链导出GFF3，
+- [export.py](../../../pipeline/m28/src/m28/export.py)：将全局半开CDS链导出GFF3，
   GFF起点转1-based，phase按转录方向累计编码长度计算。输出不冒称UTR/全isoform。
-- [evaluate_pilot.py](../../scripts/experiments/M28-METHOD-RESTART/evaluate_pilot.py)：
+- [evaluate_pilot.py](../../../pipeline/m28/scripts/evaluate_pilot.py)：
   只有两臂完整拟合与完整推理均完成才运行正式比较。候选文件生成完毕后，才读取
   冻结参考；采用已验证共同assembler，分别计算自由候选→owner→冲突选择的
   真正参考链损失，以及新7,728分母和旧6,450副表、物种宏平均和micro汇总。
@@ -113,7 +113,7 @@ C0推断job13292540已由原afterok依赖自动启动；此处尚未完成8,690�
 B1仍在原job13292357拟合，没有重启、换checkpoint或缩减更新数。
 第一遍1,536步耗时2,728.48s，其中load共965.19s（测量分项的35.55%）。
 继续按原速度存在触及2h上限的风险，因此只增加同分配的只读缓存预取：
-[prefetch_pilot.py](../../scripts/experiments/M28-METHOD-RESTART/prefetch_pilot.py)
+[prefetch_pilot.py](../../../pipeline/m28/scripts/prefetch_pilot.py)
 按原TRAIN draws或固定DEV顺序提前读128个文件，用户态缓冲1MiB，不加载模型、
 不改缓存/训练进程/标签/顺序；TRAIN预取只读取TRAIN文件。
 父作业STATUS终止、固定窗口数完成或helper自身时限到达后退出。

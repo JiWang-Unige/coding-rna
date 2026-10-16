@@ -48,7 +48,7 @@ ANNEVO 固定源码 37bdd9aa62ddf24fa55941fb827061f7ed49ce53（v2.3.2）已有 M
 
 两作业均 private-teodoro-gpu、2 CPU、8 GiB、0 GPU，合计约 0.066 分配 CPU 小时。第一次日志、失败状态、已产出参考文件保持不变。唯一工程修复将实际 BeeGFS 目录绑定为容器 /work；未重复下载/筛选、未改变科学条件。原准备脚本同步修正路径，单独修复脚本保留重试过程。
 
-源码：[prepare_reference.py](../../scripts/experiments/M27-ALLELIC-INTEGRITY/prepare_reference.py)、[runtime_probe.py](../../scripts/experiments/M27-ALLELIC-INTEGRITY/runtime_probe.py)、[测试](../../tests/test_m27_prepare.py)、[准备作业](../../sbatch/M27-ALLELIC-PREP.sbatch)、[接口重试](../../sbatch/M27-ALLELIC-PROBE-REPAIR.sbatch)。
+源码：[prepare_reference.py](../../scripts/M27-ALLELIC-INTEGRITY/prepare_reference.py)、[runtime_probe.py](../../scripts/M27-ALLELIC-INTEGRITY/runtime_probe.py)、[测试](../../tests/test_m27_prepare.py)、[准备作业](../../sbatch/M27-ALLELIC-PREP.sbatch)、[接口重试](../../sbatch/M27-ALLELIC-PROBE-REPAIR.sbatch)。
 
 ## 下一决策
 

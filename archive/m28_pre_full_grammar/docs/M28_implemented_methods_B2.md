@@ -1,6 +1,6 @@
 # M28 B2: implemented methods and interpretation boundaries
 
-Working Methods supplement, 2026-10-01. This document describes the implementation fixed for the B2 first fit and paired decoding experiment; it is not a results or novelty claim. The completed fit, full paired DEV evaluation and reference-level diagnosis are recorded in [b2_execution.md](../reports/M28-METHOD-RESTART/b2_execution.md). All 8,690 paired direction-windows and the 7,728-reference denominator were validated; the predeclared early-versus-late continuation criterion was not met. This is a bounded result for this version, not a general impossibility claim. The pre-fit [B2 contract](../reports/M28-METHOD-RESTART/b2_first_fit_contract.md) remains the authority for the data, budget, stopping rules and continuation criterion. This supplement does not amend it or replace the historical [R4 Methods](M28_implemented_methods_R4.md).
+Working Methods supplement, 2026-10-01. This document describes the implementation fixed for the B2 first fit and paired decoding experiment; it is not a results or novelty claim. The completed fit, full paired DEV evaluation and reference-level diagnosis are recorded in [b2_execution.md](../reports/b2_execution.md). All 8,690 paired direction-windows and the 7,728-reference denominator were validated; the predeclared early-versus-late continuation criterion was not met. This is a bounded result for this version, not a general impossibility claim. The pre-fit [B2 contract](../reports/b2_first_fit_contract.md) remains the authority for the data, budget, stopping rules and continuation criterion. This supplement does not amend it or replace the historical [R4 Methods](M28_implemented_methods_R4.md).
 
 The B2 runtime was fixed before the first optimizer update at commit [63730f07d4c19a0850e9e1813a7c89747bd34403](https://github.com/JiWang-Unige/coding-rna/tree/63730f07d4c19a0850e9e1813a7c89747bd34403). Source pointers below refer to that implementation, not to a proposed alternative.
 
@@ -25,7 +25,7 @@ The saved development census records the following allowed chromosome identities
 | Arabidopsis | NC_003070.9, NC_003071.7, NC_003076.8 | NC_003074.8 |
 | Rice | NC_089043.1, NC_089044.1, NC_089046.1 | NC_089041.1 |
 
-These sets are chromosome-disjoint within each species, not species-disjoint. The [split implementation](../src/screen_anchor/data.py) assigns sorted sequence identities by index modulo five; it does not group homologs. Its historical “leakage-safe” wording therefore applies only to whole-sequence coordinate separation, not to homology or upstream annotation exposure. Both [Arabidopsis](../reports/M28-METHOD-RESTART/arabidopsis_census.json) and [rice](../reports/M28-METHOD-RESTART/rice_census.json) censuses explicitly retain the homology-isolation limitation. No new sequence-level overlap or homology analysis was performed for this source review.
+These sets are chromosome-disjoint within each species, not species-disjoint. The [split implementation](../../../pipeline/m28/src/screen_anchor/data.py) assigns sorted sequence identities by index modulo five; it does not group homologs. Its historical “leakage-safe” wording therefore applies only to whole-sequence coordinate separation, not to homology or upstream annotation exposure. Both [Arabidopsis](../reports/arabidopsis_census.json) and [rice](../reports/rice_census.json) censuses explicitly retain the homology-isolation limitation. No new sequence-level overlap or homology analysis was performed for this source review.
 
 An early-versus-late result can still answer the frozen within-DEV scoring-position question because the upstream backbone and final head are shared. It cannot by itself establish independent homology-isolated or upstream-unseen generalization. Such a future claim requires a separately authorized evaluation protocol and adequate model-exposure evidence; it is not obtained by renaming the existing DEV panel or automatically opening Setaria.
 
@@ -89,13 +89,13 @@ Frozen-base features are obtained with no_grad rather than inference_mode, so th
 
 The fixed free pool and first-cut observations may be reused by window identity during this fit because their inputs, base, budget and labels do not change. New-head values and gradients are recomputed for every draw. This reuse is not evidence of on-policy training.
 
-Source: [prefix_training.py](../src/m28/prefix_training.py), [fit_b2.py](../scripts/experiments/M28-METHOD-RESTART/fit_b2.py).
+Source: [prefix_training.py](../src/m28/prefix_training.py), [fit_b2.py](../scripts/fit_b2.py).
 
 ## Optimization and checkpoint
 
 After constructing the frozen base, the new head is initialized with torch.manual_seed(0). Only its parameters are passed to AdamW: learning rate 3e-4, weight decay 0.01, betas (0.9, 0.999), epsilon 1e-8, FP32 and global gradient-norm clipping at 1.0. The learning rate is fixed, with no seed or optimizer sweep.
 
-The official checkpoint is `step_004608.pt`, after the final planned update. Epoch checkpoints are retained as records, not selected by DEV performance. The completed fit and observed costs are recorded separately in [b2_fit_result.json](../reports/M28-METHOD-RESTART/b2_fit_result.json) and [b2_execution.md](../reports/M28-METHOD-RESTART/b2_execution.md). A falling TRAIN loss alone does not establish improved annotation or passage of the B2 criterion.
+The official checkpoint is `step_004608.pt`, after the final planned update. Epoch checkpoints are retained as records, not selected by DEV performance. The completed fit and observed costs are recorded separately in [b2_fit_result.json](../reports/b2_fit_result.json) and [b2_execution.md](../reports/b2_execution.md). A falling TRAIN loss alone does not establish improved annotation or passage of the B2 criterion.
 
 ## Paired inference and controls
 
@@ -107,7 +107,7 @@ For every window, the late arm must replay the saved R5 B1 candidate identities 
 
 The comparison is accepted as complete only after the entire frozen grid, both arms and all replay/common-value controls finish. Partial-window results are not used to rank variants or change the checkpoint, K, seed or gain threshold.
 
-Source: [infer_b2.py](../scripts/experiments/M28-METHOD-RESTART/infer_b2.py).
+Source: [infer_b2.py](../scripts/infer_b2.py).
 
 ## Assembly and evaluation
 
@@ -121,9 +121,9 @@ CDS-base metrics use the final emitted CDS union, not the frozen local head's ra
 
 The final GFF3 is parsed back and compared with emitted chain identities and records. CDS-structure support is reported as a diagnostic, not used as a post hoc output filter. Reverse-oriented coordinates are converted back by the existing assembly rules.
 
-C0/B1 and ANNEVO, Helixer and Tiberius are evaluated from the existing fixed caches with the same ruler; they are not new native runs or a claim to the latest available versions. Their known provenance and remaining version/exposure uncertainties are recorded in [baseline_cache_provenance.md](../reports/M28-METHOD-RESTART/baseline_cache_provenance.md). In particular, a cached baseline row must not automatically be described as independently rice-unseen zero-shot evidence.
+C0/B1 and ANNEVO, Helixer and Tiberius are evaluated from the existing fixed caches with the same ruler; they are not new native runs or a claim to the latest available versions. Their known provenance and remaining version/exposure uncertainties are recorded in [baseline_cache_provenance.md](../../../benchmarks/native_baselines/reports/baseline_cache_provenance.md). In particular, a cached baseline row must not automatically be described as independently rice-unseen zero-shot evidence.
 
-Source: [evaluate_b2.py](../scripts/experiments/M28-METHOD-RESTART/evaluate_b2.py).
+Source: [evaluate_b2.py](../scripts/evaluate_b2.py).
 
 ## Continuation criterion, resources and claim limits
 
@@ -135,4 +135,4 @@ The paired driver shares base forward passes, union readout, I/O and control loa
 
 Timeout, OOM, nonfinite values, unexpected base gradients, input/label mismatch, failed replay, reference use in free inference or artifact-budget violations invoke the existing stop policy. This Methods supplement does not authorize retries, extension, data release or new experiments.
 
-Learned prefix ranking and search-error training are established ideas. B2's frozen-control first-cut softplus/BCE objective does not implement the on-policy update/reset procedure of LaSO or beam-search optimization, and no corresponding guarantee is claimed. The task-specific contribution would need to be demonstrated by defensible complete-chain gains and broader evidence, not inferred from naming a new head. See [related work and open evidence requirements](M28_learned_search_related_work_20261001.md).
+Learned prefix ranking and search-error training are established ideas. B2's frozen-control first-cut softplus/BCE objective does not implement the on-policy update/reset procedure of LaSO or beam-search optimization, and no corresponding guarantee is claimed. The task-specific contribution would need to be demonstrated by defensible complete-chain gains and broader evidence, not inferred from naming a new head. See [related work and open evidence requirements](../../../paper/manuscript/M28_learned_search_related_work_20261001.md).

@@ -70,7 +70,7 @@ sbatch --parsable --dependency=afterok:13403223 --export=ALL,A33_ARRAY_JOB=13403
 
 恢复需要原“失败不自动重提”停止条件的一次明确工程例外，已提交具体选择：只修正与原beam一致的重放执行路径、独立目录重跑分片0，复用三个已完成分片；搜索、权重、每次执行原资源／时限、容差及五项科学条件不变，原FAILED保留。重跑增加实际工程计算量，不声称总计算预算或matched compute不变。尚未收到该例外批准，没有部署替换checker或恢复作业；继续其他已授权路线。原固定监控已实际定时发现故障、成功交接一次后PAUSED，不再轮询已消费的A33终态。
 
-该scheduled turn01a110c5-5e5e-7c20-b98c-afbaf478e77d实际completed／error-null／62.726秒，固定监控对话仍idle，同一心跳PAUSED；配置成功、同对话实际定时检查与故障单次回传均已分别验证，完整TRAIN成功链则没有。独立人工短contig三原生预检13403567_0..2全部COMPLETED／0:0，结果见[native_short_contig_preflight.md](native_short_contig_preflight.md)；三种均真实空GFF，不作准确率／泛化或A33效果证据。
+该scheduled turn01a110c5-5e5e-7c20-b98c-afbaf478e77d实际completed／error-null／62.726秒，固定监控对话仍idle，同一心跳PAUSED；配置成功、同对话实际定时检查与故障单次回传均已分别验证，完整TRAIN成功链则没有。独立人工短contig三原生预检13403567_0..2全部COMPLETED／0:0，结果见[native_short_contig_preflight.md](../../../benchmarks/native_baselines/reports/native_short_contig_preflight.md)；三种均真实空GFF，不作准确率／泛化或A33效果证据。
 
 ## 一次工程恢复的准备范围（未执行）
 

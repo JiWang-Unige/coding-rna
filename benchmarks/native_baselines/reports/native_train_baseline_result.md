@@ -28,7 +28,7 @@
 
 三工具相对原模型的pooled完整链F1差值分别为29.952、27.065和18.002个百分点；水稻差值为42.901、35.299和22.016个百分点。全部方法的重复链记录为0。其他eligible isoform但非primary的精确命中分别为原模型748、ANNEVO1498、Tiberius1552、Helixer1339；这些命中未充作primary TP，非primary命中也不直接等于生物学假基因。
 
-同一已完成比较的[分物种及pooled静态图](figures/initial_train_benchmark/initial_train_complete_chain.png)采用统一0–100%刻度，12个F1值直接由TP／预测／参考计数重算，参考元数据及聚合已核对。图仅包含初始末4608模型与三个固定工具，不加入仍在运行的续训或抽样支路，不将未完成结果画为失败。[矢量图及图注](figures/initial_train_benchmark/caption.md)保留精确计数、两份原始summary和无GPU绘图任务13464155的完成证据；它仍是TRAIN诊断，不是独立测试或论文成功。
+同一已完成比较的[分物种及pooled静态图](../../../paper/figures/reports_M28/initial_train_benchmark/initial_train_complete_chain.png)采用统一0–100%刻度，12个F1值直接由TP／预测／参考计数重算，参考元数据及聚合已核对。图仅包含初始末4608模型与三个固定工具，不加入仍在运行的续训或抽样支路，不将未完成结果画为失败。[矢量图及图注](../../../paper/figures/reports_M28/initial_train_benchmark/caption.md)保留精确计数、两份原始summary和无GPU绘图任务13464155的完成证据；它仍是TRAIN诊断，不是独立测试或论文成功。
 
 ## 碱基覆盖与背景
 
@@ -75,6 +75,6 @@ MaxRSS只取六个batch报告值中的最大值，K值按KiB换算GiB；它不�
 | NC_089044.1 | 1929 | 138 | 588 | 446 |
 | NC_089046.1 | 2178 | 142 | 578 | 451 |
 
-来源命令为 `TZ=UTC sacct -j 13443323,13461306 --format=JobID,State,ExitCode,ElapsedRaw,AllocCPUS,AllocTRES%130,NodeList,MaxRSS --parsable2`；task映射依据实际 `run_native_train_baseline.task_scope`，六份原模型输入对应关系沿用固定TRAIN合同。解析时要求完整且唯一的6＋18个root、每个root的三个成功终态及实际GPU／CPU分配，再按原seqid顺序聚合；原模型12006秒与已保存raw收据一致。原模型内部encoding、joint decoding及外层入口的不同计时边界继续见[原TRAIN模型结果](full_grammar_raw_train_result.md)，不与本表或基线wrapper的不同计时范围混算。
+来源命令为 `TZ=UTC sacct -j 13443323,13461306 --format=JobID,State,ExitCode,ElapsedRaw,AllocCPUS,AllocTRES%130,NodeList,MaxRSS --parsable2`；task映射依据实际 `run_native_train_baseline.task_scope`，六份原模型输入对应关系沿用固定TRAIN合同。解析时要求完整且唯一的6＋18个root、每个root的三个成功终态及实际GPU／CPU分配，再按原seqid顺序聚合；原模型12006秒与已保存raw收据一致。原模型内部encoding、joint decoding及外层入口的不同计时边界继续见[原TRAIN模型结果](../../../experiments/M28/full_grammar/reports/full_grammar_raw_train_result.md)，不与本表或基线wrapper的不同计时范围混算。
 
 本次配置下原模型累计GPU分配时长更高，现有证据不能支持计算效率优势；这不会改变或延迟已授权的并行研究。若后续完整链性能或独立适用性达到论文要求，仍需随相应最终模型报告实测计算代价，而不能把当前表替换成未经测量的速度主张。当前表没有新增DEV候选、科学PASS阈值、训练／数据放行或公开发布。

@@ -4,7 +4,7 @@
 
 ## 本轮已完成
 
-- 两个远程CPU作业并行完成开发数据盘点；另一个原生dataset计数核对完成。见[结果](../reports/M28-METHOD-RESTART/census_result.md)。
+- 两个远程CPU作业并行完成开发数据盘点；另一个原生dataset计数核对完成。见[结果](../archive/m28_pre_full_grammar/reports/census_result.md)。
 - M25R排序后prefix采样导致训练窗口全来自拟南芥，且计数与历史摘要一致。新模型必须比较修正采样、同数据/预算的对照。
 - 24576bp半步长窗口可几何容纳6439/6450个开发参考链；尚未含侧翼、motif/候选限制，也未证明模型预测能力。
 - 第16轮Pro商议完成（8分58秒）：实际读取73760c7三份指定公开文件，未访问Baobab、未独立重跑。建议首攻B1，A保留为真正不同的备选。不是外部同行评议。
@@ -27,9 +27,9 @@
 1. 数据包：24576bp候选上下文，计算含侧翼/尾窗的真实覆盖、窗口gene数/exon数及motif候选规模；保存完整链身份和曝光次数、自然背景、partial/重叠/isoform掩码。负例只称参考不一致，排除匹配其他合格isoform的候选。标签不足时补训练数据政策，不扩大backbone掩盖。
 2. 模型包：复用冻结GLM加载路径，构建共享特征和C0/B1最小实现；合成坐标/链/空输出测试及小样本梯度/自由推理检查。先测吞吐和缓存，再冻结更新数、候选限额与损失。任何训练用参考注入与完全不注入参考的推理候选必须分开记录。
 
-R2更新（2026-09-30）：共享manifest、局部标签、跨块特征及整链/null核心已通过三个CPU作业与16项针对性测试，见[R2结果](../reports/M28-METHOD-RESTART/r2_result.md)。尚未接通真实GLM特征、C0原生解码和B1自由候选，也没有新训练准确率；下一步直接完成这些接口及吞吐测量，不再停留在旧模型审计。训练CDS完整性与历史parent过滤不同，正式主比较需先固定CDS-assessable评价并对全部方法同口径重评分，旧6,450范围保留副表，不按训练eligibility删参考。
+R2更新（2026-09-30）：共享manifest、局部标签、跨块特征及整链/null核心已通过三个CPU作业与16项针对性测试，见[R2结果](../archive/m28_pre_full_grammar/reports/r2_result.md)。尚未接通真实GLM特征、C0原生解码和B1自由候选，也没有新训练准确率；下一步直接完成这些接口及吞吐测量，不再停留在旧模型审计。训练CDS完整性与历史parent过滤不同，正式主比较需先固定CDS-assessable评价并对全部方法同口径重评分，旧6,450范围保留副表，不按训练eligibility删参考。
 
-R3更新（2026-09-30）：[真实特征与B1联合接线](../reports/M28-METHOD-RESTART/r3_integration_result.md)和[两物种共同评价](../reports/M28-METHOD-RESTART/common_ruler_result.md)已完成，尚无optimizer更新。主评价固定为7,728条CDS-assessable链；R2 longest-all与评价primary在拟南芥2个DEV gene存在差异，正式拟合前明确训练primary政策。接着完成GPU头吞吐、全染色体输出归属/去重/冲突和一次冻结的公平首训，不增加旧模型审计。
+R3更新（2026-09-30）：[真实特征与B1联合接线](../archive/m28_pre_full_grammar/reports/r3_integration_result.md)和[两物种共同评价](../archive/m28_pre_full_grammar/reports/common_ruler_result.md)已完成，尚无optimizer更新。主评价固定为7,728条CDS-assessable链；R2 longest-all与评价primary在拟南芥2个DEV gene存在差异，正式拟合前明确训练primary政策。接着完成GPU头吞吐、全染色体输出归属/去重/冲突和一次冻结的公平首训，不增加旧模型审计。
 
 Pro建议48GPUh（特征8、两臂各16、评价8）、RAM≤64GiB、缓存≤200GiB，这是**建议上限，未直接转成提交或承诺**。先冻结更小的工程吞吐测量；实际可完成的公平pilot数据量/更新数与资源合同必须在读取该pilot性能结果之前写定。优先使用私有资源，不以并行为由越过队列、成本或旧数据边界。
 
@@ -58,7 +58,7 @@ M25R/M26冻结结果和候选上界保留；M27固定先导关闭，复现写作
 
 ## 学习型搜索的相关工作
 
-2026-10-01补充[基因结构搜索的相关工作与贡献边界](M28_learned_search_related_work_20261001.md)：early update、LaSO、BSO、DAGGER和GeneDecoder已有相关先例。B2仅检验同一新增评分器的搜索位置机制，不将学习前缀或结构图本身称首创；不修改正在执行的冻结合同。
+2026-10-01补充[基因结构搜索的相关工作与贡献边界](../paper/manuscript/M28_learned_search_related_work_20261001.md)：early update、LaSO、BSO、DAGGER和GeneDecoder已有相关先例。B2仅检验同一新增评分器的搜索位置机制，不将学习前缀或结构图本身称首创；不修改正在执行的冻结合同。
 
 ## A备选的合成接口准备
 
@@ -143,7 +143,7 @@ Slurm root分配32秒×1CPU=0.008889 CPUh、0GPU，batch MaxRSS=587872K；本阶
 
 ## B2全范围判定后的路线状态
 
-2026-10-01。完整B2三阶段及逐参考链诊断已完成，详见[正式结果与诊断](../reports/M28-METHOD-RESTART/b2_execution.md)。8690窗late精确重放原控制、共同gain一致、7728主分母完整，数值与阶段计数可用；当前early前移版本未通过预设继续条件。拟南芥/水稻exact F1由late26.84/44.96%降为early21.03/20.22%，背景span覆盖同时大幅增加。拟南芥召回净改善不能替代双物种条件，当前B2不继续扩训/改阈值救结论。
+2026-10-01。完整B2三阶段及逐参考链诊断已完成，详见[正式结果与诊断](../archive/m28_pre_full_grammar/reports/b2_execution.md)。8690窗late精确重放原控制、共同gain一致、7728主分母完整，数值与阶段计数可用；当前early前移版本未通过预设继续条件。拟南芥/水稻exact F1由late26.84/44.96%降为early21.03/20.22%，背景span覆盖同时大幅增加。拟南芥召回净改善不能替代双物种条件，当前B2不继续扩训/改阈值救结论。
 
 逐链结果显示early最终新增1145条、同时丢掉late的1042条，其中909条已不在early自由池；不是仅最终筛选阈值的变化，也不证明某个未经检验的单一根因。A已完成合成指针、DNA语法、匹配、TRAIN容量/保护盘点及成本批量化，仍非完整无参考全FASTA调用器或经真实训练的模型。下一安全工作是形成具体A首训提案：显式Q及标签保护/负类质量、loss和匹配归一、共享来源/曝光可比性、固定操作点、ownership/去重、真实吞吐预算及不支持参考保留。未经冻结和明确批准不执行A首训；不因为B2失败就改变发表目标或开放test/Setaria。
 
@@ -155,7 +155,7 @@ Slurm root分配32秒×1CPU=0.008889 CPUh、0GPU，batch MaxRSS=587872K；本阶
 
 新test_m28_query_output.py仅核验6个新跨接口失败：合成多外显子query→正反链全局坐标/GFF3及phase回读，显式操作点/零分null且free记录不偷删，截断不冒称完整gene，无ATG空输出，nonowner-only丢失与同窗query重复分开，以及非有限操作点/存在性logit停止。只复用已有fixture，不重跑旧9+10+8+3项未改测试。新入口sbatch/M28-A-QUERY-OUTPUT.sbatch为generanno环境、1CPU/4GiB/0GPU、单次与本阶段累计≤120CPU秒；此前107CPU秒，最坏累计≤227CPU秒，仍守A准备总300CPU秒/1MiB运行产物限。输出目录必须新建、日志按job隔离；原一次确定性源码修复机会未使用，若需修复也受同一累计限，超时/OOM不自动重提。不变更B2历史结果、test/Setaria或原已暂停监控。
 
-首训提案见[a_first_fit_proposal.md](../reports/M28-METHOD-RESTART/a_first_fit_proposal.md)，它是待批准科学选择而非既有冻结合同。当前pointer的detach与未均衡存在性目标不自动等于提案中的联合梯度/类均衡；未经既有批准门槛不执行新的真实A首训。
+首训提案见[a_first_fit_proposal.md](../archive/m28_pre_full_grammar/reports/a_first_fit_proposal.md)，它是待批准科学选择而非既有冻结合同。当前pointer的detach与未均衡存在性目标不自动等于提案中的联合梯度/类均衡；未经既有批准门槛不执行新的真实A首训。
 
 实际工程提交为sbatch --parsable sbatch/M28-A-QUERY-OUTPUT.sbatch，job13319189及batch均COMPLETED/0:0，STATUS=COMPLETED，6项新测试全部通过（0.433秒）。中断的前一次提交已用当前squeue、当日sacct、目标目录及本机提交进程核对没有创建job，再作本次唯一实际提交；没有已启动作业失败或重提。没有GPU、真实DNA/标签/cache/checkpoint读取或optimizer；未重复旧9+10+8+3项未改变测试。
 

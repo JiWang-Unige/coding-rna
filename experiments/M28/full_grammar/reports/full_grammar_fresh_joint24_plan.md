@@ -57,7 +57,7 @@
 
 2026-10-12 UTC主核对实际TZ=UTC sacct：fit13494895于2026-10-11 14:29:38至2026-10-12 03:33:24运行，核验13494896于03:33:24–03:34:49运行；各自root／batch／extern共6条记录均COMPLETED／0:0，STATUS、JOBID和非空summary.json一致。拟合实际configuration与started及verification逐项相同，从13434603末4608及原AdamW moments独立出发、追加4608、累计9216；原seed1的4608 draws／4219 unique、每pass每物种768 draws保持。训练参数仍366191，backbone冻结，无native CDS先验、缓存特征、原targets改变、DEV或sealed使用。
 
-CPU核验13494896已经读取全4608条日志并核对抽样／观察／importance顺序、已记录目标算术和三个6144／7680／9216 checkpoint；所有权重和AdamW moments有限、严格装载通过。主依据实际核验器的检查范围及完成收据消费这部分工程证据，没有在登录节点再次加载权重、运行native forward或进行新的optimizer update。正式读出保持[最终9216收据](../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-FIT/summary.json)与[独立CPU核验收据](../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-VERIFICATION/summary.json)，不按中间loss或DEV选择权重。
+CPU核验13494896已经读取全4608条日志并核对抽样／观察／importance顺序、已记录目标算术和三个6144／7680／9216 checkpoint；所有权重和AdamW moments有限、严格装载通过。主依据实际核验器的检查范围及完成收据消费这部分工程证据，没有在登录节点再次加载权重、运行native forward或进行新的optimizer update。正式读出保持[最终9216收据](../../../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-FIT/summary.json)与[独立CPU核验收据](../../../../outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-VERIFICATION/summary.json)，不按中间loss或DEV选择权重。
 
 六raw均于03:34:50UTC开始；实际sacct任务映射与各自started.json一致，均指向同一最终step_009216.pt和source_fit_job13494895，reference_used／DEV_used=false：
 

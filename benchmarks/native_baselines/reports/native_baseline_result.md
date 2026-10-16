@@ -8,7 +8,7 @@
 
 输入仅为NC_003074.8（拟南芥23459830 bp）与NC_089041.1（水稻29936421 bp），原DNA大写化但坐标不变。六次推理均reference_used=false、labels_or_feature_cache_used=false、optimizer_steps=0、test_setaria_used=false；实际每元素只见一张RTX3090。参考只在共同评价阶段打开。两物种固定primary分母5437/2291，共7728条，未删unsupported、长链、重叠或难例。
 
-固定运行资产及隔离Tiberius修复见[native_baseline_preparation.md](native_baseline_preparation.md)；预训练暴露见[pretrained_exposure.md](pretrained_exposure.md)。Tiberius实际2.0.8源码871d497在不可变的实际2.0.7依赖SIF内隔离执行，不能称为发布方原生2.0.8镜像。Helixer a_0080训练列表含两物种；ANNEVO实际植物权重作者声明排除两者但未独立审计同源/验证暴露。GENERanno当前b048来源已有RefSeq CDS监督及两个目标assembly的训练快照归属证据；仍未知的是具体优化窗口、验证划分与同源隔离（来源表述2026-10-13更新）。整表不能统一称为未见物种泛化，也不据快照归属认定具体DEV标签泄漏。
+固定运行资产及隔离Tiberius修复见[native_baseline_preparation.md](native_baseline_preparation.md)；预训练暴露见[pretrained_exposure.md](../../../paper/supplement/pretrained_exposure.md)。Tiberius实际2.0.8源码871d497在不可变的实际2.0.7依赖SIF内隔离执行，不能称为发布方原生2.0.8镜像。Helixer a_0080训练列表含两物种；ANNEVO实际植物权重作者声明排除两者但未独立审计同源/验证暴露。GENERanno当前b048来源已有RefSeq CDS监督及两个目标assembly的训练快照归属证据；仍未知的是具体优化窗口、验证划分与同源隔离（来源表述2026-10-13更新）。整表不能统一称为未见物种泛化，也不据快照归属认定具体DEV标签泄漏。
 
 ## 同尺完整链与背景
 

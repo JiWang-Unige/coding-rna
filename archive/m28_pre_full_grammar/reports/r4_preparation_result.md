@@ -42,11 +42,11 @@ TRAIN可支持完整正例总数为17,594/4,845；无assessable isoform的65/44�
 替换成更短支持isoform。DEV参考ID集合精确匹配冻结5,437/2,291清单。
 
 [拟南芥JSON](r4_arabidopsis_labels.json)、[水稻JSON](r4_rice_labels.json)；
-[实现](../../scripts/experiments/M28-METHOD-RESTART/align_labels.py)。
+[实现](../../../pipeline/m28/scripts/align_labels.py)。
 
 ## 共同跨窗选择与C0原生增益：完成
 
-[src/m28/assembly.py](../../src/m28/assembly.py)不接受参考，
+[src/m28/assembly.py](../../../pipeline/m28/src/m28/assembly.py)不接受参考，
 转全局半开坐标后按同染色体/链向owner归属，保留逐阶段真实链集合及
 nonowner-only损失，去重后作最大正增益选择。
 原selector改为标量DP＋前驱回溯，不再为每个候选复制完整已选列表。
@@ -81,8 +81,8 @@ GT/GC×三相位、双gene情况下，导出局部增益与完整实际路径/�
 训练入口已实现：同1536draw顺序×3遍、FP32头、直接每窗importance weighting、
 B1自由候选先写入再注入训练参考，按遍checkpoint并只主评价step004608。
 相关脚本：
-[cache_features.py](../../scripts/experiments/M28-METHOD-RESTART/cache_features.py)、
-[fit_pilot.py](../../scripts/experiments/M28-METHOD-RESTART/fit_pilot.py)。
+[cache_features.py](../../../pipeline/m28/scripts/cache_features.py)、
+[fit_pilot.py](../../../pipeline/m28/scripts/fit_pilot.py)。
 
 尚未完成：实际两臂拟合、完整DEV推理与GFF3/共同指标汇总。
 完整DEV runner尚待接上已验证的组件；不能把提交任务或合成通过当模型结果。

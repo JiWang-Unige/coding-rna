@@ -24,7 +24,7 @@
 
 训练记录中的已分配正query disposition合计9084：2506次known nonmatch margin、5530次already returned、1048次primary或unresolved零额外项。这是重复训练曝光中的query记录，不是9084个独立基因，也不与18991个末模型候选/window对混用。资格核验通过不等于目标有效。
 
-权威结果：[readout summary](../../outputs/M28-A30-SEARCH-RETENTION-TRAIN-READOUT-RECOVERY-R1/summary.json)、[CPU summary](../../outputs/M28-A30-SEARCH-RETENTION-RESULT-CHECK-RECOVERY-R1/summary.json)。恢复保留了原模型／seed／曝光／搜索预算和停止规则，没有DEV、sealed或Setaria读取。
+权威结果：[readout summary](../../../outputs/M28-A30-SEARCH-RETENTION-TRAIN-READOUT-RECOVERY-R1/summary.json)、[CPU summary](../../../outputs/M28-A30-SEARCH-RETENTION-RESULT-CHECK-RECOVERY-R1/summary.json)。恢复保留了原模型／seed／曝光／搜索预算和停止规则，没有DEV、sealed或Setaria读取。
 
 ## 后续研究边界
 
@@ -34,7 +34,7 @@
 
 原三epoch额外margin均值0.828587／0.539160／0.465836下降，但原候选门槛仍全部FAIL。进一步诊断只统计已闭合8.9MB训练日志中的首丢失stage、目标节点已闭合exon数、完整参考exon数，按epoch及物种分别报告，并与CPU核验的9084条正query记录／2506个安全竞争对和原epoch均值对应。不读取weights、缓存、FASTA、catalog、R4或DEV，不重训、搜索、重标或改原FAIL。
 
-实际汇总作业13401111的root／batch／extern均COMPLETED/0:0，08:04:24–08:04:27 UTC，用时3秒、batch MaxRSS18484K；private0GPU/2CPU/8G/5分钟，STATUS／JOBID相符。原4608步、9084条正query记录、2506次合格known nonmatch竞争对及原三个epoch均值均对应。只读原保存日志，没有forward、新搜索、R4重标、优化器更新、DEV或Setaria读取，也没有改gate／停止条件。该短作业由主对话消费，不加入A31固定监控。权威输出：[saved loss diagnostic summary](../../outputs/M28-A30-SAVED-SEARCH-LOSS-DIAGNOSTIC/summary.json)。
+实际汇总作业13401111的root／batch／extern均COMPLETED/0:0，08:04:24–08:04:27 UTC，用时3秒、batch MaxRSS18484K；private0GPU/2CPU/8G/5分钟，STATUS／JOBID相符。原4608步、9084条正query记录、2506次合格known nonmatch竞争对及原三个epoch均值均对应。只读原保存日志，没有forward、新搜索、R4重标、优化器更新、DEV或Setaria读取，也没有改gate／停止条件。该短作业由主对话消费，不加入A31固定监控。权威输出：[saved loss diagnostic summary](../../../outputs/M28-A30-SAVED-SEARCH-LOSS-DIAGNOSTIC/summary.json)。
 
 ## 保存监督覆盖了后续搜索阶段，但未改善原门槛
 

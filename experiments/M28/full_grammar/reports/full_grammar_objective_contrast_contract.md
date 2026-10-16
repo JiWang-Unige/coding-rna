@@ -185,7 +185,7 @@ AT子组有主参考间隔10,802对、预测12,942对，共有8350对、缺失24
 
 正式输出完整保留原七方法和22688参考，逐染色体参考元数据、原端点与micro／macro／worst算术验证通过。主另核七个实际source job、末权重与步数、各物种／pooled计数直接等于已处理评价及逐参考恢复报告，六种对控制的差值重算相同。未重新读取DNA／注释／预测／权重，不新增baseline或模型推理、训练更新、DEV或sealed访问；只汇总已完成测量，不将相同参考元数据称为新的参考几何验证。
 
-pooled链F1依预定顺序为原4608 45.5901%、STRUCT 55.7453%、LOCAL 41.7290%、HALF 48.6284%、双头先验64.3390%、FRESH63.0729%、JOINT66.9628%；精确计数和逐物种值以实际summary为准。[结果工作稿](../../docs/M28_full_grammar_results_working.md)已保留全部分支、成熟基线及补充诊断。七权重、单列组合／完整核心和冻结八／十方法DEV家族仍分开；不得把TRAIN最优、汇总完成或描述性消融当作独立泛化、机制因果或论文goal成功。本短汇总已主直接消费，不增添长期监控对象。
+pooled链F1依预定顺序为原4608 45.5901%、STRUCT 55.7453%、LOCAL 41.7290%、HALF 48.6284%、双头先验64.3390%、FRESH63.0729%、JOINT66.9628%；精确计数和逐物种值以实际summary为准。[结果工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md)已保留全部分支、成熟基线及补充诊断。七权重、单列组合／完整核心和冻结八／十方法DEV家族仍分开；不得把TRAIN最优、汇总完成或描述性消融当作独立泛化、机制因果或论文goal成功。本短汇总已主直接消费，不增添长期监控对象。
 
 ## 混合目标末权重拟合与核验已完成
 
@@ -233,7 +233,7 @@ UTC21:17:59执行`scontrol update JobId=13451470 Partition=private-teodoro-gpu,s
 
 本部分结果不改变冻结八／十方法DEV家族、阈值、数据隔离或其他在运行分支，封存／held-out／Setaria不放行。继续等待已提交完整分支及原配对恢复分析，再按既定全部七末权重汇总，不重复局部推理或追加控制。原固定监控保留原三目标cohort未交接标记；本分支已由主对话消费，不等于整组流程或论文goal完成。
 
-结果来源：`outputs/M28-FULL-GRAMMAR-OBJECTIVE-CONTRAST-TRAIN-DIAGNOSTIC/HALF_STRUCTURED_HALF_LOCAL/summary.json`（评价13451624）、原final4608评价13443329、LOCAL_CHANNEL评价13451623及`outputs/M28-NATIVE-TRAIN-BASELINE-EVAL/summary.json`（评价13461307）。完整原生基线说明见[native_train_baseline_result.md](native_train_baseline_result.md)。以上历史拟合与排程段落保留其当时状态，本节记录后续已完成的推理评价。
+结果来源：`outputs/M28-FULL-GRAMMAR-OBJECTIVE-CONTRAST-TRAIN-DIAGNOSTIC/HALF_STRUCTURED_HALF_LOCAL/summary.json`（评价13451624）、原final4608评价13443329、LOCAL_CHANNEL评价13451623及`outputs/M28-NATIVE-TRAIN-BASELINE-EVAL/summary.json`（评价13461307）。完整原生基线说明见[native_train_baseline_result.md](../../../../benchmarks/native_baselines/reports/native_train_baseline_result.md)。以上历史拟合与排程段落保留其当时状态，本节记录后续已完成的推理评价。
 
 ## 结构化对照拟合与权重核验完成
 

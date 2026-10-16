@@ -22,7 +22,7 @@ M26 CDS-assessable longest-eligible-CDS／transcript-ID tie参考分母固定为
 
 双头支路相对主要匹配控制、旧锚点、其他目标及每条原生基线的F1差值均按百分点报告，包含AT、Rice、pooled micro、macro和worst species。不用最佳物种、单点pooled优势或训练NLL代替完整结论，不按DEV选择head、阈值、上下文、loss、学习率、checkpoint或后续训练。单seed且只有两条历史复用开发染色体，不计算把gene当独立重复的确认性置信区间。
 
-GENeranno及基线的上游物种／annotation暴露存在方法相关差异或未知，见[预训练暴露记录](pretrained_exposure.md)。本支路显式复用已有CDS监督分类头，位置输入不是本项目的新模型创新。即使该开发比较提升，也不能据此宣称clean zero-shot、独立泛化、所有gene／UTR／isoform能力或Nature Communications论文成功；目标仍需要真正的竞争力、适用性与新颖性证据。
+GENeranno及基线的上游物种／annotation暴露存在方法相关差异或未知，见[预训练暴露记录](../../../../paper/supplement/pretrained_exposure.md)。本支路显式复用已有CDS监督分类头，位置输入不是本项目的新模型创新。即使该开发比较提升，也不能据此宣称clean zero-shot、独立泛化、所有gene／UTR／isoform能力或Nature Communications论文成功；目标仍需要真正的竞争力、适用性与新颖性证据。
 
 ## 准备验证与后续执行
 
@@ -42,7 +42,7 @@ DEV RAW、COMPARISON及完整FAMILY脚本均只准备、未提交，正式输出
 
 ## 2026-10-11实际DEV提交与启动
 
-原三个目标与双头CDS支路的末权重、更新核验、六条TRAIN raw和端到端评价均已完成；主对话核对Slurm终态、运行身份、固定22688参考分母和计数算术，并完成结果处理。双头链路13453177→13453180→13453182_0–5→13453184全部root／batch／extern COMPLETED 0:0，最终评价于10-10 UTC01:41:44结束。此项顺序前置按完成身份判断，不因性能增删候选。TRAIN结果已写入[结果工作稿](../../docs/M28_full_grammar_results_working.md)。
+原三个目标与双头CDS支路的末权重、更新核验、六条TRAIN raw和端到端评价均已完成；主对话核对Slurm终态、运行身份、固定22688参考分母和计数算术，并完成结果处理。双头链路13453177→13453180→13453182_0–5→13453184全部root／batch／extern COMPLETED 0:0，最终评价于10-10 UTC01:41:44结束。此项顺序前置按完成身份判断，不因性能增删候选。TRAIN结果已写入[结果工作稿](../../../../paper/manuscript/M28_full_grammar_results_working.md)。
 
 10-11 UTC12:49:39实际提交两个DEV raw任务13493570_0–1，完整数组afterok比较13493571，以及afterok13493571的原八方法汇总13493572。三个原目标DEV比较13465375／13465377／13465379和final4608比较13449926已经完成，汇总仍须读取全部五份固定比较，不只依赖最新候选。每个raw沿用单RTX3090／2CPU／16GiB／2小时，数组最多并行2；仅路由扩至private-teodoro-gpu,shared-gpu，科学命令不变。比较2CPU／8GiB／20分钟，汇总2CPU／4GiB／5分钟，均无GPU。
 
