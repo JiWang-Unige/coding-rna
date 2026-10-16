@@ -1,0 +1,63 @@
+{
+  "experiment": "M28-PACKED-GRU-GPU-R1",
+  "job_id": 13293653,
+  "command": "sbatch --parsable --time=00:08:00 sbatch/M28-PACKED-GRU-GPU.sbatch",
+  "state": "FAILED",
+  "exit_code": "1:0",
+  "node": "gpu035",
+  "gpu_type": "nvidia_geforce_rtx_3090",
+  "gpus": 1,
+  "cpus": 2,
+  "memory_GiB": 8,
+  "elapsed_seconds": 49,
+  "allocated_GPU_hours": 0.01361111111111111,
+  "MaxRSS_KiB": 1957380,
+  "checkpoint": "outputs/M28-PILOT-R4/B1/step_001536.pt",
+  "checkpoint_step": 1536,
+  "first_window": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+  "discarded_one_step_updates_completed": 4,
+  "equivalence_windows_completed": 0,
+  "timing_steps_completed": 0,
+  "failure_stage": "First real TRAIN window, comparison of ChainHead score components. The original stderr does not name the failing component key.",
+  "tolerance": {
+    "atol": 0.000002,
+    "rtol": 0.0002
+  },
+  "mismatched_elements": 17,
+  "tensor_elements": 192,
+  "max_absolute_difference": 0.0009055137634277344,
+  "max_absolute_index": 144,
+  "max_relative_difference": 0.002578454790636897,
+  "max_relative_index": 9,
+  "free_candidate_dictionaries_equal": true,
+  "unchanged_observed_losses": {
+    "local": 0.12622936069965363,
+    "endpoint": 0.09050937741994858,
+    "link": 0.09571433067321777
+  },
+  "chain_loss": {
+    "baseline": 0.056456465274095535,
+    "packed": 0.05645260214805603
+  },
+  "weighted_total": {
+    "baseline": 0.39778271317481995,
+    "packed": 0.39777854084968567
+  },
+  "gradient_norm_before_clip": {
+    "baseline": 2.86263108253479,
+    "packed": 2.8625707626342773
+  },
+  "gradients_and_optimizer_states_not_compared_due_to_earlier_failure": true,
+  "final_summary_created": false,
+  "new_model_saved": false,
+  "R4_modified_or_resumed": false,
+  "automatic_retry": false,
+  "environment_postmortem": {
+    "source": "Read-only query on login node in same generanno environment, not a saved GPU-job flag snapshot",
+    "torch": "2.5.1",
+    "CUDA_build": "12.1",
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false
+  },
+  "interpretation": "GPU numerical equivalence rejected at original tolerance. No speedup/accuracy claim; TF32 or kernel-path effects are hypotheses, not established causes."
+}

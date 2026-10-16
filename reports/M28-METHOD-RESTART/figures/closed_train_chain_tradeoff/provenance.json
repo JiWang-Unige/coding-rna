@@ -1,0 +1,148 @@
+{
+  "completed": true,
+  "experiment": "M28-CLOSED-TRAIN-CHAIN-FIGURE",
+  "generated_UTC": "2026-10-06T17:41:58.363687+00:00",
+  "sources": {
+    "A31_A3": "a31_readout_13398521.json",
+    "A36": "a36_CPU_13408451.json",
+    "A37": "a37_CPU_13410742.json"
+  },
+  "source_experiments": {
+    "A31_A3": "A31_completed_TRAIN_readout",
+    "A36": "M28-A36-STRUCTURED-EMISSION-RESULT-CHECK",
+    "A37": "M28-A37-CONTEXT-CHAIN-RESULT-CHECK"
+  },
+  "windows": 1491,
+  "natural_candidates": 16321,
+  "eligible_reference_pairs": {
+    "arabidopsis_thaliana": {
+      "eligible": 2172,
+      "five_or_more": 854
+    },
+    "oryza_sativa": {
+      "eligible": 744,
+      "five_or_more": 232
+    }
+  },
+  "selected_counts_per_species": {
+    "arabidopsis_thaliana": {
+      "A31_A3": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 2193,
+        "selected_correct": 1531,
+        "selected_known_nonmatch": 347,
+        "selected_unknown": 315,
+        "selected_five_or_more_correct": 548
+      },
+      "A36": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 1463,
+        "selected_correct": 1138,
+        "selected_known_nonmatch": 141,
+        "selected_unknown": 184,
+        "selected_five_or_more_correct": 497
+      },
+      "A37": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 1675,
+        "selected_correct": 1396,
+        "selected_known_nonmatch": 125,
+        "selected_unknown": 154,
+        "selected_five_or_more_correct": 499
+      }
+    },
+    "oryza_sativa": {
+      "A31_A3": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 861,
+        "selected_correct": 478,
+        "selected_known_nonmatch": 251,
+        "selected_unknown": 132,
+        "selected_five_or_more_correct": 152
+      },
+      "A36": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 322,
+        "selected_correct": 204,
+        "selected_known_nonmatch": 72,
+        "selected_unknown": 46,
+        "selected_five_or_more_correct": 114
+      },
+      "A37": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 600,
+        "selected_correct": 431,
+        "selected_known_nonmatch": 114,
+        "selected_unknown": 55,
+        "selected_five_or_more_correct": 140
+      }
+    }
+  },
+  "pooled": {
+    "A31_A3": {
+      "selected_correct": 2009,
+      "selected_known_nonmatch": 598,
+      "selected_unknown": 447,
+      "selected": 3054,
+      "selected_five_or_more_correct": 700
+    },
+    "A36": {
+      "selected_correct": 1342,
+      "selected_known_nonmatch": 213,
+      "selected_unknown": 230,
+      "selected": 1785,
+      "selected_five_or_more_correct": 611
+    },
+    "A37": {
+      "selected_correct": 1827,
+      "selected_known_nonmatch": 239,
+      "selected_unknown": 209,
+      "selected": 2275,
+      "selected_five_or_more_correct": 639
+    }
+  },
+  "original_five_conditions": {
+    "A36": {
+      "arabidopsis_thaliana_natural_selected_correct_strictly_increased": false,
+      "arabidopsis_thaliana_natural_selected_known_nonmatch_not_increased": true,
+      "oryza_sativa_natural_selected_correct_strictly_increased": false,
+      "oryza_sativa_natural_selected_known_nonmatch_not_increased": true,
+      "pooled_natural_selected_five_or_more_correct_strictly_increased": false
+    },
+    "A37": {
+      "arabidopsis_thaliana_natural_selected_correct_strictly_increased": false,
+      "arabidopsis_thaliana_natural_selected_known_nonmatch_not_increased": true,
+      "oryza_sativa_natural_selected_correct_strictly_increased": false,
+      "oryza_sativa_natural_selected_known_nonmatch_not_increased": true,
+      "pooled_natural_selected_five_or_more_correct_strictly_increased": false
+    }
+  },
+  "grain": "original_TRAIN_window_natural_chain_pair_not_unique_gene",
+  "model_or_backbone_forward": false,
+  "model_or_feature_tensor_opened": false,
+  "optimizer_steps_this_run": 0,
+  "DEV_used": false,
+  "test_setaria_used": false,
+  "A33_outputs_opened": false,
+  "A38_outputs_opened": false,
+  "palette_policy": "two_roots_blue_orange_plus_neutral_unknown_with_hatches",
+  "limitation": "Closed-arm descriptive counts, unmatched training/capacity; not causal, gene F1 or generalization."
+}

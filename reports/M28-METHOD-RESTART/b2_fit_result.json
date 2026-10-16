@@ -1,0 +1,74 @@
+{
+  "experiment": "M28-B2-FIRST-FIT",
+  "completed": true,
+  "arm": "B2",
+  "optimizer_steps": 4608,
+  "seed": 0,
+  "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "base_checkpoint": "outputs/M28-PILOT-R5/B1/step_004608.pt",
+  "contract": "reports/M28-METHOD-RESTART/b2_first_fit_contract.md",
+  "trainable_parameters": 184369,
+  "base_trainable_parameters": 0,
+  "inherited_base_optimizer_steps": 4608,
+  "inherited_base_cost_source": "reports/M28-METHOD-RESTART/r5_result.json",
+  "fixed_control_unique_windows": 1491,
+  "fixed_control_observation_policy": "off_policy_additive",
+  "DEV_used_for_selection": false,
+  "DEV_forward_used": false,
+  "test_setaria_used": false,
+  "epochs": [
+    {
+      "epoch": 1,
+      "steps": 1536,
+      "mean_losses": {
+        "final": 0.20413371816516226,
+        "rank": 0.045687515058695095,
+        "total": 0.22426615398388586
+      },
+      "training_exposure_counts": {
+        "first_cut_events": 1978,
+        "known_rank_pairs": 3423,
+        "unknown_competitors": 1094
+      },
+      "seconds": 1211.6832167149987,
+      "checkpoint": "outputs/M28-B2-FIRST-FIT/step_001536.pt"
+    },
+    {
+      "epoch": 2,
+      "steps": 1536,
+      "mean_losses": {
+        "final": 0.15994449529997704,
+        "rank": 0.033281560932254727,
+        "total": 0.17308588787008242
+      },
+      "training_exposure_counts": {
+        "first_cut_events": 1978,
+        "known_rank_pairs": 3423,
+        "unknown_competitors": 1094
+      },
+      "seconds": 745.5041303530161,
+      "checkpoint": "outputs/M28-B2-FIRST-FIT/step_003072.pt"
+    },
+    {
+      "epoch": 3,
+      "steps": 1536,
+      "mean_losses": {
+        "final": 0.13930913940749434,
+        "rank": 0.02424909227065745,
+        "total": 0.1453813281067724
+      },
+      "training_exposure_counts": {
+        "first_cut_events": 1978,
+        "known_rank_pairs": 3423,
+        "unknown_competitors": 1094
+      },
+      "seconds": 697.2684630639851,
+      "checkpoint": "outputs/M28-B2-FIRST-FIT/step_004608.pt"
+    }
+  ],
+  "final_checkpoint": "outputs/M28-B2-FIRST-FIT/step_004608.pt",
+  "wall_seconds": 2654.4595696709875,
+  "peak_GPU_allocated_bytes": 116296704,
+  "peak_GPU_reserved_bytes": 159383552,
+  "artifact_bytes_before_summary": 95078370
+}

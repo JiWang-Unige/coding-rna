@@ -1,0 +1,17 @@
+{
+  "revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "model": "GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview",
+  "train_unique_windows": 1491,
+  "DEV_windows": 8690,
+  "total_windows": 10181,
+  "reused_R3_windows": 12,
+  "new_cache_bytes": 170874523021,
+  "forward_seconds": 2445.9567585321856,
+  "extraction_loop_seconds": 2932.4193260089996,
+  "peak_GPU_allocated_bytes": 2374624768,
+  "peak_GPU_reserved_bytes": 2489319424,
+  "optimizer_steps": 0,
+  "backbone_trainable_parameters": 0,
+  "test_setaria_used": false,
+  "feature_only_no_reference_inputs": true
+}

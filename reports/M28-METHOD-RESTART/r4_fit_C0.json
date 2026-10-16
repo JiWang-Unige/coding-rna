@@ -1,0 +1,46 @@
+{
+  "arm": "C0",
+  "optimizer_steps": 4608,
+  "seed": 0,
+  "feature_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "trainable_parameters": 366191,
+  "epochs": [
+    {
+      "epoch": 1,
+      "steps": 1536,
+      "mean_losses": {
+        "local": 0.2951620943931251,
+        "weighted_total": 0.26109560538240356
+      },
+      "seconds": 1285.6799607069988,
+      "checkpoint": "outputs/M28-PILOT-R4/C0/step_001536.pt"
+    },
+    {
+      "epoch": 2,
+      "steps": 1536,
+      "mean_losses": {
+        "local": 0.2519983802706065,
+        "weighted_total": 0.22159970871617438
+      },
+      "seconds": 1048.187297853001,
+      "checkpoint": "outputs/M28-PILOT-R4/C0/step_003072.pt"
+    },
+    {
+      "epoch": 3,
+      "steps": 1536,
+      "mean_losses": {
+        "local": 0.23237684133308298,
+        "weighted_total": 0.20443320672863288
+      },
+      "seconds": 944.4769469620005,
+      "checkpoint": "outputs/M28-PILOT-R4/C0/step_004608.pt"
+    }
+  ],
+  "training_loop_seconds": 3278.347735932999,
+  "peak_GPU_allocated_bytes": 168165376,
+  "peak_GPU_reserved_bytes": 247463936,
+  "DEV_used_for_selection": false,
+  "final_checkpoint": "outputs/M28-PILOT-R4/C0/step_004608.pt",
+  "test_setaria_used": false,
+  "main_evaluation": "last_step_004608_only"
+}

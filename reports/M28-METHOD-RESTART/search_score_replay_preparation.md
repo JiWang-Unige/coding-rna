@@ -1,0 +1,17 @@
+# 搜索竞争训练的分数回放组件
+
+2026-10-06。原累计分数回放及当前模型首淘汰采集已实现，分别通过五项和三项短测试；A30已完成八项真实TRAIN零更新分数／梯度预检，正式拟合链已开始。当前没有A30完整自然TRAIN读出或性能结果；最新协议和执行见a30_search_retention_protocol.md及a30_search_retention_execution.md。
+
+query_search_score_replay.py复用原pointer／GRU／EOS接口，严格使用原geometric log-softmax、raw最短内含子下界和ORF codon carry。START／NEXT_START包括待进入的边界，DONOR的所有已闭合exon使用nonterminal EOS，STOP仅最后exon使用terminal EOS。已选节点重算只生成梯度图，不改候选、排名、beam或停止规则。
+
+qualified_retention_margin只为外部已标成known_nonmatch 0的cutoff计算relu(margin＋cutoff_score−target_score)；other-primary 1与保护／未决-1均零损失和零负梯度。资格必须由完整R4注释决定，调用者不能把某query未分配的另一条primary当假gene。margin必须显式传入；测试中的1和100分别用于验证符号与保证合成hinge激活，不是正式训练参数，也不建立margin搜索计划。仅单cutoff被保护不证明其他领先路径都没有可用负例。
+
+本机两Python文件AST和SBATCH语法通过，三个相关文件上传成功、远程AST PASS 2及bash语法通过。提交前实际五项调度检查完成，private gpu034／035各有2块3090未分配，无相关GPU维护截断；本次CPU-only不请求GPU，唯一输出目录不存在。实际命令sbatch --parsable sbatch/M28-SEARCH-SCORE-REPLAY-UNITCHECK.sbatch，job13393178，generanno，private／0GPU／2CPU／4GiB／5min。root/batch/extern均COMPLETED0:0，gpu034，实际4秒，batch MaxRSS434376K。
+
+五项unittest全部PASS／0.121秒：原函数自然完成路径的累计数值与带梯度回放一致；真实carry／raw下界及DONOR和提前STOP不混淆；known_nonmatch梯度把目标推高、竞争者压低；other-primary／未决cutoff无负梯度；两条竞争路径的实际反向传播接到原pointer参数且有限非零。测试用随机初始化的小型GeneQueryPointer与合成DNA，没有optimizer更新、训练checkpoint、GLM或真实数据前向。日志outputs/M28-PILOT-R5/logs/M28REPLAYTEST_13393178.err；STATUS COMPLETED和JOBID与实际Slurm匹配。
+
+query_search_retention_training.py在当前teacher分配的全部正query上观察原自然搜索，无参考路径注入；局部start／next_start top4和跨历史全局池均取首次淘汰。只有完整R4资格known_nonmatch的cutoff有margin；other-primary和保护／未决为零。平均分母保留全部正query，包括已返回和零项。原raw最短内含子5bp不变；teacher支持而raw不支持的链保留原监督，仅新增搜索项为零并记录原因。
+
+短测试job13393303，private／0GPU／2CPU／4GiB／5min，root/batch/extern均COMPLETED0:0，实际12秒，batch MaxRSS762356K；STATUS和JOBID匹配。三项测试全部PASS／0.146秒：当前原搜索和known_nonmatch实际梯度；other-primary及保护cutoff零负梯度；4bp内含子参考保留原teacher监督而不伪造raw支持。无optimizer、训练checkpoint或真实数据前向。
+
+完整A28/A29支持开展安全资格限制的搜索竞争目标。A23原gate通过但known_nonmatch增加2461，A25原gate全失败；A30独立使用A3结构，在首次拟合前固定原三项正确覆盖改善及两物种错误候选非增长门槛。真实预检和协议已闭合，仍需正式拟合、自然读出和原五gate核验；不将组件、hinge或工程预检称为论文创新、科学PASS或独立泛化。

@@ -1,0 +1,657 @@
+{
+  "status": "development_reference_representation_control_shared_annotation_ancestry",
+  "species": "arabidopsis_thaliana",
+  "seqid": "NC_003074.8",
+  "length": 23459830,
+  "FASTA_exact_uppercase_match": true,
+  "setaria_access": false,
+  "sources": {
+    "RefSeq": {
+      "gene_count": 5460,
+      "raw_feature_row_flags": {
+        "gene": {
+          "unflagged": 5235,
+          "partial_true_and_range": 1309
+        },
+        "mRNA": {
+          "unflagged": 7926,
+          "partial_true_and_range": 2427
+        },
+        "CDS": {
+          "unflagged": 54793,
+          "partial_true_and_range": 25,
+          "partial_true_only": 60
+        }
+      },
+      "parent_primary": 4151,
+      "CDS_assessable_primary": 5437,
+      "new_genes_under_CDS_policy": 1290,
+      "old_genes_without_compatible_CDS": 4,
+      "same_gene_primary_chain_changes": 0,
+      "phase_chain_inconsistent_transcripts": [],
+      "fixed_all_coding_gene_background_bp": 10842973,
+      "policies": {
+        "parent_filter": {
+          "reference_unique_chains": 4151,
+          "methods": {
+            "M25R_A": {
+              "chain": {
+                "tp": 965,
+                "predicted": 1389,
+                "reference": 4151,
+                "precision": 0.6947444204463643,
+                "recall": 0.23247410262587329,
+                "f1": 0.3483754512635379
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 341302,
+                "background_bp": 13296593,
+                "CDS_coverage_on_background_bp": 330834
+              },
+              "policy_span_FPR": 0.025668379862420397,
+              "all_coding_background_span_bp": 42262,
+              "all_coding_background_CDS_bp": 41235
+            },
+            "M25R_B": {
+              "chain": {
+                "tp": 2348,
+                "predicted": 4317,
+                "reference": 4151,
+                "precision": 0.5438962242297892,
+                "recall": 0.5656468320886533,
+                "f1": 0.5545583372697213
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 1694508,
+                "background_bp": 13296593,
+                "CDS_coverage_on_background_bp": 1079286
+              },
+              "policy_span_FPR": 0.12743926207262266,
+              "all_coding_background_span_bp": 277264,
+              "all_coding_background_CDS_bp": 129671
+            },
+            "ANNEVO": {
+              "chain": {
+                "tp": 3450,
+                "predicted": 4898,
+                "reference": 4151,
+                "precision": 0.7043691302572479,
+                "recall": 0.8311250301132257,
+                "f1": 0.7625151950491768
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 1824636,
+                "background_bp": 13296593,
+                "CDS_coverage_on_background_bp": 1315096
+              },
+              "policy_span_FPR": 0.13722582920301463,
+              "all_coding_background_span_bp": 273718,
+              "all_coding_background_CDS_bp": 200233
+            },
+            "Helixer": {
+              "chain": {
+                "tp": 3064,
+                "predicted": 5340,
+                "reference": 4151,
+                "precision": 0.5737827715355805,
+                "recall": 0.7381353890628765,
+                "f1": 0.6456643135602149
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 2331025,
+                "background_bp": 13296593,
+                "CDS_coverage_on_background_bp": 1584767
+              },
+              "policy_span_FPR": 0.17530994593878296,
+              "all_coding_background_span_bp": 514832,
+              "all_coding_background_CDS_bp": 291320
+            },
+            "Tiberius": {
+              "chain": {
+                "tp": 3380,
+                "predicted": 4984,
+                "reference": 4151,
+                "precision": 0.6781701444622793,
+                "recall": 0.8142616237051313,
+                "f1": 0.7400109469074986
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 1815656,
+                "background_bp": 13296593,
+                "CDS_coverage_on_background_bp": 1313800
+              },
+              "policy_span_FPR": 0.13655046822896663,
+              "all_coding_background_span_bp": 186978,
+              "all_coding_background_CDS_bp": 140461
+            }
+          }
+        },
+        "CDS_assessable": {
+          "reference_unique_chains": 5437,
+          "methods": {
+            "M25R_A": {
+              "chain": {
+                "tp": 1161,
+                "predicted": 1389,
+                "reference": 5437,
+                "precision": 0.8358531317494601,
+                "recall": 0.21353687695420268,
+                "f1": 0.34016993847055377
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 42822,
+                "background_bp": 11084451,
+                "CDS_coverage_on_background_bp": 41795
+              },
+              "policy_span_FPR": 0.0038632495195296546,
+              "all_coding_background_span_bp": 42262,
+              "all_coding_background_CDS_bp": 41235
+            },
+            "M25R_B": {
+              "chain": {
+                "tp": 2721,
+                "predicted": 4317,
+                "reference": 5437,
+                "precision": 0.6302988186240445,
+                "recall": 0.5004598123965422,
+                "f1": 0.557924953865081
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 304957,
+                "background_bp": 11084451,
+                "CDS_coverage_on_background_bp": 138204
+              },
+              "policy_span_FPR": 0.027512142910821654,
+              "all_coding_background_span_bp": 277264,
+              "all_coding_background_CDS_bp": 129671
+            },
+            "ANNEVO": {
+              "chain": {
+                "tp": 3942,
+                "predicted": 4898,
+                "reference": 5437,
+                "precision": 0.8048182931808902,
+                "recall": 0.7250321868677579,
+                "f1": 0.7628447024673439
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 277772,
+                "background_bp": 11084451,
+                "CDS_coverage_on_background_bp": 202699
+              },
+              "policy_span_FPR": 0.025059608274690375,
+              "all_coding_background_span_bp": 273718,
+              "all_coding_background_CDS_bp": 200233
+            },
+            "Helixer": {
+              "chain": {
+                "tp": 3513,
+                "predicted": 5340,
+                "reference": 5437,
+                "precision": 0.6578651685393259,
+                "recall": 0.6461283796211146,
+                "f1": 0.6519439547183817
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 550773,
+                "background_bp": 11084451,
+                "CDS_coverage_on_background_bp": 313743
+              },
+              "policy_span_FPR": 0.049688793788704555,
+              "all_coding_background_span_bp": 514832,
+              "all_coding_background_CDS_bp": 291320
+            },
+            "Tiberius": {
+              "chain": {
+                "tp": 3865,
+                "predicted": 4984,
+                "reference": 5437,
+                "precision": 0.7754815409309791,
+                "recall": 0.7108699650542578,
+                "f1": 0.7417714230879954
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 207705,
+                "background_bp": 11084451,
+                "CDS_coverage_on_background_bp": 154554
+              },
+              "policy_span_FPR": 0.018738411131051957,
+              "all_coding_background_span_bp": 186978,
+              "all_coding_background_CDS_bp": 140461
+            }
+          }
+        }
+      }
+    },
+    "Araport11_20240701": {
+      "gene_count": 5460,
+      "raw_feature_row_flags": {
+        "gene": {
+          "unflagged": 6544
+        },
+        "mRNA": {
+          "unflagged": 10353
+        },
+        "CDS": {
+          "unflagged": 54878
+        }
+      },
+      "parent_primary": 5460,
+      "CDS_assessable_primary": 5437,
+      "new_genes_under_CDS_policy": 0,
+      "old_genes_without_compatible_CDS": 23,
+      "same_gene_primary_chain_changes": 2,
+      "phase_chain_inconsistent_transcripts": [],
+      "fixed_all_coding_gene_background_bp": 10842973,
+      "policies": {
+        "parent_filter": {
+          "reference_unique_chains": 5460,
+          "methods": {
+            "M25R_A": {
+              "chain": {
+                "tp": 1161,
+                "predicted": 1389,
+                "reference": 5460,
+                "precision": 0.8358531317494601,
+                "recall": 0.21263736263736263,
+                "f1": 0.33902759526938236
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 42292,
+                "background_bp": 11025410,
+                "CDS_coverage_on_background_bp": 41265
+              },
+              "policy_span_FPR": 0.0038358664212940832,
+              "all_coding_background_span_bp": 42262,
+              "all_coding_background_CDS_bp": 41235
+            },
+            "M25R_B": {
+              "chain": {
+                "tp": 2727,
+                "predicted": 4317,
+                "reference": 5460,
+                "precision": 0.6316886726893676,
+                "recall": 0.49945054945054945,
+                "f1": 0.5578398281681497
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 288299,
+                "background_bp": 11025410,
+                "CDS_coverage_on_background_bp": 131948
+              },
+              "policy_span_FPR": 0.026148596741527072,
+              "all_coding_background_span_bp": 277264,
+              "all_coding_background_CDS_bp": 129671
+            },
+            "ANNEVO": {
+              "chain": {
+                "tp": 3949,
+                "predicted": 4898,
+                "reference": 5460,
+                "precision": 0.8062474479379339,
+                "recall": 0.7232600732600732,
+                "f1": 0.7625024135933578
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 275504,
+                "background_bp": 11025410,
+                "CDS_coverage_on_background_bp": 200712
+              },
+              "policy_span_FPR": 0.024988095680795543,
+              "all_coding_background_span_bp": 273718,
+              "all_coding_background_CDS_bp": 200233
+            },
+            "Helixer": {
+              "chain": {
+                "tp": 3518,
+                "predicted": 5340,
+                "reference": 5460,
+                "precision": 0.6588014981273408,
+                "recall": 0.6443223443223444,
+                "f1": 0.6514814814814814
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 530620,
+                "background_bp": 11025410,
+                "CDS_coverage_on_background_bp": 298164
+              },
+              "policy_span_FPR": 0.048127008428711496,
+              "all_coding_background_span_bp": 514832,
+              "all_coding_background_CDS_bp": 291320
+            },
+            "Tiberius": {
+              "chain": {
+                "tp": 3872,
+                "predicted": 4984,
+                "reference": 5460,
+                "precision": 0.7768860353130016,
+                "recall": 0.7091575091575092,
+                "f1": 0.7414783607813098
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 192991,
+                "background_bp": 11025410,
+                "CDS_coverage_on_background_bp": 143555
+              },
+              "policy_span_FPR": 0.01750420165780683,
+              "all_coding_background_span_bp": 186978,
+              "all_coding_background_CDS_bp": 140461
+            }
+          }
+        },
+        "CDS_assessable": {
+          "reference_unique_chains": 5437,
+          "methods": {
+            "M25R_A": {
+              "chain": {
+                "tp": 1161,
+                "predicted": 1389,
+                "reference": 5437,
+                "precision": 0.8358531317494601,
+                "recall": 0.21353687695420268,
+                "f1": 0.34016993847055377
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 42742,
+                "background_bp": 11057220,
+                "CDS_coverage_on_background_bp": 41715
+              },
+              "policy_span_FPR": 0.003865528586751462,
+              "all_coding_background_span_bp": 42262,
+              "all_coding_background_CDS_bp": 41235
+            },
+            "M25R_B": {
+              "chain": {
+                "tp": 2727,
+                "predicted": 4317,
+                "reference": 5437,
+                "precision": 0.6316886726893676,
+                "recall": 0.5015633621482435,
+                "f1": 0.5591552183719499
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 301797,
+                "background_bp": 11057220,
+                "CDS_coverage_on_background_bp": 138162
+              },
+              "policy_span_FPR": 0.027294111901544873,
+              "all_coding_background_span_bp": 277264,
+              "all_coding_background_CDS_bp": 129671
+            },
+            "ANNEVO": {
+              "chain": {
+                "tp": 3949,
+                "predicted": 4898,
+                "reference": 5437,
+                "precision": 0.8062474479379339,
+                "recall": 0.7263196615780761,
+                "f1": 0.7641993226898888
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 277772,
+                "background_bp": 11057220,
+                "CDS_coverage_on_background_bp": 202699
+              },
+              "policy_span_FPR": 0.02512132344296306,
+              "all_coding_background_span_bp": 273718,
+              "all_coding_background_CDS_bp": 200233
+            },
+            "Helixer": {
+              "chain": {
+                "tp": 3518,
+                "predicted": 5340,
+                "reference": 5437,
+                "precision": 0.6588014981273408,
+                "recall": 0.647048004414199,
+                "f1": 0.6528718567319292
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 551704,
+                "background_bp": 11057220,
+                "CDS_coverage_on_background_bp": 314087
+              },
+              "policy_span_FPR": 0.0498953624871351,
+              "all_coding_background_span_bp": 514832,
+              "all_coding_background_CDS_bp": 291320
+            },
+            "Tiberius": {
+              "chain": {
+                "tp": 3872,
+                "predicted": 4984,
+                "reference": 5437,
+                "precision": 0.7768860353130016,
+                "recall": 0.712157439764576,
+                "f1": 0.743114864216486
+              },
+              "policy_span_background_counts": {
+                "span_fp_bp": 207531,
+                "background_bp": 11057220,
+                "CDS_coverage_on_background_bp": 154554
+              },
+              "policy_span_FPR": 0.018768822543098536,
+              "all_coding_background_span_bp": 186978,
+              "all_coding_background_CDS_bp": 140461
+            }
+          }
+        }
+      }
+    }
+  },
+  "input_qualification": {
+    "scope": "protein_coding_pair_with_other_gene_like_objects_retained",
+    "gene_like_features": {
+      "gene": 6544,
+      "transposable_element_gene": 877,
+      "pseudogene": 203
+    },
+    "gene_like_types": {
+      "novel_transcribed_region": 109,
+      "long_noncoding_rna": 497,
+      "other_rna": 43,
+      "small_nucleolar_rna": 47,
+      "antisense_rna": 23,
+      "protein_coding": 5460,
+      "antisense_long_noncoding_rna": 202,
+      "small_nuclear_rna": 19,
+      "pre_trna": 92,
+      "transposable_element_gene": 877,
+      "mirna": 50,
+      "pseudogene": 203,
+      "ribosomal_rna": 2
+    },
+    "type_resolution": {
+      "GFF_locus_type": 7453,
+      "same_release_functional_table": 120,
+      "explicit_noncoding_vocabulary_disagreement": 50,
+      "explicit_noncoding_pseudogene_tRNA_disagreement": 1
+    },
+    "mRNA_parent_feature": {
+      "gene": 9474,
+      "transposable_element_gene": 879
+    },
+    "R6_reported_parent_issues_resolved_to": {
+      "transposable_element_gene": 879
+    },
+    "uORF_table_subfeatures": 19,
+    "CDS_rows": 54878,
+    "all_Chr3_feature_rows_retained": 180753,
+    "issues": [],
+    "protein_coding_type_uncertainty_loci": 0,
+    "coding_view_qualified": true
+  },
+  "semantic_locus_partition": {
+    "coding_loci_RefSeq": 5460,
+    "coding_loci_Araport": 5460,
+    "shared_coding_loci": 5460,
+    "loci_with_any_assessable_isoform_set_difference": 0,
+    "RefSeq_only_assessable_isoform_chains": 0,
+    "Araport_only_assessable_isoform_chains": 0,
+    "shared_loci_with_genuinely_source_only_assessable_CDS": 0,
+    "residual_structure_method_flips": {
+      "M25R_A": {
+        "residual_loci": 0,
+        "primary_exact_judgment_flips": 0,
+        "any_assessable_exact_judgment_flips": 0
+      },
+      "M25R_B": {
+        "residual_loci": 0,
+        "primary_exact_judgment_flips": 0,
+        "any_assessable_exact_judgment_flips": 0
+      },
+      "ANNEVO": {
+        "residual_loci": 0,
+        "primary_exact_judgment_flips": 0,
+        "any_assessable_exact_judgment_flips": 0
+      },
+      "Helixer": {
+        "residual_loci": 0,
+        "primary_exact_judgment_flips": 0,
+        "any_assessable_exact_judgment_flips": 0
+      },
+      "Tiberius": {
+        "residual_loci": 0,
+        "primary_exact_judgment_flips": 0,
+        "any_assessable_exact_judgment_flips": 0
+      }
+    },
+    "groups": {
+      "same_primary": {
+        "loci": 5428,
+        "methods": {
+          "M25R_A": {
+            "RefSeq_primary_exact_loci": 1161,
+            "Araport_primary_exact_loci": 1161,
+            "RefSeq_any_assessable_exact_loci": 1185,
+            "Araport_any_assessable_exact_loci": 1185
+          },
+          "M25R_B": {
+            "RefSeq_primary_exact_loci": 2721,
+            "Araport_primary_exact_loci": 2721,
+            "RefSeq_any_assessable_exact_loci": 2866,
+            "Araport_any_assessable_exact_loci": 2866
+          },
+          "ANNEVO": {
+            "RefSeq_primary_exact_loci": 3941,
+            "Araport_primary_exact_loci": 3941,
+            "RefSeq_any_assessable_exact_loci": 4324,
+            "Araport_any_assessable_exact_loci": 4324
+          },
+          "Helixer": {
+            "RefSeq_primary_exact_loci": 3512,
+            "Araport_primary_exact_loci": 3512,
+            "RefSeq_any_assessable_exact_loci": 3826,
+            "Araport_any_assessable_exact_loci": 3826
+          },
+          "Tiberius": {
+            "RefSeq_primary_exact_loci": 3864,
+            "Araport_primary_exact_loci": 3864,
+            "RefSeq_any_assessable_exact_loci": 4283,
+            "Araport_any_assessable_exact_loci": 4283
+          }
+        }
+      },
+      "primary_selection_only": {
+        "loci": 9,
+        "methods": {
+          "M25R_A": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 0,
+            "RefSeq_any_assessable_exact_loci": 0,
+            "Araport_any_assessable_exact_loci": 0
+          },
+          "M25R_B": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 6,
+            "RefSeq_any_assessable_exact_loci": 6,
+            "Araport_any_assessable_exact_loci": 6
+          },
+          "ANNEVO": {
+            "RefSeq_primary_exact_loci": 1,
+            "Araport_primary_exact_loci": 8,
+            "RefSeq_any_assessable_exact_loci": 9,
+            "Araport_any_assessable_exact_loci": 9
+          },
+          "Helixer": {
+            "RefSeq_primary_exact_loci": 1,
+            "Araport_primary_exact_loci": 6,
+            "RefSeq_any_assessable_exact_loci": 7,
+            "Araport_any_assessable_exact_loci": 7
+          },
+          "Tiberius": {
+            "RefSeq_primary_exact_loci": 1,
+            "Araport_primary_exact_loci": 8,
+            "RefSeq_any_assessable_exact_loci": 9,
+            "Araport_any_assessable_exact_loci": 9
+          }
+        }
+      },
+      "neither_CDS_assessable": {
+        "loci": 23,
+        "methods": {
+          "M25R_A": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 0,
+            "RefSeq_any_assessable_exact_loci": 0,
+            "Araport_any_assessable_exact_loci": 0
+          },
+          "M25R_B": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 0,
+            "RefSeq_any_assessable_exact_loci": 0,
+            "Araport_any_assessable_exact_loci": 0
+          },
+          "ANNEVO": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 0,
+            "RefSeq_any_assessable_exact_loci": 0,
+            "Araport_any_assessable_exact_loci": 0
+          },
+          "Helixer": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 0,
+            "RefSeq_any_assessable_exact_loci": 0,
+            "Araport_any_assessable_exact_loci": 0
+          },
+          "Tiberius": {
+            "RefSeq_primary_exact_loci": 0,
+            "Araport_primary_exact_loci": 0,
+            "RefSeq_any_assessable_exact_loci": 0,
+            "Araport_any_assessable_exact_loci": 0
+          }
+        }
+      }
+    }
+  },
+  "shared_chain_control": {
+    "same_locus_and_CDS_chain_records": 8000,
+    "CDS_assessable_in_both": 7970,
+    "CDS_assessable_parent_eligibility_RefSeq_Araport": {
+      "0,1": 1920,
+      "1,1": 6050
+    },
+    "RefSeq_excluded_Araport_retained_shared_chains": 1920,
+    "RefSeq_excluded_Araport_retained_shared_loci": 1290,
+    "methods": {
+      "M25R_A": {
+        "exact_discordant_chains": 201,
+        "exact_discordant_loci": 201
+      },
+      "M25R_B": {
+        "exact_discordant_chains": 401,
+        "exact_discordant_loci": 401
+      },
+      "ANNEVO": {
+        "exact_discordant_chains": 581,
+        "exact_discordant_loci": 581
+      },
+      "Helixer": {
+        "exact_discordant_chains": 523,
+        "exact_discordant_loci": 523
+      },
+      "Tiberius": {
+        "exact_discordant_chains": 594,
+        "exact_discordant_loci": 594
+      }
+    }
+  }
+}

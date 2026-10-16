@@ -1,0 +1,7 @@
+--- scripts/experiments/M28-METHOD-RESTART/r5_attrition.py
++++ scripts/experiments/M28-METHOD-RESTART/r5_attrition.py
+@@ -204,3 +204,3 @@
+     print(json.dumps({"status": report["status"], "per_species": {
+         s: {k: v for k, v in r.items() if k != "prediction_geometry"}
+-        for s, r in report["per_species"].items()}), flush=True)
++        for s, r in report["per_species"].items()}}), flush=True)

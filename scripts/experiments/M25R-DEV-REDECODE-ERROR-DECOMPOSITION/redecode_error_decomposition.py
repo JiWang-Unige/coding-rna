@@ -821,7 +821,10 @@ def load_species(root, config):
         name = species_path.name
         if name not in {"arabidopsis_thaliana", "oryza_sativa"}:
             raise ValueError(f"Stage 1 development species is not frozen: {name}")
-        all_sequences = screen_data.read_fasta(str(species_path / "genome.fa"))
+        all_sequences = {
+            seqid: sequence.upper()
+            for seqid, sequence in screen_data.read_fasta(str(species_path / "genome.fa")).items()
+        }
         all_splits = screen_data.assign_splits(list(all_sequences))
         sequences = m25.select_primary_chromosomes(all_sequences, primary_seqids[name])
         lengths = {seqid: len(sequence) for seqid, sequence in sequences.items()}

@@ -1,0 +1,51 @@
+{
+  "status": "matched",
+  "method": "unmodified current legacy dataset constructor; length-matched dummy DNA; label construction unchanged",
+  "not_verified": "No original per-window identity trace exists here. Equal aggregates are not an identity proof.",
+  "setaria_access": false,
+  "neural_forward_or_training": false,
+  "reconstructed": {
+    "region_counts": [
+      6954710,
+      1285287,
+      1197187
+    ],
+    "boundary_positive": {
+      "start": 774,
+      "stop": 774,
+      "donor": 3395,
+      "acceptor": 3382
+    },
+    "phase_counts": [
+      318318,
+      318027,
+      317591
+    ],
+    "train_windows": 1536
+  },
+  "archived": {
+    "region_counts": [
+      6954710,
+      1285287,
+      1197187
+    ],
+    "boundary_positive": {
+      "acceptor": 3382,
+      "donor": 3395,
+      "start": 774,
+      "stop": 774
+    },
+    "phase_counts": [
+      318318,
+      318027,
+      317591
+    ],
+    "train_windows": 1536
+  },
+  "comparison": {
+    "region_counts": true,
+    "boundary_positive": true,
+    "phase_counts": true,
+    "train_windows": true
+  }
+}

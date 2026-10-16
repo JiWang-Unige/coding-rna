@@ -1,0 +1,158 @@
+{
+  "experiment": "M28-CORE-LABEL-SMOKE-R2",
+  "no_backbone_or_training": true,
+  "parameter_counts_mock_feature_dim64": {
+    "C0": 112239,
+    "B1": 311543
+  },
+  "shared_draws": 1536,
+  "species_draw_counts": {
+    "arabidopsis_thaliana": 768,
+    "oryza_sativa": 768
+  },
+  "paired_probability_sum": 0.9999999999999897,
+  "label_subset_seed": 23,
+  "shared_order_seed": 0,
+  "label_diagnostics": {
+    "arabidopsis_thaliana": {
+      "diagnostic_draws": 64,
+      "strata_seen": [
+        [
+          "NC_003070.9",
+          "+"
+        ],
+        [
+          "NC_003070.9",
+          "-"
+        ],
+        [
+          "NC_003071.7",
+          "+"
+        ],
+        [
+          "NC_003071.7",
+          "-"
+        ],
+        [
+          "NC_003076.8",
+          "+"
+        ],
+        [
+          "NC_003076.8",
+          "-"
+        ]
+      ],
+      "fine_label_counts": {
+        "-100": 59659,
+        "0": 1159657,
+        "1": 78481,
+        "2": 78700,
+        "3": 78452,
+        "4": 25962,
+        "5": 27854,
+        "6": 61398,
+        "7": 175,
+        "8": 192,
+        "9": 414,
+        "10": 412,
+        "11": 170,
+        "12": 189,
+        "13": 573,
+        "14": 576
+      },
+      "region_label_counts": {
+        "-100": 51784,
+        "0": 1159657,
+        "1": 242087,
+        "2": 119336
+      },
+      "known_endpoint_positive_counts": [
+        191,
+        192,
+        805,
+        794
+      ],
+      "known_endpoint_base_counts": [
+        1545604,
+        1545610,
+        1551023,
+        1550996
+      ],
+      "positive_chain_instances": 210,
+      "callable_reference_background_draws": 0
+    },
+    "oryza_sativa": {
+      "diagnostic_draws": 64,
+      "strata_seen": [
+        [
+          "NC_089043.1",
+          "+"
+        ],
+        [
+          "NC_089043.1",
+          "-"
+        ],
+        [
+          "NC_089044.1",
+          "+"
+        ],
+        [
+          "NC_089044.1",
+          "-"
+        ],
+        [
+          "NC_089046.1",
+          "+"
+        ],
+        [
+          "NC_089046.1",
+          "-"
+        ]
+      ],
+      "fine_label_counts": {
+        "-100": 20325,
+        "0": 1378863,
+        "1": 31629,
+        "2": 31699,
+        "3": 31651,
+        "4": 22221,
+        "5": 19846,
+        "6": 35754,
+        "7": 67,
+        "8": 42,
+        "9": 116,
+        "10": 115,
+        "11": 64,
+        "12": 40,
+        "13": 225,
+        "14": 207
+      },
+      "region_label_counts": {
+        "-100": 2723,
+        "0": 1378863,
+        "1": 100426,
+        "2": 90852
+      },
+      "known_endpoint_positive_counts": [
+        75,
+        69,
+        247,
+        241
+      ],
+      "known_endpoint_base_counts": [
+        1555573,
+        1555565,
+        1572861,
+        1572850
+      ],
+      "positive_chain_instances": 65,
+      "callable_reference_background_draws": 4
+    }
+  },
+  "limitations": [
+    "Not a trained model or native decoder test",
+    "No actual free-inference candidate coverage yet",
+    "Natural background may be rare, especially in Arabidopsis",
+    "CDS-complete training positives and historical evaluation primary policy differ"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "orientations": [
+    {
+      "original_CDS_runs": 15054,
+      "candidate_CDS_fragments": 24855,
+      "seqid": "NC_003074.8",
+      "strand": "+",
+      "objective": 16714086.629221663,
+      "total_gene_span": 4192899,
+      "genes": 2134
+    },
+    {
+      "original_CDS_runs": 15685,
+      "candidate_CDS_fragments": 25737,
+      "seqid": "NC_003074.8",
+      "strand": "-",
+      "objective": 17752400.45625727,
+      "total_gene_span": 4472545,
+      "genes": 2183
+    },
+    {
+      "original_CDS_runs": 8973,
+      "candidate_CDS_fragments": 12489,
+      "seqid": "NC_089041.1",
+      "strand": "+",
+      "objective": 6729824.494791269,
+      "total_gene_span": 2330259,
+      "genes": 983
+    },
+    {
+      "original_CDS_runs": 8224,
+      "candidate_CDS_fragments": 11209,
+      "seqid": "NC_089041.1",
+      "strand": "-",
+      "objective": 6478238.419719815,
+      "total_gene_span": 2285630,
+      "genes": 888
+    }
+  ],
+  "reference_files_read": false,
+  "n_models": 6188,
+  "phase_gate": false,
+  "ORF_suffix_states": 21,
+  "initial_ATG_partial_states": 2
+}

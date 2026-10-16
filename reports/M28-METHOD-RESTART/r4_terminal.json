@@ -1,0 +1,106 @@
+{
+  "experiment": "M28-PILOT-R4",
+  "interpretation": "Budget-limited incomplete comparison; no formal DEV ranking and no architecture rejection",
+  "stages": [
+    {
+      "stage": "features",
+      "job_id": 13292334,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed_seconds": 3010,
+      "allocated_GPU_hours": 0.8361111111111111
+    },
+    {
+      "stage": "fit_C0",
+      "job_id": 13292356,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed_seconds": 3322,
+      "optimizer_steps": 4608,
+      "allocated_GPU_hours": 0.9227777777777778
+    },
+    {
+      "stage": "fit_B1",
+      "job_id": 13292357,
+      "state": "TIMEOUT",
+      "job_exit_code": "0:0",
+      "batch_exit_code": "0:15",
+      "time_limit_seconds": 7200,
+      "elapsed_seconds": 7216,
+      "allocated_GPU_hours": 2.0044444444444443,
+      "MaxRSS_KiB": 2714364,
+      "saved_training_records": 4032,
+      "last_saved_training_step": 4032,
+      "last_durable_free_proposal_step": 4077,
+      "final_optimizer_count_unknown": true,
+      "last_saved_checkpoint_step": 3072,
+      "summary_exists": false,
+      "raw_STATUS_text": "RUNNING",
+      "status_file_is_stale": true
+    },
+    {
+      "stage": "infer_C0",
+      "job_id": 13292540,
+      "state": "TIMEOUT",
+      "job_exit_code": "0:0",
+      "batch_exit_code": "0:15",
+      "elapsed_seconds": 3600,
+      "allocated_GPU_hours": 1,
+      "MaxRSS_KiB": 1510624,
+      "saved_windows": 5568,
+      "required_windows": 8690,
+      "invalid_saved_rows": 0,
+      "summary_exists": false,
+      "raw_STATUS_text": "RUNNING",
+      "status_file_is_stale": true,
+      "scopes": [
+        {
+          "file": "scope_00.jsonl",
+          "species": "arabidopsis_thaliana",
+          "strand": "+",
+          "saved_windows": 1909,
+          "candidate_chain_records": 5807
+        },
+        {
+          "file": "scope_01.jsonl",
+          "species": "arabidopsis_thaliana",
+          "strand": "-",
+          "saved_windows": 1909,
+          "candidate_chain_records": 6005
+        },
+        {
+          "file": "scope_02.jsonl",
+          "species": "oryza_sativa",
+          "strand": "+",
+          "saved_windows": 1750,
+          "candidate_chain_records": 1759
+        }
+      ]
+    },
+    {
+      "stage": "infer_B1",
+      "job_id": 13292541,
+      "state": "PENDING",
+      "reason": "DependencyNeverSatisfied",
+      "allocated_GPU_hours": 0,
+      "ran": false
+    },
+    {
+      "stage": "evaluation",
+      "job_id": 13292543,
+      "state": "PENDING",
+      "reason": "DependencyNeverSatisfied",
+      "allocated_GPU_hours": 0,
+      "ran": false
+    }
+  ],
+  "allocated_GPU_hours_actual": 4.763333333333334,
+  "requested_GPU_hours_ceiling": 8,
+  "resource_interpretation": "Individual fit/inference caps remain binding despite unspent total allowance; 16s B1 scheduler termination latency counted in actual use",
+  "pending_dependencies_modified_or_cancelled": false,
+  "artifacts_preserved": true,
+  "formal_new_model_DEV_metrics": false,
+  "protocol_extended": false,
+  "R4_resumed": false,
+  "test_setaria_access": false
+}

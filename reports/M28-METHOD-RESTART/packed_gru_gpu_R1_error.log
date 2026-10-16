@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/scripts/experiments/M28-METHOD-RESTART/packed_gru_gpu.py", line 249, in <module>
+    main(parser.parse_args().output_dir)
+  File "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/scripts/experiments/M28-METHOD-RESTART/packed_gru_gpu.py", line 195, in main
+    compare_tensors(field, a, b, errors)
+  File "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/scripts/experiments/M28-METHOD-RESTART/packed_gru_gpu.py", line 34, in compare_tensors
+    torch.testing.assert_close(new, old, atol=ATOL, rtol=RTOL)
+  File "/home/users/j/jwang/.conda/envs/generanno/lib/python3.10/site-packages/torch/testing/_comparison.py", line 1530, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 17 / 192 (8.9%)
+Greatest absolute difference: 0.0009055137634277344 at index (144,) (up to 2e-06 allowed)
+Greatest relative difference: 0.002578454790636897 at index (9,) (up to 0.0002 allowed)

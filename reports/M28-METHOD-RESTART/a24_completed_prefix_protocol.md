@@ -1,0 +1,23 @@
+# A24 自然完成池的正确前缀覆盖诊断
+
+2026-10-06，在实际统计前固定。本轮回答A22登记536个未生成的原已知正链／窗口对在完成池中缺失的结构位置，用于选择下一生成结构的优先方向；不是新的自然预测、训练或论文性能结果。A5的27个压力配对已有真实前缀条件化排名诊断，本轮不重复它，改看原1491 TRAIN窗中全部2916个正链几何与16321个自然完成候选的关系。
+
+## 唯一来源和分母
+
+A6原natural free_pool来自13358977，源generator仍A3末004608；A12原标签／positive注入metadata来自13360650，A22冻结诊断13391139。核对三个来源的STATUS／JOBID／completed与generator／head身份，直接比较原1491有序窗、六条TRAIN染色体、原自然链列表和精确去重身份。A12的label1几何2916个，其中自然命中2380、原metadata补齐536；不把注入metadata加入自然池，不以label／gain过滤完成候选，不新增参考、DNA或特征读取。
+
+全部窗口保留，包括没有正链的窗口。分母是正链／窗口几何配对，不是独立基因。逐物种及1／2–4／至少5 exon分层，原候选数和正链几何不变；本轮不能推断未知链为FP或将unknown改为负例。
+
+## 固定互斥分类
+
+精确整链已在自然池先记natural_hit；相同外跨度但外显子不同不算命中。未命中时，先找全部首起点相同的完成候选，若没有，记completed_start_absent；有相同首起点但不存在完整首外显子，记first_end_absent。
+
+其余在所有相同首起点完成候选中取最长逐exon精确前缀的深度k，保留全部达到该深度的候选索引，而非任选一个tie。若k等于正确链外显子数，正确链是某完成链的严格前缀，记target_proper_prefix_of_completed。否则，全部最深前缀候选都在k处完成，记completed_prefix_only；有继续候选时，若任何继续候选的下一exon起点等于正确下一起点、但结束不相同，记continuation_end_absent；没有该起点则记continuation_start_absent。混有在k处完成的候选仍完整保留它们的索引，不能把这类描述简单等同于单一过早EOS原因。
+
+本分类只描述已保存的完成池，不观察搜索中间状态：completed_start_absent不证明正确起点从未被展开；前缀已出现不证明同一query曾保留正确后继；prefix_only不证明EOS模型是唯一根因。不能据此推荐beam宽度、修改长度归一或阈值。A23只加end／next_start相对项，直接结构上不新增首起点项；最终训练仍可能间接影响原共有参数，不预设它对首起点毫无影响。
+
+## 执行和下一决定
+
+五项解析检查覆盖空池／首起点缺失、同外跨度非整链、首结束差异、欠延伸／过延伸、混合最深前缀和下一起点／结束分别缺失。CPU脚本audit_completed_prefix_coverage.py；SBATCH private-teodoro-gpu／0GPU／2CPU／8GiB／5分钟，generanno。新输出M28-A24-COMPLETED-PREFIX-COVERAGE，包括1491行windows、2916行references、summary／STATUS／JOBID。预计约数秒，文本数MiB，不复制约50GiB cache。短诊断由主对话闭合，不加入或新建等待监控；长A17／A23仍复用同一heartbeat。
+
+若首起点缺失在遗漏类中占主导，下一项优先设计明确的起点表示／提案结构，不能继续只加长度提示；若已有正确首起点而后续边界类占主导，则继续优先关注条件化的连接或完成保留，且必须保留绝对评分问题。分类选择的是结构假设，不是因果结论或性能赢家，不自动放宽任何当前gate。A17／A23照原协议运行；新的模型若实施另固定训练、自然读出、继续条件和完整caller范围。无模型／GLM前向、optimizer、checkpoint读写、catalog／DNA、DEV、sealed／Setaria、作业取消、Git写入或公开发布。

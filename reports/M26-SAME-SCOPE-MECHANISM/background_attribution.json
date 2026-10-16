@@ -1,0 +1,254 @@
+{
+  "status": "posthoc_reference_policy_attribution_not_biological_validation",
+  "regions_in_overlap_priority_order": [
+    "complete_primary_exon_span",
+    "other_span_of_primary_eligible_coding_gene",
+    "partial_flagged_coding_gene",
+    "other_coding_gene_without_complete_primary",
+    "noncoding_or_other_annotated_gene",
+    "outside_all_annotated_genes"
+  ],
+  "methods": {
+    "M25R_A": {
+      "arabidopsis_thaliana": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 10163237,
+          "other_span_of_primary_eligible_coding_gene": 153472,
+          "partial_flagged_coding_gene": 2300148,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 2659568,
+          "outside_all_annotated_genes": 8183405
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 1204110,
+          "other_span_of_primary_eligible_coding_gene": 116,
+          "partial_flagged_coding_gene": 298924,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 34157,
+          "outside_all_annotated_genes": 8105
+        },
+        "frozen_background_FPR": 0.025668379862420397,
+        "all_coding_gene_background_FPR": 0.003897639512705602,
+        "all_annotated_gene_background_FPR": 0.0009904190248435705,
+        "old_FP_burden_inside_partial_coding_fraction": 0.8758343051022262,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.9762527028848351
+      },
+      "oryza_sativa": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 8390455,
+          "other_span_of_primary_eligible_coding_gene": 208536,
+          "partial_flagged_coding_gene": 29821,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 1534573,
+          "outside_all_annotated_genes": 19773036
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 675662,
+          "other_span_of_primary_eligible_coding_gene": 7824,
+          "partial_flagged_coding_gene": 507,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 13373,
+          "outside_all_annotated_genes": 71421
+        },
+        "frozen_background_FPR": 0.004322154782941735,
+        "all_coding_gene_background_FPR": 0.003979517363961391,
+        "all_annotated_gene_background_FPR": 0.0036120401540764907,
+        "old_FP_burden_inside_partial_coding_fraction": 0.005444295302013423,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.23306308724832214
+      }
+    },
+    "M25R_B": {
+      "arabidopsis_thaliana": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 10163237,
+          "other_span_of_primary_eligible_coding_gene": 153472,
+          "partial_flagged_coding_gene": 2300148,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 2659568,
+          "outside_all_annotated_genes": 8183405
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 6955144,
+          "other_span_of_primary_eligible_coding_gene": 7656,
+          "partial_flagged_coding_gene": 1409588,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 169953,
+          "outside_all_annotated_genes": 107311
+        },
+        "frozen_background_FPR": 0.12743926207262266,
+        "all_coding_gene_background_FPR": 0.02557084666723785,
+        "all_annotated_gene_background_FPR": 0.013113245647746873,
+        "old_FP_burden_inside_partial_coding_fraction": 0.8318567985515559,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.936671293378373
+      },
+      "oryza_sativa": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 8390455,
+          "other_span_of_primary_eligible_coding_gene": 208536,
+          "partial_flagged_coding_gene": 29821,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 1534573,
+          "outside_all_annotated_genes": 19773036
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 4356648,
+          "other_span_of_primary_eligible_coding_gene": 21252,
+          "partial_flagged_coding_gene": 507,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 66084,
+          "outside_all_annotated_genes": 170789
+        },
+        "frozen_background_FPR": 0.012003731928287643,
+        "all_coding_gene_background_FPR": 0.011116826857485511,
+        "all_annotated_gene_background_FPR": 0.008637469734035785,
+        "old_FP_burden_inside_partial_coding_fraction": 0.0019603142689226393,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.33964474620309937
+      }
+    },
+    "ANNEVO": {
+      "arabidopsis_thaliana": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 10163237,
+          "other_span_of_primary_eligible_coding_gene": 153472,
+          "partial_flagged_coding_gene": 2300148,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 2659568,
+          "outside_all_annotated_genes": 8183405
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 7783422,
+          "other_span_of_primary_eligible_coding_gene": 2713,
+          "partial_flagged_coding_gene": 1548205,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 240355,
+          "outside_all_annotated_genes": 33363
+        },
+        "frozen_background_FPR": 0.13722582920301463,
+        "all_coding_gene_background_FPR": 0.025243814588489708,
+        "all_annotated_gene_background_FPR": 0.00407690930608958,
+        "old_FP_burden_inside_partial_coding_fraction": 0.8485007420658147,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.9817152571800623
+      },
+      "oryza_sativa": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 8390455,
+          "other_span_of_primary_eligible_coding_gene": 208536,
+          "partial_flagged_coding_gene": 29821,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 1534573,
+          "outside_all_annotated_genes": 19773036
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 6162866,
+          "other_span_of_primary_eligible_coding_gene": 39132,
+          "partial_flagged_coding_gene": 4468,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 88963,
+          "outside_all_annotated_genes": 289043
+        },
+        "frozen_background_FPR": 0.019567746463537535,
+        "all_coding_gene_background_FPR": 0.0177404231511851,
+        "all_annotated_gene_background_FPR": 0.014618038423639141,
+        "old_FP_burden_inside_partial_coding_fraction": 0.010597572140813935,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.31442389339810156
+      }
+    },
+    "Helixer": {
+      "arabidopsis_thaliana": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 10163237,
+          "other_span_of_primary_eligible_coding_gene": 153472,
+          "partial_flagged_coding_gene": 2300148,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 2659568,
+          "outside_all_annotated_genes": 8183405
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 7928563,
+          "other_span_of_primary_eligible_coding_gene": 7810,
+          "partial_flagged_coding_gene": 1808383,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 344746,
+          "outside_all_annotated_genes": 170086
+        },
+        "frozen_background_FPR": 0.17530994593878296,
+        "all_coding_gene_background_FPR": 0.04748070478456416,
+        "all_annotated_gene_background_FPR": 0.02078425789753776,
+        "old_FP_burden_inside_partial_coding_fraction": 0.7757887624542852,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.9270338155961433
+      },
+      "oryza_sativa": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 8390455,
+          "other_span_of_primary_eligible_coding_gene": 208536,
+          "partial_flagged_coding_gene": 29821,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 1534573,
+          "outside_all_annotated_genes": 19773036
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 6341274,
+          "other_span_of_primary_eligible_coding_gene": 38589,
+          "partial_flagged_coding_gene": 3961,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 239558,
+          "outside_all_annotated_genes": 368130
+        },
+        "frozen_background_FPR": 0.030179106381213076,
+        "all_coding_gene_background_FPR": 0.02851976493467662,
+        "all_annotated_gene_background_FPR": 0.018617778271379268,
+        "old_FP_burden_inside_partial_coding_fraction": 0.006091615685333678,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.43385345058270974
+      }
+    },
+    "Tiberius": {
+      "arabidopsis_thaliana": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 10163237,
+          "other_span_of_primary_eligible_coding_gene": 153472,
+          "partial_flagged_coding_gene": 2300148,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 2659568,
+          "outside_all_annotated_genes": 8183405
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 7791223,
+          "other_span_of_primary_eligible_coding_gene": 3487,
+          "partial_flagged_coding_gene": 1625191,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 157657,
+          "outside_all_annotated_genes": 29321
+        },
+        "frozen_background_FPR": 0.13655046822896663,
+        "all_coding_gene_background_FPR": 0.017244163570268044,
+        "all_annotated_gene_background_FPR": 0.00358298287815402,
+        "old_FP_burden_inside_partial_coding_fraction": 0.8950985208651859,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.9838510158311927
+      },
+      "oryza_sativa": {
+        "genome_bp_by_region": {
+          "complete_primary_exon_span": 8390455,
+          "other_span_of_primary_eligible_coding_gene": 208536,
+          "partial_flagged_coding_gene": 29821,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 1534573,
+          "outside_all_annotated_genes": 19773036
+        },
+        "predicted_union_span_bp_by_region": {
+          "complete_primary_exon_span": 5844545,
+          "other_span_of_primary_eligible_coding_gene": 33060,
+          "partial_flagged_coding_gene": 4416,
+          "other_coding_gene_without_complete_primary": 0,
+          "noncoding_or_other_annotated_gene": 139978,
+          "outside_all_annotated_genes": 172110
+        },
+        "frozen_background_FPR": 0.016224104317253633,
+        "all_coding_gene_background_FPR": 0.014646786507111145,
+        "all_annotated_gene_background_FPR": 0.008704277886309416,
+        "old_FP_burden_inside_partial_coding_fraction": 0.01263287981599936,
+        "old_FP_burden_inside_any_annotated_gene_fraction": 0.5076438077147533
+      }
+    }
+  },
+  "setaria_access": false
+}

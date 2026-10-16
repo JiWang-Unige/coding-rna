@@ -1,0 +1,367 @@
+{
+  "status": "fixed_budget_reference_assisted_DEV_diagnostic",
+  "setaria_access": false,
+  "new_forward": false,
+  "training": false,
+  "predictions_changed": false,
+  "seed": 20260926,
+  "pooled": {
+    "references": 6450,
+    "outside_O0": 2865,
+    "arms": {
+      "original": {
+        "reachable": 3561,
+        "joint_region_supported": 3558,
+        "outside_O0_reachable": 0,
+        "gained_vs_original": 0,
+        "lost_vs_original": 0,
+        "net_vs_original": 0
+      },
+      "unlocked": {
+        "reachable": 3574,
+        "joint_region_supported": 3569,
+        "outside_O0_reachable": 13,
+        "gained_vs_original": 13,
+        "lost_vs_original": 0,
+        "net_vs_original": 13
+      },
+      "ranked": {
+        "reachable": 3336,
+        "joint_region_supported": 3285,
+        "outside_O0_reachable": 685,
+        "gained_vs_original": 685,
+        "lost_vs_original": 910,
+        "net_vs_original": -225
+      },
+      "permuted": {
+        "reachable": 0,
+        "joint_region_supported": 0,
+        "outside_O0_reachable": 0,
+        "gained_vs_original": 0,
+        "lost_vs_original": 3561,
+        "net_vs_original": -3561
+      }
+    },
+    "ranked_vs_permuted": {
+      "ranked_only": 3336,
+      "permuted_only": 0
+    },
+    "reasons_may_overlap": {
+      "ORF_or_geometry_incompatible": 38,
+      "noncanonical_event_motif": 379,
+      "some_boundary_score_insufficient": 642,
+      "some_rank_budget_pruned": 2702,
+      "some_original_endpoint_absent": 2875,
+      "some_original_fragment_absent": 2888,
+      "all_original_fragments_but_no_run_order": 0,
+      "some_CDS_region_unsupported": 683
+    }
+  },
+  "per_species": {
+    "arabidopsis_thaliana": {
+      "references": 4151,
+      "outside_O0": 1645,
+      "arms": {
+        "original": {
+          "reachable": 2487,
+          "joint_region_supported": 2486,
+          "outside_O0_reachable": 0,
+          "gained_vs_original": 0,
+          "lost_vs_original": 0,
+          "net_vs_original": 0
+        },
+        "unlocked": {
+          "reachable": 2499,
+          "joint_region_supported": 2497,
+          "outside_O0_reachable": 12,
+          "gained_vs_original": 12,
+          "lost_vs_original": 0,
+          "net_vs_original": 12
+        },
+        "ranked": {
+          "reachable": 2635,
+          "joint_region_supported": 2599,
+          "outside_O0_reachable": 535,
+          "gained_vs_original": 535,
+          "lost_vs_original": 387,
+          "net_vs_original": 148
+        },
+        "permuted": {
+          "reachable": 0,
+          "joint_region_supported": 0,
+          "outside_O0_reachable": 0,
+          "gained_vs_original": 0,
+          "lost_vs_original": 2487,
+          "net_vs_original": -2487
+        }
+      },
+      "ranked_vs_permuted": {
+        "ranked_only": 2635,
+        "permuted_only": 0
+      },
+      "reasons_may_overlap": {
+        "ORF_or_geometry_incompatible": 9,
+        "noncanonical_event_motif": 200,
+        "some_boundary_score_insufficient": 327,
+        "some_rank_budget_pruned": 1224,
+        "some_original_endpoint_absent": 1651,
+        "some_original_fragment_absent": 1663,
+        "all_original_fragments_but_no_run_order": 0,
+        "some_CDS_region_unsupported": 326
+      }
+    },
+    "oryza_sativa": {
+      "references": 2299,
+      "outside_O0": 1220,
+      "arms": {
+        "original": {
+          "reachable": 1074,
+          "joint_region_supported": 1072,
+          "outside_O0_reachable": 0,
+          "gained_vs_original": 0,
+          "lost_vs_original": 0,
+          "net_vs_original": 0
+        },
+        "unlocked": {
+          "reachable": 1075,
+          "joint_region_supported": 1072,
+          "outside_O0_reachable": 1,
+          "gained_vs_original": 1,
+          "lost_vs_original": 0,
+          "net_vs_original": 1
+        },
+        "ranked": {
+          "reachable": 701,
+          "joint_region_supported": 686,
+          "outside_O0_reachable": 150,
+          "gained_vs_original": 150,
+          "lost_vs_original": 523,
+          "net_vs_original": -373
+        },
+        "permuted": {
+          "reachable": 0,
+          "joint_region_supported": 0,
+          "outside_O0_reachable": 0,
+          "gained_vs_original": 0,
+          "lost_vs_original": 1074,
+          "net_vs_original": -1074
+        }
+      },
+      "ranked_vs_permuted": {
+        "ranked_only": 701,
+        "permuted_only": 0
+      },
+      "reasons_may_overlap": {
+        "ORF_or_geometry_incompatible": 29,
+        "noncanonical_event_motif": 179,
+        "some_boundary_score_insufficient": 315,
+        "some_rank_budget_pruned": 1478,
+        "some_original_endpoint_absent": 1224,
+        "some_original_fragment_absent": 1225,
+        "all_original_fragments_but_no_run_order": 0,
+        "some_CDS_region_unsupported": 357
+      }
+    }
+  },
+  "candidate_opportunities": [
+    {
+      "species": "arabidopsis_thaliana",
+      "strand": "+",
+      "events": {
+        "start": {
+          "motif_pool": 438791,
+          "above_cutoff": 51577,
+          "budget": 3575
+        },
+        "stop": {
+          "motif_pool": 1377074,
+          "above_cutoff": 11286,
+          "budget": 3288
+        },
+        "donor": {
+          "motif_pool": 1226145,
+          "above_cutoff": 140850,
+          "budget": 16131
+        },
+        "acceptor": {
+          "motif_pool": 1405657,
+          "above_cutoff": 27591,
+          "budget": 12892
+        }
+      },
+      "opportunities": {
+        "original": {
+          "geometric_fragments": 24855,
+          "local_ORF_admissible_fragments": 22217,
+          "geometric_intron_vertex_pair_upper_bound": 170518935
+        },
+        "unlocked": {
+          "geometric_fragments": 159622925,
+          "local_ORF_admissible_fragments": 22944,
+          "geometric_intron_vertex_pair_upper_bound": 182759253
+        },
+        "ranked": {
+          "geometric_fragments": 160187464,
+          "local_ORF_admissible_fragments": 19255,
+          "geometric_intron_vertex_pair_upper_bound": 127418927
+        },
+        "permuted": {
+          "geometric_fragments": 160182816,
+          "local_ORF_admissible_fragments": 4783,
+          "geometric_intron_vertex_pair_upper_bound": 10142438
+        }
+      }
+    },
+    {
+      "species": "arabidopsis_thaliana",
+      "strand": "-",
+      "events": {
+        "start": {
+          "motif_pool": 440691,
+          "above_cutoff": 51959,
+          "budget": 3654
+        },
+        "stop": {
+          "motif_pool": 1373458,
+          "above_cutoff": 11424,
+          "budget": 3360
+        },
+        "donor": {
+          "motif_pool": 1228425,
+          "above_cutoff": 150021,
+          "budget": 16714
+        },
+        "acceptor": {
+          "motif_pool": 1396363,
+          "above_cutoff": 28983,
+          "budget": 13244
+        }
+      },
+      "opportunities": {
+        "original": {
+          "geometric_fragments": 25737,
+          "local_ORF_admissible_fragments": 23047,
+          "geometric_intron_vertex_pair_upper_bound": 185102358
+        },
+        "unlocked": {
+          "geometric_fragments": 169623394,
+          "local_ORF_admissible_fragments": 23810,
+          "geometric_intron_vertex_pair_upper_bound": 198602684
+        },
+        "ranked": {
+          "geometric_fragments": 168214825,
+          "local_ORF_admissible_fragments": 19867,
+          "geometric_intron_vertex_pair_upper_bound": 137339044
+        },
+        "permuted": {
+          "geometric_fragments": 168210640,
+          "local_ORF_admissible_fragments": 5315,
+          "geometric_intron_vertex_pair_upper_bound": 12563068
+        }
+      }
+    },
+    {
+      "species": "oryza_sativa",
+      "strand": "+",
+      "events": {
+        "start": {
+          "motif_pool": 562733,
+          "above_cutoff": 64842,
+          "budget": 1944
+        },
+        "stop": {
+          "motif_pool": 1501511,
+          "above_cutoff": 11759,
+          "budget": 1636
+        },
+        "donor": {
+          "motif_pool": 1583773,
+          "above_cutoff": 112469,
+          "budget": 7787
+        },
+        "acceptor": {
+          "motif_pool": 1754957,
+          "above_cutoff": 29737,
+          "budget": 6264
+        }
+      },
+      "opportunities": {
+        "original": {
+          "geometric_fragments": 12489,
+          "local_ORF_admissible_fragments": 11224,
+          "geometric_intron_vertex_pair_upper_bound": 42497341
+        },
+        "unlocked": {
+          "geometric_fragments": 38766503,
+          "local_ORF_admissible_fragments": 11709,
+          "geometric_intron_vertex_pair_upper_bound": 46293324
+        },
+        "ranked": {
+          "geometric_fragments": 38602133,
+          "local_ORF_admissible_fragments": 7767,
+          "geometric_intron_vertex_pair_upper_bound": 20787948
+        },
+        "permuted": {
+          "geometric_fragments": 38600898,
+          "local_ORF_admissible_fragments": 1477,
+          "geometric_intron_vertex_pair_upper_bound": 986007
+        }
+      }
+    },
+    {
+      "species": "oryza_sativa",
+      "strand": "-",
+      "events": {
+        "start": {
+          "motif_pool": 561677,
+          "above_cutoff": 64163,
+          "budget": 1714
+        },
+        "stop": {
+          "motif_pool": 1500000,
+          "above_cutoff": 11696,
+          "budget": 1459
+        },
+        "donor": {
+          "motif_pool": 1577653,
+          "above_cutoff": 105474,
+          "budget": 7008
+        },
+        "acceptor": {
+          "motif_pool": 1751211,
+          "above_cutoff": 27888,
+          "budget": 5549
+        }
+      },
+      "opportunities": {
+        "original": {
+          "geometric_fragments": 11209,
+          "local_ORF_admissible_fragments": 10072,
+          "geometric_intron_vertex_pair_upper_bound": 34275814
+        },
+        "unlocked": {
+          "geometric_fragments": 30851938,
+          "local_ORF_admissible_fragments": 10478,
+          "geometric_intron_vertex_pair_upper_bound": 37162118
+        },
+        "ranked": {
+          "geometric_fragments": 30714933,
+          "local_ORF_admissible_fragments": 6773,
+          "geometric_intron_vertex_pair_upper_bound": 15675281
+        },
+        "permuted": {
+          "geometric_fragments": 30714113,
+          "local_ORF_admissible_fragments": 1222,
+          "geometric_intron_vertex_pair_upper_bound": 667320
+        }
+      }
+    }
+  ],
+  "investment_gate": {
+    "minimum_net_323": false,
+    "positive_net_both_species": false,
+    "exceeds_permuted": true,
+    "joint_support_exceeds_original_and_permuted": false,
+    "pass": false
+  }
+}

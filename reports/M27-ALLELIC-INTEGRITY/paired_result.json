@@ -1,0 +1,3803 @@
+{
+  "stage": "native_paired_response_not_component_attribution",
+  "planned_method_cases": 44,
+  "completed_classified_cases": 44,
+  "technically_complete": true,
+  "registered_loci_count": 21,
+  "common_WT_count": 9,
+  "methods": {
+    "ANNEVO": {
+      "fixed_denominator": 12,
+      "difference_lower": 0.16666666666666666,
+      "difference_upper": 0.3333333333333333,
+      "bound_type": "identification_bounds_not_confidence_interval",
+      "paired_table_PTC_syn": {
+        "00": 8,
+        "01": 0,
+        "10": 2,
+        "11": 0,
+        "unknown_pair": 2
+      },
+      "all_pairs_identified": false,
+      "positive_lower_bound": true,
+      "common_WT": {
+        "fixed_denominator": 9,
+        "difference_lower": 0.1111111111111111,
+        "difference_upper": 0.3333333333333333,
+        "bound_type": "identification_bounds_not_confidence_interval",
+        "paired_table_PTC_syn": {
+          "00": 6,
+          "01": 0,
+          "10": 1,
+          "11": 0,
+          "unknown_pair": 2
+        },
+        "all_pairs_identified": false,
+        "positive_lower_bound": true
+      },
+      "first_preregistered_mechanism_candidate": "ENSG00000198062.16"
+    },
+    "Tiberius": {
+      "fixed_denominator": 10,
+      "difference_lower": 0.2,
+      "difference_upper": 0.4,
+      "bound_type": "identification_bounds_not_confidence_interval",
+      "paired_table_PTC_syn": {
+        "00": 6,
+        "01": 0,
+        "10": 2,
+        "11": 0,
+        "unknown_pair": 2
+      },
+      "all_pairs_identified": false,
+      "positive_lower_bound": true,
+      "common_WT": {
+        "fixed_denominator": 9,
+        "difference_lower": 0.1111111111111111,
+        "difference_upper": 0.3333333333333333,
+        "bound_type": "identification_bounds_not_confidence_interval",
+        "paired_table_PTC_syn": {
+          "00": 6,
+          "01": 0,
+          "10": 1,
+          "11": 0,
+          "unknown_pair": 2
+        },
+        "all_pairs_identified": false,
+        "positive_lower_bound": true
+      },
+      "first_preregistered_mechanism_candidate": "ENSG00000196431.4"
+    }
+  },
+  "loci": [
+    {
+      "ordinal": 1,
+      "gene_id": "ENSG00000198062.16",
+      "gene_name": "POTEH",
+      "position_1based": 15695752,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g8.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            15690077,
+            15690709,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            15719659,
+            15719777,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            15695749,
+            15695750,
+            15695751
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g8.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  15690077,
+                  15690709,
+                  0
+                ],
+                [
+                  15695370,
+                  15695485,
+                  1
+                ],
+                [
+                  15695644,
+                  15695818,
+                  0
+                ],
+                [
+                  15698661,
+                  15698768,
+                  0
+                ],
+                [
+                  15700077,
+                  15700215,
+                  1
+                ],
+                [
+                  15702685,
+                  15702756,
+                  1
+                ],
+                [
+                  15708019,
+                  15708090,
+                  2
+                ],
+                [
+                  15709781,
+                  15709826,
+                  0
+                ],
+                [
+                  15710867,
+                  15711034,
+                  0
+                ],
+                [
+                  15719659,
+                  15719777,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "01_syn",
+          "gene_id": "ENSG00000198062.16",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "chr22-g8.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            15690077,
+            15690709,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            15719659,
+            15719777,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            15695749,
+            15695750,
+            15695751
+          ],
+          "category": "BYPASS",
+          "bypass_interval": [
+            1,
+            1
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g8.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  15690077,
+                  15690709,
+                  0
+                ],
+                [
+                  15695370,
+                  15695485,
+                  1
+                ],
+                [
+                  15698661,
+                  15698768,
+                  0
+                ],
+                [
+                  15700077,
+                  15700215,
+                  1
+                ],
+                [
+                  15702685,
+                  15702756,
+                  1
+                ],
+                [
+                  15708019,
+                  15708090,
+                  2
+                ],
+                [
+                  15709781,
+                  15709826,
+                  0
+                ],
+                [
+                  15710867,
+                  15711034,
+                  0
+                ],
+                [
+                  15719659,
+                  15719777,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "01_PTC",
+          "gene_id": "ENSG00000198062.16",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 530
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g20.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            15690077,
+            15690709,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            15719659,
+            15719777,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            15695749,
+            15695750,
+            15695751
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g20.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  15690077,
+                  15690709,
+                  0
+                ],
+                [
+                  15695370,
+                  15695485,
+                  1
+                ],
+                [
+                  15695644,
+                  15695818,
+                  0
+                ],
+                [
+                  15698661,
+                  15698768,
+                  0
+                ],
+                [
+                  15700077,
+                  15700215,
+                  1
+                ],
+                [
+                  15702685,
+                  15702756,
+                  1
+                ],
+                [
+                  15708019,
+                  15708090,
+                  2
+                ],
+                [
+                  15709781,
+                  15709826,
+                  0
+                ],
+                [
+                  15710867,
+                  15711034,
+                  0
+                ],
+                [
+                  15719659,
+                  15719777,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "01_syn",
+          "gene_id": "ENSG00000198062.16",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g20.t1",
+            "g21.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            15690077,
+            15690709,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            15719659,
+            15719777,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            15695749,
+            15695750,
+            15695751
+          ],
+          "category": "OUTPUT_SPLIT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g20.t1",
+            "g21.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  15690077,
+                  15690709,
+                  0
+                ],
+                [
+                  15695370,
+                  15695485,
+                  1
+                ],
+                [
+                  15695644,
+                  15695752,
+                  0
+                ]
+              ]
+            ],
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  15695767,
+                  15695818,
+                  0
+                ],
+                [
+                  15698661,
+                  15698768,
+                  0
+                ],
+                [
+                  15700077,
+                  15700215,
+                  1
+                ],
+                [
+                  15702685,
+                  15702756,
+                  1
+                ],
+                [
+                  15708019,
+                  15708090,
+                  2
+                ],
+                [
+                  15709781,
+                  15709826,
+                  0
+                ],
+                [
+                  15710867,
+                  15711034,
+                  0
+                ],
+                [
+                  15719659,
+                  15719777,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "method": "Tiberius",
+          "case_id": "01_PTC",
+          "gene_id": "ENSG00000198062.16",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 2,
+      "gene_id": "ENSG00000172967.8",
+      "gene_name": "XKR3",
+      "position_1based": 16799808,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g275.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            16807738,
+            16808073,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            16783618,
+            16784409,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            16799809,
+            16799808,
+            16799807
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g275.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  16783618,
+                  16784409,
+                  2
+                ],
+                [
+                  16799770,
+                  16800024,
+                  1
+                ],
+                [
+                  16807738,
+                  16808073,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "02_syn",
+          "gene_id": "ENSG00000172967.8",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "chr22-g275.t1",
+            "chr22-g276.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            16807738,
+            16808073,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            16783618,
+            16784409,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            16799809,
+            16799808,
+            16799807
+          ],
+          "category": "UNASSIGNABLE",
+          "bypass_interval": [
+            0,
+            1
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "reason": "overlapping_output_without_unique_frozen_identity",
+          "method": "ANNEVO",
+          "case_id": "02_PTC",
+          "gene_id": "ENSG00000172967.8",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 531
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g34.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            16807738,
+            16808073,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            16783618,
+            16784409,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            16799809,
+            16799808,
+            16799807
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g34.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  16783618,
+                  16784409,
+                  2
+                ],
+                [
+                  16799770,
+                  16800024,
+                  1
+                ],
+                [
+                  16807738,
+                  16808073,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "02_syn",
+          "gene_id": "ENSG00000172967.8",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g34.t1",
+            "g35.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            16807738,
+            16808073,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            16783618,
+            16784409,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            16799809,
+            16799808,
+            16799807
+          ],
+          "category": "UNASSIGNABLE",
+          "bypass_interval": [
+            0,
+            1
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "reason": "overlapping_output_without_unique_frozen_identity",
+          "method": "Tiberius",
+          "case_id": "02_PTC",
+          "gene_id": "ENSG00000172967.8",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "UNASSIGNABLE",
+              "after_category": "UNASSIGNABLE",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "UNASSIGNABLE",
+              "after_category": "UNASSIGNABLE",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 3,
+      "gene_id": "ENSG00000283809.1",
+      "gene_name": "ENSG00000283809",
+      "position_1based": 18906691,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 4,
+      "gene_id": "ENSG00000063515.3",
+      "gene_name": "GSC2",
+      "position_1based": 19149726,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g299.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            19150024,
+            19150283,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            19148990,
+            19149095,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            19149727,
+            19149726,
+            19149725
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g299.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  19148990,
+                  19149095,
+                  0
+                ],
+                [
+                  19149662,
+                  19149916,
+                  2
+                ],
+                [
+                  19150024,
+                  19150283,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "04_syn",
+          "gene_id": "ENSG00000063515.3",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "chr22-g299.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            19150024,
+            19150283,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            19148990,
+            19149095,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            19149727,
+            19149726,
+            19149725
+          ],
+          "category": "PTC_TERMINATION",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g299.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  19149725,
+                  19149916,
+                  2
+                ],
+                [
+                  19150024,
+                  19150283,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "method": "ANNEVO",
+          "case_id": "04_PTC",
+          "gene_id": "ENSG00000063515.3",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 530
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g73.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            19150024,
+            19150283,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            19148990,
+            19149095,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            19149727,
+            19149726,
+            19149725
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g73.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  19148990,
+                  19149095,
+                  0
+                ],
+                [
+                  19149662,
+                  19149916,
+                  2
+                ],
+                [
+                  19150024,
+                  19150283,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "04_syn",
+          "gene_id": "ENSG00000063515.3",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g73.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            19150024,
+            19150283,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            19148990,
+            19149095,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            19149727,
+            19149726,
+            19149725
+          ],
+          "category": "PTC_TERMINATION",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g73.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  19149725,
+                  19149916,
+                  2
+                ],
+                [
+                  19150024,
+                  19150283,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "method": "Tiberius",
+          "case_id": "04_PTC",
+          "gene_id": "ENSG00000063515.3",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "PTC_TERMINATION",
+              "after_category": "PTC_TERMINATION",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "PTC_TERMINATION",
+              "after_category": "PTC_TERMINATION",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 5,
+      "gene_id": "ENSG00000187905.11",
+      "gene_name": "LRRC74B",
+      "position_1based": 21053395,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g50.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            21045986,
+            21046125,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            21060372,
+            21060528,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            21053392,
+            21053393,
+            21053394
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g50.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  21045986,
+                  21046125,
+                  0
+                ],
+                [
+                  21047355,
+                  21047498,
+                  2
+                ],
+                [
+                  21047883,
+                  21048016,
+                  0
+                ],
+                [
+                  21048950,
+                  21049157,
+                  2
+                ],
+                [
+                  21052248,
+                  21052358,
+                  2
+                ],
+                [
+                  21053359,
+                  21053475,
+                  0
+                ],
+                [
+                  21055097,
+                  21055176,
+                  1
+                ],
+                [
+                  21057104,
+                  21057200,
+                  0
+                ],
+                [
+                  21060372,
+                  21060528,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "05_syn",
+          "gene_id": "ENSG00000187905.11",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [],
+          "WT_first_CDS_anchor": [
+            21045986,
+            21046125,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            21060372,
+            21060528,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            21053392,
+            21053393,
+            21053394
+          ],
+          "category": "OUTPUT_ABSENT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "method": "ANNEVO",
+          "case_id": "05_PTC",
+          "gene_id": "ENSG00000187905.11",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 529
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g117.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            21045986,
+            21046125,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            21060372,
+            21060528,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            21053392,
+            21053393,
+            21053394
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g117.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  21045986,
+                  21046125,
+                  0
+                ],
+                [
+                  21047355,
+                  21047498,
+                  2
+                ],
+                [
+                  21047883,
+                  21048016,
+                  0
+                ],
+                [
+                  21048950,
+                  21049157,
+                  2
+                ],
+                [
+                  21052248,
+                  21052358,
+                  2
+                ],
+                [
+                  21053359,
+                  21053475,
+                  0
+                ],
+                [
+                  21055097,
+                  21055176,
+                  1
+                ],
+                [
+                  21057104,
+                  21057200,
+                  0
+                ],
+                [
+                  21060372,
+                  21060528,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "05_syn",
+          "gene_id": "ENSG00000187905.11",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g117.t1",
+            "g118.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            21045986,
+            21046125,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            21060372,
+            21060528,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            21053392,
+            21053393,
+            21053394
+          ],
+          "category": "UNASSIGNABLE",
+          "bypass_interval": [
+            0,
+            1
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "reason": "overlapping_output_without_unique_frozen_identity",
+          "method": "Tiberius",
+          "case_id": "05_PTC",
+          "gene_id": "ENSG00000187905.11",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "UNASSIGNABLE",
+              "after_category": "UNASSIGNABLE",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "UNASSIGNABLE",
+              "after_category": "UNASSIGNABLE",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 6,
+      "gene_id": "ENSG00000276950.6",
+      "gene_name": "GSTT4",
+      "position_1based": 24000153,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g357.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            24005244,
+            24005356,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            23998541,
+            23998739,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            24000154,
+            24000153,
+            24000152
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g357.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  23998541,
+                  23998739,
+                  0
+                ],
+                [
+                  24000074,
+                  24000251,
+                  0
+                ],
+                [
+                  24001174,
+                  24001325,
+                  1
+                ],
+                [
+                  24003759,
+                  24003847,
+                  2
+                ],
+                [
+                  24005244,
+                  24005356,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "06_syn",
+          "gene_id": "ENSG00000276950.6",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [],
+          "WT_first_CDS_anchor": [
+            24005244,
+            24005356,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            23998541,
+            23998739,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            24000154,
+            24000153,
+            24000152
+          ],
+          "category": "OUTPUT_ABSENT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "method": "ANNEVO",
+          "case_id": "06_PTC",
+          "gene_id": "ENSG00000276950.6",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 529
+        }
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 7,
+      "gene_id": "ENSG00000244752.4",
+      "gene_name": "CRYBB2",
+      "position_1based": 25227916,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g93.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            25221429,
+            25221483,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            25231603,
+            25231772,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            25227913,
+            25227914,
+            25227915
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g93.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  25221429,
+                  25221483,
+                  0
+                ],
+                [
+                  25224917,
+                  25225036,
+                  0
+                ],
+                [
+                  25227852,
+                  25227985,
+                  1
+                ],
+                [
+                  25229435,
+                  25229578,
+                  0
+                ],
+                [
+                  25231603,
+                  25231772,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "07_syn",
+          "gene_id": "ENSG00000244752.4",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "chr22-g93.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            25221429,
+            25221483,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            25231603,
+            25231772,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            25227913,
+            25227914,
+            25227915
+          ],
+          "category": "BYPASS",
+          "bypass_interval": [
+            1,
+            1
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g93.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  25221429,
+                  25221483,
+                  0
+                ],
+                [
+                  25224917,
+                  25225036,
+                  0
+                ],
+                [
+                  25227852,
+                  25227912,
+                  1
+                ],
+                [
+                  25227939,
+                  25227985,
+                  1
+                ],
+                [
+                  25229435,
+                  25229578,
+                  0
+                ],
+                [
+                  25231603,
+                  25231772,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "07_PTC",
+          "gene_id": "ENSG00000244752.4",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 530
+        }
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 8,
+      "gene_id": "ENSG00000100122.8",
+      "gene_name": "CRYBB1",
+      "position_1based": 26607928,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g369.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            26616139,
+            26616319,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            26599489,
+            26599673,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            26607929,
+            26607928,
+            26607927
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g369.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  26599489,
+                  26599673,
+                  1
+                ],
+                [
+                  26601878,
+                  26602021,
+                  0
+                ],
+                [
+                  26607888,
+                  26608021,
+                  1
+                ],
+                [
+                  26612071,
+                  26612190,
+                  0
+                ],
+                [
+                  26616139,
+                  26616319,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "08_syn",
+          "gene_id": "ENSG00000100122.8",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [],
+          "WT_first_CDS_anchor": [
+            26616139,
+            26616319,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            26599489,
+            26599673,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            26607929,
+            26607928,
+            26607927
+          ],
+          "category": "OUTPUT_ABSENT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "method": "ANNEVO",
+          "case_id": "08_PTC",
+          "gene_id": "ENSG00000100122.8",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 529
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g261.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            26616139,
+            26616319,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            26599489,
+            26599673,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            26607929,
+            26607928,
+            26607927
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g261.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  26599489,
+                  26599673,
+                  1
+                ],
+                [
+                  26601878,
+                  26602021,
+                  0
+                ],
+                [
+                  26607888,
+                  26608021,
+                  1
+                ],
+                [
+                  26612071,
+                  26612190,
+                  0
+                ],
+                [
+                  26616139,
+                  26616319,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "08_syn",
+          "gene_id": "ENSG00000100122.8",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g261.t1",
+            "g262.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            26616139,
+            26616319,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            26599489,
+            26599673,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            26607929,
+            26607928,
+            26607927
+          ],
+          "category": "OUTPUT_SPLIT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g262.t1",
+            "g261.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  26607927,
+                  26608021,
+                  1
+                ],
+                [
+                  26612071,
+                  26612190,
+                  0
+                ],
+                [
+                  26616139,
+                  26616319,
+                  0
+                ]
+              ]
+            ],
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  26599489,
+                  26599673,
+                  1
+                ],
+                [
+                  26601878,
+                  26602021,
+                  0
+                ],
+                [
+                  26607888,
+                  26607912,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "method": "Tiberius",
+          "case_id": "08_PTC",
+          "gene_id": "ENSG00000100122.8",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 9,
+      "gene_id": "ENSG00000196431.4",
+      "gene_name": "CRYBA4",
+      "position_1based": 26625580,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g262.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            26622596,
+            26622635,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            26630339,
+            26630487,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            26625577,
+            26625578,
+            26625579
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g262.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  26622596,
+                  26622635,
+                  0
+                ],
+                [
+                  26623233,
+                  26623352,
+                  0
+                ],
+                [
+                  26625480,
+                  26625622,
+                  1
+                ],
+                [
+                  26628287,
+                  26628430,
+                  0
+                ],
+                [
+                  26630339,
+                  26630487,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "09_syn",
+          "gene_id": "ENSG00000196431.4",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g262.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            26622596,
+            26622635,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            26630339,
+            26630487,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            26625577,
+            26625578,
+            26625579
+          ],
+          "category": "BYPASS",
+          "bypass_interval": [
+            1,
+            1
+          ],
+          "assigned_prediction_ids": [
+            "g262.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  26622596,
+                  26622635,
+                  0
+                ],
+                [
+                  26623233,
+                  26623352,
+                  0
+                ],
+                [
+                  26625480,
+                  26625574,
+                  1
+                ],
+                [
+                  26625589,
+                  26625622,
+                  0
+                ],
+                [
+                  26628287,
+                  26628430,
+                  0
+                ],
+                [
+                  26630339,
+                  26630487,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "09_PTC",
+          "gene_id": "ENSG00000196431.4",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "BYPASS",
+              "after_category": "BYPASS",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "BYPASS",
+              "after_category": "BYPASS",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 10,
+      "gene_id": "ENSG00000100285.10",
+      "gene_name": "NEFH",
+      "position_1based": 29485794,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g113.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            29480262,
+            29481145,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            29488848,
+            29490703,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            29485791,
+            29485792,
+            29485793
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g113.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  29480262,
+                  29481145,
+                  0
+                ],
+                [
+                  29483374,
+                  29483574,
+                  2
+                ],
+                [
+                  29485722,
+                  29485847,
+                  0
+                ],
+                [
+                  29488848,
+                  29490703,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "10_syn",
+          "gene_id": "ENSG00000100285.10",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [],
+          "WT_first_CDS_anchor": [
+            29480262,
+            29481145,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            29488848,
+            29490703,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            29485791,
+            29485792,
+            29485793
+          ],
+          "category": "OUTPUT_ABSENT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "method": "ANNEVO",
+          "case_id": "10_PTC",
+          "gene_id": "ENSG00000100285.10",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 529
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g284.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            29480262,
+            29481145,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            29488848,
+            29490703,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            29485791,
+            29485792,
+            29485793
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g284.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  29480262,
+                  29481145,
+                  0
+                ],
+                [
+                  29483374,
+                  29483574,
+                  2
+                ],
+                [
+                  29485722,
+                  29485847,
+                  0
+                ],
+                [
+                  29488848,
+                  29490703,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "10_syn",
+          "gene_id": "ENSG00000100285.10",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g284.t1",
+            "g285.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            29480262,
+            29481145,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            29488848,
+            29490703,
+            1
+          ],
+          "edited_codon_positions_0based": [
+            29485791,
+            29485792,
+            29485793
+          ],
+          "category": "OUTPUT_SPLIT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g284.t1",
+            "g285.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  29480262,
+                  29481145,
+                  0
+                ],
+                [
+                  29483374,
+                  29483574,
+                  2
+                ],
+                [
+                  29485722,
+                  29485794,
+                  0
+                ]
+              ]
+            ],
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  29485815,
+                  29485847,
+                  0
+                ],
+                [
+                  29488848,
+                  29490703,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "method": "Tiberius",
+          "case_id": "10_PTC",
+          "gene_id": "ENSG00000100285.10",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 11,
+      "gene_id": "ENSG00000285404.1",
+      "gene_name": "ENSG00000285404",
+      "position_1based": 31783939,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 12,
+      "gene_id": "ENSG00000128253.16",
+      "gene_name": "RFPL2",
+      "position_1based": 32193137,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 13,
+      "gene_id": "ENSG00000100191.6",
+      "gene_name": "SLC5A4",
+      "position_1based": 32232963,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g407.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            32255194,
+            32255329,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            32218513,
+            32218725,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            32232964,
+            32232963,
+            32232962
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g407.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  32218513,
+                  32218725,
+                  2
+                ],
+                [
+                  32220919,
+                  32221022,
+                  0
+                ],
+                [
+                  32224266,
+                  32224482,
+                  0
+                ],
+                [
+                  32225654,
+                  32225823,
+                  1
+                ],
+                [
+                  32229193,
+                  32229344,
+                  2
+                ],
+                [
+                  32230967,
+                  32231075,
+                  2
+                ],
+                [
+                  32232898,
+                  32233034,
+                  0
+                ],
+                [
+                  32234872,
+                  32235093,
+                  2
+                ],
+                [
+                  32237243,
+                  32237324,
+                  2
+                ],
+                [
+                  32238984,
+                  32239090,
+                  0
+                ],
+                [
+                  32247410,
+                  32247515,
+                  0
+                ],
+                [
+                  32248742,
+                  32248802,
+                  0
+                ],
+                [
+                  32251769,
+                  32251874,
+                  0
+                ],
+                [
+                  32254141,
+                  32254213,
+                  0
+                ],
+                [
+                  32255194,
+                  32255329,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "13_syn",
+          "gene_id": "ENSG00000100191.6",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [],
+          "WT_first_CDS_anchor": [
+            32255194,
+            32255329,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            32218513,
+            32218725,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            32232964,
+            32232963,
+            32232962
+          ],
+          "category": "OUTPUT_ABSENT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "method": "ANNEVO",
+          "case_id": "13_PTC",
+          "gene_id": "ENSG00000100191.6",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 529
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g333.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            32255194,
+            32255329,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            32218513,
+            32218725,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            32232964,
+            32232963,
+            32232962
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g333.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  32218513,
+                  32218725,
+                  2
+                ],
+                [
+                  32220919,
+                  32221022,
+                  0
+                ],
+                [
+                  32224266,
+                  32224482,
+                  0
+                ],
+                [
+                  32225654,
+                  32225823,
+                  1
+                ],
+                [
+                  32229193,
+                  32229344,
+                  2
+                ],
+                [
+                  32230967,
+                  32231075,
+                  2
+                ],
+                [
+                  32232898,
+                  32233034,
+                  0
+                ],
+                [
+                  32234872,
+                  32235093,
+                  2
+                ],
+                [
+                  32237243,
+                  32237324,
+                  2
+                ],
+                [
+                  32238984,
+                  32239090,
+                  0
+                ],
+                [
+                  32247410,
+                  32247515,
+                  0
+                ],
+                [
+                  32248742,
+                  32248802,
+                  0
+                ],
+                [
+                  32251769,
+                  32251874,
+                  0
+                ],
+                [
+                  32254141,
+                  32254213,
+                  0
+                ],
+                [
+                  32255194,
+                  32255329,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "13_syn",
+          "gene_id": "ENSG00000100191.6",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g333.t1",
+            "g334.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            32255194,
+            32255329,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            32218513,
+            32218725,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            32232964,
+            32232963,
+            32232962
+          ],
+          "category": "OUTPUT_SPLIT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g334.t1",
+            "g333.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  32232962,
+                  32233034,
+                  0
+                ],
+                [
+                  32234872,
+                  32235093,
+                  2
+                ],
+                [
+                  32237243,
+                  32237324,
+                  2
+                ],
+                [
+                  32238984,
+                  32239090,
+                  0
+                ],
+                [
+                  32247410,
+                  32247515,
+                  0
+                ],
+                [
+                  32248742,
+                  32248802,
+                  0
+                ],
+                [
+                  32251769,
+                  32251874,
+                  0
+                ],
+                [
+                  32254141,
+                  32254213,
+                  0
+                ],
+                [
+                  32255194,
+                  32255329,
+                  0
+                ]
+              ]
+            ],
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  32218513,
+                  32218725,
+                  2
+                ],
+                [
+                  32220919,
+                  32221022,
+                  0
+                ],
+                [
+                  32224266,
+                  32224482,
+                  0
+                ],
+                [
+                  32225654,
+                  32225823,
+                  1
+                ],
+                [
+                  32229193,
+                  32229344,
+                  2
+                ],
+                [
+                  32230967,
+                  32231075,
+                  2
+                ],
+                [
+                  32232898,
+                  32232947,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "method": "Tiberius",
+          "case_id": "13_PTC",
+          "gene_id": "ENSG00000100191.6",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 14,
+      "gene_id": "ENSG00000128313.2",
+      "gene_name": "APOL5",
+      "position_1based": 35726806,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 15,
+      "gene_id": "ENSG00000166862.7",
+      "gene_name": "CACNG2",
+      "position_1based": 36566405,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g425.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            36702365,
+            36702576,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            36564350,
+            36564886,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            36566406,
+            36566405,
+            36566404
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g425.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  36564350,
+                  36564886,
+                  2
+                ],
+                [
+                  36566352,
+                  36566493,
+                  2
+                ],
+                [
+                  36587464,
+                  36587548,
+                  2
+                ],
+                [
+                  36702365,
+                  36702576,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "15_syn",
+          "gene_id": "ENSG00000166862.7",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "chr22-g425.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            36702365,
+            36702576,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            36564350,
+            36564886,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            36566406,
+            36566405,
+            36566404
+          ],
+          "category": "UNASSIGNABLE",
+          "bypass_interval": [
+            0,
+            1
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "reason": "overlapping_output_without_unique_frozen_identity",
+          "method": "ANNEVO",
+          "case_id": "15_PTC",
+          "gene_id": "ENSG00000166862.7",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 530
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g361.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            36702365,
+            36702576,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            36564350,
+            36564886,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            36566406,
+            36566405,
+            36566404
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g361.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  36564350,
+                  36564886,
+                  2
+                ],
+                [
+                  36566352,
+                  36566493,
+                  2
+                ],
+                [
+                  36587464,
+                  36587548,
+                  2
+                ],
+                [
+                  36702365,
+                  36702576,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "15_syn",
+          "gene_id": "ENSG00000166862.7",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g361.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            36702365,
+            36702576,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            36564350,
+            36564886,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            36566406,
+            36566405,
+            36566404
+          ],
+          "category": "BYPASS",
+          "bypass_interval": [
+            1,
+            1
+          ],
+          "assigned_prediction_ids": [
+            "g361.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  36564350,
+                  36564886,
+                  2
+                ],
+                [
+                  36566352,
+                  36566378,
+                  1
+                ],
+                [
+                  36566411,
+                  36566493,
+                  2
+                ],
+                [
+                  36587464,
+                  36587548,
+                  2
+                ],
+                [
+                  36702365,
+                  36702576,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "15_PTC",
+          "gene_id": "ENSG00000166862.7",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "BYPASS",
+              "after_category": "BYPASS",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "BYPASS",
+              "after_category": "BYPASS",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 16,
+      "gene_id": "ENSG00000283900.1",
+      "gene_name": "TPTEP2-CSNK1E",
+      "position_1based": 38300016,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 17,
+      "gene_id": "ENSG00000128383.14",
+      "gene_name": "APOBEC3A",
+      "position_1based": 38961482,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g182.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            38957691,
+            38957720,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            38962494,
+            38962509,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            38961479,
+            38961480,
+            38961481
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g182.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "+",
+              [
+                [
+                  38957691,
+                  38957720,
+                  0
+                ],
+                [
+                  38959541,
+                  38959686,
+                  1
+                ],
+                [
+                  38961386,
+                  38961681,
+                  0
+                ],
+                [
+                  38962097,
+                  38962213,
+                  2
+                ],
+                [
+                  38962494,
+                  38962509,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "17_syn",
+          "gene_id": "ENSG00000128383.14",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [],
+          "WT_first_CDS_anchor": [
+            38957691,
+            38957720,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            38962494,
+            38962509,
+            0
+          ],
+          "edited_codon_positions_0based": [
+            38961479,
+            38961480,
+            38961481
+          ],
+          "category": "OUTPUT_ABSENT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [],
+          "assigned_keys": [],
+          "method": "ANNEVO",
+          "case_id": "17_PTC",
+          "gene_id": "ENSG00000128383.14",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 529
+        }
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 18,
+      "gene_id": "ENSG00000284554.2",
+      "gene_name": "ENSG00000284554",
+      "position_1based": 39025618,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 19,
+      "gene_id": "ENSG00000176177.10",
+      "gene_name": "ENTHD1",
+      "position_1based": 39765284,
+      "ANNEVO": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "chr22-g463.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            39887399,
+            39887748,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            39743678,
+            39744283,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            39765285,
+            39765284,
+            39765283
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g463.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  39743678,
+                  39744283,
+                  2
+                ],
+                [
+                  39765222,
+                  39765609,
+                  2
+                ],
+                [
+                  39820992,
+                  39821113,
+                  0
+                ],
+                [
+                  39835839,
+                  39835958,
+                  2
+                ],
+                [
+                  39861764,
+                  39862007,
+                  2
+                ],
+                [
+                  39887399,
+                  39887748,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "ANNEVO",
+          "case_id": "19_syn",
+          "gene_id": "ENSG00000176177.10",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 530
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "chr22-g463.t1",
+            "chr22-g464.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            39887399,
+            39887748,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            39743678,
+            39744283,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            39765285,
+            39765284,
+            39765283
+          ],
+          "category": "OUTPUT_SPLIT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "chr22-g464.t1",
+            "chr22-g463.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  39765283,
+                  39765609,
+                  2
+                ],
+                [
+                  39820992,
+                  39821113,
+                  0
+                ],
+                [
+                  39835839,
+                  39835958,
+                  2
+                ],
+                [
+                  39861764,
+                  39862007,
+                  2
+                ],
+                [
+                  39887399,
+                  39887748,
+                  0
+                ]
+              ]
+            ],
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  39743678,
+                  39744283,
+                  2
+                ],
+                [
+                  39765222,
+                  39765256,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "method": "ANNEVO",
+          "case_id": "19_PTC",
+          "gene_id": "ENSG00000176177.10",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 531
+        }
+      },
+      "Tiberius": {
+        "WT_status": "EXACT",
+        "conditional_response": "PLANNED",
+        "syn": {
+          "related_prediction_ids": [
+            "g437.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            39887399,
+            39887748,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            39743678,
+            39744283,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            39765285,
+            39765284,
+            39765283
+          ],
+          "category": "WT_CHAIN_RETAINED",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g437.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  39743678,
+                  39744283,
+                  2
+                ],
+                [
+                  39765222,
+                  39765609,
+                  2
+                ],
+                [
+                  39820992,
+                  39821113,
+                  0
+                ],
+                [
+                  39835839,
+                  39835958,
+                  2
+                ],
+                [
+                  39861764,
+                  39862007,
+                  2
+                ],
+                [
+                  39887399,
+                  39887748,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "coding_status": {
+            "phase_continuous": true,
+            "canonical_start_terminal_stop": true,
+            "internal_stop_count": 0,
+            "valid_ORF": true
+          },
+          "method": "Tiberius",
+          "case_id": "19_syn",
+          "gene_id": "ENSG00000176177.10",
+          "allele": "syn",
+          "whole_chromosome_CDS_transcripts": 575,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "WT_CHAIN_RETAINED",
+              "after_category": "WT_CHAIN_RETAINED",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        },
+        "PTC": {
+          "related_prediction_ids": [
+            "g437.t1",
+            "g438.t1"
+          ],
+          "WT_first_CDS_anchor": [
+            39887399,
+            39887748,
+            0
+          ],
+          "WT_last_CDS_anchor": [
+            39743678,
+            39744283,
+            2
+          ],
+          "edited_codon_positions_0based": [
+            39765285,
+            39765284,
+            39765283
+          ],
+          "category": "OUTPUT_SPLIT",
+          "bypass_interval": [
+            0,
+            0
+          ],
+          "assigned_prediction_ids": [
+            "g438.t1",
+            "g437.t1"
+          ],
+          "assigned_keys": [
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  39765283,
+                  39765609,
+                  2
+                ],
+                [
+                  39820992,
+                  39821113,
+                  0
+                ],
+                [
+                  39835839,
+                  39835958,
+                  2
+                ],
+                [
+                  39861764,
+                  39862007,
+                  2
+                ],
+                [
+                  39887399,
+                  39887748,
+                  0
+                ]
+              ]
+            ],
+            [
+              "chr22",
+              "-",
+              [
+                [
+                  39743678,
+                  39744283,
+                  2
+                ],
+                [
+                  39765222,
+                  39765256,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "method": "Tiberius",
+          "case_id": "19_PTC",
+          "gene_id": "ENSG00000176177.10",
+          "allele": "PTC",
+          "whole_chromosome_CDS_transcripts": 576,
+          "neural_requests": 4,
+          "request_stage_counts": {
+            "initial": 2,
+            "repredict": 2
+          },
+          "filter_process_labels": [
+            {
+              "filter": "check_min_coding_length",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            },
+            {
+              "filter": "check_inframe_stop_codons",
+              "before_category": "OUTPUT_SPLIT",
+              "after_category": "OUTPUT_SPLIT",
+              "removed_unique_identified_chain": false,
+              "removed_key": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ordinal": 20,
+      "gene_id": "ENSG00000138944.8",
+      "gene_name": "SHISAL1",
+      "position_1based": 44296746,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    },
+    {
+      "ordinal": 21,
+      "gene_id": "ENSG00000138892.12",
+      "gene_name": "TTLL8",
+      "position_1based": 50033351,
+      "ANNEVO": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      },
+      "Tiberius": {
+        "WT_status": "WT_NOT_EXACT",
+        "conditional_response": "NOT_RUN"
+      }
+    }
+  ],
+  "training_runs": 0,
+  "Setaria_accessed": false
+}

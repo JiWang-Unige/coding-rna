@@ -1,0 +1,263 @@
+{
+  "experiment": "M28-GLM-FEATURE-SMOKE-R3",
+  "model": "GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview",
+  "revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "weights": "original released CDS annotator backbone, no old LoRA",
+  "window_bp": 24576,
+  "local_block_bp": 6144,
+  "windows": 12,
+  "block_forwards": 48,
+  "hidden_size": 2048,
+  "load_seconds": 3.9331861629980267,
+  "forward_seconds": 5.6915475709975,
+  "peak_gpu_allocated_bytes": 2374624768,
+  "peak_gpu_reserved_bytes": 2489319424,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "cache_bytes": 201651080,
+  "trainable_backbone_parameters": 0,
+  "backbone_parameter_gradients": 0,
+  "fitting": false,
+  "val_test_setaria_used": false,
+  "records": [
+    {
+      "ordinal": 0,
+      "window_id": "arabidopsis_thaliana|NC_003070.9|29786112|-",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003070.9",
+      "strand": "-",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        3.0720747049999773,
+        0.06168804099797853,
+        0.06166889099768014,
+        0.05872361399815418
+      ],
+      "artifact": "window_00.pt",
+      "bytes": 16804390
+    },
+    {
+      "ordinal": 1,
+      "window_id": "oryza_sativa|NC_089046.1|26886144|-",
+      "species": "oryza_sativa",
+      "seqid": "NC_089046.1",
+      "strand": "-",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.055275845999858575,
+        0.05560219600010896,
+        0.055510345999209676,
+        0.0553513960003329
+      ],
+      "artifact": "window_01.pt",
+      "bytes": 16804134
+    },
+    {
+      "ordinal": 2,
+      "window_id": "oryza_sativa|NC_089044.1|15261696|+",
+      "species": "oryza_sativa",
+      "seqid": "NC_089044.1",
+      "strand": "+",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.0555375260009896,
+        0.05547773600119399,
+        0.0556264060032845,
+        0.05568781599868089
+      ],
+      "artifact": "window_02.pt",
+      "bytes": 16804198
+    },
+    {
+      "ordinal": 3,
+      "window_id": "arabidopsis_thaliana|NC_003071.7|356352|+",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003071.7",
+      "strand": "+",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05570578599872533,
+        0.055443056000513025,
+        0.05567102600252838,
+        0.055765495999366976
+      ],
+      "artifact": "window_03.pt",
+      "bytes": 16804134
+    },
+    {
+      "ordinal": 4,
+      "window_id": "oryza_sativa|NC_089043.1|6193152|-",
+      "species": "oryza_sativa",
+      "seqid": "NC_089043.1",
+      "strand": "-",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05520688699834864,
+        0.05529928600299172,
+        0.05537781599923619,
+        0.05532450700047775
+      ],
+      "artifact": "window_04.pt",
+      "bytes": 16804198
+    },
+    {
+      "ordinal": 5,
+      "window_id": "oryza_sativa|NC_089046.1|27316224|+",
+      "species": "oryza_sativa",
+      "seqid": "NC_089046.1",
+      "strand": "+",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05534216600062791,
+        0.05557391599722905,
+        0.05531008600155474,
+        0.0553553860008833
+      ],
+      "artifact": "window_05.pt",
+      "bytes": 16804518
+    },
+    {
+      "ordinal": 6,
+      "window_id": "arabidopsis_thaliana|NC_003076.8|12779520|-",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003076.8",
+      "strand": "-",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05513685700134374,
+        0.05533827599720098,
+        0.055400916000508005,
+        0.05532624599800329
+      ],
+      "artifact": "window_06.pt",
+      "bytes": 16804134
+    },
+    {
+      "ordinal": 7,
+      "window_id": "arabidopsis_thaliana|NC_003070.9|270336|+",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003070.9",
+      "strand": "+",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.055242056001588935,
+        0.05540427600135445,
+        0.055290446001890814,
+        0.05533064600240323
+      ],
+      "artifact": "window_07.pt",
+      "bytes": 16804582
+    },
+    {
+      "ordinal": 8,
+      "window_id": "arabidopsis_thaliana|NC_003076.8|12115968|+",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003076.8",
+      "strand": "+",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05532308600231772,
+        0.05533120600011898,
+        0.05530016699776752,
+        0.05533021600058419
+      ],
+      "artifact": "window_08.pt",
+      "bytes": 16804134
+    },
+    {
+      "ordinal": 9,
+      "window_id": "oryza_sativa|NC_089043.1|16625664|+",
+      "species": "oryza_sativa",
+      "seqid": "NC_089043.1",
+      "strand": "+",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05525713599854498,
+        0.055317255999398185,
+        0.05529494700022042,
+        0.05532948600011878
+      ],
+      "artifact": "window_09.pt",
+      "bytes": 16804198
+    },
+    {
+      "ordinal": 10,
+      "window_id": "arabidopsis_thaliana|NC_003071.7|4718592|-",
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003071.7",
+      "strand": "-",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05527914599952055,
+        0.05550370600030874,
+        0.05534137599897804,
+        0.055334255997877335
+      ],
+      "artifact": "window_10.pt",
+      "bytes": 16804198
+    },
+    {
+      "ordinal": 11,
+      "window_id": "oryza_sativa|NC_089044.1|1658880|-",
+      "species": "oryza_sativa",
+      "seqid": "NC_089044.1",
+      "strand": "-",
+      "shape": [
+        4096,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "block_forward_seconds": [
+        0.05529395600024145,
+        0.05547508699964965,
+        0.055298985997069394,
+        0.05546790600055829
+      ],
+      "artifact": "window_11.pt",
+      "bytes": 16804262
+    }
+  ]
+}

@@ -1,0 +1,2177 @@
+{
+  "stage": "reference_only_preparation_not_model_evaluation",
+  "assembly": "GRCh38.p14 primary chromosome 22 / NC_000022.11 / UCSC hg38 chr22",
+  "annotation": "GENCODE human release 49 comprehensive CHR, not latest release",
+  "downloaded_utc": "2026-09-26T11:38:40.142551+00:00",
+  "downloads": [
+    {
+      "url": "https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr22.fa.gz",
+      "bytes": 12058624,
+      "last_modified": "Fri, 24 Jan 2014 00:39:55 GMT"
+    },
+    {
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_49/gencode.v49.annotation.gtf.gz",
+      "bytes": 93323264,
+      "last_modified": "Tue, 02 Sep 2025 16:44:30 GMT"
+    }
+  ],
+  "GTF_headers": [
+    "##description: evidence-based annotation of the human genome (GRCh38), version 49 (Ensembl 115)",
+    "##provider: GENCODE",
+    "##contact: gencode-help@ebi.ac.uk",
+    "##format: gtf",
+    "##date: 2025-07-08"
+  ],
+  "reference_length": 50818468,
+  "original_lowercase_bases": 20947476,
+  "inference_mask_policy": "all uppercase, ANNEVO sequence-only / Tiberius no-softmask weight required",
+  "gene_count_all_types": 1747,
+  "transcript_count_all_types": 11615,
+  "protein_coding_transcript_assessability": {
+    "assessable": 4710,
+    "incomplete_or_selenocysteine": 546,
+    "CDS_stop_geometry": 1,
+    "noncanonical_or_ambiguous_ORF": 9,
+    "coordinates_or_start_feature": 1
+  },
+  "gene_eligibility": {
+    "multiple_assessable_protein_coding_chains": 349,
+    "additional_unassessable_protein_coding_transcript": 15,
+    "eligible": 21,
+    "no_assessable_protein_coding_chain": 7,
+    "no_internal_matched_Tyr_site": 42
+  },
+  "eligible_loci": 21,
+  "selected_loci": 21,
+  "selection": "up to 24 equal-quantile loci in genomic order, reference only; no predictions read",
+  "selected": [
+    {
+      "gene_id": "ENSG00000198062.16",
+      "gene_name": "POTEH",
+      "transcript_id": "ENST00000343518.11",
+      "equivalent_transcripts": [
+        "ENST00000343518.11"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          15690077,
+          15690709
+        ],
+        [
+          15695370,
+          15695485
+        ],
+        [
+          15695644,
+          15695818
+        ],
+        [
+          15698661,
+          15698768
+        ],
+        [
+          15700077,
+          15700215
+        ],
+        [
+          15702685,
+          15702756
+        ],
+        [
+          15708019,
+          15708090
+        ],
+        [
+          15709781,
+          15709826
+        ],
+        [
+          15710867,
+          15711034
+        ],
+        [
+          15719659,
+          15719777
+        ]
+      ],
+      "protein_length_aa": 545,
+      "position_1based": 15695752,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 285,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 66,
+      "CDS_codon_fraction": 0.5211009174311927
+    },
+    {
+      "gene_id": "ENSG00000172967.8",
+      "gene_name": "XKR3",
+      "transcript_id": "ENST00000331428.5",
+      "equivalent_transcripts": [
+        "ENST00000331428.5",
+        "ENST00000684488.1"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          16783618,
+          16784409
+        ],
+        [
+          16799770,
+          16800024
+        ],
+        [
+          16807738,
+          16808073
+        ]
+      ],
+      "protein_length_aa": 459,
+      "position_1based": 16799808,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 184,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 37,
+      "CDS_codon_fraction": 0.39869281045751637
+    },
+    {
+      "gene_id": "ENSG00000283809.1",
+      "gene_name": "ENSG00000283809",
+      "transcript_id": "ENST00000638240.1",
+      "equivalent_transcripts": [
+        "ENST00000638240.1"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          18906374,
+          18906484
+        ],
+        [
+          18906564,
+          18906725
+        ],
+        [
+          18910171,
+          18910272
+        ],
+        [
+          18910887,
+          18911028
+        ],
+        [
+          18939672,
+          18939702
+        ]
+      ],
+      "protein_length_aa": 180,
+      "position_1based": 18906691,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 79,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 34,
+      "CDS_codon_fraction": 0.43333333333333335
+    },
+    {
+      "gene_id": "ENSG00000063515.3",
+      "gene_name": "GSC2",
+      "transcript_id": "ENST00000086933.3",
+      "equivalent_transcripts": [
+        "ENST00000086933.3"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          19148990,
+          19149095
+        ],
+        [
+          19149662,
+          19149916
+        ],
+        [
+          19150024,
+          19150283
+        ]
+      ],
+      "protein_length_aa": 205,
+      "position_1based": 19149726,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 150,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 63,
+      "CDS_codon_fraction": 0.7268292682926829
+    },
+    {
+      "gene_id": "ENSG00000187905.11",
+      "gene_name": "LRRC74B",
+      "transcript_id": "ENST00000442047.3",
+      "equivalent_transcripts": [
+        "ENST00000442047.3"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          21045986,
+          21046125
+        ],
+        [
+          21047355,
+          21047498
+        ],
+        [
+          21047883,
+          21048016
+        ],
+        [
+          21048950,
+          21049157
+        ],
+        [
+          21052248,
+          21052358
+        ],
+        [
+          21053359,
+          21053475
+        ],
+        [
+          21055097,
+          21055176
+        ],
+        [
+          21057104,
+          21057200
+        ],
+        [
+          21060372,
+          21060528
+        ]
+      ],
+      "protein_length_aa": 392,
+      "position_1based": 21053395,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 256,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 35,
+      "CDS_codon_fraction": 0.6505102040816326
+    },
+    {
+      "gene_id": "ENSG00000276950.6",
+      "gene_name": "GSTT4",
+      "transcript_id": "ENST00000621179.6",
+      "equivalent_transcripts": [
+        "ENST00000621179.6"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          23998541,
+          23998739
+        ],
+        [
+          24000074,
+          24000251
+        ],
+        [
+          24001174,
+          24001325
+        ],
+        [
+          24003759,
+          24003847
+        ],
+        [
+          24005244,
+          24005356
+        ]
+      ],
+      "protein_length_aa": 241,
+      "position_1based": 24000153,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 150,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 78,
+      "CDS_codon_fraction": 0.6182572614107884
+    },
+    {
+      "gene_id": "ENSG00000244752.4",
+      "gene_name": "CRYBB2",
+      "transcript_id": "ENST00000398215.3",
+      "equivalent_transcripts": [
+        "ENST00000651629.1",
+        "ENST00000855619.1",
+        "ENST00000398215.3"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          25221429,
+          25221483
+        ],
+        [
+          25224917,
+          25225036
+        ],
+        [
+          25227852,
+          25227985
+        ],
+        [
+          25229435,
+          25229578
+        ],
+        [
+          25231603,
+          25231772
+        ]
+      ],
+      "protein_length_aa": 205,
+      "position_1based": 25227916,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 79,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 63,
+      "CDS_codon_fraction": 0.3804878048780488
+    },
+    {
+      "gene_id": "ENSG00000100122.8",
+      "gene_name": "CRYBB1",
+      "transcript_id": "ENST00000647684.1",
+      "equivalent_transcripts": [
+        "ENST00000927865.1",
+        "ENST00000647684.1",
+        "ENST00000927864.1",
+        "ENST00000872124.1",
+        "ENST00000946726.1",
+        "ENST00000872126.1",
+        "ENST00000872125.1"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          26599489,
+          26599673
+        ],
+        [
+          26601878,
+          26602021
+        ],
+        [
+          26607888,
+          26608021
+        ],
+        [
+          26612071,
+          26612190
+        ],
+        [
+          26616139,
+          26616319
+        ]
+      ],
+      "protein_length_aa": 252,
+      "position_1based": 26607928,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 131,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 39,
+      "CDS_codon_fraction": 0.5158730158730159
+    },
+    {
+      "gene_id": "ENSG00000196431.4",
+      "gene_name": "CRYBA4",
+      "transcript_id": "ENST00000354760.4",
+      "equivalent_transcripts": [
+        "ENST00000354760.4"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          26622596,
+          26622635
+        ],
+        [
+          26623233,
+          26623352
+        ],
+        [
+          26625480,
+          26625622
+        ],
+        [
+          26628287,
+          26628430
+        ],
+        [
+          26630339,
+          26630487
+        ]
+      ],
+      "protein_length_aa": 196,
+      "position_1based": 26625580,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 86,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 42,
+      "CDS_codon_fraction": 0.4336734693877551
+    },
+    {
+      "gene_id": "ENSG00000100285.10",
+      "gene_name": "NEFH",
+      "transcript_id": "ENST00000310624.7",
+      "equivalent_transcripts": [
+        "ENST00000310624.7"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          29480262,
+          29481145
+        ],
+        [
+          29483374,
+          29483574
+        ],
+        [
+          29485722,
+          29485847
+        ],
+        [
+          29488848,
+          29490703
+        ]
+      ],
+      "protein_length_aa": 1020,
+      "position_1based": 29485794,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 385,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 53,
+      "CDS_codon_fraction": 0.3764705882352941
+    },
+    {
+      "gene_id": "ENSG00000285404.1",
+      "gene_name": "ENSG00000285404",
+      "transcript_id": "ENST00000646701.1",
+      "equivalent_transcripts": [
+        "ENST00000646701.1"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          31754921,
+          31754979
+        ],
+        [
+          31758545,
+          31758633
+        ],
+        [
+          31760655,
+          31760702
+        ],
+        [
+          31764974,
+          31765060
+        ],
+        [
+          31768813,
+          31768863
+        ],
+        [
+          31778098,
+          31778168
+        ],
+        [
+          31783906,
+          31783985
+        ],
+        [
+          31784813,
+          31784875
+        ],
+        [
+          31792032,
+          31792102
+        ],
+        [
+          31792744,
+          31792817
+        ],
+        [
+          31797599,
+          31797703
+        ],
+        [
+          31798581,
+          31798656
+        ],
+        [
+          31802703,
+          31802838
+        ],
+        [
+          31804161,
+          31804223
+        ],
+        [
+          31804841,
+          31804915
+        ],
+        [
+          31806121,
+          31806191
+        ],
+        [
+          31809610,
+          31809647
+        ],
+        [
+          31810520,
+          31810641
+        ],
+        [
+          31814991,
+          31815212
+        ],
+        [
+          31819021,
+          31819225
+        ],
+        [
+          31956138,
+          31956155
+        ]
+      ],
+      "protein_length_aa": 600,
+      "position_1based": 31783939,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 144,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 32,
+      "CDS_codon_fraction": 0.23833333333333334
+    },
+    {
+      "gene_id": "ENSG00000128253.16",
+      "gene_name": "RFPL2",
+      "transcript_id": "ENST00000248983.8",
+      "equivalent_transcripts": [
+        "ENST00000248983.8",
+        "ENST00000400237.2",
+        "ENST00000652607.2"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          32190771,
+          32191352
+        ],
+        [
+          32192901,
+          32193192
+        ],
+        [
+          32194344,
+          32194490
+        ],
+        [
+          32202332,
+          32202451
+        ]
+      ],
+      "protein_length_aa": 378,
+      "position_1based": 32193137,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 107,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 55,
+      "CDS_codon_fraction": 0.2804232804232804
+    },
+    {
+      "gene_id": "ENSG00000100191.6",
+      "gene_name": "SLC5A4",
+      "transcript_id": "ENST00000266086.6",
+      "equivalent_transcripts": [
+        "ENST00000266086.6"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          32218513,
+          32218725
+        ],
+        [
+          32220919,
+          32221022
+        ],
+        [
+          32224266,
+          32224482
+        ],
+        [
+          32225654,
+          32225823
+        ],
+        [
+          32229193,
+          32229344
+        ],
+        [
+          32230967,
+          32231075
+        ],
+        [
+          32232898,
+          32233034
+        ],
+        [
+          32234872,
+          32235093
+        ],
+        [
+          32237243,
+          32237324
+        ],
+        [
+          32238984,
+          32239090
+        ],
+        [
+          32247410,
+          32247515
+        ],
+        [
+          32248742,
+          32248802
+        ],
+        [
+          32251769,
+          32251874
+        ],
+        [
+          32254141,
+          32254213
+        ],
+        [
+          32255194,
+          32255329
+        ]
+      ],
+      "protein_length_aa": 659,
+      "position_1based": 32232963,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 319,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 64,
+      "CDS_codon_fraction": 0.48254931714719274
+    },
+    {
+      "gene_id": "ENSG00000128313.2",
+      "gene_name": "APOL5",
+      "transcript_id": "ENST00000249044.2",
+      "equivalent_transcripts": [
+        "ENST00000249044.2"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          35717871,
+          35717926
+        ],
+        [
+          35720567,
+          35720654
+        ],
+        [
+          35726210,
+          35727194
+        ],
+        [
+          35728722,
+          35728898
+        ]
+      ],
+      "protein_length_aa": 433,
+      "position_1based": 35726806,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 246,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 388,
+      "CDS_codon_fraction": 0.5658198614318707
+    },
+    {
+      "gene_id": "ENSG00000166862.7",
+      "gene_name": "CACNG2",
+      "transcript_id": "ENST00000300105.7",
+      "equivalent_transcripts": [
+        "ENST00000300105.7"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          36564350,
+          36564886
+        ],
+        [
+          36566352,
+          36566493
+        ],
+        [
+          36587464,
+          36587548
+        ],
+        [
+          36702365,
+          36702576
+        ]
+      ],
+      "protein_length_aa": 323,
+      "position_1based": 36566405,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 128,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 52,
+      "CDS_codon_fraction": 0.3931888544891641
+    },
+    {
+      "gene_id": "ENSG00000283900.1",
+      "gene_name": "TPTEP2-CSNK1E",
+      "transcript_id": "ENST00000400206.7",
+      "equivalent_transcripts": [
+        "ENST00000400206.7"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          38293286,
+          38293319
+        ],
+        [
+          38294108,
+          38294248
+        ],
+        [
+          38294341,
+          38294534
+        ],
+        [
+          38298785,
+          38298934
+        ],
+        [
+          38299894,
+          38300065
+        ],
+        [
+          38300723,
+          38300952
+        ],
+        [
+          38302860,
+          38303009
+        ],
+        [
+          38303137,
+          38303248
+        ],
+        [
+          38314081,
+          38314157
+        ]
+      ],
+      "protein_length_aa": 416,
+      "position_1based": 38300016,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 205,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 49,
+      "CDS_codon_fraction": 0.49038461538461536
+    },
+    {
+      "gene_id": "ENSG00000128383.14",
+      "gene_name": "APOBEC3A",
+      "transcript_id": "ENST00000249116.7",
+      "equivalent_transcripts": [
+        "ENST00000402255.5",
+        "ENST00000249116.7"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          38957691,
+          38957720
+        ],
+        [
+          38959541,
+          38959686
+        ],
+        [
+          38961386,
+          38961681
+        ],
+        [
+          38962097,
+          38962213
+        ],
+        [
+          38962494,
+          38962509
+        ]
+      ],
+      "protein_length_aa": 199,
+      "position_1based": 38961482,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 90,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 95,
+      "CDS_codon_fraction": 0.4472361809045226
+    },
+    {
+      "gene_id": "ENSG00000284554.2",
+      "gene_name": "ENSG00000284554",
+      "transcript_id": "ENST00000381568.9",
+      "equivalent_transcripts": [
+        "ENST00000381568.9"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          39014362,
+          39014379
+        ],
+        [
+          39022821,
+          39023014
+        ],
+        [
+          39025069,
+          39025349
+        ],
+        [
+          39025556,
+          39025671
+        ],
+        [
+          39029362,
+          39029519
+        ],
+        [
+          39031693,
+          39031973
+        ],
+        [
+          39032197,
+          39032316
+        ]
+      ],
+      "protein_length_aa": 386,
+      "position_1based": 39025618,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 184,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 53,
+      "CDS_codon_fraction": 0.4740932642487047
+    },
+    {
+      "gene_id": "ENSG00000176177.10",
+      "gene_name": "ENTHD1",
+      "transcript_id": "ENST00000325157.7",
+      "equivalent_transcripts": [
+        "ENST00000325157.7"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          39743678,
+          39744283
+        ],
+        [
+          39765222,
+          39765609
+        ],
+        [
+          39820992,
+          39821113
+        ],
+        [
+          39835839,
+          39835958
+        ],
+        [
+          39861764,
+          39862007
+        ],
+        [
+          39887399,
+          39887748
+        ]
+      ],
+      "protein_length_aa": 607,
+      "position_1based": 39765284,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 386,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 61,
+      "CDS_codon_fraction": 0.6342668863261944
+    },
+    {
+      "gene_id": "ENSG00000138944.8",
+      "gene_name": "SHISAL1",
+      "transcript_id": "ENST00000381176.5",
+      "equivalent_transcripts": [
+        "ENST00000381176.5"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          44249684,
+          44249685
+        ],
+        [
+          44285427,
+          44285745
+        ],
+        [
+          44296671,
+          44296885
+        ],
+        [
+          44300878,
+          44300945
+        ]
+      ],
+      "protein_length_aa": 199,
+      "position_1based": 44296746,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 69,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 74,
+      "CDS_codon_fraction": 0.3417085427135678
+    },
+    {
+      "gene_id": "ENSG00000138892.12",
+      "gene_name": "TTLL8",
+      "transcript_id": "ENST00000433387.2",
+      "equivalent_transcripts": [
+        "ENST00000433387.2"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          50018783,
+          50018791
+        ],
+        [
+          50030429,
+          50030925
+        ],
+        [
+          50031685,
+          50032109
+        ],
+        [
+          50033201,
+          50033445
+        ],
+        [
+          50034356,
+          50034505
+        ],
+        [
+          50041620,
+          50041807
+        ],
+        [
+          50045254,
+          50045389
+        ],
+        [
+          50045855,
+          50045970
+        ],
+        [
+          50047167,
+          50047296
+        ],
+        [
+          50049248,
+          50049322
+        ],
+        [
+          50050108,
+          50050247
+        ],
+        [
+          50055233,
+          50055325
+        ],
+        [
+          50056868,
+          50056935
+        ]
+      ],
+      "protein_length_aa": 752,
+      "position_1based": 50033351,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 394,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 94,
+      "CDS_codon_fraction": 0.5226063829787234
+    }
+  ],
+  "eligible": [
+    {
+      "gene_id": "ENSG00000063515.3",
+      "gene_name": "GSC2",
+      "transcript_id": "ENST00000086933.3",
+      "equivalent_transcripts": [
+        "ENST00000086933.3"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          19148990,
+          19149095
+        ],
+        [
+          19149662,
+          19149916
+        ],
+        [
+          19150024,
+          19150283
+        ]
+      ],
+      "protein_length_aa": 205,
+      "position_1based": 19149726,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 150,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 63,
+      "CDS_codon_fraction": 0.7268292682926829
+    },
+    {
+      "gene_id": "ENSG00000100122.8",
+      "gene_name": "CRYBB1",
+      "transcript_id": "ENST00000647684.1",
+      "equivalent_transcripts": [
+        "ENST00000927865.1",
+        "ENST00000647684.1",
+        "ENST00000927864.1",
+        "ENST00000872124.1",
+        "ENST00000946726.1",
+        "ENST00000872126.1",
+        "ENST00000872125.1"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          26599489,
+          26599673
+        ],
+        [
+          26601878,
+          26602021
+        ],
+        [
+          26607888,
+          26608021
+        ],
+        [
+          26612071,
+          26612190
+        ],
+        [
+          26616139,
+          26616319
+        ]
+      ],
+      "protein_length_aa": 252,
+      "position_1based": 26607928,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 131,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 39,
+      "CDS_codon_fraction": 0.5158730158730159
+    },
+    {
+      "gene_id": "ENSG00000100191.6",
+      "gene_name": "SLC5A4",
+      "transcript_id": "ENST00000266086.6",
+      "equivalent_transcripts": [
+        "ENST00000266086.6"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          32218513,
+          32218725
+        ],
+        [
+          32220919,
+          32221022
+        ],
+        [
+          32224266,
+          32224482
+        ],
+        [
+          32225654,
+          32225823
+        ],
+        [
+          32229193,
+          32229344
+        ],
+        [
+          32230967,
+          32231075
+        ],
+        [
+          32232898,
+          32233034
+        ],
+        [
+          32234872,
+          32235093
+        ],
+        [
+          32237243,
+          32237324
+        ],
+        [
+          32238984,
+          32239090
+        ],
+        [
+          32247410,
+          32247515
+        ],
+        [
+          32248742,
+          32248802
+        ],
+        [
+          32251769,
+          32251874
+        ],
+        [
+          32254141,
+          32254213
+        ],
+        [
+          32255194,
+          32255329
+        ]
+      ],
+      "protein_length_aa": 659,
+      "position_1based": 32232963,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 319,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 64,
+      "CDS_codon_fraction": 0.48254931714719274
+    },
+    {
+      "gene_id": "ENSG00000100285.10",
+      "gene_name": "NEFH",
+      "transcript_id": "ENST00000310624.7",
+      "equivalent_transcripts": [
+        "ENST00000310624.7"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          29480262,
+          29481145
+        ],
+        [
+          29483374,
+          29483574
+        ],
+        [
+          29485722,
+          29485847
+        ],
+        [
+          29488848,
+          29490703
+        ]
+      ],
+      "protein_length_aa": 1020,
+      "position_1based": 29485794,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 385,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 53,
+      "CDS_codon_fraction": 0.3764705882352941
+    },
+    {
+      "gene_id": "ENSG00000128253.16",
+      "gene_name": "RFPL2",
+      "transcript_id": "ENST00000248983.8",
+      "equivalent_transcripts": [
+        "ENST00000248983.8",
+        "ENST00000400237.2",
+        "ENST00000652607.2"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          32190771,
+          32191352
+        ],
+        [
+          32192901,
+          32193192
+        ],
+        [
+          32194344,
+          32194490
+        ],
+        [
+          32202332,
+          32202451
+        ]
+      ],
+      "protein_length_aa": 378,
+      "position_1based": 32193137,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 107,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 55,
+      "CDS_codon_fraction": 0.2804232804232804
+    },
+    {
+      "gene_id": "ENSG00000128313.2",
+      "gene_name": "APOL5",
+      "transcript_id": "ENST00000249044.2",
+      "equivalent_transcripts": [
+        "ENST00000249044.2"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          35717871,
+          35717926
+        ],
+        [
+          35720567,
+          35720654
+        ],
+        [
+          35726210,
+          35727194
+        ],
+        [
+          35728722,
+          35728898
+        ]
+      ],
+      "protein_length_aa": 433,
+      "position_1based": 35726806,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 246,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 388,
+      "CDS_codon_fraction": 0.5658198614318707
+    },
+    {
+      "gene_id": "ENSG00000128383.14",
+      "gene_name": "APOBEC3A",
+      "transcript_id": "ENST00000249116.7",
+      "equivalent_transcripts": [
+        "ENST00000402255.5",
+        "ENST00000249116.7"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          38957691,
+          38957720
+        ],
+        [
+          38959541,
+          38959686
+        ],
+        [
+          38961386,
+          38961681
+        ],
+        [
+          38962097,
+          38962213
+        ],
+        [
+          38962494,
+          38962509
+        ]
+      ],
+      "protein_length_aa": 199,
+      "position_1based": 38961482,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 90,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 95,
+      "CDS_codon_fraction": 0.4472361809045226
+    },
+    {
+      "gene_id": "ENSG00000138892.12",
+      "gene_name": "TTLL8",
+      "transcript_id": "ENST00000433387.2",
+      "equivalent_transcripts": [
+        "ENST00000433387.2"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          50018783,
+          50018791
+        ],
+        [
+          50030429,
+          50030925
+        ],
+        [
+          50031685,
+          50032109
+        ],
+        [
+          50033201,
+          50033445
+        ],
+        [
+          50034356,
+          50034505
+        ],
+        [
+          50041620,
+          50041807
+        ],
+        [
+          50045254,
+          50045389
+        ],
+        [
+          50045855,
+          50045970
+        ],
+        [
+          50047167,
+          50047296
+        ],
+        [
+          50049248,
+          50049322
+        ],
+        [
+          50050108,
+          50050247
+        ],
+        [
+          50055233,
+          50055325
+        ],
+        [
+          50056868,
+          50056935
+        ]
+      ],
+      "protein_length_aa": 752,
+      "position_1based": 50033351,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 394,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 94,
+      "CDS_codon_fraction": 0.5226063829787234
+    },
+    {
+      "gene_id": "ENSG00000138944.8",
+      "gene_name": "SHISAL1",
+      "transcript_id": "ENST00000381176.5",
+      "equivalent_transcripts": [
+        "ENST00000381176.5"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          44249684,
+          44249685
+        ],
+        [
+          44285427,
+          44285745
+        ],
+        [
+          44296671,
+          44296885
+        ],
+        [
+          44300878,
+          44300945
+        ]
+      ],
+      "protein_length_aa": 199,
+      "position_1based": 44296746,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 69,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 74,
+      "CDS_codon_fraction": 0.3417085427135678
+    },
+    {
+      "gene_id": "ENSG00000166862.7",
+      "gene_name": "CACNG2",
+      "transcript_id": "ENST00000300105.7",
+      "equivalent_transcripts": [
+        "ENST00000300105.7"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          36564350,
+          36564886
+        ],
+        [
+          36566352,
+          36566493
+        ],
+        [
+          36587464,
+          36587548
+        ],
+        [
+          36702365,
+          36702576
+        ]
+      ],
+      "protein_length_aa": 323,
+      "position_1based": 36566405,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 128,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 52,
+      "CDS_codon_fraction": 0.3931888544891641
+    },
+    {
+      "gene_id": "ENSG00000172967.8",
+      "gene_name": "XKR3",
+      "transcript_id": "ENST00000331428.5",
+      "equivalent_transcripts": [
+        "ENST00000331428.5",
+        "ENST00000684488.1"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          16783618,
+          16784409
+        ],
+        [
+          16799770,
+          16800024
+        ],
+        [
+          16807738,
+          16808073
+        ]
+      ],
+      "protein_length_aa": 459,
+      "position_1based": 16799808,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 184,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 37,
+      "CDS_codon_fraction": 0.39869281045751637
+    },
+    {
+      "gene_id": "ENSG00000176177.10",
+      "gene_name": "ENTHD1",
+      "transcript_id": "ENST00000325157.7",
+      "equivalent_transcripts": [
+        "ENST00000325157.7"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          39743678,
+          39744283
+        ],
+        [
+          39765222,
+          39765609
+        ],
+        [
+          39820992,
+          39821113
+        ],
+        [
+          39835839,
+          39835958
+        ],
+        [
+          39861764,
+          39862007
+        ],
+        [
+          39887399,
+          39887748
+        ]
+      ],
+      "protein_length_aa": 607,
+      "position_1based": 39765284,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 386,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 61,
+      "CDS_codon_fraction": 0.6342668863261944
+    },
+    {
+      "gene_id": "ENSG00000187905.11",
+      "gene_name": "LRRC74B",
+      "transcript_id": "ENST00000442047.3",
+      "equivalent_transcripts": [
+        "ENST00000442047.3"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          21045986,
+          21046125
+        ],
+        [
+          21047355,
+          21047498
+        ],
+        [
+          21047883,
+          21048016
+        ],
+        [
+          21048950,
+          21049157
+        ],
+        [
+          21052248,
+          21052358
+        ],
+        [
+          21053359,
+          21053475
+        ],
+        [
+          21055097,
+          21055176
+        ],
+        [
+          21057104,
+          21057200
+        ],
+        [
+          21060372,
+          21060528
+        ]
+      ],
+      "protein_length_aa": 392,
+      "position_1based": 21053395,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 256,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 35,
+      "CDS_codon_fraction": 0.6505102040816326
+    },
+    {
+      "gene_id": "ENSG00000196431.4",
+      "gene_name": "CRYBA4",
+      "transcript_id": "ENST00000354760.4",
+      "equivalent_transcripts": [
+        "ENST00000354760.4"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          26622596,
+          26622635
+        ],
+        [
+          26623233,
+          26623352
+        ],
+        [
+          26625480,
+          26625622
+        ],
+        [
+          26628287,
+          26628430
+        ],
+        [
+          26630339,
+          26630487
+        ]
+      ],
+      "protein_length_aa": 196,
+      "position_1based": 26625580,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 86,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 42,
+      "CDS_codon_fraction": 0.4336734693877551
+    },
+    {
+      "gene_id": "ENSG00000198062.16",
+      "gene_name": "POTEH",
+      "transcript_id": "ENST00000343518.11",
+      "equivalent_transcripts": [
+        "ENST00000343518.11"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          15690077,
+          15690709
+        ],
+        [
+          15695370,
+          15695485
+        ],
+        [
+          15695644,
+          15695818
+        ],
+        [
+          15698661,
+          15698768
+        ],
+        [
+          15700077,
+          15700215
+        ],
+        [
+          15702685,
+          15702756
+        ],
+        [
+          15708019,
+          15708090
+        ],
+        [
+          15709781,
+          15709826
+        ],
+        [
+          15710867,
+          15711034
+        ],
+        [
+          15719659,
+          15719777
+        ]
+      ],
+      "protein_length_aa": 545,
+      "position_1based": 15695752,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 285,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 66,
+      "CDS_codon_fraction": 0.5211009174311927
+    },
+    {
+      "gene_id": "ENSG00000244752.4",
+      "gene_name": "CRYBB2",
+      "transcript_id": "ENST00000398215.3",
+      "equivalent_transcripts": [
+        "ENST00000651629.1",
+        "ENST00000855619.1",
+        "ENST00000398215.3"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          25221429,
+          25221483
+        ],
+        [
+          25224917,
+          25225036
+        ],
+        [
+          25227852,
+          25227985
+        ],
+        [
+          25229435,
+          25229578
+        ],
+        [
+          25231603,
+          25231772
+        ]
+      ],
+      "protein_length_aa": 205,
+      "position_1based": 25227916,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 79,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 63,
+      "CDS_codon_fraction": 0.3804878048780488
+    },
+    {
+      "gene_id": "ENSG00000276950.6",
+      "gene_name": "GSTT4",
+      "transcript_id": "ENST00000621179.6",
+      "equivalent_transcripts": [
+        "ENST00000621179.6"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          23998541,
+          23998739
+        ],
+        [
+          24000074,
+          24000251
+        ],
+        [
+          24001174,
+          24001325
+        ],
+        [
+          24003759,
+          24003847
+        ],
+        [
+          24005244,
+          24005356
+        ]
+      ],
+      "protein_length_aa": 241,
+      "position_1based": 24000153,
+      "reference_base": "A",
+      "synonymous_alt": "G",
+      "stop_alt": "T",
+      "codon_index_1based": 150,
+      "WT_codon": "TAT",
+      "synonymous_codon": "TAC",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 78,
+      "CDS_codon_fraction": 0.6182572614107884
+    },
+    {
+      "gene_id": "ENSG00000283809.1",
+      "gene_name": "ENSG00000283809",
+      "transcript_id": "ENST00000638240.1",
+      "equivalent_transcripts": [
+        "ENST00000638240.1"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          18906374,
+          18906484
+        ],
+        [
+          18906564,
+          18906725
+        ],
+        [
+          18910171,
+          18910272
+        ],
+        [
+          18910887,
+          18911028
+        ],
+        [
+          18939672,
+          18939702
+        ]
+      ],
+      "protein_length_aa": 180,
+      "position_1based": 18906691,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 79,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 34,
+      "CDS_codon_fraction": 0.43333333333333335
+    },
+    {
+      "gene_id": "ENSG00000283900.1",
+      "gene_name": "TPTEP2-CSNK1E",
+      "transcript_id": "ENST00000400206.7",
+      "equivalent_transcripts": [
+        "ENST00000400206.7"
+      ],
+      "strand": "-",
+      "CDS_chain_0based_halfopen": [
+        [
+          38293286,
+          38293319
+        ],
+        [
+          38294108,
+          38294248
+        ],
+        [
+          38294341,
+          38294534
+        ],
+        [
+          38298785,
+          38298934
+        ],
+        [
+          38299894,
+          38300065
+        ],
+        [
+          38300723,
+          38300952
+        ],
+        [
+          38302860,
+          38303009
+        ],
+        [
+          38303137,
+          38303248
+        ],
+        [
+          38314081,
+          38314157
+        ]
+      ],
+      "protein_length_aa": 416,
+      "position_1based": 38300016,
+      "reference_base": "G",
+      "synonymous_alt": "A",
+      "stop_alt": "T",
+      "codon_index_1based": 205,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 49,
+      "CDS_codon_fraction": 0.49038461538461536
+    },
+    {
+      "gene_id": "ENSG00000284554.2",
+      "gene_name": "ENSG00000284554",
+      "transcript_id": "ENST00000381568.9",
+      "equivalent_transcripts": [
+        "ENST00000381568.9"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          39014362,
+          39014379
+        ],
+        [
+          39022821,
+          39023014
+        ],
+        [
+          39025069,
+          39025349
+        ],
+        [
+          39025556,
+          39025671
+        ],
+        [
+          39029362,
+          39029519
+        ],
+        [
+          39031693,
+          39031973
+        ],
+        [
+          39032197,
+          39032316
+        ]
+      ],
+      "protein_length_aa": 386,
+      "position_1based": 39025618,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 184,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 53,
+      "CDS_codon_fraction": 0.4740932642487047
+    },
+    {
+      "gene_id": "ENSG00000285404.1",
+      "gene_name": "ENSG00000285404",
+      "transcript_id": "ENST00000646701.1",
+      "equivalent_transcripts": [
+        "ENST00000646701.1"
+      ],
+      "strand": "+",
+      "CDS_chain_0based_halfopen": [
+        [
+          31754921,
+          31754979
+        ],
+        [
+          31758545,
+          31758633
+        ],
+        [
+          31760655,
+          31760702
+        ],
+        [
+          31764974,
+          31765060
+        ],
+        [
+          31768813,
+          31768863
+        ],
+        [
+          31778098,
+          31778168
+        ],
+        [
+          31783906,
+          31783985
+        ],
+        [
+          31784813,
+          31784875
+        ],
+        [
+          31792032,
+          31792102
+        ],
+        [
+          31792744,
+          31792817
+        ],
+        [
+          31797599,
+          31797703
+        ],
+        [
+          31798581,
+          31798656
+        ],
+        [
+          31802703,
+          31802838
+        ],
+        [
+          31804161,
+          31804223
+        ],
+        [
+          31804841,
+          31804915
+        ],
+        [
+          31806121,
+          31806191
+        ],
+        [
+          31809610,
+          31809647
+        ],
+        [
+          31810520,
+          31810641
+        ],
+        [
+          31814991,
+          31815212
+        ],
+        [
+          31819021,
+          31819225
+        ],
+        [
+          31956138,
+          31956155
+        ]
+      ],
+      "protein_length_aa": 600,
+      "position_1based": 31783939,
+      "reference_base": "C",
+      "synonymous_alt": "T",
+      "stop_alt": "A",
+      "codon_index_1based": 144,
+      "WT_codon": "TAC",
+      "synonymous_codon": "TAT",
+      "stop_codon": "TAA",
+      "distance_to_CDS_edge_nt": 32,
+      "CDS_codon_fraction": 0.23833333333333334
+    }
+  ],
+  "no_combined_mutant_chromosome": true,
+  "training_runs": 0,
+  "inference_runs": 0,
+  "Setaria_accessed": false,
+  "scope_limits": [
+    "Tyr-to-stop same-base control is a restricted mutation class",
+    "single assessable protein-coding CDS chain is not all-isoform transcript uniqueness",
+    "unchanged canonical splice dinucleotides does not establish unchanged biological splicing",
+    "reference-selected chr22 developmental pilot, not independent clean zero-shot test"
+  ]
+}

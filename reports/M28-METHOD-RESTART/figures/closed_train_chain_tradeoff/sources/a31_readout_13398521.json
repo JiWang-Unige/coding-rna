@@ -1,0 +1,212 @@
+{
+  "arm": "A31",
+  "protocol": "reports/M28-METHOD-RESTART/a31_local_path_caller_protocol.md",
+  "configuration": {
+    "generators": {
+      "A3": "outputs/M28-A3-FIRST-FIT/step_004608.pt",
+      "A23": "outputs/M28-A23-RELATIVE-BOUNDARY-FIT/step_004608.pt"
+    },
+    "score": "sum_valid_candidate_span_role_logit_minus_intergenic_logit",
+    "all_role_weights": 1.0,
+    "null": 0.0,
+    "model_precision": "FP32",
+    "score_accumulation": "FP64",
+    "main_baseline": "A3_completed_greedy_max_query_logit_per_geometry",
+    "pool": "reuse_original_completed_greedy_plus_beam4_union",
+    "beam_width": 4,
+    "completed_limit": 4,
+    "max_exons": 128,
+    "threshold": 0.0,
+    "threshold_scan": false,
+    "new_parameters": 0,
+    "optimizer_steps": 0,
+    "unique_TRAIN_windows": 1491
+  },
+  "optimizer_steps_this_run": 0,
+  "reference_injected_candidates": 0,
+  "new_candidate_search": false,
+  "new_backbone_forward": false,
+  "DEV_forward_used": false,
+  "test_setaria_used": false,
+  "completed": true,
+  "windows": 1491,
+  "natural_score_file_closed_before_catalog_open": true,
+  "original_greedy_source_replay_verified": true,
+  "model_weights_unchanged": true,
+  "all_parameters_frozen_and_gradients_absent": true,
+  "original_natural_pools_unchanged": true,
+  "selected_counts_per_species": {
+    "arabidopsis_thaliana": {
+      "A3_greedy": {
+        "candidates": 2370,
+        "pool_correct": 1181,
+        "pool_known_nonmatch": 1014,
+        "pool_unknown": 175,
+        "selected": 1772,
+        "selected_correct": 1135,
+        "selected_known_nonmatch": 490,
+        "selected_unknown": 147,
+        "selected_five_or_more_correct": 299
+      },
+      "A31_A3": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 2193,
+        "selected_correct": 1531,
+        "selected_known_nonmatch": 347,
+        "selected_unknown": 315,
+        "selected_five_or_more_correct": 548
+      },
+      "A31_A23": {
+        "candidates": 10459,
+        "pool_correct": 1783,
+        "pool_known_nonmatch": 7796,
+        "pool_unknown": 880,
+        "selected": 2211,
+        "selected_correct": 1563,
+        "selected_known_nonmatch": 310,
+        "selected_unknown": 338,
+        "selected_five_or_more_correct": 580
+      },
+      "A6_auxiliary": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 980,
+        "selected_correct": 809,
+        "selected_known_nonmatch": 98,
+        "selected_unknown": 73,
+        "selected_five_or_more_correct": 46
+      }
+    },
+    "oryza_sativa": {
+      "A3_greedy": {
+        "candidates": 1818,
+        "pool_correct": 466,
+        "pool_known_nonmatch": 1245,
+        "pool_unknown": 107,
+        "selected": 758,
+        "selected_correct": 425,
+        "selected_known_nonmatch": 265,
+        "selected_unknown": 68,
+        "selected_five_or_more_correct": 111
+      },
+      "A31_A3": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 861,
+        "selected_correct": 478,
+        "selected_known_nonmatch": 251,
+        "selected_unknown": 132,
+        "selected_five_or_more_correct": 152
+      },
+      "A31_A23": {
+        "candidates": 8491,
+        "pool_correct": 632,
+        "pool_known_nonmatch": 7231,
+        "pool_unknown": 628,
+        "selected": 829,
+        "selected_correct": 492,
+        "selected_known_nonmatch": 209,
+        "selected_unknown": 128,
+        "selected_five_or_more_correct": 156
+      },
+      "A6_auxiliary": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 345,
+        "selected_correct": 262,
+        "selected_known_nonmatch": 60,
+        "selected_unknown": 23,
+        "selected_five_or_more_correct": 8
+      }
+    }
+  },
+  "eligible_reference_pairs": {
+    "arabidopsis_thaliana": {
+      "eligible": 2172,
+      "five_or_more": 854
+    },
+    "oryza_sativa": {
+      "eligible": 744,
+      "five_or_more": 232
+    }
+  },
+  "known_label_window_pair_proxies": {
+    "arabidopsis_thaliana": {
+      "A3_greedy": {
+        "precision": 0.6984615384615385,
+        "recall": 0.5225598526703499,
+        "F1": 0.597840400316039
+      },
+      "A31_A3": {
+        "precision": 0.8152289669861554,
+        "recall": 0.7048802946593001,
+        "F1": 0.7560493827160494
+      },
+      "A31_A23": {
+        "precision": 0.8344901227976508,
+        "recall": 0.7196132596685083,
+        "F1": 0.7728059332509271
+      },
+      "A6_auxiliary": {
+        "precision": 0.8919514884233738,
+        "recall": 0.3724677716390424,
+        "F1": 0.5254952906787919
+      }
+    },
+    "oryza_sativa": {
+      "A3_greedy": {
+        "precision": 0.6159420289855072,
+        "recall": 0.571236559139785,
+        "F1": 0.592747559274756
+      },
+      "A31_A3": {
+        "precision": 0.6556927297668038,
+        "recall": 0.6424731182795699,
+        "F1": 0.6490156143923965
+      },
+      "A31_A23": {
+        "precision": 0.7018544935805991,
+        "recall": 0.6612903225806451,
+        "F1": 0.6809688581314879
+      },
+      "A6_auxiliary": {
+        "precision": 0.8136645962732919,
+        "recall": 0.3521505376344086,
+        "F1": 0.4915572232645403
+      }
+    }
+  },
+  "predeclared_TRAIN_gate": {
+    "A31_A3": {
+      "arabidopsis_thaliana_proxy_F1_strictly_increased": true,
+      "arabidopsis_thaliana_proxy_precision_not_decreased": true,
+      "oryza_sativa_proxy_F1_strictly_increased": true,
+      "oryza_sativa_proxy_precision_not_decreased": true,
+      "pooled_five_or_more_selected_correct_strictly_increased": true
+    },
+    "A31_A23": {
+      "arabidopsis_thaliana_proxy_F1_strictly_increased": true,
+      "arabidopsis_thaliana_proxy_precision_not_decreased": true,
+      "oryza_sativa_proxy_F1_strictly_increased": true,
+      "oryza_sativa_proxy_precision_not_decreased": true,
+      "pooled_five_or_more_selected_correct_strictly_increased": true
+    }
+  },
+  "TRAIN_preparation_supported": {
+    "A31_A3": true,
+    "A31_A23": true
+  },
+  "scoring_seconds": 3561.7138699999778,
+  "seconds": 3569.8663019019878,
+  "peak_GPU_allocated_bytes": 157948416,
+  "limitation": "In-sample window/chain readiness, not full gene F1, generalization or a publication result."
+}

@@ -1,0 +1,125 @@
+{
+  "experiment": "M28-DATA-MANIFEST-R2",
+  "species": "oryza_sativa",
+  "width": 24576,
+  "stride": 12288,
+  "flank": 256,
+  "no_model_training": true,
+  "setaria_access": false,
+  "test_sequence_or_labels_used": false,
+  "eligible_positive_policy": "longest-CDS primary; CDS itself complete (parent/tx partial not automatic exclusion), ATG/stop, phase-consistent, no internal stop, GT/GC-AG, no same-strand primary overlap",
+  "mask_policy": "unqualified/overlap fine labels and crossing-window chain targets unknown; retain certain CDS/splice local evidence; alternative-isoform conflicts masked by label builder",
+  "evaluation_reference_policy": "all original complete primaries, including unsupported/long/overlapping; no denominator filtering",
+  "sampling": {
+    "draws": 768,
+    "unique_windows": 746,
+    "strata": 6,
+    "seed": 0,
+    "uniform_fraction": 0.75,
+    "complete_positive_fraction": 0.25,
+    "with_replacement": true,
+    "unique_positive_chains_exposed": 720,
+    "background_draws": 61,
+    "positive_exposure_min_max": [
+      1,
+      3
+    ],
+    "chromosome_draws_per_strand": {
+      "NC_089043.1": 133,
+      "NC_089044.1": 115,
+      "NC_089046.1": 136
+    },
+    "population": "equal species and strands, chromosome counts by valid length (largest remainder); importance weights undo gene-first within-stratum enrichment"
+  },
+  "splits": {
+    "train": {
+      "windows": 12964,
+      "reference_complete_primary": 4980,
+      "geometrically_covered_primary": 4948,
+      "eligible_positive_primary": 4845,
+      "positive_primary_with_256bp_flanks": 4819,
+      "parent_or_transcript_partial_with_complete_CDS_positives": 0,
+      "unexposed_eligible_ids": [
+        "rna-NM_001404732.1",
+        "rna-NM_001422737.1",
+        "rna-NM_001423491.1",
+        "rna-XM_015756020.3",
+        "rna-XM_015756386.3",
+        "rna-XM_015756781.3",
+        "rna-XM_015756800.3",
+        "rna-XM_015756903.3",
+        "rna-XM_015756986.3",
+        "rna-XM_015757836.3",
+        "rna-XM_015757865.3",
+        "rna-XM_015758199.1",
+        "rna-XM_015758378.3",
+        "rna-XM_015758528.3",
+        "rna-XM_015758649.3",
+        "rna-XM_015759047.3",
+        "rna-XM_015763105.3",
+        "rna-XM_015763920.3",
+        "rna-XM_026020633.2",
+        "rna-XM_026020736.2",
+        "rna-XM_026020899.1",
+        "rna-XM_066303868.1",
+        "rna-XM_066304283.1",
+        "rna-XM_066304339.1",
+        "rna-XM_066304365.1",
+        "rna-XM_066306564.1"
+      ],
+      "reference_primary_without_training_eligibility": {
+        "split_terminal_codon": 7,
+        "internal_stop": 31,
+        "nonstandard_splice": 108,
+        "primary_overlap": 4
+      },
+      "reference_background_windows": 1406,
+      "windows_with_positive": 5581,
+      "max_primary_per_window": 8,
+      "max_exons_per_primary": 66,
+      "max_motifs_per_window": {
+        "start": 695,
+        "stop": 2503,
+        "donor": 3752,
+        "acceptor": 2242
+      }
+    },
+    "val": {
+      "windows": 4872,
+      "reference_complete_primary": 2299,
+      "geometrically_covered_primary": 2289,
+      "eligible_positive_primary": 2239,
+      "positive_primary_with_256bp_flanks": 2228,
+      "parent_or_transcript_partial_with_complete_CDS_positives": 0,
+      "unexposed_eligible_ids": [
+        "rna-XM_015789195.3",
+        "rna-XM_015789427.3",
+        "rna-XM_015790982.3",
+        "rna-XM_015790987.3",
+        "rna-XM_015791021.2",
+        "rna-XM_015791685.3",
+        "rna-XM_015791744.3",
+        "rna-XM_015791852.3",
+        "rna-XM_015791887.3",
+        "rna-XM_015792470.3",
+        "rna-XM_066312095.1"
+      ],
+      "reference_primary_without_training_eligibility": {
+        "nonstandard_splice": 43,
+        "internal_stop": 8,
+        "split_terminal_codon": 5,
+        "primary_overlap": 9
+      },
+      "reference_background_windows": 446,
+      "windows_with_positive": 2521,
+      "max_primary_per_window": 7,
+      "max_exons_per_primary": 40,
+      "max_motifs_per_window": {
+        "start": 648,
+        "stop": 2152,
+        "donor": 3437,
+        "acceptor": 2048
+      }
+    }
+  }
+}

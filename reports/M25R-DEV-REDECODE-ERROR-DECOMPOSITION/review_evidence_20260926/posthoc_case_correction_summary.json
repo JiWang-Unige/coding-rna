@@ -1,0 +1,684 @@
+{
+  "checkpoints_loaded": false,
+  "epochs": [
+    {
+      "all_exact_references_covered": true,
+      "canonical_reference_count": 6065,
+      "conditional_reachability": {
+        "motif_reachable": {
+          "canonical_chains": 3614,
+          "chains": 3616,
+          "fraction_of_R_all": 0.5606201550387597,
+          "fraction_of_R_canonical": 0.5958779884583677
+        },
+        "transition_reachable": {
+          "canonical_chains": 3614,
+          "chains": 3727,
+          "fraction_of_R_all": 0.5778294573643411,
+          "fraction_of_R_canonical": 0.5958779884583677
+        }
+      },
+      "coordinate_metrics": {
+        "exact_CDS_chain_F1": 0.3249883013570426,
+        "exact_CDS_interval_F1": 0.12041407867494826,
+        "gene_count_ratio": 0.32527131782945734,
+        "intergenic_FPR": 0.012468286270247831
+      },
+      "coordinate_metrics_unchanged": true,
+      "epoch": 1,
+      "main_stage_counts": {
+        "boundary_threshold_filter": 2,
+        "complete_ORF_internal_stop_check": 1,
+        "emitted_exact_chain": 1389,
+        "learned_boundary_choice": 229,
+        "legal_terminal_transitions": 0,
+        "non_intergenic_block": 1919,
+        "ordered_CDS_runs": 586,
+        "ordered_donor_acceptor_candidates": 473,
+        "phase_check": 1145,
+        "region_state_path": 105,
+        "start_stop_motif_candidates": 601
+      },
+      "main_stage_counts_unchanged": true,
+      "reference_total": 6450,
+      "strata": {
+        "CDS_count:1": {
+          "boundary_threshold_filter": 2,
+          "emitted_exact_chain": 1043,
+          "learned_boundary_choice": 41,
+          "non_intergenic_block": 80,
+          "ordered_CDS_runs": 102,
+          "phase_check": 14,
+          "reference_total": 1499,
+          "region_state_path": 66,
+          "start_stop_motif_candidates": 151
+        },
+        "CDS_count:2": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 191,
+          "learned_boundary_choice": 29,
+          "non_intergenic_block": 325,
+          "ordered_CDS_runs": 92,
+          "ordered_donor_acceptor_candidates": 38,
+          "phase_check": 218,
+          "reference_total": 1017,
+          "region_state_path": 24,
+          "start_stop_motif_candidates": 99
+        },
+        "CDS_count:3-5": {
+          "emitted_exact_chain": 133,
+          "learned_boundary_choice": 59,
+          "non_intergenic_block": 654,
+          "ordered_CDS_runs": 165,
+          "ordered_donor_acceptor_candidates": 132,
+          "phase_check": 485,
+          "reference_total": 1799,
+          "region_state_path": 11,
+          "start_stop_motif_candidates": 160
+        },
+        "CDS_count:6+": {
+          "emitted_exact_chain": 22,
+          "learned_boundary_choice": 100,
+          "non_intergenic_block": 860,
+          "ordered_CDS_runs": 227,
+          "ordered_donor_acceptor_candidates": 303,
+          "phase_check": 428,
+          "reference_total": 2135,
+          "region_state_path": 4,
+          "start_stop_motif_candidates": 191
+        },
+        "canonical": {
+          "boundary_threshold_filter": 2,
+          "emitted_exact_chain": 1389,
+          "learned_boundary_choice": 229,
+          "non_intergenic_block": 1738,
+          "ordered_CDS_runs": 542,
+          "ordered_donor_acceptor_candidates": 348,
+          "phase_check": 1145,
+          "reference_total": 6065,
+          "region_state_path": 102,
+          "start_stop_motif_candidates": 570
+        },
+        "multi_CDS": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 346,
+          "learned_boundary_choice": 188,
+          "non_intergenic_block": 1839,
+          "ordered_CDS_runs": 484,
+          "ordered_donor_acceptor_candidates": 473,
+          "phase_check": 1131,
+          "reference_total": 4951,
+          "region_state_path": 39,
+          "start_stop_motif_candidates": 450
+        },
+        "noncanonical": {
+          "complete_ORF_internal_stop_check": 1,
+          "non_intergenic_block": 181,
+          "ordered_CDS_runs": 44,
+          "ordered_donor_acceptor_candidates": 125,
+          "reference_total": 385,
+          "region_state_path": 3,
+          "start_stop_motif_candidates": 31
+        },
+        "not_near_tile_edge": {
+          "boundary_threshold_filter": 2,
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 1387,
+          "learned_boundary_choice": 222,
+          "non_intergenic_block": 1844,
+          "ordered_CDS_runs": 570,
+          "ordered_donor_acceptor_candidates": 458,
+          "phase_check": 1129,
+          "reference_total": 6312,
+          "region_state_path": 104,
+          "start_stop_motif_candidates": 595
+        },
+        "single_CDS": {
+          "boundary_threshold_filter": 2,
+          "emitted_exact_chain": 1043,
+          "learned_boundary_choice": 41,
+          "non_intergenic_block": 80,
+          "ordered_CDS_runs": 102,
+          "phase_check": 14,
+          "reference_total": 1499,
+          "region_state_path": 66,
+          "start_stop_motif_candidates": 151
+        },
+        "span_gt_6144": {
+          "learned_boundary_choice": 6,
+          "non_intergenic_block": 279,
+          "ordered_CDS_runs": 12,
+          "ordered_donor_acceptor_candidates": 17,
+          "phase_check": 8,
+          "reference_total": 328,
+          "region_state_path": 3,
+          "start_stop_motif_candidates": 3
+        },
+        "span_lte_6144": {
+          "boundary_threshold_filter": 2,
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 1389,
+          "learned_boundary_choice": 223,
+          "non_intergenic_block": 1640,
+          "ordered_CDS_runs": 574,
+          "ordered_donor_acceptor_candidates": 456,
+          "phase_check": 1137,
+          "reference_total": 6122,
+          "region_state_path": 102,
+          "start_stop_motif_candidates": 598
+        },
+        "species:arabidopsis_thaliana": {
+          "boundary_threshold_filter": 1,
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 965,
+          "learned_boundary_choice": 199,
+          "non_intergenic_block": 685,
+          "ordered_CDS_runs": 428,
+          "ordered_donor_acceptor_candidates": 419,
+          "phase_check": 967,
+          "reference_total": 4151,
+          "region_state_path": 60,
+          "start_stop_motif_candidates": 426
+        },
+        "species:oryza_sativa": {
+          "boundary_threshold_filter": 1,
+          "emitted_exact_chain": 424,
+          "learned_boundary_choice": 30,
+          "non_intergenic_block": 1234,
+          "ordered_CDS_runs": 158,
+          "ordered_donor_acceptor_candidates": 54,
+          "phase_check": 178,
+          "reference_total": 2299,
+          "region_state_path": 45,
+          "start_stop_motif_candidates": 175
+        },
+        "tile_edge_within_6": {
+          "emitted_exact_chain": 2,
+          "learned_boundary_choice": 7,
+          "non_intergenic_block": 75,
+          "ordered_CDS_runs": 16,
+          "ordered_donor_acceptor_candidates": 15,
+          "phase_check": 16,
+          "reference_total": 138,
+          "region_state_path": 1,
+          "start_stop_motif_candidates": 6
+        }
+      },
+      "truth_assisted_exact_chain": "NOT_RECOVERABLE_WITH_SAVED_ARTIFACTS",
+      "unsupported_by_frozen_canonical_decoder": 385,
+      "validity": {
+        "audit_coverage": 1.0,
+        "complete_empty_audit": false,
+        "component_failure_counts": {
+          "frame_length": 0,
+          "internal_stop_absent": 0,
+          "minimum_CDS_length": 0,
+          "parent_linkage": 0,
+          "phase_continuity": 0,
+          "phase_values": 0,
+          "splice_motif": 0,
+          "start_codon_feature": 0,
+          "start_codon_sequence": 0,
+          "stop_codon_feature": 0,
+          "stop_codon_sequence": 0
+        },
+        "failures": [],
+        "invalid_transcripts": 0,
+        "n_checked": 2098,
+        "n_emitted": 2098,
+        "valid_transcripts": 2098,
+        "validity_fraction": 1.0
+      }
+    },
+    {
+      "all_exact_references_covered": true,
+      "canonical_reference_count": 6065,
+      "conditional_reachability": {
+        "motif_reachable": {
+          "canonical_chains": 3849,
+          "chains": 3852,
+          "fraction_of_R_all": 0.5972093023255814,
+          "fraction_of_R_canonical": 0.6346248969497115
+        },
+        "transition_reachable": {
+          "canonical_chains": 3849,
+          "chains": 3993,
+          "fraction_of_R_all": 0.6190697674418605,
+          "fraction_of_R_canonical": 0.6346248969497115
+        }
+      },
+      "coordinate_metrics": {
+        "exact_CDS_chain_F1": 0.23774574049803407,
+        "exact_CDS_interval_F1": 0.07830221102073547,
+        "gene_count_ratio": 0.18294573643410852,
+        "intergenic_FPR": 0.0050773538189316115
+      },
+      "coordinate_metrics_unchanged": true,
+      "epoch": 2,
+      "main_stage_counts": {
+        "boundary_threshold_filter": 0,
+        "complete_ORF_internal_stop_check": 1,
+        "emitted_exact_chain": 907,
+        "learned_boundary_choice": 387,
+        "legal_terminal_transitions": 0,
+        "non_intergenic_block": 1673,
+        "ordered_CDS_runs": 618,
+        "ordered_donor_acceptor_candidates": 392,
+        "phase_check": 1770,
+        "region_state_path": 218,
+        "start_stop_motif_candidates": 484
+      },
+      "main_stage_counts_unchanged": true,
+      "reference_total": 6450,
+      "strata": {
+        "CDS_count:1": {
+          "emitted_exact_chain": 676,
+          "learned_boundary_choice": 27,
+          "non_intergenic_block": 140,
+          "ordered_CDS_runs": 96,
+          "phase_check": 351,
+          "reference_total": 1499,
+          "region_state_path": 107,
+          "start_stop_motif_candidates": 102
+        },
+        "CDS_count:2": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 145,
+          "learned_boundary_choice": 37,
+          "non_intergenic_block": 268,
+          "ordered_CDS_runs": 88,
+          "ordered_donor_acceptor_candidates": 23,
+          "phase_check": 330,
+          "reference_total": 1017,
+          "region_state_path": 57,
+          "start_stop_motif_candidates": 68
+        },
+        "CDS_count:3-5": {
+          "emitted_exact_chain": 77,
+          "learned_boundary_choice": 119,
+          "non_intergenic_block": 544,
+          "ordered_CDS_runs": 172,
+          "ordered_donor_acceptor_candidates": 96,
+          "phase_check": 617,
+          "reference_total": 1799,
+          "region_state_path": 42,
+          "start_stop_motif_candidates": 132
+        },
+        "CDS_count:6+": {
+          "emitted_exact_chain": 9,
+          "learned_boundary_choice": 204,
+          "non_intergenic_block": 721,
+          "ordered_CDS_runs": 262,
+          "ordered_donor_acceptor_candidates": 273,
+          "phase_check": 472,
+          "reference_total": 2135,
+          "region_state_path": 12,
+          "start_stop_motif_candidates": 182
+        },
+        "canonical": {
+          "emitted_exact_chain": 907,
+          "learned_boundary_choice": 387,
+          "non_intergenic_block": 1516,
+          "ordered_CDS_runs": 581,
+          "ordered_donor_acceptor_candidates": 240,
+          "phase_check": 1770,
+          "reference_total": 6065,
+          "region_state_path": 210,
+          "start_stop_motif_candidates": 454
+        },
+        "multi_CDS": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 231,
+          "learned_boundary_choice": 360,
+          "non_intergenic_block": 1533,
+          "ordered_CDS_runs": 522,
+          "ordered_donor_acceptor_candidates": 392,
+          "phase_check": 1419,
+          "reference_total": 4951,
+          "region_state_path": 111,
+          "start_stop_motif_candidates": 382
+        },
+        "noncanonical": {
+          "complete_ORF_internal_stop_check": 1,
+          "non_intergenic_block": 157,
+          "ordered_CDS_runs": 37,
+          "ordered_donor_acceptor_candidates": 152,
+          "reference_total": 385,
+          "region_state_path": 8,
+          "start_stop_motif_candidates": 30
+        },
+        "not_near_tile_edge": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 904,
+          "learned_boundary_choice": 379,
+          "non_intergenic_block": 1611,
+          "ordered_CDS_runs": 603,
+          "ordered_donor_acceptor_candidates": 372,
+          "phase_check": 1747,
+          "reference_total": 6312,
+          "region_state_path": 216,
+          "start_stop_motif_candidates": 479
+        },
+        "single_CDS": {
+          "emitted_exact_chain": 676,
+          "learned_boundary_choice": 27,
+          "non_intergenic_block": 140,
+          "ordered_CDS_runs": 96,
+          "phase_check": 351,
+          "reference_total": 1499,
+          "region_state_path": 107,
+          "start_stop_motif_candidates": 102
+        },
+        "span_gt_6144": {
+          "learned_boundary_choice": 4,
+          "non_intergenic_block": 258,
+          "ordered_CDS_runs": 21,
+          "ordered_donor_acceptor_candidates": 18,
+          "phase_check": 17,
+          "reference_total": 328,
+          "region_state_path": 6,
+          "start_stop_motif_candidates": 4
+        },
+        "span_lte_6144": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 907,
+          "learned_boundary_choice": 383,
+          "non_intergenic_block": 1415,
+          "ordered_CDS_runs": 597,
+          "ordered_donor_acceptor_candidates": 374,
+          "phase_check": 1753,
+          "reference_total": 6122,
+          "region_state_path": 212,
+          "start_stop_motif_candidates": 480
+        },
+        "species:arabidopsis_thaliana": {
+          "complete_ORF_internal_stop_check": 1,
+          "emitted_exact_chain": 609,
+          "learned_boundary_choice": 350,
+          "non_intergenic_block": 596,
+          "ordered_CDS_runs": 489,
+          "ordered_donor_acceptor_candidates": 314,
+          "phase_check": 1386,
+          "reference_total": 4151,
+          "region_state_path": 97,
+          "start_stop_motif_candidates": 309
+        },
+        "species:oryza_sativa": {
+          "emitted_exact_chain": 298,
+          "learned_boundary_choice": 37,
+          "non_intergenic_block": 1077,
+          "ordered_CDS_runs": 129,
+          "ordered_donor_acceptor_candidates": 78,
+          "phase_check": 384,
+          "reference_total": 2299,
+          "region_state_path": 121,
+          "start_stop_motif_candidates": 175
+        },
+        "tile_edge_within_6": {
+          "emitted_exact_chain": 3,
+          "learned_boundary_choice": 8,
+          "non_intergenic_block": 62,
+          "ordered_CDS_runs": 15,
+          "ordered_donor_acceptor_candidates": 20,
+          "phase_check": 23,
+          "reference_total": 138,
+          "region_state_path": 2,
+          "start_stop_motif_candidates": 5
+        }
+      },
+      "truth_assisted_exact_chain": "NOT_RECOVERABLE_WITH_SAVED_ARTIFACTS",
+      "unsupported_by_frozen_canonical_decoder": 385,
+      "validity": {
+        "audit_coverage": 1.0,
+        "complete_empty_audit": false,
+        "component_failure_counts": {
+          "frame_length": 0,
+          "internal_stop_absent": 0,
+          "minimum_CDS_length": 0,
+          "parent_linkage": 0,
+          "phase_continuity": 0,
+          "phase_values": 0,
+          "splice_motif": 0,
+          "start_codon_feature": 0,
+          "start_codon_sequence": 0,
+          "stop_codon_feature": 0,
+          "stop_codon_sequence": 0
+        },
+        "failures": [],
+        "invalid_transcripts": 0,
+        "n_checked": 1180,
+        "n_emitted": 1180,
+        "valid_transcripts": 1180,
+        "validity_fraction": 1.0
+      }
+    },
+    {
+      "all_exact_references_covered": true,
+      "canonical_reference_count": 6065,
+      "conditional_reachability": {
+        "motif_reachable": {
+          "canonical_chains": 3859,
+          "chains": 3862,
+          "fraction_of_R_all": 0.5987596899224806,
+          "fraction_of_R_canonical": 0.6362737015663644
+        },
+        "transition_reachable": {
+          "canonical_chains": 3859,
+          "chains": 4017,
+          "fraction_of_R_all": 0.6227906976744186,
+          "fraction_of_R_canonical": 0.6362737015663644
+        }
+      },
+      "coordinate_metrics": {
+        "exact_CDS_chain_F1": 0.14022762399887592,
+        "exact_CDS_interval_F1": 0.03826178809307239,
+        "gene_count_ratio": 0.10341085271317829,
+        "intergenic_FPR": 0.003415162474145484
+      },
+      "coordinate_metrics_unchanged": true,
+      "epoch": 3,
+      "main_stage_counts": {
+        "boundary_threshold_filter": 0,
+        "complete_ORF_internal_stop_check": 0,
+        "emitted_exact_chain": 499,
+        "learned_boundary_choice": 209,
+        "legal_terminal_transitions": 0,
+        "non_intergenic_block": 1210,
+        "ordered_CDS_runs": 800,
+        "ordered_donor_acceptor_candidates": 415,
+        "phase_check": 2595,
+        "region_state_path": 167,
+        "start_stop_motif_candidates": 555
+      },
+      "main_stage_counts_unchanged": true,
+      "reference_total": 6450,
+      "strata": {
+        "CDS_count:1": {
+          "emitted_exact_chain": 387,
+          "learned_boundary_choice": 24,
+          "non_intergenic_block": 195,
+          "ordered_CDS_runs": 112,
+          "phase_check": 538,
+          "reference_total": 1499,
+          "region_state_path": 88,
+          "start_stop_motif_candidates": 155
+        },
+        "CDS_count:2": {
+          "emitted_exact_chain": 90,
+          "learned_boundary_choice": 26,
+          "non_intergenic_block": 224,
+          "ordered_CDS_runs": 97,
+          "ordered_donor_acceptor_candidates": 21,
+          "phase_check": 441,
+          "reference_total": 1017,
+          "region_state_path": 45,
+          "start_stop_motif_candidates": 73
+        },
+        "CDS_count:3-5": {
+          "emitted_exact_chain": 21,
+          "learned_boundary_choice": 53,
+          "non_intergenic_block": 350,
+          "ordered_CDS_runs": 265,
+          "ordered_donor_acceptor_candidates": 81,
+          "phase_check": 850,
+          "reference_total": 1799,
+          "region_state_path": 26,
+          "start_stop_motif_candidates": 153
+        },
+        "CDS_count:6+": {
+          "emitted_exact_chain": 1,
+          "learned_boundary_choice": 106,
+          "non_intergenic_block": 441,
+          "ordered_CDS_runs": 326,
+          "ordered_donor_acceptor_candidates": 313,
+          "phase_check": 766,
+          "reference_total": 2135,
+          "region_state_path": 8,
+          "start_stop_motif_candidates": 174
+        },
+        "canonical": {
+          "emitted_exact_chain": 499,
+          "learned_boundary_choice": 209,
+          "non_intergenic_block": 1094,
+          "ordered_CDS_runs": 745,
+          "ordered_donor_acceptor_candidates": 235,
+          "phase_check": 2594,
+          "reference_total": 6065,
+          "region_state_path": 161,
+          "start_stop_motif_candidates": 528
+        },
+        "multi_CDS": {
+          "emitted_exact_chain": 112,
+          "learned_boundary_choice": 185,
+          "non_intergenic_block": 1015,
+          "ordered_CDS_runs": 688,
+          "ordered_donor_acceptor_candidates": 415,
+          "phase_check": 2057,
+          "reference_total": 4951,
+          "region_state_path": 79,
+          "start_stop_motif_candidates": 400
+        },
+        "noncanonical": {
+          "non_intergenic_block": 116,
+          "ordered_CDS_runs": 55,
+          "ordered_donor_acceptor_candidates": 180,
+          "phase_check": 1,
+          "reference_total": 385,
+          "region_state_path": 6,
+          "start_stop_motif_candidates": 27
+        },
+        "not_near_tile_edge": {
+          "emitted_exact_chain": 498,
+          "learned_boundary_choice": 202,
+          "non_intergenic_block": 1153,
+          "ordered_CDS_runs": 785,
+          "ordered_donor_acceptor_candidates": 395,
+          "phase_check": 2562,
+          "reference_total": 6312,
+          "region_state_path": 166,
+          "start_stop_motif_candidates": 551
+        },
+        "single_CDS": {
+          "emitted_exact_chain": 387,
+          "learned_boundary_choice": 24,
+          "non_intergenic_block": 195,
+          "ordered_CDS_runs": 112,
+          "phase_check": 538,
+          "reference_total": 1499,
+          "region_state_path": 88,
+          "start_stop_motif_candidates": 155
+        },
+        "span_gt_6144": {
+          "learned_boundary_choice": 4,
+          "non_intergenic_block": 172,
+          "ordered_CDS_runs": 47,
+          "ordered_donor_acceptor_candidates": 49,
+          "phase_check": 42,
+          "reference_total": 328,
+          "region_state_path": 5,
+          "start_stop_motif_candidates": 9
+        },
+        "span_lte_6144": {
+          "emitted_exact_chain": 499,
+          "learned_boundary_choice": 205,
+          "non_intergenic_block": 1038,
+          "ordered_CDS_runs": 753,
+          "ordered_donor_acceptor_candidates": 366,
+          "phase_check": 2553,
+          "reference_total": 6122,
+          "region_state_path": 162,
+          "start_stop_motif_candidates": 546
+        },
+        "species:arabidopsis_thaliana": {
+          "emitted_exact_chain": 300,
+          "learned_boundary_choice": 158,
+          "non_intergenic_block": 599,
+          "ordered_CDS_runs": 427,
+          "ordered_donor_acceptor_candidates": 284,
+          "phase_check": 2004,
+          "reference_total": 4151,
+          "region_state_path": 81,
+          "start_stop_motif_candidates": 298
+        },
+        "species:oryza_sativa": {
+          "emitted_exact_chain": 199,
+          "learned_boundary_choice": 51,
+          "non_intergenic_block": 611,
+          "ordered_CDS_runs": 373,
+          "ordered_donor_acceptor_candidates": 131,
+          "phase_check": 591,
+          "reference_total": 2299,
+          "region_state_path": 86,
+          "start_stop_motif_candidates": 257
+        },
+        "tile_edge_within_6": {
+          "emitted_exact_chain": 1,
+          "learned_boundary_choice": 7,
+          "non_intergenic_block": 57,
+          "ordered_CDS_runs": 15,
+          "ordered_donor_acceptor_candidates": 20,
+          "phase_check": 33,
+          "reference_total": 138,
+          "region_state_path": 1,
+          "start_stop_motif_candidates": 4
+        }
+      },
+      "truth_assisted_exact_chain": "NOT_RECOVERABLE_WITH_SAVED_ARTIFACTS",
+      "unsupported_by_frozen_canonical_decoder": 385,
+      "validity": {
+        "audit_coverage": 1.0,
+        "complete_empty_audit": false,
+        "component_failure_counts": {
+          "frame_length": 0,
+          "internal_stop_absent": 0,
+          "minimum_CDS_length": 0,
+          "parent_linkage": 0,
+          "phase_continuity": 0,
+          "phase_values": 0,
+          "splice_motif": 0,
+          "start_codon_feature": 0,
+          "start_codon_sequence": 0,
+          "stop_codon_feature": 0,
+          "stop_codon_sequence": 0
+        },
+        "failures": [],
+        "invalid_transcripts": 0,
+        "n_checked": 667,
+        "n_emitted": 667,
+        "valid_transcripts": 667,
+        "validity_fraction": 1.0
+      }
+    }
+  ],
+  "m25r_frozen_contract_verdict": "DEVELOPMENT_NO_GO_UNCHANGED",
+  "model_forward_called": false,
+  "next_action": "STOP_FOR_REVIEW",
+  "original_R4_metadata_unchanged": true,
+  "original_invalid_structure_conclusion": "RETRACTED_CASE_FALSE_NEGATIVE",
+  "original_scientific_status": "SCIENTIFIC_NO_GO_INVALID_STRUCTURES",
+  "setaria_files_read": false,
+  "source": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M25R-DEV-REDECODE-ERROR-DECOMPOSITION-R4",
+  "status": "POSTHOC_CORRECTION_COMPLETED_REVIEW_REQUIRED",
+  "threshold_or_decoder_search": false,
+  "truth_assisted_exact_chain": "NOT_RECOVERABLE_WITH_SAVED_ARTIFACTS"
+}

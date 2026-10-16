@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Prepared only; all three full TRAIN flows and main result processing first.
+#SBATCH --job-name=M28JOINTCTRLDEVRAW
+#SBATCH --no-requeue
+#SBATCH --partition=private-teodoro-gpu
+#SBATCH --gres=gpu:nvidia_geforce_rtx_3090:1
+#SBATCH --array=0-1%2
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=16G
+#SBATCH --time=02:00:00
+#SBATCH --exclude=gpu023,gpu024,gpu036,gpu037,gpu038,gpu039,gpu040,gpu041,gpu042,gpu043
+#SBATCH --output=outputs/M28-PILOT-R5/logs/%x_%A_%a.out
+#SBATCH --error=outputs/M28-PILOT-R5/logs/%x_%A_%a.err
+set -euo pipefail
+cd /home/users/j/jwang/coding-rna
+source /opt/ebsofts/Mamba/23.1.0-4/etc/profile.d/conda.sh
+set +u; conda activate generanno; set -u
+export PYTHONDONTWRITEBYTECODE=1 NUMBA_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false
+export HF_HOME="/home/users/j/jwang/.cache/huggingface" HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+export PYTHONPATH="$PWD:$PWD/scripts/experiments/M28-METHOD-RESTART"
+branch="$1"
+seqids=(NC_003074.8 NC_089041.1)
+out="outputs/M28-FULL-GRAMMAR-JOINT-CONTROLS-DEV-RAW-R1/$branch/${seqids[$SLURM_ARRAY_TASK_ID]}"
+test ! -e "$out"; mkdir -p "$out"
+trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
+printf 'RUNNING\n' > "$out/STATUS"; printf '%s\n' "$SLURM_JOB_ID" > "$out/JOBID"
+python -u scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_joint_controls_dev.py --branch "$branch" --task "$SLURM_ARRAY_TASK_ID"
+printf 'COMPLETED\n' > "$out/STATUS"

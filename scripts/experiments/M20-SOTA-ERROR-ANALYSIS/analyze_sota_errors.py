@@ -189,16 +189,16 @@ def main() -> None:
     lines = [
         "# M20-SOTA-ERROR-ANALYSIS",
         "",
-        "Same clean-plant panel, same CDS-span evaluator. GENERanno rows are our adapted models; ANNEVO/Tiberius/Helixer rows are released fixed-model baselines.",
+        "Historical metrics from mixed evaluation scopes, not a verified same-panel comparison. GENERanno rows are adapted models; ANNEVO/Tiberius/Helixer rows are saved released-model baselines. Use the M26 same-coordinate rescoring for development comparisons.",
         "",
         "## Aggregate Metrics",
         "",
-        "| Model | Kind | gbF1 | Precision | Recall | Spec | FPR | Gene count ratio | FPR<=0.01 |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+        "| Model | Kind | ordinary gbF1 | historical constrained gbF1 | Precision | Recall | Spec | FPR | Gene count ratio | FPR<=0.01 |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in ranked:
         lines.append(
-            f"| {row['model']} | {row['kind']} | {_fmt(row['constrained_gene_body_F1'])} | "
+            f"| {row['model']} | {row['kind']} | {_fmt(row['gene_body_F1_unconstrained'])} | {_fmt(row['constrained_gene_body_F1'])} | "
             f"{_fmt(row['gene_body_precision'])} | {_fmt(row['gene_body_recall'])} | "
             f"{_fmt(row['intergenic_specificity'])} | {_fmt(row['intergenic_FPR'])} | "
             f"{_fmt(row['predicted_gene_count_ratio_vs_reference'])} | "
@@ -207,7 +207,11 @@ def main() -> None:
     lines.extend(
         [
             "",
-            "## Interpretation",
+            "Ordinary and historical constrained F1 are separate preserved fields; the latter is not recomputed from the FPR<=0.01 flag. A constrained zero does not mean zero ordinary accuracy.",
+            "",
+            "Scope warning: historical interval_overlap lacks prediction seqid restriction; cds_base_* actually measures transcript/group CDS spans including introns. These diagnostics are quarantined. Independently loaded aggregate rows also differ in reference counts (LoRA 5007/2489 versus baselines 33461/13324), so their ranking cannot support a same-scope claim. Preserve raw values and use M26 rescoring; do not combine M24 and M25R across their different scopes.",
+            "",
+            "## Historical interpretation (preserved, not a valid same-scope ranking)",
             "",
             "- Tiberius is the strongest released fixed-model comparator under the hard FPR guardrail, but it under-calls gene count relative to reference.",
             "- ANNEVO has the best gbF1 among released fixed baselines on this panel, but aggregate FPR exceeds the `0.01` claim guardrail.",

@@ -1,0 +1,51 @@
+{
+  "source": "outputs/M28-PILOT-R4/B1/training.jsonl: first 3072 completed records",
+  "pairs_match": true,
+  "denominator": "Repeated TRAIN window positive-chain exposures, not unique genes or final-checkpoint DEV recall",
+  "rows": [
+    {
+      "epoch": 1,
+      "species": "arabidopsis_thaliana",
+      "draws": 768,
+      "known_positive_chain_exposures": 2242,
+      "freely_proposed_positive_exposures": 518,
+      "injected_positive_exposures": 1724,
+      "free_exposure_fraction": 0.2310437109723461,
+      "draws_requiring_positive_injection": 587,
+      "mean_free_candidate_count": 190.27083333333334
+    },
+    {
+      "epoch": 1,
+      "species": "oryza_sativa",
+      "draws": 768,
+      "known_positive_chain_exposures": 786,
+      "freely_proposed_positive_exposures": 345,
+      "injected_positive_exposures": 441,
+      "free_exposure_fraction": 0.4389312977099237,
+      "draws_requiring_positive_injection": 270,
+      "mean_free_candidate_count": 191.69791666666666
+    },
+    {
+      "epoch": 2,
+      "species": "arabidopsis_thaliana",
+      "draws": 768,
+      "known_positive_chain_exposures": 2242,
+      "freely_proposed_positive_exposures": 578,
+      "injected_positive_exposures": 1664,
+      "free_exposure_fraction": 0.25780553077609275,
+      "draws_requiring_positive_injection": 563,
+      "mean_free_candidate_count": 191.27473958333334
+    },
+    {
+      "epoch": 2,
+      "species": "oryza_sativa",
+      "draws": 768,
+      "known_positive_chain_exposures": 786,
+      "freely_proposed_positive_exposures": 374,
+      "injected_positive_exposures": 412,
+      "free_exposure_fraction": 0.4758269720101781,
+      "draws_requiring_positive_injection": 250,
+      "mean_free_candidate_count": 192
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "completed": true,
+  "experiment": "M28-A37-CONTEXT-CHAIN-RESULT-CHECK",
+  "protocol": "reports/M28-METHOD-RESTART/a37_context_chain_readout_protocol.md",
+  "configuration": {
+    "feature_dim": 2048,
+    "hidden": 128,
+    "seed": 0,
+    "precision": "FP32",
+    "model": "fresh_SharedContext_jointly_learned_with_existing_JunctionChainHead",
+    "trainable_parameters": 612324,
+    "context_parameters": 364256,
+    "head_parameters": 248068,
+    "initialization": "one_seed0_stream_SharedContext_then_JunctionChainHead_no_old_weights",
+    "pretrained_encoder_frozen": true,
+    "source_natural_generator": "outputs/M28-A3-FIRST-FIT/step_004608.pt",
+    "candidate_pool": "original_16321_natural_A3_chains_no_reference_injection",
+    "loss": "exact_compatible_known_candidate_set_NLL_divided_by_known_count",
+    "loss_unknown": "exclude_-1_from_partition_and_gold_keep_in_natural_competition",
+    "score": "exon_additive_plus_junction_additive_plus_chain_nonadditive_minus_window_null",
+    "threshold": 0.0,
+    "threshold_scan": false,
+    "local_cross_entropy": false,
+    "draw_order_and_importance_weights": "original_1536_draws_1491_unique_TRAIN",
+    "proposed_passes": 3,
+    "proposed_optimizer_steps": 4608,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "clip_norm": 1.0,
+    "proposed_main_checkpoint": "last_step_004608_only",
+    "comparison": "frozen_A31_A3_same_natural_pool_and_same_zero_gain_operating_point"
+  },
+  "source_jobs": {
+    "fit": "13410061",
+    "readout": "13410739"
+  },
+  "windows": 1491,
+  "natural_candidates": 16321,
+  "reference_injected_predictions": 0,
+  "actual_original_draw_weights_counts_and_4608_updates_verified": true,
+  "actual_three_model_checkpoint_tensors_and_branch_optimizer_exposure_verified": true,
+  "actual_saved_natural_identity_and_FP32_score_components_verified": true,
+  "actual_saved_labels_DP_baseline_denominators_and_five_conditions_recomputed": true,
+  "original_replayed_per_pass_counts": {
+    "windows": 1536,
+    "free_candidates": 16806,
+    "reference_injected_candidates": 0,
+    "zero_known_windows": 3,
+    "label_1": 2473,
+    "label_0": 12935,
+    "label_-1": 1398
+  },
+  "actual_optimizer_steps_per_parameter": {
+    "shared.project.weight": 4608,
+    "shared.project.bias": 4608,
+    "shared.context.weight_ih_l0": 4608,
+    "shared.context.weight_hh_l0": 4608,
+    "shared.context.bias_ih_l0": 4608,
+    "shared.context.bias_hh_l0": 4608,
+    "shared.context.weight_ih_l0_reverse": 4608,
+    "shared.context.weight_hh_l0_reverse": 4608,
+    "shared.context.bias_ih_l0_reverse": 4608,
+    "shared.context.bias_hh_l0_reverse": 4608,
+    "shared.dna.0.weight": 4608,
+    "shared.dna.0.bias": 4608,
+    "shared.dna.2.weight": 4608,
+    "shared.dna.2.bias": 4608,
+    "shared.fuse.0.weight": 4608,
+    "shared.fuse.0.bias": 4608,
+    "shared.fuse.2.weight": 4608,
+    "shared.fuse.2.bias": 4608,
+    "head.exon.0.weight": 4602,
+    "head.exon.0.bias": 4602,
+    "head.sequence.weight_ih_l0": 4602,
+    "head.sequence.weight_hh_l0": 4602,
+    "head.sequence.bias_ih_l0": 4602,
+    "head.sequence.bias_hh_l0": 4602,
+    "head.additive.weight": 4602,
+    "head.additive.bias": 4602,
+    "head.nonadditive.0.weight": 4602,
+    "head.nonadditive.0.bias": 4602,
+    "head.nonadditive.2.weight": 4602,
+    "head.nonadditive.2.bias": 4602,
+    "head.null.weight": 4608,
+    "head.null.bias": 4608,
+    "head.junction.0.weight": 4425,
+    "head.junction.0.bias": 4425,
+    "head.junction_additive.weight": 4425,
+    "head.junction_additive.bias": 4425
+  },
+  "selected_counts_per_species": {
+    "arabidopsis_thaliana": {
+      "A31_A3": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 2193,
+        "selected_correct": 1531,
+        "selected_known_nonmatch": 347,
+        "selected_unknown": 315,
+        "selected_five_or_more_correct": 548
+      },
+      "A37": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 1675,
+        "selected_correct": 1396,
+        "selected_known_nonmatch": 125,
+        "selected_unknown": 154,
+        "selected_five_or_more_correct": 499
+      }
+    },
+    "oryza_sativa": {
+      "A31_A3": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 861,
+        "selected_correct": 478,
+        "selected_known_nonmatch": 251,
+        "selected_unknown": 132,
+        "selected_five_or_more_correct": 152
+      },
+      "A37": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 600,
+        "selected_correct": 431,
+        "selected_known_nonmatch": 114,
+        "selected_unknown": 55,
+        "selected_five_or_more_correct": 140
+      }
+    }
+  },
+  "eligible_reference_pairs": {
+    "arabidopsis_thaliana": {
+      "eligible": 2172,
+      "five_or_more": 854
+    },
+    "oryza_sativa": {
+      "eligible": 744,
+      "five_or_more": 232
+    }
+  },
+  "predeclared_TRAIN_gate": {
+    "arabidopsis_thaliana_natural_selected_correct_strictly_increased": false,
+    "arabidopsis_thaliana_natural_selected_known_nonmatch_not_increased": true,
+    "oryza_sativa_natural_selected_correct_strictly_increased": false,
+    "oryza_sativa_natural_selected_known_nonmatch_not_increased": true,
+    "pooled_natural_selected_five_or_more_correct_strictly_increased": false
+  },
+  "TRAIN_preparation_supported": false,
+  "model_or_backbone_forward": false,
+  "independent_neural_forward_replay": false,
+  "optimizer_steps_this_run": 0,
+  "new_candidate_search": false,
+  "new_R4_labelling": false,
+  "DEV_used": false,
+  "test_setaria_used": false,
+  "A33_outputs_opened": false,
+  "seconds": 10.94216808094643,
+  "limitation": "Exact saved FP32 component arithmetic and original TRAIN decisions, not independent neural replay, biological causality, genome geneF1 or independent generalization."
+}

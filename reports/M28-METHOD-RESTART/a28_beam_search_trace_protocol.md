@@ -1,0 +1,29 @@
+# A28 原搜索的正确路径淘汰诊断
+
+2026-10-06，在计算前固定。A27已闭合的536遗漏中有221配对至少一个query满足全部局部必要排名；长链中157/298属于此类。继续一个零更新实际搜索回放，定位这些正确前缀首次从原活跃路径或完成池消失的位置。不是新caller、不扩大搜索或重训，也不把这项观察当作因果消融。
+
+## 固定人群与搜索
+
+只使用已完成A27 job13392411的全部221个局部通过但遗漏的原TRAIN参考／窗配对及全部324个原metadata顺序自然beam命中对照，共545配对。覆盖所有原局部通过query：遗漏1708、对照2539，共4247参考/query配对；多个参考共享window/query时只执行一次自然搜索。315个全部query局部排除的原遗漏不重复搜索；它们保留在A27原536分母中，不称本子集为全部遗漏或独立gene recall。
+
+原A3末004608、原GEN缓存及六条TRAIN染色体、定向24576全宽输入不变。width4、completed4、maxexons128、原geometric log-softmax、累计boundary/EOS log分数、ATG及GT/GC–AG／实际codon carry／最短内含子5bp、相同tie-break和保留beam分数界均不变。没有query阈值、长度归一化、参考候选注入或不同beam扫描；无DEV、sealed/Setaria、新GLM前向、optimizer或checkpoint。
+
+## 实现与实际核验
+
+trace_frozen_query_beam.py仅镜像原query_beam._beam_query以增加观察；不修改正在使用的src/m28/query_beam.py或旧实验代码。参考几何只读取已构建的池，不能影响任何候选或保留决策。每一个实际window/query均同时执行原函数和观测回放，核对query身份、existence、全部计数、按序候选几何／终止语义／rank和累计分数（原已有1e-3容差，不放宽）。回放每条完成链还必须属于原A6固定自然池的beam4来源。
+
+所有观测参考/query必须与原A27正确前缀组成分数和几何一致。若局部通过query在同一正确活跃历史上却局部失败、原遗漏被重新返回、自然命中对照没有任一query返回，或原输出／计数改变，先停止科学解释并定位具体接线或数值问题。每对照的任一自然命中属于一致性验证，不并入221遗漏分母。
+
+记录首个实际淘汰：global_entry_pool_pruned、continuation_pool_pruned、completion_pool_pruned或retained_beam_score_bound；保留exon、目标前缀／entry、累计分数、实际pool名次、大小和保留cutoff。完成池淘汰可发生在完成后的后续深度，不能伪装成原终点局部排名失败。分数界只约束剩余保留beam，不宣称被剪历史上的全局最优性，也不把某个阶段计数归因给单一训练loss、EOS或长度偏好。
+
+按物种、exon类给出遗漏参考配对及query级首淘汰计数。同一参考可能有多个不同query淘汰机制，reference_pairs_with_any_loss_stage允许重叠，不相加当作互斥gene归因。保存natural_queries.jsonl、query_profiles.jsonl、references.jsonl、summary/STATUS/JOBID，并实际重读核对覆盖、几何／分数及reference聚合，不只相信内存汇总。
+
+## 预检和资源
+
+入口analyze_beam_search_trace_train.py，preflight取原metadata顺序每物种前四个有合格观察目标的窗，共八窗，不按分数或诊断比例选样。原六项beam测试加五项新测试，覆盖自然输出／codon carry相等、真实第五起点不注入、完成池与延伸池不同淘汰、局部排名合格但输给其他活跃历史，以及保留beam分数界停止与完成池淘汰不混淆。所有测试和真实八窗经Slurm执行。
+
+预检唯一目录outputs/M28-A28-BEAM-SEARCH-TRACE-PREFLIGHT，generanno、private1RTX3090/2CPU/16GiB/15min。全量目录outputs/M28-A28-BEAM-SEARCH-TRACE-DIAGNOSTIC，资源按实际八窗耗时和全量window/query数估算后在执行记录中固定，仅一次完整原配置回放；不能根据观测结果改beam或挑子集。失败保留产物，只允许相同科学范围内有明确证据的最小工程修复。
+
+计算前资源补充：首轮预检仅合成fixture假定失败，未执行真实八窗；一次fixture修复的实际R1预检13392831完成。实际352全量窗／3363不同window-query搜索／4247参考-query配对，八窗64搜索28.304秒；全量固定private1RTX3090/2CPU/16GiB/45min。该补充只确定工程资源和真实成功预检路径PREFLIGHT-REPAIR-R1，不改变观察人群、搜索或科学解释。详见执行记录。
+
+预检通过仅证明可执行。全量诊断后才决定下一独立表征／训练信号，并结合A23/A25实际完整三条件门槛；不救参A26或进入DEV。运行等待复用原watcher和heartbeat，科学解释由主对话完成。没有Git提交／推送、作业取消、公开发布或已退役研究框架恢复。

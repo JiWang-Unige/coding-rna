@@ -1,0 +1,30 @@
+{
+  "species": "oryza_sativa",
+  "label_policy": "longest_CDS_assessable_primary_then_training_support_mask",
+  "local_only_fallback": "longest_all when no assessable isoform; certain local/junction evidence only, never complete-chain positive",
+  "draw_source": "outputs/M28-CORE-LABEL-SMOKE-R2/result/paired_training_draws.jsonl",
+  "draw_order_q_weights_unchanged": true,
+  "draws": 768,
+  "positive_list_changed_draws": 0,
+  "unique_positive_chains_exposed": 720,
+  "primary_change_gene_ids": [],
+  "splits": {
+    "train": {
+      "windows": 12964,
+      "CDS_assessable_primaries": 4949,
+      "eligible_positive": 4845,
+      "local_only_fallback_primaries": 44,
+      "primary_chain_changes": 0
+    },
+    "val": {
+      "windows": 4872,
+      "CDS_assessable_primaries": 2291,
+      "eligible_positive": 2239,
+      "local_only_fallback_primaries": 16,
+      "primary_chain_changes": 0
+    }
+  },
+  "DEV_reference_ID_set_matches_frozen_ruler": true,
+  "optimizer_steps": 0,
+  "test_setaria_used": false
+}

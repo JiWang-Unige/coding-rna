@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "full_chain_and_phase_set_identical": true,
+  "metrics": {
+    "exact_CDS_chain_F1": {
+      "replayed": 0.3249883013570426,
+      "frozen": 0.3249883013570426,
+      "absolute_error": 0.0
+    },
+    "exact_CDS_interval_F1": {
+      "replayed": 0.12041407867494826,
+      "frozen": 0.12041407867494826,
+      "absolute_error": 0.0
+    },
+    "gene_count_ratio": {
+      "replayed": 0.32527131782945734,
+      "frozen": 0.32527131782945734,
+      "absolute_error": 0.0
+    },
+    "intergenic_FPR": {
+      "replayed": 0.012468286270247831,
+      "frozen": 0.012468286270247831,
+      "absolute_error": 0.0
+    }
+  },
+  "n_models": 2098,
+  "audit_invalid": 0
+}

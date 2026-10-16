@@ -1,0 +1,344 @@
+{
+  "experiment": "M28-B1-INTEGRATION-R3",
+  "species": "oryza_sativa",
+  "head_seed": 0,
+  "head_fitted": false,
+  "backbone_revision": "b0483c23b6b63787b61a6d3a204a9b517d6ba345",
+  "head_hidden": 128,
+  "budget": {
+    "bin_bp": 1024,
+    "sites_per_bin": 8,
+    "ends_per_start_kind": 8,
+    "intron_links_per_donor": 8,
+    "beam_per_carry": 2,
+    "chains_per_kb": 8,
+    "max_exons": 128,
+    "min_intron_bp": 5
+  },
+  "loss": "per-window class-balanced endpoint/link/chain BCE + local fine/grouped likelihood; coefficients all1 for smoke",
+  "gradient_check": {
+    "window_id": "oryza_sativa|NC_089044.1|15261696|+",
+    "losses": {
+      "local": 3.5463016033172607,
+      "endpoint": 0.7408381104469299,
+      "link": 0.8128730654716492,
+      "chain": 0.7632205486297607
+    },
+    "gradient_norms": {
+      "local": {
+        "shared": 45.42172714708562,
+        "segmentation": 10.084514328402232,
+        "endpoint": 0.0,
+        "link": 0.0,
+        "chain": 0.0
+      },
+      "endpoint": {
+        "shared": 8.684731941498661,
+        "segmentation": 0.0,
+        "endpoint": 2.0747762871843296,
+        "link": 0.0,
+        "chain": 0.0
+      },
+      "link": {
+        "shared": 7.075097722524204,
+        "segmentation": 0.0,
+        "endpoint": 0.0,
+        "link": 3.7144806826856276,
+        "chain": 0.0
+      },
+      "chain": {
+        "shared": 22.852500634040684,
+        "segmentation": 0.0,
+        "endpoint": 0.0,
+        "link": 0.0,
+        "chain": 9.201883656581426
+      }
+    },
+    "chain_labels": {
+      "0": 73,
+      "1": 1
+    },
+    "link_labels": {
+      "0": 1479
+    },
+    "origins": {
+      "free": 74
+    },
+    "frozen_features_require_grad": false,
+    "masked_endpoint_gradient_abs_sum": 0.0,
+    "positive_negative_unknown_gradient_check": true,
+    "seconds": 11.865249385002244
+  },
+  "integration_pass": true,
+  "optimizer_steps": 0,
+  "reference_used_for_free_generation": false,
+  "val_test_setaria_used": false,
+  "scope": "six isolated TRAIN windows, not chromosome-level assessment; no performance/architecture conclusion",
+  "records": [
+    {
+      "window_id": "oryza_sativa|NC_089046.1|26886144|-",
+      "ordinal": 1,
+      "free_chains": 149,
+      "free_reference_labels": {
+        "0": 149
+      },
+      "supported_training_positives": 0,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 18,
+      "untrained_additive_selected": 18,
+      "untrained_C0_chains": 3,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 1.0622285889985505,
+      "C0_decode_seconds": 6.824981931000366,
+      "counts": {
+        "raw_sites": {
+          "start": 480,
+          "stop": 1418,
+          "donor": 2278,
+          "acceptor": 1412
+        },
+        "kept_sites": {
+          "start": 192,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 60961,
+        "legal_exon_edges": 782,
+        "exon_edges_retained": 757,
+        "intron_links_considered": 18379,
+        "intron_links_retained": 1512,
+        "beam_states_considered": 2634,
+        "beam_states_pruned": 1711,
+        "duplicate_states": 0,
+        "extensions": 1175,
+        "ORF_rejected_context_edges": 60179,
+        "max_exon_pruned": 0,
+        "complete_paths": 149,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "oryza_sativa|NC_089044.1|15261696|+",
+      "ordinal": 2,
+      "free_chains": 74,
+      "free_reference_labels": {
+        "0": 73,
+        "1": 1
+      },
+      "supported_training_positives": 1,
+      "free_exact_training_positives": 1,
+      "untrained_B1_selected": 17,
+      "untrained_additive_selected": 17,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.4849511549982708,
+      "C0_decode_seconds": 0.0733663120008714,
+      "counts": {
+        "raw_sites": {
+          "start": 399,
+          "stop": 1232,
+          "donor": 2287,
+          "acceptor": 1296
+        },
+        "kept_sites": {
+          "start": 187,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 71219,
+        "legal_exon_edges": 335,
+        "exon_edges_retained": 335,
+        "intron_links_considered": 18414,
+        "intron_links_retained": 1479,
+        "beam_states_considered": 1656,
+        "beam_states_pruned": 892,
+        "duplicate_states": 0,
+        "extensions": 482,
+        "ORF_rejected_context_edges": 70884,
+        "max_exon_pruned": 0,
+        "complete_paths": 74,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "oryza_sativa|NC_089043.1|6193152|-",
+      "ordinal": 4,
+      "free_chains": 100,
+      "free_reference_labels": {
+        "0": 100
+      },
+      "supported_training_positives": 1,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 23,
+      "untrained_additive_selected": 23,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.4624651249978342,
+      "C0_decode_seconds": 0.07184463599696755,
+      "counts": {
+        "raw_sites": {
+          "start": 430,
+          "stop": 1345,
+          "donor": 2303,
+          "acceptor": 1396
+        },
+        "kept_sites": {
+          "start": 190,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 60473,
+        "legal_exon_edges": 282,
+        "exon_edges_retained": 282,
+        "intron_links_considered": 18412,
+        "intron_links_retained": 1498,
+        "beam_states_considered": 1432,
+        "beam_states_pruned": 628,
+        "duplicate_states": 0,
+        "extensions": 424,
+        "ORF_rejected_context_edges": 60191,
+        "max_exon_pruned": 0,
+        "complete_paths": 100,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "oryza_sativa|NC_089046.1|27316224|+",
+      "ordinal": 5,
+      "free_chains": 119,
+      "free_reference_labels": {
+        "0": 119
+      },
+      "supported_training_positives": 4,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 27,
+      "untrained_additive_selected": 27,
+      "untrained_C0_chains": 2,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.45244059299875516,
+      "C0_decode_seconds": 0.07325623900032951,
+      "counts": {
+        "raw_sites": {
+          "start": 479,
+          "stop": 1117,
+          "donor": 2791,
+          "acceptor": 1447
+        },
+        "kept_sites": {
+          "start": 189,
+          "stop": 191,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 48172,
+        "legal_exon_edges": 239,
+        "exon_edges_retained": 239,
+        "intron_links_considered": 18457,
+        "intron_links_retained": 1516,
+        "beam_states_considered": 1177,
+        "beam_states_pruned": 550,
+        "duplicate_states": 0,
+        "extensions": 295,
+        "ORF_rejected_context_edges": 47933,
+        "max_exon_pruned": 0,
+        "complete_paths": 119,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "oryza_sativa|NC_089043.1|16625664|+",
+      "ordinal": 9,
+      "free_chains": 134,
+      "free_reference_labels": {
+        "0": 134
+      },
+      "supported_training_positives": 1,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 23,
+      "untrained_additive_selected": 23,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.43846013999791467,
+      "C0_decode_seconds": 0.07140841799991904,
+      "counts": {
+        "raw_sites": {
+          "start": 425,
+          "stop": 1396,
+          "donor": 2354,
+          "acceptor": 1475
+        },
+        "kept_sites": {
+          "start": 189,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 53077,
+        "legal_exon_edges": 254,
+        "exon_edges_retained": 233,
+        "intron_links_considered": 18470,
+        "intron_links_retained": 1479,
+        "beam_states_considered": 1165,
+        "beam_states_pruned": 440,
+        "duplicate_states": 0,
+        "extensions": 285,
+        "ORF_rejected_context_edges": 52823,
+        "max_exon_pruned": 0,
+        "complete_paths": 134,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 0
+      }
+    },
+    {
+      "window_id": "oryza_sativa|NC_089044.1|1658880|-",
+      "ordinal": 11,
+      "free_chains": 192,
+      "free_reference_labels": {
+        "0": 192
+      },
+      "supported_training_positives": 2,
+      "free_exact_training_positives": 0,
+      "untrained_B1_selected": 18,
+      "untrained_additive_selected": 18,
+      "untrained_C0_chains": 1,
+      "C0_partial_paths": 0,
+      "free_forward_and_candidate_seconds": 0.4664137460022175,
+      "C0_decode_seconds": 0.07138142899930244,
+      "counts": {
+        "raw_sites": {
+          "start": 463,
+          "stop": 1181,
+          "donor": 2677,
+          "acceptor": 1347
+        },
+        "kept_sites": {
+          "start": 185,
+          "stop": 192,
+          "donor": 192,
+          "acceptor": 192
+        },
+        "exon_edges_considered": 55321,
+        "legal_exon_edges": 280,
+        "exon_edges_retained": 280,
+        "intron_links_considered": 18387,
+        "intron_links_retained": 1512,
+        "beam_states_considered": 1090,
+        "beam_states_pruned": 399,
+        "duplicate_states": 0,
+        "extensions": 389,
+        "ORF_rejected_context_edges": 55041,
+        "max_exon_pruned": 0,
+        "complete_paths": 212,
+        "duplicate_complete_paths": 0,
+        "final_chains_pruned": 20
+      }
+    }
+  ]
+}

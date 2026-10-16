@@ -1,0 +1,441 @@
+{
+  "metrics": {
+    "exact_CDS_chain_F1": 0.5303054280740623,
+    "exact_CDS_interval_F1": 0.7345159687835522,
+    "intergenic_FPR": 0.05605615821731119,
+    "gene_count_ratio": 0.9593798449612403,
+    "structurally_valid_complete_fraction": 1.0
+  },
+  "prediction_errors": {
+    "reference_chains": 6450,
+    "predicted_chains": 6188,
+    "exact_chains": 3351,
+    "missing_chains": 3099,
+    "false_positive_chains": 2837,
+    "exact_coordinates_wrong_strand": 0,
+    "overlap_split_fusion": {
+      "predicted_groups_overlapping_multiple_reference_transcripts": 132,
+      "reference_transcripts_overlapping_multiple_predicted_groups": 59
+    },
+    "matched_gene_strand": {
+      "matched_genes": 5058,
+      "accuracy": 0.9996045867931989
+    },
+    "exact_matched_CDS_phase": {
+      "exact_matched_CDS": 22918,
+      "accuracy": 0.9962038572301248
+    },
+    "boundary_offsets": {
+      "start": {
+        "reference_boundaries": 6450,
+        "matched_within_6bp": 4558,
+        "signed_offset_counts": {
+          "-6": 2,
+          "-5": 0,
+          "-4": 0,
+          "-3": 1,
+          "-2": 0,
+          "-1": 0,
+          "0": 4554,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 1
+        },
+        "modulo_6_counts": {
+          "0": 4557,
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "stop": {
+        "reference_boundaries": 6450,
+        "matched_within_6bp": 4588,
+        "signed_offset_counts": {
+          "-6": 0,
+          "-5": 3,
+          "-4": 5,
+          "-3": 0,
+          "-2": 0,
+          "-1": 0,
+          "0": 4573,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 5,
+          "5": 2,
+          "6": 0
+        },
+        "modulo_6_counts": {
+          "0": 4573,
+          "1": 3,
+          "2": 5,
+          "3": 0,
+          "4": 5,
+          "5": 2
+        }
+      },
+      "donor": {
+        "reference_boundaries": 26802,
+        "matched_within_6bp": 19646,
+        "signed_offset_counts": {
+          "-6": 12,
+          "-5": 25,
+          "-4": 164,
+          "-3": 13,
+          "-2": 15,
+          "-1": 0,
+          "0": 19204,
+          "1": 1,
+          "2": 16,
+          "3": 6,
+          "4": 157,
+          "5": 21,
+          "6": 12
+        },
+        "modulo_6_counts": {
+          "0": 19228,
+          "1": 26,
+          "2": 180,
+          "3": 19,
+          "4": 172,
+          "5": 21
+        }
+      },
+      "acceptor": {
+        "reference_boundaries": 26802,
+        "matched_within_6bp": 19592,
+        "signed_offset_counts": {
+          "-6": 5,
+          "-5": 18,
+          "-4": 27,
+          "-3": 29,
+          "-2": 30,
+          "-1": 0,
+          "0": 19364,
+          "1": 0,
+          "2": 26,
+          "3": 45,
+          "4": 32,
+          "5": 15,
+          "6": 1
+        },
+        "modulo_6_counts": {
+          "0": 19370,
+          "1": 18,
+          "2": 53,
+          "3": 74,
+          "4": 62,
+          "5": 15
+        }
+      }
+    }
+  },
+  "per_species": {
+    "arabidopsis_thaliana": {
+      "metrics": {
+        "exact_CDS_chain_F1": 0.5545583372697213,
+        "exact_CDS_interval_F1": 0.7526712249391587,
+        "intergenic_FPR": 0.12743926207262266,
+        "gene_count_ratio": 1.0399903637677668,
+        "structurally_valid_complete_fraction": 1.0
+      },
+      "prediction_errors": {
+        "reference_chains": 4151,
+        "predicted_chains": 4317,
+        "exact_chains": 2348,
+        "missing_chains": 1803,
+        "false_positive_chains": 1969,
+        "exact_coordinates_wrong_strand": 0,
+        "overlap_split_fusion": {
+          "predicted_groups_overlapping_multiple_reference_transcripts": 109,
+          "reference_transcripts_overlapping_multiple_predicted_groups": 27
+        },
+        "matched_gene_strand": {
+          "matched_genes": 3442,
+          "accuracy": 0.999418942475305
+        },
+        "exact_matched_CDS_phase": {
+          "exact_matched_CDS": 16237,
+          "accuracy": 0.996920613413808
+        },
+        "boundary_offsets": {
+          "start": {
+            "reference_boundaries": 4151,
+            "matched_within_6bp": 3185,
+            "signed_offset_counts": {
+              "-6": 0,
+              "-5": 0,
+              "-4": 0,
+              "-3": 0,
+              "-2": 0,
+              "-1": 0,
+              "0": 3184,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0,
+              "6": 1
+            },
+            "modulo_6_counts": {
+              "0": 3185,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0
+            }
+          },
+          "stop": {
+            "reference_boundaries": 4151,
+            "matched_within_6bp": 3152,
+            "signed_offset_counts": {
+              "-6": 0,
+              "-5": 2,
+              "-4": 3,
+              "-3": 0,
+              "-2": 0,
+              "-1": 0,
+              "0": 3142,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 5,
+              "5": 0,
+              "6": 0
+            },
+            "modulo_6_counts": {
+              "0": 3142,
+              "1": 2,
+              "2": 3,
+              "3": 0,
+              "4": 5,
+              "5": 0
+            }
+          },
+          "donor": {
+            "reference_boundaries": 17829,
+            "matched_within_6bp": 13904,
+            "signed_offset_counts": {
+              "-6": 10,
+              "-5": 19,
+              "-4": 119,
+              "-3": 9,
+              "-2": 12,
+              "-1": 0,
+              "0": 13596,
+              "1": 0,
+              "2": 9,
+              "3": 3,
+              "4": 104,
+              "5": 11,
+              "6": 12
+            },
+            "modulo_6_counts": {
+              "0": 13618,
+              "1": 19,
+              "2": 128,
+              "3": 12,
+              "4": 116,
+              "5": 11
+            }
+          },
+          "acceptor": {
+            "reference_boundaries": 17829,
+            "matched_within_6bp": 13864,
+            "signed_offset_counts": {
+              "-6": 4,
+              "-5": 10,
+              "-4": 18,
+              "-3": 22,
+              "-2": 22,
+              "-1": 0,
+              "0": 13703,
+              "1": 0,
+              "2": 18,
+              "3": 35,
+              "4": 23,
+              "5": 8,
+              "6": 1
+            },
+            "modulo_6_counts": {
+              "0": 13708,
+              "1": 10,
+              "2": 36,
+              "3": 57,
+              "4": 45,
+              "5": 8
+            }
+          }
+        }
+      }
+    },
+    "oryza_sativa": {
+      "metrics": {
+        "exact_CDS_chain_F1": 0.48105515587529984,
+        "exact_CDS_interval_F1": 0.6938415204071035,
+        "intergenic_FPR": 0.012003731928287643,
+        "gene_count_ratio": 0.8138321009134406,
+        "structurally_valid_complete_fraction": 1.0
+      },
+      "prediction_errors": {
+        "reference_chains": 2299,
+        "predicted_chains": 1871,
+        "exact_chains": 1003,
+        "missing_chains": 1296,
+        "false_positive_chains": 868,
+        "exact_coordinates_wrong_strand": 0,
+        "overlap_split_fusion": {
+          "predicted_groups_overlapping_multiple_reference_transcripts": 23,
+          "reference_transcripts_overlapping_multiple_predicted_groups": 32
+        },
+        "matched_gene_strand": {
+          "matched_genes": 1616,
+          "accuracy": 1.0
+        },
+        "exact_matched_CDS_phase": {
+          "exact_matched_CDS": 6681,
+          "accuracy": 0.9944619069001647
+        },
+        "boundary_offsets": {
+          "start": {
+            "reference_boundaries": 2299,
+            "matched_within_6bp": 1373,
+            "signed_offset_counts": {
+              "-6": 2,
+              "-5": 0,
+              "-4": 0,
+              "-3": 1,
+              "-2": 0,
+              "-1": 0,
+              "0": 1370,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0,
+              "6": 0
+            },
+            "modulo_6_counts": {
+              "0": 1372,
+              "1": 0,
+              "2": 0,
+              "3": 1,
+              "4": 0,
+              "5": 0
+            }
+          },
+          "stop": {
+            "reference_boundaries": 2299,
+            "matched_within_6bp": 1436,
+            "signed_offset_counts": {
+              "-6": 0,
+              "-5": 1,
+              "-4": 2,
+              "-3": 0,
+              "-2": 0,
+              "-1": 0,
+              "0": 1431,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 2,
+              "6": 0
+            },
+            "modulo_6_counts": {
+              "0": 1431,
+              "1": 1,
+              "2": 2,
+              "3": 0,
+              "4": 0,
+              "5": 2
+            }
+          },
+          "donor": {
+            "reference_boundaries": 8973,
+            "matched_within_6bp": 5742,
+            "signed_offset_counts": {
+              "-6": 2,
+              "-5": 6,
+              "-4": 45,
+              "-3": 4,
+              "-2": 3,
+              "-1": 0,
+              "0": 5608,
+              "1": 1,
+              "2": 7,
+              "3": 3,
+              "4": 53,
+              "5": 10,
+              "6": 0
+            },
+            "modulo_6_counts": {
+              "0": 5610,
+              "1": 7,
+              "2": 52,
+              "3": 7,
+              "4": 56,
+              "5": 10
+            }
+          },
+          "acceptor": {
+            "reference_boundaries": 8973,
+            "matched_within_6bp": 5728,
+            "signed_offset_counts": {
+              "-6": 1,
+              "-5": 8,
+              "-4": 9,
+              "-3": 7,
+              "-2": 8,
+              "-1": 0,
+              "0": 5661,
+              "1": 0,
+              "2": 8,
+              "3": 10,
+              "4": 9,
+              "5": 7,
+              "6": 0
+            },
+            "modulo_6_counts": {
+              "0": 5662,
+              "1": 8,
+              "2": 17,
+              "3": 17,
+              "4": 17,
+              "5": 7
+            }
+          }
+        }
+      }
+    }
+  },
+  "success_gate_necessary_only": {
+    "exact_CDS_interval_F1": false,
+    "exact_CDS_chain_F1": false,
+    "exact_coding_gene_F1": true,
+    "matched_gene_strand_accuracy": true,
+    "exact_matched_CDS_phase_accuracy": true,
+    "structural_validity": true,
+    "intergenic_FPR": false,
+    "gene_count_ratio": true
+  },
+  "immediate_stop_triggers": {
+    "exact_CDS_interval_F1": false,
+    "exact_CDS_chain_F1": false,
+    "exact_coding_gene_F1": false,
+    "intergenic_FPR": true,
+    "gene_count_ratio": false,
+    "structural_validity": false
+  },
+  "decision": "R1_NO_GO",
+  "ablation_gates": "NOT_EXECUTED_NOT_B_MINUS_A",
+  "Setaria": "NOT_ACCESSED",
+  "exact_coding_gene_F1_definition": "same as complete-primary exact chain F1 in frozen evaluator"
+}

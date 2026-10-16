@@ -1,0 +1,758 @@
+{
+  "experiment": "M26-SAME-SCOPE-MECHANISM-R1",
+  "scope": [
+    [
+      "arabidopsis_thaliana",
+      "NC_003074.8",
+      23459830,
+      4151
+    ],
+    [
+      "oryza_sativa",
+      "NC_089041.1",
+      29936421,
+      2299
+    ]
+  ],
+  "status": "exploratory_development_diagnostic",
+  "training": false,
+  "setaria_access": false,
+  "reference_policy": "complete protein-coding primary by longest CDS, then transcript ID",
+  "prediction_policy": "primary by longest CDS; retain partial predictions; no normalization or filtering",
+  "frozen_FPR": "predicted CDS span outside complete-primary reference exon span / complement bases",
+  "methods": {
+    "M25R_A": {
+      "frozen_metrics": {
+        "exact_CDS_chain_F1": 0.3249883013570426,
+        "exact_CDS_interval_F1": 0.12041407867494826,
+        "intergenic_FPR": 0.012468286270247831,
+        "gene_count_ratio": 0.32527131782945734
+      },
+      "exact_chain": {
+        "tp": 1389,
+        "predicted": 2098,
+        "reference": 6450,
+        "precision": 0.6620591039084843,
+        "recall": 0.2153488372093023,
+        "f1": 0.3249883013570426
+      },
+      "CDS_base": {
+        "tp": 1712867,
+        "predicted": 2160738,
+        "reference": 8251672,
+        "precision": 0.7927231344105579,
+        "recall": 0.20757817324779754,
+        "f1": 0.32900490856583636
+      },
+      "all_annotated_gene_background_FPR": 0.002844639630631095,
+      "all_annotated_background_counts": {
+        "predicted_intergenic_span_bp": 79526,
+        "intergenic_bp": 27956441
+      },
+      "prediction_records": 2098,
+      "duplicate_chain_records": 0,
+      "paths": {
+        "arabidopsis_thaliana": {
+          "path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/A_predictions.gff3",
+          "bytes": 925688,
+          "mtime_ns": 1790405439000000000,
+          "retained_records": 7617
+        },
+        "oryza_sativa": {
+          "path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/A_predictions.gff3",
+          "bytes": 925688,
+          "mtime_ns": 1790405439000000000,
+          "retained_records": 3751
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.34837545126353786,
+            "exact_CDS_interval_F1": 0.13036605657237937,
+            "intergenic_FPR": 0.025668379862420397,
+            "gene_count_ratio": 0.3346181642977596
+          },
+          "exact_chain": {
+            "tp": 965,
+            "predicted": 1389,
+            "reference": 4151,
+            "precision": 0.6947444204463643,
+            "recall": 0.23247410262587329,
+            "f1": 0.3483754512635379
+          },
+          "CDS_base": {
+            "tp": 1088496,
+            "predicted": 1433901,
+            "reference": 5174677,
+            "precision": 0.7591151690388667,
+            "recall": 0.21035052042861804,
+            "f1": 0.32941912768526
+          },
+          "all_annotated_gene_background_FPR": 0.0009904190248435705,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 8105,
+            "intergenic_bp": 8183405
+          },
+          "prediction_records": 1389,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "no_complete_primary_CDS_span_overlap": 345,
+            "exact_primary": 965,
+            "same_strand_reference_overlap": 58,
+            "opposite_strand_reference_overlap_only": 1,
+            "exact_other_complete_isoform": 19,
+            "same_intron_chain_terminal_disagreement": 1
+          }
+        },
+        "oryza_sativa": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.28191489361702127,
+            "exact_CDS_interval_F1": 0.1007796471070989,
+            "intergenic_FPR": 0.004322154782941735,
+            "gene_count_ratio": 0.3083949543279687
+          },
+          "exact_chain": {
+            "tp": 424,
+            "predicted": 709,
+            "reference": 2299,
+            "precision": 0.5980253878702397,
+            "recall": 0.18442801217920834,
+            "f1": 0.28191489361702127
+          },
+          "CDS_base": {
+            "tp": 624371,
+            "predicted": 726837,
+            "reference": 3076995,
+            "precision": 0.8590247882262461,
+            "recall": 0.20291583184243067,
+            "f1": 0.3282852660159544
+          },
+          "all_annotated_gene_background_FPR": 0.0036120401540764907,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 71421,
+            "intergenic_bp": 19773036
+          },
+          "prediction_records": 709,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "exact_primary": 424,
+            "same_strand_reference_overlap": 138,
+            "no_complete_primary_CDS_span_overlap": 125,
+            "same_intron_chain_terminal_disagreement": 13,
+            "exact_other_complete_isoform": 8,
+            "opposite_strand_reference_overlap_only": 1
+          }
+        }
+      },
+      "sequence_conventions": {
+        "arabidopsis_thaliana": {
+          "transcripts": 1389,
+          "terminal_stop_in_CDS": 1389,
+          "ATG_start": 1389,
+          "CDS_length_divisible_by_3": 1389
+        },
+        "oryza_sativa": {
+          "transcripts": 709,
+          "terminal_stop_in_CDS": 709,
+          "ATG_start": 709,
+          "CDS_length_divisible_by_3": 709
+        }
+      }
+    },
+    "M25R_B": {
+      "frozen_metrics": {
+        "exact_CDS_chain_F1": 0.5303054280740623,
+        "exact_CDS_interval_F1": 0.7345159687835522,
+        "intergenic_FPR": 0.05605615821731119,
+        "gene_count_ratio": 0.9593798449612403
+      },
+      "exact_chain": {
+        "tp": 3351,
+        "predicted": 6188,
+        "reference": 6450,
+        "precision": 0.5415319974143503,
+        "recall": 0.5195348837209303,
+        "f1": 0.5303054280740623
+      },
+      "CDS_base": {
+        "tp": 6407971,
+        "predicted": 7746763,
+        "reference": 8251672,
+        "precision": 0.8271804623427875,
+        "recall": 0.7765663734574035,
+        "f1": 0.8010747301220401
+      },
+      "all_annotated_gene_background_FPR": 0.009947618153541074,
+      "all_annotated_background_counts": {
+        "predicted_intergenic_span_bp": 278100,
+        "intergenic_bp": 27956441
+      },
+      "prediction_records": 6188,
+      "duplicate_chain_records": 0,
+      "paths": {
+        "arabidopsis_thaliana": {
+          "path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/B_predictions.gff3",
+          "bytes": 4517648,
+          "mtime_ns": 1790405581000000000,
+          "retained_records": 38434
+        },
+        "oryza_sativa": {
+          "path": "outputs/M25R-E1-RUN-GRAPH-R1-CPU-RECOVERY/B_predictions.gff3",
+          "bytes": 4517648,
+          "mtime_ns": 1790405581000000000,
+          "retained_records": 15472
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.5545583372697213,
+            "exact_CDS_interval_F1": 0.7526712249391587,
+            "intergenic_FPR": 0.12743926207262266,
+            "gene_count_ratio": 1.0399903637677668
+          },
+          "exact_chain": {
+            "tp": 2348,
+            "predicted": 4317,
+            "reference": 4151,
+            "precision": 0.5438962242297892,
+            "recall": 0.5656468320886533,
+            "f1": 0.5545583372697213
+          },
+          "CDS_base": {
+            "tp": 4285297,
+            "predicted": 5413819,
+            "reference": 5174677,
+            "precision": 0.7915478888378056,
+            "recall": 0.828128402990177,
+            "f1": 0.8094250590452129
+          },
+          "all_annotated_gene_background_FPR": 0.013113245647746873,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 107311,
+            "intergenic_bp": 8183405
+          },
+          "prediction_records": 4317,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "no_complete_primary_CDS_span_overlap": 860,
+            "exact_primary": 2348,
+            "same_strand_reference_overlap": 964,
+            "exact_other_complete_isoform": 123,
+            "same_intron_chain_terminal_disagreement": 19,
+            "opposite_strand_reference_overlap_only": 3
+          }
+        },
+        "oryza_sativa": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.48105515587529984,
+            "exact_CDS_interval_F1": 0.6938415204071035,
+            "intergenic_FPR": 0.012003731928287643,
+            "gene_count_ratio": 0.8138321009134406
+          },
+          "exact_chain": {
+            "tp": 1003,
+            "predicted": 1871,
+            "reference": 2299,
+            "precision": 0.5360769641902726,
+            "recall": 0.4362766420182688,
+            "f1": 0.48105515587529973
+          },
+          "CDS_base": {
+            "tp": 2122674,
+            "predicted": 2332944,
+            "reference": 3076995,
+            "precision": 0.9098692467543156,
+            "recall": 0.6898529246878854,
+            "f1": 0.784731214159716
+          },
+          "all_annotated_gene_background_FPR": 0.008637469734035785,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 170789,
+            "intergenic_bp": 19773036
+          },
+          "prediction_records": 1871,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "exact_primary": 1003,
+            "same_strand_reference_overlap": 573,
+            "no_complete_primary_CDS_span_overlap": 217,
+            "same_intron_chain_terminal_disagreement": 40,
+            "exact_other_complete_isoform": 35,
+            "opposite_strand_reference_overlap_only": 3
+          }
+        }
+      },
+      "sequence_conventions": {
+        "arabidopsis_thaliana": {
+          "transcripts": 4317,
+          "terminal_stop_in_CDS": 4317,
+          "ATG_start": 4317,
+          "CDS_length_divisible_by_3": 4317
+        },
+        "oryza_sativa": {
+          "transcripts": 1871,
+          "terminal_stop_in_CDS": 1871,
+          "ATG_start": 1871,
+          "CDS_length_divisible_by_3": 1871
+        }
+      }
+    },
+    "ANNEVO": {
+      "frozen_metrics": {
+        "exact_CDS_chain_F1": 0.7560152582159624,
+        "exact_CDS_interval_F1": 0.8777185121968565,
+        "intergenic_FPR": 0.06446834171967679,
+        "gene_count_ratio": 1.1134883720930233
+      },
+      "exact_chain": {
+        "tp": 5153,
+        "predicted": 7182,
+        "reference": 6450,
+        "precision": 0.717488164856586,
+        "recall": 0.7989147286821705,
+        "f1": 0.7560152582159625
+      },
+      "CDS_base": {
+        "tp": 7802772,
+        "predicted": 9364175,
+        "reference": 8251672,
+        "precision": 0.8332578150237474,
+        "recall": 0.9455989040766526,
+        "f1": 0.8858809911325864
+      },
+      "all_annotated_gene_background_FPR": 0.011532440770983688,
+      "all_annotated_background_counts": {
+        "predicted_intergenic_span_bp": 322406,
+        "intergenic_bp": 27956441
+      },
+      "prediction_records": 7182,
+      "duplicate_chain_records": 0,
+      "paths": {
+        "arabidopsis_thaliana": {
+          "path": "outputs/M12B-SAMEPANEL-BASELINES-ANNEVO/predictions/arabidopsis_thaliana.gff",
+          "bytes": 33465896,
+          "mtime_ns": 1781671282000000000,
+          "retained_records": 61716
+        },
+        "oryza_sativa": {
+          "path": "outputs/M12B-SAMEPANEL-BASELINES-ANNEVO/predictions/oryza_sativa.gff",
+          "bytes": 11253470,
+          "mtime_ns": 1781671418000000000,
+          "retained_records": 26760
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.7625151950491766,
+            "exact_CDS_interval_F1": 0.8697720019191054,
+            "intergenic_FPR": 0.13722582920301463,
+            "gene_count_ratio": 1.1799566369549506
+          },
+          "exact_chain": {
+            "tp": 3450,
+            "predicted": 4898,
+            "reference": 4151,
+            "precision": 0.7043691302572479,
+            "recall": 0.8311250301132257,
+            "f1": 0.7625151950491768
+          },
+          "CDS_base": {
+            "tp": 5025437,
+            "predicted": 6371067,
+            "reference": 5174677,
+            "precision": 0.7887904804642614,
+            "recall": 0.9711595525672424,
+            "f1": 0.87052631688352
+          },
+          "all_annotated_gene_background_FPR": 0.00407690930608958,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 33363,
+            "intergenic_bp": 8183405
+          },
+          "prediction_records": 4898,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "no_complete_primary_CDS_span_overlap": 975,
+            "exact_primary": 3450,
+            "same_strand_reference_overlap": 144,
+            "exact_other_complete_isoform": 302,
+            "same_intron_chain_terminal_disagreement": 24,
+            "opposite_strand_reference_overlap_only": 3
+          }
+        },
+        "oryza_sativa": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.7431813222779838,
+            "exact_CDS_interval_F1": 0.8947509612805151,
+            "intergenic_FPR": 0.019567746463537535,
+            "gene_count_ratio": 0.9934754240974336
+          },
+          "exact_chain": {
+            "tp": 1703,
+            "predicted": 2284,
+            "reference": 2299,
+            "precision": 0.7456217162872154,
+            "recall": 0.7407568508046977,
+            "f1": 0.7431813222779838
+          },
+          "CDS_base": {
+            "tp": 2777335,
+            "predicted": 2993108,
+            "reference": 3076995,
+            "precision": 0.9279100520261881,
+            "recall": 0.9026127764263511,
+            "f1": 0.9150866138515277
+          },
+          "all_annotated_gene_background_FPR": 0.014618038423639141,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 289043,
+            "intergenic_bp": 19773036
+          },
+          "prediction_records": 2284,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "exact_primary": 1703,
+            "same_strand_reference_overlap": 224,
+            "exact_other_complete_isoform": 104,
+            "no_complete_primary_CDS_span_overlap": 209,
+            "opposite_strand_reference_overlap_only": 3,
+            "same_intron_chain_terminal_disagreement": 41
+          }
+        }
+      },
+      "sequence_conventions": {
+        "arabidopsis_thaliana": {
+          "transcripts": 4898,
+          "terminal_stop_in_CDS": 4897,
+          "ATG_start": 4897,
+          "CDS_length_divisible_by_3": 4898
+        },
+        "oryza_sativa": {
+          "transcripts": 2284,
+          "terminal_stop_in_CDS": 2284,
+          "ATG_start": 2284,
+          "CDS_length_divisible_by_3": 2284
+        }
+      }
+    },
+    "Helixer": {
+      "frozen_metrics": {
+        "exact_CDS_chain_F1": 0.6201128998536484,
+        "exact_CDS_interval_F1": 0.8163014707888775,
+        "intergenic_FPR": 0.08556383588243333,
+        "gene_count_ratio": 1.2246511627906977
+      },
+      "exact_chain": {
+        "tp": 4449,
+        "predicted": 7899,
+        "reference": 6450,
+        "precision": 0.5632358526395747,
+        "recall": 0.6897674418604651,
+        "f1": 0.6201128998536484
+      },
+      "CDS_base": {
+        "tp": 7900487,
+        "predicted": 9956622,
+        "reference": 8251672,
+        "precision": 0.7934907039757059,
+        "recall": 0.9574407465541529,
+        "f1": 0.8677899203516815
+      },
+      "all_annotated_gene_background_FPR": 0.01925194984583338,
+      "all_annotated_background_counts": {
+        "predicted_intergenic_span_bp": 538216,
+        "intergenic_bp": 27956441
+      },
+      "prediction_records": 7899,
+      "duplicate_chain_records": 0,
+      "paths": {
+        "arabidopsis_thaliana": {
+          "path": "outputs/M12B-SAMEPANEL-BASELINES-HELIXER/predictions/arabidopsis_thaliana.gff3",
+          "bytes": 60156364,
+          "mtime_ns": 1781672512000000000,
+          "retained_records": 79702
+        },
+        "oryza_sativa": {
+          "path": "outputs/M12B-SAMEPANEL-BASELINES-HELIXER/predictions/oryza_sativa.gff3",
+          "bytes": 20376794,
+          "mtime_ns": 1781673868000000000,
+          "retained_records": 36542
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.6456643135602149,
+            "exact_CDS_interval_F1": 0.8146465965955907,
+            "intergenic_FPR": 0.17530994593878296,
+            "gene_count_ratio": 1.2864370031317756
+          },
+          "exact_chain": {
+            "tp": 3064,
+            "predicted": 5340,
+            "reference": 4151,
+            "precision": 0.5737827715355805,
+            "recall": 0.7381353890628765,
+            "f1": 0.6456643135602149
+          },
+          "CDS_base": {
+            "tp": 5078567,
+            "predicted": 6735113,
+            "reference": 5174677,
+            "precision": 0.7540433248855661,
+            "recall": 0.981426860072619,
+            "f1": 0.8528390508984626
+          },
+          "all_annotated_gene_background_FPR": 0.02078425789753776,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 170086,
+            "intergenic_bp": 8183405
+          },
+          "prediction_records": 5340,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "no_complete_primary_CDS_span_overlap": 1331,
+            "exact_primary": 3064,
+            "same_strand_reference_overlap": 638,
+            "exact_other_complete_isoform": 246,
+            "opposite_strand_reference_overlap_only": 27,
+            "same_intron_chain_terminal_disagreement": 34
+          }
+        },
+        "oryza_sativa": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.5701934952655414,
+            "exact_CDS_interval_F1": 0.8198002974293606,
+            "intergenic_FPR": 0.030179106381213076,
+            "gene_count_ratio": 1.1130926489778163
+          },
+          "exact_chain": {
+            "tp": 1385,
+            "predicted": 2559,
+            "reference": 2299,
+            "precision": 0.5412270418132082,
+            "recall": 0.6024358416702914,
+            "f1": 0.5701934952655414
+          },
+          "CDS_base": {
+            "tp": 2821920,
+            "predicted": 3221509,
+            "reference": 3076995,
+            "precision": 0.8759621655565761,
+            "recall": 0.9171025627275963,
+            "f1": 0.8960603978341524
+          },
+          "all_annotated_gene_background_FPR": 0.018617778271379268,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 368130,
+            "intergenic_bp": 19773036
+          },
+          "prediction_records": 2559,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "exact_primary": 1385,
+            "same_strand_reference_overlap": 642,
+            "no_complete_primary_CDS_span_overlap": 408,
+            "exact_other_complete_isoform": 74,
+            "same_intron_chain_terminal_disagreement": 41,
+            "opposite_strand_reference_overlap_only": 9
+          }
+        }
+      },
+      "sequence_conventions": {
+        "arabidopsis_thaliana": {
+          "transcripts": 5340,
+          "terminal_stop_in_CDS": 5340,
+          "ATG_start": 5340,
+          "CDS_length_divisible_by_3": 5340
+        },
+        "oryza_sativa": {
+          "transcripts": 2559,
+          "terminal_stop_in_CDS": 2559,
+          "ATG_start": 2559,
+          "CDS_length_divisible_by_3": 2559
+        }
+      }
+    },
+    "Tiberius": {
+      "frozen_metrics": {
+        "exact_CDS_chain_F1": 0.714275419759314,
+        "exact_CDS_interval_F1": 0.8650885050117296,
+        "intergenic_FPR": 0.06214296716839885,
+        "gene_count_ratio": 1.1514728682170543
+      },
+      "exact_chain": {
+        "tp": 4956,
+        "predicted": 7427,
+        "reference": 6450,
+        "precision": 0.6672950047125353,
+        "recall": 0.7683720930232558,
+        "f1": 0.714275419759314
+      },
+      "CDS_base": {
+        "tp": 7812052,
+        "predicted": 9402124,
+        "reference": 8251672,
+        "precision": 0.8308816178131665,
+        "recall": 0.9467235246384006,
+        "f1": 0.8850280132386259
+      },
+      "all_annotated_gene_background_FPR": 0.007205173219294974,
+      "all_annotated_background_counts": {
+        "predicted_intergenic_span_bp": 201431,
+        "intergenic_bp": 27956441
+      },
+      "prediction_records": 7427,
+      "duplicate_chain_records": 0,
+      "paths": {
+        "arabidopsis_thaliana": {
+          "path": "outputs/M12B-SAMEPANEL-BASELINES-TIBERIUS/predictions/arabidopsis_thaliana.gtf",
+          "bytes": 44317445,
+          "mtime_ns": 1781671955000000000,
+          "retained_records": 93012
+        },
+        "oryza_sativa": {
+          "path": "outputs/M12B-SAMEPANEL-BASELINES-TIBERIUS/predictions/oryza_sativa.gtf",
+          "bytes": 14749546,
+          "mtime_ns": 1781672677000000000,
+          "retained_records": 40527
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.7400109469074986,
+            "exact_CDS_interval_F1": 0.8620179587074731,
+            "intergenic_FPR": 0.13655046822896663,
+            "gene_count_ratio": 1.2006745362563238
+          },
+          "exact_chain": {
+            "tp": 3380,
+            "predicted": 4984,
+            "reference": 4151,
+            "precision": 0.6781701444622793,
+            "recall": 0.8142616237051313,
+            "f1": 0.7400109469074986
+          },
+          "CDS_base": {
+            "tp": 5048646,
+            "predicted": 6398442,
+            "reference": 5174677,
+            "precision": 0.7890430201602202,
+            "recall": 0.9756446634253694,
+            "f1": 0.8724780242905996
+          },
+          "all_annotated_gene_background_FPR": 0.00358298287815402,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 29321,
+            "intergenic_bp": 8183405
+          },
+          "prediction_records": 4984,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "exact_primary": 3380,
+            "no_complete_primary_CDS_span_overlap": 1054,
+            "same_strand_reference_overlap": 210,
+            "exact_other_complete_isoform": 318,
+            "same_intron_chain_terminal_disagreement": 19,
+            "opposite_strand_reference_overlap_only": 3
+          }
+        },
+        "oryza_sativa": {
+          "frozen_metrics": {
+            "exact_CDS_chain_F1": 0.664698439477014,
+            "exact_CDS_interval_F1": 0.8716869627507163,
+            "intergenic_FPR": 0.016224104317253633,
+            "gene_count_ratio": 1.0626359286646367
+          },
+          "exact_chain": {
+            "tp": 1576,
+            "predicted": 2443,
+            "reference": 2299,
+            "precision": 0.6451084731887025,
+            "recall": 0.6855154414963027,
+            "f1": 0.6646984394770139
+          },
+          "CDS_base": {
+            "tp": 2763406,
+            "predicted": 3003682,
+            "reference": 3076995,
+            "precision": 0.9200061790828723,
+            "recall": 0.8980859572407495,
+            "f1": 0.9089139252093147
+          },
+          "all_annotated_gene_background_FPR": 0.008704277886309416,
+          "all_annotated_background_counts": {
+            "predicted_intergenic_span_bp": 172110,
+            "intergenic_bp": 19773036
+          },
+          "prediction_records": 2443,
+          "duplicate_chain_records": 0,
+          "error_categories": {
+            "exact_primary": 1576,
+            "same_strand_reference_overlap": 451,
+            "exact_other_complete_isoform": 90,
+            "no_complete_primary_CDS_span_overlap": 287,
+            "same_intron_chain_terminal_disagreement": 36,
+            "opposite_strand_reference_overlap_only": 3
+          }
+        }
+      },
+      "sequence_conventions": {
+        "arabidopsis_thaliana": {
+          "transcripts": 4984,
+          "terminal_stop_in_CDS": 4984,
+          "ATG_start": 4984,
+          "CDS_length_divisible_by_3": 4984
+        },
+        "oryza_sativa": {
+          "transcripts": 2443,
+          "terminal_stop_in_CDS": 2443,
+          "ATG_start": 2443,
+          "CDS_length_divisible_by_3": 2443
+        }
+      }
+    }
+  },
+  "reference_conventions": {
+    "arabidopsis_thaliana": {
+      "transcripts": 4151,
+      "terminal_stop_in_CDS": 4151,
+      "ATG_start": 4151,
+      "CDS_length_divisible_by_3": 4147
+    },
+    "oryza_sativa": {
+      "transcripts": 2299,
+      "terminal_stop_in_CDS": 2299,
+      "ATG_start": 2299,
+      "CDS_length_divisible_by_3": 2299
+    }
+  },
+  "B_frozen_reproduction": {
+    "exact_CDS_chain_F1": 0.0,
+    "exact_CDS_interval_F1": 0.0,
+    "intergenic_FPR": 0.0,
+    "gene_count_ratio": 0.0
+  },
+  "oracle_identity": {
+    "references": 6450,
+    "reachable_references": 3585,
+    "B_exact": 3351,
+    "B_exact_inside_oracle": 3351,
+    "B_exact_outside_oracle": 0,
+    "reachable_not_recovered": 234,
+    "unreachable_references": 2865,
+    "categories": {
+      "missing_boundary_candidate": 2834,
+      "full_chain_in_graph": 3586,
+      "boundaries_present_no_same_run_fragment": 30
+    },
+    "B_exact_identity_check_pass": true,
+    "oracle_utilization_if_consistent": 0.9347280334728033,
+    "perfect_filter_current_B_chain_F1": 0.6838077747168656,
+    "scope": "reference-assisted conditional M25R graph diagnostic; not a baseline oracle"
+  }
+}

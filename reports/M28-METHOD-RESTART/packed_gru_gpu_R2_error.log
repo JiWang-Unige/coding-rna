@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/scripts/experiments/M28-METHOD-RESTART/packed_gru_gpu_r2.py", line 285, in <module>
+    main(parser.parse_args().output_dir)
+  File "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/scripts/experiments/M28-METHOD-RESTART/packed_gru_gpu_r2.py", line 241, in main
+    raise AssertionError('R2 rejected on '+draw['window_id']+': '+json.dumps(result['failed_tensor_keys']))
+AssertionError: R2 rejected on arabidopsis_thaliana|NC_003070.9|29786112|-: ["parameter_gradients.chain.sequence.weight_ih_l0"]

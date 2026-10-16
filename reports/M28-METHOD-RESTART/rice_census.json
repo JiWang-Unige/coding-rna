@@ -1,0 +1,372 @@
+{
+  "basis": "current M25R source/config replay, NOT an original saved per-window training trace",
+  "experiment": "M28-METHOD-RESTART-CENSUS",
+  "heldout_sequence_or_labels_used": false,
+  "historical_sampler": {
+    "train": {
+      "historical_reconstructed": {
+        "chromosome_strand": [
+          {
+            "seqid": "NC_003070.9",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 606
+          },
+          {
+            "seqid": "NC_003070.9",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 616
+          },
+          {
+            "seqid": "NC_003071.7",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 173
+          },
+          {
+            "seqid": "NC_003071.7",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 141
+          }
+        ],
+        "species": {
+          "arabidopsis_thaliana": 1536
+        },
+        "total": 1536
+      },
+      "pool": {
+        "chromosome_strand": [
+          {
+            "seqid": "NC_003070.9",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 4952
+          },
+          {
+            "seqid": "NC_003070.9",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 4952
+          },
+          {
+            "seqid": "NC_003071.7",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 3206
+          },
+          {
+            "seqid": "NC_003071.7",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 3206
+          },
+          {
+            "seqid": "NC_003076.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 4390
+          },
+          {
+            "seqid": "NC_003076.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 4390
+          },
+          {
+            "seqid": "NC_089043.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 4471
+          },
+          {
+            "seqid": "NC_089043.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 4471
+          },
+          {
+            "seqid": "NC_089044.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 3895
+          },
+          {
+            "seqid": "NC_089044.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 3895
+          },
+          {
+            "seqid": "NC_089046.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 4601
+          },
+          {
+            "seqid": "NC_089046.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 4601
+          }
+        ],
+        "species": {
+          "arabidopsis_thaliana": 25096,
+          "oryza_sativa": 25934
+        },
+        "total": 51030
+      },
+      "prospective_uniform_same_cap": {
+        "chromosome_strand": [
+          {
+            "seqid": "NC_003070.9",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 143
+          },
+          {
+            "seqid": "NC_003070.9",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 138
+          },
+          {
+            "seqid": "NC_003071.7",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 86
+          },
+          {
+            "seqid": "NC_003071.7",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 109
+          },
+          {
+            "seqid": "NC_003076.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 134
+          },
+          {
+            "seqid": "NC_003076.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 111
+          },
+          {
+            "seqid": "NC_089043.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 152
+          },
+          {
+            "seqid": "NC_089043.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 123
+          },
+          {
+            "seqid": "NC_089044.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 119
+          },
+          {
+            "seqid": "NC_089044.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 127
+          },
+          {
+            "seqid": "NC_089046.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 143
+          },
+          {
+            "seqid": "NC_089046.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 151
+          }
+        ],
+        "species": {
+          "arabidopsis_thaliana": 721,
+          "oryza_sativa": 815
+        },
+        "total": 1536
+      }
+    },
+    "val": {
+      "historical_reconstructed": {
+        "chromosome_strand": [
+          {
+            "seqid": "NC_003074.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 384
+          },
+          {
+            "seqid": "NC_003074.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 384
+          }
+        ],
+        "species": {
+          "arabidopsis_thaliana": 768
+        },
+        "total": 768
+      },
+      "pool": {
+        "chromosome_strand": [
+          {
+            "seqid": "NC_003074.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 3818
+          },
+          {
+            "seqid": "NC_003074.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 3818
+          },
+          {
+            "seqid": "NC_089041.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 4872
+          },
+          {
+            "seqid": "NC_089041.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 4872
+          }
+        ],
+        "species": {
+          "arabidopsis_thaliana": 7636,
+          "oryza_sativa": 9744
+        },
+        "total": 17380
+      },
+      "prospective_uniform_same_cap": {
+        "chromosome_strand": [
+          {
+            "seqid": "NC_003074.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "+",
+            "windows": 166
+          },
+          {
+            "seqid": "NC_003074.8",
+            "species": "arabidopsis_thaliana",
+            "strand": "-",
+            "windows": 160
+          },
+          {
+            "seqid": "NC_089041.1",
+            "species": "oryza_sativa",
+            "strand": "+",
+            "windows": 216
+          },
+          {
+            "seqid": "NC_089041.1",
+            "species": "oryza_sativa",
+            "strand": "-",
+            "windows": 226
+          }
+        ],
+        "species": {
+          "arabidopsis_thaliana": 326,
+          "oryza_sativa": 442
+        },
+        "total": 768
+      }
+    }
+  },
+  "homology_isolation": "not established by chromosome splits",
+  "metadata_access": "FASTA headers and GFF sequence-region metadata; retain train/val annotations only",
+  "no_innovation_claim": true,
+  "no_model_or_training": true,
+  "setaria_access": false,
+  "species": "oryza_sativa",
+  "splits": {
+    "train": {
+      "CDS_span_quantiles_bp": {
+        "max": 47002.0,
+        "p50": 2275.5,
+        "p90": 6255.1,
+        "p95": 8542.0,
+        "p99": 15487.57
+      },
+      "all_gene_span_bp": 26333139,
+      "all_primary_chains_including_partial": 4993,
+      "bases": 79678170,
+      "complete_primary_chains": 4980,
+      "counts": {
+        "half_stride_contains_12288": 4738,
+        "half_stride_contains_24576": 4948,
+        "half_stride_contains_49152": 4976,
+        "half_stride_contains_6144": 4008,
+        "old_sample_full_chain": 0,
+        "span_fits_12288": 4881,
+        "span_fits_24576": 4971,
+        "span_fits_49152": 4980,
+        "span_fits_6144": 4471,
+        "tile_contains_12288": 3746,
+        "tile_contains_24576": 4370,
+        "tile_contains_49152": 4678,
+        "tile_contains_6144": 2782,
+        "uniform_sample_full_chain": 76
+      },
+      "historical_selected_windows": 0,
+      "historical_windows_no_annotated_gene_overlap_either_strand": 0,
+      "same_strand_overlapping_complete_chains": 4,
+      "seqids": [
+        "NC_089043.1",
+        "NC_089044.1",
+        "NC_089046.1"
+      ]
+    },
+    "val": {
+      "CDS_span_quantiles_bp": {
+        "max": 55620.0,
+        "p50": 2114.0,
+        "p90": 6208.200000000002,
+        "p95": 8285.3,
+        "p99": 13310.399999999994
+      },
+      "all_gene_span_bp": 10163385,
+      "all_primary_chains_including_partial": 2307,
+      "bases": 29936421,
+      "complete_primary_chains": 2299,
+      "counts": {
+        "half_stride_contains_12288": 2200,
+        "half_stride_contains_24576": 2289,
+        "half_stride_contains_49152": 2298,
+        "half_stride_contains_6144": 1848,
+        "old_sample_full_chain": 0,
+        "span_fits_12288": 2259,
+        "span_fits_24576": 2297,
+        "span_fits_49152": 2298,
+        "span_fits_6144": 2064,
+        "tile_contains_12288": 1755,
+        "tile_contains_24576": 2020,
+        "tile_contains_49152": 2165,
+        "tile_contains_6144": 1308,
+        "uniform_sample_full_chain": 52
+      },
+      "historical_selected_windows": 0,
+      "historical_windows_no_annotated_gene_overlap_either_strand": 0,
+      "same_strand_overlapping_complete_chains": 9,
+      "seqids": [
+        "NC_089041.1"
+      ]
+    }
+  },
+  "status": "development_diagnostic"
+}

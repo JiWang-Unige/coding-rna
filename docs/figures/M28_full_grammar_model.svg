@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1160" viewBox="0 0 1480 1160" role="img" aria-labelledby="title desc">
+  <title id="title">Complete-gene grammar model with separate training and raw FASTA decoding</title>
+  <desc id="desc">The base C0 model combines frozen annotation-pretrained GENERanno features and a trainable DNA branch to produce fifteen role scores. Training sums over all permitted complete gene sets in finite DNA views and uses fine and coarse observations only in its numerator. Inference stitches one score row per oriented contig base and performs complete-set MAP decoding over the entire contig without reading labels. Only the head receives training gradients. Both paths use the same explicit DNA grammar.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4b5563"/>
+    </marker>
+    <marker id="obs-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#a05f16"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #182433; font-size: 20px; }
+      .title { font-size: 30px; font-weight: 600; }
+      .heading { font-size: 24px; font-weight: 600; }
+      .node-title { font-size: 21px; font-weight: 600; }
+      .small { font-size: 18px; }
+      .muted { fill: #506070; }
+      .node { fill: #ffffff; stroke: #bbc5ce; stroke-width: 1.5; }
+      .frozen { fill: #f1f4f7; stroke: #9daab7; stroke-width: 1.5; }
+      .learned { fill: #edf5fa; stroke: #5e899f; stroke-width: 1.5; }
+      .observation { fill: #fff5e7; stroke: #c99352; stroke-width: 1.5; }
+      .panel { fill: none; stroke: #d4dce2; stroke-width: 1.5; }
+      .flow { fill: none; stroke: #4b5563; stroke-width: 2; marker-end: url(#arrow); }
+      .obs-flow { fill: none; stroke: #a05f16; stroke-width: 2; marker-end: url(#obs-arrow); }
+    </style>
+  </defs>
+  <rect width="1480" height="1160" fill="#ffffff"/>
+  <text x="32" y="43" class="title">Complete-gene grammar model</text>
+  <text x="32" y="75" class="small muted">Base C0 model: shared neural scores, separate training and decoding</text>
+
+  <text x="32" y="117" class="heading">a  Neural scoring in each oriented window</text>
+  <rect x="32" y="220" width="225" height="102" rx="8" class="node"/>
+  <text x="51" y="250" class="node-title">Genomic FASTA</text>
+  <text x="51" y="279" class="small">24,576-base windows</text>
+  <text x="51" y="306" class="small">ACGTN; both strands</text>
+
+  <rect x="315" y="157" width="337" height="121" rx="8" class="frozen"/>
+  <text x="335" y="189" class="node-title">Frozen GENERanno encoder</text>
+  <text x="335" y="219" class="small">Annotation-pretrained checkpoint</text>
+  <text x="335" y="246" class="small">6-mer features; 2,048 channels</text>
+  <path d="M257 249 H282 V217 H315" class="flow"/>
+
+  <rect x="705" y="146" width="447" height="220" rx="8" class="learned"/>
+  <text x="725" y="178" class="node-title">C0 head: 366,191 trainable parameters</text>
+  <text x="725" y="211" class="small">Feature branch: projection → BiGRU</text>
+  <text x="725" y="240" class="small">Repeat token outputs over aligned bases</text>
+  <text x="725" y="282" class="small">DNA branch: Conv(9) → GELU → Conv(5)</text>
+  <text x="725" y="311" class="small">→ GELU; concatenate both branches</text>
+  <text x="725" y="344" class="small">Linear → GELU → LayerNorm → 15 scores</text>
+  <path d="M652 217 H705" class="flow"/>
+  <path d="M145 322 V339 H681 V282 H705" class="flow"/>
+  <text x="353" y="326" class="small muted">DNA one-hot input</text>
+
+  <rect x="1205" y="205" width="243" height="111" rx="8" class="node"/>
+  <text x="1224" y="238" class="node-title">15 scores per base</text>
+  <text x="1224" y="269" class="small">Role minus background</text>
+  <text x="1224" y="298" class="small">Unit-weight set energy</text>
+  <path d="M1152 260 H1205" class="flow"/>
+  <path d="M1326 316 V414 H714 V545 H666" class="flow"/>
+  <path d="M1326 414 H1431 V545 H1414" class="flow"/>
+
+  <rect x="32" y="447" width="668" height="553" rx="8" class="panel"/>
+  <text x="53" y="480" class="heading">b  Training with partial observations</text>
+  <rect x="65" y="500" width="601" height="91" rx="8" class="node"/>
+  <text x="84" y="530" class="node-title">Finite DNA view: core + stride neighbors</text>
+  <text x="84" y="558" class="small">One score row per base; observations only in core</text>
+  <text x="84" y="581" class="small">Interior states retained; only outer edges close in background</text>
+
+  <rect x="65" y="641" width="252" height="155" rx="8" class="observation"/>
+  <text x="84" y="672" class="node-title">TRAIN observations</text>
+  <text x="84" y="702" class="small">Fine: exact role indicator</text>
+  <text x="84" y="731" class="small">Coarse only:</text>
+  <text x="84" y="757" class="small">0.9 / 0.05 / 0.05</text>
+  <text x="84" y="784" class="small">Unknown: marginalized</text>
+
+  <rect x="371" y="621" width="295" height="66" rx="8" class="node"/>
+  <text x="390" y="649" class="node-title">Zall: sum over all sets</text>
+  <text x="390" y="676" class="small">exp E(S); no proposal pool</text>
+  <rect x="371" y="720" width="295" height="66" rx="8" class="observation"/>
+  <text x="390" y="748" class="node-title">Zobs: observed sum</text>
+  <text x="390" y="776" class="small">exp E(S) × Q(observations | S)</text>
+  <path d="M518 591 V621" class="flow"/>
+  <path d="M666 591 H682 V753 H666" class="flow"/>
+  <path d="M317 738 H349 V753 H371" class="obs-flow"/>
+  <rect x="98" y="829" width="538" height="76" rx="8" class="learned"/>
+  <text x="117" y="859" class="node-title">Loss: log Zall − log Zobs</text>
+  <text x="117" y="890" class="small">Importance weight / max(1, known core rows)</text>
+  <path d="M518 687 H353 V811 H288 V829" class="flow"/>
+  <path d="M518 786 V829" class="flow"/>
+  <text x="65" y="941" class="small">Sum-product messages over the complete-set grammar</text>
+  <text x="65" y="970" class="small">Gradients update only the head; encoder remains frozen</text>
+
+  <rect x="747" y="447" width="701" height="553" rx="8" class="panel"/>
+  <text x="769" y="480" class="heading">c  Strict raw FASTA inference</text>
+  <rect x="781" y="500" width="633" height="91" rx="8" class="node"/>
+  <text x="800" y="530" class="node-title">Fixed final checkpoint; width / stride = 24,576 / 12,288</text>
+  <text x="800" y="558" class="small">Nearest containing window center owns each base</text>
+  <text x="800" y="581" class="small">Lower genomic start breaks ties on either strand</text>
+  <rect x="808" y="629" width="579" height="66" rx="8" class="node"/>
+  <text x="827" y="657" class="node-title">Stitch one 15-role row per oriented contig base</text>
+  <text x="827" y="684" class="small">No averaging; reverse rows, not role columns, on − strand</text>
+  <path d="M1097 591 V629" class="flow"/>
+  <rect x="808" y="735" width="579" height="76" rx="8" class="node"/>
+  <text x="827" y="766" class="node-title">Whole-contig complete-set MAP decoding</text>
+  <text x="827" y="796" class="small">Max-product; exact exon-budget skyline; genes cross windows</text>
+  <path d="M1097 695 V735" class="flow"/>
+  <rect x="861" y="852" width="473" height="53" rx="8" class="node"/>
+  <text x="881" y="885" class="node-title">GFF3: gene, mRNA and CDS with phase</text>
+  <path d="M1097 811 V852" class="flow"/>
+  <text x="781" y="941" class="small">Input: FASTA + final weights only; no labels or reference pool</text>
+  <text x="781" y="970" class="small">Complete CDS chains; not UTRs or all alternative isoforms</text>
+
+  <rect x="32" y="1020" width="1416" height="88" rx="8" class="frozen"/>
+  <text x="52" y="1051" class="node-title">Shared DNA grammar for sum-product training and max-product decoding</text>
+  <text x="52" y="1083" class="small">ATG → terminal stop; actual codon carry; GT/GC–AG; intron ≥ 5 bp; ≤ 128 exons; nonoverlapping spans per strand; empty set included</text>
+  <text x="32" y="1140" class="small muted">Finite-view likelihood is not chromosome-joint training. Exactness is relative to this grammar; opposite-strand genes may overlap.</text>
+</svg>

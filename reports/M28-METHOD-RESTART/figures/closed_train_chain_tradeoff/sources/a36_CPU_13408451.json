@@ -1,0 +1,137 @@
+{
+  "completed": true,
+  "experiment": "M28-A36-STRUCTURED-EMISSION-RESULT-CHECK",
+  "protocol": "reports/M28-METHOD-RESTART/a36_structured_emission_readout_protocol.md",
+  "configuration": {
+    "feature_dim": 2048,
+    "hidden": 128,
+    "seed": 0,
+    "precision": "FP32",
+    "model": "fresh_M28Core_C0_SharedContext_and_15_class_segmentation_only",
+    "trainable_parameters": 366191,
+    "pretrained_encoder_frozen": true,
+    "source_natural_generator": "outputs/M28-A3-FIRST-FIT/step_004608.pt",
+    "generator_optimizer_steps": 4608,
+    "candidate_pool": "original_A12_16321_natural_plus_536_TRAIN_positive_injections",
+    "loss": "exact_compatible_known_candidate_set_NLL_divided_by_known_count",
+    "score": "unit_role_logit_minus_intergenic_logit_sum_FP64",
+    "null": 0.0,
+    "threshold": 0.0,
+    "threshold_scan": false,
+    "local_cross_entropy": false,
+    "loss_unknown": "exclude_-1_from_partition_and_gold",
+    "draw_order_and_importance_weights": "original_1536_draws_1491_unique_TRAIN",
+    "proposed_passes": 3,
+    "proposed_optimizer_steps": 4608,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "clip_norm": 1.0,
+    "proposed_main_checkpoint": "last_step_004608_only",
+    "comparison": "frozen_A31_A3_same_natural_pool_and_same_null0"
+  },
+  "source_jobs": {
+    "fit": "13406144",
+    "readout": "13408449"
+  },
+  "windows": 1491,
+  "natural_candidates": 16321,
+  "reference_injected_predictions": 0,
+  "actual_original_training_draw_weights_and_4608_updates_verified": true,
+  "actual_three_checkpoint_tensors_and_optimizer_exposure_verified": true,
+  "actual_saved_natural_identity_and_complete_logits_verified": true,
+  "actual_saved_full_window_log_probability_scores_verified": true,
+  "actual_saved_labels_selections_stronger_baseline_and_five_conditions_recomputed": true,
+  "original_replayed_per_pass_counts": {
+    "windows": 1536,
+    "free_candidates": 16806,
+    "reference_injected_candidates": 555,
+    "zero_known_windows": 3,
+    "label_1": 3028,
+    "label_0": 12935,
+    "label_-1": 1398
+  },
+  "max_direct_log_probability_error": 2.842170943040401e-14,
+  "selected_counts_per_species": {
+    "arabidopsis_thaliana": {
+      "A31_A3": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 2193,
+        "selected_correct": 1531,
+        "selected_known_nonmatch": 347,
+        "selected_unknown": 315,
+        "selected_five_or_more_correct": 548
+      },
+      "A36": {
+        "candidates": 8909,
+        "pool_correct": 1751,
+        "pool_known_nonmatch": 6305,
+        "pool_unknown": 853,
+        "selected": 1463,
+        "selected_correct": 1138,
+        "selected_known_nonmatch": 141,
+        "selected_unknown": 184,
+        "selected_five_or_more_correct": 497
+      }
+    },
+    "oryza_sativa": {
+      "A31_A3": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 861,
+        "selected_correct": 478,
+        "selected_known_nonmatch": 251,
+        "selected_unknown": 132,
+        "selected_five_or_more_correct": 152
+      },
+      "A36": {
+        "candidates": 7412,
+        "pool_correct": 629,
+        "pool_known_nonmatch": 6261,
+        "pool_unknown": 522,
+        "selected": 322,
+        "selected_correct": 204,
+        "selected_known_nonmatch": 72,
+        "selected_unknown": 46,
+        "selected_five_or_more_correct": 114
+      }
+    }
+  },
+  "eligible_reference_pairs": {
+    "arabidopsis_thaliana": {
+      "eligible": 2172,
+      "five_or_more": 854
+    },
+    "oryza_sativa": {
+      "eligible": 744,
+      "five_or_more": 232
+    }
+  },
+  "predeclared_TRAIN_gate": {
+    "arabidopsis_thaliana_natural_selected_correct_strictly_increased": false,
+    "arabidopsis_thaliana_natural_selected_known_nonmatch_not_increased": true,
+    "oryza_sativa_natural_selected_correct_strictly_increased": false,
+    "oryza_sativa_natural_selected_known_nonmatch_not_increased": true,
+    "pooled_natural_selected_five_or_more_correct_strictly_increased": false
+  },
+  "TRAIN_preparation_supported": false,
+  "model_or_backbone_forward": false,
+  "optimizer_steps_this_run": 0,
+  "new_candidate_search": false,
+  "new_R4_labelling": false,
+  "DEV_used": false,
+  "test_setaria_used": false,
+  "A33_outputs_opened": false,
+  "seconds": 490.1362228229409,
+  "limitation": "CPU verifies saved new-model emissions and the original TRAIN window/chain decision; no independent neural forward, gene F1, biological causality or generalization."
+}

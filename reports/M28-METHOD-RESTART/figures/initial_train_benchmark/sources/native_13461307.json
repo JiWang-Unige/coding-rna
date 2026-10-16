@@ -1,0 +1,1959 @@
+{
+  "completed": true,
+  "status": "native_original_TRAIN_comparison_not_DEV_or_generalization",
+  "job_id": "13461307",
+  "reference_policy": "M26_CDS_assessable_longest_eligible_CDS_tie_transcript_ID",
+  "reference_primary_chains": 22688,
+  "unsupported_reference_strata_retained": true,
+  "training_eligibility_does_not_filter_reference": true,
+  "reference_used_in_inference": false,
+  "DEV_used": false,
+  "sealed_data_used": false,
+  "optimizer_steps_this_run": 0,
+  "input_mode": "fixed_original_TRAIN_shared_raw_FASTA",
+  "control_receipt": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-DIAGNOSTIC/summary.json",
+  "methods": {
+    "ANNEVO": {
+      "chromosomes": {
+        "NC_003070.9": {
+          "exact_chain": {
+            "tp": 5212,
+            "predicted": 6441,
+            "reference": 7135,
+            "precision": 0.8091911193913989,
+            "recall": 0.7304835318850735,
+            "f1": 0.7678255745433117
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 8336573,
+            "predicted": 8568772,
+            "reference": 8888873,
+            "precision": 0.9729017180058006,
+            "recall": 0.9378661389357233,
+            "f1": 0.9550627246687626
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 562,
+          "prediction_records": 6441,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 10879240,
+            "predicted_span_bp": 58464,
+            "predicted_CDS_bp": 19728,
+            "span_FPR": 0.005373904794820227,
+            "wholly_background_unique_chains": 13,
+            "wholly_background_chains_per_Mb": 1.1949364109992977
+          },
+          "prediction_nonexact_primary": 1229,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003070.9",
+          "length": 30427671,
+          "reference_primary_records": 7135,
+          "reference_assessable_isoform_records": 12622,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 43,
+            "split_terminal_codon": 11,
+            "same_strand_primary_overlap": 21,
+            "longer_than_native_window": 2
+          },
+          "phase_chain_consistent_prediction_records": 6441,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_003070.9/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_003070.9/summary.json",
+          "native_runtime_seconds": 163.15587789099663,
+          "native_GFF_feature_counts": {
+            "gene": 6441,
+            "mRNA": 6441,
+            "exon": 35877,
+            "CDS": 35877
+          },
+          "baseline_asset_receipt": {
+            "source_commit": "42c920f70f52f96c7c06c665a639ec47d9304fff",
+            "version": "2.3.3",
+            "weight": "assets/ANNEVO/saved_model/ANNEVO_Magnoliopsida.pt",
+            "weight_git_blob": "21487d877430abf8e552c509560fd1218f19305e",
+            "weight_bytes": 60520287,
+            "lineage": "Magnoliopsida",
+            "existing_conda_env": "annevo",
+            "python": "3.10.20",
+            "packages": {
+              "torch": "2.1.0",
+              "numpy": "1.26.4",
+              "h5py": "3.14.0",
+              "biopython": "1.87",
+              "torchmetrics": "0.8.2",
+              "numba": "0.65.1"
+            }
+          }
+        },
+        "NC_003071.7": {
+          "exact_chain": {
+            "tp": 3046,
+            "predicted": 3784,
+            "reference": 4293,
+            "precision": 0.804968287526427,
+            "recall": 0.7095271372000932,
+            "f1": 0.7542404358053733
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 4575360,
+            "predicted": 4777515,
+            "reference": 4955001,
+            "precision": 0.9576861611109542,
+            "recall": 0.9233822556241664,
+            "f1": 0.9402214185930956
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 293,
+          "prediction_records": 3784,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 7462671,
+            "predicted_span_bp": 29882,
+            "predicted_CDS_bp": 13559,
+            "span_FPR": 0.004004196352753592,
+            "wholly_background_unique_chains": 9,
+            "wholly_background_chains_per_Mb": 1.2060025157212477
+          },
+          "prediction_nonexact_primary": 738,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003071.7",
+          "length": 19698289,
+          "reference_primary_records": 4293,
+          "reference_assessable_isoform_records": 7572,
+          "retained_unsupported_reference_strata": {
+            "split_terminal_codon": 7,
+            "nonstandard_splice": 15,
+            "same_strand_primary_overlap": 2
+          },
+          "phase_chain_consistent_prediction_records": 3784,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_003071.7/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_003071.7/summary.json",
+          "native_runtime_seconds": 146.5767692150548,
+          "native_GFF_feature_counts": {
+            "gene": 3784,
+            "mRNA": 3784,
+            "exon": 20176,
+            "CDS": 20176
+          },
+          "baseline_asset_receipt": {
+            "source_commit": "42c920f70f52f96c7c06c665a639ec47d9304fff",
+            "version": "2.3.3",
+            "weight": "assets/ANNEVO/saved_model/ANNEVO_Magnoliopsida.pt",
+            "weight_git_blob": "21487d877430abf8e552c509560fd1218f19305e",
+            "weight_bytes": 60520287,
+            "lineage": "Magnoliopsida",
+            "existing_conda_env": "annevo",
+            "python": "3.10.20",
+            "packages": {
+              "torch": "2.1.0",
+              "numpy": "1.26.4",
+              "h5py": "3.14.0",
+              "biopython": "1.87",
+              "torchmetrics": "0.8.2",
+              "numba": "0.65.1"
+            }
+          }
+        },
+        "NC_003076.8": {
+          "exact_chain": {
+            "tp": 4673,
+            "predicted": 5697,
+            "reference": 6311,
+            "precision": 0.8202562752325786,
+            "recall": 0.7404531769925526,
+            "f1": 0.7783144570286475
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 7315661,
+            "predicted": 7492399,
+            "reference": 7794733,
+            "precision": 0.976411026695188,
+            "recall": 0.938539010893638,
+            "f1": 0.9571005208825305
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 481,
+          "prediction_records": 5697,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 9532590,
+            "predicted_span_bp": 48403,
+            "predicted_CDS_bp": 15593,
+            "span_FPR": 0.00507763367563275,
+            "wholly_background_unique_chains": 7,
+            "wholly_background_chains_per_Mb": 0.7343229909185227
+          },
+          "prediction_nonexact_primary": 1024,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003076.8",
+          "length": 26975502,
+          "reference_primary_records": 6311,
+          "reference_assessable_isoform_records": 10963,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 26,
+            "same_strand_primary_overlap": 14,
+            "split_terminal_codon": 7
+          },
+          "phase_chain_consistent_prediction_records": 5697,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_003076.8/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_003076.8/summary.json",
+          "native_runtime_seconds": 128.41280652408022,
+          "native_GFF_feature_counts": {
+            "gene": 5697,
+            "mRNA": 5697,
+            "exon": 31313,
+            "CDS": 31313
+          },
+          "baseline_asset_receipt": {
+            "source_commit": "42c920f70f52f96c7c06c665a639ec47d9304fff",
+            "version": "2.3.3",
+            "weight": "assets/ANNEVO/saved_model/ANNEVO_Magnoliopsida.pt",
+            "weight_git_blob": "21487d877430abf8e552c509560fd1218f19305e",
+            "weight_bytes": 60520287,
+            "lineage": "Magnoliopsida",
+            "existing_conda_env": "annevo",
+            "python": "3.10.20",
+            "packages": {
+              "torch": "2.1.0",
+              "numpy": "1.26.4",
+              "h5py": "3.14.0",
+              "biopython": "1.87",
+              "torchmetrics": "0.8.2",
+              "numba": "0.65.1"
+            }
+          }
+        },
+        "NC_089043.1": {
+          "exact_chain": {
+            "tp": 1197,
+            "predicted": 1652,
+            "reference": 1638,
+            "precision": 0.7245762711864406,
+            "recall": 0.7307692307692307,
+            "f1": 0.7276595744680852
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 1970943,
+            "predicted": 2143017,
+            "reference": 2174304,
+            "precision": 0.9197047900226644,
+            "recall": 0.906470760298468,
+            "f1": 0.9130398226122172
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 60,
+          "prediction_records": 1652,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 17112812,
+            "predicted_span_bp": 271184,
+            "predicted_CDS_bp": 97277,
+            "span_FPR": 0.015846840367322448,
+            "wholly_background_unique_chains": 98,
+            "wholly_background_chains_per_Mb": 5.726703478072452
+          },
+          "prediction_nonexact_primary": 455,
+          "species": "oryza_sativa",
+          "seqid": "NC_089043.1",
+          "length": 27474823,
+          "reference_primary_records": 1638,
+          "reference_assessable_isoform_records": 2242,
+          "retained_unsupported_reference_strata": {
+            "split_terminal_codon": 2,
+            "nonstandard_splice": 23,
+            "same_strand_primary_overlap": 2
+          },
+          "phase_chain_consistent_prediction_records": 1652,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_089043.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_089043.1/summary.json",
+          "native_runtime_seconds": 130.7448830769863,
+          "native_GFF_feature_counts": {
+            "gene": 1652,
+            "mRNA": 1652,
+            "exon": 7945,
+            "CDS": 7945
+          },
+          "baseline_asset_receipt": {
+            "source_commit": "42c920f70f52f96c7c06c665a639ec47d9304fff",
+            "version": "2.3.3",
+            "weight": "assets/ANNEVO/saved_model/ANNEVO_Magnoliopsida.pt",
+            "weight_git_blob": "21487d877430abf8e552c509560fd1218f19305e",
+            "weight_bytes": 60520287,
+            "lineage": "Magnoliopsida",
+            "existing_conda_env": "annevo",
+            "python": "3.10.20",
+            "packages": {
+              "torch": "2.1.0",
+              "numpy": "1.26.4",
+              "h5py": "3.14.0",
+              "biopython": "1.87",
+              "torchmetrics": "0.8.2",
+              "numba": "0.65.1"
+            }
+          }
+        },
+        "NC_089044.1": {
+          "exact_chain": {
+            "tp": 1158,
+            "predicted": 1624,
+            "reference": 1601,
+            "precision": 0.7130541871921182,
+            "recall": 0.7232979387882573,
+            "f1": 0.718139534883721
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 1968177,
+            "predicted": 2182217,
+            "reference": 2191200,
+            "precision": 0.9019162622232344,
+            "recall": 0.8982187842278204,
+            "f1": 0.9000637259149996
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 41,
+          "prediction_records": 1624,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 16265607,
+            "predicted_span_bp": 207805,
+            "predicted_CDS_bp": 134185,
+            "span_FPR": 0.01277572979600454,
+            "wholly_background_unique_chains": 115,
+            "wholly_background_chains_per_Mb": 7.070132703931677
+          },
+          "prediction_nonexact_primary": 466,
+          "species": "oryza_sativa",
+          "seqid": "NC_089044.1",
+          "length": 23931887,
+          "reference_primary_records": 1601,
+          "reference_assessable_isoform_records": 2203,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 37,
+            "longer_than_native_window": 7,
+            "split_terminal_codon": 3
+          },
+          "phase_chain_consistent_prediction_records": 1624,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_089044.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_089044.1/summary.json",
+          "native_runtime_seconds": 127.56125425593928,
+          "native_GFF_feature_counts": {
+            "gene": 1624,
+            "mRNA": 1624,
+            "exon": 7533,
+            "CDS": 7533
+          },
+          "baseline_asset_receipt": {
+            "source_commit": "42c920f70f52f96c7c06c665a639ec47d9304fff",
+            "version": "2.3.3",
+            "weight": "assets/ANNEVO/saved_model/ANNEVO_Magnoliopsida.pt",
+            "weight_git_blob": "21487d877430abf8e552c509560fd1218f19305e",
+            "weight_bytes": 60520287,
+            "lineage": "Magnoliopsida",
+            "existing_conda_env": "annevo",
+            "python": "3.10.20",
+            "packages": {
+              "torch": "2.1.0",
+              "numpy": "1.26.4",
+              "h5py": "3.14.0",
+              "biopython": "1.87",
+              "torchmetrics": "0.8.2",
+              "numba": "0.65.1"
+            }
+          }
+        },
+        "NC_089046.1": {
+          "exact_chain": {
+            "tp": 1184,
+            "predicted": 1719,
+            "reference": 1710,
+            "precision": 0.6887725421756835,
+            "recall": 0.6923976608187135,
+            "f1": 0.6905803441236512
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2067980,
+            "predicted": 2300337,
+            "reference": 2384479,
+            "precision": 0.8989900175496025,
+            "recall": 0.8672670214331936,
+            "f1": 0.8828436378291058
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 61,
+          "prediction_records": 1719,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19966612,
+            "predicted_span_bp": 351163,
+            "predicted_CDS_bp": 136434,
+            "span_FPR": 0.017587510590179246,
+            "wholly_background_unique_chains": 141,
+            "wholly_background_chains_per_Mb": 7.061788950473921
+          },
+          "prediction_nonexact_primary": 535,
+          "species": "oryza_sativa",
+          "seqid": "NC_089046.1",
+          "length": 28271460,
+          "reference_primary_records": 1710,
+          "reference_assessable_isoform_records": 2550,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 34,
+            "same_strand_primary_overlap": 2,
+            "split_terminal_codon": 2
+          },
+          "phase_chain_consistent_prediction_records": 1719,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_089046.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/ANNEVO/NC_089046.1/summary.json",
+          "native_runtime_seconds": 132.23317198106088,
+          "native_GFF_feature_counts": {
+            "gene": 1719,
+            "mRNA": 1719,
+            "exon": 8047,
+            "CDS": 8047
+          },
+          "baseline_asset_receipt": {
+            "source_commit": "42c920f70f52f96c7c06c665a639ec47d9304fff",
+            "version": "2.3.3",
+            "weight": "assets/ANNEVO/saved_model/ANNEVO_Magnoliopsida.pt",
+            "weight_git_blob": "21487d877430abf8e552c509560fd1218f19305e",
+            "weight_bytes": 60520287,
+            "lineage": "Magnoliopsida",
+            "existing_conda_env": "annevo",
+            "python": "3.10.20",
+            "packages": {
+              "torch": "2.1.0",
+              "numpy": "1.26.4",
+              "h5py": "3.14.0",
+              "biopython": "1.87",
+              "torchmetrics": "0.8.2",
+              "numba": "0.65.1"
+            }
+          }
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "exact_chain": {
+            "tp": 12931,
+            "predicted": 15922,
+            "reference": 17739,
+            "precision": 0.8121467152367793,
+            "recall": 0.728958791363662,
+            "f1": 0.7683075369121535
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 20227594,
+            "predicted": 20838686,
+            "reference": 21638607,
+            "precision": 0.9706751183831841,
+            "recall": 0.9347918745416468,
+            "f1": 0.9523956246458549
+          },
+          "background": {
+            "bp": 27874501,
+            "predicted_span_bp": 136749,
+            "predicted_CDS_bp": 48880,
+            "wholly_background_unique_chains": 29,
+            "span_FPR": 0.00490588154385257,
+            "wholly_background_chains_per_Mb": 1.0403773685491267
+          },
+          "prediction_records": 15922,
+          "duplicate_chain_records": 0,
+          "exact_other_assessable_isoform_not_primary_TP": 1336
+        },
+        "oryza_sativa": {
+          "exact_chain": {
+            "tp": 3539,
+            "predicted": 4995,
+            "reference": 4949,
+            "precision": 0.7085085085085085,
+            "recall": 0.7150939583754293,
+            "f1": 0.7117860016090105
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 6007100,
+            "predicted": 6625571,
+            "reference": 6749983,
+            "precision": 0.9066539321667522,
+            "recall": 0.8899429820786215,
+            "f1": 0.8982207391185442
+          },
+          "background": {
+            "bp": 53345031,
+            "predicted_span_bp": 830152,
+            "predicted_CDS_bp": 367896,
+            "wholly_background_unique_chains": 354,
+            "span_FPR": 0.015561936780953413,
+            "wholly_background_chains_per_Mb": 6.636044508062991
+          },
+          "prediction_records": 4995,
+          "duplicate_chain_records": 0,
+          "exact_other_assessable_isoform_not_primary_TP": 162
+        }
+      },
+      "pooled": {
+        "exact_chain": {
+          "tp": 16470,
+          "predicted": 20917,
+          "reference": 22688,
+          "precision": 0.7873978103934599,
+          "recall": 0.7259344146685472,
+          "f1": 0.7554179566563467
+        },
+        "CDS_base_unstranded_union": {
+          "tp": 26234694,
+          "predicted": 27464257,
+          "reference": 28388590,
+          "precision": 0.9552304291355852,
+          "recall": 0.9241281092157095,
+          "f1": 0.9394219062816976
+        },
+        "background": {
+          "bp": 81219532,
+          "predicted_span_bp": 966901,
+          "predicted_CDS_bp": 416776,
+          "wholly_background_unique_chains": 383,
+          "span_FPR": 0.011904784184178752,
+          "wholly_background_chains_per_Mb": 4.715614465742058
+        },
+        "prediction_records": 20917,
+        "duplicate_chain_records": 0,
+        "exact_other_assessable_isoform_not_primary_TP": 1498
+      },
+      "macro_species_exact_chain_F1": 0.740046769260582,
+      "worst_species_exact_chain_F1": 0.7117860016090105,
+      "native_minus_original4608_F1_pp": {
+        "per_species": {
+          "arabidopsis_thaliana": 26.343664489337414,
+          "oryza_sativa": 42.900591862145866
+        },
+        "pooled": 29.951676726933847,
+        "macro_species": 34.622128175741636,
+        "worst_species": 42.900591862145866
+      }
+    },
+    "Tiberius": {
+      "chromosomes": {
+        "NC_003070.9": {
+          "exact_chain": {
+            "tp": 5189,
+            "predicted": 6622,
+            "reference": 7135,
+            "precision": 0.7836001208094231,
+            "recall": 0.7272599859845831,
+            "f1": 0.7543795885730901
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 8445422,
+            "predicted": 8643600,
+            "reference": 8888873,
+            "precision": 0.9770722846961915,
+            "recall": 0.9501116733246161,
+            "f1": 0.9634033943756822
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 592,
+          "prediction_records": 6622,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 10879240,
+            "predicted_span_bp": 52772,
+            "predicted_CDS_bp": 20703,
+            "span_FPR": 0.004850706483173457,
+            "wholly_background_unique_chains": 17,
+            "wholly_background_chains_per_Mb": 1.5626091528452355
+          },
+          "prediction_nonexact_primary": 1433,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003070.9",
+          "length": 30427671,
+          "reference_primary_records": 7135,
+          "reference_assessable_isoform_records": 12622,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 43,
+            "split_terminal_codon": 11,
+            "same_strand_primary_overlap": 21,
+            "longer_than_native_window": 2
+          },
+          "phase_chain_consistent_prediction_records": 6622,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_003070.9/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_003070.9/summary.json",
+          "native_runtime_seconds": 638.3114275300177,
+          "native_GFF_feature_counts": {
+            "gene": 6622,
+            "mRNA": 6622,
+            "CDS": 36172,
+            "exon": 36172
+          },
+          "baseline_asset_receipt": {
+            "native_metadata": {
+              "package": "tiberius",
+              "version": "2.0.8",
+              "package_version": "2.0.8",
+              "package_file": "/m28-runtime/site/tiberius/__init__.py",
+              "main_file": "/m28-runtime/site/tiberius/main.py",
+              "python": "3.12.3",
+              "packages": {
+                "tensorflow": "2.17.0+nv25.2",
+                "bricks2marble": "0.1.1",
+                "hidten": "1.0.0",
+                "numpy": "1.26.4",
+                "pyyaml": "6.0.2",
+                "rich": "13.9.4"
+              },
+              "tensorflow": "2.17.0",
+              "tensorflow_build": {
+                "cpu_compiler": "/opt/rh/gcc-toolset-11/root/usr/bin/gcc",
+                "cuda_compute_capabilities": [
+                  "sm_100",
+                  "sm_120",
+                  "sm_75",
+                  "sm_80",
+                  "sm_86",
+                  "compute_90"
+                ],
+                "cuda_version": "12.8",
+                "cudnn_version": "9",
+                "is_cuda_build": true,
+                "is_rocm_build": false,
+                "is_tensorrt_build": true
+              },
+              "weights_directory": "/m28-runtime/site/tiberius/../model_weights/angiosperms",
+              "CPU_model_load_completed": true,
+              "GPU_forward_executed": false,
+              "DNA_opened": false,
+              "optimizer_steps": 0,
+              "source_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+              "installed_source_python_files_exact": 25
+            },
+            "configuration_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+            "configuration": {
+              "target_species": "Mesangiospermae",
+              "ncbi_tax_id": 1437183,
+              "weights_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+              "softmasking": false,
+              "clamsa": false,
+              "tiberius_version": "1.1.6",
+              "date": "2026-04-15",
+              "default_seq_len": 200070,
+              "comment": "Angiosperm training weights trained by Tomas Bruna (JGI).",
+              "training_species": [
+                "BrapassprapavarrapaVT123v1.1 BvulgarissspvulgarisEL10.2_2 CavellanaHAP1v4.0 ClimonHapOv1.2 Cspinosavarrupestrisv2.1 Cviolaceav2.1 Dcarotasubspsativusv3.0 EgrandisvarTAG0014HAP1v4.1 Fvescav4.0.a2 GhirsutumDeltaPearlv1.1 GmaxWm82ISU01v2.1 HleucocephalaHAP1v2.1 Lphilippensisv1.1 Lsativa.LsPKU06 MdomesticaWA_38v.a1 Mesculentav8.1 MflabellifoliavarSSDT_37HAP1v1.1 Mlongifolia.v4 MoleiferavarSKT01HAP1v1.1 NtabacumvarNtaSR1v1.0 OcompressavarFLAS263054v1.1 UamericanavarNA87034HAP1v1.1 Vvinifera.v4 Carabicav1.1 Aamericanusv1.1 AdonaxvarAD10v1.1_A1 AtequilanavarWebersBlueHAP1v3.1 BmicranthavarABG20031627HAP1v1.2 Claxumv1.1 Dalatav2.1 Dendrobium_catenatum_GCF_001605985 Jascendensv1.1 Msinensisv7.1 Musa_acumitana_GCF_036884655_BXJ1 OsativaKitaakev3.1 Phoenix_dactylifera_CF_009389715 Platifoliusv1.1 Pvirgatumv5.1_K Sbicolorv5.1 Sviridisv4.1 Tintermediumv3.1_J YfilamentosaC3priv2.1 Zingiber_officinale_GCF_018446385_A ZmaysZm-B73-REFERENCE-NAM-5.0.55"
+              ]
+            },
+            "base_container_uri": "docker://larsgabriel23/tiberius@sha256:6c853ae0664d6739d4226c3c0bc08d39d89aefa88d1bf0d20941a44d7ba2b72c",
+            "base_container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-2.0.8.sif",
+            "base_container_actual_metadata": {
+              "package": "tiberius",
+              "version": "2.0.7",
+              "python": "3.12.3",
+              "source_commit": "a1472d26829769c22c9678c9f042830bbb75e544"
+            },
+            "runtime_kind": "pinned_2.0.8_isolated_package_over_immutable_2.0.7_dependency_SIF",
+            "entry_point": "python3 -m tiberius.main",
+            "package_directory": "outputs/M28-NATIVE-RUNTIME208/site",
+            "weights_directory": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-model-weights/angiosperms",
+            "weights_archive_bytes": 29825066,
+            "weights_requested_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed",
+            "training_exposure": "author_metadata_includes_rice_Kitaake_not_species_unseen"
+          }
+        },
+        "NC_003071.7": {
+          "exact_chain": {
+            "tp": 2999,
+            "predicted": 3800,
+            "reference": 4293,
+            "precision": 0.7892105263157895,
+            "recall": 0.6985790822268809,
+            "f1": 0.7411343136043494
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 4606077,
+            "predicted": 4729280,
+            "reference": 4955001,
+            "precision": 0.9739488886257528,
+            "recall": 0.9295814471076796,
+            "f1": 0.9512481102107632
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 312,
+          "prediction_records": 3800,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 7462671,
+            "predicted_span_bp": 27151,
+            "predicted_CDS_bp": 10478,
+            "span_FPR": 0.0036382415893719553,
+            "wholly_background_unique_chains": 8,
+            "wholly_background_chains_per_Mb": 1.0720022361966648
+          },
+          "prediction_nonexact_primary": 801,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003071.7",
+          "length": 19698289,
+          "reference_primary_records": 4293,
+          "reference_assessable_isoform_records": 7572,
+          "retained_unsupported_reference_strata": {
+            "split_terminal_codon": 7,
+            "nonstandard_splice": 15,
+            "same_strand_primary_overlap": 2
+          },
+          "phase_chain_consistent_prediction_records": 3800,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_003071.7/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_003071.7/summary.json",
+          "native_runtime_seconds": 605.6682581329951,
+          "native_GFF_feature_counts": {
+            "gene": 3800,
+            "mRNA": 3800,
+            "CDS": 20101,
+            "exon": 20101
+          },
+          "baseline_asset_receipt": {
+            "native_metadata": {
+              "package": "tiberius",
+              "version": "2.0.8",
+              "package_version": "2.0.8",
+              "package_file": "/m28-runtime/site/tiberius/__init__.py",
+              "main_file": "/m28-runtime/site/tiberius/main.py",
+              "python": "3.12.3",
+              "packages": {
+                "tensorflow": "2.17.0+nv25.2",
+                "bricks2marble": "0.1.1",
+                "hidten": "1.0.0",
+                "numpy": "1.26.4",
+                "pyyaml": "6.0.2",
+                "rich": "13.9.4"
+              },
+              "tensorflow": "2.17.0",
+              "tensorflow_build": {
+                "cpu_compiler": "/opt/rh/gcc-toolset-11/root/usr/bin/gcc",
+                "cuda_compute_capabilities": [
+                  "sm_100",
+                  "sm_120",
+                  "sm_75",
+                  "sm_80",
+                  "sm_86",
+                  "compute_90"
+                ],
+                "cuda_version": "12.8",
+                "cudnn_version": "9",
+                "is_cuda_build": true,
+                "is_rocm_build": false,
+                "is_tensorrt_build": true
+              },
+              "weights_directory": "/m28-runtime/site/tiberius/../model_weights/angiosperms",
+              "CPU_model_load_completed": true,
+              "GPU_forward_executed": false,
+              "DNA_opened": false,
+              "optimizer_steps": 0,
+              "source_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+              "installed_source_python_files_exact": 25
+            },
+            "configuration_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+            "configuration": {
+              "target_species": "Mesangiospermae",
+              "ncbi_tax_id": 1437183,
+              "weights_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+              "softmasking": false,
+              "clamsa": false,
+              "tiberius_version": "1.1.6",
+              "date": "2026-04-15",
+              "default_seq_len": 200070,
+              "comment": "Angiosperm training weights trained by Tomas Bruna (JGI).",
+              "training_species": [
+                "BrapassprapavarrapaVT123v1.1 BvulgarissspvulgarisEL10.2_2 CavellanaHAP1v4.0 ClimonHapOv1.2 Cspinosavarrupestrisv2.1 Cviolaceav2.1 Dcarotasubspsativusv3.0 EgrandisvarTAG0014HAP1v4.1 Fvescav4.0.a2 GhirsutumDeltaPearlv1.1 GmaxWm82ISU01v2.1 HleucocephalaHAP1v2.1 Lphilippensisv1.1 Lsativa.LsPKU06 MdomesticaWA_38v.a1 Mesculentav8.1 MflabellifoliavarSSDT_37HAP1v1.1 Mlongifolia.v4 MoleiferavarSKT01HAP1v1.1 NtabacumvarNtaSR1v1.0 OcompressavarFLAS263054v1.1 UamericanavarNA87034HAP1v1.1 Vvinifera.v4 Carabicav1.1 Aamericanusv1.1 AdonaxvarAD10v1.1_A1 AtequilanavarWebersBlueHAP1v3.1 BmicranthavarABG20031627HAP1v1.2 Claxumv1.1 Dalatav2.1 Dendrobium_catenatum_GCF_001605985 Jascendensv1.1 Msinensisv7.1 Musa_acumitana_GCF_036884655_BXJ1 OsativaKitaakev3.1 Phoenix_dactylifera_CF_009389715 Platifoliusv1.1 Pvirgatumv5.1_K Sbicolorv5.1 Sviridisv4.1 Tintermediumv3.1_J YfilamentosaC3priv2.1 Zingiber_officinale_GCF_018446385_A ZmaysZm-B73-REFERENCE-NAM-5.0.55"
+              ]
+            },
+            "base_container_uri": "docker://larsgabriel23/tiberius@sha256:6c853ae0664d6739d4226c3c0bc08d39d89aefa88d1bf0d20941a44d7ba2b72c",
+            "base_container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-2.0.8.sif",
+            "base_container_actual_metadata": {
+              "package": "tiberius",
+              "version": "2.0.7",
+              "python": "3.12.3",
+              "source_commit": "a1472d26829769c22c9678c9f042830bbb75e544"
+            },
+            "runtime_kind": "pinned_2.0.8_isolated_package_over_immutable_2.0.7_dependency_SIF",
+            "entry_point": "python3 -m tiberius.main",
+            "package_directory": "outputs/M28-NATIVE-RUNTIME208/site",
+            "weights_directory": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-model-weights/angiosperms",
+            "weights_archive_bytes": 29825066,
+            "weights_requested_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed",
+            "training_exposure": "author_metadata_includes_rice_Kitaake_not_species_unseen"
+          }
+        },
+        "NC_003076.8": {
+          "exact_chain": {
+            "tp": 4622,
+            "predicted": 5810,
+            "reference": 6311,
+            "precision": 0.7955249569707401,
+            "recall": 0.7323720488036761,
+            "f1": 0.7626433462585596
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 7420169,
+            "predicted": 7542195,
+            "reference": 7794733,
+            "precision": 0.9838208903376272,
+            "recall": 0.951946525942582,
+            "f1": 0.9676212863488699
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 500,
+          "prediction_records": 5810,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 9532590,
+            "predicted_span_bp": 41744,
+            "predicted_CDS_bp": 15189,
+            "span_FPR": 0.004379082704700402,
+            "wholly_background_unique_chains": 12,
+            "wholly_background_chains_per_Mb": 1.2588394130031817
+          },
+          "prediction_nonexact_primary": 1188,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003076.8",
+          "length": 26975502,
+          "reference_primary_records": 6311,
+          "reference_assessable_isoform_records": 10963,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 26,
+            "same_strand_primary_overlap": 14,
+            "split_terminal_codon": 7
+          },
+          "phase_chain_consistent_prediction_records": 5810,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_003076.8/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_003076.8/summary.json",
+          "native_runtime_seconds": 608.6358844470233,
+          "native_GFF_feature_counts": {
+            "gene": 5810,
+            "mRNA": 5810,
+            "CDS": 31558,
+            "exon": 31558
+          },
+          "baseline_asset_receipt": {
+            "native_metadata": {
+              "package": "tiberius",
+              "version": "2.0.8",
+              "package_version": "2.0.8",
+              "package_file": "/m28-runtime/site/tiberius/__init__.py",
+              "main_file": "/m28-runtime/site/tiberius/main.py",
+              "python": "3.12.3",
+              "packages": {
+                "tensorflow": "2.17.0+nv25.2",
+                "bricks2marble": "0.1.1",
+                "hidten": "1.0.0",
+                "numpy": "1.26.4",
+                "pyyaml": "6.0.2",
+                "rich": "13.9.4"
+              },
+              "tensorflow": "2.17.0",
+              "tensorflow_build": {
+                "cpu_compiler": "/opt/rh/gcc-toolset-11/root/usr/bin/gcc",
+                "cuda_compute_capabilities": [
+                  "sm_100",
+                  "sm_120",
+                  "sm_75",
+                  "sm_80",
+                  "sm_86",
+                  "compute_90"
+                ],
+                "cuda_version": "12.8",
+                "cudnn_version": "9",
+                "is_cuda_build": true,
+                "is_rocm_build": false,
+                "is_tensorrt_build": true
+              },
+              "weights_directory": "/m28-runtime/site/tiberius/../model_weights/angiosperms",
+              "CPU_model_load_completed": true,
+              "GPU_forward_executed": false,
+              "DNA_opened": false,
+              "optimizer_steps": 0,
+              "source_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+              "installed_source_python_files_exact": 25
+            },
+            "configuration_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+            "configuration": {
+              "target_species": "Mesangiospermae",
+              "ncbi_tax_id": 1437183,
+              "weights_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+              "softmasking": false,
+              "clamsa": false,
+              "tiberius_version": "1.1.6",
+              "date": "2026-04-15",
+              "default_seq_len": 200070,
+              "comment": "Angiosperm training weights trained by Tomas Bruna (JGI).",
+              "training_species": [
+                "BrapassprapavarrapaVT123v1.1 BvulgarissspvulgarisEL10.2_2 CavellanaHAP1v4.0 ClimonHapOv1.2 Cspinosavarrupestrisv2.1 Cviolaceav2.1 Dcarotasubspsativusv3.0 EgrandisvarTAG0014HAP1v4.1 Fvescav4.0.a2 GhirsutumDeltaPearlv1.1 GmaxWm82ISU01v2.1 HleucocephalaHAP1v2.1 Lphilippensisv1.1 Lsativa.LsPKU06 MdomesticaWA_38v.a1 Mesculentav8.1 MflabellifoliavarSSDT_37HAP1v1.1 Mlongifolia.v4 MoleiferavarSKT01HAP1v1.1 NtabacumvarNtaSR1v1.0 OcompressavarFLAS263054v1.1 UamericanavarNA87034HAP1v1.1 Vvinifera.v4 Carabicav1.1 Aamericanusv1.1 AdonaxvarAD10v1.1_A1 AtequilanavarWebersBlueHAP1v3.1 BmicranthavarABG20031627HAP1v1.2 Claxumv1.1 Dalatav2.1 Dendrobium_catenatum_GCF_001605985 Jascendensv1.1 Msinensisv7.1 Musa_acumitana_GCF_036884655_BXJ1 OsativaKitaakev3.1 Phoenix_dactylifera_CF_009389715 Platifoliusv1.1 Pvirgatumv5.1_K Sbicolorv5.1 Sviridisv4.1 Tintermediumv3.1_J YfilamentosaC3priv2.1 Zingiber_officinale_GCF_018446385_A ZmaysZm-B73-REFERENCE-NAM-5.0.55"
+              ]
+            },
+            "base_container_uri": "docker://larsgabriel23/tiberius@sha256:6c853ae0664d6739d4226c3c0bc08d39d89aefa88d1bf0d20941a44d7ba2b72c",
+            "base_container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-2.0.8.sif",
+            "base_container_actual_metadata": {
+              "package": "tiberius",
+              "version": "2.0.7",
+              "python": "3.12.3",
+              "source_commit": "a1472d26829769c22c9678c9f042830bbb75e544"
+            },
+            "runtime_kind": "pinned_2.0.8_isolated_package_over_immutable_2.0.7_dependency_SIF",
+            "entry_point": "python3 -m tiberius.main",
+            "package_directory": "outputs/M28-NATIVE-RUNTIME208/site",
+            "weights_directory": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-model-weights/angiosperms",
+            "weights_archive_bytes": 29825066,
+            "weights_requested_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed",
+            "training_exposure": "author_metadata_includes_rice_Kitaake_not_species_unseen"
+          }
+        },
+        "NC_089043.1": {
+          "exact_chain": {
+            "tp": 1109,
+            "predicted": 1825,
+            "reference": 1638,
+            "precision": 0.6076712328767123,
+            "recall": 0.6770451770451771,
+            "f1": 0.6404851285012995
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 1953782,
+            "predicted": 2149793,
+            "reference": 2174304,
+            "precision": 0.9088233146168027,
+            "recall": 0.8985781197109511,
+            "f1": 0.9036716798906222
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 47,
+          "prediction_records": 1825,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 17112812,
+            "predicted_span_bp": 156957,
+            "predicted_CDS_bp": 86930,
+            "span_FPR": 0.009171899977630795,
+            "wholly_background_unique_chains": 109,
+            "wholly_background_chains_per_Mb": 6.369496725611197
+          },
+          "prediction_nonexact_primary": 716,
+          "species": "oryza_sativa",
+          "seqid": "NC_089043.1",
+          "length": 27474823,
+          "reference_primary_records": 1638,
+          "reference_assessable_isoform_records": 2242,
+          "retained_unsupported_reference_strata": {
+            "split_terminal_codon": 2,
+            "nonstandard_splice": 23,
+            "same_strand_primary_overlap": 2
+          },
+          "phase_chain_consistent_prediction_records": 1825,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_089043.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_089043.1/summary.json",
+          "native_runtime_seconds": 607.7369674310321,
+          "native_GFF_feature_counts": {
+            "gene": 1825,
+            "mRNA": 1825,
+            "CDS": 7953,
+            "exon": 7953
+          },
+          "baseline_asset_receipt": {
+            "native_metadata": {
+              "package": "tiberius",
+              "version": "2.0.8",
+              "package_version": "2.0.8",
+              "package_file": "/m28-runtime/site/tiberius/__init__.py",
+              "main_file": "/m28-runtime/site/tiberius/main.py",
+              "python": "3.12.3",
+              "packages": {
+                "tensorflow": "2.17.0+nv25.2",
+                "bricks2marble": "0.1.1",
+                "hidten": "1.0.0",
+                "numpy": "1.26.4",
+                "pyyaml": "6.0.2",
+                "rich": "13.9.4"
+              },
+              "tensorflow": "2.17.0",
+              "tensorflow_build": {
+                "cpu_compiler": "/opt/rh/gcc-toolset-11/root/usr/bin/gcc",
+                "cuda_compute_capabilities": [
+                  "sm_100",
+                  "sm_120",
+                  "sm_75",
+                  "sm_80",
+                  "sm_86",
+                  "compute_90"
+                ],
+                "cuda_version": "12.8",
+                "cudnn_version": "9",
+                "is_cuda_build": true,
+                "is_rocm_build": false,
+                "is_tensorrt_build": true
+              },
+              "weights_directory": "/m28-runtime/site/tiberius/../model_weights/angiosperms",
+              "CPU_model_load_completed": true,
+              "GPU_forward_executed": false,
+              "DNA_opened": false,
+              "optimizer_steps": 0,
+              "source_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+              "installed_source_python_files_exact": 25
+            },
+            "configuration_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+            "configuration": {
+              "target_species": "Mesangiospermae",
+              "ncbi_tax_id": 1437183,
+              "weights_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+              "softmasking": false,
+              "clamsa": false,
+              "tiberius_version": "1.1.6",
+              "date": "2026-04-15",
+              "default_seq_len": 200070,
+              "comment": "Angiosperm training weights trained by Tomas Bruna (JGI).",
+              "training_species": [
+                "BrapassprapavarrapaVT123v1.1 BvulgarissspvulgarisEL10.2_2 CavellanaHAP1v4.0 ClimonHapOv1.2 Cspinosavarrupestrisv2.1 Cviolaceav2.1 Dcarotasubspsativusv3.0 EgrandisvarTAG0014HAP1v4.1 Fvescav4.0.a2 GhirsutumDeltaPearlv1.1 GmaxWm82ISU01v2.1 HleucocephalaHAP1v2.1 Lphilippensisv1.1 Lsativa.LsPKU06 MdomesticaWA_38v.a1 Mesculentav8.1 MflabellifoliavarSSDT_37HAP1v1.1 Mlongifolia.v4 MoleiferavarSKT01HAP1v1.1 NtabacumvarNtaSR1v1.0 OcompressavarFLAS263054v1.1 UamericanavarNA87034HAP1v1.1 Vvinifera.v4 Carabicav1.1 Aamericanusv1.1 AdonaxvarAD10v1.1_A1 AtequilanavarWebersBlueHAP1v3.1 BmicranthavarABG20031627HAP1v1.2 Claxumv1.1 Dalatav2.1 Dendrobium_catenatum_GCF_001605985 Jascendensv1.1 Msinensisv7.1 Musa_acumitana_GCF_036884655_BXJ1 OsativaKitaakev3.1 Phoenix_dactylifera_CF_009389715 Platifoliusv1.1 Pvirgatumv5.1_K Sbicolorv5.1 Sviridisv4.1 Tintermediumv3.1_J YfilamentosaC3priv2.1 Zingiber_officinale_GCF_018446385_A ZmaysZm-B73-REFERENCE-NAM-5.0.55"
+              ]
+            },
+            "base_container_uri": "docker://larsgabriel23/tiberius@sha256:6c853ae0664d6739d4226c3c0bc08d39d89aefa88d1bf0d20941a44d7ba2b72c",
+            "base_container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-2.0.8.sif",
+            "base_container_actual_metadata": {
+              "package": "tiberius",
+              "version": "2.0.7",
+              "python": "3.12.3",
+              "source_commit": "a1472d26829769c22c9678c9f042830bbb75e544"
+            },
+            "runtime_kind": "pinned_2.0.8_isolated_package_over_immutable_2.0.7_dependency_SIF",
+            "entry_point": "python3 -m tiberius.main",
+            "package_directory": "outputs/M28-NATIVE-RUNTIME208/site",
+            "weights_directory": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-model-weights/angiosperms",
+            "weights_archive_bytes": 29825066,
+            "weights_requested_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed",
+            "training_exposure": "author_metadata_includes_rice_Kitaake_not_species_unseen"
+          }
+        },
+        "NC_089044.1": {
+          "exact_chain": {
+            "tp": 1090,
+            "predicted": 1725,
+            "reference": 1601,
+            "precision": 0.6318840579710145,
+            "recall": 0.6808244846970644,
+            "f1": 0.6554419723391461
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 1929644,
+            "predicted": 2167706,
+            "reference": 2191200,
+            "precision": 0.8901779115802604,
+            "recall": 0.8806334428623586,
+            "f1": 0.8853799554291834
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 38,
+          "prediction_records": 1725,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 16265607,
+            "predicted_span_bp": 156621,
+            "predicted_CDS_bp": 136203,
+            "span_FPR": 0.009628967428021593,
+            "wholly_background_unique_chains": 151,
+            "wholly_background_chains_per_Mb": 9.283391637336376
+          },
+          "prediction_nonexact_primary": 635,
+          "species": "oryza_sativa",
+          "seqid": "NC_089044.1",
+          "length": 23931887,
+          "reference_primary_records": 1601,
+          "reference_assessable_isoform_records": 2203,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 37,
+            "longer_than_native_window": 7,
+            "split_terminal_codon": 3
+          },
+          "phase_chain_consistent_prediction_records": 1725,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_089044.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_089044.1/summary.json",
+          "native_runtime_seconds": 587.2994574090699,
+          "native_GFF_feature_counts": {
+            "gene": 1725,
+            "mRNA": 1725,
+            "CDS": 7345,
+            "exon": 7345
+          },
+          "baseline_asset_receipt": {
+            "native_metadata": {
+              "package": "tiberius",
+              "version": "2.0.8",
+              "package_version": "2.0.8",
+              "package_file": "/m28-runtime/site/tiberius/__init__.py",
+              "main_file": "/m28-runtime/site/tiberius/main.py",
+              "python": "3.12.3",
+              "packages": {
+                "tensorflow": "2.17.0+nv25.2",
+                "bricks2marble": "0.1.1",
+                "hidten": "1.0.0",
+                "numpy": "1.26.4",
+                "pyyaml": "6.0.2",
+                "rich": "13.9.4"
+              },
+              "tensorflow": "2.17.0",
+              "tensorflow_build": {
+                "cpu_compiler": "/opt/rh/gcc-toolset-11/root/usr/bin/gcc",
+                "cuda_compute_capabilities": [
+                  "sm_100",
+                  "sm_120",
+                  "sm_75",
+                  "sm_80",
+                  "sm_86",
+                  "compute_90"
+                ],
+                "cuda_version": "12.8",
+                "cudnn_version": "9",
+                "is_cuda_build": true,
+                "is_rocm_build": false,
+                "is_tensorrt_build": true
+              },
+              "weights_directory": "/m28-runtime/site/tiberius/../model_weights/angiosperms",
+              "CPU_model_load_completed": true,
+              "GPU_forward_executed": false,
+              "DNA_opened": false,
+              "optimizer_steps": 0,
+              "source_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+              "installed_source_python_files_exact": 25
+            },
+            "configuration_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+            "configuration": {
+              "target_species": "Mesangiospermae",
+              "ncbi_tax_id": 1437183,
+              "weights_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+              "softmasking": false,
+              "clamsa": false,
+              "tiberius_version": "1.1.6",
+              "date": "2026-04-15",
+              "default_seq_len": 200070,
+              "comment": "Angiosperm training weights trained by Tomas Bruna (JGI).",
+              "training_species": [
+                "BrapassprapavarrapaVT123v1.1 BvulgarissspvulgarisEL10.2_2 CavellanaHAP1v4.0 ClimonHapOv1.2 Cspinosavarrupestrisv2.1 Cviolaceav2.1 Dcarotasubspsativusv3.0 EgrandisvarTAG0014HAP1v4.1 Fvescav4.0.a2 GhirsutumDeltaPearlv1.1 GmaxWm82ISU01v2.1 HleucocephalaHAP1v2.1 Lphilippensisv1.1 Lsativa.LsPKU06 MdomesticaWA_38v.a1 Mesculentav8.1 MflabellifoliavarSSDT_37HAP1v1.1 Mlongifolia.v4 MoleiferavarSKT01HAP1v1.1 NtabacumvarNtaSR1v1.0 OcompressavarFLAS263054v1.1 UamericanavarNA87034HAP1v1.1 Vvinifera.v4 Carabicav1.1 Aamericanusv1.1 AdonaxvarAD10v1.1_A1 AtequilanavarWebersBlueHAP1v3.1 BmicranthavarABG20031627HAP1v1.2 Claxumv1.1 Dalatav2.1 Dendrobium_catenatum_GCF_001605985 Jascendensv1.1 Msinensisv7.1 Musa_acumitana_GCF_036884655_BXJ1 OsativaKitaakev3.1 Phoenix_dactylifera_CF_009389715 Platifoliusv1.1 Pvirgatumv5.1_K Sbicolorv5.1 Sviridisv4.1 Tintermediumv3.1_J YfilamentosaC3priv2.1 Zingiber_officinale_GCF_018446385_A ZmaysZm-B73-REFERENCE-NAM-5.0.55"
+              ]
+            },
+            "base_container_uri": "docker://larsgabriel23/tiberius@sha256:6c853ae0664d6739d4226c3c0bc08d39d89aefa88d1bf0d20941a44d7ba2b72c",
+            "base_container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-2.0.8.sif",
+            "base_container_actual_metadata": {
+              "package": "tiberius",
+              "version": "2.0.7",
+              "python": "3.12.3",
+              "source_commit": "a1472d26829769c22c9678c9f042830bbb75e544"
+            },
+            "runtime_kind": "pinned_2.0.8_isolated_package_over_immutable_2.0.7_dependency_SIF",
+            "entry_point": "python3 -m tiberius.main",
+            "package_directory": "outputs/M28-NATIVE-RUNTIME208/site",
+            "weights_directory": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-model-weights/angiosperms",
+            "weights_archive_bytes": 29825066,
+            "weights_requested_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed",
+            "training_exposure": "author_metadata_includes_rice_Kitaake_not_species_unseen"
+          }
+        },
+        "NC_089046.1": {
+          "exact_chain": {
+            "tp": 1086,
+            "predicted": 1835,
+            "reference": 1710,
+            "precision": 0.591825613079019,
+            "recall": 0.6350877192982456,
+            "f1": 0.6126939351198871
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2028387,
+            "predicted": 2259307,
+            "reference": 2384479,
+            "precision": 0.8977916679760652,
+            "recall": 0.8506625556358433,
+            "f1": 0.8735919355456948
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 63,
+          "prediction_records": 1835,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19966612,
+            "predicted_span_bp": 175344,
+            "predicted_CDS_bp": 102580,
+            "span_FPR": 0.008781860437814887,
+            "wholly_background_unique_chains": 157,
+            "wholly_background_chains_per_Mb": 7.863126703719189
+          },
+          "prediction_nonexact_primary": 749,
+          "species": "oryza_sativa",
+          "seqid": "NC_089046.1",
+          "length": 28271460,
+          "reference_primary_records": 1710,
+          "reference_assessable_isoform_records": 2550,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 34,
+            "same_strand_primary_overlap": 2,
+            "split_terminal_codon": 2
+          },
+          "phase_chain_consistent_prediction_records": 1835,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_089046.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Tiberius/NC_089046.1/summary.json",
+          "native_runtime_seconds": 576.9406685769791,
+          "native_GFF_feature_counts": {
+            "gene": 1835,
+            "mRNA": 1835,
+            "CDS": 7918,
+            "exon": 7918
+          },
+          "baseline_asset_receipt": {
+            "native_metadata": {
+              "package": "tiberius",
+              "version": "2.0.8",
+              "package_version": "2.0.8",
+              "package_file": "/m28-runtime/site/tiberius/__init__.py",
+              "main_file": "/m28-runtime/site/tiberius/main.py",
+              "python": "3.12.3",
+              "packages": {
+                "tensorflow": "2.17.0+nv25.2",
+                "bricks2marble": "0.1.1",
+                "hidten": "1.0.0",
+                "numpy": "1.26.4",
+                "pyyaml": "6.0.2",
+                "rich": "13.9.4"
+              },
+              "tensorflow": "2.17.0",
+              "tensorflow_build": {
+                "cpu_compiler": "/opt/rh/gcc-toolset-11/root/usr/bin/gcc",
+                "cuda_compute_capabilities": [
+                  "sm_100",
+                  "sm_120",
+                  "sm_75",
+                  "sm_80",
+                  "sm_86",
+                  "compute_90"
+                ],
+                "cuda_version": "12.8",
+                "cudnn_version": "9",
+                "is_cuda_build": true,
+                "is_rocm_build": false,
+                "is_tensorrt_build": true
+              },
+              "weights_directory": "/m28-runtime/site/tiberius/../model_weights/angiosperms",
+              "CPU_model_load_completed": true,
+              "GPU_forward_executed": false,
+              "DNA_opened": false,
+              "optimizer_steps": 0,
+              "source_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+              "installed_source_python_files_exact": 25
+            },
+            "configuration_commit": "871d4979568ae09e56de7eca5d7489046ee833ea",
+            "configuration": {
+              "target_species": "Mesangiospermae",
+              "ncbi_tax_id": 1437183,
+              "weights_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+              "softmasking": false,
+              "clamsa": false,
+              "tiberius_version": "1.1.6",
+              "date": "2026-04-15",
+              "default_seq_len": 200070,
+              "comment": "Angiosperm training weights trained by Tomas Bruna (JGI).",
+              "training_species": [
+                "BrapassprapavarrapaVT123v1.1 BvulgarissspvulgarisEL10.2_2 CavellanaHAP1v4.0 ClimonHapOv1.2 Cspinosavarrupestrisv2.1 Cviolaceav2.1 Dcarotasubspsativusv3.0 EgrandisvarTAG0014HAP1v4.1 Fvescav4.0.a2 GhirsutumDeltaPearlv1.1 GmaxWm82ISU01v2.1 HleucocephalaHAP1v2.1 Lphilippensisv1.1 Lsativa.LsPKU06 MdomesticaWA_38v.a1 Mesculentav8.1 MflabellifoliavarSSDT_37HAP1v1.1 Mlongifolia.v4 MoleiferavarSKT01HAP1v1.1 NtabacumvarNtaSR1v1.0 OcompressavarFLAS263054v1.1 UamericanavarNA87034HAP1v1.1 Vvinifera.v4 Carabicav1.1 Aamericanusv1.1 AdonaxvarAD10v1.1_A1 AtequilanavarWebersBlueHAP1v3.1 BmicranthavarABG20031627HAP1v1.2 Claxumv1.1 Dalatav2.1 Dendrobium_catenatum_GCF_001605985 Jascendensv1.1 Msinensisv7.1 Musa_acumitana_GCF_036884655_BXJ1 OsativaKitaakev3.1 Phoenix_dactylifera_CF_009389715 Platifoliusv1.1 Pvirgatumv5.1_K Sbicolorv5.1 Sviridisv4.1 Tintermediumv3.1_J YfilamentosaC3priv2.1 Zingiber_officinale_GCF_018446385_A ZmaysZm-B73-REFERENCE-NAM-5.0.55"
+              ]
+            },
+            "base_container_uri": "docker://larsgabriel23/tiberius@sha256:6c853ae0664d6739d4226c3c0bc08d39d89aefa88d1bf0d20941a44d7ba2b72c",
+            "base_container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-2.0.8.sif",
+            "base_container_actual_metadata": {
+              "package": "tiberius",
+              "version": "2.0.7",
+              "python": "3.12.3",
+              "source_commit": "a1472d26829769c22c9678c9f042830bbb75e544"
+            },
+            "runtime_kind": "pinned_2.0.8_isolated_package_over_immutable_2.0.7_dependency_SIF",
+            "entry_point": "python3 -m tiberius.main",
+            "package_directory": "outputs/M28-NATIVE-RUNTIME208/site",
+            "weights_directory": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Tiberius-model-weights/angiosperms",
+            "weights_archive_bytes": 29825066,
+            "weights_requested_url": "https://bioinf.uni-greifswald.de/bioinf/tiberius/models/angiosperms.tar.gz",
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed",
+            "training_exposure": "author_metadata_includes_rice_Kitaake_not_species_unseen"
+          }
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "exact_chain": {
+            "tp": 12810,
+            "predicted": 16232,
+            "reference": 17739,
+            "precision": 0.7891818629866929,
+            "recall": 0.7221376627769321,
+            "f1": 0.7541726766948279
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 20471668,
+            "predicted": 20915075,
+            "reference": 21638607,
+            "precision": 0.9787996457100919,
+            "recall": 0.9460714361141639,
+            "f1": 0.9621573052127428
+          },
+          "background": {
+            "bp": 27874501,
+            "predicted_span_bp": 121667,
+            "predicted_CDS_bp": 46370,
+            "wholly_background_unique_chains": 37,
+            "span_FPR": 0.004364813562043676,
+            "wholly_background_chains_per_Mb": 1.3273780219419893
+          },
+          "prediction_records": 16232,
+          "duplicate_chain_records": 0,
+          "exact_other_assessable_isoform_not_primary_TP": 1404
+        },
+        "oryza_sativa": {
+          "exact_chain": {
+            "tp": 3285,
+            "predicted": 5385,
+            "reference": 4949,
+            "precision": 0.6100278551532033,
+            "recall": 0.6637704586785209,
+            "f1": 0.6357654344880975
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 5911813,
+            "predicted": 6576806,
+            "reference": 6749983,
+            "precision": 0.8988881533072437,
+            "recall": 0.8758263539330395,
+            "f1": 0.8872074135787698
+          },
+          "background": {
+            "bp": 53345031,
+            "predicted_span_bp": 488922,
+            "predicted_CDS_bp": 325713,
+            "wholly_background_unique_chains": 417,
+            "span_FPR": 0.009165277268280151,
+            "wholly_background_chains_per_Mb": 7.817035479836913
+          },
+          "prediction_records": 5385,
+          "duplicate_chain_records": 0,
+          "exact_other_assessable_isoform_not_primary_TP": 148
+        }
+      },
+      "pooled": {
+        "exact_chain": {
+          "tp": 16095,
+          "predicted": 21617,
+          "reference": 22688,
+          "precision": 0.7445528981819864,
+          "recall": 0.7094058533145275,
+          "f1": 0.7265545649475229
+        },
+        "CDS_base_unstranded_union": {
+          "tp": 26383481,
+          "predicted": 27491881,
+          "reference": 28388590,
+          "precision": 0.959682642304468,
+          "recall": 0.9293691937500242,
+          "f1": 0.944282699406739
+        },
+        "background": {
+          "bp": 81219532,
+          "predicted_span_bp": 610589,
+          "predicted_CDS_bp": 372083,
+          "wholly_background_unique_chains": 454,
+          "span_FPR": 0.007517760629302814,
+          "wholly_background_chains_per_Mb": 5.589788426754294
+        },
+        "prediction_records": 21617,
+        "duplicate_chain_records": 0,
+        "exact_other_assessable_isoform_not_primary_TP": 1552
+      },
+      "macro_species_exact_chain_F1": 0.6949690555914627,
+      "worst_species_exact_chain_F1": 0.6357654344880975,
+      "native_minus_original4608_F1_pp": {
+        "per_species": {
+          "arabidopsis_thaliana": 24.930178467604858,
+          "oryza_sativa": 35.29853515005457
+        },
+        "pooled": 27.065337556051468,
+        "macro_species": 30.11435680882971,
+        "worst_species": 35.29853515005457
+      }
+    },
+    "Helixer": {
+      "chromosomes": {
+        "NC_003070.9": {
+          "exact_chain": {
+            "tp": 4859,
+            "predicted": 7206,
+            "reference": 7135,
+            "precision": 0.6742991951151818,
+            "recall": 0.6810091100210232,
+            "f1": 0.6776375427097134
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 8611373,
+            "predicted": 9010584,
+            "reference": 8888873,
+            "precision": 0.955695324520586,
+            "recall": 0.9687811941963846,
+            "f1": 0.9621937693417181
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 501,
+          "prediction_records": 7206,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 10879240,
+            "predicted_span_bp": 114244,
+            "predicted_CDS_bp": 49347,
+            "span_FPR": 0.010501101179861829,
+            "wholly_background_unique_chains": 53,
+            "wholly_background_chains_per_Mb": 4.871663829458676
+          },
+          "prediction_nonexact_primary": 2347,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003070.9",
+          "length": 30427671,
+          "reference_primary_records": 7135,
+          "reference_assessable_isoform_records": 12622,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 43,
+            "split_terminal_codon": 11,
+            "same_strand_primary_overlap": 21,
+            "longer_than_native_window": 2
+          },
+          "phase_chain_consistent_prediction_records": 7206,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_003070.9/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_003070.9/summary.json",
+          "native_runtime_seconds": 451.46305582206696,
+          "native_GFF_feature_counts": {
+            "gene": 7206,
+            "mRNA": 7206,
+            "exon": 40321,
+            "five_prime_UTR": 8626,
+            "CDS": 38425,
+            "three_prime_UTR": 7632
+          },
+          "baseline_asset_receipt": {
+            "container_uri": "docker://gglyptodon/helixer-docker@sha256:e2294eb2c282c35b919933daa0d6c145b635bfac8b717dbff88e88accbde4303",
+            "native_metadata": {
+              "package": "helixer",
+              "version": "0.3.7",
+              "python": "3.10.12",
+              "source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+              "HelixerPost_source_commit": "4d4799bac4c05e574ae628040c5cb58eb4aa18fe"
+            },
+            "container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Helixer-0.3.7.sif",
+            "model_source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+            "selected_model": {
+              "lineage": "land_plant",
+              "priority": "80",
+              "download_link": "https://zenodo.org/records/10836346/files/land_plant_v0.3_a_0080.h5?download=1",
+              "model": "land_plant_v0.3_a_0080",
+              "model_file_name": "land_plant_v0.3_a_0080.h5",
+              "available_since": "2022/11/28",
+              "synonyms": ""
+            },
+            "model_selection": "lowest_official_land_plant_priority_not_DEV_score",
+            "weight": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/land_plant_v0.3_a_0080.h5",
+            "weight_bytes": 26098184,
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed"
+          }
+        },
+        "NC_003071.7": {
+          "exact_chain": {
+            "tp": 2814,
+            "predicted": 4175,
+            "reference": 4293,
+            "precision": 0.6740119760479042,
+            "recall": 0.6554856743535988,
+            "f1": 0.6646197449220596
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 4702851,
+            "predicted": 4976936,
+            "reference": 4955001,
+            "precision": 0.9449289683451827,
+            "recall": 0.9491120183426804,
+            "f1": 0.9470158741441875
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 282,
+          "prediction_records": 4175,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 7462671,
+            "predicted_span_bp": 92837,
+            "predicted_CDS_bp": 28424,
+            "span_FPR": 0.01244018395022372,
+            "wholly_background_unique_chains": 34,
+            "wholly_background_chains_per_Mb": 4.556009503835825
+          },
+          "prediction_nonexact_primary": 1361,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003071.7",
+          "length": 19698289,
+          "reference_primary_records": 4293,
+          "reference_assessable_isoform_records": 7572,
+          "retained_unsupported_reference_strata": {
+            "split_terminal_codon": 7,
+            "nonstandard_splice": 15,
+            "same_strand_primary_overlap": 2
+          },
+          "phase_chain_consistent_prediction_records": 4175,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_003071.7/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_003071.7/summary.json",
+          "native_runtime_seconds": 375.50993500405457,
+          "native_GFF_feature_counts": {
+            "gene": 4175,
+            "mRNA": 4175,
+            "exon": 22785,
+            "five_prime_UTR": 5032,
+            "CDS": 21641,
+            "three_prime_UTR": 4432
+          },
+          "baseline_asset_receipt": {
+            "container_uri": "docker://gglyptodon/helixer-docker@sha256:e2294eb2c282c35b919933daa0d6c145b635bfac8b717dbff88e88accbde4303",
+            "native_metadata": {
+              "package": "helixer",
+              "version": "0.3.7",
+              "python": "3.10.12",
+              "source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+              "HelixerPost_source_commit": "4d4799bac4c05e574ae628040c5cb58eb4aa18fe"
+            },
+            "container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Helixer-0.3.7.sif",
+            "model_source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+            "selected_model": {
+              "lineage": "land_plant",
+              "priority": "80",
+              "download_link": "https://zenodo.org/records/10836346/files/land_plant_v0.3_a_0080.h5?download=1",
+              "model": "land_plant_v0.3_a_0080",
+              "model_file_name": "land_plant_v0.3_a_0080.h5",
+              "available_since": "2022/11/28",
+              "synonyms": ""
+            },
+            "model_selection": "lowest_official_land_plant_priority_not_DEV_score",
+            "weight": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/land_plant_v0.3_a_0080.h5",
+            "weight_bytes": 26098184,
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed"
+          }
+        },
+        "NC_003076.8": {
+          "exact_chain": {
+            "tp": 4385,
+            "predicted": 6281,
+            "reference": 6311,
+            "precision": 0.6981372392931062,
+            "recall": 0.694818570749485,
+            "f1": 0.6964739517153749
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 7543662,
+            "predicted": 7829472,
+            "reference": 7794733,
+            "precision": 0.963495622693331,
+            "recall": 0.9677896600178608,
+            "f1": 0.9656378676547063
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 414,
+          "prediction_records": 6281,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 9532590,
+            "predicted_span_bp": 109516,
+            "predicted_CDS_bp": 38537,
+            "span_FPR": 0.011488588096204705,
+            "wholly_background_unique_chains": 51,
+            "wholly_background_chains_per_Mb": 5.350067505263523
+          },
+          "prediction_nonexact_primary": 1896,
+          "species": "arabidopsis_thaliana",
+          "seqid": "NC_003076.8",
+          "length": 26975502,
+          "reference_primary_records": 6311,
+          "reference_assessable_isoform_records": 10963,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 26,
+            "same_strand_primary_overlap": 14,
+            "split_terminal_codon": 7
+          },
+          "phase_chain_consistent_prediction_records": 6281,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_003076.8/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_003076.8/summary.json",
+          "native_runtime_seconds": 424.90262281603646,
+          "native_GFF_feature_counts": {
+            "gene": 6281,
+            "mRNA": 6281,
+            "exon": 34968,
+            "five_prime_UTR": 7501,
+            "CDS": 33372,
+            "three_prime_UTR": 6611
+          },
+          "baseline_asset_receipt": {
+            "container_uri": "docker://gglyptodon/helixer-docker@sha256:e2294eb2c282c35b919933daa0d6c145b635bfac8b717dbff88e88accbde4303",
+            "native_metadata": {
+              "package": "helixer",
+              "version": "0.3.7",
+              "python": "3.10.12",
+              "source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+              "HelixerPost_source_commit": "4d4799bac4c05e574ae628040c5cb58eb4aa18fe"
+            },
+            "container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Helixer-0.3.7.sif",
+            "model_source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+            "selected_model": {
+              "lineage": "land_plant",
+              "priority": "80",
+              "download_link": "https://zenodo.org/records/10836346/files/land_plant_v0.3_a_0080.h5?download=1",
+              "model": "land_plant_v0.3_a_0080",
+              "model_file_name": "land_plant_v0.3_a_0080.h5",
+              "available_since": "2022/11/28",
+              "synonyms": ""
+            },
+            "model_selection": "lowest_official_land_plant_priority_not_DEV_score",
+            "weight": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/land_plant_v0.3_a_0080.h5",
+            "weight_bytes": 26098184,
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed"
+          }
+        },
+        "NC_089043.1": {
+          "exact_chain": {
+            "tp": 1030,
+            "predicted": 2227,
+            "reference": 1638,
+            "precision": 0.4625056129321958,
+            "recall": 0.6288156288156288,
+            "f1": 0.5329883570504528
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2020885,
+            "predicted": 2614223,
+            "reference": 2174304,
+            "precision": 0.7730346646020634,
+            "recall": 0.9294399495194784,
+            "f1": 0.8440528788915673
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 44,
+          "prediction_records": 2227,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 17112812,
+            "predicted_span_bp": 775160,
+            "predicted_CDS_bp": 382363,
+            "span_FPR": 0.04529705579655757,
+            "wholly_background_unique_chains": 415,
+            "wholly_background_chains_per_Mb": 24.25083615714355
+          },
+          "prediction_nonexact_primary": 1197,
+          "species": "oryza_sativa",
+          "seqid": "NC_089043.1",
+          "length": 27474823,
+          "reference_primary_records": 1638,
+          "reference_assessable_isoform_records": 2242,
+          "retained_unsupported_reference_strata": {
+            "split_terminal_codon": 2,
+            "nonstandard_splice": 23,
+            "same_strand_primary_overlap": 2
+          },
+          "phase_chain_consistent_prediction_records": 2227,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_089043.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_089043.1/summary.json",
+          "native_runtime_seconds": 453.1945558079751,
+          "native_GFF_feature_counts": {
+            "gene": 2227,
+            "mRNA": 2227,
+            "exon": 11441,
+            "five_prime_UTR": 2688,
+            "CDS": 10417,
+            "three_prime_UTR": 2743
+          },
+          "baseline_asset_receipt": {
+            "container_uri": "docker://gglyptodon/helixer-docker@sha256:e2294eb2c282c35b919933daa0d6c145b635bfac8b717dbff88e88accbde4303",
+            "native_metadata": {
+              "package": "helixer",
+              "version": "0.3.7",
+              "python": "3.10.12",
+              "source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+              "HelixerPost_source_commit": "4d4799bac4c05e574ae628040c5cb58eb4aa18fe"
+            },
+            "container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Helixer-0.3.7.sif",
+            "model_source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+            "selected_model": {
+              "lineage": "land_plant",
+              "priority": "80",
+              "download_link": "https://zenodo.org/records/10836346/files/land_plant_v0.3_a_0080.h5?download=1",
+              "model": "land_plant_v0.3_a_0080",
+              "model_file_name": "land_plant_v0.3_a_0080.h5",
+              "available_since": "2022/11/28",
+              "synonyms": ""
+            },
+            "model_selection": "lowest_official_land_plant_priority_not_DEV_score",
+            "weight": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/land_plant_v0.3_a_0080.h5",
+            "weight_bytes": 26098184,
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed"
+          }
+        },
+        "NC_089044.1": {
+          "exact_chain": {
+            "tp": 1004,
+            "predicted": 2353,
+            "reference": 1601,
+            "precision": 0.4266893327666808,
+            "recall": 0.6271080574640849,
+            "f1": 0.5078401618614061
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2020204,
+            "predicted": 2696702,
+            "reference": 2191200,
+            "precision": 0.7491387628295599,
+            "recall": 0.9219623950346842,
+            "f1": 0.8266139542077562
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 39,
+          "prediction_records": 2353,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 16265607,
+            "predicted_span_bp": 741485,
+            "predicted_CDS_bp": 433187,
+            "span_FPR": 0.04558606389543286,
+            "wholly_background_unique_chains": 482,
+            "wholly_background_chains_per_Mb": 29.633077941696243
+          },
+          "prediction_nonexact_primary": 1349,
+          "species": "oryza_sativa",
+          "seqid": "NC_089044.1",
+          "length": 23931887,
+          "reference_primary_records": 1601,
+          "reference_assessable_isoform_records": 2203,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 37,
+            "longer_than_native_window": 7,
+            "split_terminal_codon": 3
+          },
+          "phase_chain_consistent_prediction_records": 2353,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_089044.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_089044.1/summary.json",
+          "native_runtime_seconds": 445.38991553802043,
+          "native_GFF_feature_counts": {
+            "gene": 2353,
+            "mRNA": 2353,
+            "exon": 11273,
+            "five_prime_UTR": 2826,
+            "CDS": 10119,
+            "three_prime_UTR": 2960
+          },
+          "baseline_asset_receipt": {
+            "container_uri": "docker://gglyptodon/helixer-docker@sha256:e2294eb2c282c35b919933daa0d6c145b635bfac8b717dbff88e88accbde4303",
+            "native_metadata": {
+              "package": "helixer",
+              "version": "0.3.7",
+              "python": "3.10.12",
+              "source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+              "HelixerPost_source_commit": "4d4799bac4c05e574ae628040c5cb58eb4aa18fe"
+            },
+            "container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Helixer-0.3.7.sif",
+            "model_source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+            "selected_model": {
+              "lineage": "land_plant",
+              "priority": "80",
+              "download_link": "https://zenodo.org/records/10836346/files/land_plant_v0.3_a_0080.h5?download=1",
+              "model": "land_plant_v0.3_a_0080",
+              "model_file_name": "land_plant_v0.3_a_0080.h5",
+              "available_since": "2022/11/28",
+              "synonyms": ""
+            },
+            "model_selection": "lowest_official_land_plant_priority_not_DEV_score",
+            "weight": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/land_plant_v0.3_a_0080.h5",
+            "weight_bytes": 26098184,
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed"
+          }
+        },
+        "NC_089046.1": {
+          "exact_chain": {
+            "tp": 999,
+            "predicted": 2532,
+            "reference": 1710,
+            "precision": 0.39454976303317535,
+            "recall": 0.5842105263157895,
+            "f1": 0.471004243281471
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 2132382,
+            "predicted": 2967673,
+            "reference": 2384479,
+            "precision": 0.7185367120973234,
+            "recall": 0.8942758564868888,
+            "f1": 0.7968316295949741
+          },
+          "exact_other_assessable_isoform_not_primary_TP": 59,
+          "prediction_records": 2532,
+          "duplicate_chain_records": 0,
+          "background": {
+            "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+            "bp": 19966612,
+            "predicted_span_bp": 1101394,
+            "predicted_CDS_bp": 558499,
+            "span_FPR": 0.05516178708736365,
+            "wholly_background_unique_chains": 579,
+            "wholly_background_chains_per_Mb": 28.99840994556312
+          },
+          "prediction_nonexact_primary": 1533,
+          "species": "oryza_sativa",
+          "seqid": "NC_089046.1",
+          "length": 28271460,
+          "reference_primary_records": 1710,
+          "reference_assessable_isoform_records": 2550,
+          "retained_unsupported_reference_strata": {
+            "nonstandard_splice": 34,
+            "same_strand_primary_overlap": 2,
+            "split_terminal_codon": 2
+          },
+          "phase_chain_consistent_prediction_records": 2532,
+          "raw_prediction_path": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_089046.1/prediction.gff3",
+          "native_run_receipt": "outputs/M28-NATIVE-TRAIN-BASELINES/Helixer/NC_089046.1/summary.json",
+          "native_runtime_seconds": 450.03811207495164,
+          "native_GFF_feature_counts": {
+            "gene": 2532,
+            "mRNA": 2532,
+            "exon": 12695,
+            "five_prime_UTR": 3205,
+            "CDS": 11319,
+            "three_prime_UTR": 3146
+          },
+          "baseline_asset_receipt": {
+            "container_uri": "docker://gglyptodon/helixer-docker@sha256:e2294eb2c282c35b919933daa0d6c145b635bfac8b717dbff88e88accbde4303",
+            "native_metadata": {
+              "package": "helixer",
+              "version": "0.3.7",
+              "python": "3.10.12",
+              "source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+              "HelixerPost_source_commit": "4d4799bac4c05e574ae628040c5cb58eb4aa18fe"
+            },
+            "container_path": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/Helixer-0.3.7.sif",
+            "model_source_commit": "d17bb496b8842542590644b2437798711c0125d5",
+            "selected_model": {
+              "lineage": "land_plant",
+              "priority": "80",
+              "download_link": "https://zenodo.org/records/10836346/files/land_plant_v0.3_a_0080.h5?download=1",
+              "model": "land_plant_v0.3_a_0080",
+              "model_file_name": "land_plant_v0.3_a_0080.h5",
+              "available_since": "2022/11/28",
+              "synonyms": ""
+            },
+            "model_selection": "lowest_official_land_plant_priority_not_DEV_score",
+            "weight": "outputs/M28-NATIVE-BASELINE-PREP-R2/assets/land_plant_v0.3_a_0080.h5",
+            "weight_bytes": 26098184,
+            "download_HTTP_receipt": "not_persisted_before_PREP_R2_failure; not reconstructed"
+          }
+        }
+      },
+      "per_species": {
+        "arabidopsis_thaliana": {
+          "exact_chain": {
+            "tp": 12058,
+            "predicted": 17662,
+            "reference": 17739,
+            "precision": 0.682708640018118,
+            "recall": 0.6797451942048593,
+            "f1": 0.6812236942459252
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 20857886,
+            "predicted": 21816992,
+            "reference": 21638607,
+            "precision": 0.9560385776371004,
+            "recall": 0.9639199972530579,
+            "f1": 0.9599631108525278
+          },
+          "background": {
+            "bp": 27874501,
+            "predicted_span_bp": 316597,
+            "predicted_CDS_bp": 116308,
+            "wholly_background_unique_chains": 138,
+            "span_FPR": 0.011357943232777513,
+            "wholly_background_chains_per_Mb": 4.950761271026878
+          },
+          "prediction_records": 17662,
+          "duplicate_chain_records": 0,
+          "exact_other_assessable_isoform_not_primary_TP": 1197
+        },
+        "oryza_sativa": {
+          "exact_chain": {
+            "tp": 3033,
+            "predicted": 7112,
+            "reference": 4949,
+            "precision": 0.4264623172103487,
+            "recall": 0.61285108102647,
+            "f1": 0.5029433711964182
+          },
+          "CDS_base_unstranded_union": {
+            "tp": 6173471,
+            "predicted": 8278598,
+            "reference": 6749983,
+            "precision": 0.7457145521500138,
+            "recall": 0.9145905997096585,
+            "f1": 0.8215640585095825
+          },
+          "background": {
+            "bp": 53345031,
+            "predicted_span_bp": 2618039,
+            "predicted_CDS_bp": 1374049,
+            "wholly_background_unique_chains": 1476,
+            "span_FPR": 0.049077467027809955,
+            "wholly_background_chains_per_Mb": 27.668931338703317
+          },
+          "prediction_records": 7112,
+          "duplicate_chain_records": 0,
+          "exact_other_assessable_isoform_not_primary_TP": 142
+        }
+      },
+      "pooled": {
+        "exact_chain": {
+          "tp": 15091,
+          "predicted": 24774,
+          "reference": 22688,
+          "precision": 0.609146686041818,
+          "recall": 0.6651533850493653,
+          "f1": 0.6359192617251697
+        },
+        "CDS_base_unstranded_union": {
+          "tp": 27031357,
+          "predicted": 30095590,
+          "reference": 28388590,
+          "precision": 0.8981833218753977,
+          "recall": 0.9521908978219771,
+          "f1": 0.9243989400210451
+        },
+        "background": {
+          "bp": 81219532,
+          "predicted_span_bp": 2934636,
+          "predicted_CDS_bp": 1490357,
+          "wholly_background_unique_chains": 1614,
+          "span_FPR": 0.036132146144353554,
+          "wholly_background_chains_per_Mb": 19.872067226390815
+        },
+        "prediction_records": 24774,
+        "duplicate_chain_records": 0,
+        "exact_other_assessable_isoform_not_primary_TP": 1339
+      },
+      "macro_species_exact_chain_F1": 0.5920835327211718,
+      "worst_species_exact_chain_F1": 0.5029433711964182,
+      "native_minus_original4608_F1_pp": {
+        "per_species": {
+          "arabidopsis_thaliana": 17.635280222714588,
+          "oryza_sativa": 22.01632882088663
+        },
+        "pooled": 18.00180723381614,
+        "macro_species": 19.825804521800617,
+        "worst_species": 22.01632882088663
+      }
+    }
+  },
+  "evaluation_seconds": 63.54207399091683
+}

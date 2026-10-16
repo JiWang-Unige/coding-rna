@@ -1,0 +1,525 @@
+{
+  "stage": "WT_native_cache_replay_only",
+  "target_count": 21,
+  "training_runs": 0,
+  "mutant_inference_runs": 0,
+  "methods": {
+    "ANNEVO": {
+      "native_transcripts": 530,
+      "replay_transcripts": 530,
+      "native_unique_chains_phase": 530,
+      "replay_unique_chains_phase": 530,
+      "whole_chr_chain_strand_phase_equal": true,
+      "native_only_records": 0,
+      "replay_only_records": 0,
+      "WT_exact_unique": 12,
+      "WT_not_exact": 9,
+      "WT_ambiguous_duplicate_exact": 0,
+      "conditional_analysis_has_WT_targets": true
+    },
+    "Tiberius": {
+      "native_transcripts": 575,
+      "replay_transcripts": 575,
+      "native_unique_chains_phase": 575,
+      "replay_unique_chains_phase": 575,
+      "whole_chr_chain_strand_phase_equal": true,
+      "native_only_records": 0,
+      "replay_only_records": 0,
+      "WT_exact_unique": 10,
+      "WT_not_exact": 11,
+      "WT_ambiguous_duplicate_exact": 0,
+      "conditional_analysis_has_WT_targets": true
+    }
+  },
+  "targets": [
+    {
+      "gene_id": "ENSG00000198062.16",
+      "gene_name": "POTEH",
+      "reference_transcript": "ENST00000343518.11",
+      "strand": "+",
+      "position_1based": 15695752,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g8.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g20.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000172967.8",
+      "gene_name": "XKR3",
+      "reference_transcript": "ENST00000331428.5",
+      "strand": "-",
+      "position_1based": 16799808,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g275.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g34.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000283809.1",
+      "gene_name": "ENSG00000283809",
+      "reference_transcript": "ENST00000638240.1",
+      "strand": "+",
+      "position_1based": 18906691,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000063515.3",
+      "gene_name": "GSC2",
+      "reference_transcript": "ENST00000086933.3",
+      "strand": "-",
+      "position_1based": 19149726,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g299.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g73.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000187905.11",
+      "gene_name": "LRRC74B",
+      "reference_transcript": "ENST00000442047.3",
+      "strand": "+",
+      "position_1based": 21053395,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g50.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g117.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000276950.6",
+      "gene_name": "GSTT4",
+      "reference_transcript": "ENST00000621179.6",
+      "strand": "-",
+      "position_1based": 24000153,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g357.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000244752.4",
+      "gene_name": "CRYBB2",
+      "reference_transcript": "ENST00000398215.3",
+      "strand": "+",
+      "position_1based": 25227916,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g93.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000100122.8",
+      "gene_name": "CRYBB1",
+      "reference_transcript": "ENST00000647684.1",
+      "strand": "-",
+      "position_1based": 26607928,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g369.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g261.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000196431.4",
+      "gene_name": "CRYBA4",
+      "reference_transcript": "ENST00000354760.4",
+      "strand": "+",
+      "position_1based": 26625580,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g262.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000100285.10",
+      "gene_name": "NEFH",
+      "reference_transcript": "ENST00000310624.7",
+      "strand": "+",
+      "position_1based": 29485794,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g113.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g284.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000285404.1",
+      "gene_name": "ENSG00000285404",
+      "reference_transcript": "ENST00000646701.1",
+      "strand": "+",
+      "position_1based": 31783939,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000128253.16",
+      "gene_name": "RFPL2",
+      "reference_transcript": "ENST00000248983.8",
+      "strand": "-",
+      "position_1based": 32193137,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000100191.6",
+      "gene_name": "SLC5A4",
+      "reference_transcript": "ENST00000266086.6",
+      "strand": "-",
+      "position_1based": 32232963,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g407.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g333.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000128313.2",
+      "gene_name": "APOL5",
+      "reference_transcript": "ENST00000249044.2",
+      "strand": "+",
+      "position_1based": 35726806,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000166862.7",
+      "gene_name": "CACNG2",
+      "reference_transcript": "ENST00000300105.7",
+      "strand": "-",
+      "position_1based": 36566405,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g425.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g361.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000283900.1",
+      "gene_name": "TPTEP2-CSNK1E",
+      "reference_transcript": "ENST00000400206.7",
+      "strand": "-",
+      "position_1based": 38300016,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000128383.14",
+      "gene_name": "APOBEC3A",
+      "reference_transcript": "ENST00000249116.7",
+      "strand": "+",
+      "position_1based": 38961482,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g182.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000284554.2",
+      "gene_name": "ENSG00000284554",
+      "reference_transcript": "ENST00000381568.9",
+      "strand": "+",
+      "position_1based": 39025618,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000176177.10",
+      "gene_name": "ENTHD1",
+      "reference_transcript": "ENST00000325157.7",
+      "strand": "-",
+      "position_1based": 39765284,
+      "ANNEVO": {
+        "exact_prediction_ids": [
+          "chr22-g463.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [
+          "g437.t1"
+        ],
+        "exact_count": 1,
+        "unique_WT_exact": true,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000138944.8",
+      "gene_name": "SHISAL1",
+      "reference_transcript": "ENST00000381176.5",
+      "strand": "-",
+      "position_1based": 44296746,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    },
+    {
+      "gene_id": "ENSG00000138892.12",
+      "gene_name": "TTLL8",
+      "reference_transcript": "ENST00000433387.2",
+      "strand": "-",
+      "position_1based": 50033351,
+      "ANNEVO": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      },
+      "Tiberius": {
+        "exact_prediction_ids": [],
+        "exact_count": 0,
+        "unique_WT_exact": false,
+        "ambiguous_duplicate_exact": false
+      }
+    }
+  ],
+  "Tiberius_trace": {
+    "trace_equal": true,
+    "requests": 4,
+    "stage_counts": {
+      "initial": 2,
+      "repredict": 2
+    },
+    "native_neural_forward_calls": 4,
+    "replay_neural_forward_calls": 0,
+    "native_seconds": 438.80689736967906,
+    "replay_seconds": 117.18737587612122,
+    "cache_bytes": 8641081024,
+    "filters": [
+      {
+        "name": "check_min_coding_length",
+        "before": 706,
+        "after": 585
+      },
+      {
+        "name": "check_inframe_stop_codons",
+        "before": 585,
+        "after": 575
+      }
+    ]
+  },
+  "ANNEVO_cache": {
+    "shapes": {
+      "predictions_forward": [
+        50818468,
+        15
+      ],
+      "predictions_reverse": [
+        50818468,
+        15
+      ]
+    },
+    "dtypes": {
+      "predictions_forward": "float16",
+      "predictions_reverse": "float16"
+    },
+    "bytes": 3049112560
+  },
+  "common_WT_exact_unique": 9,
+  "output_bytes": 11698486113,
+  "failure_reasons": [],
+  "replay_qualified": true
+}

@@ -1,0 +1,384 @@
+{
+  "completed": true,
+  "status": "original_TRAIN_end_to_end_diagnostic_not_DEV_or_generalization",
+  "job_id": "13443329",
+  "checkpoint": "/srv/beegfs/scratch/shares/ds4dh/common/coding-rna/outputs/M28-FULL-GRAMMAR-COARSE-CHANNEL-FIRST-FIT/step_004608.pt",
+  "reference_policy": "M26_CDS_assessable_longest_eligible_CDS_tie_transcript_ID",
+  "reference_used_in_inference": false,
+  "training_eligibility_does_not_filter_reference": true,
+  "unsupported_reference_strata_retained": true,
+  "DEV_used": false,
+  "sealed_data_used": false,
+  "optimizer_steps_this_run": 0,
+  "chromosomes": {
+    "NC_003070.9": {
+      "exact_chain": {
+        "tp": 3454,
+        "predicted": 6645,
+        "reference": 7135,
+        "precision": 0.5197893152746426,
+        "recall": 0.48409250175192714,
+        "f1": 0.5013062409288824
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 7864091,
+        "predicted": 8037754,
+        "reference": 8888873,
+        "precision": 0.978394088696917,
+        "recall": 0.8847118189223763,
+        "f1": 0.9291976481788132
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 285,
+      "prediction_records": 6645,
+      "duplicate_chain_records": 0,
+      "background": {
+        "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+        "bp": 10879240,
+        "predicted_span_bp": 40142,
+        "predicted_CDS_bp": 13815,
+        "span_FPR": 0.0036897798007949085,
+        "wholly_background_unique_chains": 8,
+        "wholly_background_chains_per_Mb": 0.7353454836918756
+      },
+      "prediction_nonexact_primary": 3191,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003070.9",
+      "length": 30427671,
+      "reference_primary_records": 7135,
+      "reference_assessable_isoform_records": 12622,
+      "retained_unsupported_reference_strata": {
+        "nonstandard_splice": 43,
+        "split_terminal_codon": 11,
+        "same_strand_primary_overlap": 21,
+        "longer_than_native_window": 2
+      },
+      "raw_prediction_path": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW/NC_003070.9/prediction/full_grammar.gff3",
+      "phase_checked_prediction_records": 6645,
+      "raw_inference_loop_seconds": 2267.4996817719657,
+      "native_encoding_seconds": 1621.0448876930168,
+      "joint_decoding_seconds": 645.2899396060966
+    },
+    "NC_003071.7": {
+      "exact_chain": {
+        "tp": 1995,
+        "predicted": 3835,
+        "reference": 4293,
+        "precision": 0.5202086049543677,
+        "recall": 0.4647099930118798,
+        "f1": 0.4908956692913386
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 4366190,
+        "predicted": 4471649,
+        "reference": 4955001,
+        "precision": 0.9764160827471029,
+        "recall": 0.8811683388156732,
+        "f1": 0.926350294112967
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 191,
+      "prediction_records": 3835,
+      "duplicate_chain_records": 0,
+      "background": {
+        "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+        "bp": 7462671,
+        "predicted_span_bp": 31267,
+        "predicted_CDS_bp": 7242,
+        "span_FPR": 0.004189786739895139,
+        "wholly_background_unique_chains": 2,
+        "wholly_background_chains_per_Mb": 0.2680005590491662
+      },
+      "prediction_nonexact_primary": 1840,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003071.7",
+      "length": 19698289,
+      "reference_primary_records": 4293,
+      "reference_assessable_isoform_records": 7572,
+      "retained_unsupported_reference_strata": {
+        "split_terminal_codon": 7,
+        "nonstandard_splice": 15,
+        "same_strand_primary_overlap": 2
+      },
+      "raw_prediction_path": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW/NC_003071.7/prediction/full_grammar.gff3",
+      "phase_checked_prediction_records": 3835,
+      "raw_inference_loop_seconds": 1441.308827911038,
+      "native_encoding_seconds": 1046.5138309829636,
+      "joint_decoding_seconds": 394.1123505529249
+    },
+    "NC_003076.8": {
+      "exact_chain": {
+        "tp": 3154,
+        "predicted": 5861,
+        "reference": 6311,
+        "precision": 0.5381334243303191,
+        "recall": 0.4997623197591507,
+        "f1": 0.5182385803483405
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 6957892,
+        "predicted": 7079279,
+        "reference": 7794733,
+        "precision": 0.9828531973383166,
+        "recall": 0.8926401969124536,
+        "f1": 0.9355770319400039
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 242,
+      "prediction_records": 5861,
+      "duplicate_chain_records": 0,
+      "background": {
+        "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+        "bp": 9532590,
+        "predicted_span_bp": 39789,
+        "predicted_CDS_bp": 8891,
+        "span_FPR": 0.0041739967836652994,
+        "wholly_background_unique_chains": 5,
+        "wholly_background_chains_per_Mb": 0.5245164220846591
+      },
+      "prediction_nonexact_primary": 2707,
+      "species": "arabidopsis_thaliana",
+      "seqid": "NC_003076.8",
+      "length": 26975502,
+      "reference_primary_records": 6311,
+      "reference_assessable_isoform_records": 10963,
+      "retained_unsupported_reference_strata": {
+        "nonstandard_splice": 26,
+        "same_strand_primary_overlap": 14,
+        "split_terminal_codon": 7
+      },
+      "raw_prediction_path": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW/NC_003076.8/prediction/full_grammar.gff3",
+      "phase_checked_prediction_records": 5861,
+      "raw_inference_loop_seconds": 2006.9079555040225,
+      "native_encoding_seconds": 1425.629937818041,
+      "joint_decoding_seconds": 580.1070936159231
+    },
+    "NC_089043.1": {
+      "exact_chain": {
+        "tp": 463,
+        "predicted": 1575,
+        "reference": 1638,
+        "precision": 0.293968253968254,
+        "recall": 0.28266178266178266,
+        "f1": 0.2882041705571117
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 1604239,
+        "predicted": 1689335,
+        "reference": 2174304,
+        "precision": 0.9496275161528057,
+        "recall": 0.7378172509455899,
+        "f1": 0.8304290333543066
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 7,
+      "prediction_records": 1575,
+      "duplicate_chain_records": 0,
+      "background": {
+        "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+        "bp": 17112812,
+        "predicted_span_bp": 102740,
+        "predicted_CDS_bp": 21086,
+        "span_FPR": 0.006003688932011875,
+        "wholly_background_unique_chains": 35,
+        "wholly_background_chains_per_Mb": 2.045251242168733
+      },
+      "prediction_nonexact_primary": 1112,
+      "species": "oryza_sativa",
+      "seqid": "NC_089043.1",
+      "length": 27474823,
+      "reference_primary_records": 1638,
+      "reference_assessable_isoform_records": 2242,
+      "retained_unsupported_reference_strata": {
+        "split_terminal_codon": 2,
+        "nonstandard_splice": 23,
+        "same_strand_primary_overlap": 2
+      },
+      "raw_prediction_path": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW/NC_089043.1/prediction/full_grammar.gff3",
+      "phase_checked_prediction_records": 1575,
+      "raw_inference_loop_seconds": 2061.1125632979674,
+      "native_encoding_seconds": 1534.9751219740137,
+      "joint_decoding_seconds": 525.6344220059691
+    },
+    "NC_089044.1": {
+      "exact_chain": {
+        "tp": 481,
+        "predicted": 1545,
+        "reference": 1601,
+        "precision": 0.31132686084142397,
+        "recall": 0.3004372267332917,
+        "f1": 0.30578512396694213
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 1575340,
+        "predicted": 1674024,
+        "reference": 2191200,
+        "precision": 0.9410498296320722,
+        "recall": 0.718939393939394,
+        "f1": 0.8151351642233413
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 11,
+      "prediction_records": 1545,
+      "duplicate_chain_records": 0,
+      "background": {
+        "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+        "bp": 16265607,
+        "predicted_span_bp": 115507,
+        "predicted_CDS_bp": 47396,
+        "span_FPR": 0.007101302767243792,
+        "wholly_background_unique_chains": 54,
+        "wholly_background_chains_per_Mb": 3.319888400107048
+      },
+      "prediction_nonexact_primary": 1064,
+      "species": "oryza_sativa",
+      "seqid": "NC_089044.1",
+      "length": 23931887,
+      "reference_primary_records": 1601,
+      "reference_assessable_isoform_records": 2203,
+      "retained_unsupported_reference_strata": {
+        "nonstandard_splice": 37,
+        "longer_than_native_window": 7,
+        "split_terminal_codon": 3
+      },
+      "raw_prediction_path": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW/NC_089044.1/prediction/full_grammar.gff3",
+      "phase_checked_prediction_records": 1545,
+      "raw_inference_loop_seconds": 1884.8804494679207,
+      "native_encoding_seconds": 1426.6232793589588,
+      "joint_decoding_seconds": 457.4694855279522
+    },
+    "NC_089046.1": {
+      "exact_chain": {
+        "tp": 419,
+        "predicted": 1571,
+        "reference": 1710,
+        "precision": 0.26670910248249524,
+        "recall": 0.24502923976608187,
+        "f1": 0.25540993599512346
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 1596079,
+        "predicted": 1700125,
+        "reference": 2384479,
+        "precision": 0.9388009705168737,
+        "recall": 0.6693617347856702,
+        "f1": 0.7815097865056196
+      },
+      "exact_other_assessable_isoform_not_primary_TP": 12,
+      "prediction_records": 1571,
+      "duplicate_chain_records": 0,
+      "background": {
+        "definition": "outside_all_annotated_gene_feature_spans_either_strand",
+        "bp": 19966612,
+        "predicted_span_bp": 172359,
+        "predicted_CDS_bp": 36674,
+        "span_FPR": 0.008632360863225068,
+        "wholly_background_unique_chains": 58,
+        "wholly_background_chains_per_Mb": 2.904849355514095
+      },
+      "prediction_nonexact_primary": 1152,
+      "species": "oryza_sativa",
+      "seqid": "NC_089046.1",
+      "length": 28271460,
+      "reference_primary_records": 1710,
+      "reference_assessable_isoform_records": 2550,
+      "retained_unsupported_reference_strata": {
+        "nonstandard_splice": 34,
+        "same_strand_primary_overlap": 2,
+        "split_terminal_codon": 2
+      },
+      "raw_prediction_path": "outputs/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW/NC_089046.1/prediction/full_grammar.gff3",
+      "phase_checked_prediction_records": 1571,
+      "raw_inference_loop_seconds": 2137.386252291035,
+      "native_encoding_seconds": 1595.509587005945,
+      "joint_decoding_seconds": 541.2639098430518
+    }
+  },
+  "per_species": {
+    "arabidopsis_thaliana": {
+      "exact_chain": {
+        "tp": 8603,
+        "predicted": 16341,
+        "reference": 17739,
+        "precision": 0.5264671684719417,
+        "recall": 0.4849766052201364,
+        "f1": 0.5048708920187793
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 19188173,
+        "predicted": 19588682,
+        "reference": 21638607,
+        "precision": 0.9795540608602458,
+        "recall": 0.8867563887083859,
+        "f1": 0.9308481573940018
+      },
+      "background": {
+        "bp": 27874501,
+        "predicted_span_bp": 111198,
+        "predicted_CDS_bp": 29948,
+        "wholly_background_unique_chains": 15,
+        "span_FPR": 0.003989237331997441,
+        "wholly_background_chains_per_Mb": 0.5381262251116172
+      },
+      "prediction_records": 16341,
+      "duplicate_chain_records": 0,
+      "exact_other_assessable_isoform_not_primary_TP": 718
+    },
+    "oryza_sativa": {
+      "exact_chain": {
+        "tp": 1363,
+        "predicted": 4691,
+        "reference": 4949,
+        "precision": 0.2905563845661906,
+        "recall": 0.2754091735704183,
+        "f1": 0.28278008298755186
+      },
+      "CDS_base_unstranded_union": {
+        "tp": 4775658,
+        "predicted": 5063484,
+        "reference": 6749983,
+        "precision": 0.9431565301677659,
+        "recall": 0.7075066707575411,
+        "f1": 0.8085108292087327
+      },
+      "background": {
+        "bp": 53345031,
+        "predicted_span_bp": 390606,
+        "predicted_CDS_bp": 105156,
+        "wholly_background_unique_chains": 147,
+        "span_FPR": 0.007322256500328962,
+        "wholly_background_chains_per_Mb": 2.7556456008058183
+      },
+      "prediction_records": 4691,
+      "duplicate_chain_records": 0,
+      "exact_other_assessable_isoform_not_primary_TP": 30
+    }
+  },
+  "pooled": {
+    "exact_chain": {
+      "tp": 9966,
+      "predicted": 21032,
+      "reference": 22688,
+      "precision": 0.47384937238493724,
+      "recall": 0.43926304654442877,
+      "f1": 0.45590118938700824
+    },
+    "CDS_base_unstranded_union": {
+      "tp": 23963831,
+      "predicted": 24652166,
+      "reference": 28388590,
+      "precision": 0.9720781127305406,
+      "recall": 0.8441360067548265,
+      "f1": 0.9036006575773543
+    },
+    "background": {
+      "bp": 81219532,
+      "predicted_span_bp": 501804,
+      "predicted_CDS_bp": 135104,
+      "wholly_background_unique_chains": 162,
+      "span_FPR": 0.0061783660610110385,
+      "wholly_background_chains_per_Mb": 1.9945941082251004
+    },
+    "prediction_records": 21032,
+    "duplicate_chain_records": 0,
+    "exact_other_assessable_isoform_not_primary_TP": 748
+  },
+  "macro_species_exact_chain_F1": 0.3938254875031656,
+  "worst_species_exact_chain_F1": 0.28278008298755186,
+  "evaluation_seconds": 43.583332623005845
+}
