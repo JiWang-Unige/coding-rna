@@ -1,0 +1,17 @@
+# Pinned environment of the frozen M28 full-grammar reference pipeline
+# (conda env `generanno` on Baobab; Python 3.10.x, CUDA 12.1 build of PyTorch).
+torch==2.5.1
+transformers==4.49.0
+tokenizers==0.21.4
+peft==0.19.1
+accelerate==1.10.1
+numba==0.62.1
+numpy==2.2.6
+scipy==1.15.3
+pandas==2.3.1
+pyfaidx==0.9.0.3
+biopython
+einops==0.8.1
+safetensors==0.6.2
+huggingface-hub==0.35.3
+pytest

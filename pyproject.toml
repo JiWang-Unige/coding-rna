@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cdsgram"                    # placeholder name, see docs/review_20261016/07_revised_claims_and_plan.md
+version = "0.0.0"
+description = "Genomic-language-model gene annotation with a complete-CDS grammar CRF (skeleton; new code goes here)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "scipy",
+]
+
+[project.optional-dependencies]
+# Full frozen environment: environment/requirements-generanno.txt
+model = ["torch", "transformers", "peft", "safetensors", "huggingface-hub"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# The frozen M28 pipeline is not installed as a package; it is imported through
+# the same three directories that the Slurm scripts put on PYTHONPATH.
+pythonpath = ["pipeline/m28", "pipeline/m28/scripts", "tests"]
+testpaths = ["tests"]

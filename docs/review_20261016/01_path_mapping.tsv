@@ -1,0 +1,252 @@
+old_path_or_glob	new_path	category	note
+src/m28/core.py	src/cdsgram/model/role_head.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] M28Core("C0")：SharedContext(Linear→BiGRU→DNA卷积→融合)+15 角色线性头，366,191 参数；B1 分支(ChainHead/endpoint)已废弃应删除
+src/m28/training.py	src/cdsgram/data/encoding.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] 最终管线仅用 one_hot；其余 balanced_binary_loss/joint_losses/inject_training 属旧 B1 链模型，废弃
+src/m28/export.py	src/cdsgram/data/gff.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] as_transcript/write_gff3：gene/mRNA/exon/CDS GFF3 输出
+src/m28/c0_decode.py	src/cdsgram/decoder/coords.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] 最终管线仅用 genomic_chain；native_path_score/decode_c0/ANNEVO HMM 加载属旧 C0 解码，废弃
+src/m28/candidates.py	src/cdsgram/decoder/orf.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] Budget/ORFIndex/STOP：被 boundary_messages、observed_partition 等传递依赖
+src/m28/labels.py	src/cdsgram/data/labels.py	final_pipeline	细/粗标签与 15 角色目标构建(build_targets,REGION_COLUMNS)。注意本地版比 origin/main 新(链 key 修复)，以本地为准
+src/m28/contig_emission_lattice.py	src/cdsgram/data/windows.py	final_pipeline	最终管线只用 context_segments/stitch_contig_emissions(24576/12288 窗口网格)；其对 emission_lattice.decode_emission_lattice 的 import 是遗留，应切断
+src/m28/full_grammar_context_view.py	src/cdsgram/data/windows.py	final_pipeline	nearest-center 归属 owned_context_logits；与 contig_emission_lattice 合并；无单元测试
+src/m28/full_grammar_boundary_messages.py	src/cdsgram/decoder/automaton.py	final_pipeline	DNA 自动机状态/转移(_transitions,BACKGROUND)；论文 Methods 引用
+src/m28/full_grammar_boundary_compiled.py	src/cdsgram/decoder/partition.py	final_pipeline	训练用 FP64 log-space sum-product 配分函数(检查点重算)；论文 Methods 引用
+src/m28/full_grammar_observed_partition.py	src/cdsgram/decoder/observed.py	final_pipeline	部分观测 Zobs(allowed-role mask)；依赖旧 emission_lattice_compact/exon_end_bound
+src/m28/full_grammar_partition_reverse.py	src/cdsgram/decoder/observed_reverse.py	final_pipeline	observed_partition 的传递依赖(_PartitionTape,_FullGrammarReverse)
+src/m28/full_grammar_partition_compiled_reverse.py	src/cdsgram/decoder/observed_reverse_compiled.py	final_pipeline	observed_partition 的传递依赖
+src/m28/full_grammar_coarse_channel.py	src/cdsgram/decoder/observation.py	final_pipeline	粗标签观测通道 coarse_channel_nll(ε=0.1)；无单元测试(仅脚本级 check)
+src/m28/local_coarse_channel.py	src/cdsgram/train/objective.py	final_pipeline	objective-contrast 的局部 15 角色 softmax 损失；无单元测试
+src/m28/full_grammar_skyline.py	src/cdsgram/decoder/skyline.py	final_pipeline	生产解码器 decode_full_grammar_skyline(max-only exon-budget skyline)
+src/m28/full_grammar_viterbi.py	src/cdsgram/decoder/viterbi_ref.py	final_pipeline	参考/验证用 Viterbi；skyline 仍 import 其 _selected_scores
+src/m28/full_grammar_codon.py	src/cdsgram/model/codon.py	final_pipeline	64 系数 centered codon 能量(codon 分支，DEV 家族中的 codon 候选)
+src/m28/full_grammar_codon_skyline.py	src/cdsgram/decoder/codon_skyline.py	final_pipeline	codon 版 skyline 解码
+src/m28/full_grammar_gene_posterior.py	src/cdsgram/decoder/posterior.py	final_pipeline	CDS 事件边际支持(论文 Methods §CDS event marginal)；非主流程可选分析；依赖 phase_evidence_chain.candidate_roles(遗留)
+src/m28/full_grammar_scaled_mass.py	src/cdsgram/decoder/scaled_mass.py	final_pipeline	posterior 的数值稳定核(256-base 重定中心)
+src/m28/gene_posterior_ranking.py	src/cdsgram/eval/posterior_ranking.py	final_pipeline	AP/AUROC/Brier 排序评估
+src/m28/full_grammar_energy_pool.py	src/cdsgram/decoder/energy_pool.py	final_pipeline	E-M 等能量/min-centered 双模型集成 caller(论文 Methods 有述，非主线)
+src/m28/full_grammar_chain_geometry.py	src/cdsgram/eval/chain_geometry.py	final_pipeline	链几何/GFF 相位核对；仅 e_m_geometry 诊断引用
+src/m28/joint_encoder_lora.py	src/cdsgram/model/lora.py	final_pipeline	rank-4 q/v LoRA(论文 adaptation 对照，TRAIN-only；可选扩展)
+src/m28/joint_encoder_dense_qv.py	src/cdsgram/model/lora.py	final_pipeline	full-rank q/v 适配(同上，合并入 lora.py 作为 mode)
+src/m28/joint_encoder_qvo_lora.py	archive/m28_full_grammar_branches/joint_encoder_qvo_lora.py	experiment_archive	qvo LoRA 分支：Methods 未写入，保留供复现
+src/m28/emission_lattice.py	archive/m28_legacy_lattice/emission_lattice.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。最终闭包经 contig_emission_lattice 引入 decode_emission_lattice
+src/m28/emission_lattice_compact.py	archive/m28_legacy_lattice/emission_lattice_compact.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。observed_partition 仅用 _CompactMargins；需提取
+src/m28/emission_lattice_phase_block.py	archive/m28_legacy_lattice/emission_lattice_phase_block.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。被 emission_lattice_compact 引入
+src/m28/exon_end_bound.py	archive/m28_legacy_lattice/exon_end_bound.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。observed_partition/partition_reverse 引用 exon_event_range；需提取到 decoder/
+src/m28/long_exon_phase.py	archive/m28_legacy_lattice/long_exon_phase.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。被 emission_lattice_* 引入
+src/m28/junction_chain.py	archive/m28_legacy_lattice/junction_chain.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。被 phase_evidence_chain 引入
+src/m28/phase_evidence_chain.py	archive/m28_legacy_lattice/phase_evidence_chain.py	deprecated	!! 仍在最终管线传递依赖闭包内：先提取所需符号再归档。被 full_grammar_gene_posterior 的 candidate_roles 与 labels 路径引入
+src/m28/emission_lattice_batched.py	archive/m28_legacy_lattice/emission_lattice_batched.py	deprecated	*_batched/_cached_metadata/_compiled/_indexed 为性能变体或参考实现，最终管线未引用；仅其自带 test/probe 使用
+src/m28/emission_lattice_cached_metadata.py	archive/m28_legacy_lattice/emission_lattice_cached_metadata.py	deprecated	*_batched/_cached_metadata/_compiled/_indexed 为性能变体或参考实现，最终管线未引用；仅其自带 test/probe 使用
+src/m28/emission_lattice_compiled.py	archive/m28_legacy_lattice/emission_lattice_compiled.py	deprecated	*_batched/_cached_metadata/_compiled/_indexed 为性能变体或参考实现，最终管线未引用；仅其自带 test/probe 使用
+src/m28/emission_lattice_indexed.py	archive/m28_legacy_lattice/emission_lattice_indexed.py	deprecated	*_batched/_cached_metadata/_compiled/_indexed 为性能变体或参考实现，最终管线未引用；仅其自带 test/probe 使用
+src/m28/full_grammar_partition.py	archive/m28_legacy_lattice/full_grammar_partition.py	deprecated	*_batched/_cached_metadata/_compiled/_indexed 为性能变体或参考实现，最终管线未引用；仅其自带 test/probe 使用
+src/m28/full_grammar_partition_indexed.py	archive/m28_legacy_lattice/full_grammar_partition_indexed.py	deprecated	*_batched/_cached_metadata/_compiled/_indexed 为性能变体或参考实现，最终管线未引用；仅其自带 test/probe 使用
+src/__init__.py	(delete)	infra	src 包命名空间；新包用 src/cdsgram/__init__.py
+src/screen_anchor/data.py	src/cdsgram/data/legacy_screen_anchor_data.py	final_pipeline	被 scripts/eval_structure_diagnostic 链上的最终评估传递引用；应拆出所需函数
+src/foundation_probe/train_generanno_structural_heads.py	archive/m25_structural_heads/train_generanno_structural_heads.py	experiment_archive	M25/M25R 结构头训练(1046 行)；M28 之前路线，已被 full-grammar 取代
+scripts/experiments/M28-METHOD-RESTART/fit_full_grammar_coarse_channel.py	src/cdsgram/train/fit.py	final_pipeline	【训练入口①】首次拟合(4,608 更新，job 13434603 起点)；含硬编码 job-id 门禁
+scripts/experiments/M28-METHOD-RESTART/fit_full_grammar_objective_contrast.py	src/cdsgram/train/loop.py	final_pipeline	共享训练循环(starting_state/example/objective/update)；被 fresh_joint24 以 C 引用；含 job-id 门禁
+scripts/experiments/M28-METHOD-RESTART/fit_full_grammar_fresh_joint24.py	src/cdsgram/train/continuation.py	final_pipeline	【训练入口②】最终 fresh-joint 续训(F11，pooled F1 70.107%)
+scripts/experiments/M28-METHOD-RESTART/fit_full_grammar_joint24.py	src/cdsgram/model/encoder.py	final_pipeline	joint 24,576-base 单次前向编码(J.potentials/raw_view)；模型核心逻辑竟位于 scripts/
+scripts/experiments/M28-METHOD-RESTART/fit_full_grammar_uniform_coarse.py	src/cdsgram/train/variants/uniform_coarse.py	final_pipeline	DEV 固定家族候选(ε=2/3 对照)
+scripts/experiments/M28-METHOD-RESTART/fit_full_grammar_codon.py	src/cdsgram/train/variants/codon.py	final_pipeline	DEV 固定家族候选(codon 能量扩展)
+scripts/experiments/M28-METHOD-RESTART/prepare_full_grammar_fresh_draws.py	src/cdsgram/train/schedules.py	final_pipeline	【数据准备入口】冻结 fresh/complete-core 抽样计划；依赖缺失的 query_training_census.py
+scripts/experiments/M28-METHOD-RESTART/check_full_grammar_fresh_draws_support.py	experiments/M28/full_grammar/gates/check_fresh_draws_support.py	final_pipeline	fresh draws 支持度核验(job 13453408 门禁)
+scripts/experiments/M28-METHOD-RESTART/diagnose_full_grammar_training_observations.py	src/cdsgram/data/observations.py	final_pipeline	细/粗观测目标构造(O)；被 fit/prepare 当库用
+scripts/experiments/M28-METHOD-RESTART/check_full_grammar_coarse_channel.py	tests/integration/test_coarse_channel_fit.py	final_pipeline	粗通道拟合 gate，应改写为 pytest
+scripts/experiments/M28-METHOD-RESTART/preflight_full_grammar_coarse_channel_glm.py	src/cdsgram/model/encoder.py	final_pipeline	GLM 编码/加载(V)；合并入 encoder.py
+scripts/experiments/M28-METHOD-RESTART/preflight_full_grammar_glm_context.py	src/cdsgram/model/encoder.py	final_pipeline	同上；import src.m28.core/training(缺失)
+scripts/experiments/M28-METHOD-RESTART/preflight_full_grammar_codon.py	experiments/M28/full_grammar/gates/preflight_codon.py	final_pipeline	codon 分支 preflight(被 fit_full_grammar_codon 引用)
+scripts/experiments/M28-METHOD-RESTART/annotate_full_grammar_coarse_channel.py	src/cdsgram/cli/annotate.py	final_pipeline	【推理/解码入口】raw FASTA→whole-contig skyline MAP→GFF3；依赖缺失的 manifest/feature_smoke/annotate_query/cache_full_train
+scripts/experiments/M28-METHOD-RESTART/annotate_full_grammar_joint24.py	src/cdsgram/model/checkpoint.py	final_pipeline	joint24 checkpoint 严格加载适配器；与下列 annotate_* 合并为 checkpoint.py 的 variant
+scripts/experiments/M28-METHOD-RESTART/annotate_full_grammar_fresh_draws.py	src/cdsgram/model/checkpoint.py	final_pipeline	同上
+scripts/experiments/M28-METHOD-RESTART/annotate_full_grammar_fresh_joint24.py	src/cdsgram/model/checkpoint.py	final_pipeline	同上(最终模型 identity)
+scripts/experiments/M28-METHOD-RESTART/annotate_full_grammar_uniform_coarse.py	src/cdsgram/model/checkpoint.py	final_pipeline	同上
+scripts/experiments/M28-METHOD-RESTART/annotate_full_grammar_codon.py	src/cdsgram/model/checkpoint.py	final_pipeline	同上
+scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_original_train.py	src/cdsgram/cli/annotate.py	final_pipeline	逐 contig(--task)推理驱动；与 annotate 合并
+scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_fresh_joint24_train.py	experiments/M28/full_grammar/infer/fresh_joint24_train.py	final_pipeline	最终模型 TRAIN raw+evaluate 薄包装
+scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_uniform_coarse_train.py	experiments/M28/full_grammar/infer/uniform_coarse_train.py	final_pipeline	薄包装
+scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_codon_train.py	experiments/M28/full_grammar/infer/codon_train.py	final_pipeline	薄包装
+scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_fixed_dev.py	experiments/M28/full_grammar/infer/fixed_dev.py	final_pipeline	DEV 固定推理基础库(I)
+scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_joint_controls_dev.py	experiments/M28/full_grammar/infer/joint_controls_dev.py	final_pipeline	三候选 DEV raw 推理
+scripts/experiments/M28-METHOD-RESTART/evaluate_full_grammar_dev_baselines.py	src/cdsgram/eval/dev_baselines.py	final_pipeline	DEV 与 ANNEVO/Tiberius/Helixer 同尺评估(E)
+scripts/experiments/M28-METHOD-RESTART/evaluate_full_grammar_joint_controls_dev.py	src/cdsgram/eval/joint_controls_dev.py	final_pipeline	【评估入口】DEV 三候选严格身份核验+同尺评估
+scripts/experiments/M28-METHOD-RESTART/evaluate_full_grammar_original_train.py	src/cdsgram/eval/original_train.py	final_pipeline	TRAIN 六染色体评估
+scripts/experiments/M28-METHOD-RESTART/aggregate_full_grammar_joint_controls_dev.py	src/cdsgram/eval/family.py	final_pipeline	三候选 DEV family 聚合(R1)
+scripts/experiments/M28-METHOD-RESTART/common_ruler.py	src/cdsgram/eval/ruler.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] 【评估核心】CDS-assessable primary 参考选择/完整 CDS 链匹配；import M26 reference_pair/semantic_reference_pair(本地缺失)
+scripts/experiments/M28-METHOD-RESTART/manifest.py	src/cdsgram/data/manifest.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] 【数据准备入口】24576/12288 连续窗口 manifest；本地缺失
+scripts/experiments/M28-METHOD-RESTART/census.py	src/cdsgram/data/census.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] manifest 依赖；本地缺失
+scripts/experiments/M28-METHOD-RESTART/feature_smoke.py	experiments/M28/gates/feature_smoke.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] annotate_full_grammar_coarse_channel 引用；本地缺失
+scripts/eval_gene_body_mask.py	src/cdsgram/eval/gene_body.py	final_pipeline	GFF 基因体掩膜，评估闭包使用
+scripts/eval_structure_diagnostic.py	src/cdsgram/eval/structure.py	final_pipeline	GFF 属性解析 parse_attrs/is_partial，被 manifest 引用
+scripts/experiments/M28-METHOD-RESTART/run_native_baseline.py	benchmarks/native_baselines/run_native_baseline.py	infra	ANNEVO/Tiberius/Helixer 原生运行器(被闭包引用)
+scripts/experiments/M28-METHOD-RESTART/run_native_train_baseline.py	benchmarks/native_baselines/run_native_train_baseline.py	infra	同上 TRAIN 版
+scripts/experiments/M28-METHOD-RESTART/evaluate_native_train_baselines.py	benchmarks/native_baselines/evaluate_native_train_baselines.py	infra	
+scripts/experiments/M28-METHOD-RESTART/preflight_native_short_contigs.py	benchmarks/native_baselines/	infra	
+scripts/experiments/M28-METHOD-RESTART/native_cds_role_prior.py	experiments/M28/full_grammar/branches/native_cds_prior/native_cds_role_prior.py	experiment_archive	native-prior 分支库
+scripts/experiments/M28-METHOD-RESTART/verify_completed_full.py	archive/m28_a_series/	deprecated	import 缺失的 evaluate_full_train
+scripts/experiments/M28-METHOD-RESTART/diagnose_full_grammar_final_training_views.py	experiments/M28/full_grammar/gates/diagnose_full_grammar_final_training_views.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/diagnose_full_grammar_native_context.py	experiments/M28/full_grammar/gates/diagnose_full_grammar_native_context.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/diagnose_full_grammar_train_energy.py	experiments/M28/full_grammar/gates/diagnose_full_grammar_train_energy.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/probe_full_grammar_R4_completion_witness.py	experiments/M28/full_grammar/gates/probe_full_grammar_R4_completion_witness.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/probe_full_grammar_R4_context_nll.py	experiments/M28/full_grammar/gates/probe_full_grammar_R4_context_nll.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/probe_full_grammar_R4_train_fasta_context.py	experiments/M28/full_grammar/gates/probe_full_grammar_R4_train_fasta_context.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/probe_full_grammar_coarse_channel_train.py	experiments/M28/full_grammar/gates/probe_full_grammar_coarse_channel_train.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/probe_full_grammar_context_extent_warnings.py	experiments/M28/full_grammar/gates/probe_full_grammar_context_extent_warnings.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/probe_full_grammar_train_core_support.py	experiments/M28/full_grammar/gates/probe_full_grammar_train_core_support.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M28-METHOD-RESTART/trace_full_grammar_train_support_failures.py	experiments/M28/full_grammar/gates/trace_full_grammar_train_support_failures.py	final_pipeline	诊断/探针脚本却被最终 fit/annotate 闭包当库 import(设计坏味)：提取所需函数入 cdsgram，其余留档
+scripts/experiments/M26-SAME-SCOPE-MECHANISM/reference_pair.py	src/cdsgram/eval/reference.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] common_ruler 依赖(参考 GFF 解析/配对)；本地缺失
+scripts/experiments/M26-SAME-SCOPE-MECHANISM/semantic_reference_pair.py	src/cdsgram/eval/reference.py	final_pipeline	[仅 origin/main@d77d225 有，本地工作树缺失] 同上；本地缺失
+scripts/validate_goal.py	archive/auto_research/validate_goal.py	deprecated	历史 ACTIVE_GOAL 验证器；AGENTS.md 已声明退役
+scripts/job_watch.sh	infra/slurm/job_watch.sh	infra	
+scripts/build_results_visualizations.py	paper/figures/scripts/build_results_visualizations.py	doc	
+sbatch/M28-FULL-GRAMMAR-FRESH-DRAWS-PREPARATION.sbatch	slurm/m28/00_data/fresh-draws-preparation.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-DRAWS-SUPPORT.sbatch	slurm/m28/00_data/fresh-draws-support.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-DRAWS-SUPPORT-AGGREGATE.sbatch	slurm/m28/00_data/fresh-draws-support-aggregate.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-DRAWS-PREFLIGHT.sbatch	slurm/m28/00_data/fresh-draws-preflight.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-COARSE-CHANNEL-FIRST-FIT.sbatch	slurm/m28/01_fit_base/coarse-channel-first-fit.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-COARSE-CHANNEL-FIT-VERIFICATION.sbatch	slurm/m28/01_fit_base/coarse-channel-fit-verification.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-JOINT24-PREFLIGHT.sbatch	slurm/m28/02_fit_fresh_joint24/fresh-joint24-preflight.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-JOINT24-FIT.sbatch	slurm/m28/02_fit_fresh_joint24/fresh-joint24-fit.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-JOINT24-VERIFY.sbatch	slurm/m28/02_fit_fresh_joint24/fresh-joint24-verify.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-JOINT24-TRAIN-RAW.sbatch	slurm/m28/03_infer/fresh-joint24-train-raw.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-JOINT24-TRAIN-EVAL.sbatch	slurm/m28/04_eval/fresh-joint24-train-eval.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-UNIFORM-COARSE-PREFLIGHT.sbatch	slurm/m28/02_fit_uniform_coarse/uniform-coarse-preflight.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-UNIFORM-COARSE-FIT.sbatch	slurm/m28/02_fit_uniform_coarse/uniform-coarse-fit.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-UNIFORM-COARSE-VERIFY.sbatch	slurm/m28/02_fit_uniform_coarse/uniform-coarse-verify.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-UNIFORM-COARSE-TRAIN-RAW.sbatch	slurm/m28/03_infer/uniform-coarse-train-raw.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-UNIFORM-COARSE-TRAIN-EVAL.sbatch	slurm/m28/04_eval/uniform-coarse-train-eval.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-CODON-PREFLIGHT.sbatch	slurm/m28/02_fit_codon/codon-preflight.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-CODON-FIT.sbatch	slurm/m28/02_fit_codon/codon-fit.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-CODON-VERIFY.sbatch	slurm/m28/02_fit_codon/codon-verify.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-CODON-TRAIN-RAW.sbatch	slurm/m28/03_infer/codon-train-raw.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-CODON-TRAIN-EVAL.sbatch	slurm/m28/04_eval/codon-train-eval.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-JOINT-CONTROLS-DEV-CHECKS.sbatch	slurm/m28/05_dev/joint-controls-dev-checks.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-JOINT-CONTROLS-DEV-RAW.sbatch	slurm/m28/05_dev/joint-controls-dev-raw.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-JOINT-CONTROLS-DEV-COMPARISON.sbatch	slurm/m28/05_dev/joint-controls-dev-comparison.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-JOINT-CONTROLS-DEV-FAMILY.sbatch	slurm/m28/05_dev/joint-controls-dev-family.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-FRESH-JOINT24-FOUR-CELL.sbatch	slurm/m28/04_eval/fresh-joint24-four-cell.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-RAW.sbatch	slurm/m28/03_infer/original-train-raw.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-GRAMMAR-ORIGINAL-TRAIN-DIAGNOSTIC.sbatch	slurm/m28/04_eval/original-train-diagnostic.sbatch	final_pipeline	最终管线 Slurm 链路；cd /home/users/j/jwang/coding-rna 与 conda env generanno 需参数化
+sbatch/M28-FULL-TRAIN-RESULT-CHECK.sbatch	archive/m28_a_series/sbatch/	deprecated	
+configs/m12_publication_panel.yaml	benchmarks/panels/m12_publication_panel.yaml	infra	
+configs/m13_distance_generalization_panel.yaml	benchmarks/panels/m13_distance_generalization_panel.yaml	infra	
+tests/test_m28_full_grammar_boundary_messages.py	tests/unit/decoder/test_automaton.py	final_pipeline	
+tests/test_m28_full_grammar_boundary_compiled.py	tests/unit/decoder/test_partition.py	final_pipeline	
+tests/test_m28_full_grammar_observed_partition.py	tests/unit/decoder/test_observed.py	final_pipeline	
+tests/test_m28_full_grammar_partition.py	tests/unit/decoder/test_partition_reference.py	final_pipeline	
+tests/test_m28_full_grammar_partition_reverse.py	tests/unit/decoder/test_observed_reverse.py	final_pipeline	
+tests/test_m28_full_grammar_partition_compiled_reverse.py	tests/unit/decoder/test_observed_reverse_compiled.py	final_pipeline	
+tests/test_m28_full_grammar_skyline.py	tests/unit/decoder/test_skyline.py	final_pipeline	
+tests/test_m28_full_grammar_viterbi.py	tests/unit/decoder/test_viterbi.py	final_pipeline	
+tests/test_m28_full_grammar_codon.py	tests/unit/model/test_codon.py	final_pipeline	
+tests/test_m28_full_grammar_codon_energy.py	tests/unit/model/test_codon_energy.py	final_pipeline	
+tests/test_m28_full_grammar_codon_train.py	tests/unit/train/test_codon_train.py	final_pipeline	
+tests/test_m28_full_grammar_raw.py	tests/integration/test_raw_annotate.py	final_pipeline	
+tests/test_m28_full_grammar_joint24_raw.py	tests/integration/test_joint24_raw.py	final_pipeline	
+tests/test_m28_full_grammar_scaled_mass.py	tests/unit/decoder/test_scaled_mass.py	final_pipeline	
+tests/test_m28_full_grammar_gene_posterior.py	tests/unit/decoder/test_posterior.py	final_pipeline	
+tests/test_m28_gene_posterior_ranking.py	tests/unit/eval/test_posterior_ranking.py	final_pipeline	
+tests/test_m28_full_grammar_energy_pool.py	tests/unit/decoder/test_energy_pool.py	final_pipeline	
+tests/test_m28_full_grammar_chain_geometry.py	tests/unit/eval/test_chain_geometry.py	final_pipeline	
+tests/test_m28_full_grammar_train_recovery.py	tests/unit/train/test_train_recovery.py	final_pipeline	
+tests/test_m28_joint_encoder_lora.py	tests/unit/model/test_lora.py	final_pipeline	
+tests/test_m28_joint_encoder_dense_qv.py	tests/unit/model/test_dense_qv.py	final_pipeline	
+tests/test_m28_full_grammar_joint_lora_train.py	tests/unit/train/test_lora_train.py	final_pipeline	
+tests/test_m28_full_grammar_dense_qv_train.py	tests/unit/train/test_dense_qv_train.py	final_pipeline	
+tests/test_m28_full_grammar_partition_indexed.py	tests/../archive/tests/test_full_grammar_partition_indexed.py	experiment_archive	
+tests/test_m28_full_grammar_joint_qvo_lora_train.py	tests/../archive/tests/test_joint_qvo_lora_train.py	experiment_archive	
+tests/test_m28_qv_lr_controls.py	tests/../experiments/M28/full_grammar/tests/test_qv_lr_controls.py	experiment_archive	
+tests/test_m28_qv_lr_four_cell.py	tests/../experiments/M28/full_grammar/tests/test_qv_lr_four_cell.py	experiment_archive	
+tests/test_m28_minimum_centered_energy_pool.py	tests/unit/decoder/test_minimum_centered.py	final_pipeline	
+tests/test_m28_energy_pool_gene_posterior.py	tests/unit/decoder/test_energy_pool_posterior.py	final_pipeline	
+tests/test_m28_e_m_missed_reference.py	tests/../experiments/M28/full_grammar/tests/test_e_m_missed_reference.py	experiment_archive	
+tests/test_m28_native_train_baselines.py	tests/../benchmarks/native_baselines/tests/test_native_train_baselines.py	experiment_archive	
+tests/test_m28_native_train_reference.py	tests/../benchmarks/native_baselines/tests/test_native_train_reference.py	experiment_archive	
+tests/test_m28_native_short_contigs.py	tests/../benchmarks/native_baselines/tests/test_native_short_contigs.py	experiment_archive	
+tests/test_eval_gene_body_mask.py	tests/unit/eval/test_gene_body_mask.py	final_pipeline	
+tests/test_eval_structure_diagnostic.py	tests/unit/eval/test_structure_diagnostic.py	final_pipeline	
+tests/test_m28_candidate_json_labels.py	tests/unit/data/test_labels_candidate_json.py	final_pipeline	
+tests/test_m28_long_exon_phase.py	tests/../archive/tests/test_long_exon_phase.py	experiment_archive	
+tests/test_validate_goal_profiles.py	archive/auto_research/test_validate_goal_profiles.py	deprecated	历史 validate_goal 测试
+tests/test_decoders.py	archive/m1_m9_screen_anchor/test_decoders.py	deprecated	
+tests/test_generanno_structural_heads.py	archive/m25_structural_heads/test_generanno_structural_heads.py	experiment_archive	
+docs/M28_full_grammar_manuscript_working.md	paper/manuscript/manuscript_working.md	doc	170KB，合稿
+docs/M28_full_grammar_methods_working.md	paper/manuscript/methods.md	doc	Methods 中引用的 src/m28/core.py 在本地缺失
+docs/M28_full_grammar_results_working.md	paper/manuscript/results.md	doc	
+docs/M28_full_grammar_introduction_working.md	paper/manuscript/introduction.md	doc	
+docs/M28_full_grammar_discussion_working.md	paper/manuscript/discussion.md	doc	
+docs/M28_full_grammar_abstract_working.md	paper/manuscript/abstract.md	doc	
+docs/M28_context_chain_methods_working.md	archive/m28_a_series/docs/M28_context_chain_methods_working.md	deprecated	旧 context-chain 方法稿
+docs/M28_complete_chain_competition_prior_work_20261003.md	paper/manuscript/prior_work_analysis.md	doc	Methods 引用
+docs/12_publication_strategy.md	paper/strategy/12_publication_strategy.md	doc	有未提交修改
+reports/M28-METHOD-RESTART/pretrained_exposure.md	paper/manuscript/supplement/pretrained_exposure.md	doc	Methods 引用
+CLAUDE.md.framework-upgrade-backup-20260614-214748	(delete)	deprecated	框架备份
+CLAUDE.md	CLAUDE.md	doc	指向 AGENTS.md
+AGENTS.md	AGENTS.md	doc	
+src/m28/*	archive/m28_a_series_modules/	deprecated	[匹配23个文件] A5–A44 诊断系列模块(query_*、chain_set、context_chain、structured_emission、local_*、natural_*、null_anchored_*、role_evidence、emission_residual/query_beam 等)；最终管线均不引用
+src/screen_anchor/*	archive/m1_m9_screen_anchor/	deprecated	[匹配6个文件] M1–M9 3 类逐碱基筛选基线(CNN/Tiberius-like)
+src/foundation_probe/*	archive/m1_m9_foundation_probe/	deprecated	[匹配5个文件] NT-v2/SegmentNT/GENERanno 探针与 LoRA 3 类训练
+scripts/experiments/M28-METHOD-RESTART/*native_train_*	benchmarks/native_baselines/	infra	[匹配3个文件] 原生基线核验/诊断
+scripts/experiments/M28-METHOD-RESTART/*carbon_a*	benchmarks/carbon_a/	infra	[匹配17个文件] Carbon-A 原生基线(17 脚本+17 sbatch)；论文 Methods §Carbon-A 引用；含 2 处硬编码 /home/users/j/jwang/coding-rna
+scripts/experiments/M28-METHOD-RESTART/plot_full_grammar_*	paper/figures/scripts/	doc	[匹配2个文件] 论文图脚本
+scripts/experiments/M28-METHOD-RESTART/plot_*	paper/figures/scripts/	doc	[匹配2个文件] 论文图脚本
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_objective_contrast*	experiments/M28/full_grammar/branches/objective_contrast/	experiment_archive	[匹配9个文件] 三目标(结构/局部/混合)对照，论文 Results
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_native_cds_prior*	experiments/M28/full_grammar/branches/native_cds_prior/	experiment_archive	[匹配10个文件] native-prior 分支
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_joint24_native_prior*	experiments/M28/full_grammar/branches/joint24_native_prior/	experiment_archive	[匹配7个文件] combined 分支
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_complete_core*	experiments/M28/full_grammar/branches/complete_core_draws/	experiment_archive	[匹配7个文件] complete-core 抽样分支
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_fresh_draws*	experiments/M28/full_grammar/branches/fresh_draws/	experiment_archive	[匹配2个文件] fresh-uniform 分支
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_fresh_joint24*	experiments/M28/full_grammar/branches/fresh_joint24/	experiment_archive	[匹配1个文件] fresh-joint 辅助脚本(聚合/比较)
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_joint24*	experiments/M28/full_grammar/branches/joint24/	experiment_archive	[匹配3个文件] joint24(原抽样)分支
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_*lora*	experiments/M28/full_grammar/branches/adaptation/	experiment_archive	[匹配17个文件] LoRA / qvo 适配对照
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_dense_qv*	experiments/M28/full_grammar/branches/adaptation/	experiment_archive	[匹配10个文件] full-rank q/v 适配对照
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_qv_lr*	experiments/M28/full_grammar/branches/adaptation/	experiment_archive	[匹配1个文件] q/v 学习率四格对照
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_uniform_coarse*	experiments/M28/full_grammar/branches/uniform_coarse/	experiment_archive	[匹配1个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_codon*	experiments/M28/full_grammar/branches/codon/	experiment_archive	[匹配2个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_e_m_*	experiments/M28/full_grammar/branches/e_m_ensemble/	experiment_archive	[匹配7个文件] E-M 集成/最小中心化
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_minimum_centered*	experiments/M28/full_grammar/branches/e_m_ensemble/	experiment_archive	[匹配4个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_gene_posterior*	experiments/M28/full_grammar/branches/gene_posterior/	experiment_archive	[匹配3个文件] CDS 事件边际读出
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_energy_pool*	experiments/M28/full_grammar/branches/gene_posterior/	experiment_archive	[匹配1个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_scaled_mass*	experiments/M28/full_grammar/branches/gene_posterior/	experiment_archive	[匹配2个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_*sampling_context*	experiments/M28/full_grammar/dev_families/	experiment_archive	[匹配4个文件] 十方法 DEV 家族
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_continuation*	experiments/M28/full_grammar/dev_families/	experiment_archive	[匹配3个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_joint_controls*	experiments/M28/full_grammar/dev_families/	experiment_archive	[匹配1个文件] 三候选 DEV(含 check)
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_context_prior*	experiments/M28/full_grammar/branches/context_prior/	experiment_archive	[匹配2个文件] 
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_*recovery*	experiments/M28/full_grammar/recovery/	experiment_archive	[匹配3个文件] TRAIN 恢复诊断
+scripts/experiments/M28-METHOD-RESTART/*full_grammar_*	experiments/M28/full_grammar/diagnostics/	experiment_archive	[匹配40个文件] full-grammar 余下 check/verify/preflight/diagnose/probe/profile/census/qualify/trace 等诊断
+scripts/experiments/M28-METHOD-RESTART/*	archive/m28_a_series/	deprecated	[匹配151个文件] A5–A44 finite-candidate 重排/emission-lattice/query-prefix/chain-set 等 pre-full-grammar 脚本；论文 Methods 明确为“earlier finite-candidate reranking models”
+scripts/experiments/M20-SOTA-ERROR-ANALYSIS/*	experiments/M20/scripts/	experiment_archive	[匹配1个文件] 工作树有未提交修改
+scripts/experiments/M25R-*/*	experiments/M25R/scripts/	experiment_archive	[匹配10个文件] M25R 图解码诊断(run_graph_core/run_graph_run 被 M26 与 tests 引用)
+scripts/experiments/M26-*/*	experiments/M26/scripts/	experiment_archive	[匹配3个文件] M26 同尺机制比较
+scripts/experiments/M*/*	experiments/{milestone}/scripts/	experiment_archive	[匹配9个文件] 按里程碑目录原样迁入 experiments/<Mxx>/scripts/
+scripts/setup_*	infra/env/	infra	[匹配3个文件] 环境搭建(annevo/codingrna_torch/helixer 容器)；整合进 environment.yml/容器文档
+scripts/probe_generanno_native.py*	archive/m1_m9/probe_generanno_native.py	deprecated	[匹配2个文件] 含 .bak 重复
+scripts/run_*.sbatch	experiments/M1-M9/sbatch/	experiment_archive	[匹配23个文件] M1–M9 sbatch(多含 ACTIVE_GOAL 依赖)
+scripts/_*	experiments/M1-M9/scripts/	experiment_archive	[匹配33个文件] M1–M9 日志收集/smoke 脚本(下划线前缀)
+scripts/*	experiments/M1-M9/scripts/	experiment_archive	[匹配9个文件] M1–M9 数据/下载/评估脚本
+sbatch/M28-NATIVE-*	benchmarks/native_baselines/slurm/	infra	[匹配7个文件] ANNEVO/Tiberius/Helixer TRAIN 基线
+sbatch/M28-CARBON-*	benchmarks/carbon_a/slurm/	infra	[匹配17个文件] Carbon-A
+sbatch/M28-*FIGURE*	paper/figures/slurm/	doc	[匹配4个文件] 出图作业
+sbatch/M28-FULL-GRAMMAR-*	experiments/M28/full_grammar/sbatch/	experiment_archive	[匹配207个文件] 其余 full-grammar 对照/诊断/检查作业(≈208)
+sbatch/M28-A*	archive/m28_a_series/sbatch/	deprecated	[匹配236个文件] A5–A44 系列(236)
+sbatch/M28-*	archive/m28_a_series/sbatch/	deprecated	[匹配4个文件] 其余 M28 pre-full-grammar 单元检查作业
+sbatch/M25R-*	experiments/M25R/sbatch/	experiment_archive	[匹配15个文件] 
+sbatch/M26-*	experiments/M26/sbatch/	experiment_archive	[匹配3个文件] 
+sbatch/M2[0-4]-*	experiments/M20-M24/sbatch/	experiment_archive	[匹配13个文件] 
+sbatch/M*	experiments/M10-M19/sbatch/	experiment_archive	[匹配18个文件] M10–M19 训练/校准/基线；多含 ACTIVE_GOAL 依赖
+configs/m1_*	experiments/M1/configs/	experiment_archive	[匹配2个文件] 
+configs/M*.yaml	experiments/{milestone}/config.yaml	experiment_archive	[匹配22个文件] 
+tests/test_m25r_*	experiments/M25R/tests/	experiment_archive	[匹配9个文件] 
+tests/test_m26_*	experiments/M26/tests/	experiment_archive	[匹配3个文件] 
+tests/test_m28_*	archive/m28_a_series/tests/	deprecated	[匹配99个文件] A 系列/emission_lattice 变体测试(≈80)；随被测模块归档
+docs/figures/*	paper/figures/	doc	[匹配3个文件] 模型示意图 svg/png/caption
+docs/experiments/*	experiments/M1-M9/docs/	doc	[匹配6个文件] 
+docs/*	docs/project_history/	doc	[匹配12个文件] 台账/发现/路线图
+reports/M28-METHOD-RESTART/full_grammar_*	experiments/M28/full_grammar/reports/	doc	[匹配54个文件] full-grammar 协议/结果(Methods/Results 引用，相对链接需修)
+reports/M28-METHOD-RESTART/carbon_a_*	benchmarks/carbon_a/reports/	doc	[匹配4个文件] 
+reports/M28-METHOD-RESTART/native_*	benchmarks/native_baselines/reports/	doc	[匹配8个文件] 
+reports/M28-METHOD-RESTART/figures/*	paper/figures/	doc	[匹配43个文件] 
+reports/M28-METHOD-RESTART/*	archive/m28_a_series/reports/	deprecated	[匹配112个文件] a5–a44 协议/结果报告
+reports/M*/*	experiments/{milestone}/reports/	doc	[匹配181个文件] 按里程碑迁入
+reports/M*	experiments/M12-M13/reports/	doc	[匹配3个文件] 顶层 json
+reports/PROJECT-STAGE-REPORT-2026-08-16/*	docs/project_history/	doc	[匹配2个文件] 
+outputs/M28-FULL-GRAMMAR-*	results/M28/full_grammar/	infra	[匹配137个文件] 运行输出(.gitignore)；仅 summary.json 级紧凑证据提升至 experiments/M28/full_grammar/results/
+outputs/M28-*	results/M28/a_series/	infra	[匹配36个文件] 

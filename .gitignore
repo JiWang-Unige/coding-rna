@@ -30,23 +30,34 @@ __pycache__/
 *backup-*
 *.bak-*
 *.bak
-# Heavy/runtime artifacts (keep provenance in docs/reports, not git)
-data/
-runs/
-outputs/
-logs/
-software_outputs/
-external_runs/
-worktrees/
-refs/pdfs/
-refs/repos/
-refs/supp/
-refs/cache/
-refs/containers/
-refs/weights/
+# Heavy/runtime artifacts (keep provenance in docs/reports, not git).
+# Anchored to the repository root so that source packages such as
+# src/cdsgram/data/ are not swallowed by the `data/` rule.
+/data/
+/runs/
+/outputs/
+/logs/
+/software_outputs/
+/external_runs/
+/worktrees/
+/refs/pdfs/
+/refs/repos/
+/refs/supp/
+/refs/cache/
+/refs/containers/
+/refs/weights/
 # Reproducible, bulky prediction dumps; retain compact reports and metrics.
-reports/**/predictions/
+# (reports now live under experiments/<group>/reports/, benchmarks/*/reports/, ...)
+**/reports/**/predictions/
 *.pt
 *.pth
 *.ckpt
 *.h5
+
+# The old framework's HPC-only exclude list (.git/info/exclude of the original
+# clone) hides README.md, AGENTS.md, CLAUDE.md and manuscript/. This repository
+# tracks its own copies, so re-include them explicitly.
+!README.md
+!AGENTS.md
+!CLAUDE.md
+!/paper/manuscript/
