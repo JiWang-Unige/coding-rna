@@ -12,7 +12,7 @@ DEV 固定家族 = fresh-joint / uniform-coarse(ε=2/3) / codon。
 pipeline/m28/
 ├── src/                       # 必须在 PYTHONPATH 上：`from src.m28.xxx import ...`
 │   ├── __init__.py
-│   ├── m28/                   # 40 个模块：labels / core / full_grammar_* / skyline / codon / lattice 遗留依赖 ...
+│   ├── m28/                   # 41 个模块：labels / core / full_grammar_* / skyline / codon / lattice 遗留依赖 ...
 │   ├── screen_anchor/         # M1-M9 数据/解码库（census.py 依赖 data.assign_splits；与 foundation_probe 一并保留）
 │   └── foundation_probe/      # M25 结构头训练库（same_scope.py -> train_generanno_structural_heads）
 ├── scripts/                   # 94 个脚本，平铺；入口脚本 + 被入口 import 的"库脚本"（裸 import 同级文件）
