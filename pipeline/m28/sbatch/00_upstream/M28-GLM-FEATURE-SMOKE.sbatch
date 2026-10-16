@@ -22,5 +22,5 @@ mkdir -p "$out"
 test ! -e "$out/summary.json"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
-python -u scripts/experiments/M28-METHOD-RESTART/feature_smoke.py --output-dir "$out"
+python -u pipeline/m28/scripts/feature_smoke.py --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

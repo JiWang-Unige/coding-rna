@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT/'scripts/experiments/M26-SAME-SCOPE-MECHANISM'))
+sys.path.insert(0, str(ROOT/'pipeline/m28/scripts'))
 import background_attribution as B
 
 

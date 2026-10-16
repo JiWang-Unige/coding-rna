@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/experiments/M28-METHOD-RESTART'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 from align_labels import relabel_window
 
 def test_updated_primary_changes_target_not_geometry_or_transcript_protection():

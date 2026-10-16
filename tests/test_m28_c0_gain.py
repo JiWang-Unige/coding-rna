@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 import numpy as np
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28'))
 from src.m28.c0_decode import (decode_c0,load_native,native_probabilities,
     native_path_objective_inputs,native_path_score,native_chain_gains)
 from test_m28_c0_decode import example

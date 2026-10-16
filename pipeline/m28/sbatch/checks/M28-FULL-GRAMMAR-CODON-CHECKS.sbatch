@@ -11,7 +11,7 @@ cd /home/users/j/jwang/coding-rna
 source /opt/ebsofts/Mamba/23.1.0-4/etc/profile.d/conda.sh
 set +u; conda activate generanno; set -u
 export CUDA_VISIBLE_DEVICES="" OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$PWD:$PWD/tests"
+export PYTHONPATH="$PWD/pipeline/m28:$PWD/tests"
 OUT=outputs/M28-FULL-GRAMMAR-CODON-CHECKS/$SLURM_JOB_ID
 mkdir -p "$OUT"
 printf 'RUNNING\n' > "$OUT/STATUS"

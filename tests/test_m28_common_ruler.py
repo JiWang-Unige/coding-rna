@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/experiments/M28-METHOD-RESTART'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 import common_ruler as E
 
 

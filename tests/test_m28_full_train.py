@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 import torch
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/experiments/M28-METHOD-RESTART'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 import prepare_full_train as P
 import cache_full_train as C
 

@@ -1,7 +1,7 @@
 import importlib.util
 import unittest
 from pathlib import Path
-P = Path(__file__).resolve().parents[1] / "scripts/experiments/M28-METHOD-RESTART/census.py"
+P = Path(__file__).resolve().parents[1] / "pipeline/m28/scripts/census.py"
 spec = importlib.util.spec_from_file_location("m28census", P)
 M = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(M)

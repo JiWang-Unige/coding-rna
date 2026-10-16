@@ -2,7 +2,7 @@ import sys
 import unittest
 from pathlib import Path
 import numpy as np
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28'))
 from src.m28.c0_decode import native_probabilities,decode_c0,genomic_chain,owner_window
 from src.m28.labels import build_targets
 

@@ -6,7 +6,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 import torch
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/experiments/M28-METHOD-RESTART'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 import run_query as R
 from src.m28.query_model import GeneQueryModel
 from src.m28.query_output import query_window_candidates

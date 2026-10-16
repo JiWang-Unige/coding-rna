@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 import numpy as np
 import torch
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28'))
 from src.m28.labels import build_targets,candidate_targets,local_loss
 
 def fixture(partial=False,strand="+"):

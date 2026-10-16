@@ -14,10 +14,10 @@ cd /home/users/j/jwang/coding-rna
 source /opt/ebsofts/Mamba/23.1.0-4/etc/profile.d/conda.sh
 set +u; conda activate generanno; set -u
 export PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1
-export CUDA_VISIBLE_DEVICES="" PYTHONPATH="$PWD:$PWD/scripts/experiments/M28-METHOD-RESTART"
+export CUDA_VISIBLE_DEVICES="" PYTHONPATH="$PWD/pipeline/m28:$PWD/pipeline/m28/scripts"
 out=outputs/M28-FULL-GRAMMAR-COARSE-CHANNEL-FIT-VERIFICATION-R1
 test ! -e "$out"; mkdir "$out"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"; printf '%s\n' "$SLURM_JOB_ID" > "$out/JOBID"
-python -u scripts/experiments/M28-METHOD-RESTART/verify_full_grammar_coarse_channel_fit.py
+python -u pipeline/m28/scripts/verify_full_grammar_coarse_channel_fit.py
 printf 'COMPLETED\n' > "$out/STATUS"

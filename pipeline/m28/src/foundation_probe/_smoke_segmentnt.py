@@ -15,7 +15,7 @@ import os
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2] / "refs/repos/segmentnt-2025"
+REPO = Path(__file__).resolve().parents[4] / "refs/repos/segmentnt-2025"
 
 
 def main():

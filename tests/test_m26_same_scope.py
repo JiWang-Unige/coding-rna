@@ -2,7 +2,7 @@ import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('m26', ROOT / 'scripts/experiments/M26-SAME-SCOPE-MECHANISM/same_scope.py')
+spec = importlib.util.spec_from_file_location('m26', ROOT / 'pipeline/m28/scripts/same_scope.py')
 m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 

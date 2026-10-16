@@ -22,5 +22,5 @@ mkdir -p "$out"
 test ! -e "$out/training.jsonl"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
-python -u scripts/experiments/M28-METHOD-RESTART/fit_pilot.py --arm "$arm" --feature-dir outputs/M28-PILOT-R4/features --output-dir "$out"
+python -u pipeline/m28/scripts/fit_pilot.py --arm "$arm" --feature-dir outputs/M28-PILOT-R4/features --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

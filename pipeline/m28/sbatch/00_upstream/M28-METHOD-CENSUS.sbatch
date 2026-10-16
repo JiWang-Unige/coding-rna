@@ -21,5 +21,5 @@ test ! -e "$out/summary.json"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
 python -m unittest discover -s tests -p test_m28_census.py -v
-python -u scripts/experiments/M28-METHOD-RESTART/census.py --species "$species" --output-dir "$out"
+python -u pipeline/m28/scripts/census.py --species "$species" --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

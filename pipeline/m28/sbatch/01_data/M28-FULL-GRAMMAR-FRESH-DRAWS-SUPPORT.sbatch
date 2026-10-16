@@ -14,11 +14,11 @@ cd /home/users/j/jwang/coding-rna
 source /opt/ebsofts/Mamba/23.1.0-4/etc/profile.d/conda.sh
 set +u; conda activate generanno; set -u
 export PYTHONDONTWRITEBYTECODE=1 NUMBA_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=""
-export PYTHONPATH="$PWD:$PWD/scripts:$PWD/scripts/experiments/M28-METHOD-RESTART"
+export PYTHONPATH="$PWD/pipeline/m28:$PWD/pipeline/m28/scripts"
 root=outputs/M28-FULL-GRAMMAR-FRESH-DRAWS-SUPPORT
 out="$root/shard_$SLURM_ARRAY_TASK_ID"
 mkdir -p "$root"; mkdir "$out"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"; printf '%s_%s\n' "$SLURM_ARRAY_JOB_ID" "$SLURM_ARRAY_TASK_ID" > "$out/JOBID"
-python -u scripts/experiments/M28-METHOD-RESTART/check_full_grammar_fresh_draws_support.py --shard "$SLURM_ARRAY_TASK_ID"
+python -u pipeline/m28/scripts/check_full_grammar_fresh_draws_support.py --shard "$SLURM_ARRAY_TASK_ID"
 printf 'COMPLETED\n' > "$out/STATUS"

@@ -30,7 +30,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-REPO = ROOT / "refs/repos/segmentnt-2025"
+REPO = Path(__file__).resolve().parents[4] / "refs/repos/segmentnt-2025"
 if __package__ in (None, ""):
     sys.path.insert(0, str(ROOT))
 from src.screen_anchor import data as D  # noqa: E402

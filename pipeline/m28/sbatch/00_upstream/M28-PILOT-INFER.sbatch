@@ -23,5 +23,5 @@ test ! -e "$out/summary.json"
 export NUMBA_CACHE_DIR="$PWD/$out/numba-cache"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
-python -u scripts/experiments/M28-METHOD-RESTART/infer_pilot.py --arm "$arm" --pilot-dir outputs/M28-PILOT-R4 --output-dir "$out"
+python -u pipeline/m28/scripts/infer_pilot.py --arm "$arm" --pilot-dir outputs/M28-PILOT-R4 --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

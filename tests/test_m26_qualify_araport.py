@@ -1,7 +1,7 @@
 import io
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts/experiments/M26-SAME-SCOPE-MECHANISM'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 import qualify_araport as Q
 
 

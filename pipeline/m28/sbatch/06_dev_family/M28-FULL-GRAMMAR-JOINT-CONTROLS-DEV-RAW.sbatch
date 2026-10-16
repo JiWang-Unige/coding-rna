@@ -17,12 +17,12 @@ source /opt/ebsofts/Mamba/23.1.0-4/etc/profile.d/conda.sh
 set +u; conda activate generanno; set -u
 export PYTHONDONTWRITEBYTECODE=1 NUMBA_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false
 export HF_HOME="/home/users/j/jwang/.cache/huggingface" HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-export PYTHONPATH="$PWD:$PWD/scripts/experiments/M28-METHOD-RESTART"
+export PYTHONPATH="$PWD/pipeline/m28:$PWD/pipeline/m28/scripts"
 branch="$1"
 seqids=(NC_003074.8 NC_089041.1)
 out="outputs/M28-FULL-GRAMMAR-JOINT-CONTROLS-DEV-RAW-R1/$branch/${seqids[$SLURM_ARRAY_TASK_ID]}"
 test ! -e "$out"; mkdir -p "$out"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"; printf '%s\n' "$SLURM_JOB_ID" > "$out/JOBID"
-python -u scripts/experiments/M28-METHOD-RESTART/infer_full_grammar_joint_controls_dev.py --branch "$branch" --task "$SLURM_ARRAY_TASK_ID"
+python -u pipeline/m28/scripts/infer_full_grammar_joint_controls_dev.py --branch "$branch" --task "$SLURM_ARRAY_TASK_ID"
 printf 'COMPLETED\n' > "$out/STATUS"

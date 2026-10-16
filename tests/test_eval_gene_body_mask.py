@@ -45,7 +45,7 @@ def test_gene_count_ratio_uses_reference_gene_count_not_transcripts(tmp_path):
     subprocess.run(
         [
             sys.executable,
-            "scripts/eval_gene_body_mask.py",
+            "pipeline/m28/scripts/eval_gene_body_mask.py",
             "--reference-gtf",
             str(ref),
             "--prediction-gtf",

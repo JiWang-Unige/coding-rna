@@ -12,7 +12,7 @@ import numpy as np
 
 # Internal M28 phases increase 0,1,2 along CDS. Native input columns use 0,2,1.
 NATIVE_FROM_M28=(0,1,3,2,4,6,5,7,9,8,10,12,11,13,14)
-DEFAULT_HMM=Path(__file__).resolve().parents[2]/"refs/repos/annevo-2026/src/HMM.py"
+DEFAULT_HMM=Path(__file__).resolve().parents[4]/"refs/repos/annevo-2026/src/HMM.py"
 
 def native_probabilities(probabilities):
     p=np.asarray(probabilities,dtype=np.float32)

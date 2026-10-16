@@ -1,7 +1,7 @@
 import sys
 import itertools
 from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28'))
 from src.m28.assembly import assemble_predictions,nearest_owner
 from src.m28.c0_decode import owner_window
 from src.m28.core import select_nonoverlapping

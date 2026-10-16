@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path[:0]=[str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parents[1]/'scripts')]
+sys.path[:0]=[str(Path(__file__).resolve().parents[1]/'pipeline/m28'),str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts')]
 from src.m28.export import as_transcript,write_gff3
 import eval_structure_diagnostic as E
 

@@ -15,7 +15,7 @@ set +u
 conda activate generanno
 set -u
 export PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-export PYTHONPATH="$PWD"
+export PYTHONPATH="$PWD/pipeline/m28"
 export CUDA_VISIBLE_DEVICES=""
 out=outputs/M28-FULL-TRAIN-FEATURES
 test -d "$out"
@@ -23,5 +23,5 @@ test ! -e "$out/summary.json"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
 printf '%s\n' "$SLURM_JOB_ID" > "$out/JOBID"
-python -u scripts/experiments/M28-METHOD-RESTART/cache_full_train.py --mode finalize
+python -u pipeline/m28/scripts/cache_full_train.py --mode finalize
 printf 'COMPLETED\n' > "$out/STATUS"

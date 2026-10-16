@@ -20,5 +20,5 @@ test ! -e "$out/summary.json"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
 python -m pytest -q tests/test_m26_partial_semantics.py tests/test_m26_reference_pair.py tests/test_m26_semantic_reference_pair.py tests/test_m28_common_ruler.py
-python -u scripts/experiments/M28-METHOD-RESTART/common_ruler.py --output-dir "$out"
+python -u pipeline/m28/scripts/common_ruler.py --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

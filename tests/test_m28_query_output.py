@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 import torch
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 import eval_structure_diagnostic as E
 from src.m28.query_output import query_window_candidates
 from src.m28.assembly import assemble_predictions

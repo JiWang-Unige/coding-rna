@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 import pytest
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/experiments/M28-METHOD-RESTART'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'pipeline/m28/scripts'))
 import infer_pilot as I
 import evaluate_pilot as V
 

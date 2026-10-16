@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
-spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/experiments/M28-METHOD-RESTART/run_native_baseline.py')
+spec=importlib.util.spec_from_file_location('native_runner',ROOT/'pipeline/m28/scripts/run_native_baseline.py')
 N=importlib.util.module_from_spec(spec); spec.loader.exec_module(N)
 
 class NativeRunnerTests(unittest.TestCase):

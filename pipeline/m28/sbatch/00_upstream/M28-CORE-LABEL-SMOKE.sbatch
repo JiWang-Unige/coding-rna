@@ -21,5 +21,5 @@ trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/ST
 printf 'RUNNING\n' > "$out/STATUS"
 python -m unittest discover -s tests -p test_m28_core.py -v
 python -m unittest discover -s tests -p test_m28_labels.py -v
-python -u scripts/experiments/M28-METHOD-RESTART/inspect_r2.py --output-dir "$out"
+python -u pipeline/m28/scripts/inspect_r2.py --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

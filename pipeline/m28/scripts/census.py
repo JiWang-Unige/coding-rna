@@ -11,11 +11,12 @@ import numpy as np
 import yaml
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path[:0] = [str(ROOT), str(ROOT / "scripts")]
+PIPELINE = ROOT / "pipeline" / "m28"
+sys.path[:0] = [str(PIPELINE), str(PIPELINE / "scripts")]
 from eval_structure_diagnostic import parse_annotation, primary_transcripts
 from src.screen_anchor.data import assign_splits
 
-CONFIG = ROOT / "configs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0.yaml"
+CONFIG = ROOT / "experiments/M25R/configs/M25R-GENERANNO-1P2B-STRUCTURAL-HEADS-s0.yaml"
 WIDTHS = (6144, 12288, 24576, 49152)
 
 def old_sample(descriptors, fraction, cap, seed=0):

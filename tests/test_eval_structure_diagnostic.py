@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 
-SCRIPT = Path(__file__).parents[1] / "scripts/eval_structure_diagnostic.py"
+SCRIPT = Path(__file__).parents[1] / "pipeline/m28/scripts/eval_structure_diagnostic.py"
 sys.path.insert(0, str(SCRIPT.parent))
 SPEC = importlib.util.spec_from_file_location("eval_structure_diagnostic", SCRIPT)
 M24 = importlib.util.module_from_spec(SPEC)

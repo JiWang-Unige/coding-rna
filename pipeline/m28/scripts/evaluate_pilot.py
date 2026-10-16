@@ -78,7 +78,7 @@ def main(pilot,out):
     report={'experiment':pilot.name,'status':'complete_bounded_DEV_comparison_not_independent_generalization',
             'reference_primary_chains':7728,'historical_parent_chains':6450,
             'test_setaria_used':False,'methods':{},'fit':fitting,'inference_cost':{},
-            'cached_baseline_source':'reports/M28-METHOD-RESTART/common_ruler.json',
+            'cached_baseline_source':'archive/m28_pre_full_grammar/reports/common_ruler.json',
             'candidate_semantics':'C0 native decoded chains; B1 actual pruned free proposals, no reference injection',
             'scope_limit':'B1 versus C0 is a whole-system comparison, not isolated nonadditive-GRU causation'}
     for arm,r in inference.items():
@@ -126,7 +126,7 @@ def main(pilot,out):
         pooled['owner_primary_coverage']=sum(x['exact_reference_hits']['owner_unique'] for x in stages.values())/7728
         assert sum(x['exact_reference_hits']['selected_unique'] for x in stages.values())==pooled['exact_chain']['tp']
         report['methods'][method]={'per_species':per_species,'pooled':pooled,'stages':stages,'GFF3':str(gff.relative_to(E.ROOT))}
-    baseline=json.loads((E.ROOT/'reports/M28-METHOD-RESTART/common_ruler.json').read_text())
+    baseline=json.loads((E.ROOT/'archive/m28_pre_full_grammar/reports/common_ruler.json').read_text())
     compare={}
     for method,values in baseline['pooled'].items():
         by_species={s:r['methods'][method]['exact_chain'] for s,r in baseline['species'].items()}

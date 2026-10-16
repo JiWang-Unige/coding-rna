@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(ROOT/'scripts/experiments/M26-SAME-SCOPE-MECHANISM'))
+sys.path.insert(0, str(ROOT/'pipeline/m28/scripts'))  # M26 reference_pair/semantic_reference_pair now live beside this file
 import reference_pair as R
 import semantic_reference_pair as R7
 import manifest as M

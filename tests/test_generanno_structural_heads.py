@@ -9,14 +9,15 @@ import torch.nn.functional as F
 
 
 ROOT = Path(__file__).parents[1]
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "scripts"))
-TRAINER_PATH = ROOT / "src/foundation_probe/train_generanno_structural_heads.py"
+PIPELINE = ROOT / "pipeline" / "m28"
+sys.path.insert(0, str(PIPELINE))
+sys.path.insert(0, str(PIPELINE / "scripts"))
+TRAINER_PATH = PIPELINE / "src/foundation_probe/train_generanno_structural_heads.py"
 TRAINER_SPEC = importlib.util.spec_from_file_location("m25_trainer", TRAINER_PATH)
 M25 = importlib.util.module_from_spec(TRAINER_SPEC)
 TRAINER_SPEC.loader.exec_module(M25)
 
-EVALUATOR_PATH = ROOT / "scripts/eval_m25_structure.py"
+EVALUATOR_PATH = PIPELINE / "scripts/eval_m25_structure.py"
 EVALUATOR_SPEC = importlib.util.spec_from_file_location("m25_evaluator", EVALUATOR_PATH)
 EVAL = importlib.util.module_from_spec(EVALUATOR_SPEC)
 EVALUATOR_SPEC.loader.exec_module(EVAL)

@@ -8,7 +8,8 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
+PIPELINE = ROOT / 'pipeline' / 'm28'
+sys.path[:0] = [str(PIPELINE), str(PIPELINE / 'scripts')]
 import eval_structure_diagnostic as E
 import eval_m25_structure as V
 from src.foundation_probe import train_generanno_structural_heads as M

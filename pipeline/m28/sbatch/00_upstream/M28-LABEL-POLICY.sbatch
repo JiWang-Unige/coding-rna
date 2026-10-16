@@ -21,5 +21,5 @@ test ! -e "$out/summary.json"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
 python -m pytest -q tests/test_m28_common_ruler.py tests/test_m28_labels.py tests/test_m28_label_alignment.py
-python -u scripts/experiments/M28-METHOD-RESTART/align_labels.py --species "$species" --output-dir "$out"
+python -u pipeline/m28/scripts/align_labels.py --species "$species" --output-dir "$out"
 printf 'COMPLETED\n' > "$out/STATUS"

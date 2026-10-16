@@ -16,12 +16,12 @@ set +u
 conda activate generanno
 set -u
 export PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-export PYTHONPATH="$PWD"
+export PYTHONPATH="$PWD/pipeline/m28"
 out=outputs/M28-FULL-TRAIN-REPLAY
 test ! -e "$out"
 mkdir -p "$out"
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"
 printf '%s\n' "${SLURM_ARRAY_JOB_ID:-$SLURM_JOB_ID}${SLURM_ARRAY_TASK_ID:+_$SLURM_ARRAY_TASK_ID}" > "$out/JOBID"
-python -u scripts/experiments/M28-METHOD-RESTART/cache_full_train.py --mode replay
+python -u pipeline/m28/scripts/cache_full_train.py --mode replay
 printf 'COMPLETED\n' > "$out/STATUS"

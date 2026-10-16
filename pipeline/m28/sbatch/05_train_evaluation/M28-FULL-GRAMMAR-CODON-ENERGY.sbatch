@@ -14,7 +14,7 @@ source /opt/ebsofts/Mamba/23.1.0-4/etc/profile.d/conda.sh
 set +u; conda activate generanno; set -u
 export PYTHONDONTWRITEBYTECODE=1 NUMBA_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false
 export HF_HOME="/home/users/j/jwang/.cache/huggingface" HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-export PYTHONPATH="$PWD:$PWD/scripts/experiments/M28-METHOD-RESTART:$PWD/tests"
+export PYTHONPATH="$PWD/pipeline/m28:$PWD/pipeline/m28/scripts:$PWD/tests"
 case "$1" in
   checks) out=outputs/M28-FULL-GRAMMAR-CODON-ENERGY-CHECKS ;;
   task)
@@ -31,8 +31,8 @@ fi
 trap 'rc=$?; if [[ $rc -ne 0 ]]; then printf "FAILED exit=%s\n" "$rc" > "$out/STATUS"; fi' EXIT
 printf 'RUNNING\n' > "$out/STATUS"; printf '%s\n' "$SLURM_JOB_ID" > "$out/JOBID"
 if [[ "$1" == task ]]; then
-  python -u scripts/experiments/M28-METHOD-RESTART/diagnose_full_grammar_codon_energy.py task --task "$SLURM_ARRAY_TASK_ID"
+  python -u pipeline/m28/scripts/diagnose_full_grammar_codon_energy.py task --task "$SLURM_ARRAY_TASK_ID"
 else
-  python -u scripts/experiments/M28-METHOD-RESTART/diagnose_full_grammar_codon_energy.py "$1"
+  python -u pipeline/m28/scripts/diagnose_full_grammar_codon_energy.py "$1"
 fi
 printf 'COMPLETED\n' > "$out/STATUS"

@@ -513,7 +513,7 @@ def main():
     metrics_path.write_text(json.dumps(metrics, indent=2, sort_keys=True) + "\n")
     report = render_report(metrics)
     (out_dir / "report.md").write_text(report)
-    tracked_report = root / "reports/M24-DIRECT-STRUCTURE-DIAGNOSTIC/report.md"
+    tracked_report = root / "experiments/M20-M24/reports/M24-DIRECT-STRUCTURE-DIAGNOSTIC/report.md"
     tracked_report.parent.mkdir(parents=True, exist_ok=True)
     tracked_report.write_text(report)
 
