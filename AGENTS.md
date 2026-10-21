@@ -18,6 +18,12 @@
 - 在 Baobab 上，训练、评估和重数据处理经 Slurm `sbatch`/`srun` 执行；登录节点只做轻量文件、文本、传输和调度操作。使用项目对应环境，不往 base 安装依赖；环境以实际配置和作业脚本核实。
 - 保留数据、checkpoint、冻结结果和他人的未提交改动；只修改任务涉及的文件。不默认提交 Git 或取消作业；监控只针对自己在授权范围内启动的作业，并按下节方式进行。
 
+## 仓库与目录（2026-10-21 合并后）
+
+- 本仓库是唯一工作目录（原 `~/Desktop/coding RNA` 已归档到 `~/Desktop/_archive/coding-RNA-main-20261021`，不再更新）；分支只用 `main`。目录名暂为 `coding-rna-reorg`，M37 结束后改名。
+- 放置规则：研究日志与各实验协议/报告写 `docs/review_20261016/`（按编号续写）；论文大纲与手稿在 `docs/paper_outline_20261021.md` 与 `paper/`；实验代码与小结果在 `experiments/<Mxx>/{scripts,tests,results}`；冻结管线在 `pipeline/m28/`；`outputs/` 不入库。
+- Baobab `~/coding-rna` 跟踪 `origin/main`；ont `~/coding-rna-reorg` 不是 git，用各实验的 `push.sh` 推送代码。
+
 ## 长任务监控（用户 2026-10-18 确立，长期有效）
 
 - 等待 Slurm 作业或 ont 上的长任务时，**不要用前台 `sleep` 反复轮询**（每次唤醒都重放整段上下文，消耗大量 token）。改为用后台 shell 等待器（Claude Code：Bash `run_in_background: true`；其他环境用等价的后台进程），启动后结束本轮，等待器返回时再继续。
