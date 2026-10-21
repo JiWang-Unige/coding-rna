@@ -1,0 +1,62 @@
+{
+ "species": "solanum_lycopersicum",
+ "organism": "Solanum lycopersicum",
+ "accession": "GCF_036512215.1",
+ "assembly": "GCF_036512215.1_SLM_r2.1",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome, Primary Assembly, >=5 Mb); validation chromosome = lower-median length; validation crop = first 8 Mb (genes fully inside); remainder of that chromosome discarded",
+ "main_chromosomes": {
+  "NC_090800.1": 94708454,
+  "NC_090801.1": 71710245,
+  "NC_090802.1": 68736248,
+  "NC_090803.1": 68494551,
+  "NC_090804.1": 69564429,
+  "NC_090805.1": 52172941,
+  "NC_090806.1": 71053079,
+  "NC_090807.1": 68473177,
+  "NC_090808.1": 70139957,
+  "NC_090809.1": 65184273,
+  "NC_090810.1": 62371966,
+  "NC_090811.1": 70164003
+ },
+ "heldout_chromosome": "NC_090802.1",
+ "heldout_length": 68736248,
+ "validation_crop": {
+  "chromosome": "NC_090802.1",
+  "start0": 0,
+  "end": 8000000
+ },
+ "validation_contig": "NC_090802.1__val8M",
+ "discarded_bp": 60736248,
+ "train": [
+  "NC_090800.1",
+  "NC_090801.1",
+  "NC_090803.1",
+  "NC_090804.1",
+  "NC_090805.1",
+  "NC_090806.1",
+  "NC_090807.1",
+  "NC_090808.1",
+  "NC_090809.1",
+  "NC_090810.1",
+  "NC_090811.1"
+ ],
+ "lengths": {
+  "NC_090800.1": 94708454,
+  "NC_090801.1": 71710245,
+  "NC_090803.1": 68494551,
+  "NC_090804.1": 69564429,
+  "NC_090805.1": 52172941,
+  "NC_090806.1": 71053079,
+  "NC_090807.1": 68473177,
+  "NC_090808.1": 70139957,
+  "NC_090809.1": 65184273,
+  "NC_090810.1": 62371966,
+  "NC_090811.1": 70164003,
+  "NC_090802.1__val8M": 8000000
+ },
+ "train_bp": 764037075,
+ "dropped_sequences": 2,
+ "gff_features": 692329,
+ "gff_genes": 37118,
+ "prepared": "2026-10-20T13:09:21+02:00"
+}

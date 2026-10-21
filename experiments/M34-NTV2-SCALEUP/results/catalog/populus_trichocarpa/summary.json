@@ -1,0 +1,101 @@
+{
+ "species": "populus_trichocarpa",
+ "organism": "Populus trichocarpa",
+ "accession": "GCF_000002775.5",
+ "contigs": {
+  "NC_037285.2": 49788581,
+  "NC_037286.2": 25242375,
+  "NC_037287.2": 21678634,
+  "NC_037288.2": 24140038,
+  "NC_037289.2": 24981103,
+  "NC_037290.2": 27516652,
+  "NC_037291.2": 15561420,
+  "NC_037292.2": 19195260,
+  "NC_037293.2": 12987399,
+  "NC_037294.2": 22799081,
+  "NC_037295.2": 19288771,
+  "NC_037296.2": 15589050,
+  "NC_037297.2": 15705617,
+  "NC_037299.2": 15231745,
+  "NC_037300.2": 14619816,
+  "NC_037301.2": 15189755,
+  "NC_037302.2": 16264003,
+  "NC_037303.2": 15623655,
+  "NC_037298.2__val8M": 8000000
+ },
+ "split_of": {
+  "NC_037285.2": "train",
+  "NC_037286.2": "train",
+  "NC_037287.2": "train",
+  "NC_037288.2": "train",
+  "NC_037289.2": "train",
+  "NC_037290.2": "train",
+  "NC_037291.2": "train",
+  "NC_037292.2": "train",
+  "NC_037293.2": "train",
+  "NC_037294.2": "train",
+  "NC_037295.2": "train",
+  "NC_037296.2": "train",
+  "NC_037297.2": "train",
+  "NC_037299.2": "train",
+  "NC_037300.2": "train",
+  "NC_037301.2": "train",
+  "NC_037302.2": "train",
+  "NC_037303.2": "train",
+  "NC_037298.2__val8M": "val"
+ },
+ "n_coding_genes_parsed": 28758,
+ "windows": {
+  "train": 60432,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 6711,
+  "50": 13421
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 371402955,
+   "primary_coding_genes": 27933,
+   "cds_assessable_references": 27745,
+   "eligible_positive": 26842,
+   "eligible_per_Mb": 72.27190747580347,
+   "exon_hist": {
+    "1": 5101,
+    "2-5": 12069,
+    ">=6": 10575
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 192,
+   "nonstandard_splice_fraction": 0.022526581366011895,
+   "unsupported_reasons": {
+    "nonstandard_splice": 625,
+    "overlap_or_partial": 216,
+    "split_terminal_codon": 63
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 825,
+   "cds_assessable_references": 821,
+   "eligible_positive": 795,
+   "eligible_per_Mb": 99.375,
+   "exon_hist": {
+    "1": 153,
+    "2-5": 357,
+    ">=6": 311
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 4,
+   "nonstandard_splice_fraction": 0.025578562728380026,
+   "unsupported_reasons": {
+    "nonstandard_splice": 21,
+    "overlap_or_partial": 4,
+    "split_terminal_codon": 1
+   }
+  }
+ },
+ "seconds": 217.96526670455933
+}

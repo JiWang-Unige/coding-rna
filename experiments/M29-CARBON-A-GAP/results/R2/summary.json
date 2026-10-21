@@ -1,0 +1,994 @@
+{
+ "n_ref": 22688,
+ "single_tool": {
+  "CarbonA": {
+   "tp": 16896,
+   "pred": 20540,
+   "precision": 0.8225900681596884,
+   "recall": 0.7447108603667136,
+   "F1": 78.17155547330434,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 78.95772744631473,
+    "oryza_sativa": 75.25851747033852
+   }
+  },
+  "CarbonA_unfiltered": {
+   "tp": 17023,
+   "pred": 22072,
+   "precision": 0.7712486408118884,
+   "recall": 0.750308533145275,
+   "F1": 76.06344950848973,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 76.74510915792459,
+    "oryza_sativa": 73.5300316122234
+   }
+  },
+  "ANNEVO": {
+   "tp": 16470,
+   "pred": 20917,
+   "precision": 0.7873978103934599,
+   "recall": 0.7259344146685472,
+   "F1": 75.54179566563468,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 76.83075369121535,
+    "oryza_sativa": 71.17860016090104
+   }
+  },
+  "Tiberius": {
+   "tp": 16095,
+   "pred": 21617,
+   "precision": 0.7445528981819864,
+   "recall": 0.7094058533145275,
+   "F1": 72.65545649475229,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 75.4172676694828,
+    "oryza_sativa": 63.57654344880975
+   }
+  },
+  "Helixer": {
+   "tp": 15091,
+   "pred": 24774,
+   "precision": 0.609146686041818,
+   "recall": 0.6651533850493653,
+   "F1": 63.59192617251696,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 68.12236942459252,
+    "oryza_sativa": 50.294337119641824
+   }
+  },
+  "B_freshjoint": {
+   "tp": 15739,
+   "pred": 22087,
+   "precision": 0.7125911169466201,
+   "recall": 0.6937147390691114,
+   "F1": 70.30262423227248,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 73.36764325350047,
+    "oryza_sativa": 59.635781468881326
+   }
+  },
+  "E_lora": {
+   "tp": 16420,
+   "pred": 22324,
+   "precision": 0.7355312667980649,
+   "recall": 0.7237306064880112,
+   "F1": 72.95832222518439,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 75.31594669117646,
+    "oryza_sativa": 64.90780698313064
+   }
+  },
+  "M_denseqv": {
+   "tp": 16106,
+   "pred": 21927,
+   "precision": 0.7345282072330916,
+   "recall": 0.7098906911142454,
+   "F1": 72.19993275804102,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 74.41470605237296,
+    "oryza_sativa": 64.55026455026454
+   }
+  },
+  "EM_pool": {
+   "tp": 16527,
+   "pred": 22066,
+   "precision": 0.7489803317320765,
+   "recall": 0.7284467559943583,
+   "F1": 73.8570854001877,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 75.4390518210918,
+    "oryza_sativa": 68.41321821970824
+   }
+  }
+ },
+ "union_upper_bound": {
+  "core4=CarbonA_filtered+ANNEVO+Tiberius+E": {
+   "tools": [
+    "CarbonA",
+    "ANNEVO",
+    "Tiberius",
+    "E_lora"
+   ],
+   "union_hits": 18173,
+   "recall_ceiling": 0.8009961212976022,
+   "F1_if_union_hits_and_zero_FP": 88.95034384865764,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 14318,
+     "ref": 17739,
+     "recall": 0.8071480917751847
+    },
+    "oryza_sativa": {
+     "hits": 3855,
+     "ref": 4949,
+     "recall": 0.7789452414629218
+    }
+   }
+  },
+  "core4_unfilteredCA": {
+   "tools": [
+    "CarbonA_unfiltered",
+    "ANNEVO",
+    "Tiberius",
+    "E_lora"
+   ],
+   "union_hits": 18228,
+   "recall_ceiling": 0.8034203102961918,
+   "F1_if_union_hits_and_zero_FP": 89.09961873105875,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 14367,
+     "ref": 17739,
+     "recall": 0.8099103669879926
+    },
+    "oryza_sativa": {
+     "hits": 3861,
+     "ref": 4949,
+     "recall": 0.7801576075974944
+    }
+   }
+  },
+  "core3_noE=CarbonA+ANNEVO+Tiberius": {
+   "tools": [
+    "CarbonA_unfiltered",
+    "ANNEVO",
+    "Tiberius"
+   ],
+   "union_hits": 18069,
+   "recall_ceiling": 0.7964122002820875,
+   "F1_if_union_hits_and_zero_FP": 88.66697745172608,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 14267,
+     "ref": 17739,
+     "recall": 0.8042730706353233
+    },
+    "oryza_sativa": {
+     "hits": 3802,
+     "ref": 4949,
+     "recall": 0.7682360072741968
+    }
+   }
+  },
+  "ANNEVO+Tiberius+E": {
+   "tools": [
+    "ANNEVO",
+    "Tiberius",
+    "E_lora"
+   ],
+   "union_hits": 17791,
+   "recall_ceiling": 0.7841590267983075,
+   "F1_if_union_hits_and_zero_FP": 87.90236912967218,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 13983,
+     "ref": 17739,
+     "recall": 0.7882631489937426
+    },
+    "oryza_sativa": {
+     "hits": 3808,
+     "ref": 4949,
+     "recall": 0.7694483734087695
+    }
+   }
+  },
+  "ours=B+E+M+EMpool": {
+   "tools": [
+    "B_freshjoint",
+    "E_lora",
+    "M_denseqv",
+    "EM_pool"
+   ],
+   "union_hits": 17097,
+   "recall_ceiling": 0.7535701692524682,
+   "F1_if_union_hits_and_zero_FP": 85.94696493653387,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 13531,
+     "ref": 17739,
+     "recall": 0.7627825694796776
+    },
+    "oryza_sativa": {
+     "hits": 3566,
+     "ref": 4949,
+     "recall": 0.7205496059810063
+    }
+   }
+  },
+  "CarbonA_unfiltered+E": {
+   "tools": [
+    "CarbonA_unfiltered",
+    "E_lora"
+   ],
+   "union_hits": 17713,
+   "recall_ceiling": 0.7807210860366713,
+   "F1_if_union_hits_and_zero_FP": 87.68594836761466,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 14033,
+     "ref": 17739,
+     "recall": 0.7910817971700772
+    },
+    "oryza_sativa": {
+     "hits": 3680,
+     "ref": 4949,
+     "recall": 0.7435845625378864
+    }
+   }
+  },
+  "CarbonA_unfiltered+ANNEVO": {
+   "tools": [
+    "CarbonA_unfiltered",
+    "ANNEVO"
+   ],
+   "union_hits": 17828,
+   "recall_ceiling": 0.7857898448519041,
+   "F1_if_union_hits_and_zero_FP": 88.00473886859513,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 14101,
+     "ref": 17739,
+     "recall": 0.7949151586898924
+    },
+    "oryza_sativa": {
+     "hits": 3727,
+     "ref": 4949,
+     "recall": 0.7530814305920388
+    }
+   }
+  },
+  "all8": {
+   "tools": [
+    "CarbonA_unfiltered",
+    "ANNEVO",
+    "Tiberius",
+    "Helixer",
+    "B_freshjoint",
+    "E_lora",
+    "M_denseqv",
+    "EM_pool"
+   ],
+   "union_hits": 18432,
+   "recall_ceiling": 0.8124118476727785,
+   "F1_if_union_hits_and_zero_FP": 89.64980544747081,
+   "per_species": {
+    "arabidopsis_thaliana": {
+     "hits": 14506,
+     "ref": 17739,
+     "recall": 0.8177462089182028
+    },
+    "oryza_sativa": {
+     "hits": 3926,
+     "ref": 4949,
+     "recall": 0.7932915740553648
+    }
+   }
+  }
+ },
+ "vote": {
+  "core4(CA_filt,ANNEVO,Tib,E)": {
+   ">=1": {
+    "tp": 18173,
+    "pred": 29822,
+    "precision": 0.6093823351887868,
+    "recall": 0.8009961212976022,
+    "F1": 69.21729194439155,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 72.86143198819398,
+     "oryza_sativa": 58.37371290127196
+    }
+   },
+   ">=2": {
+    "tp": 17283,
+    "pred": 21074,
+    "precision": 0.8201100882604156,
+    "recall": 0.7617683356840621,
+    "F1": 78.98633517663727,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.89016125262911,
+     "oryza_sativa": 75.73976915005247
+    }
+   },
+   ">=3": {
+    "tp": 16213,
+    "pred": 18716,
+    "precision": 0.8662641590083351,
+    "recall": 0.7146068406205924,
+    "F1": 78.31610472418124,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.20725149792595,
+     "oryza_sativa": 75.04232983406705
+    }
+   },
+   ">=4": {
+    "tp": 14212,
+    "pred": 15786,
+    "precision": 0.9002913974407704,
+    "recall": 0.626410437235543,
+    "F1": 73.87846337786557,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.04110489970404,
+     "oryza_sativa": 69.49404761904762
+    }
+   }
+  },
+  "core4(CA_unfilt,ANNEVO,Tib,E)": {
+   ">=1": {
+    "tp": 18228,
+    "pred": 31022,
+    "precision": 0.5875830056089227,
+    "recall": 0.8034203102961918,
+    "F1": 67.87562837460436,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 71.31263494899858,
+     "oryza_sativa": 57.55384959379891
+    }
+   },
+   ">=2": {
+    "tp": 17316,
+    "pred": 21318,
+    "precision": 0.8122713200112581,
+    "recall": 0.7632228490832158,
+    "F1": 78.6983593146389,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.58863517517867,
+     "oryza_sativa": 75.50083472454091
+    }
+   },
+   ">=3": {
+    "tp": 16239,
+    "pred": 18786,
+    "precision": 0.8644203129990419,
+    "recall": 0.7157528208744711,
+    "F1": 78.30930221343492,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.19965629411404,
+     "oryza_sativa": 75.04500450045005
+    }
+   },
+   ">=4": {
+    "tp": 14225,
+    "pred": 15804,
+    "precision": 0.9000885851683118,
+    "recall": 0.6269834273624824,
+    "F1": 73.91146212199938,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.06986224808496,
+     "oryza_sativa": 69.54798761609906
+    }
+   }
+  },
+  "core3_external(CA_unfilt,ANNEVO,Tib)": {
+   ">=1": {
+    "tp": 18069,
+    "pred": 28195,
+    "precision": 0.6408583082106757,
+    "recall": 0.7964122002820875,
+    "F1": 71.0217557927009,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 73.76366879507795,
+     "oryza_sativa": 62.32786885245902
+    }
+   },
+   ">=2": {
+    "tp": 16692,
+    "pred": 19805,
+    "precision": 0.8428174703357738,
+    "recall": 0.735719322990127,
+    "F1": 78.56352811051232,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.35687453042824,
+     "oryza_sativa": 75.6997179431547
+    }
+   },
+   ">=3": {
+    "tp": 14827,
+    "pred": 16606,
+    "precision": 0.8928700469709744,
+    "recall": 0.6535172778561354,
+    "F1": 75.46699241614496,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.29912099276112,
+     "oryza_sativa": 72.38323353293413
+    }
+   }
+  },
+  "core3_external_filt(CA_filt,ANNEVO,Tib)": {
+   ">=1": {
+    "tp": 17996,
+    "pred": 26820,
+    "precision": 0.6709917971662938,
+    "recall": 0.793194640338505,
+    "F1": 72.69936171931809,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.64788919962712,
+     "oryza_sativa": 63.44562400735602
+    }
+   },
+   ">=2": {
+    "tp": 16663,
+    "pred": 19685,
+    "precision": 0.846482092964186,
+    "recall": 0.734441114245416,
+    "F1": 78.64913978240861,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.44578313253012,
+     "oryza_sativa": 75.76583451433555
+    }
+   },
+   ">=3": {
+    "tp": 14802,
+    "pred": 16569,
+    "precision": 0.8933550606554409,
+    "recall": 0.6524153737658674,
+    "F1": 75.41075476984996,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.2480600103466,
+     "oryza_sativa": 72.30159683035178
+    }
+   }
+  },
+  "core5(+Helixer)": {
+   ">=1": {
+    "tp": 18359,
+    "pred": 37812,
+    "precision": 0.48553369300751087,
+    "recall": 0.8091942877291961,
+    "F1": 60.69090909090909,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 66.08759257566061,
+     "oryza_sativa": 46.597421203438394
+    }
+   },
+   ">=2": {
+    "tp": 17537,
+    "pred": 22178,
+    "precision": 0.7907385697538101,
+    "recall": 0.7729636812411848,
+    "F1": 78.17501002986671,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.21391642149162,
+     "oryza_sativa": 74.48513746576037
+    }
+   },
+   ">=3": {
+    "tp": 16680,
+    "pred": 19725,
+    "precision": 0.8456273764258555,
+    "recall": 0.7351904090267983,
+    "F1": 78.65512932355645,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.53698135898978,
+     "oryza_sativa": 75.4506719108489
+    }
+   },
+   ">=4": {
+    "tp": 15556,
+    "pred": 17709,
+    "precision": 0.8784234005308036,
+    "recall": 0.6856488011283498,
+    "F1": 77.01561997178008,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.9865518758248,
+     "oryza_sativa": 73.41033718352584
+    }
+   },
+   ">=5": {
+    "tp": 12967,
+    "pred": 14280,
+    "precision": 0.9080532212885154,
+    "recall": 0.5715356135401974,
+    "F1": 70.15256438000432,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 71.6286377920481,
+     "oryza_sativa": 64.53458138325533
+    }
+   }
+  },
+  "ANNEVO,Tib,E": {
+   ">=1": {
+    "tp": 17791,
+    "pred": 28641,
+    "precision": 0.6211724450961907,
+    "recall": 0.7841590267983075,
+    "F1": 69.32143622513588,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 72.9992169146437,
+     "oryza_sativa": 58.49911667562793
+    }
+   },
+   ">=2": {
+    "tp": 16632,
+    "pred": 19802,
+    "precision": 0.8399151600848399,
+    "recall": 0.7330747531734838,
+    "F1": 78.28665568369028,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.24312616569401,
+     "oryza_sativa": 74.84861591695501
+    }
+   },
+   ">=3": {
+    "tp": 14562,
+    "pred": 16415,
+    "precision": 0.8871154431922023,
+    "recall": 0.6418370944992948,
+    "F1": 74.48021890903512,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.72501294665976,
+     "oryza_sativa": 69.79407822590471
+    }
+   }
+  },
+  "CA_unfilt,E,ANNEVO": {
+   ">=1": {
+    "tp": 18075,
+    "pred": 28186,
+    "precision": 0.6412758106861562,
+    "recall": 0.7966766572637518,
+    "F1": 71.05790777214294,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 73.29649145354068,
+     "oryza_sativa": 63.78143537471802
+    }
+   },
+   ">=2": {
+    "tp": 16927,
+    "pred": 20353,
+    "precision": 0.8316710067311944,
+    "recall": 0.746077221438646,
+    "F1": 78.65523570549011,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.50351038303167,
+     "oryza_sativa": 75.57087462300733
+    }
+   },
+   ">=3": {
+    "tp": 14911,
+    "pred": 16774,
+    "precision": 0.8889352569452724,
+    "recall": 0.6572196755994358,
+    "F1": 75.57143581166692,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.55782531767734,
+     "oryza_sativa": 71.91118538856392
+    }
+   }
+  },
+  "ours(B,E,M)": {
+   ">=1": {
+    "tp": 17073,
+    "pred": 27455,
+    "precision": 0.6218539428155163,
+    "recall": 0.752512341325811,
+    "F1": 68.09724188819975,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 71.73734319887554,
+     "oryza_sativa": 57.06014795754262
+    }
+   },
+   ">=2": {
+    "tp": 16264,
+    "pred": 20978,
+    "precision": 0.7752883973686719,
+    "recall": 0.7168547249647391,
+    "F1": 74.49274034718087,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.10226442658875,
+     "oryza_sativa": 68.65798114606504
+    }
+   },
+   ">=3": {
+    "tp": 14928,
+    "pred": 17905,
+    "precision": 0.8337335939681653,
+    "recall": 0.657968970380818,
+    "F1": 73.54962678294287,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.59743359266032,
+     "oryza_sativa": 65.61824729891957
+    }
+   }
+  }
+ },
+ "vote_nonoverlap": {
+  "core4(CA_filt,ANNEVO,Tib,E)": {
+   ">=1": {
+    "tp": 17515,
+    "pred": 23842,
+    "precision": 0.7346279674523949,
+    "recall": 0.7719940056417489,
+    "F1": 75.28476251880507,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.41881251926364,
+     "oryza_sativa": 68.25938566552901
+    }
+   },
+   ">=2": {
+    "tp": 17131,
+    "pred": 20710,
+    "precision": 0.8271849348140995,
+    "recall": 0.7550687588152327,
+    "F1": 78.94833863311673,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.85978142398444,
+     "oryza_sativa": 75.67453179557718
+    }
+   },
+   ">=3": {
+    "tp": 16213,
+    "pred": 18716,
+    "precision": 0.8662641590083351,
+    "recall": 0.7146068406205924,
+    "F1": 78.31610472418124,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.20725149792595,
+     "oryza_sativa": 75.04232983406705
+    }
+   },
+   ">=4": {
+    "tp": 14212,
+    "pred": 15786,
+    "precision": 0.9002913974407704,
+    "recall": 0.626410437235543,
+    "F1": 73.87846337786557,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.04110489970404,
+     "oryza_sativa": 69.49404761904762
+    }
+   }
+  },
+  "core4(CA_unfilt,ANNEVO,Tib,E)": {
+   ">=1": {
+    "tp": 17512,
+    "pred": 24026,
+    "precision": 0.7288770498626488,
+    "recall": 0.7718617771509168,
+    "F1": 74.97538211242882,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.06161137440758,
+     "oryza_sativa": 68.07451125046109
+    }
+   },
+   ">=2": {
+    "tp": 17143,
+    "pred": 20919,
+    "precision": 0.8194942396864094,
+    "recall": 0.7555976727785614,
+    "F1": 78.62499140046323,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.52160403353462,
+     "oryza_sativa": 75.40292847361214
+    }
+   },
+   ">=3": {
+    "tp": 16239,
+    "pred": 18786,
+    "precision": 0.8644203129990419,
+    "recall": 0.7157528208744711,
+    "F1": 78.30930221343492,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.19965629411404,
+     "oryza_sativa": 75.04500450045005
+    }
+   },
+   ">=4": {
+    "tp": 14225,
+    "pred": 15804,
+    "precision": 0.9000885851683118,
+    "recall": 0.6269834273624824,
+    "F1": 73.91146212199938,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.06986224808496,
+     "oryza_sativa": 69.54798761609906
+    }
+   }
+  },
+  "core3_external(CA_unfilt,ANNEVO,Tib)": {
+   ">=1": {
+    "tp": 17428,
+    "pred": 23615,
+    "precision": 0.7380055049756511,
+    "recall": 0.7681593794076164,
+    "F1": 75.27805973695008,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.25285810356422,
+     "oryza_sativa": 68.6387187941592
+    }
+   },
+   ">=2": {
+    "tp": 16692,
+    "pred": 19805,
+    "precision": 0.8428174703357738,
+    "recall": 0.735719322990127,
+    "F1": 78.56352811051232,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.35687453042824,
+     "oryza_sativa": 75.6997179431547
+    }
+   },
+   ">=3": {
+    "tp": 14827,
+    "pred": 16606,
+    "precision": 0.8928700469709744,
+    "recall": 0.6535172778561354,
+    "F1": 75.46699241614496,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.29912099276112,
+     "oryza_sativa": 72.38323353293413
+    }
+   }
+  },
+  "core3_external_filt(CA_filt,ANNEVO,Tib)": {
+   ">=1": {
+    "tp": 17466,
+    "pred": 23258,
+    "precision": 0.750967409063548,
+    "recall": 0.7698342736248237,
+    "F1": 76.028381143081,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 78.12844971553115,
+     "oryza_sativa": 69.04021851747198
+    }
+   },
+   ">=2": {
+    "tp": 16663,
+    "pred": 19685,
+    "precision": 0.846482092964186,
+    "recall": 0.734441114245416,
+    "F1": 78.64913978240861,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.44578313253012,
+     "oryza_sativa": 75.76583451433555
+    }
+   },
+   ">=3": {
+    "tp": 14802,
+    "pred": 16569,
+    "precision": 0.8933550606554409,
+    "recall": 0.6524153737658674,
+    "F1": 75.41075476984996,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.2480600103466,
+     "oryza_sativa": 72.30159683035178
+    }
+   }
+  },
+  "core5(+Helixer)": {
+   ">=1": {
+    "tp": 17551,
+    "pred": 26355,
+    "precision": 0.6659457408461392,
+    "recall": 0.7735807475317349,
+    "F1": 71.57392492302674,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.88473759176071,
+     "oryza_sativa": 59.01874750698045
+    }
+   },
+   ">=2": {
+    "tp": 17271,
+    "pred": 21399,
+    "precision": 0.8070937894294126,
+    "recall": 0.7612394217207334,
+    "F1": 78.34962687413524,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.39055594324262,
+     "oryza_sativa": 74.65703971119133
+    }
+   },
+   ">=3": {
+    "tp": 16680,
+    "pred": 19725,
+    "precision": 0.8456273764258555,
+    "recall": 0.7351904090267983,
+    "F1": 78.65512932355645,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.53698135898978,
+     "oryza_sativa": 75.4506719108489
+    }
+   },
+   ">=4": {
+    "tp": 15556,
+    "pred": 17709,
+    "precision": 0.8784234005308036,
+    "recall": 0.6856488011283498,
+    "F1": 77.01561997178008,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.9865518758248,
+     "oryza_sativa": 73.41033718352584
+    }
+   },
+   ">=5": {
+    "tp": 12967,
+    "pred": 14280,
+    "precision": 0.9080532212885154,
+    "recall": 0.5715356135401974,
+    "F1": 70.15256438000432,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 71.6286377920481,
+     "oryza_sativa": 64.53458138325533
+    }
+   }
+  },
+  "ANNEVO,Tib,E": {
+   ">=1": {
+    "tp": 17323,
+    "pred": 23528,
+    "precision": 0.736271676300578,
+    "recall": 0.7635313822284908,
+    "F1": 74.96537995499394,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.1191950026852,
+     "oryza_sativa": 67.93393005444311
+    }
+   },
+   ">=2": {
+    "tp": 16632,
+    "pred": 19802,
+    "precision": 0.8399151600848399,
+    "recall": 0.7330747531734838,
+    "F1": 78.28665568369028,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.24312616569401,
+     "oryza_sativa": 74.84861591695501
+    }
+   },
+   ">=3": {
+    "tp": 14562,
+    "pred": 16415,
+    "precision": 0.8871154431922023,
+    "recall": 0.6418370944992948,
+    "F1": 74.48021890903512,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.72501294665976,
+     "oryza_sativa": 69.79407822590471
+    }
+   }
+  },
+  "CA_unfilt,E,ANNEVO": {
+   ">=1": {
+    "tp": 17427,
+    "pred": 23481,
+    "precision": 0.7421745240833014,
+    "recall": 0.7681153032440057,
+    "F1": 75.49221338993696,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 77.09325119014282,
+     "oryza_sativa": 70.02581508748446
+    }
+   },
+   ">=2": {
+    "tp": 16927,
+    "pred": 20353,
+    "precision": 0.8316710067311944,
+    "recall": 0.746077221438646,
+    "F1": 78.65523570549011,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 79.50351038303167,
+     "oryza_sativa": 75.57087462300733
+    }
+   },
+   ">=3": {
+    "tp": 14911,
+    "pred": 16774,
+    "precision": 0.8889352569452724,
+    "recall": 0.6572196755994358,
+    "F1": 75.57143581166692,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.55782531767734,
+     "oryza_sativa": 71.91118538856392
+    }
+   }
+  },
+  "ours(B,E,M)": {
+   ">=1": {
+    "tp": 16602,
+    "pred": 22732,
+    "precision": 0.7303360900932606,
+    "recall": 0.7317524682651622,
+    "F1": 73.10435931307794,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.13815302227539,
+     "oryza_sativa": 66.1818886949777
+    }
+   },
+   ">=2": {
+    "tp": 16264,
+    "pred": 20978,
+    "precision": 0.7752883973686719,
+    "recall": 0.7168547249647391,
+    "F1": 74.49274034718087,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 76.10226442658875,
+     "oryza_sativa": 68.65798114606504
+    }
+   },
+   ">=3": {
+    "tp": 14928,
+    "pred": 17905,
+    "precision": 0.8337335939681653,
+    "recall": 0.657968970380818,
+    "F1": 73.54962678294287,
+    "per_species_F1": {
+     "arabidopsis_thaliana": 75.59743359266032,
+     "oryza_sativa": 65.61824729891957
+    }
+   }
+  }
+ },
+ "hybrid": {
+  "CarbonA_filtered+nonoverlap_chains_in>=2_of(ANNEVO,Tiberius,E)": {
+   "tp": 17224,
+   "pred": 21289,
+   "precision": 0.8090563201653436,
+   "recall": 0.7591678420310296,
+   "F1": 78.33185528799144,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 79.2858179706779,
+    "oryza_sativa": 74.8845992446496
+   }
+  },
+  "CarbonA_filtered+nonoverlap_chains_in>=3_of(ANNEVO,Tiberius,E)": {
+   "tp": 17040,
+   "pred": 20779,
+   "precision": 0.8200587131238269,
+   "recall": 0.7510578279266573,
+   "F1": 78.4043067154393,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 79.23943249963435,
+    "oryza_sativa": 75.3285929756518
+   }
+  },
+  "CarbonA_unfiltered+nonoverlap_chains_in>=2_of(ANNEVO,Tiberius,E)": {
+   "tp": 17080,
+   "pred": 22313,
+   "precision": 0.7654730426208937,
+   "recall": 0.752820874471086,
+   "F1": 75.909424235017,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 76.72474854795297,
+    "oryza_sativa": 72.94457036884401
+   }
+  },
+  "CarbonA_unfiltered+nonoverlap_chains_in>=3_of(ANNEVO,Tiberius,E)": {
+   "tp": 17042,
+   "pred": 22133,
+   "precision": 0.7699814756246329,
+   "recall": 0.7511459802538787,
+   "F1": 76.04471118448942,
+   "per_species_F1": {
+    "arabidopsis_thaliana": 76.75209798140168,
+    "oryza_sativa": 73.43177296051942
+   }
+  }
+ },
+ "never_hit_by_any_of_8": 4256,
+ "ref_hit_count_hist_core4_unfilteredCA": {
+  "0": 4460,
+  "1": 912,
+  "2": 1077,
+  "3": 2014,
+  "4": 14225
+ }
+}

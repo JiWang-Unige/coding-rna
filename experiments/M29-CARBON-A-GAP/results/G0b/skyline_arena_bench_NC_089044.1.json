@@ -1,0 +1,15 @@
+{
+ "original": {
+  "seconds": 25.666413772967644,
+  "s_per_Mb": 6.416603443241911,
+  "chains": 51,
+  "gain": 92911.66193234175
+ },
+ "arena_reuse": {
+  "seconds": 7.845089753041975,
+  "s_per_Mb": 1.9612724382604938,
+  "chains": 51,
+  "gain": 92911.66193234175
+ },
+ "identical_chains": true
+}

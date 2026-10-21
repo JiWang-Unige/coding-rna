@@ -1,0 +1,80 @@
+{
+ "species": "daucus_carota",
+ "organism": "Daucus carota subsp. sativus",
+ "accession": "GCF_001625215.2",
+ "contigs": {
+  "NC_030381.2": 56320272,
+  "NC_030382.2": 59175025,
+  "NC_030383.2": 64558952,
+  "NC_030384.2": 51152908,
+  "NC_030386.2": 40885772,
+  "NC_030387.2": 41844801,
+  "NC_030388.2": 33368437,
+  "NC_030389.2": 45850561,
+  "NC_030385.2__val8M": 8000000
+ },
+ "split_of": {
+  "NC_030381.2": "train",
+  "NC_030382.2": "train",
+  "NC_030383.2": "train",
+  "NC_030384.2": "train",
+  "NC_030386.2": "train",
+  "NC_030387.2": "train",
+  "NC_030388.2": "train",
+  "NC_030389.2": "train",
+  "NC_030385.2__val8M": "val"
+ },
+ "n_coding_genes_parsed": 29897,
+ "windows": {
+  "train": 63982,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 7101,
+  "50": 14202
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 393156728,
+   "primary_coding_genes": 29170,
+   "cds_assessable_references": 29038,
+   "eligible_positive": 28403,
+   "eligible_per_Mb": 72.24345401511226,
+   "exon_hist": {
+    "1": 6157,
+    "2-5": 13118,
+    ">=6": 9763
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 121,
+   "nonstandard_splice_fraction": 0.016840002755010675,
+   "unsupported_reasons": {
+    "nonstandard_splice": 489,
+    "split_terminal_codon": 62,
+    "overlap_or_partial": 88
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 727,
+   "cds_assessable_references": 727,
+   "eligible_positive": 716,
+   "eligible_per_Mb": 89.5,
+   "exon_hist": {
+    "1": 141,
+    "2-5": 335,
+    ">=6": 251
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 6,
+   "nonstandard_splice_fraction": 0.009628610729023384,
+   "unsupported_reasons": {
+    "nonstandard_splice": 7,
+    "split_terminal_codon": 4
+   }
+  }
+ },
+ "seconds": 232.7822549343109
+}

@@ -1,0 +1,109 @@
+{
+ "variant": "B_emission",
+ "pooled": {
+  "gate_raw": {
+   "tp": 15702,
+   "pred": 23284,
+   "ref": 22688,
+   "F1": 68.31114591490473
+  },
+  "gate_cds96": {
+   "tp": 15702,
+   "pred": 22778,
+   "ref": 22688,
+   "F1": 69.0713940087098
+  },
+  "carbonA_unfiltered": {
+   "tp": 17023,
+   "pred": 22072,
+   "ref": 22688,
+   "F1": 76.06344950848973
+  }
+ },
+ "per_contig": {
+  "NC_003070.9": {
+   "gate_chains": 7523,
+   "gate_cds96": 7370,
+   "carbonA": 7133,
+   "identical": 5863,
+   "only_carbon": 1270,
+   "only_gate": 1507,
+   "tp_only_carbon": 527,
+   "tp_only_gate": 49,
+   "gate_tp": 4977,
+   "carbonA_tp": 5455
+  },
+  "NC_003071.7": {
+   "gate_chains": 4406,
+   "gate_cds96": 4302,
+   "carbonA": 4172,
+   "identical": 3456,
+   "only_carbon": 716,
+   "only_gate": 846,
+   "tp_only_carbon": 264,
+   "tp_only_gate": 31,
+   "gate_tp": 2947,
+   "carbonA_tp": 3180
+  },
+  "NC_003076.8": {
+   "gate_chains": 6525,
+   "gate_cds96": 6400,
+   "carbonA": 6226,
+   "identical": 5264,
+   "only_carbon": 962,
+   "only_gate": 1136,
+   "tp_only_carbon": 399,
+   "tp_only_gate": 45,
+   "gate_tp": 4545,
+   "carbonA_tp": 4899
+  },
+  "NC_089043.1": {
+   "gate_chains": 1600,
+   "gate_cds96": 1565,
+   "carbonA": 1519,
+   "identical": 1274,
+   "only_carbon": 245,
+   "only_gate": 291,
+   "tp_only_carbon": 109,
+   "tp_only_gate": 11,
+   "gate_tp": 1098,
+   "carbonA_tp": 1196
+  },
+  "NC_089044.1": {
+   "gate_chains": 1567,
+   "gate_cds96": 1520,
+   "carbonA": 1460,
+   "identical": 1227,
+   "only_carbon": 233,
+   "only_gate": 293,
+   "tp_only_carbon": 89,
+   "tp_only_gate": 15,
+   "gate_tp": 1061,
+   "carbonA_tp": 1135
+  },
+  "NC_089046.1": {
+   "gate_chains": 1663,
+   "gate_cds96": 1621,
+   "carbonA": 1562,
+   "identical": 1278,
+   "only_carbon": 284,
+   "only_gate": 343,
+   "tp_only_carbon": 103,
+   "tp_only_gate": 19,
+   "gate_tp": 1074,
+   "carbonA_tp": 1158
+  }
+ },
+ "why_carbon_chain_not_reproduced": {
+  "other": 3564,
+  "AT-AC_intron": 117,
+  "intron<5bp": 19,
+  "AT-AC_intron+intron<5bp": 6,
+  "incomplete_record_edge_or_short_intron": 2,
+  "stop_codon_split_by_intron": 1,
+  "AT-AC_intron+stop_codon_split_by_intron": 1
+ },
+ "identical": 18362,
+ "only_carbon": 3710,
+ "only_gate": 4416
+}

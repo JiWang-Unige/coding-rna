@@ -1,0 +1,37 @@
+{"step": 512, "tag": "internal_validation_region", "pooled_F1": 29.619565217391305, "pooled_tp": 1853, "pooled_pred": 6618, "pooled_ref": 5894, "pooled_precision": 27.999395587790872, "pooled_recall": 31.438751272480488, "per_region": {"NC_003071.7:0-19698289": {"F1": 31.748, "tp": 1365, "pred": 4306, "ref": 4293}, "NC_089044.1:0-23931887": {"F1": 24.942, "tp": 488, "pred": 2312, "ref": 1601}}, "time": "2026-10-19T12:51:48", "score_seconds": 0.6}
+{"step": 1024, "tag": "internal_validation_region", "pooled_F1": 39.49295774647887, "pooled_tp": 2103, "pooled_pred": 4756, "pooled_ref": 5894, "pooled_precision": 44.21783010933557, "pooled_recall": 35.68035290125552, "per_region": {"NC_003071.7:0-19698289": {"F1": 42.736, "tp": 1659, "pred": 3471, "ref": 4293}, "NC_089044.1:0-23931887": {"F1": 30.769, "tp": 444, "pred": 1285, "ref": 1601}}, "time": "2026-10-19T14:48:05", "score_seconds": 0.6}
+{"step": 1536, "tag": "internal_validation_region", "pooled_F1": 44.533378746594, "pooled_tp": 2615, "pooled_pred": 5850, "pooled_ref": 5894, "pooled_precision": 44.7008547008547, "pooled_recall": 44.367153036986764, "per_region": {"NC_003071.7:0-19698289": {"F1": 47.557, "tp": 1986, "pred": 4059, "ref": 4293}, "NC_089044.1:0-23931887": {"F1": 37.087, "tp": 629, "pred": 1791, "ref": 1601}}, "time": "2026-10-19T16:50:42", "score_seconds": 0.6}
+{"step": 2048, "tag": "internal_validation_region", "pooled_F1": 50.06748852695042, "pooled_tp": 2782, "pooled_pred": 5219, "pooled_ref": 5894, "pooled_precision": 53.30523088714313, "pooled_recall": 47.200542925008484, "per_region": {"NC_003071.7:0-19698289": {"F1": 52.776, "tp": 2115, "pred": 3722, "ref": 4293}, "NC_089044.1:0-23931887": {"F1": 43.06, "tp": 667, "pred": 1497, "ref": 1601}}, "time": "2026-10-19T18:55:26", "score_seconds": 0.6}
+{"step": 2560, "tag": "internal_validation_region", "pooled_F1": 49.71471098982882, "pooled_tp": 3006, "pooled_pred": 6199, "pooled_ref": 5894, "pooled_precision": 48.491692208420716, "pooled_recall": 51.001017984390906, "per_region": {"NC_003071.7:0-19698289": {"F1": 53.216, "tp": 2271, "pred": 4242, "ref": 4293}, "NC_089044.1:0-23931887": {"F1": 41.315, "tp": 735, "pred": 1957, "ref": 1601}}, "time": "2026-10-19T21:12:03", "score_seconds": 0.6}
+{"step": 3072, "tag": "internal_validation_region", "pooled_F1": 47.221207916453665, "pooled_tp": 3233, "pooled_pred": 7799, "pooled_ref": 5894, "pooled_precision": 41.45403256827798, "pooled_recall": 54.85239226331863, "per_region": {"NC_003071.7:0-19698289": {"F1": 52.507, "tp": 2424, "pred": 4940, "ref": 4293}, "NC_089044.1:0-23931887": {"F1": 36.278, "tp": 809, "pred": 2859, "ref": 1601}}, "time": "2026-10-19T23:25:39", "score_seconds": 0.7}
+{"stop":512,"val_pooled_F1":29.619565217391305,"time":"2026-10-19T12:51:49+02:00"}
+{"stop":1024,"val_pooled_F1":39.49295774647887,"time":"2026-10-19T14:48:06+02:00"}
+{"stop":1536,"val_pooled_F1":44.533378746594,"time":"2026-10-19T16:50:43+02:00"}
+{"stop":2048,"val_pooled_F1":50.06748852695042,"time":"2026-10-19T18:55:26+02:00"}
+{"stop":2560,"val_pooled_F1":49.71471098982882,"time":"2026-10-19T21:12:04+02:00"}
+{"stop":3072,"val_pooled_F1":47.221207916453665,"time":"2026-10-19T23:25:40+02:00"}
+{"event":"early_stop","stop":3072,"best":50.06748852695042,"time":"2026-10-19T23:25:40+02:00"}
+{"event":"stage_complete","best_step":"2048","time":"2026-10-19T23:25:40+02:00"}
+{"event":"gpu_busy_wait","free_mib":5381,"time":"2026-10-19T10:25:38+02:00"}
+{"event":"gpu_busy_wait","free_mib":1633,"time":"2026-10-19T10:27:38+02:00"}
+{"event":"gpu_busy_wait","free_mib":5270,"time":"2026-10-19T10:29:38+02:00"}
+{"event":"gpu_busy_wait","free_mib":6642,"time":"2026-10-19T10:31:38+02:00"}
+{"event":"launch","attempt":5,"pid":596637,"stop_at":512,"time":"2026-10-19T10:33:38+02:00"}
+{"event":"interruption","attempt":5,"rc":1,"last_checkpoint_step":"none","dmesg_segfaults_total":27,"stderr_tail":"  File  /home/ji/coding-rna-reorg/experiments/M31-C1-NTV2/scripts/c1_model.py , line 
+{"event":"gpu_busy_wait","free_mib":5268,"time":"2026-10-19T10:34:28+02:00"}
+{"event":"launch","attempt":7,"pid":599130,"stop_at":512,"time":"2026-10-19T10:36:28+02:00"}
+{"event":"interruption","attempt":7,"rc":1,"last_checkpoint_step":"none","dmesg_segfaults_total":27,"stderr_tail":"For debugging consider passing CUDA_LAUNCH_BLOCKING=1 Compile with `TORCH_USE_CUDA_DS
+{"event":"launch","attempt":8,"pid":599588,"stop_at":512,"time":"2026-10-19T10:37:02+02:00"}
+{"event":"interruption","attempt":8,"rc":1,"last_checkpoint_step":"none","dmesg_segfaults_total":27,"stderr_tail":"  File  /home/ji/coding-rna-reorg/pipeline/m28/src/m28/core.py , line 37, in forward 
+{"event":"launch","attempt":9,"pid":601345,"stop_at":512,"time":"2026-10-19T10:39:08+02:00"}
+{"event":"done","stop_at":512,"time":"2026-10-19T12:35:36+02:00"}
+{"event":"launch","attempt":1,"pid":765600,"stop_at":1024,"time":"2026-10-19T12:51:49+02:00"}
+{"event":"done","stop_at":1024,"time":"2026-10-19T14:35:32+02:00"}
+{"event":"launch","attempt":1,"pid":2451405,"stop_at":1536,"time":"2026-10-19T14:48:06+02:00"}
+{"event":"done","stop_at":1536,"time":"2026-10-19T16:33:47+02:00"}
+{"event":"launch","attempt":1,"pid":2591554,"stop_at":2048,"time":"2026-10-19T16:50:43+02:00"}
+{"event":"done","stop_at":2048,"time":"2026-10-19T18:46:15+02:00"}
+{"event":"launch","attempt":1,"pid":2718557,"stop_at":2560,"time":"2026-10-19T18:55:26+02:00"}
+{"event":"done","stop_at":2560,"time":"2026-10-19T20:55:16+02:00"}
+{"event":"launch","attempt":1,"pid":3051537,"stop_at":3072,"time":"2026-10-19T21:12:04+02:00"}
+{"event":"done","stop_at":3072,"time":"2026-10-19T23:11:54+02:00"}

@@ -1,0 +1,41 @@
+{
+ "species": "brachypodium_distachyon",
+ "organism": "Brachypodium distachyon",
+ "accession": "GCF_000005505.3",
+ "assembly": "GCF_000005505.3_Brachypodium_distachyon_v3.0",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome, Primary Assembly, >=5 Mb); validation chromosome = lower-median length; validation crop = first 8 Mb (genes fully inside); remainder of that chromosome discarded",
+ "main_chromosomes": {
+  "NC_016131.3": 75071545,
+  "NC_016132.3": 59130575,
+  "NC_016133.3": 59640145,
+  "NC_016134.3": 48594894,
+  "NC_016135.3": 28630136
+ },
+ "heldout_chromosome": "NC_016132.3",
+ "heldout_length": 59130575,
+ "validation_crop": {
+  "chromosome": "NC_016132.3",
+  "start0": 0,
+  "end": 8000000
+ },
+ "validation_contig": "NC_016132.3__val8M",
+ "discarded_bp": 51130575,
+ "train": [
+  "NC_016131.3",
+  "NC_016133.3",
+  "NC_016134.3",
+  "NC_016135.3"
+ ],
+ "lengths": {
+  "NC_016131.3": 75071545,
+  "NC_016133.3": 59640145,
+  "NC_016134.3": 48594894,
+  "NC_016135.3": 28630136,
+  "NC_016132.3__val8M": 8000000
+ },
+ "train_bp": 211936720,
+ "dropped_sequences": 6,
+ "gff_features": 486196,
+ "gff_genes": 24299,
+ "prepared": "2026-10-20T13:08:05+02:00"
+}

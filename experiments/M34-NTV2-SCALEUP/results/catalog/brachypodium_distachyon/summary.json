@@ -1,0 +1,73 @@
+{
+ "species": "brachypodium_distachyon",
+ "organism": "Brachypodium distachyon",
+ "accession": "GCF_000005505.3",
+ "contigs": {
+  "NC_016131.3": 75071545,
+  "NC_016133.3": 59640145,
+  "NC_016134.3": 48594894,
+  "NC_016135.3": 28630136,
+  "NC_016132.3__val8M": 8000000
+ },
+ "split_of": {
+  "NC_016131.3": "train",
+  "NC_016133.3": "train",
+  "NC_016134.3": "train",
+  "NC_016135.3": "train",
+  "NC_016132.3__val8M": "val"
+ },
+ "n_coding_genes_parsed": 20641,
+ "windows": {
+  "train": 34490,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 4772,
+  "50": 9543
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 211936720,
+   "primary_coding_genes": 19679,
+   "cds_assessable_references": 19548,
+   "eligible_positive": 19086,
+   "eligible_per_Mb": 90.05518250919425,
+   "exon_hist": {
+    "1": 4319,
+    "2-5": 8692,
+    ">=6": 6537
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 20,
+   "nonstandard_splice_fraction": 0.019695109474115,
+   "unsupported_reasons": {
+    "nonstandard_splice": 385,
+    "overlap_or_partial": 48,
+    "split_terminal_codon": 30
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 962,
+   "cds_assessable_references": 955,
+   "eligible_positive": 928,
+   "eligible_per_Mb": 116.0,
+   "exon_hist": {
+    "1": 212,
+    "2-5": 455,
+    ">=6": 288
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 2,
+   "nonstandard_splice_fraction": 0.020942408376963352,
+   "unsupported_reasons": {
+    "nonstandard_splice": 20,
+    "split_terminal_codon": 3,
+    "overlap_or_partial": 4
+   }
+  }
+ },
+ "seconds": 217.86514949798584
+}

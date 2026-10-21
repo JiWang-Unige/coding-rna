@@ -1,0 +1,503 @@
+{
+ "T10": {
+  "arm": "T10",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa",
+   "populus_trichocarpa",
+   "brachypodium_distachyon",
+   "solanum_lycopersicum",
+   "phoenix_dactylifera",
+   "phaseolus_vulgaris",
+   "citrus_sinensis",
+   "daucus_carota",
+   "dioscorea_rotundata"
+  ],
+  "new_species_label_fraction": 1.0,
+  "treatment": "FULL",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 23340,
+  "draws_per_species": {
+   "phoenix_dactylifera": 2515,
+   "dioscorea_rotundata": 2475,
+   "oryza_sativa": 2453,
+   "brachypodium_distachyon": 2469,
+   "solanum_lycopersicum": 2422,
+   "daucus_carota": 2392,
+   "arabidopsis_thaliana": 2487,
+   "citrus_sinensis": 2480,
+   "populus_trichocarpa": 2496,
+   "phaseolus_vulgaris": 2387
+  },
+  "unique_windows_per_species": {
+   "dioscorea_rotundata": 2402,
+   "arabidopsis_thaliana": 2173,
+   "phoenix_dactylifera": 2470,
+   "phaseolus_vulgaris": 2334,
+   "brachypodium_distachyon": 2358,
+   "populus_trichocarpa": 2434,
+   "oryza_sativa": 2076,
+   "citrus_sinensis": 2388,
+   "daucus_carota": 2327,
+   "solanum_lycopersicum": 2378
+  },
+  "gene_first_fraction": 0.4966634114583333,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116,
+   "phaseolus_vulgaris": 26268,
+   "citrus_sinensis": 20481,
+   "daucus_carota": 28403,
+   "dioscorea_rotundata": 17806
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116,
+   "phaseolus_vulgaris": 26268,
+   "citrus_sinensis": 20481,
+   "daucus_carota": 28403,
+   "dioscorea_rotundata": 17806
+  },
+  "labeled_genes_exposed_unique": 27514,
+  "labeled_gene_exposures_total": 32100,
+  "labeled_genes_exposed_unique_per_species": {
+   "phoenix_dactylifera": 1642,
+   "dioscorea_rotundata": 2286,
+   "oryza_sativa": 1811,
+   "brachypodium_distachyon": 3048,
+   "daucus_carota": 2909,
+   "arabidopsis_thaliana": 5694,
+   "citrus_sinensis": 2938,
+   "solanum_lycopersicum": 2040,
+   "populus_trichocarpa": 2770,
+   "phaseolus_vulgaris": 2376
+  },
+  "windows_with_positive_fraction": 0.684326171875,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ },
+ "T10_k50U": {
+  "arm": "T10_k50U",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa",
+   "populus_trichocarpa",
+   "brachypodium_distachyon",
+   "solanum_lycopersicum",
+   "phoenix_dactylifera",
+   "phaseolus_vulgaris",
+   "citrus_sinensis",
+   "daucus_carota",
+   "dioscorea_rotundata"
+  ],
+  "new_species_label_fraction": 0.5,
+  "treatment": "U",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 23223,
+  "draws_per_species": {
+   "phoenix_dactylifera": 2515,
+   "dioscorea_rotundata": 2475,
+   "oryza_sativa": 2453,
+   "brachypodium_distachyon": 2469,
+   "solanum_lycopersicum": 2422,
+   "daucus_carota": 2392,
+   "arabidopsis_thaliana": 2487,
+   "citrus_sinensis": 2480,
+   "populus_trichocarpa": 2496,
+   "phaseolus_vulgaris": 2387
+  },
+  "unique_windows_per_species": {
+   "citrus_sinensis": 2377,
+   "dioscorea_rotundata": 2397,
+   "solanum_lycopersicum": 2378,
+   "arabidopsis_thaliana": 2159,
+   "brachypodium_distachyon": 2341,
+   "populus_trichocarpa": 2407,
+   "oryza_sativa": 2053,
+   "phaseolus_vulgaris": 2320,
+   "daucus_carota": 2336,
+   "phoenix_dactylifera": 2455
+  },
+  "gene_first_fraction": 0.4964599609375,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 13421,
+   "brachypodium_distachyon": 9543,
+   "solanum_lycopersicum": 12563,
+   "phoenix_dactylifera": 11558,
+   "phaseolus_vulgaris": 13134,
+   "citrus_sinensis": 10241,
+   "daucus_carota": 14202,
+   "dioscorea_rotundata": 8903
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116,
+   "phaseolus_vulgaris": 26268,
+   "citrus_sinensis": 20481,
+   "daucus_carota": 28403,
+   "dioscorea_rotundata": 17806
+  },
+  "labeled_genes_exposed_unique": 20654,
+  "labeled_gene_exposures_total": 25095,
+  "labeled_genes_exposed_unique_per_species": {
+   "phoenix_dactylifera": 1171,
+   "oryza_sativa": 1804,
+   "dioscorea_rotundata": 1470,
+   "brachypodium_distachyon": 1902,
+   "solanum_lycopersicum": 1508,
+   "daucus_carota": 1830,
+   "arabidopsis_thaliana": 5682,
+   "citrus_sinensis": 1873,
+   "populus_trichocarpa": 1795,
+   "phaseolus_vulgaris": 1619
+  },
+  "windows_with_positive_fraction": 0.5973714192708334,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ },
+ "T10_k25U": {
+  "arm": "T10_k25U",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa",
+   "populus_trichocarpa",
+   "brachypodium_distachyon",
+   "solanum_lycopersicum",
+   "phoenix_dactylifera",
+   "phaseolus_vulgaris",
+   "citrus_sinensis",
+   "daucus_carota",
+   "dioscorea_rotundata"
+  ],
+  "new_species_label_fraction": 0.25,
+  "treatment": "U",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 22988,
+  "draws_per_species": {
+   "phoenix_dactylifera": 2515,
+   "dioscorea_rotundata": 2475,
+   "oryza_sativa": 2453,
+   "brachypodium_distachyon": 2469,
+   "solanum_lycopersicum": 2422,
+   "daucus_carota": 2392,
+   "arabidopsis_thaliana": 2487,
+   "citrus_sinensis": 2480,
+   "populus_trichocarpa": 2496,
+   "phaseolus_vulgaris": 2387
+  },
+  "unique_windows_per_species": {
+   "citrus_sinensis": 2347,
+   "arabidopsis_thaliana": 2173,
+   "phaseolus_vulgaris": 2280,
+   "phoenix_dactylifera": 2428,
+   "brachypodium_distachyon": 2300,
+   "oryza_sativa": 2075,
+   "populus_trichocarpa": 2375,
+   "dioscorea_rotundata": 2359,
+   "daucus_carota": 2308,
+   "solanum_lycopersicum": 2343
+  },
+  "gene_first_fraction": 0.4967854817708333,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 6711,
+   "brachypodium_distachyon": 4772,
+   "solanum_lycopersicum": 6282,
+   "phoenix_dactylifera": 5779,
+   "phaseolus_vulgaris": 6567,
+   "citrus_sinensis": 5121,
+   "daucus_carota": 7101,
+   "dioscorea_rotundata": 4452
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116,
+   "phaseolus_vulgaris": 26268,
+   "citrus_sinensis": 20481,
+   "daucus_carota": 28403,
+   "dioscorea_rotundata": 17806
+  },
+  "labeled_genes_exposed_unique": 17203,
+  "labeled_gene_exposures_total": 21778,
+  "labeled_genes_exposed_unique_per_species": {
+   "phoenix_dactylifera": 925,
+   "oryza_sativa": 1809,
+   "brachypodium_distachyon": 1320,
+   "solanum_lycopersicum": 1110,
+   "daucus_carota": 1344,
+   "arabidopsis_thaliana": 5697,
+   "citrus_sinensis": 1289,
+   "populus_trichocarpa": 1322,
+   "dioscorea_rotundata": 1181,
+   "phaseolus_vulgaris": 1206
+  },
+  "windows_with_positive_fraction": 0.5447591145833334,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ },
+ "T10_k50F": {
+  "arm": "T10_k50F",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa",
+   "populus_trichocarpa",
+   "brachypodium_distachyon",
+   "solanum_lycopersicum",
+   "phoenix_dactylifera",
+   "phaseolus_vulgaris",
+   "citrus_sinensis",
+   "daucus_carota",
+   "dioscorea_rotundata"
+  ],
+  "new_species_label_fraction": 0.5,
+  "treatment": "F",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 23223,
+  "draws_per_species": {
+   "phoenix_dactylifera": 2515,
+   "dioscorea_rotundata": 2475,
+   "oryza_sativa": 2453,
+   "brachypodium_distachyon": 2469,
+   "solanum_lycopersicum": 2422,
+   "daucus_carota": 2392,
+   "arabidopsis_thaliana": 2487,
+   "citrus_sinensis": 2480,
+   "populus_trichocarpa": 2496,
+   "phaseolus_vulgaris": 2387
+  },
+  "unique_windows_per_species": {
+   "citrus_sinensis": 2377,
+   "dioscorea_rotundata": 2397,
+   "solanum_lycopersicum": 2378,
+   "arabidopsis_thaliana": 2159,
+   "brachypodium_distachyon": 2341,
+   "populus_trichocarpa": 2407,
+   "oryza_sativa": 2053,
+   "phaseolus_vulgaris": 2320,
+   "daucus_carota": 2336,
+   "phoenix_dactylifera": 2455
+  },
+  "gene_first_fraction": 0.4964599609375,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 13421,
+   "brachypodium_distachyon": 9543,
+   "solanum_lycopersicum": 12563,
+   "phoenix_dactylifera": 11558,
+   "phaseolus_vulgaris": 13134,
+   "citrus_sinensis": 10241,
+   "daucus_carota": 14202,
+   "dioscorea_rotundata": 8903
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116,
+   "phaseolus_vulgaris": 26268,
+   "citrus_sinensis": 20481,
+   "daucus_carota": 28403,
+   "dioscorea_rotundata": 17806
+  },
+  "labeled_genes_exposed_unique": 20654,
+  "labeled_gene_exposures_total": 25095,
+  "labeled_genes_exposed_unique_per_species": {
+   "phoenix_dactylifera": 1171,
+   "oryza_sativa": 1804,
+   "dioscorea_rotundata": 1470,
+   "brachypodium_distachyon": 1902,
+   "solanum_lycopersicum": 1508,
+   "daucus_carota": 1830,
+   "arabidopsis_thaliana": 5682,
+   "citrus_sinensis": 1873,
+   "populus_trichocarpa": 1795,
+   "phaseolus_vulgaris": 1619
+  },
+  "windows_with_positive_fraction": 0.5973714192708334,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ },
+ "T2": {
+  "arm": "T2",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa"
+  ],
+  "new_species_label_fraction": 1.0,
+  "treatment": "FULL",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 12739,
+  "draws_per_species": {
+   "oryza_sativa": 12249,
+   "arabidopsis_thaliana": 12327
+  },
+  "unique_windows_per_species": {
+   "arabidopsis_thaliana": 6658,
+   "oryza_sativa": 6081
+  },
+  "gene_first_fraction": 0.4965006510416667,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284
+  },
+  "labeled_genes_exposed_unique": 15250,
+  "labeled_gene_exposures_total": 52375,
+  "labeled_genes_exposed_unique_per_species": {
+   "oryza_sativa": 3079,
+   "arabidopsis_thaliana": 12171
+  },
+  "windows_with_positive_fraction": 0.7961832682291666,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ },
+ "T4": {
+  "arm": "T4",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa",
+   "populus_trichocarpa",
+   "brachypodium_distachyon"
+  ],
+  "new_species_label_fraction": 1.0,
+  "treatment": "FULL",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 19740,
+  "draws_per_species": {
+   "populus_trichocarpa": 6101,
+   "brachypodium_distachyon": 6148,
+   "arabidopsis_thaliana": 6154,
+   "oryza_sativa": 6173
+  },
+  "unique_windows_per_species": {
+   "populus_trichocarpa": 5716,
+   "arabidopsis_thaliana": 4420,
+   "oryza_sativa": 4093,
+   "brachypodium_distachyon": 5511
+  },
+  "gene_first_fraction": 0.49658203125,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086
+  },
+  "labeled_genes_exposed_unique": 25317,
+  "labeled_gene_exposures_total": 42087,
+  "labeled_genes_exposed_unique_per_species": {
+   "arabidopsis_thaliana": 9826,
+   "brachypodium_distachyon": 6689,
+   "oryza_sativa": 2678,
+   "populus_trichocarpa": 6124
+  },
+  "windows_with_positive_fraction": 0.7704671223958334,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ },
+ "T6": {
+  "arm": "T6",
+  "species": [
+   "arabidopsis_thaliana",
+   "oryza_sativa",
+   "populus_trichocarpa",
+   "brachypodium_distachyon",
+   "solanum_lycopersicum",
+   "phoenix_dactylifera"
+  ],
+  "new_species_label_fraction": 1.0,
+  "treatment": "FULL",
+  "steps": 3072,
+  "batch": 8,
+  "draws": 24576,
+  "unique_windows": 22000,
+  "draws_per_species": {
+   "brachypodium_distachyon": 4092,
+   "phoenix_dactylifera": 4029,
+   "arabidopsis_thaliana": 4131,
+   "oryza_sativa": 4132,
+   "populus_trichocarpa": 4064,
+   "solanum_lycopersicum": 4128
+  },
+  "unique_windows_per_species": {
+   "phoenix_dactylifera": 3905,
+   "solanum_lycopersicum": 4003,
+   "populus_trichocarpa": 3908,
+   "brachypodium_distachyon": 3800,
+   "arabidopsis_thaliana": 3305,
+   "oryza_sativa": 3079
+  },
+  "gene_first_fraction": 0.4966227213541667,
+  "labeled_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116
+  },
+  "eligible_genes": {
+   "arabidopsis_thaliana": 13325,
+   "oryza_sativa": 3284,
+   "populus_trichocarpa": 26842,
+   "brachypodium_distachyon": 19086,
+   "solanum_lycopersicum": 25126,
+   "phoenix_dactylifera": 23116
+  },
+  "labeled_genes_exposed_unique": 25560,
+  "labeled_gene_exposures_total": 34892,
+  "labeled_genes_exposed_unique_per_species": {
+   "arabidopsis_thaliana": 7974,
+   "oryza_sativa": 2364,
+   "populus_trichocarpa": 4198,
+   "solanum_lycopersicum": 3562,
+   "brachypodium_distachyon": 4935,
+   "phoenix_dactylifera": 2527
+  },
+  "windows_with_positive_fraction": 0.702392578125,
+  "sampling_seed": 1,
+  "uniform_fraction": 0.5
+ }
+}

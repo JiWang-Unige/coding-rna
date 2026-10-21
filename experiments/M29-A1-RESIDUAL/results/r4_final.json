@@ -1,0 +1,566 @@
+{
+ "n_ref": 22688,
+ "tools": {
+  "A1_raw": {
+   "hits_total": 16624,
+   "multi_miss_total": 5012,
+   "categories": {
+    "single_junction_shift": 627,
+    "complex_chain": 819,
+    "other_isoform": 1414,
+    "exon_missed": 221,
+    "endpoint_only": 218,
+    "exon_extra": 318,
+    "absent_no_call": 855,
+    "wrong_strand_only": 92,
+    "merge": 321,
+    "split": 127
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "single_junction_shift": 492,
+     "complex_chain": 566,
+     "other_isoform": 1281,
+     "exon_missed": 128,
+     "endpoint_only": 156,
+     "exon_extra": 223,
+     "absent_no_call": 558,
+     "wrong_strand_only": 89,
+     "merge": 105,
+     "split": 89
+    },
+    "oryza_sativa": {
+     "absent_no_call": 297,
+     "merge": 216,
+     "complex_chain": 253,
+     "single_junction_shift": 135,
+     "exon_extra": 95,
+     "other_isoform": 133,
+     "endpoint_only": 62,
+     "split": 38,
+     "exon_missed": 93,
+     "wrong_strand_only": 3
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4343,
+     "recall": 0.8050046339202965
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2489,
+     "recall": 0.6875690607734807
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4430,
+     "recall": 0.7056387384517362
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2999,
+     "recall": 0.7450931677018634
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2363,
+     "recall": 0.7011869436201781
+    }
+   }
+  },
+  "A1_conf": {
+   "hits_total": 16448,
+   "multi_miss_total": 5115,
+   "categories": {
+    "absent_no_call": 2091,
+    "complex_chain": 403,
+    "other_isoform": 1403,
+    "exon_missed": 180,
+    "endpoint_only": 207,
+    "single_junction_shift": 363,
+    "wrong_strand_only": 86,
+    "exon_extra": 148,
+    "confidence_filtered": 103,
+    "split": 51,
+    "merge": 80
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "absent_no_call": 1304,
+     "complex_chain": 288,
+     "other_isoform": 1274,
+     "exon_missed": 108,
+     "endpoint_only": 151,
+     "single_junction_shift": 280,
+     "wrong_strand_only": 83,
+     "exon_extra": 111,
+     "confidence_filtered": 68,
+     "split": 38,
+     "merge": 50
+    },
+    "oryza_sativa": {
+     "absent_no_call": 787,
+     "complex_chain": 115,
+     "confidence_filtered": 35,
+     "single_junction_shift": 83,
+     "other_isoform": 129,
+     "endpoint_only": 56,
+     "merge": 30,
+     "exon_missed": 72,
+     "exon_extra": 37,
+     "split": 13,
+     "wrong_strand_only": 3
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4270,
+     "recall": 0.7914735866543096
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2449,
+     "recall": 0.6765193370165746
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4399,
+     "recall": 0.7007008601465435
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2980,
+     "recall": 0.7403726708074534
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2350,
+     "recall": 0.6973293768545994
+    }
+   }
+  },
+  "A1_post": {
+   "hits_total": 16147,
+   "multi_miss_total": 5368,
+   "categories": {
+    "single_junction_shift": 360,
+    "absent_no_call": 2185,
+    "other_isoform": 1301,
+    "complex_chain": 434,
+    "exon_missed": 158,
+    "confidence_filtered": 356,
+    "endpoint_only": 159,
+    "wrong_strand_only": 86,
+    "exon_extra": 161,
+    "split": 63,
+    "merge": 105
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "single_junction_shift": 284,
+     "absent_no_call": 1393,
+     "other_isoform": 1183,
+     "complex_chain": 310,
+     "exon_missed": 93,
+     "confidence_filtered": 252,
+     "endpoint_only": 120,
+     "wrong_strand_only": 85,
+     "exon_extra": 127,
+     "split": 42,
+     "merge": 50
+    },
+    "oryza_sativa": {
+     "absent_no_call": 792,
+     "merge": 55,
+     "confidence_filtered": 104,
+     "single_junction_shift": 76,
+     "complex_chain": 124,
+     "other_isoform": 118,
+     "exon_extra": 34,
+     "split": 21,
+     "endpoint_only": 39,
+     "exon_missed": 65,
+     "wrong_strand_only": 1
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4222,
+     "recall": 0.7825764596848934
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2417,
+     "recall": 0.6676795580110497
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4310,
+     "recall": 0.6865243708187321
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2916,
+     "recall": 0.724472049689441
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2282,
+     "recall": 0.6771513353115727
+    }
+   }
+  },
+  "Gate": {
+   "hits_total": 16967,
+   "multi_miss_total": 4768,
+   "categories": {
+    "single_junction_shift": 665,
+    "complex_chain": 726,
+    "other_isoform": 1327,
+    "exon_extra": 286,
+    "endpoint_only": 251,
+    "exon_missed": 189,
+    "absent_no_call": 937,
+    "wrong_strand_only": 95,
+    "split": 118,
+    "merge": 174
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "single_junction_shift": 542,
+     "complex_chain": 549,
+     "other_isoform": 1170,
+     "exon_extra": 247,
+     "endpoint_only": 181,
+     "exon_missed": 108,
+     "absent_no_call": 492,
+     "wrong_strand_only": 93,
+     "split": 94,
+     "merge": 99
+    },
+    "oryza_sativa": {
+     "absent_no_call": 445,
+     "exon_missed": 81,
+     "complex_chain": 177,
+     "single_junction_shift": 123,
+     "other_isoform": 157,
+     "endpoint_only": 70,
+     "merge": 75,
+     "exon_extra": 39,
+     "split": 24,
+     "wrong_strand_only": 2
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4442,
+     "recall": 0.8233549582947173
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2544,
+     "recall": 0.7027624309392265
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4529,
+     "recall": 0.7214080917489646
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 3045,
+     "recall": 0.7565217391304347
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2407,
+     "recall": 0.7142433234421365
+    }
+   }
+  },
+  "CarbonA_unfiltered": {
+   "hits_total": 17023,
+   "multi_miss_total": 4714,
+   "categories": {
+    "complex_chain": 680,
+    "other_isoform": 1330,
+    "exon_extra": 256,
+    "endpoint_only": 252,
+    "single_junction_shift": 662,
+    "exon_missed": 196,
+    "absent_no_call": 945,
+    "wrong_strand_only": 95,
+    "merge": 185,
+    "split": 113
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 523,
+     "other_isoform": 1170,
+     "exon_extra": 224,
+     "endpoint_only": 181,
+     "single_junction_shift": 541,
+     "exon_missed": 109,
+     "absent_no_call": 494,
+     "wrong_strand_only": 93,
+     "merge": 109,
+     "split": 89
+    },
+    "oryza_sativa": {
+     "absent_no_call": 451,
+     "exon_missed": 87,
+     "complex_chain": 157,
+     "single_junction_shift": 121,
+     "other_isoform": 160,
+     "endpoint_only": 71,
+     "merge": 76,
+     "exon_extra": 32,
+     "split": 24,
+     "wrong_strand_only": 2
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4444,
+     "recall": 0.823725671918443
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2548,
+     "recall": 0.7038674033149172
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4540,
+     "recall": 0.7231602421153234
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 3058,
+     "recall": 0.759751552795031
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2433,
+     "recall": 0.7219584569732937
+    }
+   }
+  },
+  "CarbonA_filtered": {
+   "hits_total": 16896,
+   "multi_miss_total": 4807,
+   "categories": {
+    "complex_chain": 377,
+    "absent_no_call": 1903,
+    "other_isoform": 1322,
+    "endpoint_only": 241,
+    "single_junction_shift": 368,
+    "exon_missed": 167,
+    "merge": 73,
+    "confidence_filtered": 93,
+    "wrong_strand_only": 91,
+    "exon_extra": 115,
+    "split": 57
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 278,
+     "absent_no_call": 1244,
+     "other_isoform": 1167,
+     "endpoint_only": 178,
+     "single_junction_shift": 293,
+     "exon_missed": 103,
+     "merge": 46,
+     "confidence_filtered": 73,
+     "wrong_strand_only": 88,
+     "exon_extra": 94,
+     "split": 42
+    },
+    "oryza_sativa": {
+     "absent_no_call": 659,
+     "complex_chain": 99,
+     "exon_missed": 64,
+     "single_junction_shift": 75,
+     "other_isoform": 155,
+     "endpoint_only": 63,
+     "exon_extra": 21,
+     "confidence_filtered": 20,
+     "merge": 27,
+     "split": 15,
+     "wrong_strand_only": 3
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4410,
+     "recall": 0.8174235403151066
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2521,
+     "recall": 0.6964088397790055
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4513,
+     "recall": 0.7188595093978974
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 3037,
+     "recall": 0.7545341614906832
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2415,
+     "recall": 0.7166172106824926
+    }
+   }
+  },
+  "B_freshjoint": {
+   "hits_total": 15739,
+   "multi_miss_total": 5850,
+   "categories": {
+    "complex_chain": 1261,
+    "other_isoform": 1255,
+    "exon_missed": 168,
+    "endpoint_only": 241,
+    "single_junction_shift": 787,
+    "exon_extra": 770,
+    "split": 139,
+    "absent_no_call": 1075,
+    "wrong_strand_only": 96,
+    "merge": 58
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 821,
+     "other_isoform": 1148,
+     "exon_missed": 112,
+     "endpoint_only": 163,
+     "single_junction_shift": 614,
+     "exon_extra": 415,
+     "split": 85,
+     "absent_no_call": 694,
+     "wrong_strand_only": 91,
+     "merge": 42
+    },
+    "oryza_sativa": {
+     "absent_no_call": 381,
+     "exon_extra": 355,
+     "complex_chain": 440,
+     "exon_missed": 56,
+     "split": 54,
+     "single_junction_shift": 173,
+     "other_isoform": 107,
+     "endpoint_only": 78,
+     "merge": 16,
+     "wrong_strand_only": 5
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4296,
+     "recall": 0.7962928637627433
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2337,
+     "recall": 0.6455801104972375
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4161,
+     "recall": 0.6627906976744186
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2779,
+     "recall": 0.6904347826086956
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2166,
+     "recall": 0.6427299703264095
+    }
+   }
+  },
+  "E_lora": {
+   "hits_total": 16420,
+   "multi_miss_total": 5211,
+   "categories": {
+    "other_isoform": 1387,
+    "exon_extra": 377,
+    "complex_chain": 976,
+    "single_junction_shift": 787,
+    "endpoint_only": 246,
+    "exon_missed": 175,
+    "split": 125,
+    "absent_no_call": 968,
+    "wrong_strand_only": 93,
+    "merge": 77
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "other_isoform": 1262,
+     "exon_extra": 219,
+     "complex_chain": 635,
+     "single_junction_shift": 584,
+     "endpoint_only": 172,
+     "exon_missed": 112,
+     "split": 65,
+     "absent_no_call": 643,
+     "wrong_strand_only": 90,
+     "merge": 55
+    },
+    "oryza_sativa": {
+     "absent_no_call": 325,
+     "single_junction_shift": 203,
+     "exon_extra": 158,
+     "complex_chain": 341,
+     "split": 60,
+     "endpoint_only": 74,
+     "exon_missed": 63,
+     "other_isoform": 125,
+     "merge": 22,
+     "wrong_strand_only": 3
+    }
+   },
+   "recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4338,
+     "recall": 0.8040778498609824
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2443,
+     "recall": 0.6748618784530387
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4415,
+     "recall": 0.7032494424976107
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2935,
+     "recall": 0.7291925465838509
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2289,
+     "recall": 0.6792284866468843
+    }
+   }
+  }
+ }
+}

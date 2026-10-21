@@ -1,0 +1,53 @@
+{
+ "species": "daucus_carota",
+ "organism": "Daucus carota subsp. sativus",
+ "accession": "GCF_001625215.2",
+ "assembly": "GCF_001625215.2_DH1_v3.0",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome, Primary Assembly, >=5 Mb); validation chromosome = lower-median length; validation crop = first 8 Mb (genes fully inside); remainder of that chromosome discarded",
+ "main_chromosomes": {
+  "NC_030381.2": 56320272,
+  "NC_030382.2": 59175025,
+  "NC_030383.2": 64558952,
+  "NC_030384.2": 51152908,
+  "NC_030385.2": 47556597,
+  "NC_030386.2": 40885772,
+  "NC_030387.2": 41844801,
+  "NC_030388.2": 33368437,
+  "NC_030389.2": 45850561
+ },
+ "heldout_chromosome": "NC_030385.2",
+ "heldout_length": 47556597,
+ "validation_crop": {
+  "chromosome": "NC_030385.2",
+  "start0": 0,
+  "end": 8000000
+ },
+ "validation_contig": "NC_030385.2__val8M",
+ "discarded_bp": 39556597,
+ "train": [
+  "NC_030381.2",
+  "NC_030382.2",
+  "NC_030383.2",
+  "NC_030384.2",
+  "NC_030386.2",
+  "NC_030387.2",
+  "NC_030388.2",
+  "NC_030389.2"
+ ],
+ "lengths": {
+  "NC_030381.2": 56320272,
+  "NC_030382.2": 59175025,
+  "NC_030383.2": 64558952,
+  "NC_030384.2": 51152908,
+  "NC_030386.2": 40885772,
+  "NC_030387.2": 41844801,
+  "NC_030388.2": 33368437,
+  "NC_030389.2": 45850561,
+  "NC_030385.2__val8M": 8000000
+ },
+ "train_bp": 393156728,
+ "dropped_sequences": 2,
+ "gff_features": 716416,
+ "gff_genes": 34496,
+ "prepared": "2026-10-20T13:14:57+02:00"
+}

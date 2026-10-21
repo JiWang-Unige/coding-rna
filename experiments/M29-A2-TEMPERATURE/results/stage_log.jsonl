@@ -1,0 +1,4 @@
+{"tau":0.05,"stop":256,"delta_F1_vs_gate":-0.28467547237822544,"time":"2026-10-17T19:18:45+02:00"}
+{"tau":0.05,"event":"early_stop_first_checkpoint_below_gate"}
+{"tau":0.03,"stop":256,"delta_F1_vs_gate":-0.24036886734987206,"time":"2026-10-17T20:46:03+02:00"}
+{"tau":0.03,"event":"early_stop_first_checkpoint_below_gate"}

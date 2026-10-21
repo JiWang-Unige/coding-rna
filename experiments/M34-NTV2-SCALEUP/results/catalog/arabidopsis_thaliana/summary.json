@@ -1,0 +1,69 @@
+{
+ "species": "arabidopsis_thaliana",
+ "organism": "Arabidopsis thaliana",
+ "accession": "GCF_000001735.4",
+ "contigs": {
+  "NC_003070.9": 30427671,
+  "NC_003076.8": 26975502,
+  "NC_003071.7": 19698289
+ },
+ "split_of": {
+  "NC_003070.9": "train",
+  "NC_003076.8": "train",
+  "NC_003071.7": "val"
+ },
+ "n_coding_genes_parsed": 17804,
+ "windows": {
+  "train": 9342,
+  "val": 3206
+ },
+ "nested_labeled_counts": {
+  "25": 3332,
+  "50": 6663
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 57403173,
+   "primary_coding_genes": 13487,
+   "cds_assessable_references": 13446,
+   "eligible_positive": 13325,
+   "eligible_per_Mb": 232.13002528623286,
+   "exon_hist": {
+    "1": 3026,
+    "2-5": 5856,
+    ">=6": 4564
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 2,
+   "nonstandard_splice_fraction": 0.005131637661758144,
+   "unsupported_reasons": {
+    "nonstandard_splice": 69,
+    "split_terminal_codon": 18,
+    "overlap_or_partial": 35
+   }
+  },
+  "val": {
+   "bp": 19698289,
+   "primary_coding_genes": 4317,
+   "cds_assessable_references": 4293,
+   "eligible_positive": 4269,
+   "eligible_per_Mb": 216.71933029310313,
+   "exon_hist": {
+    "1": 1088,
+    "2-5": 1843,
+    ">=6": 1362
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 0,
+   "nonstandard_splice_fraction": 0.0034940600978336828,
+   "unsupported_reasons": {
+    "split_terminal_codon": 7,
+    "nonstandard_splice": 15,
+    "overlap_or_partial": 2
+   }
+  }
+ },
+ "seconds": 108.21879410743713
+}

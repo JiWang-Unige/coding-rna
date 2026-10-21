@@ -1,0 +1,65 @@
+{
+ "cpu": [
+  {
+   "seed": 0,
+   "reps": 243,
+   "mismatches": 0,
+   "digest": "59fef089ff1639d0bafcaae1dbce781187c0cb357ca775184c41545b1697d80c"
+  },
+  {
+   "seed": 1,
+   "reps": 204,
+   "mismatches": 0,
+   "digest": "afa4707b06264e2018209aa7449ec9dc215a5b007d93f6c9c3384bd5fc50f2b0"
+  },
+  {
+   "seed": 2,
+   "reps": 166,
+   "mismatches": 0,
+   "digest": "8d9c44704c4d4c1eae77f6be640b4400cada90f1431a5c827225ca2d07177429"
+  },
+  {
+   "seed": 3,
+   "reps": 235,
+   "mismatches": 0,
+   "digest": "6c133dc47c6be58d2247b0681012f7042482d4664fa09f2b8b60a10c862a0616"
+  },
+  {
+   "seed": 0,
+   "reps": 235,
+   "mismatches": 0,
+   "digest": "59fef089ff1639d0bafcaae1dbce781187c0cb357ca775184c41545b1697d80c"
+  },
+  {
+   "seed": 1,
+   "reps": 219,
+   "mismatches": 0,
+   "digest": "afa4707b06264e2018209aa7449ec9dc215a5b007d93f6c9c3384bd5fc50f2b0"
+  },
+  {
+   "seed": 2,
+   "reps": 186,
+   "mismatches": 0,
+   "digest": "8d9c44704c4d4c1eae77f6be640b4400cada90f1431a5c827225ca2d07177429"
+  },
+  {
+   "seed": 3,
+   "reps": 160,
+   "mismatches": 0,
+   "digest": "6c133dc47c6be58d2247b0681012f7042482d4664fa09f2b8b60a10c862a0616"
+  }
+ ],
+ "cross_process_digest_disagreements": 0,
+ "gpu": {
+  "gpu": true,
+  "reps": 200,
+  "mismatches": 0,
+  "value": -241642.71809016354
+ },
+ "dp": {
+  "reps": 6,
+  "mismatches": 0,
+  "digest": "324bd797b4ecf25cd12ea755ab5887a2bff8f8a4fa296b668bb1b07ff22b4559"
+ },
+ "seconds": 187.3831341266632
+}

@@ -1,0 +1,86 @@
+{
+ "species": "solanum_lycopersicum",
+ "organism": "Solanum lycopersicum",
+ "accession": "GCF_036512215.1",
+ "contigs": {
+  "NC_090800.1": 94708454,
+  "NC_090801.1": 71710245,
+  "NC_090803.1": 68494551,
+  "NC_090804.1": 69564429,
+  "NC_090805.1": 52172941,
+  "NC_090806.1": 71053079,
+  "NC_090807.1": 68473177,
+  "NC_090808.1": 70139957,
+  "NC_090809.1": 65184273,
+  "NC_090810.1": 62371966,
+  "NC_090811.1": 70164003,
+  "NC_090802.1__val8M": 8000000
+ },
+ "split_of": {
+  "NC_090800.1": "train",
+  "NC_090801.1": "train",
+  "NC_090803.1": "train",
+  "NC_090804.1": "train",
+  "NC_090805.1": "train",
+  "NC_090806.1": "train",
+  "NC_090807.1": "train",
+  "NC_090808.1": "train",
+  "NC_090809.1": "train",
+  "NC_090810.1": "train",
+  "NC_090811.1": "train",
+  "NC_090802.1__val8M": "val"
+ },
+ "n_coding_genes_parsed": 26161,
+ "windows": {
+  "train": 124344,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 6282,
+  "50": 12563
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 764037075,
+   "primary_coding_genes": 25589,
+   "cds_assessable_references": 25473,
+   "eligible_positive": 25126,
+   "eligible_per_Mb": 32.88583868786734,
+   "exon_hist": {
+    "1": 5395,
+    "2-5": 11681,
+    ">=6": 8397
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 284,
+   "nonstandard_splice_fraction": 0.01048168649157932,
+   "unsupported_reasons": {
+    "nonstandard_splice": 267,
+    "split_terminal_codon": 48,
+    "overlap_or_partial": 32
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 572,
+   "cds_assessable_references": 570,
+   "eligible_positive": 562,
+   "eligible_per_Mb": 70.25,
+   "exon_hist": {
+    "1": 98,
+    "2-5": 282,
+    ">=6": 190
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 3,
+   "nonstandard_splice_fraction": 0.010526315789473684,
+   "unsupported_reasons": {
+    "nonstandard_splice": 6,
+    "split_terminal_codon": 2
+   }
+  }
+ },
+ "seconds": 360.98054361343384
+}

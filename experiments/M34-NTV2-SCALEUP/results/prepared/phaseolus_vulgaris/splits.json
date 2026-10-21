@@ -1,0 +1,59 @@
+{
+ "species": "phaseolus_vulgaris",
+ "organism": "Phaseolus vulgaris",
+ "accession": "GCF_000499845.2",
+ "assembly": "GCF_000499845.2_P._vulgaris_v2.0",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome, Primary Assembly, >=5 Mb); validation chromosome = lower-median length; validation crop = first 8 Mb (genes fully inside); remainder of that chromosome discarded",
+ "main_chromosomes": {
+  "NC_023759.2": 51433939,
+  "NC_023758.2": 49670989,
+  "NC_023757.2": 53438756,
+  "NC_023756.2": 48048378,
+  "NC_023755.2": 40923498,
+  "NC_023754.2": 31236378,
+  "NC_023753.2": 40041001,
+  "NC_023752.2": 63048260,
+  "NC_023751.2": 38250102,
+  "NC_023750.2": 44302882,
+  "NC_023749.2": 53580169
+ },
+ "heldout_chromosome": "NC_023756.2",
+ "heldout_length": 48048378,
+ "validation_crop": {
+  "chromosome": "NC_023756.2",
+  "start0": 0,
+  "end": 8000000
+ },
+ "validation_contig": "NC_023756.2__val8M",
+ "discarded_bp": 40048378,
+ "train": [
+  "NC_023749.2",
+  "NC_023750.2",
+  "NC_023751.2",
+  "NC_023752.2",
+  "NC_023753.2",
+  "NC_023754.2",
+  "NC_023755.2",
+  "NC_023757.2",
+  "NC_023758.2",
+  "NC_023759.2"
+ ],
+ "lengths": {
+  "NC_023749.2": 53580169,
+  "NC_023750.2": 44302882,
+  "NC_023751.2": 38250102,
+  "NC_023752.2": 63048260,
+  "NC_023753.2": 40041001,
+  "NC_023754.2": 31236378,
+  "NC_023755.2": 40923498,
+  "NC_023757.2": 53438756,
+  "NC_023758.2": 49670989,
+  "NC_023759.2": 51433939,
+  "NC_023756.2__val8M": 8000000
+ },
+ "train_bp": 465925974,
+ "dropped_sequences": 457,
+ "gff_features": 624585,
+ "gff_genes": 30135,
+ "prepared": "2026-10-20T13:12:04+02:00"
+}

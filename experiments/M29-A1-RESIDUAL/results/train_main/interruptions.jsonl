@@ -1,0 +1,4 @@
+{"event":"launch","attempt":1,"pid":3328539,"time":"2026-10-16T21:42:10+02:00"}
+{"event":"interruption","attempt":1,"rc":137,"last_checkpoint_step":"128","dmesg_segfaults_total":25,"stderr_tail":"  File  /home/ji/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py , line 368, in _send     n = write(self._handle, buf) BrokenPipeError: [Errno 32] Broken pipe ","time":"2026-10-16T22:06:05+02:00"}
+{"event":"launch","attempt":2,"pid":3345270,"time":"2026-10-16T22:06:35+02:00"}
+{"event":"done","rc":0,"time":"2026-10-17T12:47:55+02:00"}

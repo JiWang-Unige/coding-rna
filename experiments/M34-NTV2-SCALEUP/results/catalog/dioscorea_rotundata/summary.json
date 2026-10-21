@@ -1,0 +1,103 @@
+{
+ "species": "dioscorea_rotundata",
+ "organism": "Dioscorea cayenensis subsp. rotundata",
+ "accession": "GCF_009730915.1",
+ "contigs": {
+  "NC_052471.1": 30583384,
+  "NC_052472.1": 23804961,
+  "NC_052473.1": 19070176,
+  "NC_052474.1": 22296860,
+  "NC_052475.1": 32752956,
+  "NC_052476.1": 21737839,
+  "NC_052477.1": 31772377,
+  "NC_052478.1": 22086263,
+  "NC_052479.1": 31110798,
+  "NC_052480.1": 23486204,
+  "NC_052481.1": 22758979,
+  "NC_052482.1": 21946851,
+  "NC_052483.1": 8344122,
+  "NC_052484.1": 21397214,
+  "NC_052486.1": 24109376,
+  "NC_052487.1": 22358743,
+  "NC_052488.1": 24280954,
+  "NC_052489.1": 31611005,
+  "NC_052490.1": 33023525,
+  "NC_052485.1__val8M": 8000000
+ },
+ "split_of": {
+  "NC_052471.1": "train",
+  "NC_052472.1": "train",
+  "NC_052473.1": "train",
+  "NC_052474.1": "train",
+  "NC_052475.1": "train",
+  "NC_052476.1": "train",
+  "NC_052477.1": "train",
+  "NC_052478.1": "train",
+  "NC_052479.1": "train",
+  "NC_052480.1": "train",
+  "NC_052481.1": "train",
+  "NC_052482.1": "train",
+  "NC_052483.1": "train",
+  "NC_052484.1": "train",
+  "NC_052486.1": "train",
+  "NC_052487.1": "train",
+  "NC_052488.1": "train",
+  "NC_052489.1": "train",
+  "NC_052490.1": "train",
+  "NC_052485.1__val8M": "val"
+ },
+ "n_coding_genes_parsed": 21050,
+ "windows": {
+  "train": 76242,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 4452,
+  "50": 8903
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 468532587,
+   "primary_coding_genes": 20349,
+   "cds_assessable_references": 20067,
+   "eligible_positive": 17806,
+   "eligible_per_Mb": 38.00376002448684,
+   "exon_hist": {
+    "1": 3567,
+    "2-5": 9233,
+    ">=6": 7267
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 115,
+   "nonstandard_splice_fraction": 0.10803807245726815,
+   "unsupported_reasons": {
+    "nonstandard_splice": 2168,
+    "overlap_or_partial": 52,
+    "split_terminal_codon": 44
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 701,
+   "cds_assessable_references": 693,
+   "eligible_positive": 608,
+   "eligible_per_Mb": 76.0,
+   "exon_hist": {
+    "1": 119,
+    "2-5": 334,
+    ">=6": 240
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 5,
+   "nonstandard_splice_fraction": 0.11832611832611832,
+   "unsupported_reasons": {
+    "nonstandard_splice": 82,
+    "split_terminal_codon": 2,
+    "overlap_or_partial": 1
+   }
+  }
+ },
+ "seconds": 266.4832093715668
+}

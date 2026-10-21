@@ -1,0 +1,111 @@
+{
+ "violations": [],
+ "family_overlaps": [
+  {
+   "training_genus": "Brachypodium",
+   "family": "Poaceae",
+   "panel_genus": "Zizania",
+   "panel_tier": "main"
+  },
+  {
+   "training_genus": "Brachypodium",
+   "family": "Poaceae",
+   "panel_genus": "Themeda",
+   "panel_tier": "main"
+  },
+  {
+   "training_genus": "Brachypodium",
+   "family": "Poaceae",
+   "panel_genus": "Paspalum",
+   "panel_tier": "alt"
+  },
+  {
+   "training_genus": "Brachypodium",
+   "family": "Poaceae",
+   "panel_genus": "Setaria",
+   "panel_tier": "project-sealed"
+  },
+  {
+   "training_genus": "Phaseolus",
+   "family": "Fabaceae",
+   "panel_genus": "Medicago",
+   "panel_tier": "alt"
+  },
+  {
+   "training_genus": "Oryza",
+   "family": "Poaceae",
+   "panel_genus": "Zizania",
+   "panel_tier": "main"
+  },
+  {
+   "training_genus": "Oryza",
+   "family": "Poaceae",
+   "panel_genus": "Themeda",
+   "panel_tier": "main"
+  },
+  {
+   "training_genus": "Oryza",
+   "family": "Poaceae",
+   "panel_genus": "Paspalum",
+   "panel_tier": "alt"
+  },
+  {
+   "training_genus": "Oryza",
+   "family": "Poaceae",
+   "panel_genus": "Setaria",
+   "panel_tier": "project-sealed"
+  }
+ ],
+ "training_species": [
+  {
+   "genus": "Populus",
+   "accession": "GCF_000002775.5",
+   "family": "Salicaceae"
+  },
+  {
+   "genus": "Brachypodium",
+   "accession": "GCF_000005505.3",
+   "family": "Poaceae"
+  },
+  {
+   "genus": "Solanum",
+   "accession": "GCF_036512215.1",
+   "family": "Solanaceae"
+  },
+  {
+   "genus": "Phoenix",
+   "accession": "GCF_054393675.1",
+   "family": "Arecaceae"
+  },
+  {
+   "genus": "Phaseolus",
+   "accession": "GCF_000499845.2",
+   "family": "Fabaceae"
+  },
+  {
+   "genus": "Citrus",
+   "accession": "GCF_022201045.2",
+   "family": "Rutaceae"
+  },
+  {
+   "genus": "Daucus",
+   "accession": "GCF_001625215.2",
+   "family": "Apiaceae"
+  },
+  {
+   "genus": "Dioscorea",
+   "accession": "GCF_009730915.1",
+   "family": "Dioscoreaceae"
+  },
+  {
+   "genus": "Arabidopsis",
+   "accession": "GCF_000001735.4",
+   "family": "Brassicaceae"
+  },
+  {
+   "genus": "Oryza",
+   "accession": "GCF_034140825.1",
+   "family": "Poaceae"
+  }
+ ]
+}

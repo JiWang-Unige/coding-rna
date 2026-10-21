@@ -1,0 +1,1952 @@
+{
+ "n_ref": 22688,
+ "n_multi": 17293,
+ "n_single": 5395,
+ "multi_by_nseg": {
+  "6-9": 4025,
+  "10+": 3370,
+  "3-5": 6278,
+  "2": 3620
+ },
+ "tools": {
+  "E_lora": {
+   "hits_total": 16420,
+   "misses_total": 6268,
+   "single_exon_miss": 1057,
+   "hit_recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4338,
+     "recall": 0.8040778498609824
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2443,
+     "recall": 0.6748618784530387
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4415,
+     "recall": 0.7032494424976107
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2935,
+     "recall": 0.7291925465838509
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2289,
+     "recall": 0.6792284866468843
+    }
+   },
+   "multi_miss_total": 5211,
+   "categories": {
+    "other_isoform": 1387,
+    "exon_extra": 377,
+    "complex_chain": 976,
+    "single_junction_shift": 787,
+    "endpoint_only": 246,
+    "exon_missed": 175,
+    "split": 125,
+    "absent_no_call": 968,
+    "wrong_strand_only": 93,
+    "merge": 77
+   },
+   "categories_sub": {
+    "other_isoform": {
+     "": 1387
+    },
+    "absent_no_call": {
+     "": 968
+    },
+    "wrong_strand_only": {
+     "": 93
+    },
+    "merge": {
+     "neighbors=1": 72,
+     "neighbors=2": 5
+    },
+    "split": {
+     "pieces=2": 115,
+     "pieces=3": 10
+    },
+    "endpoint_only": {
+     "start_codon_side": 243,
+     "both": 3
+    },
+    "exon_missed": {
+     "terminal_exon": 121,
+     "internal_exon": 16,
+     "terminal_exon_x2": 24,
+     "terminal_exon_x3": 8,
+     "terminal_exon_x4": 5,
+     "internal_exon_x2": 1
+    },
+    "exon_extra": {
+     "terminal_exon": 136,
+     "internal_exon": 72,
+     "internal_exon_x2": 48,
+     "terminal_exon_x2": 81,
+     "terminal_exon_x3": 15,
+     "terminal_exon_x4": 21,
+     "internal_exon_x3": 3,
+     "internal_exon_x4": 1
+    },
+    "single_junction_shift": {
+     "acceptor_only+endpoint": 90,
+     "both_sides": 153,
+     "donor_only": 192,
+     "donor_only+endpoint": 95,
+     "acceptor_only": 200,
+     "both_sides+endpoint": 57
+    },
+    "complex_chain": {
+     "nQ-nR=-2,junction_diff=2": 40,
+     "nQ-nR=-1,junction_diff=3": 90,
+     "nQ-nR=+1,junction_diff=3": 218,
+     "nQ-nR=+1,junction_diff=6": 13,
+     "nQ-nR=-1,junction_diff=5": 27,
+     "nQ-nR=+0,junction_diff=4": 97,
+     "nQ-nR=-1,junction_diff=1": 168,
+     "nQ-nR=+1,junction_diff=1": 15,
+     "nQ-nR=+2,junction_diff=6": 29,
+     "nQ-nR=+1,junction_diff=5": 63,
+     "nQ-nR=-2,junction_diff=6": 11,
+     "nQ-nR=+2,junction_diff=4": 34,
+     "nQ-nR=+0,junction_diff=6": 45,
+     "nQ-nR=-2,junction_diff=4": 21,
+     "nQ-nR=-3,junction_diff=6": 30,
+     "nQ-nR=-1,junction_diff=6": 9,
+     "nQ-nR=+3,junction_diff=5": 6,
+     "nQ-nR=-3,junction_diff=4": 8,
+     "nQ-nR=-3,junction_diff=5": 12,
+     "nQ-nR=-3,junction_diff=3": 12,
+     "nQ-nR=+3,junction_diff=6": 26,
+     "nQ-nR=+2,junction_diff=2": 1,
+     "nQ-nR=+3,junction_diff=4": 1
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "other_isoform": 1262,
+     "exon_extra": 219,
+     "complex_chain": 635,
+     "single_junction_shift": 584,
+     "endpoint_only": 172,
+     "exon_missed": 112,
+     "split": 65,
+     "absent_no_call": 643,
+     "wrong_strand_only": 90,
+     "merge": 55
+    },
+    "oryza_sativa": {
+     "absent_no_call": 325,
+     "single_junction_shift": 203,
+     "exon_extra": 158,
+     "complex_chain": 341,
+     "split": 60,
+     "endpoint_only": 74,
+     "exon_missed": 63,
+     "other_isoform": 125,
+     "merge": 22,
+     "wrong_strand_only": 3
+    }
+   },
+   "by_nseg": {
+    "2": {
+     "single_junction_shift": 152,
+     "other_isoform": 127,
+     "absent_no_call": 447,
+     "complex_chain": 198,
+     "wrong_strand_only": 54,
+     "merge": 25,
+     "exon_extra": 92,
+     "endpoint_only": 60,
+     "split": 21,
+     "exon_missed": 1
+    },
+    "3-5": {
+     "other_isoform": 426,
+     "complex_chain": 310,
+     "exon_extra": 144,
+     "absent_no_call": 427,
+     "single_junction_shift": 208,
+     "split": 57,
+     "endpoint_only": 115,
+     "exon_missed": 100,
+     "wrong_strand_only": 35,
+     "merge": 41
+    },
+    "6-9": {
+     "exon_extra": 95,
+     "other_isoform": 396,
+     "single_junction_shift": 187,
+     "endpoint_only": 44,
+     "complex_chain": 203,
+     "exon_missed": 48,
+     "absent_no_call": 81,
+     "wrong_strand_only": 4,
+     "split": 24,
+     "merge": 8
+    },
+    "10+": {
+     "other_isoform": 438,
+     "exon_missed": 26,
+     "complex_chain": 265,
+     "split": 23,
+     "single_junction_shift": 240,
+     "endpoint_only": 27,
+     "exon_extra": 46,
+     "absent_no_call": 13,
+     "merge": 3
+    }
+   },
+   "by_species_nseg": {
+    "arabidopsis_thaliana|2": {
+     "single_junction_shift": 108,
+     "other_isoform": 114,
+     "absent_no_call": 327,
+     "complex_chain": 128,
+     "wrong_strand_only": 53,
+     "merge": 21,
+     "exon_extra": 50,
+     "endpoint_only": 37,
+     "split": 16,
+     "exon_missed": 1
+    },
+    "arabidopsis_thaliana|3-5": {
+     "other_isoform": 382,
+     "complex_chain": 189,
+     "exon_extra": 92,
+     "absent_no_call": 261,
+     "single_junction_shift": 154,
+     "split": 26,
+     "endpoint_only": 84,
+     "exon_missed": 61,
+     "wrong_strand_only": 33,
+     "merge": 27
+    },
+    "arabidopsis_thaliana|6-9": {
+     "exon_extra": 47,
+     "other_isoform": 354,
+     "single_junction_shift": 143,
+     "endpoint_only": 33,
+     "complex_chain": 143,
+     "exon_missed": 31,
+     "absent_no_call": 46,
+     "wrong_strand_only": 4,
+     "split": 12,
+     "merge": 5
+    },
+    "arabidopsis_thaliana|10+": {
+     "other_isoform": 412,
+     "exon_missed": 19,
+     "complex_chain": 175,
+     "split": 11,
+     "single_junction_shift": 179,
+     "endpoint_only": 18,
+     "exon_extra": 30,
+     "absent_no_call": 9,
+     "merge": 2
+    },
+    "oryza_sativa|2": {
+     "absent_no_call": 120,
+     "complex_chain": 70,
+     "endpoint_only": 23,
+     "single_junction_shift": 44,
+     "split": 5,
+     "exon_extra": 42,
+     "merge": 4,
+     "other_isoform": 13,
+     "wrong_strand_only": 1
+    },
+    "oryza_sativa|3-5": {
+     "absent_no_call": 166,
+     "complex_chain": 121,
+     "split": 31,
+     "exon_extra": 52,
+     "other_isoform": 44,
+     "single_junction_shift": 54,
+     "merge": 14,
+     "exon_missed": 39,
+     "endpoint_only": 31,
+     "wrong_strand_only": 2
+    },
+    "oryza_sativa|6-9": {
+     "single_junction_shift": 44,
+     "exon_extra": 48,
+     "complex_chain": 60,
+     "absent_no_call": 35,
+     "split": 12,
+     "exon_missed": 17,
+     "other_isoform": 42,
+     "merge": 3,
+     "endpoint_only": 11
+    },
+    "oryza_sativa|10+": {
+     "single_junction_shift": 61,
+     "complex_chain": 90,
+     "exon_extra": 16,
+     "absent_no_call": 4,
+     "endpoint_only": 9,
+     "merge": 1,
+     "other_isoform": 26,
+     "split": 12,
+     "exon_missed": 7
+    }
+   }
+  },
+  "CarbonA_filtered": {
+   "hits_total": 16896,
+   "misses_total": 5792,
+   "single_exon_miss": 985,
+   "hit_recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4410,
+     "recall": 0.8174235403151066
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2521,
+     "recall": 0.6964088397790055
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4513,
+     "recall": 0.7188595093978974
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 3037,
+     "recall": 0.7545341614906832
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2415,
+     "recall": 0.7166172106824926
+    }
+   },
+   "multi_miss_total": 4807,
+   "categories": {
+    "complex_chain": 377,
+    "absent_no_call": 1903,
+    "other_isoform": 1322,
+    "endpoint_only": 241,
+    "single_junction_shift": 368,
+    "exon_missed": 167,
+    "merge": 73,
+    "confidence_filtered": 93,
+    "wrong_strand_only": 91,
+    "exon_extra": 115,
+    "split": 57
+   },
+   "categories_sub": {
+    "confidence_filtered": {
+     "": 93
+    },
+    "other_isoform": {
+     "": 1322
+    },
+    "absent_no_call": {
+     "": 1903
+    },
+    "wrong_strand_only": {
+     "": 91
+    },
+    "merge": {
+     "neighbors=1": 70,
+     "neighbors=2": 3
+    },
+    "split": {
+     "pieces=2": 53,
+     "pieces=3": 3,
+     "pieces=4": 1
+    },
+    "endpoint_only": {
+     "start_codon_side": 239,
+     "both": 2
+    },
+    "exon_missed": {
+     "terminal_exon": 108,
+     "terminal_exon_x2": 23,
+     "terminal_exon_x4": 12,
+     "internal_exon": 15,
+     "terminal_exon_x3": 8,
+     "internal_exon_x2": 1
+    },
+    "exon_extra": {
+     "terminal_exon": 62,
+     "internal_exon": 16,
+     "terminal_exon_x2": 20,
+     "terminal_exon_x3": 5,
+     "terminal_exon_x4": 8,
+     "internal_exon_x2": 4
+    },
+    "single_junction_shift": {
+     "acceptor_only": 120,
+     "donor_only": 101,
+     "donor_only+endpoint": 48,
+     "acceptor_only+endpoint": 59,
+     "both_sides": 27,
+     "both_sides+endpoint": 13
+    },
+    "complex_chain": {
+     "nQ-nR=-1,junction_diff=3": 33,
+     "nQ-nR=-2,junction_diff=2": 29,
+     "nQ-nR=+1,junction_diff=3": 35,
+     "nQ-nR=-1,junction_diff=1": 160,
+     "nQ-nR=+0,junction_diff=4": 36,
+     "nQ-nR=-3,junction_diff=3": 11,
+     "nQ-nR=-3,junction_diff=6": 11,
+     "nQ-nR=-1,junction_diff=5": 4,
+     "nQ-nR=+1,junction_diff=1": 3,
+     "nQ-nR=+0,junction_diff=6": 6,
+     "nQ-nR=+1,junction_diff=6": 1,
+     "nQ-nR=-3,junction_diff=4": 9,
+     "nQ-nR=+2,junction_diff=4": 5,
+     "nQ-nR=-1,junction_diff=6": 1,
+     "nQ-nR=+3,junction_diff=6": 4,
+     "nQ-nR=+3,junction_diff=5": 1,
+     "nQ-nR=+2,junction_diff=6": 5,
+     "nQ-nR=+1,junction_diff=5": 9,
+     "nQ-nR=-2,junction_diff=4": 5,
+     "nQ-nR=-3,junction_diff=5": 6,
+     "nQ-nR=-2,junction_diff=6": 2,
+     "nQ-nR=+2,junction_diff=2": 1
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 278,
+     "absent_no_call": 1244,
+     "other_isoform": 1167,
+     "endpoint_only": 178,
+     "single_junction_shift": 293,
+     "exon_missed": 103,
+     "merge": 46,
+     "confidence_filtered": 73,
+     "wrong_strand_only": 88,
+     "exon_extra": 94,
+     "split": 42
+    },
+    "oryza_sativa": {
+     "absent_no_call": 659,
+     "complex_chain": 99,
+     "exon_missed": 64,
+     "single_junction_shift": 75,
+     "other_isoform": 155,
+     "endpoint_only": 63,
+     "exon_extra": 21,
+     "confidence_filtered": 20,
+     "merge": 27,
+     "split": 15,
+     "wrong_strand_only": 3
+    }
+   },
+   "by_nseg": {
+    "2": {
+     "single_junction_shift": 42,
+     "other_isoform": 109,
+     "absent_no_call": 603,
+     "complex_chain": 152,
+     "confidence_filtered": 27,
+     "wrong_strand_only": 53,
+     "endpoint_only": 55,
+     "exon_extra": 27,
+     "merge": 20,
+     "split": 10,
+     "exon_missed": 1
+    },
+    "3-5": {
+     "other_isoform": 378,
+     "complex_chain": 92,
+     "absent_no_call": 825,
+     "single_junction_shift": 111,
+     "merge": 31,
+     "exon_extra": 42,
+     "endpoint_only": 106,
+     "wrong_strand_only": 34,
+     "exon_missed": 89,
+     "confidence_filtered": 27,
+     "split": 30
+    },
+    "6-9": {
+     "complex_chain": 56,
+     "other_isoform": 382,
+     "absent_no_call": 282,
+     "endpoint_only": 57,
+     "single_junction_shift": 87,
+     "confidence_filtered": 21,
+     "merge": 13,
+     "exon_missed": 49,
+     "exon_extra": 28,
+     "wrong_strand_only": 3,
+     "split": 10
+    },
+    "10+": {
+     "absent_no_call": 193,
+     "other_isoform": 453,
+     "exon_missed": 28,
+     "endpoint_only": 23,
+     "single_junction_shift": 128,
+     "merge": 9,
+     "complex_chain": 77,
+     "confidence_filtered": 18,
+     "exon_extra": 18,
+     "split": 7,
+     "wrong_strand_only": 1
+    }
+   },
+   "by_species_nseg": {
+    "arabidopsis_thaliana|2": {
+     "single_junction_shift": 34,
+     "other_isoform": 95,
+     "absent_no_call": 397,
+     "complex_chain": 105,
+     "confidence_filtered": 24,
+     "wrong_strand_only": 53,
+     "endpoint_only": 39,
+     "exon_extra": 21,
+     "merge": 14,
+     "split": 10
+    },
+    "arabidopsis_thaliana|3-5": {
+     "other_isoform": 328,
+     "complex_chain": 65,
+     "absent_no_call": 516,
+     "single_junction_shift": 85,
+     "merge": 19,
+     "exon_extra": 38,
+     "endpoint_only": 81,
+     "wrong_strand_only": 32,
+     "exon_missed": 55,
+     "confidence_filtered": 23,
+     "split": 20
+    },
+    "arabidopsis_thaliana|6-9": {
+     "complex_chain": 47,
+     "other_isoform": 332,
+     "absent_no_call": 199,
+     "endpoint_only": 41,
+     "single_junction_shift": 72,
+     "confidence_filtered": 13,
+     "merge": 6,
+     "exon_missed": 31,
+     "exon_extra": 20,
+     "wrong_strand_only": 3,
+     "split": 8
+    },
+    "arabidopsis_thaliana|10+": {
+     "absent_no_call": 132,
+     "other_isoform": 412,
+     "exon_missed": 17,
+     "endpoint_only": 17,
+     "single_junction_shift": 102,
+     "merge": 7,
+     "complex_chain": 61,
+     "confidence_filtered": 13,
+     "exon_extra": 15,
+     "split": 4
+    },
+    "oryza_sativa|2": {
+     "absent_no_call": 206,
+     "complex_chain": 47,
+     "single_junction_shift": 8,
+     "merge": 6,
+     "other_isoform": 14,
+     "endpoint_only": 16,
+     "exon_extra": 6,
+     "confidence_filtered": 3,
+     "exon_missed": 1
+    },
+    "oryza_sativa|3-5": {
+     "absent_no_call": 309,
+     "single_junction_shift": 26,
+     "other_isoform": 50,
+     "exon_missed": 34,
+     "exon_extra": 4,
+     "complex_chain": 27,
+     "merge": 12,
+     "endpoint_only": 25,
+     "split": 10,
+     "wrong_strand_only": 2,
+     "confidence_filtered": 4
+    },
+    "oryza_sativa|6-9": {
+     "absent_no_call": 83,
+     "exon_missed": 18,
+     "other_isoform": 50,
+     "endpoint_only": 16,
+     "exon_extra": 8,
+     "confidence_filtered": 8,
+     "merge": 7,
+     "single_junction_shift": 15,
+     "complex_chain": 9,
+     "split": 2
+    },
+    "oryza_sativa|10+": {
+     "complex_chain": 16,
+     "absent_no_call": 61,
+     "endpoint_only": 6,
+     "other_isoform": 41,
+     "single_junction_shift": 26,
+     "exon_missed": 11,
+     "exon_extra": 3,
+     "confidence_filtered": 5,
+     "wrong_strand_only": 1,
+     "split": 3,
+     "merge": 2
+    }
+   }
+  },
+  "CarbonA_unfiltered": {
+   "hits_total": 17023,
+   "misses_total": 5665,
+   "single_exon_miss": 951,
+   "hit_recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4444,
+     "recall": 0.823725671918443
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2548,
+     "recall": 0.7038674033149172
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4540,
+     "recall": 0.7231602421153234
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 3058,
+     "recall": 0.759751552795031
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2433,
+     "recall": 0.7219584569732937
+    }
+   },
+   "multi_miss_total": 4714,
+   "categories": {
+    "complex_chain": 680,
+    "other_isoform": 1330,
+    "exon_extra": 256,
+    "endpoint_only": 252,
+    "single_junction_shift": 662,
+    "exon_missed": 196,
+    "absent_no_call": 945,
+    "wrong_strand_only": 95,
+    "merge": 185,
+    "split": 113
+   },
+   "categories_sub": {
+    "other_isoform": {
+     "": 1330
+    },
+    "absent_no_call": {
+     "": 945
+    },
+    "wrong_strand_only": {
+     "": 95
+    },
+    "merge": {
+     "neighbors=1": 171,
+     "neighbors=2": 14
+    },
+    "split": {
+     "pieces=2": 105,
+     "pieces=3": 7,
+     "pieces=4": 1
+    },
+    "endpoint_only": {
+     "start_codon_side": 250,
+     "both": 2
+    },
+    "exon_missed": {
+     "terminal_exon": 125,
+     "terminal_exon_x2": 29,
+     "internal_exon": 22,
+     "terminal_exon_x4": 7,
+     "terminal_exon_x3": 9,
+     "internal_exon_x2": 4
+    },
+    "exon_extra": {
+     "terminal_exon": 134,
+     "internal_exon": 44,
+     "terminal_exon_x2": 45,
+     "terminal_exon_x3": 14,
+     "terminal_exon_x4": 13,
+     "internal_exon_x2": 6
+    },
+    "single_junction_shift": {
+     "acceptor_only": 156,
+     "both_sides": 121,
+     "donor_only": 123,
+     "donor_only+endpoint": 104,
+     "acceptor_only+endpoint": 116,
+     "both_sides+endpoint": 42
+    },
+    "complex_chain": {
+     "nQ-nR=-1,junction_diff=3": 93,
+     "nQ-nR=+1,junction_diff=5": 27,
+     "nQ-nR=-2,junction_diff=2": 39,
+     "nQ-nR=+1,junction_diff=3": 77,
+     "nQ-nR=-2,junction_diff=4": 17,
+     "nQ-nR=-1,junction_diff=1": 178,
+     "nQ-nR=+0,junction_diff=4": 66,
+     "nQ-nR=-3,junction_diff=3": 16,
+     "nQ-nR=-2,junction_diff=6": 9,
+     "nQ-nR=-3,junction_diff=6": 19,
+     "nQ-nR=-1,junction_diff=5": 21,
+     "nQ-nR=+3,junction_diff=6": 13,
+     "nQ-nR=-1,junction_diff=6": 8,
+     "nQ-nR=+3,junction_diff=5": 5,
+     "nQ-nR=+1,junction_diff=1": 4,
+     "nQ-nR=+0,junction_diff=6": 24,
+     "nQ-nR=+1,junction_diff=6": 9,
+     "nQ-nR=-3,junction_diff=4": 9,
+     "nQ-nR=+2,junction_diff=4": 20,
+     "nQ-nR=+2,junction_diff=6": 11,
+     "nQ-nR=-3,junction_diff=5": 13,
+     "nQ-nR=+2,junction_diff=2": 1,
+     "nQ-nR=+3,junction_diff=4": 1
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 523,
+     "other_isoform": 1170,
+     "exon_extra": 224,
+     "endpoint_only": 181,
+     "single_junction_shift": 541,
+     "exon_missed": 109,
+     "absent_no_call": 494,
+     "wrong_strand_only": 93,
+     "merge": 109,
+     "split": 89
+    },
+    "oryza_sativa": {
+     "absent_no_call": 451,
+     "exon_missed": 87,
+     "complex_chain": 157,
+     "single_junction_shift": 121,
+     "other_isoform": 160,
+     "endpoint_only": 71,
+     "merge": 76,
+     "exon_extra": 32,
+     "split": 24,
+     "wrong_strand_only": 2
+    }
+   },
+   "by_nseg": {
+    "2": {
+     "single_junction_shift": 152,
+     "other_isoform": 110,
+     "wrong_strand_only": 53,
+     "complex_chain": 179,
+     "absent_no_call": 397,
+     "merge": 45,
+     "exon_extra": 59,
+     "endpoint_only": 59,
+     "split": 17,
+     "exon_missed": 1
+    },
+    "3-5": {
+     "other_isoform": 380,
+     "complex_chain": 237,
+     "single_junction_shift": 177,
+     "absent_no_call": 453,
+     "merge": 76,
+     "split": 57,
+     "exon_extra": 105,
+     "endpoint_only": 110,
+     "wrong_strand_only": 38,
+     "exon_missed": 105
+    },
+    "6-9": {
+     "complex_chain": 128,
+     "other_isoform": 383,
+     "exon_extra": 52,
+     "endpoint_only": 60,
+     "single_junction_shift": 143,
+     "merge": 41,
+     "exon_missed": 56,
+     "wrong_strand_only": 4,
+     "split": 23,
+     "absent_no_call": 77
+    },
+    "10+": {
+     "complex_chain": 136,
+     "other_isoform": 457,
+     "exon_missed": 34,
+     "endpoint_only": 23,
+     "single_junction_shift": 190,
+     "merge": 23,
+     "exon_extra": 40,
+     "split": 16,
+     "absent_no_call": 18
+    }
+   },
+   "by_species_nseg": {
+    "arabidopsis_thaliana|2": {
+     "single_junction_shift": 132,
+     "other_isoform": 95,
+     "wrong_strand_only": 53,
+     "complex_chain": 122,
+     "absent_no_call": 231,
+     "merge": 30,
+     "exon_extra": 49,
+     "endpoint_only": 39,
+     "split": 17
+    },
+    "arabidopsis_thaliana|3-5": {
+     "other_isoform": 329,
+     "complex_chain": 190,
+     "single_junction_shift": 140,
+     "absent_no_call": 222,
+     "merge": 42,
+     "split": 42,
+     "exon_extra": 97,
+     "endpoint_only": 82,
+     "wrong_strand_only": 36,
+     "exon_missed": 59
+    },
+    "arabidopsis_thaliana|6-9": {
+     "complex_chain": 107,
+     "other_isoform": 332,
+     "exon_extra": 44,
+     "endpoint_only": 43,
+     "single_junction_shift": 123,
+     "merge": 22,
+     "exon_missed": 31,
+     "wrong_strand_only": 4,
+     "split": 18,
+     "absent_no_call": 35
+    },
+    "arabidopsis_thaliana|10+": {
+     "complex_chain": 104,
+     "other_isoform": 414,
+     "exon_missed": 19,
+     "endpoint_only": 17,
+     "single_junction_shift": 146,
+     "merge": 15,
+     "exon_extra": 34,
+     "split": 12,
+     "absent_no_call": 6
+    },
+    "oryza_sativa|2": {
+     "absent_no_call": 166,
+     "complex_chain": 57,
+     "endpoint_only": 20,
+     "single_junction_shift": 20,
+     "merge": 15,
+     "other_isoform": 15,
+     "exon_extra": 10,
+     "exon_missed": 1
+    },
+    "oryza_sativa|3-5": {
+     "absent_no_call": 231,
+     "single_junction_shift": 37,
+     "other_isoform": 51,
+     "endpoint_only": 28,
+     "merge": 34,
+     "exon_missed": 46,
+     "complex_chain": 47,
+     "exon_extra": 8,
+     "split": 15,
+     "wrong_strand_only": 2
+    },
+    "oryza_sativa|6-9": {
+     "exon_missed": 25,
+     "absent_no_call": 42,
+     "complex_chain": 21,
+     "other_isoform": 51,
+     "endpoint_only": 17,
+     "exon_extra": 8,
+     "merge": 19,
+     "split": 5,
+     "single_junction_shift": 20
+    },
+    "oryza_sativa|10+": {
+     "complex_chain": 32,
+     "absent_no_call": 12,
+     "endpoint_only": 6,
+     "merge": 8,
+     "other_isoform": 43,
+     "single_junction_shift": 44,
+     "exon_extra": 6,
+     "exon_missed": 15,
+     "split": 4
+    }
+   }
+  },
+  "EM_pool": {
+   "hits_total": 16527,
+   "misses_total": 6161,
+   "single_exon_miss": 1054,
+   "hit_recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4341,
+     "recall": 0.8046339202965709
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2488,
+     "recall": 0.687292817679558
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4453,
+     "recall": 0.7093023255813954
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2955,
+     "recall": 0.7341614906832298
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2290,
+     "recall": 0.6795252225519288
+    }
+   },
+   "multi_miss_total": 5107,
+   "categories": {
+    "other_isoform": 1407,
+    "complex_chain": 862,
+    "exon_missed": 187,
+    "single_junction_shift": 733,
+    "endpoint_only": 285,
+    "exon_extra": 305,
+    "split": 130,
+    "absent_no_call": 1043,
+    "wrong_strand_only": 91,
+    "merge": 64
+   },
+   "categories_sub": {
+    "other_isoform": {
+     "": 1407
+    },
+    "absent_no_call": {
+     "": 1043
+    },
+    "wrong_strand_only": {
+     "": 91
+    },
+    "merge": {
+     "neighbors=1": 59,
+     "neighbors=2": 5
+    },
+    "split": {
+     "pieces=2": 123,
+     "pieces=3": 7
+    },
+    "endpoint_only": {
+     "start_codon_side": 282,
+     "both": 3
+    },
+    "exon_missed": {
+     "terminal_exon_x2": 29,
+     "terminal_exon": 129,
+     "internal_exon": 15,
+     "terminal_exon_x4": 10,
+     "terminal_exon_x3": 4
+    },
+    "exon_extra": {
+     "internal_exon": 73,
+     "terminal_exon": 106,
+     "internal_exon_x2": 28,
+     "terminal_exon_x2": 66,
+     "terminal_exon_x4": 19,
+     "terminal_exon_x3": 12,
+     "internal_exon_x3": 1
+    },
+    "single_junction_shift": {
+     "acceptor_only+endpoint": 80,
+     "both_sides": 121,
+     "donor_only": 193,
+     "donor_only+endpoint": 89,
+     "acceptor_only": 202,
+     "both_sides+endpoint": 48
+    },
+    "complex_chain": {
+     "nQ-nR=-2,junction_diff=2": 41,
+     "nQ-nR=+1,junction_diff=3": 182,
+     "nQ-nR=+1,junction_diff=6": 6,
+     "nQ-nR=-1,junction_diff=5": 29,
+     "nQ-nR=-1,junction_diff=1": 174,
+     "nQ-nR=+1,junction_diff=1": 28,
+     "nQ-nR=+0,junction_diff=4": 95,
+     "nQ-nR=+1,junction_diff=5": 54,
+     "nQ-nR=+2,junction_diff=2": 3,
+     "nQ-nR=-1,junction_diff=3": 67,
+     "nQ-nR=-2,junction_diff=6": 10,
+     "nQ-nR=+2,junction_diff=4": 29,
+     "nQ-nR=-3,junction_diff=6": 24,
+     "nQ-nR=+0,junction_diff=6": 32,
+     "nQ-nR=+2,junction_diff=6": 17,
+     "nQ-nR=-3,junction_diff=3": 11,
+     "nQ-nR=+3,junction_diff=5": 7,
+     "nQ-nR=-3,junction_diff=5": 13,
+     "nQ-nR=-3,junction_diff=4": 7,
+     "nQ-nR=+3,junction_diff=6": 16,
+     "nQ-nR=-1,junction_diff=6": 5,
+     "nQ-nR=-2,junction_diff=4": 11,
+     "nQ-nR=+3,junction_diff=4": 1
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "other_isoform": 1276,
+     "complex_chain": 614,
+     "exon_missed": 119,
+     "single_junction_shift": 563,
+     "endpoint_only": 202,
+     "exon_extra": 197,
+     "split": 62,
+     "absent_no_call": 697,
+     "wrong_strand_only": 88,
+     "merge": 46
+    },
+    "oryza_sativa": {
+     "absent_no_call": 346,
+     "single_junction_shift": 170,
+     "complex_chain": 248,
+     "split": 68,
+     "exon_extra": 108,
+     "endpoint_only": 83,
+     "other_isoform": 131,
+     "exon_missed": 68,
+     "merge": 18,
+     "wrong_strand_only": 3
+    }
+   },
+   "by_nseg": {
+    "2": {
+     "single_junction_shift": 119,
+     "other_isoform": 131,
+     "absent_no_call": 470,
+     "complex_chain": 187,
+     "wrong_strand_only": 54,
+     "merge": 24,
+     "exon_extra": 60,
+     "endpoint_only": 63,
+     "split": 23,
+     "exon_missed": 1
+    },
+    "3-5": {
+     "other_isoform": 431,
+     "complex_chain": 236,
+     "exon_missed": 109,
+     "exon_extra": 119,
+     "single_junction_shift": 210,
+     "absent_no_call": 471,
+     "split": 54,
+     "endpoint_only": 130,
+     "wrong_strand_only": 34,
+     "merge": 31
+    },
+    "6-9": {
+     "other_isoform": 405,
+     "single_junction_shift": 183,
+     "endpoint_only": 58,
+     "complex_chain": 175,
+     "exon_missed": 47,
+     "exon_extra": 76,
+     "absent_no_call": 90,
+     "wrong_strand_only": 3,
+     "split": 26,
+     "merge": 7
+    },
+    "10+": {
+     "other_isoform": 440,
+     "exon_missed": 30,
+     "complex_chain": 264,
+     "split": 27,
+     "single_junction_shift": 221,
+     "exon_extra": 50,
+     "endpoint_only": 34,
+     "absent_no_call": 12,
+     "merge": 2
+    }
+   },
+   "by_species_nseg": {
+    "arabidopsis_thaliana|2": {
+     "single_junction_shift": 89,
+     "other_isoform": 117,
+     "absent_no_call": 343,
+     "complex_chain": 129,
+     "wrong_strand_only": 53,
+     "merge": 20,
+     "exon_extra": 39,
+     "endpoint_only": 39,
+     "split": 14,
+     "exon_missed": 1
+    },
+    "arabidopsis_thaliana|3-5": {
+     "other_isoform": 387,
+     "complex_chain": 159,
+     "exon_missed": 66,
+     "exon_extra": 81,
+     "single_junction_shift": 158,
+     "absent_no_call": 294,
+     "split": 25,
+     "endpoint_only": 93,
+     "wrong_strand_only": 32,
+     "merge": 21
+    },
+    "arabidopsis_thaliana|6-9": {
+     "other_isoform": 362,
+     "single_junction_shift": 146,
+     "endpoint_only": 45,
+     "complex_chain": 141,
+     "exon_missed": 30,
+     "exon_extra": 41,
+     "absent_no_call": 51,
+     "wrong_strand_only": 3,
+     "split": 11,
+     "merge": 4
+    },
+    "arabidopsis_thaliana|10+": {
+     "other_isoform": 410,
+     "exon_missed": 22,
+     "complex_chain": 185,
+     "split": 12,
+     "single_junction_shift": 170,
+     "exon_extra": 36,
+     "endpoint_only": 25,
+     "absent_no_call": 9,
+     "merge": 1
+    },
+    "oryza_sativa|2": {
+     "absent_no_call": 127,
+     "complex_chain": 58,
+     "endpoint_only": 24,
+     "split": 9,
+     "single_junction_shift": 30,
+     "exon_extra": 21,
+     "merge": 4,
+     "other_isoform": 14,
+     "wrong_strand_only": 1
+    },
+    "oryza_sativa|3-5": {
+     "absent_no_call": 177,
+     "single_junction_shift": 52,
+     "complex_chain": 77,
+     "split": 29,
+     "exon_extra": 38,
+     "other_isoform": 44,
+     "merge": 10,
+     "endpoint_only": 37,
+     "exon_missed": 43,
+     "wrong_strand_only": 2
+    },
+    "oryza_sativa|6-9": {
+     "complex_chain": 34,
+     "absent_no_call": 39,
+     "split": 15,
+     "exon_extra": 35,
+     "exon_missed": 17,
+     "other_isoform": 43,
+     "single_junction_shift": 37,
+     "merge": 3,
+     "endpoint_only": 13
+    },
+    "oryza_sativa|10+": {
+     "single_junction_shift": 51,
+     "other_isoform": 30,
+     "exon_missed": 8,
+     "complex_chain": 79,
+     "endpoint_only": 9,
+     "merge": 1,
+     "exon_extra": 14,
+     "split": 15,
+     "absent_no_call": 3
+    }
+   }
+  },
+  "ANNEVO": {
+   "hits_total": 16470,
+   "misses_total": 6218,
+   "single_exon_miss": 1435,
+   "hit_recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 3960,
+     "recall": 0.7340129749768304
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2376,
+     "recall": 0.656353591160221
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4569,
+     "recall": 0.7277795476266327
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 3088,
+     "recall": 0.7672049689440994
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2477,
+     "recall": 0.7350148367952523
+    }
+   },
+   "multi_miss_total": 4783,
+   "categories": {
+    "complex_chain": 418,
+    "other_isoform": 1426,
+    "exon_missed": 142,
+    "endpoint_only": 239,
+    "single_junction_shift": 409,
+    "absent_no_call": 1706,
+    "exon_extra": 199,
+    "split": 95,
+    "wrong_strand_only": 92,
+    "merge": 57
+   },
+   "categories_sub": {
+    "other_isoform": {
+     "": 1426
+    },
+    "absent_no_call": {
+     "": 1706
+    },
+    "wrong_strand_only": {
+     "": 92
+    },
+    "merge": {
+     "neighbors=1": 54,
+     "neighbors=2": 3
+    },
+    "split": {
+     "pieces=2": 91,
+     "pieces=3": 4
+    },
+    "endpoint_only": {
+     "start_codon_side": 238,
+     "both": 1
+    },
+    "exon_missed": {
+     "terminal_exon_x2": 23,
+     "terminal_exon": 88,
+     "internal_exon": 9,
+     "terminal_exon_x4": 15,
+     "internal_exon_x2": 1,
+     "terminal_exon_x3": 6
+    },
+    "exon_extra": {
+     "terminal_exon": 107,
+     "terminal_exon_x2": 27,
+     "internal_exon": 34,
+     "internal_exon_x2": 5,
+     "terminal_exon_x3": 12,
+     "terminal_exon_x4": 13,
+     "internal_exon_x3": 1
+    },
+    "single_junction_shift": {
+     "acceptor_only": 109,
+     "donor_only": 109,
+     "both_sides": 43,
+     "donor_only+endpoint": 61,
+     "acceptor_only+endpoint": 52,
+     "both_sides+endpoint": 35
+    },
+    "complex_chain": {
+     "nQ-nR=+1,junction_diff=5": 14,
+     "nQ-nR=-2,junction_diff=2": 19,
+     "nQ-nR=-1,junction_diff=1": 95,
+     "nQ-nR=+1,junction_diff=1": 6,
+     "nQ-nR=-2,junction_diff=4": 12,
+     "nQ-nR=+1,junction_diff=3": 62,
+     "nQ-nR=-1,junction_diff=3": 44,
+     "nQ-nR=+0,junction_diff=4": 52,
+     "nQ-nR=-1,junction_diff=6": 3,
+     "nQ-nR=-3,junction_diff=6": 17,
+     "nQ-nR=-2,junction_diff=6": 6,
+     "nQ-nR=+0,junction_diff=6": 17,
+     "nQ-nR=+2,junction_diff=6": 7,
+     "nQ-nR=+1,junction_diff=6": 6,
+     "nQ-nR=+2,junction_diff=4": 17,
+     "nQ-nR=-3,junction_diff=4": 4,
+     "nQ-nR=-1,junction_diff=5": 7,
+     "nQ-nR=+3,junction_diff=6": 9,
+     "nQ-nR=-3,junction_diff=5": 12,
+     "nQ-nR=+3,junction_diff=5": 4,
+     "nQ-nR=-3,junction_diff=3": 4,
+     "nQ-nR=+3,junction_diff=3": 1
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 265,
+     "other_isoform": 1270,
+     "exon_missed": 84,
+     "endpoint_only": 162,
+     "single_junction_shift": 293,
+     "absent_no_call": 1298,
+     "exon_extra": 112,
+     "split": 41,
+     "wrong_strand_only": 88,
+     "merge": 46
+    },
+    "oryza_sativa": {
+     "absent_no_call": 408,
+     "single_junction_shift": 116,
+     "exon_extra": 87,
+     "complex_chain": 153,
+     "exon_missed": 58,
+     "other_isoform": 156,
+     "split": 54,
+     "endpoint_only": 77,
+     "wrong_strand_only": 4,
+     "merge": 11
+    }
+   },
+   "by_nseg": {
+    "2": {
+     "single_junction_shift": 46,
+     "other_isoform": 123,
+     "absent_no_call": 793,
+     "complex_chain": 95,
+     "wrong_strand_only": 58,
+     "endpoint_only": 50,
+     "merge": 18,
+     "exon_extra": 50,
+     "split": 11
+    },
+    "3-5": {
+     "other_isoform": 417,
+     "complex_chain": 112,
+     "exon_missed": 85,
+     "exon_extra": 70,
+     "single_junction_shift": 126,
+     "absent_no_call": 699,
+     "endpoint_only": 112,
+     "wrong_strand_only": 31,
+     "merge": 25,
+     "split": 32
+    },
+    "6-9": {
+     "other_isoform": 421,
+     "endpoint_only": 49,
+     "absent_no_call": 168,
+     "single_junction_shift": 104,
+     "complex_chain": 78,
+     "merge": 9,
+     "exon_extra": 51,
+     "split": 24,
+     "wrong_strand_only": 3,
+     "exon_missed": 30
+    },
+    "10+": {
+     "complex_chain": 133,
+     "other_isoform": 465,
+     "exon_missed": 27,
+     "endpoint_only": 28,
+     "split": 28,
+     "single_junction_shift": 133,
+     "exon_extra": 28,
+     "absent_no_call": 46,
+     "merge": 5
+    }
+   },
+   "by_species_nseg": {
+    "arabidopsis_thaliana|2": {
+     "single_junction_shift": 26,
+     "other_isoform": 110,
+     "absent_no_call": 635,
+     "complex_chain": 57,
+     "wrong_strand_only": 56,
+     "endpoint_only": 32,
+     "merge": 15,
+     "exon_extra": 26,
+     "split": 4
+    },
+    "arabidopsis_thaliana|3-5": {
+     "other_isoform": 366,
+     "complex_chain": 65,
+     "exon_missed": 48,
+     "exon_extra": 43,
+     "single_junction_shift": 88,
+     "absent_no_call": 496,
+     "endpoint_only": 78,
+     "wrong_strand_only": 29,
+     "merge": 19,
+     "split": 13
+    },
+    "arabidopsis_thaliana|6-9": {
+     "other_isoform": 365,
+     "endpoint_only": 33,
+     "absent_no_call": 127,
+     "single_junction_shift": 81,
+     "complex_chain": 51,
+     "merge": 7,
+     "exon_extra": 27,
+     "split": 14,
+     "wrong_strand_only": 3,
+     "exon_missed": 20
+    },
+    "arabidopsis_thaliana|10+": {
+     "complex_chain": 92,
+     "other_isoform": 429,
+     "exon_missed": 16,
+     "endpoint_only": 19,
+     "split": 10,
+     "single_junction_shift": 98,
+     "exon_extra": 16,
+     "absent_no_call": 40,
+     "merge": 5
+    },
+    "oryza_sativa|2": {
+     "absent_no_call": 158,
+     "complex_chain": 38,
+     "split": 7,
+     "exon_extra": 24,
+     "single_junction_shift": 20,
+     "wrong_strand_only": 2,
+     "merge": 3,
+     "endpoint_only": 18,
+     "other_isoform": 13
+    },
+    "oryza_sativa|3-5": {
+     "absent_no_call": 203,
+     "exon_extra": 27,
+     "single_junction_shift": 38,
+     "other_isoform": 51,
+     "endpoint_only": 34,
+     "split": 19,
+     "complex_chain": 47,
+     "merge": 6,
+     "exon_missed": 37,
+     "wrong_strand_only": 2
+    },
+    "oryza_sativa|6-9": {
+     "single_junction_shift": 23,
+     "absent_no_call": 41,
+     "exon_extra": 24,
+     "exon_missed": 10,
+     "other_isoform": 56,
+     "split": 10,
+     "endpoint_only": 16,
+     "complex_chain": 27,
+     "merge": 2
+    },
+    "oryza_sativa|10+": {
+     "exon_extra": 12,
+     "complex_chain": 41,
+     "endpoint_only": 9,
+     "other_isoform": 36,
+     "single_junction_shift": 35,
+     "split": 18,
+     "exon_missed": 11,
+     "absent_no_call": 6
+    }
+   }
+  },
+  "Tiberius": {
+   "hits_total": 16095,
+   "misses_total": 6593,
+   "single_exon_miss": 1383,
+   "hit_recall_by_nseg": {
+    "1": {
+     "ref": 5395,
+     "hit": 4012,
+     "recall": 0.7436515291936978
+    },
+    "2": {
+     "ref": 3620,
+     "hit": 2316,
+     "recall": 0.6397790055248619
+    },
+    "3-5": {
+     "ref": 6278,
+     "hit": 4435,
+     "recall": 0.7064351704364448
+    },
+    "6-9": {
+     "ref": 4025,
+     "hit": 2966,
+     "recall": 0.7368944099378882
+    },
+    "10+": {
+     "ref": 3370,
+     "hit": 2366,
+     "recall": 0.7020771513353116
+    }
+   },
+   "multi_miss_total": 5210,
+   "categories": {
+    "complex_chain": 564,
+    "other_isoform": 1473,
+    "endpoint_only": 234,
+    "exon_missed": 218,
+    "single_junction_shift": 524,
+    "absent_no_call": 1567,
+    "split": 284,
+    "wrong_strand_only": 92,
+    "exon_extra": 171,
+    "merge": 83
+   },
+   "categories_sub": {
+    "other_isoform": {
+     "": 1473
+    },
+    "absent_no_call": {
+     "": 1567
+    },
+    "wrong_strand_only": {
+     "": 92
+    },
+    "merge": {
+     "neighbors=1": 80,
+     "neighbors=2": 3
+    },
+    "split": {
+     "pieces=2": 259,
+     "pieces=3": 20,
+     "pieces=4": 5
+    },
+    "endpoint_only": {
+     "start_codon_side": 233,
+     "both": 1
+    },
+    "exon_missed": {
+     "terminal_exon": 141,
+     "internal_exon": 24,
+     "terminal_exon_x4": 12,
+     "terminal_exon_x2": 31,
+     "terminal_exon_x3": 9,
+     "internal_exon_x2": 1
+    },
+    "exon_extra": {
+     "terminal_exon": 107,
+     "internal_exon": 14,
+     "terminal_exon_x2": 31,
+     "terminal_exon_x3": 9,
+     "terminal_exon_x4": 8,
+     "internal_exon_x2": 2
+    },
+    "single_junction_shift": {
+     "acceptor_only": 103,
+     "donor_only+endpoint": 107,
+     "acceptor_only+endpoint": 84,
+     "both_sides": 73,
+     "donor_only": 111,
+     "both_sides+endpoint": 46
+    },
+    "complex_chain": {
+     "nQ-nR=-1,junction_diff=3": 87,
+     "nQ-nR=+0,junction_diff=4": 55,
+     "nQ-nR=-2,junction_diff=2": 31,
+     "nQ-nR=+1,junction_diff=3": 61,
+     "nQ-nR=-1,junction_diff=1": 152,
+     "nQ-nR=-3,junction_diff=5": 17,
+     "nQ-nR=+1,junction_diff=5": 17,
+     "nQ-nR=+3,junction_diff=6": 6,
+     "nQ-nR=-2,junction_diff=6": 16,
+     "nQ-nR=-3,junction_diff=3": 16,
+     "nQ-nR=+1,junction_diff=1": 7,
+     "nQ-nR=-3,junction_diff=6": 34,
+     "nQ-nR=+1,junction_diff=6": 4,
+     "nQ-nR=+3,junction_diff=5": 3,
+     "nQ-nR=-1,junction_diff=5": 15,
+     "nQ-nR=+0,junction_diff=6": 9,
+     "nQ-nR=-2,junction_diff=4": 16,
+     "nQ-nR=-1,junction_diff=6": 2,
+     "nQ-nR=+2,junction_diff=4": 6,
+     "nQ-nR=-3,junction_diff=4": 5,
+     "nQ-nR=+2,junction_diff=2": 1,
+     "nQ-nR=+2,junction_diff=6": 4
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "complex_chain": 384,
+     "other_isoform": 1330,
+     "endpoint_only": 171,
+     "exon_missed": 121,
+     "single_junction_shift": 357,
+     "absent_no_call": 1105,
+     "split": 70,
+     "wrong_strand_only": 89,
+     "exon_extra": 136,
+     "merge": 76
+    },
+    "oryza_sativa": {
+     "absent_no_call": 462,
+     "single_junction_shift": 167,
+     "other_isoform": 143,
+     "complex_chain": 180,
+     "endpoint_only": 63,
+     "exon_extra": 35,
+     "split": 214,
+     "exon_missed": 97,
+     "merge": 7,
+     "wrong_strand_only": 3
+    }
+   },
+   "by_nseg": {
+    "2": {
+     "single_junction_shift": 97,
+     "absent_no_call": 715,
+     "other_isoform": 138,
+     "complex_chain": 151,
+     "split": 29,
+     "wrong_strand_only": 54,
+     "merge": 26,
+     "exon_extra": 33,
+     "endpoint_only": 58,
+     "exon_missed": 3
+    },
+    "3-5": {
+     "other_isoform": 425,
+     "complex_chain": 171,
+     "single_junction_shift": 161,
+     "absent_no_call": 659,
+     "exon_extra": 74,
+     "endpoint_only": 97,
+     "exon_missed": 108,
+     "wrong_strand_only": 35,
+     "merge": 32,
+     "split": 81
+    },
+    "6-9": {
+     "complex_chain": 116,
+     "other_isoform": 421,
+     "endpoint_only": 54,
+     "single_junction_shift": 120,
+     "absent_no_call": 151,
+     "exon_missed": 65,
+     "exon_extra": 40,
+     "merge": 16,
+     "split": 73,
+     "wrong_strand_only": 3
+    },
+    "10+": {
+     "complex_chain": 126,
+     "other_isoform": 489,
+     "exon_missed": 42,
+     "single_junction_shift": 146,
+     "absent_no_call": 42,
+     "exon_extra": 24,
+     "endpoint_only": 25,
+     "merge": 9,
+     "split": 101
+    }
+   },
+   "by_species_nseg": {
+    "arabidopsis_thaliana|2": {
+     "single_junction_shift": 54,
+     "absent_no_call": 550,
+     "other_isoform": 123,
+     "complex_chain": 98,
+     "split": 12,
+     "wrong_strand_only": 53,
+     "merge": 24,
+     "exon_extra": 21,
+     "endpoint_only": 39,
+     "exon_missed": 1
+    },
+    "arabidopsis_thaliana|3-5": {
+     "other_isoform": 385,
+     "complex_chain": 102,
+     "single_junction_shift": 103,
+     "absent_no_call": 436,
+     "exon_extra": 66,
+     "endpoint_only": 73,
+     "exon_missed": 58,
+     "wrong_strand_only": 33,
+     "merge": 28,
+     "split": 31
+    },
+    "arabidopsis_thaliana|6-9": {
+     "complex_chain": 87,
+     "other_isoform": 372,
+     "endpoint_only": 40,
+     "single_junction_shift": 85,
+     "absent_no_call": 95,
+     "exon_missed": 38,
+     "exon_extra": 32,
+     "merge": 15,
+     "split": 17,
+     "wrong_strand_only": 3
+    },
+    "arabidopsis_thaliana|10+": {
+     "complex_chain": 97,
+     "other_isoform": 450,
+     "exon_missed": 24,
+     "single_junction_shift": 115,
+     "absent_no_call": 24,
+     "exon_extra": 17,
+     "endpoint_only": 19,
+     "merge": 9,
+     "split": 10
+    },
+    "oryza_sativa|2": {
+     "absent_no_call": 165,
+     "complex_chain": 53,
+     "split": 17,
+     "single_junction_shift": 43,
+     "merge": 2,
+     "endpoint_only": 19,
+     "exon_extra": 12,
+     "other_isoform": 15,
+     "wrong_strand_only": 1,
+     "exon_missed": 2
+    },
+    "oryza_sativa|3-5": {
+     "absent_no_call": 223,
+     "single_junction_shift": 58,
+     "split": 50,
+     "exon_missed": 50,
+     "complex_chain": 69,
+     "other_isoform": 40,
+     "exon_extra": 8,
+     "merge": 4,
+     "endpoint_only": 24,
+     "wrong_strand_only": 2
+    },
+    "oryza_sativa|6-9": {
+     "single_junction_shift": 35,
+     "complex_chain": 29,
+     "absent_no_call": 56,
+     "split": 56,
+     "exon_missed": 27,
+     "other_isoform": 49,
+     "merge": 1,
+     "exon_extra": 8,
+     "endpoint_only": 14
+    },
+    "oryza_sativa|10+": {
+     "other_isoform": 39,
+     "endpoint_only": 6,
+     "exon_extra": 7,
+     "absent_no_call": 18,
+     "split": 91,
+     "single_junction_shift": 31,
+     "complex_chain": 29,
+     "exon_missed": 18
+    }
+   }
+  }
+ },
+ "paired": {
+  "E_lora_miss_given_CarbonA_filtered_hit": {
+   "n": 975,
+   "categories": {
+    "exon_extra": 158,
+    "single_junction_shift": 317,
+    "complex_chain": 163,
+    "other_isoform": 141,
+    "exon_missed": 30,
+    "absent_no_call": 58,
+    "endpoint_only": 82,
+    "merge": 5,
+    "split": 21
+   },
+   "by_species": {
+    "arabidopsis_thaliana": 659,
+    "oryza_sativa": 316
+   },
+   "by_nseg": {
+    "6-9": 251,
+    "3-5": 284,
+    "10+": 267,
+    "2": 173
+   }
+  },
+  "E_lora_miss_given_CarbonA_filtered_miss": {
+   "n": 4236,
+   "categories": {
+    "other_isoform": 1246,
+    "complex_chain": 813,
+    "endpoint_only": 164,
+    "single_junction_shift": 470,
+    "exon_missed": 145,
+    "split": 104,
+    "absent_no_call": 910,
+    "wrong_strand_only": 93,
+    "exon_extra": 219,
+    "merge": 72
+   }
+  },
+  "CarbonA_filtered_miss_given_E_lora_hit": {
+   "n": 571,
+   "categories": {
+    "complex_chain": 24,
+    "endpoint_only": 85,
+    "other_isoform": 52,
+    "absent_no_call": 212,
+    "single_junction_shift": 90,
+    "merge": 22,
+    "confidence_filtered": 32,
+    "exon_extra": 16,
+    "exon_missed": 32,
+    "split": 5,
+    "wrong_strand_only": 1
+   },
+   "by_species": {
+    "arabidopsis_thaliana": 428,
+    "oryza_sativa": 143
+   },
+   "by_nseg": {
+    "6-9": 149,
+    "10+": 141,
+    "3-5": 186,
+    "2": 95
+   }
+  },
+  "CarbonA_filtered_miss_given_E_lora_miss": {
+   "n": 4236,
+   "categories": {
+    "absent_no_call": 1691,
+    "other_isoform": 1270,
+    "complex_chain": 353,
+    "endpoint_only": 156,
+    "single_junction_shift": 278,
+    "exon_missed": 135,
+    "wrong_strand_only": 90,
+    "exon_extra": 99,
+    "confidence_filtered": 61,
+    "split": 52,
+    "merge": 51
+   }
+  },
+  "E_lora_miss_given_CarbonA_unfiltered_hit": {
+   "n": 1036,
+   "categories": {
+    "exon_extra": 160,
+    "single_junction_shift": 336,
+    "complex_chain": 185,
+    "other_isoform": 141,
+    "exon_missed": 34,
+    "absent_no_call": 68,
+    "endpoint_only": 83,
+    "merge": 6,
+    "split": 23
+   },
+   "by_species": {
+    "arabidopsis_thaliana": 709,
+    "oryza_sativa": 327
+   },
+   "by_nseg": {
+    "6-9": 262,
+    "3-5": 299,
+    "10+": 279,
+    "2": 196
+   }
+  },
+  "E_lora_miss_given_CarbonA_unfiltered_miss": {
+   "n": 4175,
+   "categories": {
+    "other_isoform": 1246,
+    "complex_chain": 791,
+    "endpoint_only": 163,
+    "single_junction_shift": 451,
+    "exon_missed": 141,
+    "split": 102,
+    "absent_no_call": 900,
+    "wrong_strand_only": 93,
+    "exon_extra": 217,
+    "merge": 71
+   }
+  },
+  "EM_pool_miss_given_CarbonA_filtered_hit": {
+   "n": 891,
+   "categories": {
+    "single_junction_shift": 284,
+    "exon_extra": 98,
+    "complex_chain": 120,
+    "other_isoform": 158,
+    "endpoint_only": 117,
+    "exon_missed": 29,
+    "absent_no_call": 61,
+    "split": 24
+   },
+   "by_species": {
+    "arabidopsis_thaliana": 691,
+    "oryza_sativa": 200
+   },
+   "by_nseg": {
+    "6-9": 226,
+    "3-5": 260,
+    "10+": 261,
+    "2": 144
+   }
+  },
+  "EM_pool_miss_given_CarbonA_filtered_miss": {
+   "n": 4216,
+   "categories": {
+    "other_isoform": 1249,
+    "complex_chain": 742,
+    "exon_missed": 158,
+    "endpoint_only": 168,
+    "single_junction_shift": 449,
+    "split": 106,
+    "absent_no_call": 982,
+    "wrong_strand_only": 91,
+    "exon_extra": 207,
+    "merge": 64
+   }
+  },
+  "E_lora_miss_given_ANNEVO_hit": {
+   "n": 1017,
+   "categories": {
+    "exon_extra": 171,
+    "single_junction_shift": 371,
+    "complex_chain": 195,
+    "other_isoform": 95,
+    "endpoint_only": 86,
+    "exon_missed": 36,
+    "split": 23,
+    "merge": 6,
+    "absent_no_call": 34
+   },
+   "by_species": {
+    "arabidopsis_thaliana": 633,
+    "oryza_sativa": 384
+   },
+   "by_nseg": {
+    "6-9": 271,
+    "3-5": 313,
+    "10+": 299,
+    "2": 134
+   }
+  },
+  "E_lora_miss_given_ANNEVO_miss": {
+   "n": 4194,
+   "categories": {
+    "other_isoform": 1292,
+    "complex_chain": 781,
+    "single_junction_shift": 416,
+    "endpoint_only": 160,
+    "exon_missed": 139,
+    "split": 102,
+    "absent_no_call": 934,
+    "wrong_strand_only": 93,
+    "exon_extra": 206,
+    "merge": 71
+   }
+  }
+ },
+ "single_exon_hits": {
+  "E_lora": 4338,
+  "CarbonA_filtered": 4410,
+  "CarbonA_unfiltered": 4444,
+  "EM_pool": 4341,
+  "ANNEVO": 3960,
+  "Tiberius": 4012
+ }
+}

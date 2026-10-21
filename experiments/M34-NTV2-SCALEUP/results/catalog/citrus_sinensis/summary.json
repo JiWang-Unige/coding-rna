@@ -1,0 +1,81 @@
+{
+ "species": "citrus_sinensis",
+ "organism": "Citrus sinensis",
+ "accession": "GCF_022201045.2",
+ "contigs": {
+  "NC_068556.1": 24849987,
+  "NC_068557.1": 32942340,
+  "NC_068558.1": 52308633,
+  "NC_068559.1": 29627743,
+  "NC_068560.1": 38998145,
+  "NC_068561.1": 26176707,
+  "NC_068562.1": 29493366,
+  "NC_068564.1": 33998288,
+  "NC_068563.1__val8M": 8000000
+ },
+ "split_of": {
+  "NC_068556.1": "train",
+  "NC_068557.1": "train",
+  "NC_068558.1": "train",
+  "NC_068559.1": "train",
+  "NC_068560.1": "train",
+  "NC_068561.1": "train",
+  "NC_068562.1": "train",
+  "NC_068564.1": "train",
+  "NC_068563.1__val8M": "val"
+ },
+ "n_coding_genes_parsed": 22082,
+ "windows": {
+  "train": 43676,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 5121,
+  "50": 10241
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 268395209,
+   "primary_coding_genes": 21248,
+   "cds_assessable_references": 21104,
+   "eligible_positive": 20481,
+   "eligible_per_Mb": 76.30911176212538,
+   "exon_hist": {
+    "1": 4308,
+    "2-5": 9425,
+    ">=6": 7371
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 153,
+   "nonstandard_splice_fraction": 0.017484836997725548,
+   "unsupported_reasons": {
+    "overlap_or_partial": 196,
+    "nonstandard_splice": 369,
+    "split_terminal_codon": 61
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 834,
+   "cds_assessable_references": 832,
+   "eligible_positive": 815,
+   "eligible_per_Mb": 101.875,
+   "exon_hist": {
+    "1": 221,
+    "2-5": 347,
+    ">=6": 264
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 4,
+   "nonstandard_splice_fraction": 0.01201923076923077,
+   "unsupported_reasons": {
+    "nonstandard_splice": 10,
+    "overlap_or_partial": 6,
+    "split_terminal_codon": 1
+   }
+  }
+ },
+ "seconds": 205.3159396648407
+}

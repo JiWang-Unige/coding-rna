@@ -1,0 +1,314 @@
+{
+ "GCA_027562975.1_MPIPZ_rhyBre1m_1.0": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.624,
+   "frac_best_identity_ge_70": 0.27066666666666667,
+   "frac_best_identity_ge_90": 0.05266666666666667
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6473333333333333,
+   "frac_best_identity_ge_70": 0.286,
+   "frac_best_identity_ge_90": 0.06133333333333333
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6773333333333333,
+   "frac_best_identity_ge_70": 0.32266666666666666,
+   "frac_best_identity_ge_90": 0.064
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6933333333333334,
+   "frac_best_identity_ge_70": 0.334,
+   "frac_best_identity_ge_90": 0.07066666666666667
+  }
+ },
+ "GCA_027726005.1_MPIPZ_junEff1m_1": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6493333333333333,
+   "frac_best_identity_ge_70": 0.27466666666666667,
+   "frac_best_identity_ge_90": 0.034666666666666665
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6793333333333333,
+   "frac_best_identity_ge_70": 0.2966666666666667,
+   "frac_best_identity_ge_90": 0.042
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7233333333333334,
+   "frac_best_identity_ge_70": 0.33266666666666667,
+   "frac_best_identity_ge_90": 0.04466666666666667
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7306666666666667,
+   "frac_best_identity_ge_70": 0.3393333333333333,
+   "frac_best_identity_ge_90": 0.046
+  }
+ },
+ "GCA_030737835.1_ASM3073783v1": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.558,
+   "frac_best_identity_ge_70": 0.222,
+   "frac_best_identity_ge_90": 0.02266666666666667
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6093333333333333,
+   "frac_best_identity_ge_70": 0.262,
+   "frac_best_identity_ge_90": 0.026
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.662,
+   "frac_best_identity_ge_70": 0.31866666666666665,
+   "frac_best_identity_ge_90": 0.03
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6766666666666666,
+   "frac_best_identity_ge_70": 0.32866666666666666,
+   "frac_best_identity_ge_90": 0.03666666666666667
+  }
+ },
+ "GCA_048537475.1_ASM4853747v1": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.844,
+   "frac_best_identity_ge_70": 0.736,
+   "frac_best_identity_ge_90": 0.23933333333333334
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.8533333333333334,
+   "frac_best_identity_ge_70": 0.7393333333333333,
+   "frac_best_identity_ge_90": 0.24066666666666667
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.854,
+   "frac_best_identity_ge_70": 0.7406666666666667,
+   "frac_best_identity_ge_90": 0.24066666666666667
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.854,
+   "frac_best_identity_ge_70": 0.7406666666666667,
+   "frac_best_identity_ge_90": 0.24066666666666667
+  }
+ },
+ "GCA_057662145.1_ThtriWBW_v1.0": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.42333333333333334,
+   "frac_best_identity_ge_70": 0.2753333333333333,
+   "frac_best_identity_ge_90": 0.04466666666666667
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.438,
+   "frac_best_identity_ge_70": 0.28733333333333333,
+   "frac_best_identity_ge_90": 0.048666666666666664
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.438,
+   "frac_best_identity_ge_70": 0.28733333333333333,
+   "frac_best_identity_ge_90": 0.048666666666666664
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.43866666666666665,
+   "frac_best_identity_ge_70": 0.28733333333333333,
+   "frac_best_identity_ge_90": 0.048666666666666664
+  }
+ },
+ "GCF_017979445.1_ASM1797944v1": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6326666666666667,
+   "frac_best_identity_ge_70": 0.25666666666666665,
+   "frac_best_identity_ge_90": 0.018
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.732,
+   "frac_best_identity_ge_70": 0.35533333333333333,
+   "frac_best_identity_ge_90": 0.029333333333333333
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.756,
+   "frac_best_identity_ge_70": 0.38866666666666666,
+   "frac_best_identity_ge_90": 0.036
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7726666666666666,
+   "frac_best_identity_ge_70": 0.4093333333333333,
+   "frac_best_identity_ge_90": 0.03933333333333333
+  }
+ },
+ "GCF_041222555.1_UWA_Hpros_2": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.678,
+   "frac_best_identity_ge_70": 0.26866666666666666,
+   "frac_best_identity_ge_90": 0.017333333333333333
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.774,
+   "frac_best_identity_ge_70": 0.37533333333333335,
+   "frac_best_identity_ge_90": 0.028
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7973333333333333,
+   "frac_best_identity_ge_70": 0.4093333333333333,
+   "frac_best_identity_ge_90": 0.03266666666666666
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.8113333333333334,
+   "frac_best_identity_ge_70": 0.43466666666666665,
+   "frac_best_identity_ge_90": 0.035333333333333335
+  }
+ },
+ "GCF_047967505.1_Dip_SZ_1.0": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.3566666666666667,
+   "frac_best_identity_ge_70": 0.096,
+   "frac_best_identity_ge_90": 0.006666666666666667
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.384,
+   "frac_best_identity_ge_70": 0.106,
+   "frac_best_identity_ge_90": 0.008
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.4026666666666667,
+   "frac_best_identity_ge_70": 0.116,
+   "frac_best_identity_ge_90": 0.01
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.414,
+   "frac_best_identity_ge_70": 0.11933333333333333,
+   "frac_best_identity_ge_90": 0.01
+  }
+ },
+ "GCF_054954075.1_AtrichopodaSantaCruz75HAP2_v2.0": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6293333333333333,
+   "frac_best_identity_ge_70": 0.22133333333333333,
+   "frac_best_identity_ge_90": 0.016
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6866666666666666,
+   "frac_best_identity_ge_70": 0.27666666666666667,
+   "frac_best_identity_ge_90": 0.020666666666666667
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7226666666666667,
+   "frac_best_identity_ge_70": 0.31333333333333335,
+   "frac_best_identity_ge_90": 0.027333333333333334
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7346666666666667,
+   "frac_best_identity_ge_70": 0.33,
+   "frac_best_identity_ge_90": 0.03133333333333333
+  }
+ },
+ "GCF_948465745.1_dcCheAlbu1.1": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.5353333333333333,
+   "frac_best_identity_ge_70": 0.21133333333333335,
+   "frac_best_identity_ge_90": 0.013333333333333334
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6093333333333333,
+   "frac_best_identity_ge_70": 0.27266666666666667,
+   "frac_best_identity_ge_90": 0.018
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6293333333333333,
+   "frac_best_identity_ge_70": 0.2826666666666667,
+   "frac_best_identity_ge_90": 0.018666666666666668
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.66,
+   "frac_best_identity_ge_70": 0.30133333333333334,
+   "frac_best_identity_ge_90": 0.022
+  }
+ },
+ "GCF_041429995.1_dmEscCali1.0.p": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6086666666666667,
+   "frac_best_identity_ge_70": 0.242,
+   "frac_best_identity_ge_90": 0.02266666666666667
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.704,
+   "frac_best_identity_ge_70": 0.30866666666666664,
+   "frac_best_identity_ge_90": 0.029333333333333333
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.7286666666666667,
+   "frac_best_identity_ge_70": 0.334,
+   "frac_best_identity_ge_90": 0.03133333333333333
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.74,
+   "frac_best_identity_ge_70": 0.35133333333333333,
+   "frac_best_identity_ge_90": 0.037333333333333336
+  }
+ },
+ "GCF_963921425.1_drDryOcto1.1": {
+  "T2": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.6913333333333334,
+   "frac_best_identity_ge_70": 0.2826666666666667,
+   "frac_best_identity_ge_90": 0.014
+  },
+  "T4": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.8146666666666667,
+   "frac_best_identity_ge_70": 0.47933333333333333,
+   "frac_best_identity_ge_90": 0.030666666666666665
+  },
+  "T6": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.8273333333333334,
+   "frac_best_identity_ge_70": 0.48933333333333334,
+   "frac_best_identity_ge_90": 0.03333333333333333
+  },
+  "T10": {
+   "n_proteins": 1500,
+   "frac_best_identity_ge_50": 0.8493333333333334,
+   "frac_best_identity_ge_70": 0.5313333333333333,
+   "frac_best_identity_ge_90": 0.042
+  }
+ }
+}

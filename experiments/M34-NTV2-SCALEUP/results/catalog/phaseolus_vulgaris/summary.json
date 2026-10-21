@@ -1,0 +1,84 @@
+{
+ "species": "phaseolus_vulgaris",
+ "organism": "Phaseolus vulgaris",
+ "accession": "GCF_000499845.2",
+ "contigs": {
+  "NC_023749.2": 53580169,
+  "NC_023750.2": 44302882,
+  "NC_023751.2": 38250102,
+  "NC_023752.2": 63048260,
+  "NC_023753.2": 40041001,
+  "NC_023754.2": 31236378,
+  "NC_023755.2": 40923498,
+  "NC_023757.2": 53438756,
+  "NC_023758.2": 49670989,
+  "NC_023759.2": 51433939,
+  "NC_023756.2__val8M": 8000000
+ },
+ "split_of": {
+  "NC_023749.2": "train",
+  "NC_023750.2": "train",
+  "NC_023751.2": "train",
+  "NC_023752.2": "train",
+  "NC_023753.2": "train",
+  "NC_023754.2": "train",
+  "NC_023755.2": "train",
+  "NC_023757.2": "train",
+  "NC_023758.2": "train",
+  "NC_023759.2": "train",
+  "NC_023756.2__val8M": "val"
+ },
+ "n_coding_genes_parsed": 27374,
+ "windows": {
+  "train": 75824,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 6567,
+  "50": 13134
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 465925974,
+   "primary_coding_genes": 26808,
+   "cds_assessable_references": 26751,
+   "eligible_positive": 26268,
+   "eligible_per_Mb": 56.378054596286574,
+   "exon_hist": {
+    "1": 6605,
+    "2-5": 11248,
+    ">=6": 8898
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 176,
+   "nonstandard_splice_fraction": 0.014317221786101455,
+   "unsupported_reasons": {
+    "split_terminal_codon": 38,
+    "nonstandard_splice": 383,
+    "overlap_or_partial": 62
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 566,
+   "cds_assessable_references": 565,
+   "eligible_positive": 556,
+   "eligible_per_Mb": 69.5,
+   "exon_hist": {
+    "1": 155,
+    "2-5": 251,
+    ">=6": 159
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 5,
+   "nonstandard_splice_fraction": 0.008849557522123894,
+   "unsupported_reasons": {
+    "nonstandard_splice": 5,
+    "overlap_or_partial": 4
+   }
+  }
+ },
+ "seconds": 272.0167679786682
+}

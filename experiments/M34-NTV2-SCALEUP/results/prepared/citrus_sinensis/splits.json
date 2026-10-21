@@ -1,0 +1,53 @@
+{
+ "species": "citrus_sinensis",
+ "organism": "Citrus sinensis",
+ "accession": "GCF_022201045.2",
+ "assembly": "GCF_022201045.2_DVS_A1.0",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome, Primary Assembly, >=5 Mb); validation chromosome = lower-median length; validation crop = first 8 Mb (genes fully inside); remainder of that chromosome discarded",
+ "main_chromosomes": {
+  "NC_068556.1": 24849987,
+  "NC_068557.1": 32942340,
+  "NC_068558.1": 52308633,
+  "NC_068559.1": 29627743,
+  "NC_068560.1": 38998145,
+  "NC_068561.1": 26176707,
+  "NC_068562.1": 29493366,
+  "NC_068563.1": 30582302,
+  "NC_068564.1": 33998288
+ },
+ "heldout_chromosome": "NC_068563.1",
+ "heldout_length": 30582302,
+ "validation_crop": {
+  "chromosome": "NC_068563.1",
+  "start0": 0,
+  "end": 8000000
+ },
+ "validation_contig": "NC_068563.1__val8M",
+ "discarded_bp": 22582302,
+ "train": [
+  "NC_068556.1",
+  "NC_068557.1",
+  "NC_068558.1",
+  "NC_068559.1",
+  "NC_068560.1",
+  "NC_068561.1",
+  "NC_068562.1",
+  "NC_068564.1"
+ ],
+ "lengths": {
+  "NC_068556.1": 24849987,
+  "NC_068557.1": 32942340,
+  "NC_068558.1": 52308633,
+  "NC_068559.1": 29627743,
+  "NC_068560.1": 38998145,
+  "NC_068561.1": 26176707,
+  "NC_068562.1": 29493366,
+  "NC_068564.1": 33998288,
+  "NC_068563.1__val8M": 8000000
+ },
+ "train_bp": 268395209,
+ "dropped_sequences": 2,
+ "gff_features": 632864,
+ "gff_genes": 26110,
+ "prepared": "2026-10-20T13:13:23+02:00"
+}

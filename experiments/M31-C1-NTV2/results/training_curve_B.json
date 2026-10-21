@@ -1,0 +1,72 @@
+{
+ "blocks": [
+  {
+   "steps": "1-256",
+   "mean_batch_loss": 0.00116,
+   "nll_by_species": {
+    "oryza_sativa": 0.00132,
+    "arabidopsis_thaliana": 0.00113
+   },
+   "mean_step_s": 25.23,
+   "median_grad_norm": 0.297,
+   "lr_end": 9.67e-05
+  },
+  {
+   "steps": "257-512",
+   "mean_batch_loss": 0.00114,
+   "nll_by_species": {
+    "arabidopsis_thaliana": 0.00123,
+    "oryza_sativa": 0.001
+   },
+   "mean_step_s": 22.71,
+   "median_grad_norm": 0.244,
+   "lr_end": 8.17e-05
+  },
+  {
+   "steps": "513-768",
+   "mean_batch_loss": 0.00113,
+   "nll_by_species": {
+    "oryza_sativa": 0.00127,
+    "arabidopsis_thaliana": 0.00107
+   },
+   "mean_step_s": 25.21,
+   "median_grad_norm": 0.208,
+   "lr_end": 5.88e-05
+  },
+  {
+   "steps": "769-1024",
+   "mean_batch_loss": 0.00093,
+   "nll_by_species": {
+    "oryza_sativa": 0.00103,
+    "arabidopsis_thaliana": 0.00086
+   },
+   "mean_step_s": 24.27,
+   "median_grad_norm": 0.176,
+   "lr_end": 3.48e-05
+  },
+  {
+   "steps": "1025-1280",
+   "mean_batch_loss": 0.00116,
+   "nll_by_species": {
+    "arabidopsis_thaliana": 0.00104,
+    "oryza_sativa": 0.00146
+   },
+   "mean_step_s": 18.5,
+   "median_grad_norm": 0.161,
+   "lr_end": 1.67e-05
+  },
+  {
+   "steps": "1281-1536",
+   "mean_batch_loss": 0.00101,
+   "nll_by_species": {
+    "oryza_sativa": 0.0011,
+    "arabidopsis_thaliana": 0.00092
+   },
+   "mean_step_s": 24.26,
+   "median_grad_norm": 0.133,
+   "lr_end": 1e-05
+  }
+ ],
+ "steps": 1536,
+ "sum_step_seconds": 35884
+}

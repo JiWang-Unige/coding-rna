@@ -1,0 +1,99 @@
+{
+ "species": "phoenix_dactylifera",
+ "organism": "Phoenix dactylifera",
+ "accession": "GCF_054393675.1",
+ "contigs": {
+  "NC_142547.1": 78153123,
+  "NC_142548.1": 59864083,
+  "NC_142549.1": 52523381,
+  "NC_142550.1": 52835557,
+  "NC_142551.1": 40534580,
+  "NC_142552.1": 38798648,
+  "NC_142553.1": 36503230,
+  "NC_142555.1": 33575990,
+  "NC_142556.1": 38863489,
+  "NC_142557.1": 31128983,
+  "NC_142558.1": 30963153,
+  "NC_142559.1": 29236045,
+  "NC_142560.1": 41341721,
+  "NC_142561.1": 25570682,
+  "NC_142562.1": 24625698,
+  "NC_142563.1": 20803331,
+  "NC_142564.1": 20473173,
+  "NC_142554.1__val8M": 8000000
+ },
+ "split_of": {
+  "NC_142547.1": "train",
+  "NC_142548.1": "train",
+  "NC_142549.1": "train",
+  "NC_142550.1": "train",
+  "NC_142551.1": "train",
+  "NC_142552.1": "train",
+  "NC_142553.1": "train",
+  "NC_142555.1": "train",
+  "NC_142556.1": "train",
+  "NC_142557.1": "train",
+  "NC_142558.1": "train",
+  "NC_142559.1": "train",
+  "NC_142560.1": "train",
+  "NC_142561.1": "train",
+  "NC_142562.1": "train",
+  "NC_142563.1": "train",
+  "NC_142564.1": "train",
+  "NC_142554.1__val8M": "val"
+ },
+ "n_coding_genes_parsed": 24531,
+ "windows": {
+  "train": 106720,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 5779,
+  "50": 11558
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 655794867,
+   "primary_coding_genes": 23901,
+   "cds_assessable_references": 23787,
+   "eligible_positive": 23116,
+   "eligible_per_Mb": 35.24882728305953,
+   "exon_hist": {
+    "1": 4032,
+    "2-5": 10571,
+    ">=6": 9184
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 1134,
+   "nonstandard_splice_fraction": 0.019590532643881112,
+   "unsupported_reasons": {
+    "nonstandard_splice": 466,
+    "split_terminal_codon": 48,
+    "overlap_or_partial": 157
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 630,
+   "cds_assessable_references": 630,
+   "eligible_positive": 619,
+   "eligible_per_Mb": 77.375,
+   "exon_hist": {
+    "1": 100,
+    "2-5": 275,
+    ">=6": 255
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 17,
+   "nonstandard_splice_fraction": 0.014285714285714285,
+   "unsupported_reasons": {
+    "nonstandard_splice": 9,
+    "overlap_or_partial": 2,
+    "split_terminal_codon": 1
+   }
+  }
+ },
+ "seconds": 333.8599262237549
+}

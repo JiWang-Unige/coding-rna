@@ -1,0 +1,9 @@
+windows 9 losses [1390.453, 1579.62, 430.264, 37.221, 456.106, 422.014, 1138.185, 157.939, 0.0] dp_s [6.0, 6.4, 6.0, 6.0, 6.0, 6.0, 6.1, 7.9, 7.6]
+......
+=============================== warnings summary ===============================
+scripts/a1_common.py:27
+  /home/ji/coding-rna-reorg/experiments/M29-A1-RESIDUAL/scripts/a1_common.py:27: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+    if isinstance(v, Path) and str(v).startswith(BAOBAB):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 57.38s

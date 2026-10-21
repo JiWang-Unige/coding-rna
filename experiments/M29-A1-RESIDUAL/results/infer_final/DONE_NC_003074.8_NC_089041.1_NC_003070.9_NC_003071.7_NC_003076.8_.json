@@ -1,0 +1,1 @@
+{"completed": true, "seqs": ["NC_003074.8", "NC_089041.1", "NC_003070.9", "NC_003071.7", "NC_003076.8", "NC_089043.1", "NC_089044.1", "NC_089046.1"], "model": "/home/ji/coding-rna/outputs/M29-A1-RESIDUAL/train_main/model_004608.pt", "gate": false, "encode_seconds": 9069.401822030777, "wall_seconds": 9139.401617199066, "peak_gpu_gb": 2.3505492210388184}

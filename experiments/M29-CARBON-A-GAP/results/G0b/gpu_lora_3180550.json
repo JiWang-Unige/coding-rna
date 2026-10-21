@@ -1,0 +1,50 @@
+[
+ {
+  "step": 0,
+  "windows": 3,
+  "encoder_forward_s": 0.7544371449621394,
+  "encoder_backward_s": 0.19397313601803035,
+  "alloc_gb": 6.214571475982666,
+  "reserved_gb": 6.76171875
+ },
+ {
+  "step": 1,
+  "windows": 3,
+  "encoder_forward_s": 0.673864803975448,
+  "encoder_backward_s": 0.13948649005033076,
+  "alloc_gb": 6.222506046295166,
+  "reserved_gb": 6.76171875
+ },
+ {
+  "step": 2,
+  "windows": 3,
+  "encoder_forward_s": 0.6664930159458891,
+  "encoder_backward_s": 0.17608390701934695,
+  "alloc_gb": 6.222506046295166,
+  "reserved_gb": 6.76171875
+ },
+ {
+  "step": 3,
+  "windows": 3,
+  "encoder_forward_s": 0.6650214419933036,
+  "encoder_backward_s": 0.1699342440115288,
+  "alloc_gb": 6.222506046295166,
+  "reserved_gb": 6.76171875
+ },
+ {
+  "step": 4,
+  "windows": 3,
+  "encoder_forward_s": 0.6716126939281821,
+  "encoder_backward_s": 0.17624352301936597,
+  "alloc_gb": 6.222506046295166,
+  "reserved_gb": 6.76171875
+ },
+ {
+  "step": 5,
+  "windows": 3,
+  "encoder_forward_s": 0.6325257909484208,
+  "encoder_backward_s": 0.17593465594109148,
+  "alloc_gb": 6.222506046295166,
+  "reserved_gb": 6.76171875
+ }
+]

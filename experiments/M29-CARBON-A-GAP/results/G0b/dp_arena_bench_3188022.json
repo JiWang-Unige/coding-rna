@@ -1,0 +1,46 @@
+[
+ {
+  "draw": 0,
+  "fwd_s": 1.1768732561031356,
+  "bwd_original_s": 7.232849701074883,
+  "bwd_arena_s": 4.645170307951048,
+  "total_original_s": 8.409722957178019,
+  "total_arena_s": 5.83377197093796,
+  "max_abs_grad_diff": 0.0,
+  "loss_equal": true,
+  "loadavg": 5.82
+ },
+ {
+  "draw": 1,
+  "fwd_s": 1.1261642340105027,
+  "bwd_original_s": 7.350627152016386,
+  "bwd_arena_s": 4.562892721965909,
+  "total_original_s": 8.476791386026889,
+  "total_arena_s": 5.7109099929220974,
+  "max_abs_grad_diff": 0.0,
+  "loss_equal": true,
+  "loadavg": 5.85
+ },
+ {
+  "draw": 3,
+  "fwd_s": 1.1670329719781876,
+  "bwd_original_s": 7.349244986078702,
+  "bwd_arena_s": 4.9118607299169526,
+  "total_original_s": 8.51627795805689,
+  "total_arena_s": 6.077464448986575,
+  "max_abs_grad_diff": 0.0,
+  "loss_equal": true,
+  "loadavg": 5.88
+ },
+ {
+  "draw": 2,
+  "fwd_s": 1.184329282026738,
+  "bwd_original_s": 7.0772388220066205,
+  "bwd_arena_s": 4.338086506933905,
+  "total_original_s": 8.261568104033358,
+  "total_arena_s": 5.506184892961755,
+  "max_abs_grad_diff": 0.0,
+  "loss_equal": true,
+  "loadavg": 5.99
+ }
+]

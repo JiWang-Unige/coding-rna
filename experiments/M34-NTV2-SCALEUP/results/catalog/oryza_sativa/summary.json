@@ -1,0 +1,68 @@
+{
+ "species": "oryza_sativa",
+ "organism": "Oryza sativa",
+ "accession": "GCF_034140825.1",
+ "contigs": {
+  "NC_089043.1": 27474823,
+  "NC_089046.1": 28271460,
+  "NC_089044.1": 23931887
+ },
+ "split_of": {
+  "NC_089043.1": "train",
+  "NC_089046.1": "train",
+  "NC_089044.1": "val"
+ },
+ "n_coding_genes_parsed": 4993,
+ "windows": {
+  "train": 9070,
+  "val": 3894
+ },
+ "nested_labeled_counts": {
+  "25": 821,
+  "50": 1642
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 55746283,
+   "primary_coding_genes": 3377,
+   "cds_assessable_references": 3348,
+   "eligible_positive": 3284,
+   "eligible_per_Mb": 58.90975726578936,
+   "exon_hist": {
+    "1": 853,
+    "2-5": 1479,
+    ">=6": 1016
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 0,
+   "nonstandard_splice_fraction": 0.017025089605734768,
+   "unsupported_reasons": {
+    "split_terminal_codon": 4,
+    "nonstandard_splice": 57,
+    "overlap_or_partial": 3
+   }
+  },
+  "val": {
+   "bp": 23931887,
+   "primary_coding_genes": 1616,
+   "cds_assessable_references": 1601,
+   "eligible_positive": 1561,
+   "eligible_per_Mb": 65.22678299458794,
+   "exon_hist": {
+    "1": 428,
+    "2-5": 720,
+    ">=6": 453
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 7,
+   "nonstandard_splice_fraction": 0.0231105559025609,
+   "unsupported_reasons": {
+    "nonstandard_splice": 37,
+    "split_terminal_codon": 3
+   }
+  }
+ },
+ "seconds": 49.638078451156616
+}
