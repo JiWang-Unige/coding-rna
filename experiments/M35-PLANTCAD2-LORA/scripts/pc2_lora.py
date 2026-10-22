@@ -189,3 +189,29 @@ def encode_grad(model, sequences, device='cuda'):
     if not bool(torch.isfinite(h).all()):
         raise ValueError('Finite PlantCAD2 features required')
     return [x.to(torch.bfloat16) for x in h]
+
+
+# ---- M34 backend contract (added 2026-10-22 after the M35 decision): add_lora(model, cfg) -> params, lora_state(model) -> {k: tensor},
+# load_lora_state(model, state, cfg) and a JSON-able CFG.  Pure wrappers over install_lora / load_lora_values; the M35 (r, alpha) call form
+# of load_lora_state keeps working (dispatch on the type of the third argument).
+CFG = dict(layers=list(LORA_LAYERS), r=RANK, alpha=ALPHA, seed=0)
+
+
+def add_lora(model, cfg=None):
+    c = dict(CFG, **(cfg or {}))
+    return install_lora(model, tuple(c['layers']), c['r'], c['alpha'], c.get('seed', 0))
+
+
+_load_lora_state_r_alpha = load_lora_state
+
+
+def load_lora_state(model, state, cfg_or_r=RANK, alpha=ALPHA):
+    if isinstance(cfg_or_r, dict):
+        if lora_layers(model):                       # already adapted (resume / after add_lora): copy values only
+            load_lora_values(model, state)
+            return lora_params(model)
+        c = dict(CFG, **cfg_or_r)
+        params = install_lora(model, tuple(c['layers']), c['r'], c['alpha'], c.get('seed', 0))
+        load_lora_values(model, state)
+        return params
+    return _load_lora_state_r_alpha(model, state, cfg_or_r, alpha)
