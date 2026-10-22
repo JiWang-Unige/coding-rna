@@ -247,6 +247,7 @@ ANNEVO 拿 NM 靠三件事：566 物种广度、全面领先、793 物种 BUSCO 
 
 ### 6.4 止损与备选投稿
 
-- M34 T10 < 65 或自举闭合差距 < 30%：框架篇投 Genome Biology / NAR Genomics & Bioinformatics，把算力留给第二篇（泛基因组或 UTR 语法）。
+- M34 T10 < 65 或自举闭合差距 < 30%：框架篇投 Genome Biology / NAR Genomics & Bioinformatics，把算力留给第二篇（UTR 语法等）。
+- 2026-10-22 补：M37 smoke 判定 NO-GO（装配间错误共享，headroom 10.3%），多装配联合解码不立项；势平均的 +2.4 F1 只作泛基因组应用的补充技巧。用户决定 M34 阶段一之后先跑 M36，再跑 k 曲线 arm。
 - M34 ≥ 70 且自举在两个留出物种上 ≥ Carbon-A −2 点：先向 NC 做 presubmission enquiry，再决定是否补全 12 物种面板。
 - 自举在留出物种上 ≥ Carbon-A：按 NM 准备，面板扩到 12 物种并补 BUSCO / RNA-seq 验证。
