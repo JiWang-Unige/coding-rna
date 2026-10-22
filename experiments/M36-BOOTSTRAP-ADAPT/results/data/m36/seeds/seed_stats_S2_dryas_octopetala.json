@@ -1,0 +1,102 @@
+{
+ "species": "dryas_octopetala",
+ "raw": "/home/ji/coding-rna-reorg/data/m36/miniprot_raw/dryas_octopetala.gff.gz",
+ "thresholds": {
+  "coverage_min": 0.95,
+  "identity_min": 0.7,
+  "max_exons": 128
+ },
+ "A_contigs": [
+  "NC_141366.1",
+  "NC_141368.1",
+  "NC_141370.1",
+  "NC_141372.1",
+  "NC_141374.1__val20M"
+ ],
+ "funnel": {
+  "alignments": 168750,
+  "pass_coverage": 141081,
+  "fail_identity": 97715,
+  "fail_coverage": 27669,
+  "pass_identity": 43366,
+  "pass_no_fs_stop": 42331,
+  "fail_no_stop_codon_feature": 13333,
+  "pass_stop_codon": 28998,
+  "pass_chain_checks": 19590,
+  "fail_frameshift_or_internal_stop": 1035,
+  "fail_chain_checks": 9408,
+  "dropped_same_locus_lower_identity": 15916,
+  "seeds": 3674
+ },
+ "chain_check_failures": {
+  "non_ATG_start": 9240,
+  "nonstandard_splice": 224
+ },
+ "by_contig": {
+  "NC_141366.1": {
+   "split": "train",
+   "Mb": 33.68,
+   "seeds": 1033
+  },
+  "NC_141368.1": {
+   "split": "train",
+   "Mb": 28.47,
+   "seeds": 761
+  },
+  "NC_141370.1": {
+   "split": "train",
+   "Mb": 22.58,
+   "seeds": 643
+  },
+  "NC_141372.1": {
+   "split": "train",
+   "Mb": 21.73,
+   "seeds": 577
+  },
+  "NC_141374.1__val20M": {
+   "split": "val",
+   "Mb": 20.0,
+   "seeds": 660
+  }
+ },
+ "by_split": {
+  "train": 3014,
+  "val": 660
+ },
+ "exon_strata": {
+  "1": 462,
+  "2-5": 1361,
+  ">=6": 1851
+ },
+ "exon_strata_train": {
+  "1": 380,
+  "2-5": 1121,
+  ">=6": 1513
+ },
+ "by_source_species": {
+  "phaseolus_vulgaris": 485,
+  "populus_trichocarpa": 1399,
+  "citrus_sinensis": 1310,
+  "daucus_carota": 130,
+  "solanum_lycopersicum": 138,
+  "arabidopsis_thaliana": 68,
+  "phoenix_dactylifera": 77,
+  "dioscorea_rotundata": 53,
+  "oryza_sativa": 3,
+  "brachypodium_distachyon": 11
+ },
+ "identity_quantiles": {
+  "0.05": 0.70906,
+  "0.25": 0.7447250000000001,
+  "0.5": 0.7905,
+  "0.75": 0.8483750000000001,
+  "0.95": 0.931205
+ },
+ "seeds_per_Mb_train": 28.311504324361543,
+ "cross_strand_overlapping_seeds": 1,
+ "splice_motifs": {
+  "GT-AG": 22112,
+  "GC-AG": 301
+ },
+ "seconds": 15.451156377792358
+}

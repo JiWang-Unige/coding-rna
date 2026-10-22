@@ -1,0 +1,14 @@
+== test_map_roundtrip.py
+test_roundtrip OK {'kept_blocks': 3, 'kept_inverted': 1, 'A_mapped_frac': 0.9418444444444445, 'A_mismatch': 205, 'B_insertion_events': 3} agreement 0.9999882028171673
+== test_projection_flip.py
+/home/ji/coding-rna-reorg/experiments/M29-A1-RESIDUAL/scripts/a1_common.py:27: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  if isinstance(v, Path) and str(v).startswith(BAOBAB):
+test_formulas OK
+test_semantic_inversion OK
+== test_lambda0_identity.py
+/home/ji/coding-rna-reorg/experiments/M29-A1-RESIDUAL/scripts/a1_common.py:27: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  if isinstance(v, Path) and str(v).startswith(BAOBAB):
+test_synthetic OK 45 chains
+test_real OK + 701 chains identical to M33 val
+test_real OK - 700 chains identical to M33 val
+ALL_TESTS_PASSED

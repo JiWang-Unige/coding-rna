@@ -1,0 +1,2 @@
+minimap2 2.28-r1209 2026-10-21T22:52:55+02:00 : /home/ji/envs/m37/bin/minimap2 -cx asm10 --cs -t 4 /home/ji/coding-rna/data/m37/align/NC_089044.1.fa /home/ji/coding-rna/data/m37/oryza_sativa_9311/inputs/CM000135.2.fasta
+rc=0 2026-10-21T22:55:18+02:00 lines=750

@@ -1,0 +1,14 @@
+{"_legend": "docs/review_20261016/10 §1.7 (2026-10-16): S=same species trained; V=validation only; T=test only; G=same genus trained; Tr=same tribe/subfamily; F=same family; O=same order only; -=none in order. ANNEVO = paper version Table 24 (current weights undisclosed). Our backbone exposure = Carbon-A column plus our own training species (M34 10 species; see exposure_audit.json).",
+ "dryas_octopetala":        {"carbon_a": "F", "helixer_a0080": "F", "tiberius_angiosperms": "F", "annevo_paper": "F", "plantgeneann": "F", "plantcad2": "F"},
+ "eschscholzia_californica":{"carbon_a": "Tr", "helixer_a0080": "-", "tiberius_angiosperms": "O (test species)", "annevo_paper": "-", "plantgeneann": "-", "plantcad2": "O"},
+ "akebia_trifoliata":       {"carbon_a": "O", "helixer_a0080": "-", "tiberius_angiosperms": "O", "annevo_paper": "-", "plantgeneann": "-", "plantcad2": "O"},
+ "hakea_prostrata":         {"carbon_a": "F", "helixer_a0080": "-", "tiberius_angiosperms": "-", "annevo_paper": "O", "plantgeneann": "-", "plantcad2": "-"},
+ "zizania_latifolia":       {"carbon_a": "Tr", "helixer_a0080": "Tr", "tiberius_angiosperms": "Tr", "annevo_paper": "Tr", "plantgeneann": "Tr", "plantcad2": "Tr"},
+ "themeda_triandra":        {"carbon_a": "Tr", "helixer_a0080": "Tr", "tiberius_angiosperms": "Tr", "annevo_paper": "Tr", "plantgeneann": "Tr", "plantcad2": "Tr"},
+ "juncus_effusus":          {"carbon_a": "O", "helixer_a0080": "O", "tiberius_angiosperms": "O", "annevo_paper": "O", "plantgeneann": "O", "plantcad2": "O"},
+ "rhynchospora_breviuscula":{"carbon_a": "Tr", "helixer_a0080": "O", "tiberius_angiosperms": "O", "annevo_paper": "O", "plantgeneann": "O", "plantcad2": "O"},
+ "acorus_gramineus":        {"carbon_a": "-", "helixer_a0080": "-", "tiberius_angiosperms": "G", "annevo_paper": "-", "plantgeneann": "-", "plantcad2": "-"},
+ "chenopodium_album":       {"carbon_a": "G", "helixer_a0080": "V/G", "tiberius_angiosperms": "F", "annevo_paper": "G", "plantgeneann": "-", "plantcad2": "G"},
+ "dipteris_shenzhenensis":  {"carbon_a": "-", "helixer_a0080": "-", "tiberius_angiosperms": "- (out of scope)", "annevo_paper": "- (out of scope)", "plantgeneann": "-", "plantcad2": "-"},
+ "amborella_trichopoda":    {"carbon_a": "S", "helixer_a0080": "V", "tiberius_angiosperms": "- (out of scope)", "annevo_paper": "T", "plantgeneann": "-", "plantcad2": "-"}
+}

@@ -1,0 +1,8 @@
+seed 0: paths 22 (with genes 21, two-gene sets 0) logZ 0.014097  min P(no gene) 0.9860
+seed 1: paths 7 (with genes 6, two-gene sets 0) logZ 1.135354  min P(no gene) 0.3213
+seed 2: paths 7 (with genes 6, two-gene sets 0) logZ 12.411539  min P(no gene) 0.0000
+seed 3: paths 24 (with genes 23, two-gene sets 10) logZ 1.718603  min P(no gene) 0.1813
+seed 4: paths 22 (with genes 21, two-gene sets 6) logZ 0.023775  min P(no gene) 0.9765
+.chains 18 max P(gene) 0.9978260296313592 mean P(no gene) 0.37264543607332706
+..
+3 passed in 100.96s (0:01:40)

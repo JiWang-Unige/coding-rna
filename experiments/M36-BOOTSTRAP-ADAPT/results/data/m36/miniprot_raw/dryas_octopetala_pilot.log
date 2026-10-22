@@ -1,0 +1,10 @@
+Wed Oct 21 11:23:30 PM CEST 2026
+[M::mp_idx_restore@0.392*0.51] loaded the index
+[M::mp_mapopt_set_max_intron] set max intron size to 40484
+[M::mp_idx_print_stat] 2102685 distinct k-mers; mean occ of infrequent k-mers: 25.04; 0 frequent k-mers accounting for 0 occurrences
+[M::worker_pipeline::20.172*2.03] mapped 2000 sequences
+[M::main] Version: 0.18-r281
+[M::main] CMD: /home/ji/envs/miniprot/bin/miniprot -t 8 -I --gff --outc=0.9 --outs=0.97 --outn=5 -P dry /home/ji/coding-rna/data/m36/genomes_A/dryas_octopetala_A.mpi /home/ji/coding-rna/data/m36/proteins/pilot_2000.faa
+[M::main] Real time: 20.204 sec; CPU: 41.010 sec; Peak RSS: 0.653 GB
+Wed Oct 21 11:23:51 PM CEST 2026
+DONE

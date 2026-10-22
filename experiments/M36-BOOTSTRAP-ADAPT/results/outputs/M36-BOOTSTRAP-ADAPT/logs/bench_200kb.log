@@ -1,0 +1,3 @@
+/home/ji/coding-rna-reorg/experiments/M29-A1-RESIDUAL/scripts/a1_common.py:27: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  if isinstance(v, Path) and str(v).startswith(BAOBAB):
+{"length": 200000, "seconds": 62.33, "seconds_per_Mb": 311.63, "projected_20Mb_minutes": 103.9, "state_count": 19078, "log_partition": 553.4548747725996, "mean_p_nogene": 0.9751608148436479, "pseudo_bg_fraction_at_p99": 0.93636, "frozen_log_partition": 553.4548747725879, "frozen_seconds": 157.47, "log_partition_abs_diff": 1.1709744285326451e-11}

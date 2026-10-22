@@ -1,0 +1,90 @@
+{
+ "species": "eschscholzia_californica",
+ "raw": "/home/ji/coding-rna-reorg/data/m36/miniprot_raw/eschscholzia_californica.gff.gz",
+ "thresholds": {
+  "coverage_min": 0.95,
+  "identity_min": 0.7,
+  "max_exons": 128
+ },
+ "A_contigs": [
+  "NW_028238198.1",
+  "NW_028238420.1",
+  "NW_028238472.1__val20M"
+ ],
+ "funnel": {
+  "alignments": 162787,
+  "pass_coverage": 133463,
+  "fail_identity": 95312,
+  "fail_coverage": 29324,
+  "pass_identity": 38151,
+  "pass_no_fs_stop": 37370,
+  "fail_no_stop_codon_feature": 12673,
+  "pass_stop_codon": 24697,
+  "pass_chain_checks": 16213,
+  "fail_frameshift_or_internal_stop": 781,
+  "fail_chain_checks": 8484,
+  "dropped_same_locus_lower_identity": 13904,
+  "seeds": 2309
+ },
+ "chain_check_failures": {
+  "non_ATG_start": 8358,
+  "nonstandard_splice": 163
+ },
+ "by_contig": {
+  "NW_028238198.1": {
+   "split": "train",
+   "Mb": 88.06,
+   "seeds": 1093
+  },
+  "NW_028238420.1": {
+   "split": "train",
+   "Mb": 66.44,
+   "seeds": 907
+  },
+  "NW_028238472.1__val20M": {
+   "split": "val",
+   "Mb": 20.0,
+   "seeds": 309
+  }
+ },
+ "by_split": {
+  "train": 2000,
+  "val": 309
+ },
+ "exon_strata": {
+  "1": 307,
+  "2-5": 804,
+  ">=6": 1198
+ },
+ "exon_strata_train": {
+  "1": 278,
+  "2-5": 685,
+  ">=6": 1037
+ },
+ "by_source_species": {
+  "daucus_carota": 263,
+  "phoenix_dactylifera": 313,
+  "citrus_sinensis": 512,
+  "populus_trichocarpa": 527,
+  "phaseolus_vulgaris": 201,
+  "dioscorea_rotundata": 198,
+  "brachypodium_distachyon": 30,
+  "solanum_lycopersicum": 203,
+  "arabidopsis_thaliana": 55,
+  "oryza_sativa": 7
+ },
+ "identity_quantiles": {
+  "0.05": 0.70838,
+  "0.25": 0.7438,
+  "0.5": 0.7906,
+  "0.75": 0.8583,
+  "0.95": 0.9448799999999999
+ },
+ "seeds_per_Mb_train": 12.944613242560699,
+ "cross_strand_overlapping_seeds": 0,
+ "splice_motifs": {
+  "GT-AG": 13661,
+  "GC-AG": 137
+ },
+ "seconds": 14.275349855422974
+}

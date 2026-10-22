@@ -1,0 +1,853 @@
+{
+ "meta": {
+  "search": "mmseqs easy-search -s 4.0 -e 1e-5 --max-seqs 300; best hit with query coverage >= 0.7; identity = mmseqs pident over the aligned region",
+  "queries": {
+   "dryas_octopetala": 30373,
+   "eschscholzia_californica": 42020,
+   "akebia_trifoliata": 43352,
+   "hakea_prostrata": 34200,
+   "chenopodium_album": 77290,
+   "zizania_latifolia": 36280,
+   "themeda_triandra": 48213,
+   "juncus_effusus": 18942,
+   "rhynchospora_breviuscula": 24339,
+   "acorus_gramineus": 24974,
+   "dipteris_shenzhenensis": 32820,
+   "amborella_trichopoda": 51765
+  },
+  "targets": {
+   "populus_trichocarpa": 51840,
+   "brachypodium_distachyon": 37892,
+   "solanum_lycopersicum": 44391,
+   "phoenix_dactylifera": 54077,
+   "phaseolus_vulgaris": 43271,
+   "citrus_sinensis": 40427,
+   "daucus_carota": 49321,
+   "dioscorea_rotundata": 33298,
+   "arabidopsis_thaliana": 48265,
+   "oryza_sativa": 42933
+  },
+  "target_file": "/home/ji/coding-rna-reorg/data/m34_train/homology/train_T10.faa",
+  "threads": 6,
+  "computed": "2026-10-22T08:42:01+02:00",
+  "note": "all NCBI protein records (isoforms included); descriptive only, nothing filtered"
+ },
+ "species": {
+  "dryas_octopetala": {
+   "T10": {
+    "n_proteins": 30373,
+    "n_with_hit": 29315,
+    "frac": {
+     "no_hit": 0.034833569288512826,
+     "<30": 0.008955322161129951,
+     "30-40": 0.040266025746551214,
+     "40-50": 0.0752312909491983,
+     "50-70": 0.3223257498436111,
+     "70-90": 0.4705824251802588,
+     ">=90": 0.04780561683073783
+    },
+    "frac_ge": {
+     "30": 0.9562111085503572,
+     "50": 0.8407137918546077,
+     "70": 0.5183880420109966,
+     "90": 0.04780561683073783
+    },
+    "median_best_identity_with_hit": 71.3,
+    "mean_best_identity_with_hit": 68.85821593041162
+   },
+   "T2": {
+    "n_proteins": 30373,
+    "n_with_hit": 27454,
+    "frac": {
+     "no_hit": 0.09610509333947914,
+     "<30": 0.021334738089750765,
+     "30-40": 0.07783228525335001,
+     "40-50": 0.12405755111447668,
+     "50-70": 0.38929312218088435,
+     "70-90": 0.27356533763539986,
+     ">=90": 0.017811872386659204
+    },
+    "frac_ge": {
+     "30": 0.8825601685707701,
+     "50": 0.6806703322029434,
+     "70": 0.2913772100220591,
+     "90": 0.017811872386659204
+    },
+    "median_best_identity_with_hit": 62.6,
+    "mean_best_identity_with_hit": 61.28504771617978
+   },
+   "nearest_training_species": {
+    "populus_trichocarpa": 10876,
+    "citrus_sinensis": 10631,
+    "phaseolus_vulgaris": 3006,
+    "daucus_carota": 1337,
+    "solanum_lycopersicum": 1068,
+    "phoenix_dactylifera": 1018,
+    "arabidopsis_thaliana": 620,
+    "dioscorea_rotundata": 456,
+    "oryza_sativa": 198,
+    "brachypodium_distachyon": 105
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.27728574720969285,
+    "brachypodium_distachyon": 0.17400322654989628,
+    "citrus_sinensis": 0.4547789154841471,
+    "daucus_carota": 0.32268791360748034,
+    "dioscorea_rotundata": 0.23810621275474927,
+    "oryza_sativa": 0.18312316860369407,
+    "phaseolus_vulgaris": 0.3787903730286768,
+    "phoenix_dactylifera": 0.27534323247621245,
+    "populus_trichocarpa": 0.45978336022124916,
+    "solanum_lycopersicum": 0.3292727093141935
+   }
+  },
+  "eschscholzia_californica": {
+   "T10": {
+    "n_proteins": 42020,
+    "n_with_hit": 39389,
+    "frac": {
+     "no_hit": 0.06261304140885293,
+     "<30": 0.03317467872441694,
+     "30-40": 0.07455973346025702,
+     "40-50": 0.10433127082341742,
+     "50-70": 0.3691813422179914,
+     "70-90": 0.32175154688243696,
+     ">=90": 0.03438838648262732
+    },
+    "frac_ge": {
+     "30": 0.9042122798667301,
+     "50": 0.7253212755830557,
+     "70": 0.3561399333650643,
+     "90": 0.03438838648262732
+    },
+    "median_best_identity_with_hit": 64.7,
+    "mean_best_identity_with_hit": 62.992101855848716
+   },
+   "T2": {
+    "n_proteins": 42020,
+    "n_with_hit": 36687,
+    "frac": {
+     "no_hit": 0.1269157544026654,
+     "<30": 0.04781056639695383,
+     "30-40": 0.08969538315088053,
+     "40-50": 0.13231794383626844,
+     "50-70": 0.35813898143741074,
+     "70-90": 0.22627320323655403,
+     ">=90": 0.018848167539267015
+    },
+    "frac_ge": {
+     "30": 0.8252736792003807,
+     "50": 0.6032603522132318,
+     "70": 0.24512137077582105,
+     "90": 0.018848167539267015
+    },
+    "median_best_identity_with_hit": 59.6,
+    "mean_best_identity_with_hit": 58.72751110747768
+   },
+   "nearest_training_species": {
+    "populus_trichocarpa": 9984,
+    "citrus_sinensis": 9690,
+    "phoenix_dactylifera": 6476,
+    "daucus_carota": 3283,
+    "solanum_lycopersicum": 2972,
+    "phaseolus_vulgaris": 2477,
+    "dioscorea_rotundata": 2317,
+    "arabidopsis_thaliana": 1174,
+    "oryza_sativa": 622,
+    "brachypodium_distachyon": 394
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.22298905283198478,
+    "brachypodium_distachyon": 0.18158019990480723,
+    "citrus_sinensis": 0.3,
+    "daucus_carota": 0.2611851499286054,
+    "dioscorea_rotundata": 0.24362208472156116,
+    "oryza_sativa": 0.1884578772013327,
+    "phaseolus_vulgaris": 0.2616611137553546,
+    "phoenix_dactylifera": 0.27755830556877675,
+    "populus_trichocarpa": 0.3020942408376963,
+    "solanum_lycopersicum": 0.26399333650642554
+   }
+  },
+  "akebia_trifoliata": {
+   "T10": {
+    "n_proteins": 43352,
+    "n_with_hit": 39514,
+    "frac": {
+     "no_hit": 0.08853109429784092,
+     "<30": 0.012225502860306329,
+     "30-40": 0.05815187303930615,
+     "40-50": 0.08920003690717844,
+     "50-70": 0.3470658793135265,
+     "70-90": 0.36521959771175494,
+     ">=90": 0.03960601587008673
+    },
+    "frac_ge": {
+     "30": 0.8992434028418528,
+     "50": 0.7518914928953682,
+     "70": 0.40482561358184166,
+     "90": 0.03960601587008673
+    },
+    "median_best_identity_with_hit": 67.7,
+    "mean_best_identity_with_hit": 65.84539656830462
+   },
+   "T2": {
+    "n_proteins": 43352,
+    "n_with_hit": 36604,
+    "frac": {
+     "no_hit": 0.15565602509688134,
+     "<30": 0.022075106108138034,
+     "30-40": 0.08428676877652704,
+     "40-50": 0.12536907178446208,
+     "50-70": 0.3623823583687027,
+     "70-90": 0.23170787968259826,
+     ">=90": 0.018522790182690534
+    },
+    "frac_ge": {
+     "30": 0.8222688687949806,
+     "50": 0.6126130282339916,
+     "70": 0.2502306698652888,
+     "90": 0.018522790182690534
+    },
+    "median_best_identity_with_hit": 61.0,
+    "mean_best_identity_with_hit": 60.224735001639274
+   },
+   "nearest_training_species": {
+    "populus_trichocarpa": 10583,
+    "citrus_sinensis": 10250,
+    "phoenix_dactylifera": 7250,
+    "phaseolus_vulgaris": 2658,
+    "solanum_lycopersicum": 2593,
+    "daucus_carota": 2375,
+    "dioscorea_rotundata": 2185,
+    "arabidopsis_thaliana": 797,
+    "oryza_sativa": 505,
+    "brachypodium_distachyon": 318
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.22898597527219045,
+    "brachypodium_distachyon": 0.18624284923417606,
+    "citrus_sinensis": 0.33668573537553054,
+    "daucus_carota": 0.2819477763424986,
+    "dioscorea_rotundata": 0.2606108138032847,
+    "oryza_sativa": 0.19320907916589777,
+    "phaseolus_vulgaris": 0.28646890570215905,
+    "phoenix_dactylifera": 0.30725226056467986,
+    "populus_trichocarpa": 0.3392000369071784,
+    "solanum_lycopersicum": 0.28651503967521685
+   }
+  },
+  "hakea_prostrata": {
+   "T10": {
+    "n_proteins": 34200,
+    "n_with_hit": 33255,
+    "frac": {
+     "no_hit": 0.02763157894736842,
+     "<30": 0.016198830409356726,
+     "30-40": 0.06730994152046783,
+     "40-50": 0.08880116959064327,
+     "50-70": 0.38839181286549707,
+     "70-90": 0.37444444444444447,
+     ">=90": 0.03722222222222222
+    },
+    "frac_ge": {
+     "30": 0.9561695906432749,
+     "50": 0.8000584795321637,
+     "70": 0.4116666666666667,
+     "90": 0.03722222222222222
+    },
+    "median_best_identity_with_hit": 66.9,
+    "mean_best_identity_with_hit": 65.12785145091024
+   },
+   "T2": {
+    "n_proteins": 34200,
+    "n_with_hit": 31168,
+    "frac": {
+     "no_hit": 0.08865497076023392,
+     "<30": 0.027777777777777776,
+     "30-40": 0.08362573099415205,
+     "40-50": 0.13298245614035087,
+     "50-70": 0.40502923976608185,
+     "70-90": 0.24426900584795322,
+     ">=90": 0.017660818713450294
+    },
+    "frac_ge": {
+     "30": 0.8835672514619883,
+     "50": 0.6669590643274854,
+     "70": 0.2619298245614035,
+     "90": 0.017660818713450294
+    },
+    "median_best_identity_with_hit": 61.2,
+    "mean_best_identity_with_hit": 60.15151437371678
+   },
+   "nearest_training_species": {
+    "populus_trichocarpa": 8859,
+    "citrus_sinensis": 8546,
+    "phoenix_dactylifera": 5740,
+    "daucus_carota": 2392,
+    "solanum_lycopersicum": 2215,
+    "phaseolus_vulgaris": 2209,
+    "dioscorea_rotundata": 1837,
+    "arabidopsis_thaliana": 688,
+    "oryza_sativa": 497,
+    "brachypodium_distachyon": 272
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.23669590643274854,
+    "brachypodium_distachyon": 0.19078947368421054,
+    "citrus_sinensis": 0.345,
+    "daucus_carota": 0.29017543859649125,
+    "dioscorea_rotundata": 0.2673391812865497,
+    "oryza_sativa": 0.20391812865497075,
+    "phaseolus_vulgaris": 0.29412280701754384,
+    "phoenix_dactylifera": 0.3124561403508772,
+    "populus_trichocarpa": 0.3449122807017544,
+    "solanum_lycopersicum": 0.29567251461988303
+   }
+  },
+  "chenopodium_album": {
+   "T10": {
+    "n_proteins": 77290,
+    "n_with_hit": 72436,
+    "frac": {
+     "no_hit": 0.0628024323974641,
+     "<30": 0.03433820675378445,
+     "30-40": 0.1076853409237935,
+     "40-50": 0.12467330831931686,
+     "50-70": 0.36460085392676933,
+     "70-90": 0.28349074912666583,
+     ">=90": 0.022409108552205976
+    },
+    "frac_ge": {
+     "30": 0.9028593608487514,
+     "50": 0.6705007116056411,
+     "70": 0.3058998576788718,
+     "90": 0.022409108552205976
+    },
+    "median_best_identity_with_hit": 62.0,
+    "mean_best_identity_with_hit": 60.430537301894475
+   },
+   "T2": {
+    "n_proteins": 77290,
+    "n_with_hit": 66379,
+    "frac": {
+     "no_hit": 0.14116962090826757,
+     "<30": 0.05437960926381162,
+     "30-40": 0.11116573942295252,
+     "40-50": 0.13849139604088498,
+     "50-70": 0.34494759994824686,
+     "70-90": 0.19727002199508345,
+     ">=90": 0.012576012420753008
+    },
+    "frac_ge": {
+     "30": 0.8044507698279209,
+     "50": 0.5547936343640834,
+     "70": 0.20984603441583646,
+     "90": 0.012576012420753008
+    },
+    "median_best_identity_with_hit": 57.7,
+    "mean_best_identity_with_hit": 56.819058738456626
+   },
+   "nearest_training_species": {
+    "citrus_sinensis": 19224,
+    "populus_trichocarpa": 17689,
+    "daucus_carota": 9224,
+    "solanum_lycopersicum": 8242,
+    "phaseolus_vulgaris": 6177,
+    "phoenix_dactylifera": 4203,
+    "arabidopsis_thaliana": 2903,
+    "dioscorea_rotundata": 2181,
+    "oryza_sativa": 1588,
+    "brachypodium_distachyon": 1005
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.19786518307672402,
+    "brachypodium_distachyon": 0.1404192004140251,
+    "citrus_sinensis": 0.2574589209470824,
+    "daucus_carota": 0.2228231336524777,
+    "dioscorea_rotundata": 0.17709923664122137,
+    "oryza_sativa": 0.14622849010221245,
+    "phaseolus_vulgaris": 0.2274032863242334,
+    "phoenix_dactylifera": 0.1970500711605641,
+    "populus_trichocarpa": 0.25866218139474706,
+    "solanum_lycopersicum": 0.23068961055764006
+   }
+  },
+  "zizania_latifolia": {
+   "T10": {
+    "n_proteins": 36280,
+    "n_with_hit": 31738,
+    "frac": {
+     "no_hit": 0.12519294377067255,
+     "<30": 0.0013781697905181918,
+     "30-40": 0.010088202866593165,
+     "40-50": 0.020369349503858877,
+     "50-70": 0.11317530319735392,
+     "70-90": 0.4882855567805954,
+     ">=90": 0.24151047409040793
+    },
+    "frac_ge": {
+     "30": 0.8734288864388092,
+     "50": 0.8429713340683572,
+     "70": 0.7297960308710033,
+     "90": 0.24151047409040793
+    },
+    "median_best_identity_with_hit": 84.7,
+    "mean_best_identity_with_hit": 81.23037368454257
+   },
+   "T2": {
+    "n_proteins": 36280,
+    "n_with_hit": 31338,
+    "frac": {
+     "no_hit": 0.13621830209481808,
+     "<30": 0.0012127894156560089,
+     "30-40": 0.010446527012127895,
+     "40-50": 0.020286659316427785,
+     "50-70": 0.10854465270121279,
+     "70-90": 0.4839305402425579,
+     ">=90": 0.23936052921719955
+    },
+    "frac_ge": {
+     "30": 0.8625689084895259,
+     "50": 0.8318357221609702,
+     "70": 0.7232910694597574,
+     "90": 0.23936052921719955
+    },
+    "median_best_identity_with_hit": 84.8,
+    "mean_best_identity_with_hit": 81.31384900121344
+   },
+   "nearest_training_species": {
+    "oryza_sativa": 29338,
+    "brachypodium_distachyon": 1770,
+    "phoenix_dactylifera": 240,
+    "populus_trichocarpa": 74,
+    "dioscorea_rotundata": 74,
+    "arabidopsis_thaliana": 57,
+    "citrus_sinensis": 56,
+    "solanum_lycopersicum": 46,
+    "daucus_carota": 42,
+    "phaseolus_vulgaris": 41
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.14415656008820288,
+    "brachypodium_distachyon": 0.5559536934950385,
+    "citrus_sinensis": 0.16918412348401324,
+    "daucus_carota": 0.15755237045203968,
+    "dioscorea_rotundata": 0.2098401323042999,
+    "oryza_sativa": 0.722877618522602,
+    "phaseolus_vulgaris": 0.16000551267916208,
+    "phoenix_dactylifera": 0.2541896361631753,
+    "populus_trichocarpa": 0.1746141124586549,
+    "solanum_lycopersicum": 0.1587651598676957
+   }
+  },
+  "themeda_triandra": {
+   "T10": {
+    "n_proteins": 48213,
+    "n_with_hit": 26212,
+    "frac": {
+     "no_hit": 0.4563292058158588,
+     "<30": 0.0068238856739883435,
+     "30-40": 0.03059340841681704,
+     "40-50": 0.049467985812955015,
+     "50-70": 0.15794495260614358,
+     "70-90": 0.25235932217451723,
+     ">=90": 0.046481239499719995
+    },
+    "frac_ge": {
+     "30": 0.5368469085101528,
+     "50": 0.45678551428038083,
+     "70": 0.2988405616742372,
+     "90": 0.046481239499719995
+    },
+    "median_best_identity_with_hit": 72.3,
+    "mean_best_identity_with_hit": 69.31309705478448
+   },
+   "T2": {
+    "n_proteins": 48213,
+    "n_with_hit": 25590,
+    "frac": {
+     "no_hit": 0.46923029058552673,
+     "<30": 0.0062223881525729574,
+     "30-40": 0.03181714475348972,
+     "40-50": 0.050131707215896125,
+     "50-70": 0.15850496753987514,
+     "70-90": 0.24136643643830502,
+     ">=90": 0.04272706531433431
+    },
+    "frac_ge": {
+     "30": 0.5245473212619003,
+     "50": 0.44259846929251445,
+     "70": 0.2840935017526393,
+     "90": 0.04272706531433431
+    },
+    "median_best_identity_with_hit": 71.7,
+    "mean_best_identity_with_hit": 68.79915982805815
+   },
+   "nearest_training_species": {
+    "oryza_sativa": 16471,
+    "brachypodium_distachyon": 8655,
+    "phoenix_dactylifera": 477,
+    "dioscorea_rotundata": 135,
+    "citrus_sinensis": 108,
+    "populus_trichocarpa": 95,
+    "daucus_carota": 93,
+    "phaseolus_vulgaris": 72,
+    "arabidopsis_thaliana": 58,
+    "solanum_lycopersicum": 48
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.07253230456515877,
+    "brachypodium_distachyon": 0.26441001389666685,
+    "citrus_sinensis": 0.08576525003629726,
+    "daucus_carota": 0.07860950366083837,
+    "dioscorea_rotundata": 0.10490946425238007,
+    "oryza_sativa": 0.2838446062265364,
+    "phaseolus_vulgaris": 0.07968805094061768,
+    "phoenix_dactylifera": 0.12554705162508037,
+    "populus_trichocarpa": 0.0877356729512787,
+    "solanum_lycopersicum": 0.0803725136374007
+   }
+  },
+  "juncus_effusus": {
+   "T10": {
+    "n_proteins": 18942,
+    "n_with_hit": 18263,
+    "frac": {
+     "no_hit": 0.035846267553584624,
+     "<30": 0.009133143279484742,
+     "30-40": 0.06572695597085841,
+     "40-50": 0.12506599091964946,
+     "50-70": 0.4185408087847112,
+     "70-90": 0.2983845422869813,
+     ">=90": 0.04730229120473023
+    },
+    "frac_ge": {
+     "30": 0.9550205891669307,
+     "50": 0.7642276422764228,
+     "70": 0.34568683349171153,
+     "90": 0.04730229120473023
+    },
+    "median_best_identity_with_hit": 63.9,
+    "mean_best_identity_with_hit": 63.606121666757865
+   },
+   "T2": {
+    "n_proteins": 18942,
+    "n_with_hit": 17721,
+    "frac": {
+     "no_hit": 0.06445993031358885,
+     "<30": 0.015943406187308627,
+     "30-40": 0.08256783866539964,
+     "40-50": 0.15262379896526237,
+     "50-70": 0.4079822616407982,
+     "70-90": 0.24084046035265547,
+     ">=90": 0.0355823038749868
+    },
+    "frac_ge": {
+     "30": 0.9195966634991025,
+     "50": 0.6844050258684405,
+     "70": 0.2764227642276423,
+     "90": 0.0355823038749868
+    },
+    "median_best_identity_with_hit": 60.8,
+    "mean_best_identity_with_hit": 60.874437108515565
+   },
+   "nearest_training_species": {
+    "phoenix_dactylifera": 8137,
+    "oryza_sativa": 3395,
+    "dioscorea_rotundata": 2378,
+    "brachypodium_distachyon": 1817,
+    "populus_trichocarpa": 647,
+    "citrus_sinensis": 485,
+    "solanum_lycopersicum": 422,
+    "daucus_carota": 350,
+    "arabidopsis_thaliana": 319,
+    "phaseolus_vulgaris": 313
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.18588322246858832,
+    "brachypodium_distachyon": 0.2507654946679337,
+    "citrus_sinensis": 0.21317706683560342,
+    "daucus_carota": 0.20304086157744694,
+    "dioscorea_rotundata": 0.2564671101256467,
+    "oryza_sativa": 0.2682398901911097,
+    "phaseolus_vulgaris": 0.1997677119628339,
+    "phoenix_dactylifera": 0.2771090697919966,
+    "populus_trichocarpa": 0.21344103051420124,
+    "solanum_lycopersicum": 0.20282969063456868
+   }
+  },
+  "rhynchospora_breviuscula": {
+   "T10": {
+    "n_proteins": 24339,
+    "n_with_hit": 22300,
+    "frac": {
+     "no_hit": 0.08377501129873866,
+     "<30": 0.021693578207814618,
+     "30-40": 0.07605078269444102,
+     "40-50": 0.11327499075557747,
+     "50-70": 0.36480545626360983,
+     "70-90": 0.2724434035909446,
+     ">=90": 0.06795677718887383
+    },
+    "frac_ge": {
+     "30": 0.8945314104934468,
+     "50": 0.7052056370434282,
+     "70": 0.3404001807798184,
+     "90": 0.06795677718887383
+    },
+    "median_best_identity_with_hit": 64.3,
+    "mean_best_identity_with_hit": 63.57343946188409
+   },
+   "T2": {
+    "n_proteins": 24339,
+    "n_with_hit": 21440,
+    "frac": {
+     "no_hit": 0.11910924853116397,
+     "<30": 0.03599161839023789,
+     "30-40": 0.09080077242286043,
+     "40-50": 0.13094210937179013,
+     "50-70": 0.35104153827190926,
+     "70-90": 0.21866140761740416,
+     ">=90": 0.053453305394634124
+    },
+    "frac_ge": {
+     "30": 0.8448991330785981,
+     "50": 0.6231562512839476,
+     "70": 0.27211471301203827,
+     "90": 0.053453305394634124
+    },
+    "median_best_identity_with_hit": 60.7,
+    "mean_best_identity_with_hit": 60.53360541044816
+   },
+   "nearest_training_species": {
+    "phoenix_dactylifera": 9353,
+    "oryza_sativa": 4059,
+    "dioscorea_rotundata": 2920,
+    "brachypodium_distachyon": 2088,
+    "populus_trichocarpa": 874,
+    "solanum_lycopersicum": 755,
+    "daucus_carota": 706,
+    "citrus_sinensis": 589,
+    "arabidopsis_thaliana": 519,
+    "phaseolus_vulgaris": 437
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.18879165125929578,
+    "brachypodium_distachyon": 0.24914745881096184,
+    "citrus_sinensis": 0.2152512428612515,
+    "daucus_carota": 0.2054726981387896,
+    "dioscorea_rotundata": 0.25896708985578704,
+    "oryza_sativa": 0.2661571962693619,
+    "phaseolus_vulgaris": 0.19836476436994124,
+    "phoenix_dactylifera": 0.2466822794691647,
+    "populus_trichocarpa": 0.22124984592629113,
+    "solanum_lycopersicum": 0.2043633674349809
+   }
+  },
+  "acorus_gramineus": {
+   "T10": {
+    "n_proteins": 24974,
+    "n_with_hit": 21333,
+    "frac": {
+     "no_hit": 0.14579162328821973,
+     "<30": 0.0090894530311524,
+     "30-40": 0.056018258989348924,
+     "40-50": 0.11303755906142388,
+     "50-70": 0.3552895010811244,
+     "70-90": 0.2875390406022263,
+     ">=90": 0.03323456394650436
+    },
+    "frac_ge": {
+     "30": 0.8451189236806278,
+     "50": 0.676063105629855,
+     "70": 0.32077360454873066,
+     "90": 0.03323456394650436
+    },
+    "median_best_identity_with_hit": 64.3,
+    "mean_best_identity_with_hit": 63.62596915576835
+   },
+   "T2": {
+    "n_proteins": 24974,
+    "n_with_hit": 19882,
+    "frac": {
+     "no_hit": 0.20389204772963881,
+     "<30": 0.014655241451109153,
+     "30-40": 0.08076399455433651,
+     "40-50": 0.14222791703371507,
+     "50-70": 0.34555938175702733,
+     "70-90": 0.1946824697685593,
+     ">=90": 0.018218947705613837
+    },
+    "frac_ge": {
+     "30": 0.781452710819252,
+     "50": 0.5584607992312004,
+     "70": 0.21290141747417313,
+     "90": 0.018218947705613837
+    },
+    "median_best_identity_with_hit": 59.2,
+    "mean_best_identity_with_hit": 59.34701237300024
+   },
+   "nearest_training_species": {
+    "phoenix_dactylifera": 9807,
+    "dioscorea_rotundata": 3380,
+    "populus_trichocarpa": 2085,
+    "citrus_sinensis": 1783,
+    "daucus_carota": 942,
+    "solanum_lycopersicum": 880,
+    "phaseolus_vulgaris": 879,
+    "oryza_sativa": 668,
+    "arabidopsis_thaliana": 506,
+    "brachypodium_distachyon": 403
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.1777448546488348,
+    "brachypodium_distachyon": 0.17686393849603588,
+    "citrus_sinensis": 0.22791703371506367,
+    "daucus_carota": 0.20148954913109635,
+    "dioscorea_rotundata": 0.2462160647072956,
+    "oryza_sativa": 0.18815568190918555,
+    "phaseolus_vulgaris": 0.20497317209898294,
+    "phoenix_dactylifera": 0.28449587571073914,
+    "populus_trichocarpa": 0.2312404901097141,
+    "solanum_lycopersicum": 0.20721550412428927
+   }
+  },
+  "dipteris_shenzhenensis": {
+   "T10": {
+    "n_proteins": 32820,
+    "n_with_hit": 25780,
+    "frac": {
+     "no_hit": 0.21450335161486897,
+     "<30": 0.030743449116392443,
+     "30-40": 0.18159658744667886,
+     "40-50": 0.1536563071297989,
+     "50-70": 0.2975015234613041,
+     "70-90": 0.11127361365021328,
+     ">=90": 0.010725167580743449
+    },
+    "frac_ge": {
+     "30": 0.7547531992687386,
+     "50": 0.4195003046922608,
+     "70": 0.12199878123095674,
+     "90": 0.010725167580743449
+    },
+    "median_best_identity_with_hit": 51.6,
+    "mean_best_identity_with_hit": 52.82534522885974
+   },
+   "T2": {
+    "n_proteins": 32820,
+    "n_with_hit": 23864,
+    "frac": {
+     "no_hit": 0.2728823887873248,
+     "<30": 0.03561852528945765,
+     "30-40": 0.17544180377818402,
+     "40-50": 0.1497257769652651,
+     "50-70": 0.27148080438756855,
+     "70-90": 0.08726386349786715,
+     ">=90": 0.007586837294332724
+    },
+    "frac_ge": {
+     "30": 0.6914990859232175,
+     "50": 0.3663315051797684,
+     "70": 0.09485070079219987,
+     "90": 0.007586837294332724
+    },
+    "median_best_identity_with_hit": 50.0,
+    "mean_best_identity_with_hit": 51.3876340931949
+   },
+   "nearest_training_species": {
+    "phoenix_dactylifera": 6238,
+    "populus_trichocarpa": 3596,
+    "citrus_sinensis": 3099,
+    "dioscorea_rotundata": 2975,
+    "solanum_lycopersicum": 2054,
+    "daucus_carota": 1989,
+    "phaseolus_vulgaris": 1963,
+    "oryza_sativa": 1457,
+    "arabidopsis_thaliana": 1346,
+    "brachypodium_distachyon": 1063
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.08333333333333333,
+    "brachypodium_distachyon": 0.08040828762949422,
+    "citrus_sinensis": 0.09564290067032298,
+    "daucus_carota": 0.08890920170627666,
+    "dioscorea_rotundata": 0.09293113954905545,
+    "oryza_sativa": 0.08293723339427178,
+    "phaseolus_vulgaris": 0.08982327848872639,
+    "phoenix_dactylifera": 0.102224253503961,
+    "populus_trichocarpa": 0.09567336989640463,
+    "solanum_lycopersicum": 0.08973187081048141
+   }
+  },
+  "amborella_trichopoda": {
+   "T10": {
+    "n_proteins": 51765,
+    "n_with_hit": 48526,
+    "frac": {
+     "no_hit": 0.06257123539070801,
+     "<30": 0.011513570945619627,
+     "30-40": 0.06351782092147204,
+     "40-50": 0.12498792620496474,
+     "50-70": 0.40121703853955376,
+     "70-90": 0.30849029266879163,
+     ">=90": 0.02770211532889018
+    },
+    "frac_ge": {
+     "30": 0.9259151936636724,
+     "50": 0.7374094465372356,
+     "70": 0.33619240799768185,
+     "90": 0.02770211532889018
+    },
+    "median_best_identity_with_hit": 64.2,
+    "mean_best_identity_with_hit": 63.161165148579975
+   },
+   "T2": {
+    "n_proteins": 51765,
+    "n_with_hit": 45854,
+    "frac": {
+     "no_hit": 0.11418912392543225,
+     "<30": 0.01869989375060369,
+     "30-40": 0.0856563314981165,
+     "40-50": 0.15158891142663963,
+     "50-70": 0.40119772046749735,
+     "70-90": 0.21553172993335265,
+     ">=90": 0.013136288998357963
+    },
+    "frac_ge": {
+     "30": 0.8671109823239641,
+     "50": 0.629865739399208,
+     "70": 0.22866801893171063,
+     "90": 0.013136288998357963
+    },
+    "median_best_identity_with_hit": 59.7,
+    "mean_best_identity_with_hit": 59.224610720983684
+   },
+   "nearest_training_species": {
+    "phoenix_dactylifera": 18114,
+    "citrus_sinensis": 7109,
+    "populus_trichocarpa": 7026,
+    "dioscorea_rotundata": 5718,
+    "daucus_carota": 2622,
+    "phaseolus_vulgaris": 2593,
+    "solanum_lycopersicum": 2424,
+    "arabidopsis_thaliana": 1193,
+    "oryza_sativa": 1082,
+    "brachypodium_distachyon": 645
+   },
+   "per_training_species_frac_ge70": {
+    "arabidopsis_thaliana": 0.19706365304742587,
+    "brachypodium_distachyon": 0.18912392543224185,
+    "citrus_sinensis": 0.2598860233748672,
+    "daucus_carota": 0.22505553945716217,
+    "dioscorea_rotundata": 0.24989858012170385,
+    "oryza_sativa": 0.19729546991210278,
+    "phaseolus_vulgaris": 0.2292668791654593,
+    "phoenix_dactylifera": 0.28714382304645997,
+    "populus_trichocarpa": 0.2600792040954313,
+    "solanum_lycopersicum": 0.22955665024630542
+   }
+  }
+ }
+}

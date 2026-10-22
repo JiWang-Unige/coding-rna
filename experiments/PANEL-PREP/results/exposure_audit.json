@@ -1,0 +1,509 @@
+{
+ "panel": {
+  "dryas_octopetala": {
+   "organism": "Dryas octopetala",
+   "accession": "GCF_963921425.1",
+   "genus": "Dryas",
+   "family": "Rosaceae",
+   "tier": "TH",
+   "tier_note": "species-level temporal hold-out; RefSeq RS_2026_07 (2026-07-24); M30 adaptation species (label set A chromosomes used for M30 adaptation training)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [
+    "Dryas octopetala [M30 adaptation (label set A)]"
+   ],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [
+     "Dryas octopetala [M30 adaptation (label set A)]"
+    ],
+    "same_genus": [
+     "Dryas octopetala [M30 adaptation (label set A)]"
+    ],
+    "same_family": [
+     "Dryas octopetala [M30 adaptation (label set A)]"
+    ]
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "F",
+    "helixer_a0080": "F",
+    "tiberius_angiosperms": "F",
+    "annevo_paper": "F",
+    "plantgeneann": "F",
+    "plantcad2": "F"
+   }
+  },
+  "eschscholzia_californica": {
+   "organism": "Eschscholzia californica",
+   "accession": "GCF_041429995.1",
+   "genus": "Eschscholzia",
+   "family": "Papaveraceae",
+   "tier": "TH",
+   "tier_note": "species-level temporal hold-out; RefSeq RS_2026_07 (2026-07-30); Tiberius test species; M30 adaptation species (label set A scaffolds used for M30 adaptation training)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [
+    "Eschscholzia californica [M30 adaptation (label set A)]"
+   ],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [
+     "Eschscholzia californica [M30 adaptation (label set A)]"
+    ],
+    "same_genus": [
+     "Eschscholzia californica [M30 adaptation (label set A)]"
+    ],
+    "same_family": [
+     "Eschscholzia californica [M30 adaptation (label set A)]"
+    ]
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "Tr",
+    "helixer_a0080": "-",
+    "tiberius_angiosperms": "O (test species)",
+    "annevo_paper": "-",
+    "plantgeneann": "-",
+    "plantcad2": "O"
+   }
+  },
+  "akebia_trifoliata": {
+   "organism": "Akebia trifoliata",
+   "accession": "GCF_017979445.1",
+   "genus": "Akebia",
+   "family": "Lardizabalaceae",
+   "tier": "TH",
+   "tier_note": "species-level temporal hold-out; RefSeq RS_2026_07 (2026-07-28)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "O",
+    "helixer_a0080": "-",
+    "tiberius_angiosperms": "O",
+    "annevo_paper": "-",
+    "plantgeneann": "-",
+    "plantcad2": "O"
+   }
+  },
+  "hakea_prostrata": {
+   "organism": "Hakea prostrata",
+   "accession": "GCF_041222555.1",
+   "genus": "Hakea",
+   "family": "Proteaceae",
+   "tier": "TH",
+   "tier_note": "species-level temporal hold-out; RefSeq RS_2026_10 (2026-10-01; newest, re-annotation risk -> release name + md5 frozen here)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "F",
+    "helixer_a0080": "-",
+    "tiberius_angiosperms": "-",
+    "annevo_paper": "O",
+    "plantgeneann": "-",
+    "plantcad2": "-"
+   }
+  },
+  "chenopodium_album": {
+   "organism": "Chenopodium album",
+   "accession": "GCF_948465745.1",
+   "genus": "Chenopodium",
+   "family": "Amaranthaceae",
+   "tier": "TH",
+   "tier_note": "temporal hold-out but SAME-GENUS leak (C. quinoa in Carbon-A / ANNEVO / PlantCAD2; Helixer validation) -> sensitivity layer; hexaploid",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "G",
+    "helixer_a0080": "V/G",
+    "tiberius_angiosperms": "F",
+    "annevo_paper": "G",
+    "plantgeneann": "-",
+    "plantcad2": "G"
+   }
+  },
+  "zizania_latifolia": {
+   "organism": "Zizania latifolia",
+   "accession": "GCA_048537475.1",
+   "genus": "Zizania",
+   "family": "Poaceae",
+   "tier": "SH",
+   "tier_note": "source hold-out (never in RefSeq); same tribe as rice (Oryzeae) -> near-relative layer",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": [
+     "Brachypodium distachyon [M34 training (new)]",
+     "Oryza sativa [M34 training (legacy: M28/M31)]"
+    ]
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [
+    "Setaria (project sealed) [project-sealed (never read)]"
+   ],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": [
+     "Brachypodium distachyon [M34 training (new)]",
+     "Oryza sativa [M34 training (legacy: M28/M31)]",
+     "Setaria (project sealed) [project-sealed (never read)]"
+    ]
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "Tr",
+    "helixer_a0080": "Tr",
+    "tiberius_angiosperms": "Tr",
+    "annevo_paper": "Tr",
+    "plantgeneann": "Tr",
+    "plantcad2": "Tr"
+   }
+  },
+  "themeda_triandra": {
+   "organism": "Themeda triandra",
+   "accession": "GCA_057662145.1",
+   "genus": "Themeda",
+   "family": "Poaceae",
+   "tier": "SH",
+   "tier_note": "source hold-out; same tribe as Sorghum/Zea (Andropogoneae)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": [
+     "Brachypodium distachyon [M34 training (new)]",
+     "Oryza sativa [M34 training (legacy: M28/M31)]"
+    ]
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [
+    "Setaria (project sealed) [project-sealed (never read)]"
+   ],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": [
+     "Brachypodium distachyon [M34 training (new)]",
+     "Oryza sativa [M34 training (legacy: M28/M31)]",
+     "Setaria (project sealed) [project-sealed (never read)]"
+    ]
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "Tr",
+    "helixer_a0080": "Tr",
+    "tiberius_angiosperms": "Tr",
+    "annevo_paper": "Tr",
+    "plantgeneann": "Tr",
+    "plantcad2": "Tr"
+   }
+  },
+  "juncus_effusus": {
+   "organism": "Juncus effusus",
+   "accession": "GCA_027726005.1",
+   "genus": "Juncus",
+   "family": "Juncaceae",
+   "tier": "SH",
+   "tier_note": "source hold-out; non-grass Poales, small genome",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "O",
+    "helixer_a0080": "O",
+    "tiberius_angiosperms": "O",
+    "annevo_paper": "O",
+    "plantgeneann": "O",
+    "plantcad2": "O"
+   }
+  },
+  "rhynchospora_breviuscula": {
+   "organism": "Rhynchospora breviuscula",
+   "accession": "GCA_027562975.1",
+   "genus": "Rhynchospora",
+   "family": "Cyperaceae",
+   "tier": "SH",
+   "tier_note": "source hold-out; Cyperoideae (Carex rostrata in Carbon-A snapshot, same subfamily)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "Tr",
+    "helixer_a0080": "O",
+    "tiberius_angiosperms": "O",
+    "annevo_paper": "O",
+    "plantgeneann": "O",
+    "plantcad2": "O"
+   }
+  },
+  "acorus_gramineus": {
+   "organism": "Acorus gramineus",
+   "accession": "GCA_030737835.1",
+   "genus": "Acorus",
+   "family": "Acoraceae",
+   "tier": "SH",
+   "tier_note": "source hold-out; Tiberius angiosperms trains on congeneric Acorus americanus (must be disclosed)",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "-",
+    "helixer_a0080": "-",
+    "tiberius_angiosperms": "G",
+    "annevo_paper": "-",
+    "plantgeneann": "-",
+    "plantcad2": "-"
+   }
+  },
+  "dipteris_shenzhenensis": {
+   "organism": "Dipteris shenzhenensis",
+   "accession": "GCF_047967505.1",
+   "genus": "Dipteris",
+   "family": "Dipteridaceae",
+   "tier": "TH",
+   "tier_note": "species-level temporal hold-out (RS_2026_08, 2026-08-19); fern = whole-lineage hold-out; Tiberius/ANNEVO out of scope; reference BUSCO 90.1",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "-",
+    "helixer_a0080": "-",
+    "tiberius_angiosperms": "- (out of scope)",
+    "annevo_paper": "- (out of scope)",
+    "plantgeneann": "-",
+    "plantcad2": "-"
+   }
+  },
+  "amborella_trichopoda": {
+   "organism": "Amborella trichopoda",
+   "accession": "GCF_054954075.1",
+   "genus": "Amborella",
+   "family": "Amborellaceae",
+   "tier": "AH",
+   "tier_note": "ASSEMBLY/ANNOTATION-VERSION hold-out only: species already in Carbon-A snapshot (AMTR1.0 GCF_000471905.2), Helixer validation, ANNEVO paper test; report in a separate column",
+   "m34_training_overlap": {
+    "genus": false,
+    "family": []
+   },
+   "m30_adaptation_exposure": [],
+   "sealed_overlap": [],
+   "hits": {
+    "same_accession": [],
+    "same_genus": [],
+    "same_family": []
+   },
+   "in_m34_exclusion_list": true,
+   "tool_exposure": {
+    "carbon_a": "S",
+    "helixer_a0080": "V",
+    "tiberius_angiosperms": "- (out of scope)",
+    "annevo_paper": "T",
+    "plantgeneann": "-",
+    "plantcad2": "-"
+   }
+  }
+ },
+ "m34_direction": {
+  "violations": [],
+  "family_overlaps": [
+   [
+    "Brachypodium",
+    "Themeda"
+   ],
+   [
+    "Brachypodium",
+    "Zizania"
+   ],
+   [
+    "Oryza",
+    "Themeda"
+   ],
+   [
+    "Oryza",
+    "Zizania"
+   ]
+  ]
+ },
+ "exposure_sets": {
+  "m34_training": [
+   {
+    "key": "populus_trichocarpa",
+    "genus": "Populus",
+    "species": "Populus trichocarpa",
+    "accession": "GCF_000002775.5",
+    "family": "Salicaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "brachypodium_distachyon",
+    "genus": "Brachypodium",
+    "species": "Brachypodium distachyon",
+    "accession": "GCF_000005505.3",
+    "family": "Poaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "solanum_lycopersicum",
+    "genus": "Solanum",
+    "species": "Solanum lycopersicum",
+    "accession": "GCF_036512215.1",
+    "family": "Solanaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "phoenix_dactylifera",
+    "genus": "Phoenix",
+    "species": "Phoenix dactylifera",
+    "accession": "GCF_054393675.1",
+    "family": "Arecaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "phaseolus_vulgaris",
+    "genus": "Phaseolus",
+    "species": "Phaseolus vulgaris",
+    "accession": "GCF_000499845.2",
+    "family": "Fabaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "citrus_sinensis",
+    "genus": "Citrus",
+    "species": "Citrus sinensis",
+    "accession": "GCF_022201045.2",
+    "family": "Rutaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "daucus_carota",
+    "genus": "Daucus",
+    "species": "Daucus carota subsp. sativus",
+    "accession": "GCF_001625215.2",
+    "family": "Apiaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "dioscorea_rotundata",
+    "genus": "Dioscorea",
+    "species": "Dioscorea cayenensis subsp. rotundata",
+    "accession": "GCF_009730915.1",
+    "family": "Dioscoreaceae",
+    "role": "M34 training (new)"
+   },
+   {
+    "key": "arabidopsis_thaliana",
+    "genus": "Arabidopsis",
+    "species": "Arabidopsis thaliana",
+    "accession": "GCF_000001735.4",
+    "family": "Brassicaceae",
+    "role": "M34 training (legacy: M28/M31)"
+   },
+   {
+    "key": "oryza_sativa",
+    "genus": "Oryza",
+    "species": "Oryza sativa",
+    "accession": "GCF_034140825.1",
+    "family": "Poaceae",
+    "role": "M34 training (legacy: M28/M31)"
+   }
+  ],
+  "m30_adaptation": [
+   {
+    "key": "dryas_octopetala",
+    "genus": "Dryas",
+    "species": "Dryas octopetala",
+    "accession": "GCF_963921425.1",
+    "family": "Rosaceae",
+    "role": "M30 adaptation (label set A)"
+   },
+   {
+    "key": "eschscholzia_californica",
+    "genus": "Eschscholzia",
+    "species": "Eschscholzia californica",
+    "accession": "GCF_041429995.1",
+    "family": "Papaveraceae",
+    "role": "M30 adaptation (label set A)"
+   }
+  ],
+  "sealed": [
+   {
+    "key": "setaria",
+    "genus": "Setaria",
+    "species": "Setaria (project sealed)",
+    "accession": null,
+    "family": "Poaceae",
+    "role": "project-sealed (never read)"
+   }
+  ]
+ },
+ "problems": [],
+ "rule": "no panel species may share a genus or an accession with an M34 training species (family overlaps are reported, not forbidden); M30 adaptation exposure (Dryas, Eschscholzia) is flagged: any checkpoint that saw their label-set-A chromosomes must not be scored on those chromosomes"
+}

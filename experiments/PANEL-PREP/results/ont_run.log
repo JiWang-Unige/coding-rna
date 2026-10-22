@@ -1,0 +1,277 @@
+[2026-10-21T23:20:24+02:00] START prep
+dryas_octopetala assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 9 seqs 229255605 bp | dropped 19 seqs 828448 bp, 25 genes | kept genes 23819 21602 pc
+eschscholzia_californica no assembled-molecule: Primary Assembly sequences >=10Mb (M30) | kept 6 seqs 379243806 bp | dropped 325 seqs 22451150 bp, 5225 genes | kept genes 32754 26650 pc
+akebia_trifoliata assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 16 seqs 605649629 bp | dropped 898 seqs 47305347 bp, 1544 genes | kept genes 27359 24038 pc
+hakea_prostrata assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 11 seqs 662837653 bp | dropped 323 seqs 49561014 bp, 702 genes | kept genes 27048 23679 pc
+chenopodium_album assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 27 seqs 1588183047 bp | dropped 131 seqs 6125250 bp, 1564 genes | kept genes 77633 61773 pc
+zizania_latifolia assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 17 seqs 571701589 bp | dropped 272 seqs 24145380 bp, 179 genes | kept genes 36101 36101 pc
+themeda_triandra assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 10 seqs 745983798 bp | dropped 12 seqs 8747280 bp, 364 genes | kept genes 43516 43516 pc
+juncus_effusus assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 21 seqs 239944794 bp | dropped 362 seqs 18331950 bp, 1162 genes | kept genes 17780 17780 pc
+rhynchospora_breviuscula assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 5 seqs 370057226 bp | dropped 1500 seqs 50644885 bp, 4361 genes | kept genes 19978 19978 pc
+acorus_gramineus assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 11 seqs 289056106 bp | dropped 126 seqs 109525759 bp, 3609 genes | kept genes 21365 21365 pc
+dipteris_shenzhenensis assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 33 seqs 1868905960 bp | dropped 593 seqs 30380092 bp, 749 genes | kept genes 22904 21587 pc
+amborella_trichopoda assembled-molecule+Chromosome+Primary Assembly+>=5Mb (M34) | kept 13 seqs 699543950 bp | dropped 13 seqs 961838 bp, 156 genes | kept genes 21636 16630 pc
+PANEL_PREP_DONE prep
+[2026-10-21T23:28:55+02:00] START stats
+{"species": "dryas_octopetala", "bp": 229255605, "coding_genes_parsed": 21602, "cds_assessable_references": 21467, "complete_supported_nonoverlapping": 20735, "exon_hist": {"1": 3786, "2-5": 9463, ">=6": 8218}, "nonstandard_splice_fraction": 0.028369124703032562}
+/home/ji/coding-rna-reorg/experiments/M29-A1-RESIDUAL/scripts/a1_common.py:27: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  if isinstance(v, Path) and str(v).startswith(BAOBAB):
+{"species": "eschscholzia_californica", "bp": 379243806, "coding_genes_parsed": 26650, "cds_assessable_references": 26580, "complete_supported_nonoverlapping": 26042, "exon_hist": {"1": 5122, "2-5": 11797, ">=6": 9661}, "nonstandard_splice_fraction": 0.014936042136945072}
+{"species": "akebia_trifoliata", "bp": 605649629, "coding_genes_parsed": 24038, "cds_assessable_references": 23926, "complete_supported_nonoverlapping": 22855, "exon_hist": {"1": 3891, "2-5": 10985, ">=6": 9050}, "nonstandard_splice_fraction": 0.037532391540583465}
+{"species": "hakea_prostrata", "bp": 662837653, "coding_genes_parsed": 23679, "cds_assessable_references": 23486, "complete_supported_nonoverlapping": 22400, "exon_hist": {"1": 3923, "2-5": 10344, ">=6": 9219}, "nonstandard_splice_fraction": 0.042237928978966194}
+{"species": "chenopodium_album", "bp": 1588183047, "coding_genes_parsed": 61773, "cds_assessable_references": 61683, "complete_supported_nonoverlapping": 60629, "exon_hist": {"1": 10543, "2-5": 28890, ">=6": 22250}, "nonstandard_splice_fraction": 0.012872266264610995}
+{"species": "zizania_latifolia", "bp": 571701589, "coding_genes_parsed": 36101, "cds_assessable_references": 35671, "complete_supported_nonoverlapping": 35570, "exon_hist": {"1": 8542, "2-5": 15515, ">=6": 11614}, "nonstandard_splice_fraction": 0.0015979366992795267}
+{"species": "themeda_triandra", "bp": 745983798, "coding_genes_parsed": 43516, "cds_assessable_references": 41205, "complete_supported_nonoverlapping": 40582, "exon_hist": {"1": 14277, "2-5": 19614, ">=6": 7314}, "nonstandard_splice_fraction": 0.00902803057881325}
+{"species": "juncus_effusus", "bp": 239944794, "coding_genes_parsed": 17780, "cds_assessable_references": 17779, "complete_supported_nonoverlapping": 17720, "exon_hist": {"1": 2463, "2-5": 8025, ">=6": 7291}, "nonstandard_splice_fraction": 0.0019123685246639293}
+{"species": "rhynchospora_breviuscula", "bp": 370057226, "coding_genes_parsed": 19978, "cds_assessable_references": 19976, "complete_supported_nonoverlapping": 19856, "exon_hist": {"1": 3258, "2-5": 9098, ">=6": 7620}, "nonstandard_splice_fraction": 0.002603123748498198}
+{"species": "acorus_gramineus", "bp": 289056106, "coding_genes_parsed": 21365, "cds_assessable_references": 21365, "complete_supported_nonoverlapping": 19921, "exon_hist": {"1": 5217, "2-5": 9353, ">=6": 6795}, "nonstandard_splice_fraction": 0.0663702316873391}
+{"species": "dipteris_shenzhenensis", "bp": 1868905960, "coding_genes_parsed": 21587, "cds_assessable_references": 21501, "complete_supported_nonoverlapping": 20811, "exon_hist": {"1": 3817, "2-5": 9739, ">=6": 7945}, "nonstandard_splice_fraction": 0.018696804799776756}
+{"species": "amborella_trichopoda", "bp": 699543950, "coding_genes_parsed": 16630, "cds_assessable_references": 16467, "complete_supported_nonoverlapping": 15954, "exon_hist": {"1": 2674, "2-5": 6970, ">=6": 6823}, "nonstandard_splice_fraction": 0.02338009352037408}
+PANEL_PREP_DONE stats
+[2026-10-21T23:55:42+02:00] START homology
+Create directory /home/ji/coding-rna-reorg/data/panel/homology/tmp
+easy-search /home/ji/coding-rna-reorg/data/panel/homology/panel_full.faa /home/ji/coding-rna-reorg/data/m34_train/homology/train_T10.faa /home/ji/coding-rna-reorg/data/panel/homology/best_hits_full.tsv /home/ji/coding-rna-reorg/data/panel/homology/tmp --threads 6 -s 4.0 -e 1e-5 --max-seqs 300 --format-output query,target,pident,qcov,tcov,evalue,bits 
+
+MMseqs Version:                        	18.8cc5c
+Substitution matrix                    	aa:blosum62.out,nucl:nucleotide.out
+Add backtrace                          	false
+Alignment mode                         	3
+Alignment mode                         	0
+Allow wrapped scoring                  	false
+E-value threshold                      	1e-05
+Seq. id. threshold                     	0
+Min alignment length                   	0
+Seq. id. mode                          	0
+Alternative alignments                 	0
+Coverage threshold                     	0
+Coverage mode                          	0
+Max sequence length                    	65535
+Compositional bias                     	1
+Compositional bias scale               	1
+Max reject                             	2147483647
+Max accept                             	2147483647
+Include identical seq. id.             	false
+Preload mode                           	0
+Pseudo count a                         	substitution:1.100,context:1.400
+Pseudo count b                         	substitution:4.100,context:5.800
+Score bias                             	0
+Realign hits                           	false
+Realign score bias                     	-0.2
+Realign max seqs                       	2147483647
+Correlation score weight               	0
+Gap open cost                          	aa:11,nucl:5
+Gap extension cost                     	aa:1,nucl:2
+Zdrop                                  	40
+Threads                                	6
+Compressed                             	0
+Verbosity                              	3
+Seed substitution matrix               	aa:VTML80.out,nucl:nucleotide.out
+Sensitivity                            	4
+k-mer length                           	0
+Target search mode                     	0
+k-score                                	seq:2147483647,prof:2147483647
+Alphabet size                          	aa:21,nucl:5
+Max results per query                  	300
+Split database                         	0
+Split mode                             	2
+Split memory limit                     	0
+Diagonal scoring                       	true
+Exact k-mer matching                   	0
+Mask residues                          	1
+Mask residues probability              	0.9
+Mask lower case residues               	0
+Mask lower letter repeating N times    	0
+Minimum diagonal score                 	15
+Selected taxa                          	
+Spaced k-mers                          	1
+Spaced k-mer pattern                   	
+Local temporary path                   	
+Use GPU                                	0
+Use GPU server                         	0
+Wait for GPU server                    	600
+Prefilter mode                         	0
+Rescore mode                           	0
+Remove hits by seq. id. and coverage   	false
+Sort results                           	0
+Mask profile                           	1
+Profile E-value threshold              	0.001
+Global sequence weighting              	false
+Allow deletions                        	false
+Filter MSA                             	1
+Use filter only at N seqs              	0
+Maximum seq. id. threshold             	0.9
+Minimum seq. id.                       	0.0
+Minimum score per column               	-20
+Minimum coverage                       	0
+Select N most diverse seqs             	1000
+Pseudo count mode                      	0
+Profile output mode                    	0
+Min codons in orf                      	30
+Max codons in length                   	32734
+Max orf gaps                           	2147483647
+Contig start mode                      	2
+Contig end mode                        	2
+Orf start mode                         	1
+Forward frames                         	1,2,3
+Reverse frames                         	1,2,3
+Translation table                      	1
+Translate orf                          	0
+Use all table starts                   	false
+Offset of numeric ids                  	0
+Create lookup                          	0
+Overlap between sequences              	0
+Sequence split mode                    	1
+Header split mode                      	0
+Chain overlapping alignments           	0
+Merge query                            	1
+Search type                            	0
+Search iterations                      	1
+Start sensitivity                      	4
+Search steps                           	1
+Exhaustive search mode                 	false
+Filter results during exhaustive search	0
+Strand selection                       	1
+LCA search mode                        	false
+Disk space limit                       	0
+MPI runner                             	
+Force restart with latest tmp          	false
+Remove temporary files                 	true
+Translation mode                       	0
+Alignment format                       	0
+Format alignment output                	query,target,pident,qcov,tcov,evalue,bits
+Database output                        	false
+Overlap threshold                      	0
+Database type                          	0
+Shuffle input database                 	true
+Createdb mode                          	0
+Write lookup file                      	0
+Greedy best hits                       	false
+
+createdb /home/ji/coding-rna-reorg/data/panel/homology/panel_full.faa /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query --threads 6 
+
+Converting sequences
+[==============================================
+Time for merging to query_h: 0h 0m 0s 76ms
+Time for merging to query: 0h 0m 0s 242ms
+Database type: Aminoacid
+Time for processing: 0h 0m 1s 876ms
+createdb /home/ji/coding-rna-reorg/data/m34_train/homology/train_T10.faa /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target --write-lookup 0 --threads 6 --gpu 0 
+
+Converting sequences
+[============================================
+Time for merging to target_h: 0h 0m 0s 64ms
+Time for merging to target: 0h 0m 0s 392ms
+Database type: Aminoacid
+Time for processing: 0h 0m 1s 923ms
+Create directory /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp
+search /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/result /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp --alignment-mode 3 -e 1e-05 --threads 6 -s 4 --max-seqs 300 --remove-tmp-files 1 
+
+prefilter /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp/8384016642815205453/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -k 0 --target-search-mode 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seq-len 65535 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 -c 0 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --diag-score 1 --exact-kmer-matching 0 --mask 1 --mask-prob 0.9 --mask-lower-case 0 --mask-n-repeat 0 --min-ungapped-score 15 --add-self-matches 0 --spaced-kmer-mode 1 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --threads 6 --compressed 0 -v 3 -s 4.0 
+
+Query database size: 464568 type: Aminoacid
+Estimated memory consumption: 2G
+Target database size: 445715 type: Aminoacid
+Index table k-mer threshold: 127 at k-mer size 6 
+Index table: counting k-mers
+[=================================================================] 445.71K 53s 175ms
+Index table: Masked residues: 6568078
+Index table: fill
+[=================================================================] 445.71K 1m 12s 601ms
+Index statistics
+Entries:          198991215
+DB size:          1626 MB
+Avg k-mer size:   3.109238
+Top 10 k-mers
+    IHDKNI	5084
+    RDKSLL	4665
+    DVSGLL	4596
+    LGGFVY	4171
+    VYFVLE	3602
+    GVLETG	3057
+    YSGVEL	2802
+    GMGGTL	2413
+    SDYFVL	2284
+    IGGFVY	2225
+Time for index table init: 0h 2m 11s 856ms
+Process prefiltering step 1 of 1
+
+k-mer similarity threshold: 127
+Starting prefiltering scores calculation (step 1 of 1)
+Query db start 1 to 464568
+Target db start 1 to 445715
+[=================================================================] 464.57K 22m 3s 185ms
+
+64.086727 k-mers per position
+77872 DB matches per sequence
+0 overflows
+255 sequences passed prefiltering per query sequence
+300 median result list length
+153 sequences with 0 size result lists
+Time for merging to pref_0: 0h 0m 0s 200ms
+Time for processing: 0h 24m 17s 798ms
+align /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp/8384016642815205453/pref_0 /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/result --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 1e-05 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 6 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 464568 type: Aminoacid
+Target database size: 445715 type: Aminoacid
+Calculation of alignments
+[=================================================================] 464.57K 8h 20m 0s 989ms
+Time for merging to result: 0h 0m 1s 174ms
+118643783 alignments calculated
+60225658 sequence pairs passed the thresholds (0.507617 of overall calculated)
+129.637985 hits per query sequence
+Time for processing: 8h 20m 2s 626ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp/8384016642815205453/pref_0 -v 3 
+
+Time for processing: 0h 0m 1s 469ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp/8384016642815205453/aln_0 -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp/8384016642815205453/input_0 -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/search_tmp/8384016642815205453/aln_merge -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+convertalis /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/result /home/ji/coding-rna-reorg/data/panel/homology/best_hits_full.tsv --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --format-mode 0 --format-output query,target,pident,qcov,tcov,evalue,bits --translation-table 1 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --db-output 0 --db-load-mode 0 --search-type 0 --threads 6 --compressed 0 -v 3 
+
+[=================================================================] 464.57K 29s 934ms
+Time for merging to best_hits_full.tsv: 0h 0m 4s 530ms
+Time for processing: 0h 0m 35s 79ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/result -v 3 
+
+Time for processing: 0h 0m 0s 428ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target -v 3 
+
+Time for processing: 0h 0m 0s 39ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/target_h -v 3 
+
+Time for processing: 0h 0m 0s 3ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query -v 3 
+
+Time for processing: 0h 0m 0s 49ms
+rmdb /home/ji/coding-rna-reorg/data/panel/homology/tmp/9877353002634529481/query_h -v 3 
+
+Time for processing: 0h 0m 0s 3ms
+dryas_octopetala n 30373 T10 ge70 0.518 no_hit 0.035 T2 ge70 0.291
+eschscholzia_californica n 42020 T10 ge70 0.356 no_hit 0.063 T2 ge70 0.245
+akebia_trifoliata n 43352 T10 ge70 0.405 no_hit 0.089 T2 ge70 0.25
+hakea_prostrata n 34200 T10 ge70 0.412 no_hit 0.028 T2 ge70 0.262
+chenopodium_album n 77290 T10 ge70 0.306 no_hit 0.063 T2 ge70 0.21
+zizania_latifolia n 36280 T10 ge70 0.73 no_hit 0.125 T2 ge70 0.723
+themeda_triandra n 48213 T10 ge70 0.299 no_hit 0.456 T2 ge70 0.284
+juncus_effusus n 18942 T10 ge70 0.346 no_hit 0.036 T2 ge70 0.276
+rhynchospora_breviuscula n 24339 T10 ge70 0.34 no_hit 0.084 T2 ge70 0.272
+acorus_gramineus n 24974 T10 ge70 0.321 no_hit 0.146 T2 ge70 0.213
+dipteris_shenzhenensis n 32820 T10 ge70 0.122 no_hit 0.215 T2 ge70 0.095
+amborella_trichopoda n 51765 T10 ge70 0.336 no_hit 0.063 T2 ge70 0.229
+PANEL_HOMOLOGY_DONE
+[2026-10-22T08:42:01+02:00] START tables
+5.9G	/home/ji/coding-rna-reorg/data/panel/homology
+9.8G	/home/ji/coding-rna-reorg/data/panel/prepared
+2.7G	/home/ji/coding-rna-reorg/data/panel/raw
+4.0K	/home/ji/coding-rna-reorg/data/panel
+/dev/nvme0n1p2  7.0T  4.7T  1.9T  72% /
+
+rows 60 12 12
+[2026-10-22T08:42:01+02:00] PANEL_RUN_DONE

@@ -1,0 +1,32 @@
+{
+ "assembly": "GCA_000004655.2",
+ "assembly_name": "ASM465v1",
+ "cultivar": "93-11 (Oryza sativa Indica Group)",
+ "submitter": "Beijing Institute of Genomics, CAS",
+ "assembly_release": "2011-02-25",
+ "annotation": "submitted by BIG CAS, release 2015-03-23, 37,358 protein-coding genes (NCBI feature_count)",
+ "contig": "CM000135.2",
+ "chromosome": 10,
+ "length": 22150131,
+ "n_bases": 631204,
+ "gff_features": 21777,
+ "download_time": "2026-10-21T22:47:06+02:00",
+ "local_md5": {
+  "chr10.fna.gz": "af7b13b13f12eb8fdc45ffdf8fd64395",
+  "GCA_000004655.2_ASM465v1_genomic.gff.gz": "3e83d9397a7ed56da5b1cf9761f4ef31"
+ },
+ "ncbi_md5": {
+  "chr10.fna.gz": "af7b13b13f12eb8fdc45ffdf8fd64395",
+  "GCA_000004655.2_ASM465v1_genomic.gff.gz": "3e83d9397a7ed56da5b1cf9761f4ef31"
+ },
+ "md5_match": {
+  "chr10.fna.gz": true,
+  "GCA_000004655.2_ASM465v1_genomic.gff.gz": true
+ },
+ "assembly_A": {
+  "contig": "NC_089044.1",
+  "length": 23931887,
+  "n_bases": 0,
+  "source": "data/m1_screen/oryza_sativa/genome.fa (GCF_034140825.1 AGIS-1.0)"
+ }
+}

@@ -1,0 +1,200 @@
+{
+ "total_written": 241717,
+ "rule": "one protein per gene (longest CDS); legacy species restricted to M34 train+val chromosomes; organelle and partial CDS dropped",
+ "species": {
+  "arabidopsis_thaliana": {
+   "proteins_in_gff": 48265,
+   "dropped_other_contigs": 16900,
+   "dropped_organelle": 118,
+   "dropped_partial": 65,
+   "genes": 17756,
+   "selected": 17756,
+   "organelle_contigs": [
+    "NC_000932.1",
+    "NC_037304.1"
+   ],
+   "written": 17728,
+   "missing_in_faa": 0,
+   "residues": 7222239,
+   "organism": "Arabidopsis thaliana",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/legacy_proteins/GCF_000001735.4_TAIR10.1_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m1_screen/arabidopsis_thaliana/reference.gff3",
+   "keep_contigs": [
+    "NC_003070.9",
+    "NC_003071.7",
+    "NC_003076.8"
+   ]
+  },
+  "oryza_sativa": {
+   "proteins_in_gff": 13438,
+   "dropped_other_contigs": 6236,
+   "dropped_organelle": 163,
+   "dropped_partial": 13,
+   "genes": 4980,
+   "selected": 4980,
+   "organelle_contigs": [
+    "NC_001320.1",
+    "NC_001751.1",
+    "NC_011033.1"
+   ],
+   "written": 4980,
+   "missing_in_faa": 0,
+   "residues": 2261834,
+   "organism": "Oryza sativa",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/legacy_proteins/GCF_034140825.1_ASM3414082v1_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m1_screen/oryza_sativa/reference.gff3",
+   "keep_contigs": [
+    "NC_089043.1",
+    "NC_089044.1",
+    "NC_089046.1"
+   ]
+  },
+  "populus_trichocarpa": {
+   "proteins_in_gff": 51840,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 98,
+   "dropped_partial": 68,
+   "genes": 29451,
+   "selected": 29451,
+   "organelle_contigs": [
+    "NC_009143.1"
+   ],
+   "written": 29451,
+   "missing_in_faa": 0,
+   "residues": 13683037,
+   "organism": "Populus trichocarpa",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_000002775.5_P.trichocarpa_v4.1/GCF_000002775.5_P.trichocarpa_v4.1_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_000002775.5_P.trichocarpa_v4.1/GCF_000002775.5_P.trichocarpa_v4.1_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "brachypodium_distachyon": {
+   "proteins_in_gff": 37892,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 81,
+   "dropped_partial": 87,
+   "genes": 25367,
+   "selected": 25367,
+   "organelle_contigs": [
+    "NC_011032.1"
+   ],
+   "written": 25367,
+   "missing_in_faa": 0,
+   "residues": 11354547,
+   "organism": "Brachypodium distachyon",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_000005505.3_Brachypodium_distachyon_v3.0/GCF_000005505.3_Brachypodium_distachyon_v3.0_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_000005505.3_Brachypodium_distachyon_v3.0/GCF_000005505.3_Brachypodium_distachyon_v3.0_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "solanum_lycopersicum": {
+   "proteins_in_gff": 44391,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 126,
+   "dropped_partial": 46,
+   "genes": 28440,
+   "selected": 28440,
+   "organelle_contigs": [
+    "NC_007898.3",
+    "NC_035963.1"
+   ],
+   "written": 28440,
+   "missing_in_faa": 0,
+   "residues": 12310072,
+   "organism": "Solanum lycopersicum",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_036512215.1_SLM_r2.1/GCF_036512215.1_SLM_r2.1_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_036512215.1_SLM_r2.1/GCF_036512215.1_SLM_r2.1_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "phoenix_dactylifera": {
+   "proteins_in_gff": 54077,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 0,
+   "dropped_partial": 62,
+   "genes": 25768,
+   "selected": 25768,
+   "organelle_contigs": [],
+   "written": 25768,
+   "missing_in_faa": 0,
+   "residues": 11986923,
+   "organism": "Phoenix dactylifera",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_054393675.1_Male_Medina_1_primary_PhDact_Kaust_v1.1/GCF_054393675.1_Male_Medina_1_primary_PhDact_Kaust_v1.1_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_054393675.1_Male_Medina_1_primary_PhDact_Kaust_v1.1/GCF_054393675.1_Male_Medina_1_primary_PhDact_Kaust_v1.1_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "phaseolus_vulgaris": {
+   "proteins_in_gff": 43271,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 114,
+   "dropped_partial": 82,
+   "genes": 29488,
+   "selected": 29488,
+   "organelle_contigs": [
+    "NC_009259.1",
+    "NC_045135.1"
+   ],
+   "written": 29488,
+   "missing_in_faa": 0,
+   "residues": 13021107,
+   "organism": "Phaseolus vulgaris",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_000499845.2_P._vulgaris_v2.0/GCF_000499845.2_P._vulgaris_v2.0_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_000499845.2_P._vulgaris_v2.0/GCF_000499845.2_P._vulgaris_v2.0_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "citrus_sinensis": {
+   "proteins_in_gff": 40427,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 120,
+   "dropped_partial": 73,
+   "genes": 23363,
+   "selected": 23363,
+   "organelle_contigs": [
+    "NC_008334.1",
+    "NC_037463.1"
+   ],
+   "written": 23363,
+   "missing_in_faa": 0,
+   "residues": 10825587,
+   "organism": "Citrus sinensis",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_022201045.2_DVS_A1.0/GCF_022201045.2_DVS_A1.0_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_022201045.2_DVS_A1.0/GCF_022201045.2_DVS_A1.0_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "daucus_carota": {
+   "proteins_in_gff": 49321,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 120,
+   "dropped_partial": 74,
+   "genes": 32885,
+   "selected": 32885,
+   "organelle_contigs": [
+    "NC_087060.1",
+    "NC_087061.1"
+   ],
+   "written": 32885,
+   "missing_in_faa": 0,
+   "residues": 15331029,
+   "organism": "Daucus carota subsp. sativus",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_001625215.2_DH1_v3.0/GCF_001625215.2_DH1_v3.0_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_001625215.2_DH1_v3.0/GCF_001625215.2_DH1_v3.0_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  },
+  "dioscorea_rotundata": {
+   "proteins_in_gff": 33298,
+   "dropped_other_contigs": 0,
+   "dropped_organelle": 84,
+   "dropped_partial": 231,
+   "genes": 24247,
+   "selected": 24247,
+   "organelle_contigs": [
+    "NC_024170.1"
+   ],
+   "written": 24247,
+   "missing_in_faa": 0,
+   "residues": 10360585,
+   "organism": "Dioscorea cayenensis subsp. rotundata",
+   "faa": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_009730915.1_TDr96_F1_v2_PseudoChromosome.rev07_lg8_w22_25.fasta/GCF_009730915.1_TDr96_F1_v2_PseudoChromosome.rev07_lg8_w22_25.fasta_protein.faa.gz",
+   "gff": "/home/ji/coding-rna-reorg/data/m34_train/raw/GCF_009730915.1_TDr96_F1_v2_PseudoChromosome.rev07_lg8_w22_25.fasta/GCF_009730915.1_TDr96_F1_v2_PseudoChromosome.rev07_lg8_w22_25.fasta_genomic.gff.gz",
+   "keep_contigs": "all nuclear"
+  }
+ },
+ "seconds": 212.27702498435974
+}

@@ -1,0 +1,20 @@
+{
+ "LA": 23931887,
+ "LB": 22150131,
+ "paf_records": 750,
+ "kept_blocks": 306,
+ "kept_inverted": 13,
+ "A_mapped": 4450912,
+ "B_mapped": 4450912,
+ "A_mapped_frac": 0.18598249273030582,
+ "B_mapped_frac": 0.20094291993126362,
+ "A_inverted": 76955,
+ "A_match": 4401425,
+ "A_mismatch": 49487,
+ "A_deleted_in_B": 78965,
+ "B_insertion_events": 3810,
+ "sequence_check_bases": 4409971,
+ "sequence_check_mismatches": 0,
+ "B_nonN": 21518927,
+ "B_mapped_frac_of_nonN": 0.20683707881903218
+}

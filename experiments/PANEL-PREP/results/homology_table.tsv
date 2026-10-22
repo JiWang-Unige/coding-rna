@@ -1,0 +1,13 @@
+species	n_proteins	T10_no_hit	T10_<30	T10_30-40	T10_40-50	T10_50-70	T10_70-90	T10_>=90	T10_ge50	T10_ge70	T10_ge90	T10_median_id	T2_no_hit	T2_ge50	T2_ge70	T2_ge90	T2_median_id	nearest_training_species_top3
+dryas_octopetala	30373	0.035	0.009	0.040	0.075	0.322	0.471	0.048	0.841	0.518	0.048	71.3	0.096	0.681	0.291	0.018	62.6	populus_trichocarpa:10876;citrus_sinensis:10631;phaseolus_vulgaris:3006
+eschscholzia_californica	42020	0.063	0.033	0.075	0.104	0.369	0.322	0.034	0.725	0.356	0.034	64.7	0.127	0.603	0.245	0.019	59.6	populus_trichocarpa:9984;citrus_sinensis:9690;phoenix_dactylifera:6476
+akebia_trifoliata	43352	0.089	0.012	0.058	0.089	0.347	0.365	0.040	0.752	0.405	0.040	67.7	0.156	0.613	0.250	0.019	61.0	populus_trichocarpa:10583;citrus_sinensis:10250;phoenix_dactylifera:7250
+hakea_prostrata	34200	0.028	0.016	0.067	0.089	0.388	0.374	0.037	0.800	0.412	0.037	66.9	0.089	0.667	0.262	0.018	61.2	populus_trichocarpa:8859;citrus_sinensis:8546;phoenix_dactylifera:5740
+chenopodium_album	77290	0.063	0.034	0.108	0.125	0.365	0.283	0.022	0.671	0.306	0.022	62.0	0.141	0.555	0.210	0.013	57.7	citrus_sinensis:19224;populus_trichocarpa:17689;daucus_carota:9224
+zizania_latifolia	36280	0.125	0.001	0.010	0.020	0.113	0.488	0.242	0.843	0.730	0.242	84.7	0.136	0.832	0.723	0.239	84.8	oryza_sativa:29338;brachypodium_distachyon:1770;phoenix_dactylifera:240
+themeda_triandra	48213	0.456	0.007	0.031	0.049	0.158	0.252	0.046	0.457	0.299	0.046	72.3	0.469	0.443	0.284	0.043	71.7	oryza_sativa:16471;brachypodium_distachyon:8655;phoenix_dactylifera:477
+juncus_effusus	18942	0.036	0.009	0.066	0.125	0.419	0.298	0.047	0.764	0.346	0.047	63.9	0.064	0.684	0.276	0.036	60.8	phoenix_dactylifera:8137;oryza_sativa:3395;dioscorea_rotundata:2378
+rhynchospora_breviuscula	24339	0.084	0.022	0.076	0.113	0.365	0.272	0.068	0.705	0.340	0.068	64.3	0.119	0.623	0.272	0.053	60.7	phoenix_dactylifera:9353;oryza_sativa:4059;dioscorea_rotundata:2920
+acorus_gramineus	24974	0.146	0.009	0.056	0.113	0.355	0.288	0.033	0.676	0.321	0.033	64.3	0.204	0.558	0.213	0.018	59.2	phoenix_dactylifera:9807;dioscorea_rotundata:3380;populus_trichocarpa:2085
+dipteris_shenzhenensis	32820	0.215	0.031	0.182	0.154	0.298	0.111	0.011	0.420	0.122	0.011	51.6	0.273	0.366	0.095	0.008	50.0	phoenix_dactylifera:6238;populus_trichocarpa:3596;citrus_sinensis:3099
+amborella_trichopoda	51765	0.063	0.012	0.064	0.125	0.401	0.308	0.028	0.737	0.336	0.028	64.2	0.114	0.630	0.229	0.013	59.7	phoenix_dactylifera:18114;citrus_sinensis:7109;populus_trichocarpa:7026

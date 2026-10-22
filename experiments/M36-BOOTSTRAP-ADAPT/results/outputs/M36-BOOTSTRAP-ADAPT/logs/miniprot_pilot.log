@@ -1,0 +1,13 @@
+>NC_141366.1
+>NC_141368.1
+>NC_141370.1
+>NC_141372.1
+>NC_141374.1__val20M
+[M::mp_ntseq_read@0.477*0.61] read 126458490 bases in 5 contigs
+[M::mp_idx_build@0.477*0.61] 987962 blocks
+[M::mp_idx_build@4.287*1.21] collected syncmers
+[M::mp_idx_build@5.048*1.15] 52651708 kmer-block pairs
+[M::mp_idx_print_stat] 2102685 distinct k-mers; mean occ of infrequent k-mers: 25.04; 0 frequent k-mers accounting for 0 occurrences
+[M::main] Version: 0.18-r281
+[M::main] CMD: /home/ji/envs/miniprot/bin/miniprot -t 8 -d /home/ji/coding-rna/data/m36/genomes_A/dryas_octopetala_A.mpi.tmp /home/ji/coding-rna/data/m36/genomes_A/dryas_octopetala_A.fa
+[M::main] Real time: 5.430 sec; CPU: 6.067 sec; Peak RSS: 1.346 GB

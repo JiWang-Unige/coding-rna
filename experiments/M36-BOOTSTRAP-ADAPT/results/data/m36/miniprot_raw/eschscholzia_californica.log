@@ -1,0 +1,64 @@
+Thu Oct 22 12:52:55 AM CEST 2026
+[M::mp_idx_restore@0.125*1.00] loaded the index
+[M::mp_mapopt_set_max_intron] set max intron size to 47557
+[M::mp_idx_print_stat] 2029979 distinct k-mers; mean occ of infrequent k-mers: 34.65; 0 frequent k-mers accounting for 0 occurrences
+[M::worker_pipeline::85.156*1.53] mapped 4844 sequences
+[M::worker_pipeline::186.393*1.46] mapped 4658 sequences
+[M::worker_pipeline::282.086*1.44] mapped 4794 sequences
+[M::worker_pipeline::387.214*1.38] mapped 5181 sequences
+[M::worker_pipeline::514.408*1.35] mapped 4500 sequences
+[M::worker_pipeline::588.040*1.38] mapped 4873 sequences
+[M::worker_pipeline::664.065*1.40] mapped 4882 sequences
+[M::worker_pipeline::776.194*1.36] mapped 4804 sequences
+[M::worker_pipeline::876.847*1.35] mapped 3938 sequences
+[M::worker_pipeline::987.972*1.34] mapped 3655 sequences
+[M::worker_pipeline::1100.682*1.35] mapped 3690 sequences
+[M::worker_pipeline::1275.204*1.31] mapped 4354 sequences
+[M::worker_pipeline::1399.490*1.28] mapped 4642 sequences
+[M::worker_pipeline::1507.560*1.27] mapped 4663 sequences
+[M::worker_pipeline::1594.239*1.28] mapped 4462 sequences
+[M::worker_pipeline::1728.879*1.26] mapped 4050 sequences
+[M::worker_pipeline::1830.573*1.27] mapped 4380 sequences
+[M::worker_pipeline::1940.568*1.27] mapped 4702 sequences
+[M::worker_pipeline::2049.904*1.26] mapped 4523 sequences
+[M::worker_pipeline::2151.163*1.26] mapped 4554 sequences
+[M::worker_pipeline::2265.635*1.25] mapped 4568 sequences
+[M::worker_pipeline::2376.983*1.25] mapped 3915 sequences
+[M::worker_pipeline::2640.650*1.26] mapped 5147 sequences
+[M::worker_pipeline::2820.924*1.26] mapped 4815 sequences
+[M::worker_pipeline::2911.358*1.25] mapped 4470 sequences
+[M::worker_pipeline::2992.457*1.26] mapped 4395 sequences
+[M::worker_pipeline::3093.329*1.25] mapped 4171 sequences
+[M::worker_pipeline::3184.550*1.26] mapped 4121 sequences
+[M::worker_pipeline::3343.314*1.27] mapped 4263 sequences
+[M::worker_pipeline::3456.753*1.28] mapped 4388 sequences
+[M::worker_pipeline::3575.712*1.29] mapped 4344 sequences
+[M::worker_pipeline::3701.862*1.30] mapped 4675 sequences
+[M::worker_pipeline::3803.902*1.30] mapped 4255 sequences
+[M::worker_pipeline::3936.713*1.31] mapped 4554 sequences
+[M::worker_pipeline::4061.956*1.31] mapped 4698 sequences
+[M::worker_pipeline::4247.994*1.31] mapped 4654 sequences
+[M::worker_pipeline::4359.305*1.30] mapped 4332 sequences
+[M::worker_pipeline::4446.763*1.30] mapped 4314 sequences
+[M::worker_pipeline::4561.836*1.29] mapped 4331 sequences
+[M::worker_pipeline::4679.255*1.30] mapped 4460 sequences
+[M::worker_pipeline::4836.444*1.30] mapped 4295 sequences
+[M::worker_pipeline::5016.825*1.30] mapped 4237 sequences
+[M::worker_pipeline::5161.047*1.29] mapped 4396 sequences
+[M::worker_pipeline::5288.723*1.29] mapped 4369 sequences
+[M::worker_pipeline::5436.083*1.28] mapped 4251 sequences
+[M::worker_pipeline::5555.315*1.28] mapped 4242 sequences
+[M::worker_pipeline::5676.320*1.28] mapped 4590 sequences
+[M::worker_pipeline::5821.523*1.29] mapped 4018 sequences
+[M::worker_pipeline::6074.145*1.28] mapped 4090 sequences
+[M::worker_pipeline::6232.905*1.27] mapped 4583 sequences
+[M::worker_pipeline::6324.325*1.28] mapped 4679 sequences
+[M::worker_pipeline::6465.042*1.28] mapped 4814 sequences
+[M::worker_pipeline::6625.554*1.27] mapped 4705 sequences
+[M::worker_pipeline::6766.615*1.27] mapped 4612 sequences
+[M::worker_pipeline::6814.383*1.26] mapped 817 sequences
+[M::main] Version: 0.18-r281
+[M::main] CMD: /home/ji/envs/miniprot/bin/miniprot -t 8 -I --gff --outc=0.9 --outs=0.97 --outn=5 -P esc /home/ji/coding-rna/data/m36/genomes_A/eschscholzia_californica_A.mpi /home/ji/coding-rna/data/m36/proteins/queries_10sp.faa
+[M::main] Real time: 6814.405 sec; CPU: 8599.917 sec; Peak RSS: 3.189 GB
+Thu Oct 22 02:46:30 AM CEST 2026
+DONE

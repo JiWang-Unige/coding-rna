@@ -1,0 +1,11 @@
+arabidopsis_thaliana {"proteins_in_gff": 48265, "genes": 17756, "written": 17728, "dropped_other_contigs": 16900, "dropped_organelle": 118, "dropped_partial": 65}
+oryza_sativa {"proteins_in_gff": 13438, "genes": 4980, "written": 4980, "dropped_other_contigs": 6236, "dropped_organelle": 163, "dropped_partial": 13}
+populus_trichocarpa {"proteins_in_gff": 51840, "genes": 29451, "written": 29451, "dropped_other_contigs": 0, "dropped_organelle": 98, "dropped_partial": 68}
+brachypodium_distachyon {"proteins_in_gff": 37892, "genes": 25367, "written": 25367, "dropped_other_contigs": 0, "dropped_organelle": 81, "dropped_partial": 87}
+solanum_lycopersicum {"proteins_in_gff": 44391, "genes": 28440, "written": 28440, "dropped_other_contigs": 0, "dropped_organelle": 126, "dropped_partial": 46}
+phoenix_dactylifera {"proteins_in_gff": 54077, "genes": 25768, "written": 25768, "dropped_other_contigs": 0, "dropped_organelle": 0, "dropped_partial": 62}
+phaseolus_vulgaris {"proteins_in_gff": 43271, "genes": 29488, "written": 29488, "dropped_other_contigs": 0, "dropped_organelle": 114, "dropped_partial": 82}
+citrus_sinensis {"proteins_in_gff": 40427, "genes": 23363, "written": 23363, "dropped_other_contigs": 0, "dropped_organelle": 120, "dropped_partial": 73}
+daucus_carota {"proteins_in_gff": 49321, "genes": 32885, "written": 32885, "dropped_other_contigs": 0, "dropped_organelle": 120, "dropped_partial": 74}
+dioscorea_rotundata {"proteins_in_gff": 33298, "genes": 24247, "written": 24247, "dropped_other_contigs": 0, "dropped_organelle": 84, "dropped_partial": 231}
+total 241717 212s

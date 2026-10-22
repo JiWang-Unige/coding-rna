@@ -1,0 +1,11 @@
+>NW_028238198.1
+>NW_028238420.1
+>NW_028238472.1__val20M
+[M::mp_ntseq_read@0.830*0.44] read 174504423 bases in 3 contigs
+[M::mp_idx_build@0.830*0.44] 1363318 blocks
+[M::mp_idx_build@6.696*1.00] collected syncmers
+[M::mp_idx_build@7.638*0.93] 70341172 kmer-block pairs
+[M::mp_idx_print_stat] 2029979 distinct k-mers; mean occ of infrequent k-mers: 34.65; 0 frequent k-mers accounting for 0 occurrences
+[M::main] Version: 0.18-r281
+[M::main] CMD: /home/ji/envs/miniprot/bin/miniprot -t 8 -d /home/ji/coding-rna/data/m36/genomes_A/eschscholzia_californica_A.mpi.tmp /home/ji/coding-rna/data/m36/genomes_A/eschscholzia_californica_A.fa
+[M::main] Real time: 7.895 sec; CPU: 7.394 sec; Peak RSS: 1.846 GB

@@ -1,0 +1,28 @@
+{
+ "CM000135.2": {
+  "primaries": 2159,
+  "assessable_isoforms": 2159,
+  "gene_spans": 2392,
+  "annotated_genes": 2392,
+  "annotated_transcripts": 2303,
+  "phase_consistent": true,
+  "strata": {
+   ">=6": 441,
+   "1": 645,
+   "2-5": 1073
+  }
+ },
+ "NC_089044.1": {
+  "primaries": 1601,
+  "assessable_isoforms": 2203,
+  "gene_spans": 2273,
+  "annotated_genes": 2273,
+  "annotated_transcripts": 3083,
+  "phase_consistent": true,
+  "strata": {
+   ">=6": 453,
+   "1": 428,
+   "2-5": 720
+  }
+ }
+}

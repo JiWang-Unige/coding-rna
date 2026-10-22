@@ -1,0 +1,7 @@
+5.9G	/home/ji/coding-rna-reorg/data/panel/homology
+9.8G	/home/ji/coding-rna-reorg/data/panel/prepared
+2.7G	/home/ji/coding-rna-reorg/data/panel/raw
+4.0K	/home/ji/coding-rna-reorg/data/panel
+/dev/nvme0n1p2  7.0T  4.7T  1.9T  72% /
+# 2026-10-22 09:15 CEST, after gzip of best_hits_full.tsv (6.0 GB -> 1.13 GB)
+raw 2.7G  prepared 9.8G  homology 1.4G  total 14G  (df: / 7.0T used 4.7T avail 1.9T)
