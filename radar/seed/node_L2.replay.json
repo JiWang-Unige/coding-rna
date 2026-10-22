@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L2",
+ "kind": "experiment",
+ "status": "done",
+ "title": "TRAIN 匹配重放：评分竞争 vs 结构排除",
+ "order": 4,
+ "summary": "错误主要来自多外显子结构间的评分竞争，而非语法容量不足。描述性、TRAIN、单模型。",
+ "result": "7,762 条漏检：2,486 条能量为负、5,067 条能量为正但被竞争链压过、209 条语法不支持",
+ "report": "docs/review_20261016/04_M28_current_state.md",
+ "where": "experiments/M28/full_grammar/reports/full_grammar_matched_energy_diagnostic.md",
+ "date": "2026-10",
+ "feeds": [
+  "F2"
+ ]
+}

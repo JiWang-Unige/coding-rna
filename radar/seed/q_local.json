@@ -1,0 +1,35 @@
+{
+ "project": "crna",
+ "machine": "本地 / 写作 / CPU",
+ "updatedAt": "2026-10-22 17:30",
+ "items": [
+  {
+   "name": "M35 报告 21（等 DEV）",
+   "state": "todo"
+  },
+  {
+   "name": "核对 CADB 是否覆盖面板物种（网络 + CPU）",
+   "state": "todo",
+   "detail": "可省 Carbon-A 72–96 GPU 小时"
+  },
+  {
+   "name": "Methods / Introduction / R1 / R5 的 DEV 部分 / 补充 S1–S8",
+   "state": "todo",
+   "detail": "现在就能写，不依赖新实验"
+  },
+  {
+   "name": "按新主张重写旧稿（paper/manuscript）",
+   "state": "todo"
+  },
+  {
+   "name": "仓库目录改名",
+   "state": "blocked",
+   "detail": "等 dec_rename"
+  },
+  {
+   "name": "研究雷达看板初始数据（本次）",
+   "state": "done",
+   "detail": "radar/seed/"
+  }
+ ]
+}

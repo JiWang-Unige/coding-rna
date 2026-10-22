@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "数据资源与相关基准",
+ "order": 1,
+ "name": "CADB（Carbon-A 注释库）",
+ "year": "2026-10",
+ "status": "pending",
+ "what": "Carbon-A 对 GenBank 真核装配生成的注释资源（约 48,167 个装配）。",
+ "numbers": "覆盖面板物种与否 待核实",
+ "relation": "若覆盖面板物种，可直接下载其 GFF3 而不自跑 Carbon-A（省 72–96 GPU 时），需核对版本与装配一致。",
+ "source": "docs/paper_outline_20261021.md §4.1"
+}

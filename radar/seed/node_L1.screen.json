@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L1",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M3–M8 同预算架构筛选",
+ "order": 2,
+ "summary": "冻结基模特征 + FP-aware 损失 + 确定性约束后处理在同预算筛选中胜出；CRF/多类无增益。",
+ "result": "M5 配对差 +0.0836±0.037（5/5 seed）；M8 干净植物 spec 0.9663 vs 0.9045、gbF1 0.7392 vs 0.6960",
+ "why": "SegmentNT 在鸡/果蝇上标签泄漏，M7 的“clade 优势”已撤回，干净边际仅拟南芥 +0.06。",
+ "report": "docs/review_20261016/03_research_history_M1_M27.md",
+ "date": "2026-06-11 → 06-12",
+ "feeds": [
+  "SUPP"
+ ]
+}

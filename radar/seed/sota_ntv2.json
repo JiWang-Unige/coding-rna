@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "DNA 语言模型骨干",
+ "order": 2,
+ "name": "Nucleotide Transformer v2（500M multi-species）",
+ "year": "2023–2024",
+ "status": "compared",
+ "what": "纯自监督通用 DNA 语言模型，6-mer，12 kb 上下文；预训练明确排除植物与注释。",
+ "numbers": "M31：冻结 50.92 → +LoRA 63.61（CI 61.17–65.62）→ +后验过滤 65.29；新物种零样本 Dryas 49.92 / Esch 44.09",
+ "relation": "“骨干无关”的第一个骨干，来源干净；M34 默认骨干。",
+ "source": "docs/review_20261016/15_M31_C1_ntv2_pilot.md、18_M33_ntv2_followup.md"
+}

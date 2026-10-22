@@ -1,0 +1,14 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "experiment",
+ "status": "todo",
+ "title": "M34 其余 5 个 arm（T4、T6、k50U、k25U、k50F）",
+ "order": 8,
+ "summary": "已实现未排队；k50U − k50F ≤ 2 点则 C2 降为防御性机制。用户 2026-10-22 补充：阶段一之后先跑 M36，再跑这些 arm。",
+ "eta": "5 × 约 23 h ≈ 115 h",
+ "report": "docs/review_20261016/19_M34_scaleup_plan.md",
+ "feeds": [
+  "F3"
+ ]
+}

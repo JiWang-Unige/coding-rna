@@ -1,0 +1,31 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "running",
+ "title": "图 2 骨干无关与骨干贡献分解",
+ "order": 2,
+ "summary": "同头、同语法、同 DEV 下多骨干五行比较",
+ "panels": [
+  {
+   "label": "a 五行 DEV F1：NT-v2 冻结 / +LoRA / PC2 冻结 / +LoRA / GENERanno",
+   "status": "running",
+   "source": "M31 15、M32 17 已有；M35 DEV 推理中"
+  },
+  {
+   "label": "b 按段数分层（1 / 2–5 / ≥6）与 CDS 碱基 F1",
+   "status": "running",
+   "source": "15、17、18 已有；M35 待出"
+  },
+  {
+   "label": "c LoRA 层数 / 位置消融（可选）",
+   "status": "todo",
+   "source": "docs/review_20261016/15_M31_C1_ntv2_pilot.md §1.2 层探针"
+  },
+  {
+   "label": "d 机制：评分竞争 vs 结构排除",
+   "status": "done",
+   "source": "experiments/M28/full_grammar/reports/full_grammar_matched_energy_diagnostic.md（仅 TRAIN；放大模型待重复）"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "title": "放弃与 Carbon-A 比原生精度（2026-10-17）",
+ "why": "M29-A1/A2 显示在 Carbon-A 特征上学残差几乎无新信息；同基模、算力不对等。",
+ "options": [],
+ "asked": "2026-10-17",
+ "status": "decided",
+ "decided": "放弃在原生精度上与 Carbon-A 竞争，不从头构建 MoE；新主线为基模无关的完整基因语法层；C2（部分标签适配）为主、C3 为辅、C1 改为“多发射源一致提升”。关键实验 M30。",
+ "decidedAt": "2026-10-17",
+ "nodeId": "L3.positioning"
+}

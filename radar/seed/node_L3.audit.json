@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "parent": "L3",
+ "kind": "experiment",
+ "status": "done",
+ "title": "项目总梳理与 NC 差距分析",
+ "order": 1,
+ "summary": "致命级差距：无独立多物种评估（F1）、Carbon-A 全面领先（F2）、核心主张从未被检验（F3）、统计缺失（F4）。",
+ "result": "Baobab PI 组余额 147,263 credits（2026-10-16）；DEV F1 我方 70.107 对 Tiberius 71.805 / ANNEVO 75.703 / Helixer 62.851",
+ "report": "docs/review_20261016/00_synthesis_and_NC_gap_analysis.md",
+ "date": "2026-10-16"
+}

@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "task",
+ "status": "todo",
+ "title": "SH 层 5 个 GenBank 注释的资格测试（BUSCO / RNA-seq）",
+ "order": 3,
+ "summary": "未做；Themeda 45.6% 蛋白无命中、Acorus 非标准剪接 6.6% 提示注释质量问题；Tiberius Figshare 清单与 ANNEVO 现行权重清单仍未核对。",
+ "report": "docs/review_20261016/25_independent_panel_preparation.md"
+}

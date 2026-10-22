@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "task",
+ "status": "todo",
+ "title": "按新主张重写稿件",
+ "order": 11,
+ "summary": "paper/manuscript 内仍是 Codex 时期主张（粗通道、未知边缘化等），尚未据 07 与大纲重写。",
+ "where": "paper/manuscript/；可复用 M28_full_grammar_methods_working.md",
+ "report": "paper/README.md"
+}

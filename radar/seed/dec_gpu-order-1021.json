@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "title": "GPU 顺序（2026-10-21，10-22 补）",
+ "why": "多项实验争抢 ont 的单张 4090。",
+ "options": [],
+ "asked": "2026-10-21",
+ "status": "decided",
+ "decided": "M33 → M35（PlantCAD2+LoRA）→ 按胜出骨干放行 M34 阶段一（T2+T10）→ M36 自举适配 → 再跑 M34 的 k 曲线 arm。",
+ "decidedAt": "2026-10-21",
+ "nodeId": "L6"
+}

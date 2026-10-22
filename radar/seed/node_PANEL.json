@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "queued",
+ "title": "L8 独立时间留出面板与同口径基线",
+ "order": 8,
+ "summary": "12 物种数据已下载并冻结、审计完成；模型推理与全部基线尚未开始，等最终模型与 12-01 的 Baobab。",
+ "report": "docs/review_20261016/25_independent_panel_preparation.md",
+ "date": "2026-10-22"
+}

@@ -1,0 +1,14 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "experiment",
+ "status": "todo",
+ "title": "Carbon-A 面板基线（CADB 现成 GFF3 或自跑）",
+ "order": 5,
+ "summary": "若面板物种在 CADB 中可直接下载其 GFF3（需核对版本与装配一致），可省 72–96 GPU 时；覆盖情况待核实。",
+ "next": "CPU/网络核对 CADB 覆盖",
+ "report": "docs/paper_outline_20261021.md",
+ "feeds": [
+  "F4"
+ ]
+}

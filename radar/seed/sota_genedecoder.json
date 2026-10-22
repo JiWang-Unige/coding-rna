@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 7,
+ "name": "GeneDecoder（GPN/NT + 潜变量 CRF）",
+ "year": "arXiv 2505.03377",
+ "status": "positioning",
+ "what": "GPN/NT 表征 + 潜变量 CRF + Viterbi，位置级评估，片段输入。",
+ "numbers": "无可比数字",
+ "relation": "说明“GLM + CRF 解码”本身不新；我们的差异在部分观测似然与校准后验。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.1"
+}

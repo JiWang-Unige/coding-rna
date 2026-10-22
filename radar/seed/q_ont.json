@@ -1,0 +1,48 @@
+{
+ "project": "crna",
+ "machine": "ont（实验室 4090，经 baobab 跳板）",
+ "updatedAt": "2026-10-22 17:25",
+ "note": "一次只跑本项目一个 GPU 任务。实测 17:25：显存 13.4/24.6 GB、利用率 100%；另一用户 seorim 3 个训练各约 3.4 GB；TE 的 EarlGrey/BRAKER 占 CPU；负载约 41。M34 排队脚本 m34_queue.sh 尚未启动，GO_STAGE1 与 M35_DONE 均不存在。",
+ "items": [
+  {
+   "name": "M35 DEV 推理（runB step 1536，NC_003074.8 / NC_089041.1）",
+   "state": "running",
+   "detail": "DEV_STARTED 哨兵已写，进程已跑约 24 分钟；只评一次"
+  },
+  {
+   "name": "M35 报告 21 + M35_DONE",
+   "state": "queued",
+   "detail": "DEV 完成后"
+  },
+  {
+   "name": "GO_STAGE1 + 启动 m34_queue.sh",
+   "state": "blocked",
+   "detail": "等你定骨干（dec_m34-backbone）"
+  },
+  {
+   "name": "M34 smoke → T2 → T10（阶段一）",
+   "state": "queued",
+   "detail": "约 47 GPU 小时；Mac 侧用 wait_stage.sh 事件等待"
+  },
+  {
+   "name": "M36 自举适配主实验（7 次训练 + B 集推理）",
+   "state": "queued",
+   "detail": "约 28–30 GPU 小时；等 M34_STAGE1_DONE"
+  },
+  {
+   "name": "M34 其余 5 arm（T4、T6、k50U、k25U、k50F）",
+   "state": "todo",
+   "detail": "约 115 GPU 小时；M36 之后"
+  },
+  {
+   "name": "最终配置 +2 seeds",
+   "state": "todo",
+   "detail": "约 46 GPU 小时"
+  },
+  {
+   "name": "面板推理（我方）",
+   "state": "todo",
+   "detail": "8.6 Gb 约 12–15 GPU 小时；等最终模型"
+  }
+ ]
+}

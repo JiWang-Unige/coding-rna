@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "title": "主线目标与档次（2026-10-16）",
+ "why": "盘点后需要定方向：继续优化超过 Carbon-A，还是降档。",
+ "options": [],
+ "asked": "2026-10-16",
+ "status": "decided",
+ "decided": "以超过 Carbon-A 为目标，可换基模/改架构；超过则按 Nature Methods 准备，否则 NC 为底线；Codex 草稿主张作废重写；Baobab 单项作业 > 50 credits 须先询问；软件名暂用 cdsgram。次日被 dec_pivot-1017 部分取代。",
+ "decidedAt": "2026-10-16",
+ "nodeId": "L3.positioning"
+}

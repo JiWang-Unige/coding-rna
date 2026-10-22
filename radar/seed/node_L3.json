@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "done",
+ "title": "L3 盘点、重组与定位（2026-10-16 → 10-19）",
+ "order": 3,
+ "summary": "系统梳理代码/远端/历史/文献；仓库重组；定位从“新 SOTA 工具”改为“概率化框架”。",
+ "report": "docs/review_20261016/00_synthesis_and_NC_gap_analysis.md",
+ "date": "2026-10-16 → 10-19"
+}

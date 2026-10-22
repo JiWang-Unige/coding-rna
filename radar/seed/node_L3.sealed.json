@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "L3",
+ "kind": "policy",
+ "status": "paused",
+ "title": "封存与暴露规则：Setaria 盲测数据未读，DEV 为开发面板",
+ "order": 6,
+ "summary": "Setaria 数据未读取、不得自动放行；DEV 历史复用；GENERanno/Carbon-A、PlantCAD2 对拟南芥/水稻均有预训练暴露，独立面板必须逐模型标暴露资格。",
+ "report": "paper/supplement/pretrained_exposure.md",
+ "date": "2026-10-13"
+}

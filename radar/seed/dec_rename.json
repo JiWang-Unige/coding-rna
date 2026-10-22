@@ -1,0 +1,20 @@
+{
+ "project": "crna",
+ "title": "仓库目录与软件名：现在改名吗",
+ "why": "AGENTS.md 约定目录名暂为 coding-rna-reorg，M37 结束后改名；软件名暂用 cdsgram 占位。M37 smoke 已结束（正式版不立项）。ont 上运行中的 M35 和各 push.sh 引用 ~/coding-rna-reorg，改本地目录名不会影响 ont，但会影响本地脚本里的绝对路径（待核对）。",
+ "options": [
+  {
+   "label": "现在改名",
+   "consequence": "本地路径引用需批量核对；ont 与 Baobab 路径不动。"
+  },
+  {
+   "label": "M35/M34 跑完再改",
+   "consequence": "避免与 push.sh 和进行中的等待器路径冲突。"
+  }
+ ],
+ "recommended": "跑完 M34 阶段一再改。",
+ "asked": "2026-10-22",
+ "status": "open",
+ "nodeId": "INFRA.repo",
+ "howToAnswer": "回复“改名为 xxx”或“暂缓”"
+}

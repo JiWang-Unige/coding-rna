@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L1",
+ "kind": "experiment",
+ "status": "abandoned",
+ "title": "M24–M26 精确结构转向与 M25R no-go",
+ "order": 5,
+ "summary": "发现 gbF1 高不等于结构精确；结构头 + 约束解码按冻结门槛 no-go，同范围重评分显示三基线完整链 F1 均更高。",
+ "result": "M19 exact interval 0.0531–0.1498，基线 0.8117–0.8882；M25R 网格 0/5,625 可准入；run-graph R1 chain 0.5303 < 0.55；同范围基线 chain 0.6201/0.7143/0.7560",
+ "report": "docs/review_20261016/03_research_history_M1_M27.md",
+ "date": "2026-08-24 → 09-26",
+ "feeds": [
+  "SUPP"
+ ]
+}

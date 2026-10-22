@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 1,
+ "name": "Carbon-A（HuggingFaceBio）",
+ "year": "2026-10（技术报告，未同行评议）",
+ "status": "compared",
+ "what": "1.2B 双向编码器 + 转移 TCN + 序列约束 Viterbi + 基因置信度网络；GFF3 流程，Apache-2.0；主权重与 GENERanno preview 相同。",
+ "numbers": "DEV 过滤 77.41 / 未过滤 75.24；TRAIN 过滤 78.172；M30 B 集过滤 Dryas 73.98 / Esch 73.32；置信网络 ECE 0.067",
+ "relation": "最强参照，也是我们骨干的“上游原作者竞品”。我们不再拼原生精度，主张其做不到的能力：未知边缘化、校准后验、自举适配、骨干无关。",
+ "source": "docs/review_20261016/05_literature_positioning.md、06_carbon_a_gap_and_beating_plan.md、14_M30_results.md"
+}

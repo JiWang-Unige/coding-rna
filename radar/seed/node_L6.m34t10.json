@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "experiment",
+ "status": "queued",
+ "title": "M34 T10 十物种臂（关键判据）",
+ "order": 7,
+ "summary": "目标 DEV ≥ 70；T10 < 65 即止损：论文主体改为 C2+C3+骨干分解投 NC；T10 ≥ 70 且面板中位数 ≥ Tiberius 则按 NM 准备。",
+ "eta": "约 23 h（阶段一 T2+T10 合计约 47 h）",
+ "report": "docs/paper_outline_20261021.md",
+ "feeds": [
+  "F3",
+  "F2"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M34 数据与训练器（CPU 阶段）",
+ "order": 4,
+ "summary": "10 个训练物种（新增 8 个面板外 RefSeq 物种），7 个 arm 的确定性调度；训练器可切换 ntv2/pc2 后端；GPU 路径尚未验证。",
+ "result": "可用完整基因 16,609 → 203,737（12.3×）；测试 19 + 4 项全过；CPU DP 干跑 32 窗 InfeasibleObservation = 0",
+ "report": "docs/review_20261016/19_M34_scaleup_plan.md",
+ "where": "ont ~/coding-rna-reorg/experiments/M34-NTV2-SCALEUP；数据 ~/coding-rna/data/m34_train",
+ "date": "2026-10-21"
+}

@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "INFRA",
+ "kind": "policy",
+ "status": "done",
+ "title": "长任务监控规则",
+ "order": 3,
+ "summary": "后台事件等待器 + 50 分钟心跳，不前台 sleep 轮询；每个实验派新 subagent；新阶段开新会话。",
+ "where": "AGENTS.md「长任务监控」",
+ "date": "2026-10-18"
+}

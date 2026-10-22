@@ -1,0 +1,14 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "experiment",
+ "status": "blocked",
+ "title": "Tiberius / Helixer / ANNEVO（/ GeneCAD）面板基线",
+ "order": 6,
+ "summary": "合计约 100–150 GPU 时；ont 没有 ANNEVO 环境。",
+ "blockedBy": "Baobab credit 12-01 前不提交（你 2026-10-20 的决定）；单项 > 50 credits 先问",
+ "report": "docs/paper_outline_20261021.md",
+ "feeds": [
+  "F4"
+ ]
+}

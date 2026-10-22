@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "INFRA",
+ "kind": "task",
+ "status": "todo",
+ "title": "M28 checkpoint 备份",
+ "order": 2,
+ "summary": "2026-10-16 盘点时 M28 LoRA 等 checkpoint 只在 Baobab scratch、无备份，/home 98%；当前是否已备份待核对。",
+ "report": "docs/review_20261016/00_synthesis_and_NC_gap_analysis.md §2",
+ "date": "2026-10-16"
+}

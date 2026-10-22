@@ -1,0 +1,13 @@
+{
+ "project": "crna",
+ "parent": "L5",
+ "kind": "experiment",
+ "status": "done",
+ "title": "PlantCAD2 作为第二骨干的可行性",
+ "order": 1,
+ "summary": "Small 可用，Medium/Large 算力不可接受；需 8 kb 窗口；GeneCAD 必须作基线。",
+ "result": "Small 约 30–47 kbp/s；ont 环境 70 s 装好；反向互补严格等变",
+ "report": "docs/review_20261016/16_plantcad2_feasibility.md",
+ "where": "ont ~/envs/plantcad2",
+ "date": "2026-10-19"
+}

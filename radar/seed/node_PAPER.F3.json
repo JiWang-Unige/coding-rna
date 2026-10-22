@@ -1,0 +1,31 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "blocked",
+ "title": "图 3 多物种放大与注释效率",
+ "order": 3,
+ "summary": "论文实验核心：物种数曲线与部分标签（边缘化 vs 填背景）曲线",
+ "panels": [
+  {
+   "label": "a 训练物种数曲线 T2→T4→T6→T10",
+   "status": "blocked",
+   "source": "等 M35_DONE 与 GO_STAGE1"
+  },
+  {
+   "label": "b 标签比例曲线 k25 / k50 × U / F",
+   "status": "todo",
+   "source": "M34 arm 已实现未排队"
+  },
+  {
+   "label": "c 填背景 vs 边缘化（Carbon-A 骨干）",
+   "status": "done",
+   "source": "docs/review_20261016/14_M30_results.md：U−F +16.50 / +14.15"
+  },
+  {
+   "label": "d 迁移到未参与训练的新物种验证段",
+   "status": "todo",
+   "source": "M34 协议已含"
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "INFRA",
+ "kind": "policy",
+ "status": "paused",
+ "title": "算力预算：不用 Modal，Baobab 12-01 前不提交",
+ "order": 4,
+ "summary": "四个 Modal workspace 归 ab-initio-TE；Baobab 单项作业 > 50 credits 须先问；全部计算 ont 串行。",
+ "date": "2026-10-20"
+}

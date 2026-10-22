@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 3,
+ "name": "Tiberius（含多谱系版）",
+ "year": "2024 / 2026-04 bioRxiv",
+ "status": "compared",
+ "what": "CNN+LSTM + 可微 HMM 端到端；多谱系版含被子植物模型，gffcompare 精确匹配 F1，无 UTR、无 BUSCO。",
+ "numbers": "同尺 DEV 71.805、TRAIN 72.655",
+ "relation": "我们 M28 DEV 70.107 略低；面板上以 angiosperms 模型作基线，训练列表含水稻与 Setaria。",
+ "source": "paper/supplement/pretrained_exposure.md；docs/review_20261016/05_literature_positioning.md"
+}

@@ -1,0 +1,20 @@
+{
+ "project": "crna",
+ "title": "M37 副发现“势级集成 +2.4 F1”要不要另立协议",
+ "why": "M37 按预注册判据 NO-GO（headroom 10.3%），但势平均带来 +1.53 / +2.42 F1（CI 下界 > 0），碱基级 F1 不变、背景负担下降；协议没有预设“前提被证伪但增益显著”这一格。24 号文档 §5 明说是否立项由你决定。",
+ "options": [
+  {
+   "label": "另立预注册协议",
+   "consequence": "换第二个物种对、用高质量装配 B、加非平凡合并对照，并说明不是简单 test-time augmentation；占用 ont GPU/CPU，排在已满的队列后。"
+  },
+  {
+   "label": "不立项，只作泛基因组应用的补充技巧",
+   "consequence": "与 paper_outline §6.4 当前写法一致；不新增算力。"
+  }
+ ],
+ "recommended": "不立项；M34 与 M36 出结果后再评估。（我的建议，依据：队列已排到 200+ GPU 小时，且证据仅单物种单染色体、24 个 bootstrap 块。）",
+ "asked": "2026-10-22",
+ "status": "open",
+ "nodeId": "L7.ensemble",
+ "howToAnswer": "回复“集成立项”或“集成不做”"
+}

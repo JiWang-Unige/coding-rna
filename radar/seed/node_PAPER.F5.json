@@ -1,0 +1,33 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "todo",
+ "title": "图 5 校准后验与选择性注释",
+ "order": 5,
+ "summary": "可靠性、ECE、阈值跨物种迁移、FDR 控制",
+ "panels": [
+  {
+   "label": "a DEV 可靠性与 ECE（0.031 对 Carbon-A 0.067）",
+   "status": "done",
+   "source": "docs/review_20261016/18_M33_ntv2_followup.md"
+  },
+  {
+   "label": "b 阈值跨物种迁移（事后最优仅高 ≤0.07）",
+   "status": "done",
+   "source": "docs/review_20261016/18_M33_ntv2_followup.md"
+  },
+  {
+   "label": "c 面板各物种可靠性与 ECE 漂移",
+   "status": "todo"
+  },
+  {
+   "label": "d 精度-召回 / FDR 控制曲线",
+   "status": "todo"
+  },
+  {
+   "label": "e 生物学验证（BUSCO、蛋白同源、RNA-seq 连接）",
+   "status": "todo"
+  }
+ ]
+}

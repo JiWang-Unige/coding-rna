@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L3",
+ "kind": "experiment",
+ "status": "done",
+ "title": "独立植物面板设计与暴露矩阵",
+ "order": 4,
+ "summary": "主面板 12 物种，含严格时间留出；Amborella 只能作版本留出；Setaria 不再作盲测卖点。",
+ "result": "主面板 8.6 Gb；我方推理约 141 GPU-h（17 kbp/s 路径）；Carbon-A 约 72–96 GPU-h；核心 10 物种 5.1 Gb",
+ "report": "docs/review_20261016/10_independent_plant_panel.md",
+ "date": "2026-10-16",
+ "feeds": [
+  "F4"
+ ]
+}

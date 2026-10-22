@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L1",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M12–M23 跨物种失败与 GENERanno 路线封路",
+ "order": 4,
+ "summary": "固定调用器无法跨物种；阈值/解码校准救不了；GENERanno 1.2B-CDS 远优于 0.5B base；CRF（M21）、Tversky（M22）无增益。",
+ "result": "M12A 水稻 FPR 0.0311 / gcount 1.755；M14 gallus FPR 0.1156；GENERanno 1.2B gbF1 0.8494 对 0.5B 0.6561（M18-c/d）",
+ "report": "docs/review_20261016/03_research_history_M1_M27.md",
+ "date": "2026-06-17 → 07-01",
+ "feeds": [
+  "SUPP"
+ ]
+}

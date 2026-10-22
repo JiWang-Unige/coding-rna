@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "DNA 语言模型骨干",
+ "order": 4,
+ "name": "SegmentNT / NTv3",
+ "year": "Nature Methods 2025 / bioRxiv 2025-12",
+ "status": "positioning",
+ "what": "NT + 1D U-Net 的多元件分割；不输出完整 CDS 基因模型。",
+ "numbers": "SegmentNT 剪接位点 MCC 0.75/0.76（作者自报）",
+ "relation": "M3–M8 用过冻结 SegmentNT 特征，发现鸡/果蝇标签泄漏；仅作历史与定位。",
+ "source": "docs/review_20261016/03_research_history_M1_M27.md；05_literature_positioning.md"
+}

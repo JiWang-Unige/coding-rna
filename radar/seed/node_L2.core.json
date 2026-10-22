@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L2",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M28 最终模型 fresh-joint（及 rank-4 LoRA）",
+ "order": 1,
+ "summary": "DEV 是拟南芥+水稻各 1 条染色体，历史复用，不是独立测试。",
+ "result": "DEV 70.107（fresh-joint，单 seed、无 CI）；TRAIN rank-4 LoRA 72.958（未上 DEV）",
+ "report": "docs/review_20261016/04_M28_current_state.md",
+ "where": "Baobab ~/coding-rna/outputs/M28-FULL-GRAMMAR-FRESH-JOINT24-*、JOINT-LORA-*",
+ "date": "2026-10-13",
+ "feeds": [
+  "F2"
+ ]
+}

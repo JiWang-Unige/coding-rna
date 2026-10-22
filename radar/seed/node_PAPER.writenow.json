@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "task",
+ "status": "todo",
+ "title": "现在就能写的部分",
+ "order": 12,
+ "summary": "Methods 全部、R1 框架、R2 已有行、R5 的 DEV 部分、R7 机制、补充材料 S1–S8、Introduction。",
+ "report": "docs/paper_outline_20261021.md §5"
+}

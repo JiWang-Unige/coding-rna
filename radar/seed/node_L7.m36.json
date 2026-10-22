@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L7",
+ "kind": "experiment",
+ "status": "queued",
+ "title": "M36 自举 / 证据种子适配主实验",
+ "order": 2,
+ "summary": "S1 自训练 / S2 跨物种蛋白证据 / S3 并集 / F1 填背景对照 × 2 物种，各 512 步 LoRA，评估集 B 只评一次。GO 判据：闭合比例 ≥ 30% 且配对 CI 下界 > 0；GO-强：S2/S3 两物种 ≥ Carbon-A 过滤 − 2.0；任一物种闭合 < 30% 为 NO-GO。",
+ "next": "等 M34 阶段一的 M34_STAGE1_DONE（基模为胜出的 T10 模型）",
+ "eta": "约 28–30 GPU 时，串行约 2 天",
+ "report": "docs/review_20261016/22_M36_bootstrap_adaptation_protocol.md",
+ "feeds": [
+  "F6"
+ ]
+}

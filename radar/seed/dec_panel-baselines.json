@@ -1,0 +1,24 @@
+{
+ "project": "crna",
+ "title": "面板基线放哪里跑、做多大范围",
+ "why": "面板基线合计约 100–150 GPU 时（Carbon-A 单独 72–96 h）；ont 没有 ANNEVO 环境且已被 M34/M36 占满；Baobab 要到 12-01 才重置，且你规定单项 > 50 credits 须先问。本条是我根据文档拟的取舍，不是文档里已有的待决事项。",
+ "options": [
+  {
+   "label": "核心 10 物种（5.1 Gb）；Carbon-A 先查 CADB 现成 GFF3；其余工具等 12-01 在 Baobab 跑",
+   "consequence": "省 GPU，周期取决于 12-01；两个大基因组（Chenopodium、Dipteris）放补充。"
+  },
+  {
+   "label": "全部 12 物种",
+   "consequence": "覆盖完整，但基线算力约多 40%。"
+  },
+  {
+   "label": "在 ont 上部署全部环境自跑",
+   "consequence": "与 M34/M36 争 GPU，整体周期显著拉长。"
+  }
+ ],
+ "recommended": "第一项；先用 CPU/网络核对 CADB 是否覆盖面板物种（待核实）。",
+ "asked": "2026-10-22",
+ "status": "open",
+ "nodeId": "PANEL.carbona",
+ "howToAnswer": "回复“基线 核心10”等"
+}

@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "done",
+ "title": "L4 M29–M30：在冻结 Carbon-A 特征上学适配（负面，2026-10-16 → 10-19）",
+ "order": 4,
+ "summary": "残差头、温度训练、部分标签适配三条都没有在饱和的 Carbon-A 特征上带来增益；副产品：温度缩放后的后验可校准、边缘化对填背景的机制证据。",
+ "report": "docs/review_20261016/14_M30_results.md",
+ "date": "2026-10-19"
+}

@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "经典 / 证据驱动工具",
+ "order": 3,
+ "name": "GeneMark-ES / ETP",
+ "year": "—",
+ "status": "positioning",
+ "what": "自训练 / 证据驱动基因预测。",
+ "numbers": "Helixer 论文：植物 exon F1 0.181（作者自报）",
+ "relation": "仅文献定位。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.2"
+}

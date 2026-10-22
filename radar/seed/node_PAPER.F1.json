@@ -1,0 +1,25 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "todo",
+ "title": "图 1 框架与方法示意",
+ "order": 1,
+ "summary": "15 角色、完整 CDS 语法、三种监督通道、整 contig 精确解码",
+ "panels": [
+  {
+   "label": "a 15 角色与完整 CDS 语法示意",
+   "status": "done",
+   "source": "paper/figures/M28_full_grammar_model.svg（底图，需据新方法更新，待核对）"
+  },
+  {
+   "label": "b 三种监督通道（精细硬约束 / 粗区域观测 / 未知边缘化）",
+   "status": "todo"
+  },
+  {
+   "label": "c 与 Tiberius / Carbon-A / GeneCAD 的训练目标与解码对比",
+   "status": "todo",
+   "source": "docs/review_20261016/05_literature_positioning.md §1"
+  }
+ ]
+}

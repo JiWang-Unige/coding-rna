@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "经典 / 证据驱动工具",
+ "order": 1,
+ "name": "BRAKER3",
+ "year": "2024（Genome Research 34:769）",
+ "status": "positioning",
+ "what": "需 RNA-seq 与蛋白证据的证据驱动流程；GeneMark-ETP + AUGUSTUS。",
+ "numbers": "作者自报：11 个物种转录本 F1 比 BRAKER1/2 高约 20 个百分点",
+ "relation": "07 号文档把 BRAKER3 ab initio 列为面板的可选基线；本项目尚未运行。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.1；07_revised_claims_and_plan.md §3"
+}

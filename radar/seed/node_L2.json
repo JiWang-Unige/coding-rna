@@ -1,0 +1,13 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "done",
+ "title": "L2 M28 full-grammar：冻结 GENERanno + 完整 CDS 语法（2026-10-03 → 10-13）",
+ "order": 2,
+ "summary": "冻结编码器 + 15 角色 BiGRU 头（约 366k 参数）+ 完整 CDS 语法下的部分观测配分函数训练 + 整 contig 精确 skyline 解码。",
+ "result": "DEV 最终 70.107，仍低于 Tiberius、ANNEVO 与同权重的 Carbon-A。",
+ "report": "docs/review_20261016/04_M28_current_state.md",
+ "where": "pipeline/m28/（冻结参考实现）；Baobab outputs/M28-FULL-GRAMMAR-*",
+ "date": "2026-10-13"
+}

@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "task",
+ "status": "done",
+ "title": "论文大纲、主张证据表与待填实验清单（v2026-10-21）",
+ "order": 10,
+ "summary": "含 C1–C5 证据状态、P1–P10 待填实验、止损规则、§6 自举适配升主线。",
+ "where": "docs/paper_outline_20261021.md",
+ "date": "2026-10-21"
+}

@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 4,
+ "name": "Helixer",
+ "year": "2025-11（Nature Methods 23:732）",
+ "status": "compared",
+ "what": "CNN+BiLSTM 逐碱基分类 + HelixerPost HMM，936 个训练基因组、45 个测试物种；GPL-3.0。",
+ "numbers": "同尺 DEV 62.851、TRAIN 63.592；NT-v2+LoRA 63.61 与其持平，后验过滤 65.29",
+ "relation": "最弱的三基线，也是 NT-v2 路线当前的追平对象；训练集含拟南芥/水稻。",
+ "source": "paper/supplement/pretrained_exposure.md；docs/review_20261016/15_M31_C1_ntv2_pilot.md"
+}

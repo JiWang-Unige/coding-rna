@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L4",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M29-A1 Carbon-A 固定 offset + 零初始化残差头",
+ "order": 1,
+ "summary": "决策门不通过：offset 量级使 CRF 后验饱和，正确窗口梯度为零。",
+ "result": "未过滤 TRAIN 73.48 / DEV 71.84，低于闸门 75.76 / 74.85；训练 4,608 步 × batch 8、14.7 h",
+ "report": "docs/review_20261016/11_M29_A1_residual.md",
+ "where": "ont outputs/M29-A1-RESIDUAL",
+ "date": "2026-10-17",
+ "feeds": [
+  "SUPP"
+ ]
+}

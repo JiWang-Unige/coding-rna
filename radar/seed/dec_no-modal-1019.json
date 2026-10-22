@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "title": "不用 Modal，Baobab 12-01 前不提交（2026-10-19/20）",
+ "why": "四个 Modal workspace 已归 ab-initio-TE；Baobab 组 credits 将尽。",
+ "options": [],
+ "asked": "2026-10-19",
+ "status": "decided",
+ "decided": "coding-rna 暂不用 Modal；12-01 计费年重置前不提交 Baobab 计算；全部在 ont 上串行，一次一个本项目 GPU 任务。",
+ "decidedAt": "2026-10-20",
+ "nodeId": "INFRA.budget"
+}

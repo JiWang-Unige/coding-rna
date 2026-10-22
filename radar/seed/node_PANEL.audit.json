@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "experiment",
+ "status": "done",
+ "title": "暴露审计与蛋白同源审计",
+ "order": 2,
+ "summary": "与 M34 的 10 个训练物种无同属无同 accession；Dryas 与 Eschscholzia 是 M30 适配物种，面板评测必须用从未读过其标签的 checkpoint。",
+ "result": "蛋白一致度 ≥ 70% 的占比 12%（Dipteris）– 73%（Zizania），12 物种中位 34%",
+ "report": "docs/review_20261016/25_independent_panel_preparation.md",
+ "where": "experiments/PANEL-PREP/results/exposure_audit.json、homology_table.tsv",
+ "date": "2026-10-22",
+ "feeds": [
+  "F4"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 6,
+ "name": "PlantGeneAnn",
+ "year": "2026-06 bioRxiv",
+ "status": "positioning",
+ "what": "PlantBiMoE（Mamba-MoE，116M）+ U-Net 头 + semi-Markov 解码；MIT。",
+ "numbers": "作者自报摘要与全文版本不一致（20 物种 / 13 留出物种），待核对",
+ "relation": "已占据 MoE 与 GLM+语法解码点，不作主贡献；只做文献定位。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.1"
+}

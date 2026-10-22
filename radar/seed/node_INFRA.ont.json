@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "INFRA",
+ "kind": "policy",
+ "status": "running",
+ "title": "ont 共享 4090 约束",
+ "order": 5,
+ "summary": "本项目一次一个 GPU 任务；CPU 绑核 24–31、nice；解释器异常曾出现 ≥7/40 次启动、segfault 集中在 core 0。2026-10-22 17:25 实测：显存 13.4/24.6 GB，另一用户 3 个训练各约 3.4 GB，TE 的 EarlGrey/BRAKER 在跑 CPU，负载约 41。",
+ "report": "docs/review_20261016/07_revised_claims_and_plan.md §5–6",
+ "date": "2026-10-22"
+}

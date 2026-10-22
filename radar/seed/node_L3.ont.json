@@ -1,0 +1,13 @@
+{
+ "project": "crna",
+ "parent": "L3",
+ "kind": "experiment",
+ "status": "done",
+ "title": "ont 部署与复现烟测",
+ "order": 2,
+ "summary": "在 ont（4090）复现 Baobab 推理。",
+ "result": "拟南芥 DEV 5,222/5,234 链逐字相同；F1 72.889 vs 72.858；17.7 kbp/s",
+ "report": "docs/review_20261016/08_ont_deployment_smoke.md",
+ "where": "ont ~/coding-rna/outputs/ONT-SMOKE",
+ "date": "2026-10-16"
+}

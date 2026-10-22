@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 8,
+ "name": "OrionGeno（BGI）",
+ "year": "2026 bioRxiv（仅二手确认）",
+ "status": "positioning",
+ "what": "多谱系感知框架，同时预测基因、UTR 与重复序列；AGPL-3.0。",
+ "numbers": "作者称蛋白级 F1 提升 37.2%（二手，未核实）",
+ "relation": "仅文献定位；证据弱，未纳入比较。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.1"
+}

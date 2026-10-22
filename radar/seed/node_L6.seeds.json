@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "experiment",
+ "status": "todo",
+ "title": "最终配置再加 2 个 seed",
+ "order": 9,
+ "summary": "所有主图 CI 与配对检验需要 ≥3 seeds。",
+ "eta": "2 × 约 23 h",
+ "report": "docs/paper_outline_20261021.md",
+ "feeds": [
+  "F2",
+  "F3",
+  "F4"
+ ]
+}

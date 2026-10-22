@@ -1,0 +1,17 @@
+{
+ "project": "crna",
+ "parent": "L4",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M29-A2 训练时能量乘温度 τ",
+ "order": 2,
+ "summary": "τ≤0.05 解除后验饱和，但内部验证在 step 256 即低于闸门，按预设规则早停，DEV 未使用。",
+ "result": "温度缩放后闸门模型基因后验 AUROC 0.834 / ECE 0.086（τ=1 时 AUROC 0.587）；Carbon-A 置信网络 0.833 / 0.067",
+ "report": "docs/review_20261016/12_M29_A2_temperature.md",
+ "where": "ont outputs/M29-A2-TEMPERATURE",
+ "date": "2026-10-17",
+ "feeds": [
+  "F5",
+  "SUPP"
+ ]
+}

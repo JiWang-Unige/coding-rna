@@ -1,0 +1,374 @@
+<title>coding-rna 研究雷达</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* Layout: a sticky top strip answers "where are we now"; below it four stacked panels (决定 / 现在 / 地图 / 日志) that also work as a tabbed view on phones. Tree = indented outline with connector rails and status chips; no canvas. */
+:root{
+  --bg:#f4f7f6; --panel:#ffffff; --fg:#17211f; --muted:#5d6b68; --line:#d9e2df; --accent:#0e7a6b; --accent-ink:#ffffff;
+  --done:#2f8f4e; --running:#1f6fd1; --queued:#8a94a0; --blocked:#d1711f; --todo:#9aa6a3; --abandoned:#b56b6b; --decision:#7a4fd1; --paused:#c0a000;
+  --font-body:"IBM Plex Sans","Noto Sans SC",system-ui,sans-serif; --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#0f1716; --panel:#172120; --fg:#e4ecea; --muted:#9fb0ac; --line:#2a3836; --accent:#36b39f; --accent-ink:#06211c; --done:#4fbf72; --running:#5aa1ff; --queued:#8e9aa6; --blocked:#f09a4a; --todo:#6f7c79; --abandoned:#d08383; --decision:#b08cff; --paused:#e0c040; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#0f1716; --panel:#172120; --fg:#e4ecea; --muted:#9fb0ac; --line:#2a3836; --accent:#36b39f; --accent-ink:#06211c; --done:#4fbf72; --running:#5aa1ff; --queued:#8e9aa6; --blocked:#f09a4a; --todo:#6f7c79; --abandoned:#d08383; --decision:#b08cff; --paused:#e0c040; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.5;margin:0;padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+h1,h2,h3{text-wrap:balance;margin:0}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+.top h1{font-size:20px;font-weight:600}
+.top .one{color:var(--muted);flex:1 1 320px;min-width:0}
+.top .stamp{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--queued);margin-right:6px;vertical-align:middle}
+.live.on{background:var(--done);box-shadow:0 0 0 3px color-mix(in srgb,var(--done) 25%,transparent)}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;padding-block:12px 4px}
+nav.tabs button{font:inherit;font-size:13px;padding:6px 12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:999px;cursor:pointer}
+nav.tabs button[aria-current="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+nav.tabs .n{font-family:var(--font-mono);font-size:11px;margin-left:6px;opacity:.8}
+main{display:grid;gap:18px;padding-top:10px}
+section.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+section.panel>h2{font-size:15px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.empty{color:var(--muted);font-size:14px}
+/* now strip */
+.now{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.now .card{border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.now .card h3{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:6px}
+.now .card .big{font-size:15px;font-weight:600}
+.now .card ul{margin:6px 0 0;padding-left:18px}
+.now .card li{margin:2px 0}
+.chip{display:inline-block;font-size:11px;font-family:var(--font-mono);padding:1px 7px;border-radius:999px;border:1px solid currentColor;line-height:1.5;vertical-align:middle;white-space:nowrap}
+.s-done{color:var(--done)} .s-running{color:var(--running)} .s-queued{color:var(--queued)} .s-blocked{color:var(--blocked)} .s-todo{color:var(--todo)} .s-abandoned{color:var(--abandoned)} .s-decision{color:var(--decision)} .s-paused{color:var(--paused)}
+.s-running .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:4px;animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.s-running .dot{animation:none}}
+/* decisions */
+.dec{border:1px solid var(--line);border-left:4px solid var(--decision);border-radius:8px;padding:12px 14px;margin-bottom:10px;min-width:0}
+.dec.closed{border-left-color:var(--done);opacity:.8}
+.dec h3{font-size:15px;font-weight:600}
+.dec .why{margin:6px 0;color:var(--fg)}
+.dec .why b{color:var(--muted);font-weight:500}
+.dec ol{margin:6px 0 0;padding-left:20px}
+.dec li{margin:3px 0}
+.dec .rec{font-size:13px;color:var(--muted);margin-top:6px}
+.dec .meta{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:6px}
+/* figures */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fig{border:1px solid var(--line);border-radius:8px;padding:10px;min-width:0}
+.fig .t{font-size:13px;font-weight:600}
+.fig .bar{height:6px;background:var(--line);border-radius:3px;margin:6px 0 4px;overflow:hidden}
+.fig .bar i{display:block;height:100%;background:var(--accent)}
+.fig .m{font-size:12px;color:var(--muted)}
+/* tree */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+.filters button{font:inherit;font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.filters input{font:inherit;font-size:13px;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);min-width:160px}
+ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
+ul.tree ul{margin-left:14px;padding-left:12px;border-left:1px solid var(--line)}
+.node{display:flex;gap:8px;align-items:flex-start;padding:4px 4px;border-radius:6px;min-width:0}
+.node:hover{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.node .tw{flex:0 0 16px;font-family:var(--font-mono);color:var(--muted);cursor:pointer;user-select:none;text-align:center}
+.node .body{flex:1 1 auto;min-width:0}
+.node .title{font-weight:500;cursor:pointer}
+.node .title.s-abandoned{text-decoration:line-through}
+.node .sum{font-size:13px;color:var(--muted);margin-top:1px}
+.node .detail{display:none;font-size:13px;margin-top:6px;padding:8px 10px;background:var(--bg);border-radius:6px;border:1px solid var(--line)}
+.node.open>.body>.detail{display:block}
+.node .detail dt{color:var(--muted);font-size:12px;margin-top:4px}
+.node .detail dd{margin:0}
+.node .detail code{font-family:var(--font-mono);font-size:12px;word-break:break-all}
+.counts{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:8px}
+/* log */
+.day{margin-bottom:10px}
+.day h3{font-family:var(--font-mono);font-size:12px;color:var(--muted);font-weight:500}
+.day ul{margin:4px 0 0;padding-left:18px}
+.day li{margin:2px 0;font-size:14px}
+.day li .t{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-right:6px}
+.ask{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;align-items:center}
+.ask input{flex:1 1 240px;min-width:0;font:inherit;font-size:13px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.ask button,.askbtn{font:inherit;font-size:12px;padding:4px 10px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.ans{white-space:pre-wrap;font-size:13px;margin-top:6px;padding:8px 10px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent);border-radius:0 6px 6px 0}
+.ans:empty{display:none}
+body.no-sample .askbtn,body.no-sample .ask{display:none}
+.thread{margin-top:8px}
+.msg{font-size:13px;padding:7px 10px;border-radius:8px;margin:4px 0;white-space:pre-wrap;max-width:100%}
+.msg.q{background:color-mix(in srgb,var(--fg) 6%,transparent);border:1px solid var(--line)}
+.msg.a{border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent);border-radius:0 8px 8px 0}
+.chatrow{display:flex;gap:6px;margin-top:6px}
+.chatrow input{flex:1 1 200px;min-width:0;font:inherit;font-size:13px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.decide{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.decide button{font:inherit;font-size:13px;padding:5px 12px;border-radius:6px;border:1px solid var(--decision);background:transparent;color:var(--decision);cursor:pointer}
+.thread .decide button{border-color:var(--line);color:var(--muted);font-size:12px;padding:3px 9px}
+.thread .decide button:hover{color:var(--accent);border-color:var(--accent);background:transparent}
+.decide button:hover{background:color-mix(in srgb,var(--decision) 10%,transparent)}
+.decide .note{font-size:12px;color:var(--muted);align-self:center}
+.sotacat{margin-bottom:14px}
+.sotacat h3{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.sota{border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:6px;min-width:0}
+.sota .n{font-weight:600}
+.sota .m{font-size:13px;color:var(--muted);margin-top:2px}
+.sota .r{font-size:13px;margin-top:4px}
+.sota .src{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:4px}
+.s-compared{color:var(--done)} .s-pending{color:var(--blocked)} .s-positioning{color:var(--queued)}
+.thesis{font-size:15px;line-height:1.55;margin:0 0 12px;padding:10px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.claims{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-bottom:14px}
+.claim{border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.claim h3{font-size:14px;font-weight:600}
+.claim .st{font-size:13px;color:var(--muted);margin:4px 0}
+.claim .miss{font-size:12px;margin-top:6px}
+.claim .miss b{color:var(--blocked);font-weight:500}
+.claim .fig{display:inline-block;font-family:var(--font-mono);font-size:11px;margin-right:6px;color:var(--muted)}
+.flowwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+#flow{display:block;min-width:720px;width:100%;height:auto;font-family:var(--font-body)}
+#flow text{fill:var(--fg);font-size:11px}
+#flow .lbl{fill:var(--muted);font-size:11px;letter-spacing:.04em}
+#flow .link{fill:none;stroke-width:1.4;opacity:.45}
+#flow .link.sup{stroke-dasharray:3 3;opacity:.3}
+#flow .box{fill:var(--panel);stroke:var(--line)}
+#flow .bar{fill:var(--line)} #flow .barfill{fill:var(--accent)}
+#flow .dot{stroke:none}
+.hint{font-size:12px;color:var(--muted);margin:8px 0 0}
+.dec .askbtn{margin-top:6px}
+footer{color:var(--muted);font-size:12px;padding-top:14px}
+main>section.panel{display:none} main>section.panel.show{display:block}
+nav.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:4;background:var(--bg);border-bottom:1px solid var(--line);padding-bottom:8px}
+button:focus-visible,input:focus-visible,.tw:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<header class="top">
+  <h1>coding-rna 研究雷达</h1>
+  <div class="one" id="oneliner">基因组语言模型 + CDS 语法 CRF 的植物 ab initio 基因注释：项目现状总览。</div>
+  <div class="stamp"><span class="live" id="live"></span><span id="stamp">连接数据库…</span></div>
+</header>
+<nav class="tabs" aria-label="板块">
+  <button data-tab="overview" aria-current="true">全景</button>
+  <button data-tab="decisions">等你决定<span class="n" id="n-dec"></span></button>
+  <button data-tab="now">现在</button>
+  <button data-tab="paper">论文</button>
+  <button data-tab="map">研究地图<span class="n" id="n-map"></span></button>
+  <button data-tab="sota">文献·SOTA</button>
+  <button data-tab="log">日志</button>
+</nav>
+<main>
+  <section class="panel show" id="p-overview"><h2>全景：这些工作对论文意味着什么</h2>
+    <p id="thesis" class="thesis"></p>
+    <p id="rule" class="hint" style="margin:0 0 10px"></p>
+    <div id="claims" class="claims"><div class="empty">等待论点数据…</div></div>
+    <div class="flowwrap"><svg id="flow" role="img" aria-label="实验到图表到论点的流向图"></svg></div>
+    <p class="hint">左列：每个实验（按层分组，颜色 = 状态）；中列：论文图表（条 = 完成度）；右列：四条核心论点。一条线表示“这个实验给这张图供证据”。灰色虚线来自已放弃或前史的工作，只进补充材料。</p>
+  </section>
+  <section class="panel" id="p-decisions"><h2>等你决定</h2><div id="decisions" class="empty">还没有待决事项。Claude 每次需要你拍板时会把“为什么问、选项、后果、建议”写在这里。</div></section>
+  <section class="panel" id="p-now"><h2>现在</h2><div id="now" class="now"><div class="empty">等待队列数据…</div></div></section>
+  <section class="panel" id="p-paper"><h2>论文进度（图 × 证据）</h2><div id="figs" class="figs"><div class="empty">等待图表状态…</div></div></section>
+  <section class="panel" id="p-map"><h2>研究地图</h2>
+    <div id="gthread"></div>
+    <div class="counts" id="counts"></div>
+    <div class="filters" id="filters">
+      <button data-f="all" aria-pressed="true">全部</button>
+      <button data-f="running">在做</button><button data-f="queued">排队</button><button data-f="blocked">卡住</button><button data-f="todo">待做</button><button data-f="done">已做</button><button data-f="abandoned">放弃</button>
+      <input id="q" type="search" placeholder="搜索标题或结论" aria-label="搜索">
+      <button id="expand">全部展开</button><button id="collapse">全部收起</button>
+    </div>
+    <ul class="tree" id="tree"><li class="empty">地图从数据库加载。做过的、正在做的、还差的，每个节点点开看结论、数字和文件位置。</li></ul>
+  </section>
+  <section class="panel" id="p-sota"><h2>已有研究与 SOTA：我们站在哪</h2>
+    <p class="hint" style="margin:0 0 10px">按类别列出相关工具、模型与基准：它做什么、关键数字、我们与它的关系、是否已同台比较。状态：compared 已比较 / pending 待比较 / positioning 只在讨论中定位。数字来源在每条末尾；标“需核对”的尚未从原文核实。</p>
+    <div id="sota"><div class="empty">等待文献数据…</div></div>
+    </section>
+  <section class="panel" id="p-log"><h2>变更日志</h2><div id="log" class="empty">尚无记录。</div></section>
+</main>
+<footer>状态含义：<span class="chip s-done">done 已完成</span> <span class="chip s-running"><i class="dot"></i>running 在跑</span> <span class="chip s-queued">queued 排队</span> <span class="chip s-blocked">blocked 卡住</span> <span class="chip s-todo">todo 待做</span> <span class="chip s-paused">paused 暂停</span> <span class="chip s-abandoned">abandoned 放弃</span>。数据由 Claude 在推进时写入，页面实时刷新。“问 Claude”在页面内独立作答，不进入主对话。</footer>
+
+<script>
+(function(){
+  const PROJECT='crna';
+  const $=s=>document.querySelector(s);
+  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const LABEL={done:'done',running:'running',queued:'queued',blocked:'blocked',todo:'todo',abandoned:'abandoned',decision:'decision',paused:'paused'};
+  const chip=st=>`<span class="chip s-${esc(st)}">${st==='running'?'<i class="dot"></i>':''}${esc(LABEL[st]||st)}</span>`;
+  let nodes=[],decisions=[],logs=[],queues=[],claims=[],sota=[],meta=null,filter='all',query='';
+  const openSet=new Set(); let openInit=false; let sample=null; const answers={}; let dbRef=null; let canWrite=null; let commentsNs=null; let canSend='off';
+  try{ const t=localStorage.getItem('radar-tab-crna'); if(t) showTab(t);}catch(e){}
+
+  // tabs (phone)
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+  function showTab(t){ document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===t)); document.querySelectorAll('main>section.panel').forEach(s=>s.classList.toggle('show',s.id==='p-'+t)); try{localStorage.setItem('radar-tab-crna',t)}catch(e){} }
+  $('#filters').addEventListener('click',e=>{const b=e.target.closest('button[data-f]'); if(!b) return; filter=b.dataset.f; document.querySelectorAll('#filters button[data-f]').forEach(x=>x.setAttribute('aria-pressed',x===b)); renderTree();});
+  $('#q').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase(); renderTree();});
+  $('#expand').addEventListener('click',()=>{nodes.forEach(n=>openSet.add(n.id)); renderTree();});
+  $('#collapse').addEventListener('click',()=>{openSet.clear(); renderTree();});
+
+  function renderMeta(){ if(!meta) return; if(meta.oneLiner) $('#oneliner').textContent=meta.oneLiner; const d=meta.updatedAt?new Date(meta.updatedAt):null; $('#stamp').textContent=d?('最近更新 '+d.toLocaleString('zh-CN',{hour12:false})):'已连接'; }
+  function renderDecisions(){
+    const open=decisions.filter(d=>d.status!=='decided').sort((a,b)=>(b.asked||'').localeCompare(a.asked||''));
+    const closed=decisions.filter(d=>d.status==='decided').sort((a,b)=>(b.decidedAt||'').localeCompare(a.decidedAt||''));
+    $('#n-dec').textContent=open.length?open.length:'';
+    const el=$('#decisions'); if(!decisions.length) return;
+    el.classList.remove('empty');
+    const card=d=>`<article class="dec ${d.status==='decided'?'closed':''}" data-dec-card="${esc(d.id)}"><h3>${esc(d.title)}</h3>
+      <p class="why"><b>为什么问你：</b>${esc(d.why)}</p>
+      ${d.options&&d.options.length?`<ol>${d.options.map(o=>`<li><b>${esc(o.label)}</b> ${esc(o.consequence||'')}</li>`).join('')}</ol>`:''}
+      ${d.recommended?`<p class="rec">建议：${esc(d.recommended)}</p>`:''}
+      ${d.status==='decided'?`<p class="rec">已决定：${esc(d.decided||'')}</p>`:''}
+      <p class="meta">${d.status==='decided'?'决定于 '+esc(d.decidedAt||''):'提出于 '+esc(d.asked||'')}${d.nodeId?' · 关联节点 '+esc(d.nodeId):''}${d.howToAnswer?' · '+esc(d.howToAnswer):''}</p>
+      ${d.status!=='decided'&&canWrite!==false?`<div class="decide">${(d.options||[]).map((o,i)=>`<button data-decide="${esc(d.id)}" data-opt="${i}">选：${esc(o.label)}</button>`).join('')}<span class="note">${canSend==='available'?'点一下即记录，并直接发送给 Claude 开始执行。':'点一下即记录；'+(commentsNs?'当前没有在线的 Claude 会话，它会在下次开工或巡检时读取':'此视图不能发评论给 Claude，它会在下次开工或巡检时读取')+'。'}</span></div>`:''}
+      ${commentsNs?`<div class="decide"><button data-notify="${esc(d.id)}">通知 Claude${canSend==='available'?'':'（当前无会话在线）'}</button></div>`:''}
+      ${threadHtml('dec:'+d.id,'就这项决定继续问，例如：选第一个会影响投稿时间吗？')}</article>`;
+    el.innerHTML=(open.length?open.map(card).join(''):'<p class="empty">当前没有等你决定的事。</p>')+(closed.length?`<details><summary style="cursor:pointer;color:var(--muted);font-size:13px">已决定的 ${closed.length} 项</summary>${closed.map(card).join('')}</details>`:'');
+  }
+  function renderNow(){
+    const el=$('#now'); const running=nodes.filter(n=>n.status==='running'); const blocked=nodes.filter(n=>n.status==='blocked');
+    const focus=meta&&meta.focus?`<div class="card"><h3>当前主攻</h3><div class="big">${esc(meta.focus)}</div>${meta.nextCheckpoint?`<div style="font-size:13px;color:var(--muted);margin-top:4px">下一个检查点：${esc(meta.nextCheckpoint)}</div>`:''}</div>`:'';
+    const run=`<div class="card"><h3>正在跑的实验</h3>${running.length?`<ul>${running.map(n=>`<li>${chip('running')} ${esc(n.title)}${n.eta?` <span style="color:var(--muted);font-size:12px">· ${esc(n.eta)}</span>`:''}</li>`).join('')}</ul>`:'<div class="empty">没有在跑的实验</div>'}</div>`;
+    const blk=`<div class="card"><h3>卡住的</h3>${blocked.length?`<ul>${blocked.map(n=>`<li>${chip('blocked')} ${esc(n.title)}<div style="font-size:12px;color:var(--muted)">${esc(n.blockedBy||n.summary||'')}</div></li>`).join('')}</ul>`:'<div class="empty">没有卡住的</div>'}</div>`;
+    const qs=queues.map(q=>`<div class="card"><h3>${esc(q.machine)} 队列${q.updatedAt?` <span style="font-family:var(--font-mono);font-size:11px">${esc(q.updatedAt)}</span>`:''}</h3>${q.note?`<div style="font-size:12px;color:var(--muted)">${esc(q.note)}</div>`:''}<ul>${(q.items||[]).map(i=>`<li>${chip(i.state||'queued')} ${esc(i.name)}${i.detail?` <span style="font-size:12px;color:var(--muted)">· ${esc(i.detail)}</span>`:''}</li>`).join('')}</ul></div>`).join('');
+    el.innerHTML=focus+run+blk+qs;
+  }
+  function renderFigs(){
+    const figs=nodes.filter(n=>n.kind==='figure').sort((a,b)=>(a.order||0)-(b.order||0)); const el=$('#figs'); if(!figs.length) return;
+    const prog=f=>{ const ps=f.panels||[]; if(!ps.length) return f.progress||0; return Math.round(100*ps.filter(x=>x.status==='done').length/ps.length); };
+    const tot=figs.reduce((a,f)=>a+(f.panels||[]).length,0), dn=figs.reduce((a,f)=>a+(f.panels||[]).filter(x=>x.status==='done').length,0);
+    el.innerHTML=`<div class="m" style="grid-column:1/-1;font-size:13px;color:var(--muted)">共 ${figs.length} 张图、${tot} 个分图；已有数据的分图 ${dn} 个，待补 ${tot-dn} 个。NC 文章通常 6–8 张主图、每张 4–8 个分图。</div>`+figs.map(f=>`<div class="fig"><div class="t">${esc(f.title)}</div><div class="bar"><i style="width:${prog(f)}%"></i></div><div class="m">${esc(f.summary||'')}</div>${(f.panels||[]).length?`<ul style="margin:6px 0 0;padding-left:16px;font-size:12px">${f.panels.map(x=>`<li>${chip(x.status)} ${esc(x.label)}${x.source?` <span style="color:var(--muted)">← ${esc(x.source)}</span>`:''}</li>`).join('')}</ul>`:''}</div>`).join('');
+  }
+  function renderTree(){
+    const el=$('#tree'); if(!nodes.length) return;
+    const byParent={}; nodes.forEach(n=>{(byParent[n.parent||'']=byParent[n.parent||'']||[]).push(n)});
+    Object.values(byParent).forEach(a=>a.sort((x,y)=>(x.order||0)-(y.order||0)||x.title.localeCompare(y.title)));
+    const match=n=>{ const fOk=filter==='all'||n.status===filter; const qOk=!query||(n.title+' '+(n.summary||'')+' '+(n.result||'')).toLowerCase().includes(query); return fOk&&qOk; };
+    const vis=new Set(); const mark=n=>{ let ok=match(n); (byParent[n.id]||[]).forEach(c=>{ if(mark(c)) ok=true;}); if(ok) vis.add(n.id); return ok; };
+    (byParent['']||[]).forEach(mark);
+    if(!openInit){ nodes.filter(n=>n.kind==='layer'||n.status==='running'||n.status==='blocked').forEach(n=>{ let p=n; while(p){ openSet.add(p.id); p=nodes.find(x=>x.id===p.parent);} }); openInit=true; }
+    const forceOpen=filter!=='all'||!!query;
+    const li=n=>{ const kids=(byParent[n.id]||[]).filter(k=>vis.has(k.id)); const isOpen=forceOpen||openSet.has(n.id);
+      return `<li><div class="node ${openSet.has('d:'+n.id)?'open':''}" data-id="${esc(n.id)}"><span class="tw" tabindex="0" data-tw="${esc(n.id)}">${kids.length?(isOpen?'−':'+'):'·'}</span><div class="body">
+        <div><span class="title s-${esc(n.status)}" data-open="${esc(n.id)}">${esc(n.title)}</span> ${chip(n.status)}${n.date?` <span style="font-family:var(--font-mono);font-size:11px;color:var(--muted)">${esc(n.date)}</span>`:''}</div>
+        ${n.summary?`<div class="sum">${esc(n.summary)}</div>`:''}
+        <dl class="detail">${n.result?`<dt>结果</dt><dd>${esc(n.result)}</dd>`:''}${n.why?`<dt>意义</dt><dd>${esc(n.why)}</dd>`:''}${n.next?`<dt>下一步</dt><dd>${esc(n.next)}</dd>`:''}${n.report?`<dt>报告</dt><dd><code>${esc(n.report)}</code> <button class="askbtn" data-copy="${esc(n.report)}">复制路径</button></dd>`:''}${n.where?`<dt>数据位置</dt><dd><code>${esc(n.where)}</code> <button class="askbtn" data-copy="${esc(n.where)}">复制路径</button></dd>`:''}${n.evidence?`<dt>关键数字</dt><dd>${esc(n.evidence)}</dd>`:''}${n.brief?`<dt>实验简报</dt><dd style="white-space:pre-wrap">${esc(n.brief)}</dd>`:''}${n.blockedBy?`<dt>卡在</dt><dd>${esc(n.blockedBy)}</dd>`:''}<dt>id</dt><dd><code>${esc(n.id)}</code></dd></dl>${threadHtml('node:'+n.id,'就这一项提问，例如：这个结果意味着什么？和前史矛盾吗？')}
+      </div></div>${kids.length&&isOpen?`<ul>${kids.map(li).join('')}</ul>`:''}</li>`; };
+    el.innerHTML=(byParent['']||[]).filter(n=>vis.has(n.id)).map(li).join('')||'<li class="empty">没有匹配的节点。</li>';
+    const c={}; nodes.forEach(n=>{ if(n.kind!=='layer'&&n.kind!=='line') c[n.status]=(c[n.status]||0)+1; });
+    $('#counts').innerHTML=Object.keys(LABEL).filter(k=>c[k]).map(k=>`${chip(k)} ${c[k]}`).join(' ');
+    $('#n-map').textContent=nodes.filter(n=>n.status==='running').length||'';
+  }
+  $('#tree').addEventListener('click',e=>{ if(e.target.closest('.thread')) return; const tw=e.target.closest('[data-tw]'); if(tw){ const id=tw.dataset.tw; openSet.has(id)?openSet.delete(id):openSet.add(id); renderTree(); return; } const t=e.target.closest('[data-open]'); if(t){ const k='d:'+t.dataset.open; openSet.has(k)?openSet.delete(k):openSet.add(k); renderTree(); } });
+  $('#tree').addEventListener('keydown',e=>{ if(e.key==='Enter'&&e.target.dataset.tw){ e.target.click(); } });
+  function renderLog(){
+    const el=$('#log'); if(!logs.length) return; el.classList.remove('empty');
+    el.innerHTML=logs.sort((a,b)=>b.id.localeCompare(a.id)).slice(0,30).map(d=>`<div class="day"><h3>${esc(d.id)}</h3><ul>${(d.items||[]).slice().reverse().map(i=>`<li><span class="t">${esc(i.time||'')}</span>${esc(i.text)}</li>`).join('')}</ul></div>`).join('');
+  }
+
+  function ctxNode(n){ const p=nodes.find(x=>x.id===n.parent); const kids=nodes.filter(x=>x.parent===n.id); const decs=decisions.filter(d=>d.nodeId===n.id);
+    return [`节点：${n.title}（id ${n.id}，状态 ${n.status}${n.date?'，日期 '+n.date:''}）`, n.summary?'摘要：'+n.summary:'', n.result?'结果：'+n.result:'', n.why?'意义：'+n.why:'', n.next?'下一步：'+n.next:'', n.blockedBy?'卡在：'+n.blockedBy:'', n.where?'位置：'+n.where:'', n.report?'报告：'+n.report:'', n.evidence?'关键数字：'+n.evidence:'', n.brief?'实验简报：\n'+n.brief:'', p?`上级：${p.title}（${p.status}）${p.summary?'：'+p.summary:''}`:'', kids.length?'子项：\n'+kids.map(k=>`- ${k.title}（${k.status}）${k.summary?'：'+k.summary:''}`).join('\n'):'', decs.length?'相关决定：\n'+decs.map(d=>`- ${d.title}（${d.status}）：${d.why}${d.decided?' → '+d.decided:''}`).join('\n'):''].filter(Boolean).join('\n'); }
+  function ctxAll(){ const m=meta?`项目：${meta.name||'TE'}。${meta.oneLiner||''}\n当前主攻：${meta.focus||''}\n下一个检查点：${meta.nextCheckpoint||''}`:''; const tree=nodes.slice().sort((a,b)=>(a.parent||'').localeCompare(b.parent||'')||(a.order||0)-(b.order||0)).map(n=>`${n.parent?'  ':''}[${n.status}] ${n.id} ${n.title}${n.summary?' — '+n.summary:''}${n.result?' | 结果：'+n.result:''}`).join('\n'); const dec=decisions.map(d=>`- ${d.title}（${d.status}）：${d.why}${d.recommended?' 建议：'+d.recommended:''}${d.decided?' 已决定：'+d.decided:''}`).join('\n'); const q=queues.map(x=>`${x.machine}：`+(x.items||[]).map(i=>`${i.name}（${i.state}${i.detail?'，'+i.detail:''}）`).join('；')).join('\n'); return [m,'研究地图：',tree,'决定：',dec,'队列：',q].join('\n'); }
+
+
+
+  let docsCache=null;
+  async function loadDocs(){ if(docsCache) return docsCache; if(!dbRef) return []; try{ const snap=await dbRef.collection('docs').where('project','==',PROJECT).get(); docsCache=snap.docs.map(d=>({id:d.id,...d.data()})); }catch(e){ docsCache=[]; } return docsCache; }
+  function docTools(){ return [
+    {name:'list_docs',description:'列出项目的文档层（实验报告、真值策略、总地图、对照表、投稿计划、稿件、盘点）：id、路径、标题、字符数。',inputSchema:{type:'object',properties:{}},execute:async()=>(await loadDocs()).map(d=>({id:d.id,path:d.path,title:d.title,chars:d.size}))},
+    {name:'search_docs',description:'在全部文档正文里全文搜索关键词，返回每处命中前后约 300 字的片段（最多 12 处）。',inputSchema:{type:'object',properties:{query:{type:'string'}},required:['query']},execute:async({query})=>{ const q=String(query||'').toLowerCase(); const out=[]; for(const d of await loadDocs()){ const t=d.text||''; let i=t.toLowerCase().indexOf(q); while(i>=0&&out.length<12){ out.push({id:d.id,title:d.title,snippet:t.slice(Math.max(0,i-300),i+300)}); i=t.toLowerCase().indexOf(q,i+300); } } return out; }},
+    {name:'read_doc',description:'读取一份文档的正文（每次最多 10000 字；长文档用 offset 分段读）。',inputSchema:{type:'object',properties:{id:{type:'string'},offset:{type:'number'}},required:['id']},execute:async({id,offset})=>{ const d=(await loadDocs()).find(x=>x.id===id); if(!d) return {error:'no such doc'}; const o=offset||0; const t=d.text||''; return {id:d.id,title:d.title,offset:o,total:t.length,text:t.slice(o,o+10000),more:o+10000<t.length}; }}
+  ]; }
+  function pageTools(){ const nodeView=n=>({id:n.id,title:n.title,status:n.status,kind:n.kind,parent:n.parent,summary:n.summary||'',result:n.result||'',evidence:n.evidence||'',brief:n.brief||'',why:n.why||'',next:n.next||'',blockedBy:n.blockedBy||'',report:n.report||'',where:n.where||'',feeds:n.feeds||[],date:n.date||''});
+    return [
+      {name:'get_node',description:'按 id 读取研究地图中一个节点的全部字段（含实验简报、关键数字、报告路径）。',inputSchema:{type:'object',properties:{id:{type:'string'}},required:['id']},execute:({id})=>{const n=nodes.find(x=>x.id===id); return n?nodeView(n):{error:'no such node',known:nodes.map(x=>x.id)};}},
+      {name:'search_nodes',description:'在所有节点的标题、摘要、结果、简报中全文搜索（不区分大小写），返回最多 15 个匹配节点的摘要。',inputSchema:{type:'object',properties:{query:{type:'string'}},required:['query']},execute:({query})=>{const q=String(query||'').toLowerCase(); return nodes.filter(n=>(n.title+' '+(n.summary||'')+' '+(n.result||'')+' '+(n.brief||'')+' '+(n.evidence||'')).toLowerCase().includes(q)).slice(0,15).map(n=>({id:n.id,title:n.title,status:n.status,summary:n.summary||'',result:n.result||''}));}},
+      {name:'list_children',description:'列出某节点的子节点（id、标题、状态）。',inputSchema:{type:'object',properties:{id:{type:'string'}},required:['id']},execute:({id})=>nodes.filter(n=>n.parent===id).sort((a,b)=>(a.order||0)-(b.order||0)).map(n=>({id:n.id,title:n.title,status:n.status,summary:n.summary||''}))},
+      {name:'list_decisions',description:'列出全部决定（待决与已决），含为什么问、选项、建议、结果。',inputSchema:{type:'object',properties:{}},execute:()=>decisions.map(d=>({id:d.id,title:d.title,status:d.status,why:d.why,options:d.options,recommended:d.recommended,decided:d.decided||'',asked:d.asked,nodeId:d.nodeId||''}))},
+      {name:'get_claims',description:'论文的核心论点及各自依赖的图。',inputSchema:{type:'object',properties:{}},execute:()=>claims.map(c=>({id:c.id,title:c.title,statement:c.statement,figures:c.figures,ifFails:c.ifFails||''}))},
+      {name:'get_figures',description:'论文各图的分图清单与状态。',inputSchema:{type:'object',properties:{}},execute:()=>nodes.filter(n=>n.kind==='figure').map(f=>({id:f.id,title:f.title,panels:f.panels||[],summary:f.summary||''}))},
+      {name:'get_log',description:'按日期读取变更日志（最近 N 天）。',inputSchema:{type:'object',properties:{days:{type:'number'}}},execute:({days})=>logs.slice().sort((a,b)=>b.id.localeCompare(a.id)).slice(0,days||7)},
+      {name:'get_queues',description:'各机器当前队列。',inputSchema:{type:'object',properties:{}},execute:()=>queues},
+      {name:'get_sota',description:'已有研究与 SOTA 列表及我们的定位。',inputSchema:{type:'object',properties:{}},execute:()=>sota.map(x=>({name:x.name,category:x.category,status:x.status,what:x.what,numbers:x.numbers,relation:x.relation}))}
+    ]; }
+  const SYS='你是这个研究项目的助手，可以用提供的工具读取整个看板（get_node / search_nodes / list_children / list_decisions / get_claims / get_figures / get_log / get_queues / get_sota）和项目文档层原文（list_docs / search_docs / read_doc：实验报告、真值策略、总地图、前史对照、稿件、盘点），遇到具体数字或方法问题先 search_docs 再 read_doc 核对原文，再回答；引用时说明来自哪份文档，只依据看板数据回答，用简体中文，直接、具体，一般不超过 300 字；数据里没有的不要编造，可以说“看板里没有这项信息”。先给结论，再给依据，最后一句说用户现在可以做什么。';
+  let threads={}; try{ threads=JSON.parse(localStorage.getItem('radar-threads-crna')||'{}'); }catch(e){ threads={}; }
+  const saveThreads=()=>{ try{ localStorage.setItem('radar-threads-crna',JSON.stringify(threads)); }catch(e){} };
+  const PRESETS={node:['这一项做了什么、为什么重要、现在什么状态、还缺什么？','这个结果对论文的哪条论点有什么意义？','它和前史或其他实验有矛盾吗？'],dec:['这是什么情况、我该怎么选？','每个选项对投稿时间和论文质量的影响是什么？'],global:['现在整体到哪一步了？卡在哪？','哪条论点的证据最薄？','接下来三件最该做的事是什么？']};
+  function threadHtml(key,ph){ const t=threads[key]||[]; const kind=key==='global'?'global':key.split(':')[0]; const chips=(PRESETS[kind]||[]).map(q=>`<button class="askbtn" data-preset="${esc(key)}" data-q="${esc(q)}">${esc(q)}</button>`).join(' '); return `<div class="thread" data-thread="${esc(key)}"><div class="decide" style="margin-top:4px">${chips}</div>${t.map(m=>`<div class="msg ${m.role==='user'?'q':'a'}">${esc(m.content)}</div>`).join('')}${sample===null&&document.body.classList.contains('no-sample')?'<div class="msg a">此视图无法向 Claude 提问（未登录或未授权）。</div>':''}<div class="chatrow askrow"><input type="text" placeholder="${esc(ph||'继续问…')}" aria-label="问 Claude"><button class="askbtn" data-send="${esc(key)}">问 Claude</button>${t.length?`<button class="askbtn" data-clear="${esc(key)}">清空</button>`:''}</div></div>`; }
+  function ctxFor(key){ if(key==='global') return ctxAll(); if(key.startsWith('node:')){ const n=nodes.find(x=>x.id===key.slice(5)); return n?ctxNode(n):''; } if(key.startsWith('dec:')){ const d=decisions.find(x=>x.id===key.slice(4)); if(!d) return ''; const n=d.nodeId?nodes.find(x=>x.id===d.nodeId):null; return '待决事项：'+d.title+'\n为什么问：'+d.why+'\n选项：'+(d.options||[]).map(o=>o.label+'（'+(o.consequence||'')+'）').join('；')+'\n建议：'+(d.recommended||'')+(d.decided?'\n已决定：'+d.decided:'')+(n?'\n\n关联节点：\n'+ctxNode(n):''); } return ''; }
+  function rerenderThread(key){ document.querySelectorAll(`[data-thread="${CSS.escape(key)}"]`).forEach(el=>{ const inp=el.querySelector('input'); const v=inp?inp.value:''; el.outerHTML=threadHtml(key); const el2=document.querySelector(`[data-thread="${CSS.escape(key)}"] input`); if(el2) el2.value=v; }); }
+  async function send(key,q){ if(!q) return; if(!sample){ alertRow(key,'此视图不能向 Claude 提问（未授权或未登录）。'); return; }
+    const t=(threads[key]=threads[key]||[]); t.push({role:'user',content:q}); t.push({role:'assistant',content:'思考中…'}); saveThreads(); rerenderThread(key);
+    const hist=t.slice(0,-1); const msgs=hist.map((m,i)=>({role:m.role,content:(i===0?SYS+'\n\n看板数据：\n'+ctxFor(key)+'\n\n问题：':'')+m.content}));
+    try{ const r=await sample(msgs,{tools:[...pageTools(),...docTools()],onText:({text})=>{ t[t.length-1].content=text||'思考中…'; const box=document.querySelector(`[data-thread="${CSS.escape(key)}"]`); if(box){ const ms=box.querySelectorAll('.msg.a'); const last=ms[ms.length-1]; if(last) last.textContent=t[t.length-1].content; } }, modelTier:'default', cache:false});
+      t[t.length-1].content=r.text; }
+    catch(e){ t[t.length-1].content=(e&&e.code==='rate_limited')?'提问过于频繁，稍后再试。':(e&&e.code==='not_granted')?'你拒绝了提问授权；可在页面权限菜单里重新开启。':'提问失败：'+(e&&e.code||'unknown'); }
+    saveThreads(); rerenderThread(key); }
+  function alertRow(key,msg){ const t=(threads[key]=threads[key]||[]); t.push({role:'assistant',content:msg}); rerenderThread(key); }
+  document.addEventListener('click',async e=>{ const pz=e.target.closest('[data-preset]'); if(pz){ e.stopPropagation(); await send(pz.dataset.preset,pz.dataset.q); return; } const b=e.target.closest('[data-send]'); if(b){ e.stopPropagation(); const inp=b.parentElement.querySelector('input'); const q=inp.value.trim(); inp.value=''; await send(b.dataset.send,q); return; } const c=e.target.closest('[data-clear]'); if(c){ e.stopPropagation(); delete threads[c.dataset.clear]; saveThreads(); rerenderThread(c.dataset.clear); } });
+  document.addEventListener('keydown',e=>{ if(e.key==='Enter'&&e.target.matches('.askrow input')){ e.preventDefault(); e.target.parentElement.querySelector('[data-send]').click(); } });
+  // ---- decide in page
+  async function decide(id,optIdx){ const d=decisions.find(x=>x.id===id); if(!d||!dbRef) return; const o=(d.options||[])[optIdx]; if(!o) return; const today=new Date().toISOString().slice(0,10);
+    try{ await dbRef.doc('decisions/'+id).update({status:'decided',decided:o.label,decidedAt:today,decidedBy:'page',acknowledged:false});
+      const lg=dbRef.doc('log/'+today); const snap=await lg.get(); const items=(snap.exists&&snap.data().items||[]).slice(); items.push({time:new Date().toTimeString().slice(0,5),text:'你在看板上决定：'+d.title+' → '+o.label}); await lg.set({project:PROJECT,items});
+    }catch(err){ alertRow('dec:'+id,'记录失败：'+(err&&err.code||'unknown')+'。请在对话里告诉 Claude。'); return; }
+    await notifyClaude(id,'【看板决定】'+d.title+' → '+o.label+'。请读取 decisions/'+id+' 并开始执行。'); }
+  async function notifyClaude(id,text){ const card=document.querySelector(`[data-dec-card="${CSS.escape(id)}"]`)||document.body;
+    if(!commentsNs){ alertRow('dec:'+id,'已记录。此视图不能发评论给 Claude；它会在下次开工或巡检时读取。'); return; }
+    try{ canSend=await commentsNs.canSendToClaude(); }catch(e){ canSend='off'; }
+    if(canSend!=='available'){ alertRow('dec:'+id,'已记录。现在没有能接收的 Claude 会话（'+canSend+'）；它会在下次开工或巡检时读取。'); return; }
+    try{ const anchor=await commentsNs.anchorFor(card); await commentsNs.sendToClaude({anchor,text}); alertRow('dec:'+id,'已发送给 Claude，它会在这条决定的评论线里回复并开始执行。'); }
+    catch(e){ const c=e&&e.code; alertRow('dec:'+id, c==='consent_required'?'你还没允许页面以你的名义发评论；允许后再点一次“通知 Claude”。':c==='claude_unavailable'?'现在没有能接收的 Claude 会话；决定已记录，下次开工时读取。':'发送失败：'+(c||'unknown')+'；决定已记录。'); } }
+  $('#decisions').addEventListener('click',e=>{ const n=e.target.closest('[data-notify]'); if(n){ const d=decisions.find(x=>x.id===n.dataset.notify); if(d) notifyClaude(d.id,'【看板】请读取决定 decisions/'+d.id+'（'+d.title+'）：'+(d.decided||'未决，想和你讨论')+'。'); } });
+  $('#decisions').addEventListener('click',e=>{ const b=e.target.closest('[data-decide]'); if(!b) return; decide(b.dataset.decide,+b.dataset.opt); });
+  const STATUS_COLOR={done:'var(--done)',running:'var(--running)',queued:'var(--queued)',blocked:'var(--blocked)',todo:'var(--todo)',paused:'var(--paused)',abandoned:'var(--abandoned)'};
+  function renderOverview(){
+    if(meta&&meta.thesis) $('#thesis').textContent=meta.thesis;
+    if(meta&&meta.rule) $('#rule').textContent=meta.rule;
+    const figs=nodes.filter(n=>n.kind==='figure').sort((a,b)=>(a.order||0)-(b.order||0));
+    const feeders=f=>nodes.filter(n=>(n.feeds||[]).includes(f));
+    const cl=$('#claims');
+    if(claims.length){ cl.innerHTML=claims.slice().sort((a,b)=>(a.order||0)-(b.order||0)).map(c=>{ const fs=(c.figures||[]); const ev=[...new Set(fs.flatMap(f=>feeders(f).map(n=>n.id)))].map(id=>nodes.find(n=>n.id===id)).filter(Boolean);
+        const cnt={}; ev.forEach(n=>cnt[n.status]=(cnt[n.status]||0)+1); const miss=ev.filter(n=>!['done','abandoned'].includes(n.status));
+        return `<div class="claim"><h3>${esc(c.title)}</h3><div class="st">${esc(c.statement||'')}</div><div>${fs.map(f=>`<span class="fig">${esc(f)}</span>`).join('')}</div><div class="st">${Object.keys(cnt).map(k=>chip(k)+' '+cnt[k]).join(' ')}</div><div class="miss">${miss.length?`<b>还缺：</b>${esc(miss.map(n=>n.title.replace(/（.*?）/g,'')).join('；'))}`:'证据齐全'}</div>${c.ifFails?`<div class="miss" style="color:var(--muted)">若待办结果不利：${esc(c.ifFails)}</div>`:''}</div>`; }).join(''); }
+    // flow diagram
+    const svg=$('#flow'); if(!figs.length){ svg.innerHTML=''; return; }
+    const layers=['L4','L3','L2','L1'].map(id=>nodes.find(n=>n.id===id)).filter(Boolean);
+    const exps=[]; layers.forEach(L=>{ nodes.filter(n=>n.parent===L.id&&n.feeds&&n.feeds.length).sort((a,b)=>(a.order||0)-(b.order||0)).forEach(n=>exps.push({...n,layer:L.id})); });
+    const RH=17, top=28, colX=[20,420,640,860], W=940, boxW=[300,170,180,60];
+    const expY={}; let y=top; let lastLayer=null; const layerLabels=[];
+    exps.forEach(n=>{ if(n.layer!==lastLayer){ y+=(lastLayer?10:0); layerLabels.push({y,label:(nodes.find(x=>x.id===n.layer)||{}).title.split('：')[0]}); y+=14; lastLayer=n.layer; } expY[n.id]=y; y+=RH; });
+    const H=Math.max(y+10, top+figs.length*54+40, top+claims.length*70+40);
+    const figY={}; figs.forEach((f,i)=>figY[f.id]=top+20+i*((H-top-40)/figs.length));
+    const clY={}; claims.forEach((c,i)=>clY[c.id]=top+30+i*((H-top-60)/Math.max(claims.length,1)));
+    const sc=st=>STATUS_COLOR[st]||'var(--muted)';
+    let out=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">`;
+    out+=`<text class="lbl" x="${colX[0]}" y="14">实验与资产</text><text class="lbl" x="${colX[1]}" y="14">论文图表</text><text class="lbl" x="${colX[2]}" y="14">核心论点</text><text class="lbl" x="${colX[3]}" y="14">投稿</text>`;
+    layerLabels.forEach(l=>out+=`<text class="lbl" x="${colX[0]}" y="${l.y+10}">${esc(l.label)}</text>`);
+    const curve=(x1,y1,x2,y2)=>`M${x1},${y1} C${(x1+x2)/2},${y1} ${(x1+x2)/2},${y2} ${x2},${y2}`;
+    exps.forEach(n=>{ (n.feeds||[]).forEach(f=>{ const fy=figY[('PAPER.'+f)]; if(fy==null) return; const sup=f==='SUPP'||n.status==='abandoned'; out+=`<path class="link ${sup?'sup':''}" d="${curve(colX[0]+boxW[0],expY[n.id]+6,colX[1],fy+18)}" stroke="${sc(n.status)}"/>`; }); });
+    claims.forEach(c=>(c.figures||[]).forEach(f=>{ const fy=figY['PAPER.'+f]; if(fy==null) return; out+=`<path class="link" d="${curve(colX[1]+boxW[1],fy+18,colX[2],clY[c.id]+20)}" stroke="var(--accent)"/>`; }));
+    claims.forEach(c=>out+=`<path class="link" d="${curve(colX[2]+boxW[2],clY[c.id]+20,colX[3],H/2)}" stroke="var(--accent)"/>`);
+    exps.forEach(n=>{ out+=`<g><title>${esc(n.title)} — ${esc(n.status)}${n.summary?'：'+esc(n.summary):''}</title><circle class="dot" cx="${colX[0]+6}" cy="${expY[n.id]+6}" r="4.5" fill="${sc(n.status)}"/><text x="${colX[0]+16}" y="${expY[n.id]+10}" ${n.status==='abandoned'?'text-decoration="line-through" opacity=".6"':''}>${esc(n.title.length>34?n.title.slice(0,33)+'…':n.title)}</text></g>`; });
+    figs.forEach(f=>{ const fy=figY[f.id], ps=f.panels||[], p=ps.length?Math.round(100*ps.filter(x=>x.status==='done').length/ps.length):Math.max(0,Math.min(100,f.progress||0)); out+=`<g><title>${esc(f.title)}：${esc(f.summary||'')}</title><rect class="box" x="${colX[1]}" y="${fy}" width="${boxW[1]}" height="36" rx="6"/><text x="${colX[1]+8}" y="${fy+15}" font-weight="600">${esc(f.title.replace(/（.*?）/,''))}</text><rect class="bar" x="${colX[1]+8}" y="${fy+22}" width="${boxW[1]-16}" height="5" rx="2"/><rect class="barfill" x="${colX[1]+8}" y="${fy+22}" width="${(boxW[1]-16)*p/100}" height="5" rx="2"/><text x="${colX[1]+boxW[1]-8}" y="${fy+15}" text-anchor="end" class="lbl">${p}%</text></g>`; });
+    claims.forEach(c=>{ const cy=clY[c.id]; const fs=(c.figures||[]); const ev=[...new Set(fs.flatMap(f=>feeders(f).map(n=>n.id)))].map(id=>nodes.find(n=>n.id===id)).filter(Boolean); const done=ev.filter(n=>n.status==='done').length; out+=`<g><title>${esc(c.statement||c.title)}</title><rect class="box" x="${colX[2]}" y="${cy}" width="${boxW[2]}" height="40" rx="6" stroke="var(--accent)"/><text x="${colX[2]+8}" y="${cy+16}" font-weight="600">${esc(c.title)}</text><text x="${colX[2]+8}" y="${cy+31}" class="lbl">证据 ${done}/${ev.length} 已完成</text></g>`; });
+    out+=`<g><rect class="box" x="${colX[3]}" y="${H/2-22}" width="${boxW[3]}" height="44" rx="8" stroke="var(--accent)" stroke-width="1.5"/><text x="${colX[3]+30}" y="${H/2-4}" text-anchor="middle" font-weight="600">NC</text><text x="${colX[3]+30}" y="${H/2+12}" text-anchor="middle" class="lbl">投稿</text></g></svg>`;
+    svg.outerHTML=out.replace('<svg xmlns="http://www.w3.org/2000/svg"','<svg id="flow" role="img" aria-label="实验到图表到论点的流向图" xmlns="http://www.w3.org/2000/svg"');
+  }
+  function renderSota(){ const el=$('#sota'); if(!sota.length) return; const cats={}; sota.forEach(x=>(cats[x.category||'其他']=cats[x.category||'其他']||[]).push(x));
+    const order=['传统库法与 de novo 流程','深度学习检测/分割','TE 分类器','基模（基因组语言模型）','基准与资源','去碎片化 / 库修复'];
+    el.innerHTML=Object.keys(cats).sort((a,b)=>(order.indexOf(a)+99)%99-(order.indexOf(b)+99)%99).map(c=>`<div class="sotacat"><h3>${esc(c)}</h3>${cats[c].sort((a,b)=>(a.order||0)-(b.order||0)).map(x=>`<div class="sota"><div><span class="n">${esc(x.name)}</span> <span class="chip s-${esc(x.status)}">${esc(x.status)}</span>${x.year?` <span class="src">${esc(x.year)}</span>`:''}</div><div class="m">${esc(x.what||'')}${x.numbers?' · '+esc(x.numbers):''}</div><div class="r">${esc(x.relation||'')}</div>${x.source?`<div class="src">${esc(x.source)}</div>`:''}</div>`).join('')}</div>`).join(''); }
+  function renderGlobalThread(){ const g=$('#gthread'); if(g&&!g.querySelector('.thread')) g.innerHTML=threadHtml('global','就整个项目问，例如：双真值为什么卡住？E1 的结果会改变什么？'); }
+  function all(){ renderMeta(); renderDecisions(); renderNow(); renderFigs(); renderTree(); renderLog(); renderOverview(); renderGlobalThread(); renderSota(); }
+
+  async function boot(){
+    const db=await claude.use('db'); dbRef=db;
+    if(!db){ $('#stamp').textContent='此视图无法连接数据库（需要登录）'; return; }
+    $('#live').classList.add('on'); $('#stamp').textContent='已连接，等待数据…';
+    claude.use('sample').then(sm=>{ sample=sm; if(!sm) document.body.classList.add('no-sample'); });
+    claude.use('user').then(async u=>{ canWrite=u?await u.can('data.write'):null; renderDecisions(); });
+    claude.use('comments').then(async c=>{ commentsNs=c; try{ canSend=c?await c.canSendToClaude():'off'; }catch(e){ canSend='off'; } renderDecisions(); });
+    renderGlobalThread();
+    const onErr=e=>{ $('#stamp').textContent='数据订阅中断：'+(e&&e.code||'unknown'); $('#live').classList.remove('on'); };
+    db.doc('projects/'+PROJECT).onSnapshot(s=>{ meta=s.exists?s.data():null; renderMeta(); renderNow(); renderOverview(); },onErr);
+    db.collection('claims').where('project','==',PROJECT).onSnapshot(s=>{ claims=s.docs.map(d=>({id:d.id,...d.data()})); renderOverview(); },onErr);
+    db.collection('nodes').where('project','==',PROJECT).onSnapshot(s=>{ nodes=s.docs.map(d=>({id:d.id,...d.data()})); renderNow(); renderFigs(); renderTree(); renderOverview(); },onErr);
+    db.collection('decisions').where('project','==',PROJECT).onSnapshot(s=>{ decisions=s.docs.map(d=>({id:d.id,...d.data()})); renderDecisions(); renderOverview(); },onErr);
+    db.collection('queues').where('project','==',PROJECT).onSnapshot(s=>{ queues=s.docs.map(d=>({id:d.id,...d.data()})); renderNow(); },onErr);
+    db.collection('log').where('project','==',PROJECT).onSnapshot(s=>{ logs=s.docs.map(d=>({id:d.id,...d.data()})); renderLog(); },onErr);
+    db.collection('sota').where('project','==',PROJECT).onSnapshot(s=>{ sota=s.docs.map(d=>({id:d.id,...d.data()})); renderSota(); },onErr);
+  }
+  boot();
+})();
+</script>

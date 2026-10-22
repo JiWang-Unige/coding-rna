@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "running",
+ "title": "基础设施、算力与规则",
+ "order": 10,
+ "summary": "ont 为唯一计算机器；Baobab 仅作跳板；单仓库工作。",
+ "date": "2026-10-22"
+}

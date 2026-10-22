@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 5,
+ "name": "GeneCAD（PlantCAD2 + 染色体级 CRF）",
+ "year": "2025-11 bioRxiv",
+ "status": "pending",
+ "what": "PlantCAD2 表征 + 8 层 ModernBERT + 染色体级 CRF + ReelProtein 过滤，每位点一个规范转录本；CC BY-NC。",
+ "numbers": "作者自报：转录本级 F1 平均比 Helixer 与 BRAKER3 高 8–10%（不可与我们的 exact-chain 直接比）",
+ "relation": "与我们同骨干（PlantCAD2）的直接对照，文献标明“必须作基线”；面板上可选，尚未运行。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.1；16_plantcad2_feasibility.md"
+}

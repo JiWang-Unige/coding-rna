@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "深度学习 ab initio 注释（直接竞品）",
+ "order": 2,
+ "name": "ANNEVO",
+ "year": "2026-03（Nature Methods 23:740）",
+ "status": "compared",
+ "what": "卷积分 bin + Transformer + MoE（8 专家）+ Viterbi，566 个 RefSeq 测试物种，只注释最长转录本。",
+ "numbers": "同尺 DEV 75.703、TRAIN 75.542",
+ "relation": "三基线中最强；作者声明训练排除拟南芥/水稻，但现行 Magnoliopsida 权重清单未公开。面板基线待跑（ont 无环境）。",
+ "source": "paper/supplement/pretrained_exposure.md；docs/review_20261016/05_literature_positioning.md"
+}

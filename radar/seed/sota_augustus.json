@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "经典 / 证据驱动工具",
+ "order": 2,
+ "name": "AUGUSTUS",
+ "year": "Stanke 2003",
+ "status": "positioning",
+ "what": "经典 HMM ab initio 预测器；植物仅部分物种有预训练模型。",
+ "numbers": "Helixer 论文：植物 exon F1 0.504（仅 4/13 物种有预训练模型）；BEND 人类基因发现 MCC 0.80",
+ "relation": "历史基线与文献定位；本项目 M28 同尺面板未包含。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.2"
+}

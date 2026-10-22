@@ -1,0 +1,24 @@
+{
+ "project": "crna",
+ "title": "M34 放大训练用哪个骨干（创建 GO_STAGE1）",
+ "why": "M35 训练已完成，内部验证 pooled F1 71.33（M31 B 的 NT-v2+LoRA 63.26，PlantCAD2 冻结 58.74），DEV 推理正在 ont 上跑。预注册规则（M35 protocol）：DEV 对 M31 B 的配对差 CI 下界 > 0 推荐 PlantCAD2；上界 < 0 推荐 NT-v2；跨 0 默认 NT-v2。骨干决定 M34 阶段一（约 47 GPU 小时）以及之后 M36 的基模。GO_STAGE1 只能由你（协调者）创建，首词 ntv2 或 pc2。",
+ "options": [
+  {
+   "label": "PlantCAD2（pc2）",
+   "consequence": "M34 pc2 后端已实现并测试，需 M35 的 pc2_lora.py；窗口 8 kb；预训练窗口取自注释基因 ±5 kb 且含拟南芥/水稻，DEV 对它是样本内，论文要披露。"
+  },
+  {
+   "label": "NT-v2（ntv2，GO_STAGE1 留空）",
+   "consequence": "沿用 M34 已配好的数据与调度；预训练明确排除植物与注释，来源更干净；但 M35 内部验证显示落后约 8 点。"
+  },
+  {
+   "label": "等 M35 DEV 配对 CI 出来后按预注册规则执行",
+   "consequence": "晚几小时；规则结果可复核，不事后改判据。"
+  }
+ ],
+ "recommended": "等 DEV 配对 CI 后按规则执行；若下界 > 0 选 PlantCAD2 并在论文披露其暴露。",
+ "asked": "2026-10-22",
+ "status": "open",
+ "nodeId": "L6.bb",
+ "howToAnswer": "回复“骨干 pc2”“骨干 ntv2”或“按规则”"
+}

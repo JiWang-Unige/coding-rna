@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "policy",
+ "status": "paused",
+ "title": "投稿档次与止损规则",
+ "order": 14,
+ "summary": "T10 ≥ 70 且面板中位数 ≥ Tiberius → 按 NM；M34 ≥ 70 且自举在两物种 ≥ Carbon-A − 2 → 先向 NC 做 presubmission enquiry；T10 < 65 或自举闭合 < 30% → 框架篇改投 Genome Biology / NAR Genomics & Bioinformatics。",
+ "report": "docs/paper_outline_20261021.md §3、§6.4"
+}

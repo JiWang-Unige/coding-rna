@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L7",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M37 多装配联合解码前提检验（水稻 chr10，Nipponbare vs 93-11）",
+ "order": 3,
+ "summary": "预注册判定 NO-GO：错误在两个单倍型之间高度共享，联合解码无互补纠错空间；但势平均仍有显著增益，机制是同一基因两份噪声势的集成，不是 B 纠 A 的错。",
+ "result": "headroom 52/503 = 10.3%（< 20%）；优势比 25.8、φ 0.63；势平均 λ=0.25 +1.53 [+0.76,+2.17]，λ=0.5 +2.42 [+1.14,+3.58]；CDS 碱基 F1 持平，背景负担下降",
+ "report": "docs/review_20261016/24_M37_smoke_results.md",
+ "where": "ont ~/coding-rna/outputs/M37-JOINT-DECODE-SMOKE/results.json；本地 experiments/M37-JOINT-DECODE-SMOKE/results/",
+ "date": "2026-10-22",
+ "feeds": [
+  "F7"
+ ]
+}

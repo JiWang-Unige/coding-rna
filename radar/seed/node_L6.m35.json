@@ -1,0 +1,18 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "experiment",
+ "status": "running",
+ "title": "M35 PlantCAD2-Small + LoRA（DEV 推理中）",
+ "order": 1,
+ "summary": "Mamba2 in_proj/out_proj 上 12 块 rank-8 LoRA（604,416 参数），头自 M32 step 2048 热启动，1,536 步，与 M31 B 同条件。训练已完成，step 1536 的 DEV 推理在跑，DEV 只评一次。",
+ "result": "内部验证 pooled F1：step 512 65.66 → 1024 70.64 → 1536 71.33（拟南芥 73.45 / 水稻 65.71）；对照 M31 B 63.26、M32 冻结 58.74。DEV 待出",
+ "next": "DEV 出来后算对 M31 B 的配对差，按预注册规则给骨干建议；写报告 21",
+ "where": "ont ~/coding-rna/outputs/M35-PLANTCAD2-LORA/runB（metrics.jsonl、dev_1536/）",
+ "report": "experiments/M35-PLANTCAD2-LORA/protocol.md",
+ "date": "2026-10-22",
+ "eta": "DEV 推理已跑约 24 分钟（17:25，共享 GPU，总时长待核对）",
+ "feeds": [
+  "F2"
+ ]
+}

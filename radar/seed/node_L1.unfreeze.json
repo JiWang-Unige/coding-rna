@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L1",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M9–M11 NT-v2 解冻与阈值校准",
+ "order": 3,
+ "summary": "解冻 NT-v2-500m 顶部层，gbF1 与特异性同升；验证集阈值校准在同物种池内压低 FPR。",
+ "result": "gbF1：L0 0.8284 → L12 0.9035（拟南芥单 seed）；M11 FPR 0.0087、gbF1 0.8178（3 seed）",
+ "report": "docs/review_20261016/03_research_history_M1_M27.md",
+ "date": "2026-06-14 → 06-16",
+ "feeds": [
+  "SUPP"
+ ]
+}

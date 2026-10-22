@@ -1,0 +1,33 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "todo",
+ "title": "图 4 + 表 1 独立时间留出面板基准",
+ "order": 4,
+ "summary": "12 物种面板上与 Helixer / Tiberius / ANNEVO / Carbon-A 同口径比较",
+ "panels": [
+  {
+   "label": "a 面板物种与暴露矩阵",
+   "status": "done",
+   "source": "docs/review_20261016/25_independent_panel_preparation.md"
+  },
+  {
+   "label": "b 12 物种 exact-chain F1 对各工具",
+   "status": "todo"
+  },
+  {
+   "label": "c 分层（段数 / 基因长度 / RefSeq 对非 RefSeq 注释）",
+   "status": "todo"
+  },
+  {
+   "label": "d 运行时间、显存与 BUSCO（表 2）",
+   "status": "todo"
+  },
+  {
+   "label": "e Dryas / Esch 零样本基线",
+   "status": "done",
+   "source": "docs/review_20261016/18_M33_ntv2_followup.md"
+  }
+ ]
+}

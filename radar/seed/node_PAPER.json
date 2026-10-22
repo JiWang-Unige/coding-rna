@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "running",
+ "title": "论文与投稿（底线 Nature Communications，视结果冲 Nature Methods）",
+ "order": 9,
+ "summary": "大纲与待填清单已写；旧 Codex 稿件尚未据新主张重写。",
+ "where": "docs/paper_outline_20261021.md；paper/manuscript/",
+ "date": "2026-10-22"
+}

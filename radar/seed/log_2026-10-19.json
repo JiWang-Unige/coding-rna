@@ -1,0 +1,21 @@
+{
+ "project": "crna",
+ "items": [
+  {
+   "time": "11:25",
+   "text": "PlantCAD2 可行性评估写成（16）：Small 可作第二骨干，需 8 kb 窗口"
+  },
+  {
+   "time": "11:57",
+   "text": "M30 结果报告（14）：方向判据不成立，机制判据成立（U−F +16.50 / +14.15）；头部适配在冻结 Carbon-A 特征上无价值"
+  },
+  {
+   "time": "—",
+   "text": "与你讨论定位：GENERanno preview 即 Carbon-A 主权重 → 论文核心不再依赖该权重，改为“概率化 ab initio 基因注释框架”"
+  },
+  {
+   "time": "20:39",
+   "text": "记录你的决定：coding-rna 暂不用 Modal，ont 串行"
+  }
+ ]
+}

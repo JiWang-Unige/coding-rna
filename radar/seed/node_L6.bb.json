@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "task",
+ "status": "blocked",
+ "title": "M34 骨干决定与 GO_STAGE1 标志",
+ "order": 3,
+ "summary": "GO_STAGE1 只能由协调者创建，首词 ntv2 | pc2；m34_queue.sh 尚未在 ont 启动。",
+ "blockedBy": "等 M35 DEV 配对 CI，再由你拍板（见 dec_m34-backbone）",
+ "report": "docs/review_20261016/20_M34_stage1_results.md",
+ "date": "2026-10-22"
+}

@@ -1,0 +1,24 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "todo",
+ "title": "图 7 应用（isoform 感知 或 泛基因组一致性）",
+ "order": 7,
+ "summary": "大纲中的 Fig. 6，二选一，另一个进补充；图号为本看板顺延",
+ "panels": [
+  {
+   "label": "a isoform 感知：后验 top-k 结构召回 + RNA-seq 剪接验证",
+   "status": "todo"
+  },
+  {
+   "label": "b 泛基因组一致性 / PAV 不确定性",
+   "status": "todo"
+  },
+  {
+   "label": "c 势级集成补充（M37：+1.53 / +2.42）",
+   "status": "done",
+   "source": "docs/review_20261016/24_M37_smoke_results.md（描述性；NO-GO 判定不变）"
+  }
+ ]
+}

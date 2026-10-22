@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "L7",
+ "kind": "task",
+ "status": "paused",
+ "title": "“势级集成”新方向（M37 副发现）",
+ "order": 4,
+ "summary": "需另写预注册协议：换第二个物种对、用高质量装配 B、加入非平凡合并对照，并解释为何不是简单 test-time augmentation。",
+ "next": "等你决定是否立项（dec_ensemble）",
+ "report": "docs/review_20261016/24_M37_smoke_results.md"
+}

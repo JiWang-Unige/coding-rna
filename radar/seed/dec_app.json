@@ -1,0 +1,20 @@
+{
+ "project": "crna",
+ "title": "主应用选哪个：isoform 感知，还是泛基因组一致性",
+ "why": "论文需要一个“别人做不到”的应用图（Fig. 6）。大纲建议二选一，另一个进补充或第二篇；M37 NO-GO 后泛基因组只剩一致性 / PAV 不确定性。",
+ "options": [
+  {
+   "label": "(a) isoform 感知输出 + RNA-seq 剪接验证",
+   "consequence": "纯 CPU 解码，与 C3 同一套后验；风险：ab initio isoform 上限未知，主张须限定为后验排序候选召回更多注释 isoform。"
+  },
+  {
+   "label": "(b) 泛基因组 / 多装配一致性与 PAV 不确定性",
+   "consequence": "只需推理（6–8 个装配约 2.5–3 Gb、约 5 GPU 时）+ minimap2/liftoff 级同源映射 + 公开 RNA-seq 验证。"
+  }
+ ],
+ "recommended": "先做 (a)，(b) 作补充或第二篇。（大纲 §4.3 的建议）",
+ "asked": "2026-10-21",
+ "status": "open",
+ "nodeId": "PAPER.app",
+ "howToAnswer": "回复“应用 a”或“应用 b”"
+}

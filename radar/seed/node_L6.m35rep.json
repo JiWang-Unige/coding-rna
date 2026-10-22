@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "task",
+ "status": "queued",
+ "title": "M35 结果报告（21）与 M35_DONE 哨兵",
+ "order": 2,
+ "summary": "docs/review_20261016 目前缺 21 号文件；M35_DONE 不存在，M34 排队门控在等它。",
+ "next": "DEV 完成后写"
+}

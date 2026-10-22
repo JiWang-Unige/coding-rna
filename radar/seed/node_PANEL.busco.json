@@ -1,0 +1,13 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "experiment",
+ "status": "todo",
+ "title": "BUSCO 与运行时间 / 显存（Table 2）",
+ "order": 7,
+ "summary": "随面板推理与基线运行同时记录。",
+ "report": "docs/paper_outline_20261021.md",
+ "feeds": [
+  "F4"
+ ]
+}

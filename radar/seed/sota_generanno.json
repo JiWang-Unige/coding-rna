@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "DNA 语言模型骨干",
+ "order": 1,
+ "name": "GENERanno-eukaryote-1.2b / GENERator",
+ "year": "2025–2026",
+ "status": "compared",
+ "what": "token classification CDS 注释器 preview；其权重即 Carbon-A 主权重（sha256 相同）。模型卡不报告注释指标。",
+ "numbers": "我们 M28 DEV 70.107；骨干层面 ≥6 段 F1 65.81",
+ "relation": "M15–M28 的全部完整结构结果建立在这份已有注释监督的权重上，独立面板必须标暴露资格；论文核心不再依赖它。",
+ "source": "docs/review_20261016/07_revised_claims_and_plan.md §8；paper/supplement/pretrained_exposure.md"
+}

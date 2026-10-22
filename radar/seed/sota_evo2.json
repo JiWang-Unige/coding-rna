@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "DNA 语言模型骨干",
+ "order": 5,
+ "name": "Evo 2",
+ "year": "Nature 2026",
+ "status": "positioning",
+ "what": "40B 参数 StripedHyena 2，机制可解释性发现外显子-内含子边界特征；不是注释工具。",
+ "numbers": "无可比数字",
+ "relation": "仅在文献定位里提及；与本项目算力和任务不匹配。",
+ "source": "docs/review_20261016/05_literature_positioning.md §1.1"
+}

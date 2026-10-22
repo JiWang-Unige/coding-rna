@@ -1,0 +1,28 @@
+{
+ "project": "crna",
+ "machine": "Baobab（HPC，仅跳板与只读）",
+ "updatedAt": "2026-10-22 17:25",
+ "note": "12-01 计费年重置前不提交计算（你 2026-10-20 的决定）；10-16 PI 组余额 147,263 credits（本次未重新查询，待核对）；单项 > 50 credits 须先问。",
+ "items": [
+  {
+   "name": "计算作业",
+   "state": "paused",
+   "detail": "无；等 12-01"
+  },
+  {
+   "name": "仓库同步",
+   "state": "done",
+   "detail": "Baobab main 的 HEAD 42fba52 与本地一致，领先 origin/main 61 个提交"
+  },
+  {
+   "name": "12-01 后：面板基线（Tiberius / Helixer / ANNEVO / Carbon-A）与 +2 seeds 并行",
+   "state": "todo",
+   "detail": "提交前先问你"
+  },
+  {
+   "name": "M28 checkpoint 备份",
+   "state": "todo",
+   "detail": "待核对是否已做"
+  }
+ ]
+}

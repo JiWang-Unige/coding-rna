@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L3",
+ "kind": "experiment",
+ "status": "done",
+ "title": "阶段 0/1 诊断（转移网络、奇偶闸门、校准）",
+ "order": 3,
+ "summary": "转移网络贡献大；奇偶闸门通过；我方后验严重过自信，说明 C3 需要校准方法而非“天然校准”。",
+ "result": "奇偶闸门 TRAIN 75.76 对目标 76.06；后验 ECE 0.156 对 Carbon-A 置信网络 0.067",
+ "report": "docs/review_20261016/09_phase0_phase1_diagnostics.md",
+ "date": "2026-10-16",
+ "feeds": [
+  "F5"
+ ]
+}

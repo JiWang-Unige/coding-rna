@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "L3",
+ "kind": "policy",
+ "status": "done",
+ "title": "定位演变：超越 Carbon-A → 基模无关语法层 → 概率化框架",
+ "order": 5,
+ "summary": "2026-10-16 目标超越 Carbon-A；10-17 放弃拼原生精度；10-19 确认 GENERanno preview 即 Carbon-A 主权重，论文核心不再依赖该权重。",
+ "report": "docs/review_20261016/07_revised_claims_and_plan.md",
+ "date": "2026-10-19"
+}

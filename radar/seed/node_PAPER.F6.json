@@ -1,0 +1,31 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "figure",
+ "status": "queued",
+ "title": "图 6 目标基因组自举 / 证据种子适配（新主线）",
+ "order": 6,
+ "summary": "零样本 → 种子标签 + 其余边缘化 → 512 步 LoRA；闭合比例判据。图号为本看板归纳：大纲 §6 把它升为第一主张但未分配图号",
+ "panels": [
+  {
+   "label": "a 种子来源与规模（S2：Dryas 3,674 / Esch 2,309）",
+   "status": "done",
+   "source": "docs/review_20261016/26_M36_cpu_preparation.md"
+  },
+  {
+   "label": "b 闭合比例：S1 / S2 / S3 对零样本与 Carbon-A 过滤",
+   "status": "blocked",
+   "source": "等 M34 阶段一"
+  },
+  {
+   "label": "c 填背景对照 F1",
+   "status": "blocked",
+   "source": "同上"
+  },
+  {
+   "label": "d 适配后后验过滤与校准",
+   "status": "blocked",
+   "source": "同上"
+  }
+ ]
+}

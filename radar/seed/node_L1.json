@@ -1,0 +1,13 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "done",
+ "title": "L1 前史：M1–M27 从粗粒度检测到精确结构（2026-06 → 09）",
+ "order": 1,
+ "summary": "复现三基线与评价器；同预算筛选；NT-v2 解冻与 GENERanno 1.2B 路线；跨物种固定调用器失败；M24–M26 转向精确完整链，结构头 M25R 为 no-go。",
+ "result": "已整理 11 条正面结论（P1–P11）与 13 条负面结论（N1–N13），按 A/B/C 分级；多数为开发级、单 seed。",
+ "report": "docs/review_20261016/03_research_history_M1_M27.md",
+ "where": "仓库 experiments/M1-M9、M10-M19、M20-M24、M25R、M26、M27（Baobab 与本地同名）",
+ "date": "2026-06 → 2026-09"
+}

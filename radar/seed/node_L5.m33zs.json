@@ -1,0 +1,17 @@
+{
+ "project": "crna",
+ "parent": "L5",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M33 新物种零样本（Dryas / Eschscholzia）",
+ "order": 5,
+ "summary": "当前最大风险：同物种留出无泛化差距，但跨物种大幅崩塌；失败形态是多外显子连接，不是找不到基因。",
+ "result": "Dryas 49.92（过滤 52.40）、Esch 44.09（46.39）；比 Carbon-A 过滤低 21.6 / 26.9；多外显子“重叠非精确”33.6% / 35.0% 对 Carbon-A 13.4% / 10.6%",
+ "why": "决定了 M34 多物种放大是唯一已排队的修复。",
+ "report": "docs/review_20261016/18_M33_ntv2_followup.md",
+ "date": "2026-10-21",
+ "feeds": [
+  "F3",
+  "F4"
+ ]
+}

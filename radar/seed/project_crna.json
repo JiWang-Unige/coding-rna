@@ -1,0 +1,9 @@
+{
+ "name": "coding-rna（cdsgram）",
+ "oneLiner": "用基因组语言模型 + 完整 CDS 语法 CRF 做植物 ab initio 蛋白编码基因注释：从“和 Carbon-A 拼精度”转向“骨干无关、可用不完整注释训练、输出校准后验”的概率化基因语法层（里程碑 M1–M37）。",
+ "thesis": "一个与骨干无关的概率化基因语法层：把任意 DNA 语言模型变成可用不完整注释训练、输出校准基因后验的完整基因注释器（docs/paper_outline_20261021.md §0）；2026-10-21 起再加“目标基因组自举适配”为第一主张。无零样本精度第一的主张。",
+ "rule": "每次推进：实验状态变化 → 更新对应 node；需要用户拍板 → 新建 decision（写清 why/options/consequence/recommended）；用户拍板后 → status=decided；当天的事写进当天的 log 文档；同步更新 focus/nextCheckpoint/updatedAt 与各机器队列。本项目另：预注册判据先于结果固定、DEV 每个模型只评一次、不事后改判据；长任务用后台事件等待器（心跳 50 分钟），不前台 sleep 轮询（AGENTS.md）。",
+ "focus": "M35（PlantCAD2-Small + LoRA）训练已完成，ont 上正在跑 DEV 推理（内部验证 71.33，对 M31 B 的 63.26）；DEV 配对 CI 出来后由你定 M34 骨干（创建 GO_STAGE1），再跑 M34 阶段一 T2+T10（约 47 GPU 小时），之后 M36 自举适配。",
+ "nextCheckpoint": "M35 DEV 配对 CI（预注册规则：下界>0 推荐 PlantCAD2，跨 0 默认 NT-v2）→ 报告 21 与 M35_DONE → 你的骨干决定 → M34 T10 DEV≥70 判据（<65 止损）",
+ "updatedAt": "2026-10-22T17:30:00+02:00"
+}

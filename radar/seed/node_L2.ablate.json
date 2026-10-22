@@ -1,0 +1,15 @@
+{
+ "project": "crna",
+ "parent": "L2",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M28 消融与负面结果（粗通道、codon、联合编码）",
+ "order": 5,
+ "summary": "粗区域通道方向相反，codon 能量有害，联合编码只是相对自身早期版本的改进；均不作主张，进补充。",
+ "result": "粗通道 pooled DEV/TRAIN +0.31/−0.34；codon 能量 TRAIN −4.83、DEV −5.53",
+ "report": "docs/review_20261016/07_revised_claims_and_plan.md",
+ "date": "2026-10",
+ "feeds": [
+  "SUPP"
+ ]
+}

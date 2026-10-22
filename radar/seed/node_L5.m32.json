@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L5",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M32 PlantCAD2-Small 冻结 pilot",
+ "order": 3,
+ "summary": "植物专用自监督骨干冻结特征明显优于通用骨干，“骨干无关”有了第二个支撑。",
+ "result": "DEV 59.875（CI 56.5–62.5；拟南芥 65.21 / 水稻 48.06）；对 NT-v2 冻结 +8.95（配对 CI +7.1–+10.4）；对 NT-v2+LoRA −3.73；内部验证 58.74",
+ "report": "docs/review_20261016/17_M32_plantcad2_pilot.md",
+ "where": "ont outputs/M32-C1-PLANTCAD2",
+ "date": "2026-10-21",
+ "feeds": [
+  "F2"
+ ]
+}

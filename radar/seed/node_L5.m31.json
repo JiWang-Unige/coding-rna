@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L5",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M31 NT-v2 + q/v LoRA + 完整语法 pilot",
+ "order": 2,
+ "summary": "决策门成立（DEV ≥ 60）；差距集中在多外显子连接，CDS 碱基级几乎持平；LoRA 曲线仍在上升。局限：同物种开发面板、单 seed。",
+ "result": "DEV 63.61（CI 61.17–65.62；拟南芥 66.62 / 水稻 56.35）；冻结版 50.92；内部验证 56.14→61.73→63.26；≥6 段 53.98 对 GENERanno 65.81；CDS 碱基 F1 93.22 对 94.90",
+ "report": "docs/review_20261016/15_M31_C1_ntv2_pilot.md",
+ "where": "ont outputs/M31-C1-NTV2/runB",
+ "date": "2026-10-20",
+ "feeds": [
+  "F2"
+ ]
+}

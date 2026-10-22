@@ -1,0 +1,17 @@
+{
+ "project": "crna",
+ "parent": "L2",
+ "kind": "experiment",
+ "status": "done",
+ "title": "Carbon-A 同尺对标与差距分析",
+ "order": 3,
+ "summary": "Carbon-A 与 GENERanno preview 主权重相同（sha256 一致），是最强参照；同权重下我方全面落后。",
+ "result": "Carbon-A DEV 过滤 77.41 / 未过滤 75.24；TRAIN 过滤 78.172 / 未过滤 76.063；我方 TRAIN 最佳 72.958",
+ "report": "docs/review_20261016/06_carbon_a_gap_and_beating_plan.md",
+ "where": "benchmarks/carbon_a/",
+ "date": "2026-10-16",
+ "feeds": [
+  "F2",
+  "F4"
+ ]
+}

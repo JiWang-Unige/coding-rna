@@ -1,0 +1,17 @@
+{
+ "project": "crna",
+ "parent": "L2",
+ "kind": "experiment",
+ "status": "done",
+ "title": "三基线同尺 DEV/TRAIN（Helixer、Tiberius、ANNEVO）",
+ "order": 2,
+ "summary": "同 FASTA、固定默认操作点；排序稳定 ANNEVO > Tiberius > Helixer。暴露不同：Helixer 训练含拟南芥/水稻，Tiberius 含水稻，ANNEVO 声明排除二者。",
+ "result": "DEV：ANNEVO 75.703、Tiberius 71.805、Helixer 62.851；TRAIN：75.542 / 72.655 / 63.592",
+ "report": "paper/supplement/pretrained_exposure.md",
+ "where": "benchmarks/native_baselines/",
+ "date": "2026-10-13",
+ "feeds": [
+  "F2",
+  "F4"
+ ]
+}

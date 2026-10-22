@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L4",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M30 新物种部分标签适配（Dryas / Eschscholzia）",
+ "order": 3,
+ "summary": "方向判据不成立（适配不优于 Carbon-A 过滤版），机制判据成立（边缘化远优于填背景）；头部适配在冻结 Carbon-A 特征上无价值。",
+ "result": "B 集 Carbon-A 过滤 Dryas 73.98 / Esch 73.32；k=25% U 比其低 2.32 / 2.73；U−F +16.50 / +14.15（CI 远离 0）；k=10% 按决定取消",
+ "report": "docs/review_20261016/14_M30_results.md",
+ "where": "ont outputs/M30-HOLDOUT-ADAPT",
+ "date": "2026-10-19",
+ "feeds": [
+  "F3"
+ ]
+}

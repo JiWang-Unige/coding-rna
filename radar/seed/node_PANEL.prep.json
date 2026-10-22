@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "experiment",
+ "status": "done",
+ "title": "面板数据下载、冻结与标准化（仅 CPU + 网络）",
+ "order": 1,
+ "summary": "没有运行任何模型；面板序列在看任何预测前已冻结。",
+ "result": "12 物种 × 5 文件 60/60 md5 一致；主核序列 179 条 / 8.25 Gb；CDS-assessable 主参考 331,106（1 / 2–5 / ≥6 段 = 67,513 / 149,793 / 113,800）",
+ "report": "docs/review_20261016/25_independent_panel_preparation.md",
+ "where": "ont ~/coding-rna/data/panel（raw 2.7 GB + prepared 9.8 GB + homology 1.4 GB）；experiments/PANEL-PREP/results",
+ "date": "2026-10-22",
+ "feeds": [
+  "F4"
+ ]
+}

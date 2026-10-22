@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L7",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M36 CPU 准备（miniprot 种子、标签接口、无基因边缘后验）",
+ "order": 1,
+ "summary": "未训练、未用 GPU、未读 Dryas/Esch 参考注释和评估集 B。",
+ "result": "241,717 条查询蛋白；S2 种子 Dryas 3,674（训练染色体 3,014）/ Esch 2,309（训练 2,000），中位 identity 0.79；6 个单元测试；无基因边缘后验与穷举一致 < 1e-9，约 312 s/Mb（拥挤核）",
+ "report": "docs/review_20261016/26_M36_cpu_preparation.md",
+ "where": "ont ~/coding-rna/data/m36；experiments/M36-BOOTSTRAP-ADAPT",
+ "date": "2026-10-22",
+ "feeds": [
+  "F6"
+ ]
+}

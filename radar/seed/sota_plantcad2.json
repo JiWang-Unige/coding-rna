@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "category": "DNA 语言模型骨干",
+ "order": 3,
+ "name": "PlantCAD2 / PlantCaduceus",
+ "year": "PNAS 2025；PlantCAD2 bioRxiv 2025-08",
+ "status": "compared",
+ "what": "植物专用单核苷酸 DNA 模型，Mamba2，8 kb 窗口，反向互补严格等变；预训练取注释基因 ±5 kb，含拟南芥/水稻。",
+ "numbers": "M32 冻结 DEV 59.875（对 NT-v2 冻结 +8.95）；M35 +LoRA 内部验证 71.33，DEV 待出",
+ "relation": "“骨干无关”的第二个骨干，M34 的候选骨干；暴露问题要在论文披露。",
+ "source": "docs/review_20261016/16_plantcad2_feasibility.md、17_M32_plantcad2_pilot.md"
+}

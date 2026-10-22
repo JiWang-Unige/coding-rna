@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "PAPER",
+ "kind": "task",
+ "status": "todo",
+ "title": "主应用选择（isoform 感知 / 泛基因组）",
+ "order": 13,
+ "summary": "大纲建议先做 isoform 感知（纯 CPU）；ncRNA 不进本篇。",
+ "next": "见 dec_app",
+ "report": "docs/paper_outline_20261021.md §4.3"
+}

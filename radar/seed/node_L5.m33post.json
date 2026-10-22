@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "L5",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M33 NT-v2+LoRA 基因后验校准与过滤",
+ "order": 4,
+ "summary": "直接用配分函数训练的后验在 τ=1 即校准；阈值只在内部验证选定，在新物种近似最优。",
+ "result": "ECE 0.031、AUROC 0.82；DEV 63.61→65.29（+1.68，CI +1.31–+2.09）；新物种过滤 +2.47 / +2.31；阈值事后最优仅高 ≤0.07",
+ "report": "docs/review_20261016/18_M33_ntv2_followup.md",
+ "where": "ont outputs/M33-NTV2-FOLLOWUP",
+ "date": "2026-10-21",
+ "feeds": [
+  "F5"
+ ]
+}

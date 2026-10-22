@@ -1,0 +1,10 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "task",
+ "status": "queued",
+ "title": "M34 GPU smoke（≤20 步，含断点恢复）",
+ "order": 5,
+ "summary": "条件：M35_DONE 与 GO_STAGE1 都存在、本机无 M32/M33/M35 进程、连续 3 次检查通过。",
+ "report": "docs/review_20261016/20_M34_stage1_results.md"
+}

@@ -1,0 +1,16 @@
+{
+ "project": "crna",
+ "parent": "PANEL",
+ "kind": "experiment",
+ "status": "todo",
+ "title": "我方最终模型面板推理",
+ "order": 4,
+ "summary": "NT-v2/PC2 路径约 160–200 kbp/s，8.6 Gb 约 12–15 h；GENERanno 路径约 17 kbp/s 不可取。",
+ "blockedBy": "等最终配置（M34 + seeds）",
+ "eta": "12–15 GPU 时",
+ "report": "docs/paper_outline_20261021.md",
+ "feeds": [
+  "F4",
+  "F5"
+ ]
+}

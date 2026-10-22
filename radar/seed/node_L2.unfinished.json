@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "parent": "L2",
+ "kind": "experiment",
+ "status": "paused",
+ "title": "未结项目 A33/A44/E-M 能量池、qvo-LoRA",
+ "order": 6,
+ "summary": "00 号文档建议除 qvo-LoRA 外按“探索性未完成”归档；qvo-LoRA 的 7 个 sbatch 已写未提交。",
+ "next": "待核对：是否仍要做 qvo-LoRA（当前路线已转向开放骨干，大概率不做）",
+ "report": "docs/review_20261016/00_synthesis_and_NC_gap_analysis.md",
+ "date": "2026-10-16"
+}

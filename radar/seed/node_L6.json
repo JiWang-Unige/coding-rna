@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "running",
+ "title": "L6 骨干选择与多物种放大（M35 → M34）",
+ "order": 6,
+ "summary": "先看 PlantCAD2+LoRA 是否胜过 NT-v2+LoRA，再用胜出骨干做 2/4/6/10 物种放大与部分标签 arm。",
+ "where": "ont ~/coding-rna/outputs/M35-PLANTCAD2-LORA、M34-NTV2-SCALEUP",
+ "date": "2026-10-22",
+ "report": "docs/review_20261016/20_M34_stage1_results.md"
+}

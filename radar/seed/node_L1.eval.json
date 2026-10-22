@@ -1,0 +1,14 @@
+{
+ "project": "crna",
+ "parent": "L1",
+ "kind": "experiment",
+ "status": "done",
+ "title": "M1 基线复现与评价器",
+ "order": 1,
+ "summary": "复现 Tiberius/Helixer/ANNEVO；发现跨工具 UTR 口径不可比，统一为 CDS-span；定下两层 anchor（预训练上限 vs 同预算随机初始化）。",
+ "report": "docs/review_20261016/03_research_history_M1_M27.md",
+ "date": "2026-06-10",
+ "feeds": [
+  "SUPP"
+ ]
+}

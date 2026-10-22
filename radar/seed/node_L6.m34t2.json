@@ -1,0 +1,14 @@
+{
+ "project": "crna",
+ "parent": "L6",
+ "kind": "experiment",
+ "status": "queued",
+ "title": "M34 T2 对照臂（拟南芥+水稻，3,072 步）",
+ "order": 6,
+ "summary": "用于 T10 − T2 配对差，不受 sampler/标签口径差异影响。",
+ "eta": "约 23 h",
+ "report": "docs/review_20261016/19_M34_scaleup_plan.md",
+ "feeds": [
+  "F3"
+ ]
+}

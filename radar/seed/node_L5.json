@@ -1,0 +1,11 @@
+{
+ "project": "crna",
+ "parent": "",
+ "kind": "layer",
+ "status": "done",
+ "title": "L5 开放骨干：NT-v2 与 PlantCAD2（2026-10-19 → 10-21）",
+ "order": 5,
+ "summary": "纯自监督 NT-v2 + LoRA + 完整语法在 DEV 追平 Helixer；PlantCAD2 冻结优于 NT-v2 冻结；后验天然校准；但新物种零样本大幅崩塌。",
+ "report": "docs/review_20261016/15_M31_C1_ntv2_pilot.md",
+ "date": "2026-10-21"
+}

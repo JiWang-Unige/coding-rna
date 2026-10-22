@@ -1,0 +1,12 @@
+{
+ "project": "crna",
+ "parent": "INFRA",
+ "kind": "task",
+ "status": "done",
+ "title": "两个工作目录合并为单仓库",
+ "order": 1,
+ "summary": "本地 coding-rna-reorg 为唯一工作目录，原目录已归档到 ~/Desktop/_archive；分支仅 main；Baobab HEAD 42fba52 与本地一致。",
+ "next": "目录名暂为 coding-rna-reorg，AGENTS.md 约定 M37 结束后改名（见 dec_rename）",
+ "where": "AGENTS.md「仓库与目录」",
+ "date": "2026-10-21"
+}
