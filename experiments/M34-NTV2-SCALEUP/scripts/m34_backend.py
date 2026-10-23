@@ -78,6 +78,8 @@ def load(cfg, lora=True, device='cuda'):
         return Ctx(model, cfg), []
     api = _pc2_lora_api()
     params = api.add_lora(model, api.CFG)
+    if hasattr(api, 'enable_layer_checkpoint'):          # (2026-10-22 fix) as M35 c1_train_lora: layer checkpointing of the LoRA blocks under grad,
+        api.enable_layer_checkpoint(model, tuple(api.CFG['layers']))   # otherwise the chunked backward keeps ~13 GB of Mamba activations (smoke OOM)
     cfg['lora'] = dict(api.CFG)
     return Ctx(model, cfg, api), params
 

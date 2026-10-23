@@ -59,3 +59,16 @@ smoke 之前不修改：每个 arm ≈ 22.5–24 h（3,072 步 × 23.4 s + 验�
 1. 协调者在用户决定骨干后创建 `GO_STAGE1`（内容 `ntv2` 或 `pc2`），M35_DONE 出现后在 ont 启动 `m34_queue.sh`（见 §0）。
 2. smoke → T2 → T10 自动运行；等待器：Mac 上 `wait_stage.sh`（后台，50 分钟心跳）。
 3. 完成后在本文件追加：训练曲线、内部验证选择、DEV 结果（按物种/段数分层、CDS 碱基 F1、背景负担、1 Mb 块 bootstrap CI，T10−T2 配对差）、与 M31 B 63.61 / Helixer 62.85 / Tiberius 71.81 / ANNEVO 75.70 / GENERanno fresh-joint 70.11 的对比、T10 ≥ 70 判据、其余 arm 的建议；并写 `M34_STAGE1_DONE`。
+
+## 6. GPU 阶段执行记录（2026-10-22 至 10-23；追加）
+
+骨干：M35 报告 21 的主判据成立（DEV Δ +8.61，CI 下界 +7.57 > 0），协调者 10-22 17:56 创建 `GO_STAGE1` = `pc2` 与 `M35_DONE`，18:09 启动 `m34_queue.sh`。pc2 smoke 共放行四次：
+
+| 时间 | 结果 | 原因与修正 |
+|---|---|---|
+| 10-22 18:06 | 失败（schedule） | `m34_smoke.sh` 在 `O` 赋值前 `mkdir`，`pc2_smoke/` 不存在；调整 `mkdir` 顺序 |
+| 10-22 18:19 | 失败（train_t10_a） | `m34_train_lora.py` 里局部变量 `ctx` 遮蔽了编码器上下文（`'numpy.ndarray' object has no attribute 'enc'`）；改名为 `ctx_logits` |
+| 10-22 21:38 | 失败（train_t10_a，OOM） | 分块反传保留约 13 GB Mamba 激活；`m34_backend.load` 对 pc2 启用 M35 同款 LoRA 块层检查点（`enable_layer_checkpoint`） |
+| 10-22 22:00–22:32 | **全部计算通过，仅资源检查未过** | T10 20 步含断点恢复、k50U/k50F 各 3 步、切片推理与打分、infeasible 0、峰值显存 3.80 GB；步时中位 **64.4 s**（均值 65.8、最大 93.3）> 脚本写死的 `step_s_median < 60` |
+
+**偏离说明（用户 2026-10-23 决定）**：`step_s_median < 60 s` 是按 NT-v2 后端（约 23 s/步）写的算力检查，不是科学判据。pc2 后端的步时在 M35 已记录为 45–110 s（独占 45–66 s），报告 21 据此估 M34 每 arm 56–94 h。用户决定把 pc2 的门槛放宽为 **< 120 s**（`m34_smoke.sh` 按 `M34_BACKEND` 区分，NT-v2 仍为 60 s），其余检查不变；对应最坏情形约 102 h/arm，按实测 64.4 s 约 55 h/arm，阶段一（T2 + T10）约 5 天。方案 19 的训练配置（3,072 步、抽样、判据）未改。重启队列前不重跑 20 步 smoke：对第四次的既有产物（`pc2_smoke/`）按新门槛重新执行脚本末尾的判定块，`SMOKE_OK` 中记录 `step_s_limit`=120，队列据此直接进入 T2。重启队列的时间与后续事件见 `~/coding-rna/outputs/M34-NTV2-SCALEUP/queue.jsonl` 与看板日志。

@@ -4,10 +4,10 @@
 #  (2) T10_k50U: 3 steps (partial-label treatment U on the GPU path);  T10_k50F: 3 steps (treatment F)
 #  (3) end-to-end inference + validation scoring of the 20-step model on a 300-kb slice of a new-species validation pseudo-contig
 CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
-mkdir -p $O $HOME/coding-rna/logs
 cd $HOME/coding-rna-reorg/experiments/M34-NTV2-SCALEUP/scripts
 source ./m34_env.sh
 O=$OUTROOT/${ARMPFX}smoke
+mkdir -p $O $HOME/coding-rna/logs     # (2026-10-22 fix: O was used before it was set, so the pc2_smoke/ dir was never created)
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONUNBUFFERED=1
 rm -f $O/SMOKE_OK $O/SMOKE_FAIL
 fail() { echo "{\"event\":\"smoke_fail\",\"why\":\"$1\",\"time\":\"$(date -Is)\"}" >> $O/smoke_log.jsonl; touch $O/SMOKE_FAIL; exit 1; }
@@ -42,7 +42,9 @@ out = dict(t10_steps=len(t10), resumed_continuous=resumed, step_s_median=statist
            slice_val=json.loads(open(f'{O}/metrics.jsonl').readlines()[-1]))
 est = out['step_s_median'] * 3072 / 3600
 out['projected_train_hours_3072_steps_at_median'] = est
-ok = resumed and inf <= 16 and out['k50U_steps'] == 3 and out['k50F_steps'] == 3 and all(l == l and l < 5 for l in [out['loss_last']]) and out['step_s_median'] < 60
+# step-time resource check: 60 s was written for NT-v2 (~23 s/step); for pc2 the user relaxed it to 120 s on 2026-10-23 (M35 measured 45-110 s/step, 4th smoke median 64.4 s) -- report 20 deviation note
+out['step_s_limit'] = 120 if os.environ.get('M34_BACKEND') == 'pc2' else 60
+ok = resumed and inf <= 16 and out['k50U_steps'] == 3 and out['k50F_steps'] == 3 and all(l == l and l < 5 for l in [out['loss_last']]) and out['step_s_median'] < out['step_s_limit']
 json.dump(out, open(f'{O}/summary.json', 'w'), indent=1)
 open(f'{O}/' + ('SMOKE_OK' if ok else 'SMOKE_FAIL'), 'w').write(json.dumps(out))
 print(json.dumps(out))

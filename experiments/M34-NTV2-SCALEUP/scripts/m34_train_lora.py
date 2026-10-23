@@ -154,9 +154,9 @@ def main():
                 p = []
                 for a in range(0, n, 4):
                     p += [x.detach() for x in fwd(it, list(range(a, min(a + 4, n))), False)]
-            ctx = G.owned_context_logits(p, it['geo'], it['w']['strand']).cpu().numpy()
+            ctx_logits = G.owned_context_logits(p, it['geo'], it['w']['strand']).cpu().numpy()   # (2026-10-22 fix: this local used to shadow the encoder ctx)
             cs, ce = it['core']
-            futs.append(pool.submit(it['context'], ctx.astype(np.float32), cs, ce, it['targets'], CFG['epsilon']) if it['counts'][0] + it['counts'][1] > 0 else None)
+            futs.append(pool.submit(it['context'], ctx_logits.astype(np.float32), cs, ce, it['targets'], CFG['epsilon']) if it['counts'][0] + it['counts'][1] > 0 else None)
             items.append(it); pots.append(p)
         total_loss, dp_s, t_bwd, skipped, infeasible = 0., 0., 0., 0, 0
         by_sp = {}
