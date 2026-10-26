@@ -3,6 +3,7 @@ Imports the M30 / M34 helpers and the frozen M28 code unchanged.  CPU only: no m
 
 Run on ont:  cd ~/coding-rna-reorg/experiments/M36-BOOTSTRAP-ADAPT/scripts && taskset -c 24-31 nice -n 10 ~/envs/generanno/bin/python <script>.py ...
 """
+import math
 import os
 import sys
 from pathlib import Path
@@ -18,7 +19,8 @@ import a1_common as K           # noqa: E402
 
 ROOT = C.ROOT                                            # ~/coding-rna-reorg
 DATA = ROOT / 'data' / 'm36'                             # -> ~/coding-rna/data/m36   (proteins, A-only genomes, miniprot raw, seeds)
-OUT = K.OUTS / 'M36-BOOTSTRAP-ADAPT'                     # -> ~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT
+OUT = Path(os.environ['M36_OUT']) if os.environ.get('M36_OUT') else K.OUTS / 'M36-BOOTSTRAP-ADAPT'   # -> ~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT (M36_OUT: tests / dry runs)
+M34OUT = Path(os.environ['M36_M34_OUT']) if os.environ.get('M36_M34_OUT') else C.OUT                  # -> ~/coding-rna/outputs/M34-NTV2-SCALEUP
 M1 = M30.DATA                                            # data/m1_screen/<species>/{genome.fa, inputs/<contig>.fasta, lengths.json}
 MINIPROT = os.path.expanduser('~/envs/miniprot/bin/miniprot')
 
@@ -27,6 +29,36 @@ COVERAGE_MIN = 0.95        # aligned query span / protein length
 IDENTITY_MIN = 0.70        # miniprot Identity of the alignment
 MAX_EXONS = 128            # frozen grammar exon cap (the labels/DP use 128)
 PSEUDO_BACKGROUND_MIN_P = 0.99   # S1/S3 pseudo-background: per-base P(no gene covers the base) >= this
+
+# ---- GPU pipeline constants (protocol 22 §2-§5, §9; GPU pipeline = report 26 §7) ------------------------------------------------------
+BASE_MODEL = M34OUT / 'pc2_T10' / 'model_003072.pt'      # protocol 22 §9 (2026-10-26 15:25): M34 T10, backend pc2 (PlantCAD2-Small + M35 LoRA), step 3072
+Z_DIR = M34OUT / 'p2b' / 'T10'                           # zero-shot arm Z = the P2b T10 output on the seven B contigs (same model, same path; pot/ kept)
+S1_TAU = 1.0                                             # M33 frozen selection (selection.json): tau* = 1.0 ...
+S1_LOGP_THR = -1.400270636077039                         # ... and thr* = -1.400 (keep chains with log P(g in gene set) >= thr*; P >= 0.2466)
+S1_LOGP_P90 = math.log(0.9)                              # sensitivity set (protocol 22 §2 S1: "另记 P >= 0.9")
+S1_MIN_CDS_BP = 96                                       # project ruler: unique exact chains with CDS >= 96 bp (the set the M33 threshold was calibrated on)
+TRAIN = dict(steps=512, batch=8, lr_head=5e-5, lr_lora=1e-4, lr_final=1e-6, warmup_frac=.05, clip=1., sampling_seed=1, uniform_fraction=.5,
+             ckpt_every=64, keep_every=128, main_step=512)   # protocol 22 §3 (model files every 128 steps; resumable snapshot every 64 so that an interruption costs <= 64 steps)
+ARMS = ('S1', 'S2', 'S3', 'F1')
+SPECIES = ('dryas_octopetala', 'eschscholzia_californica')
+PREFIX = {'dryas_octopetala': 'dry', 'eschscholzia_californica': 'esc'}
+F1_SPECIES = os.environ.get('M36_F1_SPECIES', 'dryas_octopetala')   # protocol 22 §6 counts ONE F1 control (7 trainings); the species is not fixed by the protocol (report 26 §7)
+# GPU order of the trainings: S2 does not depend on the CPU-made S1 seeds, so it goes first; Dryas (smaller A set) before Esch for the S1-dependent arms
+DEFAULT_ORDER = ['S2:dryas_octopetala', 'S2:eschscholzia_californica', 'S1:dryas_octopetala', 'S3:dryas_octopetala', f'F1:{F1_SPECIES}',
+                 'S1:eschscholzia_californica', 'S3:eschscholzia_californica']
+
+
+def arm_key(arm, species):
+    return f'{arm}_{species}'
+
+
+def order():
+    """[(arm, species)] training order (env M36_ORDER = 'S2:dryas_octopetala S1:... ' overrides; protocol arms only)."""
+    raw = os.environ.get('M36_ORDER', '').split() or DEFAULT_ORDER
+    out = [tuple(x.split(':')) for x in raw]
+    assert all(a in ARMS and s in SPECIES for a, s in out), out
+    return out
+
 
 # ---- target species: label-set A contigs only (M30 protocol 13 §2).  Evaluation-set B contigs are NEVER listed here. --------------------
 TARGETS = {}

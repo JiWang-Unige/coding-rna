@@ -167,3 +167,111 @@ taskset -c 24-31 nice -n 10 ~/envs/generanno/bin/python scripts/m36_seed_filter.
 taskset -c 24-31 nice -n 10 ~/envs/generanno/bin/python -m pytest -q -s tests/
 taskset -c 24-31 nice -n 10 ~/envs/generanno/bin/python scripts/m36_nogene_marginal.py bench 2e6
 ```
+
+
+## 7. GPU 流水线实现（2026-10-26）
+
+范围：实现并在 ont **仅 CPU**（核 25–31，nice 10）上测试协议 22 的 GPU 阶段全部脚本（§5 启动清单 1–6 项）：A 染色体零样本推理 → S1 种子与伪背景（CPU）→ 7 次适配训练 → 评估集 B 一次性推理 → 打分与 §5 判据。驱动 `m36_queue.sh` 已在 ont 后台启动，**正在等待 `P2B_DONE`，没有使用 GPU**。**没有训练、没有任何 GPU 作业、没有读取任何 B 集输出或分数**（B 的 GFF / 参考只在 `m36_score.py` 里读取；测试里读取的是 M30 的 Carbon-A 预测与 M33 / M30 既有输出，都是已打分的旧结果）。判据、臂定义、超参数、数据划分、基模均未改动（基模按协议 22 §9 为 T10；Z 臂复用 P2b 的 T10 输出）。M34 / M30 / M33 / M35 文件**一个字节都没改**：M36 训练器在进程内 monkey-patch 包装 `m34_train_lora.main`，所以不存在需要证明"未使用时行为不变"的 M34 钩子；测试验证了补丁退出后 M34 的函数与 `CFG` 原样恢复，补丁内其他臂（如 `T10`）仍解析到 M34 定义。
+
+### 7.0 结论先行
+
+| 项 | 结果 |
+|---|---|
+| 基模 / Z 臂 | `~/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T10/model_003072.pt`（md5 `280d4efbf7a252e3f0b8adb8babb6531`；队列启动时与 `p2b/model_T10.json` 核对，不同则拒绝）；Z = P2b 的 `p2b/T10`（同一模型、同一路径，`pot/` 保留），**不重跑** |
+| 实现 | 12 个新脚本 + 5 个新测试文件（§7.1）+ `m36_common.py` / `tests/conftest.py` 小改；本地与 ont `~/coding-rna-reorg/experiments/M36-BOOTSTRAP-ADAPT` 同路径，已 push、md5 核对 |
+| 测试（ont，CPU） | 69 项全部通过（新增 60 + 既有 9），其中包括真实 `m34_train_lora.main` 循环的 CPU 冒烟（4 个臂 + 断点续跑 + 指纹拒绝）、队列干跑、Carbon-A 数值复现、判据各分支、假根端到端打分（§7.6） |
+| GPU 时数（现实估计） | **≈ 58 h（43–78 h）**，协议估计 28–30 h；差别几乎全在训练步时（pc2 实测中位 41.4 s/步，协议按 NT-v2 的 18–25 s 估），见 §7.5 |
+| 队列 | `m36_queue.sh` 已于 2026-10-26 17:22 在 ont 后台启动（PID 1492157，`setsid nohup`，日志 `~/coding-rna/logs/m36-queue.out`），`queue.jsonl` 最后一行为 `waiting`（原因：无 `P2B_DONE`；P2b 进程 334609 / 3174339 仍在运行），GPU 上没有 M36 进程 |
+| 需用户知悉的取舍 | 7 次训练里只有 **1 个 F1 对照**，协议没写在哪个物种上做，默认 Dryas（`M36_F1_SPECIES`）；GO-强 / NO-GO / "CI 不排除持平"的读法；见 §7.2。这些只影响判据的**解读代码**，不影响任何训练或推理 |
+
+### 7.1 文件（`experiments/M36-BOOTSTRAP-ADAPT/{scripts,tests}`）
+
+| 文件 | 作用 |
+|---|---|
+| `m36_common.py`（改） | 增加 `M36_OUT` / `M36_M34_OUT` 环境覆盖（测试与干跑用假根）；基模 / Z 路径；S1 常量（M33 冻结 τ=1、thr −1.400270636、P≥0.9、CDS≥96 bp）；训练超参（协议 §3）；训练顺序 |
+| `m36_s1_seeds.py` | S1 种子：零样本解码链中 M33 后验 log P ≥ thr 的链（另写 P ≥ 0.9 敏感性集，不被任何臂使用）→ 种子行（相位重算；冻结 `chain_checks` 不过的丢弃并计数）；伪背景 = `pseudo_background(P(无基因), 0.99)`，并与 `m36_nogene_marginal` 自带区段交叉核对；写 `seeds_S1_*.json`、`background_*.json`、`seed_stats_S1_*.json`、`READY_<species>` |
+| `m36_cpu_queue.py` | CPU 任务队列（M33 `m33_post_queue` 的模式）。`seeds` 模式：每个 A contig × 链的 M33 后验 + 无基因边缘（`taskset 24-31`、nice 10、8 进程、内存预算 40 GB；某 contig 的 pot / chains 一出现就开算，大者优先）；一个物种全部完成后自动构建 S1 种子。`bpost` 模式：B 集各臂的后验（描述性），完成后删除该臂 `pot/`（Z 的不删） |
+| `m36_train_inputs.py` | 各臂种子 / 背景读入与标签器：S1 = S1 种子 + 伪背景；S2 = 蛋白种子、无背景；S3 = `arm_seeds('S3')`（S2 ∪ S1，S2 优先）+ S1 伪背景；F1 = S1 种子 + 其余全背景 |
+| `m36_schedule.py` | 抽样序列（协议 §3）："种子优先 + 均匀"各半，`default_rng(1)`，几何同 M34 `draw_schedule`（均匀半：A 训练 contig × 链 × 24,576 网格窗；种子半：均匀选种子，再在覆盖其 CDS 跨度的 ≤5 个网格窗里均匀选一个，取种子所在链）；512 步 × 8 = 4,096 次；S1 与 F1 种子集相同 → 同一序列 |
+| `m36_train.py` | 导入 `m34_train_lora.main`（不改），进程内补丁 `T.arm_spec / T.arm_labelers / T.forbidden_contigs / BK.load / BK.check_init / CFG['lr_final']`。`BK.load` 外包一层，把**基模的 LoRA 载入**新建的 LoRA（M34 训练器自己是零初始化 LoRA；协议 §3 要求"继续训练头 + LoRA"）；头从基模载入。lr 头 5e-5 / LoRA 1e-4，余弦到 1e-6，5% warm-up（26 步），clip 1，batch 8，512 步；可恢复快照每 64 步，模型文件每 128 步；首次运行把基模 md5、种子文件 md5、调度 md5 写入 `m36_arm.json`，之后任何不同的重启退出码 11 |
+| `m36_supervise.sh` | `m34_supervise.sh` 的 M36 版：任何中断后从 `ckpt_latest.pt` 续跑；空闲显存 < 7.5 GB 等待；连续无进展且非 CUDA/OOM 时 FATAL |
+| `m36_infer.sh` | `m34_infer_retry.sh` 的 P2b 包装版（`m34_p2b_infer.py`：M30 注册后 Dryas / Esch 与 `__val20M` 可解析，解码子进程里同样）；按 (contig, 链) 续跑；`--keep-head` 保留 `pot/`；显存 < 5 GB 等待 |
+| `m36_gate.sh` | P2b 闸门逻辑：`P2B_DONE` 存在，无 `m34_train/infer/p2b/stage/queue/supervise/smoke` 进程，无属于 coding-rna 的 GPU 计算进程（同账号 TE 项目的 GPU 进程不计）；每个 GPU 阶段之前再查一次 GPU 进程 |
+| `m36_sentinel.py` | 一次性哨兵：首次创建并记录身份（模型 md5 等）；之后只有相同身份才放行（可续跑），不同 → 11，已完成 → 10 |
+| `m36_score.py` | 评分：`main`（未过滤 exact-chain F1，判据）、`post`（后验过滤，描述）、`carbonA`（复现 M30 数值） |
+| `m36_queue.sh` | 驱动（§7.2） |
+| `m36_cpu_smoke.py` | 在 CPU 上跑**真实的** `m36_train.main → m34_train_lora.main` 循环（伪编码器，§7.6） |
+| `tests/test_m36_{s1_seeds,schedule,train,queue,score}.py` | §7.6 |
+
+### 7.2 流水线、顺序与协议未写明之处的取舍
+
+`m36_queue.sh`（`flock` 单实例；事件 JSONL `~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT/queue.jsonl`；终止哨兵 `M36_DONE`）：
+
+1. **闸门**：`P2B_DONE` 存在 + 无其他 coding-rna GPU 作业，连续 3 次、间隔 60 s 通过；再核对基模 md5 = P2b `model_T10.json` 的 md5、`pc2_T10/best_step.txt` = 3072、`p2b/T10/DONE_*.json` 存在。
+2. **A 零样本**：基模对 8 个区域一次推理（Dryas `NC_141366.1 / 368.1 / 370.1 / 372.1` + `NC_141374.1__val20M`；Esch `NW_028238198.1 / 420.1` + `NW_028238472.1__val20M`；每链 **301.0 Mb**，简报写 ≈335 Mb，按 `lengths.json` 实算为 301.0），`pot/` 保留 → `zeroshot_A/`。B 染色体名不出现在 A 推理或任何训练输入里。
+3. **S1 / 背景（CPU，与 GPU 重叠）**：A 推理开始前，队列就在后台启动 `m36_cpu_queue.py seeds`，每个 (contig, 链) 的 pot 与链一落盘就算后验（τ=1）和无基因边缘；一个物种全部完成后自动构建种子并写 `seeds/READY_<species>`。
+4. **7 次训练，串行**：顺序 S2-Dryas、S2-Esch、S1-Dryas、S3-Dryas、F1-Dryas、S1-Esch、S3-Esch。与简报"A 零样本 → S1 → 训练"相比，**只是把依赖 S1 种子的臂排在 S2 之后**：S2 不需要 S1 种子，先训练可以让 GPU 不等 CPU 后验（后验 + 边缘共 ≈ 21–27 CPU 小时，8 核空闲时 3 h，ont 现在负载 ≈ 70 会更久）。队列每次选"顺序中第一个种子已就绪的臂"，都没就绪就等，并在 CPU 队列死掉时重启它（≤ 6 次）。顺序不改变任何臂的定义、种子、抽样序列或超参。
+5. **B 一次性推理**：每个训练好的模型（step 512，主结果）**只推理自己物种的 B contig**（Dryas 4 条 102.8 Mb，Esch 3 条 170.5 Mb；不是简报写的"7 次 × 273 Mb"，7 个模型合计 922.7 Mb），哨兵 `evalB/<arm>_<species>.B_INFER_STARTED.json`（首次记录模型 md5，之后同一模型才放行）。B 集后验的 CPU 队列此时才启动（描述性）。
+6. **打分**：`m36_score.py main`，哨兵 `results/SCORE_MAIN_STARTED.json`（同一模型 / 输入才允许重启，完成后再调用退出码 10）→ `results/m36_result.json`，`M36_DONE`。之后 `m36_score.py post`（后验过滤的 F1、闭合比例、AUROC / ECE；冻结 τ=1、thr=−1.400；**描述性**，独立哨兵）→ `M36_POST_DONE`。
+
+**协议未写明、已固定的解读**（写在代码与结果 JSON 的 `verdict.rules` 里，都发生在任何 M36 输出产生之前）：
+
+- **F1 对照放在哪个物种**：协议 §6 写"2 物种 × S1/S2/S3 + 1 个 F1 对照"= 7 次训练，没有指定物种；简报写"F1 × 2 物种"又写 7 次训练。取 7 次、F1 放 **Dryas**（A 集与 B 集都较小，训练与推理更便宜）。要改成 Esch 或加第 8 次：用 `M36_F1_SPECIES=eschscholzia_californica`（或 `M36_ORDER='…'`）重启队列（重启幂等）。`m36_score` 对每个有 F1 的物种报告 F1 − S1；"C2 撤回"在**任一**有 F1 的物种上 F1 − S1 ≥ −2.0 即成立。
+- **GO-强的"CI 不排除持平"**：S2 或 S3 的 (臂 − Carbon-A 过滤) 点估计 ≥ −2.0 且配对 CI 上界 ≥ 0，两物种都满足。
+- **GO**：S1 或 S3 中有一个臂在**两个物种**上都满足 闭合比例 ≥ 30% 且 (臂 − Z) 配对 CI 下界 > 0。
+- **NO-GO**："任一物种闭合 < 30%" 读作：存在某个物种，S1 / S2 / S3 里没有任何臂达到 30%（结果里另给仅看 S1 / S3 的更严读法）。GO-强、GO、NO-GO 都不成立时标签为 `INCONCLUSIVE`（协议 §5 的表没有覆盖，例如闭合 ≥ 30% 但配对 CI 含 0）。
+- **CI**：判据用简报指定的**配对 1 Mb 块自助法**（M34 P2b / DEV `c1_boot` 的统计量；2,000 次、`default_rng(0)`；对每个物种自己的块重采样）。协议 §4 写"1 Mb 块（含 100 kb 孤儿箱）… 与 M30/M33 同实现"，而 M30 / M33 的实现是**基因单位 + 100 kb 孤儿箱**，二者不是同一回事，所以另报 M30 的基因单位配对自助法 CI，并按它重算判据标签（`verdict_gene_unit_bootstrap`）作对照。
+- **S1 种子的 CDS ≥ 96 bp**：沿用项目 ruler 的"唯一精确链、CDS ≥ 96 bp"（M33 冻结阈值就是在这个集合上标定的）；低于 96 bp 的高后验链不进种子，数量记在 `seed_stats_S1_*.json` 的漏斗里。
+- **检查点**：模型文件每 128 步（128 / 256 / 384 / 512）；另每 64 步存可恢复快照，使一次中断最多损失 64 步，属工程冗余，不改变训练。主结果取 step 512，其余 step 不做 B 推理。
+- **闭合比例的分母**：Carbon-A 过滤版在**同一批 B contig 上**由 `m36_score` 用 M30 的 Carbon-A 预测重新计数（Dryas 6,807 / 8,895 / 9,508 = 73.98，Esch 8,584 / 11,048 / 12,367 = 73.32，与 M30 / M33 结果文件逐项相同；测试 `test_carbon_a_numbers_equal_the_m30_results`）；Z 取 P2b 的 T10 输出。M30 的参照行（k=25% U / F、k=100%）从 M30 结果文件原样读入结果 JSON。
+
+### 7.3 种子与后验的细节
+
+- S1：`m33_posterior.py`（τ=1，冻结 `complete_gene_set_posteriors` + scaled-mass 查询）对 zero-shot 解码的**全部**链给 log P；保留 log P ≥ −1.400270636（P ≥ 0.2466）且 CDS ≥ 96 bp 且通过冻结 `chain_checks` 的链，写 `seeds_S1_<species>.json`；P ≥ 0.9 的子集另写 `seeds_S1_P90_<species>.json`（记数，不被任何臂使用）。真实 M33 后验切片（拟南芥内部验证染色体 NC_003071.7 '+' 链前 400 个解码链）：log P ≥ thr 且 CDS ≥ 96 的 346 条全部通过 `chain_checks`（0 条丢弃），P ≥ 0.9 的 85 条。
+- 伪背景：`m36_nogene_marginal.py`（碱基级 P(无基因覆盖)，已在 §4 与穷举一致）每个 (contig, 链) 一次，`pseudo_background(…, 0.99)` 得到该链的基因组坐标区段；S1 与 S3 使用，S2 不用，F1 全背景。
+- 无基因边缘与基因后验各需一次前向 + 一次后向（≈ 65–80 s/Mb，空闲核）：A 集 602 Mb·链 × 2 种 ≈ 21.7–26.8 CPU 小时。
+
+### 7.4 B 集打分（`m36_score.py main`）
+
+- 每个物种一个 `Evaluator`（`m30_score`，exact-chain、CDS ≥ 96 bp、不过滤）；运行：`Z`（P2b `p2b/T10`）、训练臂、`CarbonA_filt`、`CarbonA_unf`。表：tp / pred / ref / F1 / P / R、按 contig、按段数 1 / 2–5 / ≥6、CDS 碱基 P/R/F1 与背景负担。
+- 闭合比例 = (F1_臂 − F1_Z) / (F1_CarbonA过滤 − F1_Z)，按物种；其 CI = (臂 − Z) 配对 CI 除以分母点估计。另给所有两两配对差（含 F1 − S1、S3 − S1、S3 − S2、臂 − Carbon-A）。
+- 描述量：每臂种子数 / 与 A 训练染色体参考基因的精确链命中率（读 A 参考，仅描述）；M30 参照行；后验过滤 F1 与校准在 `post` 阶段。
+
+### 7.5 GPU 时数：现实估计 vs 协议 28–30 h
+
+测得的输入（ont 共享 4090，TE 项目与他人同时在用）：
+
+- 训练步时：pc2 T10 的 3,072 步中位 **41.4 s**（均值 42.9，p10 33.5，p90 54.3；T2 中位 40.6），不是协议估计的 18–25 s。M36 的 S 臂有一部分窗口全部"未知"（S2 约一半的均匀窗口）会被训练器跳过 DP 与反传，步时可能略低；F1 臂与 M34 FULL 相同；这里按 FULL 的步时（上界）。
+- 推理速度：P2b T10 在 B 集上的**实测**（正在运行，`~/coding-rna/logs/m34-p2b-T10.out`）：Dryas 4 条 B contig 共 102.8 Mb 编码用了 5,192 s，即每链 **19.8 kbp/s**（逐条 19.3 / 19.3 / 20.7 / 20.5；两条链共用一次前向，所以同一数字也可写成 39.6 kbp/s "两条链合计"）；M34 验证 / DEV 推理的范围 22.7–44.2 kbp/s 每链。简报的"≈15–20 kbp/s 两条链合计"比实测偏保守 2 倍。
+
+| 项 | 量 | 时间（实测速度 19.8 kbp/s·链） | 范围 |
+|---|---|---|---|
+| A 零样本推理（每链 301.0 Mb） | 1 次 | **4.2 h** | 1.9–5.6 h（44.2 … 15 kbp/s） |
+| 适配训练 | 7 × 512 = 3,584 步 | **41.2 h**（5.9 h / 次） | 34.8–54.8 h（35–55 s/步） |
+| B 一次性推理（Dryas 102.8 Mb × 4 个模型 + Esch 170.5 Mb × 3 个模型 = 922.7 Mb·链） | 7 次 | **12.9 h**（Dryas 1.4 h、Esch 2.4 h / 次） | 5.8–17.1 h |
+| 合计 | | **≈ 58.3 h** | **≈ 43–78 h** |
+
+协议 22 §6 的 28–30 h = 训练 ≈ 20 h（18–25 s/步）+ B 推理 6 h + A 零样本 1.5 h。实际约为其 **2 倍**，差异来自训练步时（41 vs 18–25 s）与较慢的推理速度（19.8 vs 协议隐含的 ≈ 40 kbp/s·链）。串行约 **2.5 天**（GPU），CPU 的 S1 / 后验与 GPU 重叠；B 集后验（描述性，Z + 7 臂共 2,392 Mb·链 × 65–80 s/Mb ≈ 43–53 CPU 小时，4 进程）在 B 推理期间与之后进行，不阻塞主判据。P2b 本身（T10 + T2 各 273.3 Mb）按同一实测速度每个模型约 3.8 h（T10：15:11 起，Dryas 已于 16:38 完成，Esch 约 19:00 完成），T2 再 3.8 h，加 CPU 打分，预计 `P2B_DONE` 在 2026-10-26 约 23:00 CET（简报写 19:30，那只是 T10 推理的结束时间）。
+
+### 7.6 测试（ont，CPU 核 25–31，nice 10；GPU 未用）
+
+共 **69 项全部通过**：本节新增 60 项 + 既有 9 项（`test_seed_labels` 6、`test_nogene_marginal` 3，换了 `conftest.py` 之后重跑通过）。generanno 环境用 `~/envs/generanno/bin/pytest`；训练循环的 CPU 冒烟在子进程里用 plantcad2 环境（pc2 后端）运行，因为 pytest 下 spawn 进程池会重新进入 pytest（报告 20 §4）。所有数据测试只读 A 集 / 旧结果；没有读 B 集参考来做任何选择。
+
+| 文件（项数） | 验证了什么 |
+|---|---|
+| `test_m36_s1_seeds.py`（7） | 常量 = M33 冻结值（τ=1、thr=−1.400270636，P ≥ 0.2466，对照 M33 `selection.json`）；阈值边界（≥）、CDS ≥ 96 bp 规则、P ≥ 0.9 子集；种子行 = 植入链（CDS + 重算相位，含 '−' 链）；`chain_checks` 不过的链被丢弃并计数；S1 标签器：种子位点有精细标签、其余 IGNORE、伪背景为背景类、F1 无 IGNORE；`build()` 在玩具 A 物种上端到端（种子数、伪背景区段 = `pseudo_background(p, 0.99)`、`READY` 标记、S1 / F1 输入）；`m36_nogene_marginal` 的区段与 `pseudo_background` 不一致时拒绝；**真实 M33 后验切片**（拟南芥内部验证染色体 NC_003071.7 '+' 链前 400 条解码链，τ=1）：346 条过阈值且 CDS ≥ 96，**0 条** `chain_checks` 失败，P ≥ 0.9 的 85 条，30 个真实种子窗上标签正确 |
+| `test_m36_schedule.py`（9） | 4,096 次 = 512 × 8、确定性、种子优先 ≈ 50%、种子窗覆盖种子且同链、**均匀半与 M34 抽样律逐次相同**（同一 rng 流）、S1 与 F1 同序列、S2 / S3 不同、只抽训练 contig、B contig 被拒；真实 S2 种子（Dryas 训练 contig 3,014 条、Esch 2,000 条）的调度合法，且与种子列表顺序无关 |
+| `test_m36_train.py` 甲（12） | `Patched` 钩子装上与还原（M34 的 `arm_spec / arm_labelers / forbidden_contigs / load / check_init / CFG` 退出后原样恢复；补丁内 `T10` 等 M34 臂仍解析到 M34 定义；禁止集含 B contig 与验证伪 contig）；**基模 LoRA 被载入**新建的 LoRA；LoRA 配置不一致 / 后端不一致 / 无 LoRA 的基模被拒绝；lr 日程逐步核对（26 步 warm-up、头 5e-5 / LoRA 1e-4 峰值、余弦到 1e-6，clip 1，AdamW M34 默认）；默认参数 = 协议；种子 / 基模 / 调度变化 → 退出码 11；**S1 / S2 / S3 / F1 每个臂**在合成窗上走 draw → `T.example` → 窗口 DP：计数一致、损失与梯度有限、S3 丢弃与 S2 重叠的 S1 种子、F1 无未知位置、F1 在种子位点与 S 臂逐碱基相同其余为背景；真实 Dryas 窗口：F1 已知位置 ⊇ S2 已知位置、仅 N 碱基未知、种子窗含标签位点 |
+| `test_m36_train.py` 乙（6） | **真实的 `m36_train.main → m34_train_lora.main` 循环在 CPU 上运行**（伪编码器 = RC 等变伪特征 + 受 LoRA 参数影响的缩放，真实头、真实并行窗口 DP 进程池、真实 AdamW / 余弦 / 检查点）：4 个臂各训练 2 步——lr 为 5e-5 / 1e-4，写出 `DONE_2.json`、`model_000002.pt`、`ckpt_latest.pt`、`m36_arm.json`；**基模的 LoRA 出现在首次前向里**，训练后 LoRA 与头都变了，配置里 `treatment = 臂`、`lr_final = 1e-6`、`init_step = 3072`；断点续跑：2 步 + 恢复到 3 步 与不中断 3 步的 LoRA / 头一致（atol 1e-6）、第 3 步损失差 < 1e-4、恢复后首次前向的 LoRA = 快照中的 LoRA（不是基模的）；改动调度指纹后重启被拒绝（退出码 11） |
+| `test_m36_queue.py`（16） | 闸门：无 `P2B_DONE` 阻塞；其他 coding-rna 进程（含 P2b 自己的 `m34_p2b_infer`）阻塞；GPU 进程只有属于 coding-rna（命令行或工作目录含 `coding-rna`）才阻塞，TE 项目的 GPU 进程与其他用户 / 已消失的 pid 不阻塞。**队列干跑**（假根，`M36_DRY=1`）：走完 gate_open → base_verified → plan → CPU 种子队列 → A 零样本 → 7 次训练（顺序 S2-Dryas, S2-Esch, S1-Dryas, S3-Dryas, F1-Dryas, S1-Esch, S3-Esch）→ B 后验队列 → 7 次 B 推理（各自物种的 B contig）→ 打分 → 后验打分 → queue_exit，只记 `would_run`，不创建 `zeroshot_A / train / evalB`、不调用 GPU；A / B 区域串等于 M30 划分；基模 md5 不同 / best_step ≠ 3072 / 缺 Z 臂 / 基模变更 → 拒绝；无 `P2B_DONE` 时持续等待并记 `waiting`，第二个实例退出码 3，`P2B_DONE` 出现后继续；CPU 队列引擎：输入（pot **和**可解析的 chains）到齐才启动、大者优先、内存预算与进程数上限、失败重试一次、组未完成时不触发种子构建钩子、B 集 `pot/` 删除钩子不删 Z 的；监督器（桩训练器）：崩溃后从检查点续跑、确定性错误 FATAL、拒绝（11）透传、GPU 忙时不启动；推理启动器（桩）：重试、`--keep-head` |
+| `test_m36_score.py`（10） | **Carbon-A 过滤版在 B 集上复现 M30**：Dryas 6,807 / 8,895 / 9,508 = 73.977、Esch 8,584 / 11,048 / 12,367 = 73.321（未过滤 72.321 / 71.746，与 M30 / M33 结果文件逐项相同）；块自助法 = M34 P2b 实现（点估计、CI、frac_positive 相同，自身对自身差恰为 0）；闭合公式；判据各分支与边界值（GO-强：−2.0 / CI 上界 0 恰好满足；GO：30% 与 CI 下界 0 的边界；NO-GO 两种读法；INCONCLUSIVE；缺臂 / NaN 不算满足；C2：−2.0 边界）；一次性哨兵；**假根端到端**（"臂"用 M33 NT-v2 / M30 Gate 的既有输出，Z 用 M33 NT-v2 输出）：F1_Z = 49.92 / 44.09，S2 = S3 = Gate 输出的闭合比例 91.7% / 93.4%（(71.97−49.92)/(73.98−49.92) 等），S1 = Z 的差恰为 0、CI [0, 0]，标签 `GO`、`go_strong` 为假（Dryas Gate − Carbon-A = −2.0035，刚好在 2.0 之外），C2 判为撤回（F1 = S1），基因单位自助法给出同一标签；第二次调用退出码 10；输入（模型）变化退出码 11；缺臂退出码 2 且不写哨兵；后验过滤描述打分（构造的后验：真链 −0.5、假链 −3.0 → 过滤后 AUROC = 1、F1 高于未过滤、闭合比例按公式）及其一次性哨兵 |
+
+**这些测试没有、也不可能验证的**（必须等 GPU）：真实 PlantCAD2 编码器 + M35 LoRA 的前向 / 反传（M36 沿用 M34 已跑通的路径，只多了"载入基模 LoRA"一步，该步用假 LoRA API 测过）、显存与真实步时、GPU 上的断点恢复、`m34_p2b_infer` 在 A 区域上的真实推理（CPU 上只核对了 `NC_141374.1__val20M`、`NW_028238472.1__val20M`、`NC_141366.1` 在主进程与解码子进程里长度和序列 md5 一致）、真实 Dryas / Esch 零样本势上的后验与无基因边缘的运行时间与内存（无基因边缘的内存按 400 B/碱基保守估计，88 Mb 的 Esch NW_028238198.1 约 35 GB，预算 45 GB 内一次只跑它加小任务）、队列非干跑路径（GPU 阶段）的首次实跑。
+
+### 7.7 输出路径与状态命令
+
+`~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT/`：`queue.jsonl`（事件）、`base_model.json`、`zeroshot_A/`（A 推理；`pot/` `chains/` `DONE_*.json`）、`post_A/tau1/`、`nogene_A/tau1/`、`seeds/`（`seeds_S1_*`、`seeds_S1_P90_*`、`background_*`、`seed_stats_S1_*`、`READY_*`）、`schedules/`、`train/<arm>_<species>/`（`m36_arm.json`、`training.jsonl`、`interruptions.jsonl`、`ckpt_latest.pt`、`model_000128/256/384/512.pt`、`DONE_512.json`）、`evalB/<arm>_<species>/` 与 `evalB/<arm>_<species>.B_INFER_STARTED.json`、`postB/`、`results/`（`m36_result.json`、`m36_result_posterior_filtered.json`、`SCORE_*_STARTED.json[.done]`）、`M36_DONE`、`M36_POST_DONE`。Z 臂：`~/coding-rna/outputs/M34-NTV2-SCALEUP/p2b/T10`（不复制）。日志：`~/coding-rna/logs/m36-*`。
+
+进度：`tail -n 5 ~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT/queue.jsonl`；训练：`tail -n 3 ~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT/train/<arm>_<species>/training.jsonl`；CPU 队列：`tail -n 3 ~/coding-rna/outputs/M36-BOOTSTRAP-ADAPT/cpuq_seeds.jsonl`。
+
+注意：P2b 的闸门把任何名字里含 `m36_` 的进程当作阻塞项（见报告 20 §8）；在 P2b 仍在运行时若需要**重启 P2b**，会因为等待中的 `m36_queue.sh` 而互相等待，需先停 M36 队列（`pkill -f m36_queue.sh`，重启幂等）。
