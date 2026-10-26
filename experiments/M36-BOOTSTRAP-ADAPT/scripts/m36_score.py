@@ -2,9 +2,10 @@
 Ruler: `m30_score.Evaluator` (M26 CDS-assessable primaries, exact CDS chain) with `SC.load_gff_chains` (unique exact chains, CDS >= 96 bp, NO posterior filter) -- the M33
 `m33_evalB.py` / M34 P2b counting.  Per species (a model is adapted and evaluated on ONE species): Z = the P2b T10 zero-shot run, the trained arms S1 / S2 / S3 / F1 at step 512,
 Carbon-A filtered / unfiltered read from the M30 outputs (unchanged).
-Statistic: paired 1-Mb block bootstrap of the M34 P2b / DEV `c1_boot.py` (block = (contig, first-CDS-start // 1 Mb), union of the reference and every run's chains, 2,000 draws of
-`default_rng(0).integers(0, n, n)`, F1 = 200 tp / (pred + ref), same resample for every run, 95% CI = 2.5 / 97.5 percentiles).  The M30 / M33 gene-unit bootstrap (`Evaluator.bootstrap`,
-reference genes + 100-kb orphan bins, 2,000 draws, seed 0) is reported next to it as a robustness check; the §5 verdict uses the block bootstrap.
+Statistic (user decision m36-ambiguities, 2026-10-26, before any M36 output; protocol 22 section 9): the section 5 verdict uses the M30 / M33 gene-unit paired bootstrap
+(`Evaluator.bootstrap`: reference genes + 100-kb orphan bins, 2,000 draws, seed 0) -- the implementation protocol 22 section 4 names.  The paired 1-Mb block bootstrap of the M34 P2b /
+DEV `c1_boot.py` (block = (contig, first-CDS-start // 1 Mb), union of the reference and every run's chains, 2,000 draws of `default_rng(0).integers(0, n, n)`) is reported next to it
+(`verdict_block_bootstrap`); if the two give different labels the paper reports the result as sensitive to the statistic.
 closure ratio = (F1_arm - F1_Z) / (F1_CarbonA_filt - F1_Z)  (per species; F1_CarbonA_filt = M30 value measured on the same B contigs, Dryas 73.98 / Esch 73.32).
 Verdict (protocol 22 §5; see `verdict`):  GO-strong: S2 or S3 within 2.0 points of Carbon-A filtered in BOTH species with a paired CI that does not exclude parity;  GO: S1 or S3 with closure
 >= 30% and a paired (arm - Z) CI lower bound > 0 in BOTH species;  NO-GO: some species in which no arm closes 30%;  C2 retracted: F1 - S1 >= -2.0 points.
@@ -217,8 +218,9 @@ def score_main(root, out_path, draws=DRAWS, seed=SEED, with_seed_coverage=True):
     arms = trained_arms(root)
     res = dict(label='M36', protocol='docs/review_20261016/22_M36_bootstrap_adaptation_protocol.md sections 4-5; 26_M36_cpu_preparation.md section 7',
                ruler='m30_score.Evaluator + load_gff_chains (exact CDS chain, CDS >= 96 bp, no posterior filter); Carbon-A: cds96=False, conf_filter=carbon',
-               bootstrap=dict(kind='paired 1-Mb block bootstrap (m34_p2b_score / DEV c1_boot statistic), per species', block_bp=BLK, draws=draws, seed=seed,
-                              alt='M30 gene-unit bootstrap (Evaluator.bootstrap, reference genes + 100-kb orphan bins)'),
+               bootstrap=dict(kind='M30 / M33 gene-unit paired bootstrap (Evaluator.bootstrap, reference genes + 100-kb orphan bins), per species -- drives `verdict`',
+                              draws=draws, seed=seed, decision='m36-ambiguities 2026-10-26 (protocol 22 section 9)',
+                              alt='paired 1-Mb block bootstrap (m34_p2b_score / DEV c1_boot statistic) -- reported as `verdict_block_bootstrap`', block_bp=BLK),
                z_run=str(W.Z_DIR), species={}, arms_scored=[a[2] for a in arms])
     summary, f1_minus_s1, alt_summary = {}, {}, {}
     for sp in W.SPECIES:
@@ -258,11 +260,12 @@ def score_main(root, out_path, draws=DRAWS, seed=SEED, with_seed_coverage=True):
                                   F1_with_CI95={n: dict(F1=point[n], CI95=ci(dr[n])) for n in names}, pairs=pairs, tables=tabs, arms=arm_rows,
                                   m30_reference_rows=m30_reference_rows(sp),
                                   gene_unit_bootstrap=dict(F1_CI95={n: [v['lo'], v['hi']] for n, v in g_ci.items()}, diffs=g_diffs))
-    res['verdict'] = verdict(summary, f1_minus_s1)
+    res['verdict_block_bootstrap'] = verdict(summary, f1_minus_s1)
     alt_f1_minus_s1 = {sp: dict(point=res['species'][sp]['gene_unit_bootstrap']['diffs']['F1 - S1']['point'],
                                 CI95=[res['species'][sp]['gene_unit_bootstrap']['diffs']['F1 - S1']['lo'], res['species'][sp]['gene_unit_bootstrap']['diffs']['F1 - S1']['hi']])
                        for sp in f1_minus_s1}
-    res['verdict_gene_unit_bootstrap'] = verdict(alt_summary, alt_f1_minus_s1)
+    res['verdict'] = verdict(alt_summary, alt_f1_minus_s1)                     # primary (gene-unit, M30 / M33 implementation)
+    res['verdict_statistic_sensitive'] = res['verdict']['label'] != res['verdict_block_bootstrap']['label']
     res['n_trained_arms'] = len(arms)
     if with_seed_coverage:
         try:

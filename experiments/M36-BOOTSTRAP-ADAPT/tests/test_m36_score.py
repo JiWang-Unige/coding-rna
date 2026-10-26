@@ -209,7 +209,8 @@ def test_main_end_to_end_on_a_fake_root(scored):
     assert v['go_strong'] is False                                                                              # S2 / S3 (Gate output) are 2.0035 points below Carbon-A filtered in Dryas: just outside the 2.0 margin
     assert v['go'] is True and v['label'] == 'GO' and v['no_go'] is False                                       # S3 closes ~92% of the gap with a CI above 0 in both species
     assert res['species']['dryas_octopetala']['pairs']['F1 - S1']['point'] == 0.0 and v['c2_by_species'] == {'dryas_octopetala': True} and v['c2_retracted'] is True
-    assert res['verdict_gene_unit_bootstrap']['label'] == 'GO'
+    assert res['verdict_block_bootstrap']['label'] == 'GO' and res['verdict_statistic_sensitive'] is False
+    assert res['bootstrap']['kind'].startswith('M30 / M33 gene-unit')                                          # primary statistic per decision m36-ambiguities
     # one-shot: the second call is refused with exit code 10
     r2 = run_main(o36, o34)
     assert r2.returncode == 10 and 'already finished' in r2.stderr
