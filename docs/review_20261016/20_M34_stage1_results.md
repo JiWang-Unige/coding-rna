@@ -86,3 +86,30 @@ smoke 之前不修改：每个 arm ≈ 22.5–24 h（3,072 步 × 23.4 s + 验�
 | 不在预训练内 | 番茄 74.15（茄科整科排除）、椰枣 62.45（无棕榈目）、菜豆 68.89（同族 Vigna、Glycine 在内） | 68.2 |
 
 DEV 物种拟南芥、水稻都在预训练内。三组之间差别与单子叶 / 双子叶混杂（最弱两种都是单子叶），每组只有 2–3 个物种，不能把差别归因于预训练暴露；论文须写明"8 个新物种中 5 个在 PlantCAD2 预训练里同种或同属"。P2b 用的 B 集（Dryas、Eschscholzia）不在预训练内（同科 / 同目近缘）。名单来自 `plantcad/plantcad2-c4096` 数据集与报告 10 附录 A，未直接读论文补充表 1。
+
+## 8. P2b 执行准备（2026-10-26）
+
+本节只记录 P2b（方案 19 §3.1，T10 − T2 在 M30 评估集 B 上的零样本 exact-chain F1 配对差）的脚本、验证与排队状态；**判据、统计量、阈值均未改动**，结果待 `M34_STAGE1_DONE` 之后追加。
+
+**文件**（`experiments/M34-NTV2-SCALEUP/`，冻结的 M29/M30/M31/M32/M33/M35 文件与 `m34_infer.py` 均未改）：
+
+- `scripts/m34_p2b_infer.py`：导入 `m34_infer`，把 `T.register` 包一层，使每次注册（主进程、spawn 出的解码子进程）之后再执行 `M30.register()`，于是 `m34_infer` 能读 7 条 B contig 的序列并解析区域名（与 M33 `m33_infer.py` 模块级调用 `M30.register()` 是同一思路）。用法与 `m34_infer.py` 相同；另有 `--probe CONTIG,...` 只读不跑模型，用于检查主进程与解码子进程看到的序列长度与校验和。
+- `scripts/m34_p2b_score.py`：用 `m30_score.Evaluator` 与 `SC.load_gff_chains`（CDS ≥ 96 bp、不做后验过滤，即 M33 `m33_evalB.py` 的计数）对每条 B contig 打分，再做预注册的配对 1 Mb 块自助法。统计量逐项沿用 DEV 的 `c1_boot.py` / `m34_boot_pair.py` / M35 `c1_boot.py`：块 = (contig, 首个 CDS 起点 // 1 Mb)，块集合取参考链与各被比较运行的预测链之并集（本次共 276 块，仅供 sanity；P2b 的块数由 T10/T2 的预测决定）；`default_rng(0)`，2,000 次 `integers(0, n, n)`；每次重采样的同一组块下，两模型、pooled 与两个物种用同一重采样（物种 F1 取重采样块中属于该物种者，与 M35 一致）；95% CI 取 2.5/97.5 百分位。判据写成代码：pooled 差 ≥ +2.0 且 pooled CI 下界 > 0，且两物种点估计差均 > 0。输出 JSON 含每物种与 pooled 的 tp/pred/ref/F1/P/R、每条 contig 计数、各自 CI、配对差与 CI、判据三项检查、`DONE_*.json` 里的模型路径与 step，以及 `m36_zero_shot_arm_Z`（T10 的 B 集运行目录）。
+- `scripts/m34_p2b.sh`：ont 驱动，单实例（`flock`）。等 `M34_STAGE1_DONE` 存在，且本用户没有 `m34_train/m34_infer/m34_stage/m34_queue/m34_supervise/m34_smoke/m36` 进程、也没有属于 coding-rna 的 GPU 计算进程（连续 3 次、间隔 60 s 通过）后才开始。同账号的 ab-initio-TE 项目也用 GPU（实测 `te_benchmark` 环境的 `chrom_span_eval.py`），不计入阻塞。开始后：读取 `pc2_T10/best_step.txt` 与 `pc2_T2/best_step.txt`（T2 必须是已登记的 2304，否则拒绝；T10 要求 `ARM_DONE` + `selection.json` 存在），首次使用时把两个模型的 md5 记入 `p2b/model_<arm>.json`，之后任何重启遇到不同文件就拒绝；先 T10 后 T2 对 7 条 B contig 推理（`m34_infer_retry.sh` 式重试，按 (contig, 链) 续跑，GPU 空闲显存 < 5 GB 时等待），再 CPU 打分并写结果。
+- `tests/test_m34_p2b_infer.py`（pc2 环境，3 项）、`tests/test_m34_p2b_score.py`（generanno 环境，5 项）。
+
+**验证（ont，仅 CPU，`nice -n 10`，`taskset -c 25-31`；没有跑任何 GPU 作业）**：
+
+- 注册：未包装的 `T.register()` 不认识 `NC_141367.1`（KeyError，作为反例）；包装后 7 条 B contig 的长度、物种与 M30 `lengths.json` 一致，M34 验证伪 contig 仍可读，`NC_141373.1` 与 `NW_028238483.1` 全长读取并通过 `resolve`/`parse_region`；spawn 出的解码子进程里看到的长度和序列 md5 与主进程相同。不设 `PYTHONPATH` 也能导入（`pc2_adapter` 自己把 `~/envs/m32_extra` 加入 `sys.path`）。
+- 打分器复现 M33 NT-v2 B 未过滤（M33 的 `evalB_dryas` + `evalB_esch` 目录）：**Dryas 49.92（tp/pred/ref = 4,665/9,181/9,508）、Eschscholzia 44.09（5,404/12,148/12,367），与报告 18 §3 及 M33 结果文件的 tp/pred/ref 逐项相同**；M30 Gate 臂同样与 M33 结果文件一致（Dryas 71.97、Eschscholzia 71.38）。
+- 自助法：M33 NT-v2 B 对自身，三个范围的差值精确为 0、CI = [0, 0]。M33 NT-v2 B 对 M30 Gate 只做报告，不是 P2b：pooled −25.03 [−25.94, −24.13]，Dryas −22.05 [−23.16, −20.93]，Eschscholzia −27.29 [−28.40, −26.21]；NT-v2 B 的 pooled F1 46.61，块自助法 CI [45.33, 47.75]。注意 P2b 按预注册采用 DEV 的 1 Mb 块统计量，所以这些 CI 与报告 18 里 M33 用的基因单位自助法 CI（Dryas [48.95, 50.95]）数值不同，不要混用；块自助法下同一运行的 Dryas CI 为 [47.78, 51.73]。
+- 驱动：在假根目录（NT-v2 B 与 Gate 的 GFF3 软链当作 T10/T2 的运行结果）上演练了闸门之后的全部步骤（模型登记、跳过已完成推理、打分、清理 T2 的 `pot`、摘要事件、`P2B_DONE`），并演练了两种拒绝：模型文件被改动（退出码 11）与 T2 步数不是 2304（退出码 1）。演练目录已删除。
+- 沙盒结果保存在 `~/coding-rna/outputs/M34-NTV2-SCALEUP/p2b_sanity/sanity_M33_NTv2B_vs_self_and_Gate.json`，与真正的 `p2b/` 目录分开。
+
+**GPU 费用**：B 集共 273.3 Mb（Dryas 102.8 + Eschscholzia 170.5）。方案 19 §4 估计约 2.4 h/模型；T2 的 DEV 实测（53.4 Mb，编码 1,396 s、总墙钟 1,500 s）外推约 2.1 h/模型；若按保守的 ≈15 kbp/s（GPU 被共享、CPU 解码拖尾）则 ≈5 h/模型。两个模型合计约 4.5–10 h，先 T10 后 T2；另需约 5–10 min CPU 打分（ont 负载高时偏慢）。每个模型的推理在显存上与 DEV 相同量级（峰值 < 3 GB），解码用 4 个进程。
+
+**输出路径**：`~/coding-rna/outputs/M34-NTV2-SCALEUP/p2b/`：`T10/`、`T2/`（m34_infer 布局，`<contig>/prediction/full_grammar.gff3`、`chains/`、`DONE_*.json`）、`model_T10.json`、`model_T2.json`、`p2b.jsonl`（事件，每行一条 JSON）、`p2b_result.json`（结果与判据）、`P2B_DONE`。日志：`~/coding-rna/logs/m34-p2b*.{out,err}`。查看进度：`tail -n 5 ~/coding-rna/outputs/M34-NTV2-SCALEUP/p2b/p2b.jsonl`。
+
+**M36 的 Z 臂**：T10 的 B 集运行目录 `~/coding-rna/outputs/M34-NTV2-SCALEUP/p2b/T10` 就是 M36 的零样本（Z）臂：同一模型、同一推理与解码路径、同一 ruler、不做后验过滤；其 `pot/` 势能文件默认保留（约 33 GB，供 M36 以后需要 B 集后验时使用，不必重跑 GPU；`P2B_KEEP_POT_T10=0` 可关闭），T2 的 `pot/` 在打分后删除。M36 复用时仍应按各自协议自行核对基模与判据。
+
+**状态**：驱动于 2026-10-26 03:17 CET 在 ont 后台启动（PID 3174339，`setsid nohup bash m34_p2b.sh`），`p2b.jsonl` 第二行是 `waiting`（原因：无 `M34_STAGE1_DONE`、T10 的训练与阶段进程仍在）；启动后没有任何 GPU 工作；T10 训练仍在进行（2026-10-26 02:30 步 ≈ 2,330/3,072，≈ 58 s/步）。
