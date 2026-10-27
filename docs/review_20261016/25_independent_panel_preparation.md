@@ -150,3 +150,11 @@
 | ont `~/coding-rna/data/panel/` | `raw/`、`prepared/`、`homology/`（见 §7） |
 
 下一步（不在本任务内）：SH 层注释资格测试（compleasm odb10/odb12 + SRA RNA-seq 元数据）；基因级同源剥离集合；各基线 E_base(X) 审计；面板推理排在 M35 → M34 → M36 之后（11 月）。
+
+## 9. 基线清单更新（2026-10-27）
+
+来源：用户决定 `outline-c1-review`（2026-10-27 09:27 CET，全部按提案合入大纲）与 `docs/paper_outline_20261027.md` 的 R4 / P6。本节只更新基线清单与范围，**没有运行任何模型、没有做任何推理**，面板仍无任何推理输出。
+
+- **GeneCAD 由"可选"升为必需基线**（10 号文档 §4.2 原列为可选）。原因：C1 改写后我方终版是 PlantCAD2 + LoRA，GeneCAD（PlantCAD2 + CRF）是同骨干的直接对照，也是对 C1 最直接的质疑点（16 号 §1.3 与风险 R5 已指出）。**运行安排：12-01 Baobab credits 重置后在 Baobab 上跑；提交前先问用户**（不在 ont 上跑，不提前提交）。**费用待估**：16 号记 A100 上整条管线 17.7 kbp/s，按核心 10 物种 5.1 Gb 约 80 GPU 时量级（5.1e9 / 17.7e3 s，粗略外推）。比较时须注明版本：现行仓库默认底座已换成 H-Net 变体，PlantCAD2 Small / Large 只作 legacy；许可 CC BY-NC；训练名单仍未核实（§6 第 5 条）。
+- **范围按已定的核心 10 物种**（10 号文档 §5：12 物种去掉 Chenopodium album 与 Dipteris，5,125 Mb），不再默认 12 物种全集；全集仅作可选扩展。Chenopodium（同属 C. quinoa 在 PlantCAD2 预训练内）因此自然落在敏感性层之外；若扩到 12 物种，则它不进 C1 判据的中位数（19 号 §3.1 同日条目）。
+- **Carbon-A 基线先查 CADB**：CADB 已公开 Carbon-A 对 48,167 个装配的注释；若核心 10 物种在 CADB 中，直接下载其 GFF3（须核对注释版本与装配 accession 与本面板一致），省下推理（10 号文档 §5：核心 10 物种约 43–57 GPU 时）。覆盖情况**尚未查询**，列为待办；未覆盖的物种再安排 Carbon-A 推理。
