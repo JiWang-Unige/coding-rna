@@ -9,7 +9,7 @@ import json, os, sys, glob, re, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
 files = sorted(glob.glob(f'{ROOT}/docs/review_20261016/[0-9][0-9]_*.md')) + [f'{ROOT}/{p}' for p in [
-    'docs/paper_outline_20261021.md', 'docs/REORG_20261016.md', 'docs/README.md', 'AGENTS.md', 'README.md',
+    'docs/paper_outline_20261021.md', 'docs/paper_outline_revision_C1_20261027.md', 'docs/REORG_20261016.md', 'docs/README.md', 'AGENTS.md', 'README.md',
     'experiments/M35-PLANTCAD2-LORA/protocol.md', 'experiments/M33-NTV2-FOLLOWUP/protocol.md',
     'radar/seed/SUMMARY.md']]
 PER_DOC = 240_000; TOTAL = 1_000_000; BATCH_BYTES = 400_000
