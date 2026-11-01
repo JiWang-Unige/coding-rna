@@ -100,6 +100,9 @@ def main():
     assert not any(r['seqid'] in forbidden for r in rows), 'schedule contains DEV / held-out / validation contigs'
     spec = T.arm_spec(args.arm)
     assert {r['species'] for r in rows} <= set(spec['species'])
+    for key in ('sampling_seed', 'lora_seed'):         # seed replicates (T2_s2 / T2_s3) only; the original arms carry neither key, so their config is unchanged
+        if key in spec:
+            CFG[key] = spec[key]
     sched_md5 = hashlib.md5(open(sched_path, 'rb').read()).hexdigest()
     CFG.update(BK.encoder_cfg(init['config']), lora_mode=args.lora, init_file=str(args.init), steps=args.steps, batch=args.batch, init_step=init['step'], arm=args.arm,
                species=list(spec['species']), new_species_label_fraction=spec['new_k'], treatment=spec['treatment'], schedule_md5=sched_md5,

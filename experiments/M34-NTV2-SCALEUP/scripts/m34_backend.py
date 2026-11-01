@@ -77,10 +77,11 @@ def load(cfg, lora=True, device='cuda'):
     if not lora:
         return Ctx(model, cfg), []
     api = _pc2_lora_api()
-    params = api.add_lora(model, api.CFG)
+    lcfg = dict(api.CFG, **({'seed': cfg['lora_seed']} if 'lora_seed' in cfg else {}))     # seed replicates only; otherwise exactly api.CFG
+    params = api.add_lora(model, lcfg)
     if hasattr(api, 'enable_layer_checkpoint'):          # (2026-10-22 fix) as M35 c1_train_lora: layer checkpointing of the LoRA blocks under grad,
         api.enable_layer_checkpoint(model, tuple(api.CFG['layers']))   # otherwise the chunked backward keeps ~13 GB of Mamba activations (smoke OOM)
-    cfg['lora'] = dict(api.CFG)
+    cfg['lora'] = dict(lcfg)
     return Ctx(model, cfg, api), params
 
 

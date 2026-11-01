@@ -188,3 +188,21 @@ B 集（Dryas octopetala 4 条、Eschscholzia californica 3 条，M30 时间留�
 **判定**：P4（k50U − k50F ≥ +2.0 且 8 个新物种中 ≥ 6 个同向）要等 k50F，本节不做判定。k50F、k25U 按用户决定 `m34-remaining-arms` 排在 M36 之后。
 
 **排队（2026-10-30 01:23）**：用户决定 `m34-k-workers`（10-30 00:21）：k50F、k25U 保持 12 个 CRF 进程、优先级不变（与 k50U 最初相同，配置与方案 19 一致，无偏离）。ont 上 `m34_after_m36.sh`（PID 2103164）等待 M36_DONE 且连续 3 次无 coding-rna GPU 进程后，依次运行 `m34_stage.sh T10_k50F`、`T10_k25U`；事件写入 `~/coding-rna/outputs/M34-NTV2-SCALEUP/after_m36.jsonl`。
+
+## 12. k50F 运行记录与 k50F 之后的 GPU 队列（2026-11-01；k50F 结果待训完，P4 届时判定）
+
+**k50F 运行**：10-31 02:45 由 `m34_after_m36.sh` 在 M36_DONE 后自动开始。768 步停点验证 16:43 完成后，GPU 被他人 3 个训练占 18.6 GB（空闲 5.4 GB < `m34_supervise.sh` 的 7.5 GB 门槛），续训无法开始；19:13 supervise 等满 80 次放弃，阶段记 `train_failed`、链以 rc 9 退出（设计行为，768 步检查点与验证结果保留）。新增 `m34_relaunch_after_m36.sh`（提交 f7e3e15）在 11-01 04:19 GPU 空出后重启链，04:24 从 768 步续训（日志 `resumed from_step 768`），共停等约 11.7 h；训练配置与数值不变。中间停点（描述，P4 按各自选定检查点判）：
+
+| 步 | k50F select（P / R） | k50F 新物种区段（P / R） | 同步 k50U select / 新物种 |
+|---|---|---|---|
+| 768 | 55.13（64.4 / 48.2） | 19.85（32.4 / 14.3） | 66.91 / 59.18 |
+| 1536 | 65.76（67.9 / 63.7） | 47.43（52.7 / 43.1） | 65.27 / 53.55 |
+
+**队列调整（用户决定 `gpu-after-k50f`，2026-11-01 17:00 前后在对话中确认）**：k50F 之后的顺序由"k25U"改为 **面板推理（终版 T2）→ +2 seeds（T2）→ k25U**。执行（11-01 17:08）：停掉 `m34_relaunch_after_m36.sh`（PID 640058）与 `m34_after_m36.sh` 链进程（PID 2874089；`after_m36.jsonl` 记 `stopped_by_hand`），正在跑的 k50F 阶段进程（PID 2895740）不动；新队列 `m34_after_k50f.sh`（PID 2469571，事件 `after_k50f.jsonl`）：
+
+1. 等 k50F 阶段进程结束；若没有 `ARM_DONE` 则重跑 `m34_stage.sh T10_k50F`（可续跑）。
+2. `m34_panel.sh`：P5 面板推理，核心 10 物种（报告 25 §9）、主核序列 179 条中的 119 条、4.79 Gb；模型 = T2 选定检查点 step 2304（首次使用时记录 md5，之后换文件即拒绝）；推理与解码路径同 M34 / P2b（`m34_infer.py` 经 `m34_panel_infer.py` 只加序列登记），不做后验过滤、不读参考注释、不打分（打分随 P6 基线）。势能保留到 CPU 后验队列 `m34_panel_postq.py`（M36 队列引擎；τ = 1，M33 `m33_posterior.py` 经 `m34_panel_post.py` 只加序列登记）算完该物种后删除（势能约 57 B/碱基/链，全面板约 0.55 TB，不长期保留）；磁盘余量 < 250 GB 时暂停。物种按长度从小到大。
+3. +2 seeds：`T2_s2`、`T2_s3`（`m34_schedule.py` 新增 arm）。与 T2 同数据、同配置、同 init 头，只换两处随机源：抽样顺序（`sampling_seed` 2 / 3；T2 为 1）与 LoRA A 矩阵初始化（`lora_seed` 2 / 3；T2 为 0）。头从 M32 runA 热启动，头的初始化 seed 不起作用。每个 seed 跑完整阶段（768/1536/2304/3072 停点验证、按 Ath/Osa 选点、跨物种迁移、DEV 一次），再对选定检查点做 set B 零样本推理（同 P2b 路径，势能不保留）。代码改动只在 arm 定义里带这两个键时生效（`m34_train_lora.py` 写入 CFG、`m34_backend.load` 把 `lora_seed` 传给 `pc2_lora.add_lora`）；原有 arm 的 CFG 不变（续训的 config 一致性检查依赖这一点）。核验：用改动后的 `m34_schedule.py` 在内存中重新生成 T2 的抽样表，md5 与 10-20 生成的 `schedule_T2.jsonl` 完全一致（d3dddeca…）；`schedule_T2_s2/s3.jsonl` 11-01 17:05 生成，唯一窗口 12,582 / 12,723（T2 12,739），两物种各约 12,288 次抽样。
+4. `m34_stage.sh T10_k25U`。
+
+每一步失败（如他人占 GPU 使 supervise 放弃）会在 GPU 连续 3 次 ≥ 7.5 GB 空闲后重试，每步最多 6 次。CPU 核验（11-01）：`m34_panel_infer.py --probe` 读 Juncus（GCA）、Amborella、Dryas 各一条序列，主进程与解码子进程长度、md5 一致，Dryas NC_141373.1 与 M30 路径读出的 md5 相同（b4fb30078aec）；后验封装对 set B 已保留的 T10 势能重算 NC_141367.1 +，与 M36 `postB/Z` 的输出对照（结果见下一段）。

@@ -26,6 +26,10 @@ ARMS = {
     'T10_k50U': dict(species=LEGACY + NEW, new_k=0.5, treatment='U'),
     'T10_k25U': dict(species=LEGACY + NEW, new_k=0.25, treatment='U'),
     'T10_k50F': dict(species=LEGACY + NEW, new_k=0.5, treatment='F'),
+    # seed replicates of the final model T2 (outline 20261027 P4; user decision gpu-after-k50f 2026-11-01): same data / config, only the draw schedule
+    # (sampling_seed) and the LoRA A-matrix initialisation (lora_seed) change.  The original T2 is seed 0 / sampling seed 1.
+    'T2_s2': dict(species=LEGACY, new_k=1.0, treatment='FULL', sampling_seed=2, lora_seed=2),
+    'T2_s3': dict(species=LEGACY, new_k=1.0, treatment='FULL', sampling_seed=3, lora_seed=3),
 }
 
 
@@ -61,7 +65,7 @@ def positives(P, seqid, strand, a, b):
 
 
 def draw_schedule(arm, spec, pools):
-    rng = np.random.default_rng(SAMPLING_SEED)
+    rng = np.random.default_rng(spec.get('sampling_seed', SAMPLING_SEED))
     names = spec['species']
     w = np.full(len(names), 1.0 / len(names))
     rows = []
@@ -130,7 +134,7 @@ def main():
             labeled_genes_exposed_unique=len(exposures), labeled_gene_exposures_total=sum(exposures.values()),
             labeled_genes_exposed_unique_per_species=dict(Counter(k[0] for k in exposures)),
             windows_with_positive_fraction=sum(bool(pos_by_window[r['id']]) for r in rows) / len(rows),
-            sampling_seed=SAMPLING_SEED, uniform_fraction=UNIFORM_FRACTION)
+            sampling_seed=spec.get('sampling_seed', SAMPLING_SEED), uniform_fraction=UNIFORM_FRACTION)
         print(arm, summary[arm]['unique_windows'], summary[arm]['draws_per_species'], flush=True)
     json.dump(summary, open(sp_path, 'w'), indent=1)
 
