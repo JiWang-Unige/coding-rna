@@ -65,4 +65,8 @@ chk "projection above the limit aborts with rc 25 before any genome" "[ $rc = 25
 rm -rf $T/runs/dryas_octopetala $T/DEVB_DONE $T/gpu_smoke; echo 2 > $T/ft_B.txt
 STUB_FAIL_FT=1 bash $SC/vip_devb.sh; rc=$?
 chk "persistent finetune failure aborts nonzero (no DEVB_DONE)" "[ $rc != 0 ] && [ ! -e $T/DEVB_DONE ] && grep -q devb_aborted $T/events.jsonl"
+# DEV-only finetune (decision vipsania-ft-budget): pre on all four genomes, ft only on the two DEV genomes
+rm -rf $T/runs $T/DEVB_DONE $T/gpu_smoke; echo 2 > $T/ft_B.txt
+VIP_FT_GENOMES="arabidopsis_thaliana oryza_sativa" bash $SC/vip_devb.sh; rc=$?
+chk "FT_GENOMES subset: rc 0, 4 pre + 2 ft sentinels, B genomes' ft skipped" "[ $rc = 0 ] && [ \$(ls $T/runs/*/pre/pre_DONE | wc -l) = 4 ] && [ \$(ls $T/runs/*/ft/ft_DONE 2>/dev/null | wc -l) = 2 ] && [ -e $T/runs/oryza_sativa/ft/ft_DONE ] && [ ! -e $T/runs/dryas_octopetala/ft/ft_DONE ] && grep -q 'dryas_octopetala_ft.*not_in_FT_GENOMES' $T/events.jsonl && [ -s $T/DEVB_DONE ]"
 [ $ok = 1 ] && echo "STUB TEST PASSED" || { echo "STUB TEST FAILED"; exit 1; }

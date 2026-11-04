@@ -25,6 +25,8 @@ MIN_GENES=${VIP_MIN_GENES:-1000}
 GENOMES="arabidopsis_thaliana dryas_octopetala oryza_sativa eschscholzia_californica"      # ascending genome size
 DEV_GENOMES="arabidopsis_thaliana oryza_sativa"
 B_GENOMES="dryas_octopetala eschscholzia_californica"
+FT_GENOMES=${VIP_FT_GENOMES:-$GENOMES}   # genomes that also get the --finetune run (user decision vipsania-ft-budget 2026-11-04: DEV only; set B finetune comes from the panel run)
+in_ft() { case " $FT_GENOMES " in *" $1 "*) return 0;; esac; return 1; }
 GUARD="python3.12 -I $HERE/vip_guard.py"
 EVT="python3.12 -I $HERE/vip_event.py --file $EV"
 mkdir -p $M/steps $M/runs $LOGS
@@ -165,7 +167,7 @@ if awk "BEGIN{exit !($PROJ > ${VIP_MAX_PROJ_H:-6})}"; then ev event=devb_aborted
 for g in $GENOMES; do
   if [ -e $M/runs/$g/DONE ]; then ev event=genome_skipped genome=$g; continue; fi
   annotate $g pre || { ev event=devb_aborted stage="${g}_pre"; exit 21; }
-  annotate $g ft  || { ev event=devb_aborted stage="${g}_ft"; exit 22; }
+  if in_ft $g; then annotate $g ft || { ev event=devb_aborted stage="${g}_ft"; exit 22; }; else ev event=step_skipped step=${g}_ft reason=not_in_FT_GENOMES; fi
   echo "{\"genome\":\"$g\",\"time\":\"$(date -Is)\"}" > $M/runs/$g/DONE
   ev event=genome_done genome=$g
 done
@@ -175,10 +177,11 @@ if [ -z "${VIP_SKIP_SCORE:-}" ]; then
   R=$M/runs
   score() {   # kind(dev|setb) genomes...
     local KIND=$1; shift; local ft=() pre=() g
-    for g in "$@"; do ft+=("$g=$R/$g/ft/vipsania.gff3"); pre+=("$g=$R/$g/pre/vipsania.gff3"); done
+    for g in "$@"; do in_ft $g && ft+=("$g=$R/$g/ft/vipsania.gff3"); pre+=("$g=$R/$g/pre/vipsania.gff3"); done
+    local ftarg=(); [ ${#ft[@]} -gt 0 ] && ftarg=(--ft "${ft[@]}")
     [ -e $M/results/$KIND/vip_${KIND}_result.json ] && { ev event=step_skipped step=score_$KIND; return 0; }
     ev event=step_start step=score_$KIND
-    CUDA_VISIBLE_DEVICES="" nice -n 10 taskset -c $SCPUS $PYG -I $HERE/vip_score.py $KIND --out $M/results/$KIND --ft "${ft[@]}" --pre "${pre[@]}" >> $LOGS/m38-vipsania-score_$KIND.out 2>> $LOGS/m38-vipsania-score_$KIND.err
+    CUDA_VISIBLE_DEVICES="" nice -n 10 taskset -c $SCPUS $PYG -I $HERE/vip_score.py $KIND --out $M/results/$KIND "${ftarg[@]}" --pre "${pre[@]}" >> $LOGS/m38-vipsania-score_$KIND.out 2>> $LOGS/m38-vipsania-score_$KIND.err
     local rc=$?
     ev event=step_end step=score_$KIND rc=$rc
     return $rc

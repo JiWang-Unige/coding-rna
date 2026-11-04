@@ -12,7 +12,7 @@ flock -n 7 || { echo "m39 continuation already running"; exit 3; }
 ev() { echo "{\"event\":\"$1\",\"time\":\"$(date -Is)\"$2}" >> $LOG; }
 ev m39_queued ",\"after\":\"T10_k25U\""
 n=0
-while pgrep -u $(id -un) -f 'm34_after_t2s2[.]sh' > /dev/null; do
+while pgrep -u $(id -un) -f 'm34_after_t2s[23][.]sh' > /dev/null; do
   [ $((n % 30)) -eq 0 ] && ev waiting_m34_queue; n=$((n+1)); sleep 120
 done
 [ -e $O/pc2_T10_k25U/ARM_DONE ] || { ev m39_not_started ",\"reason\":\"M34 queue ended without pc2_T10_k25U/ARM_DONE\""; exit 1; }
