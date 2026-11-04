@@ -1,0 +1,3 @@
+ee164e2dfe37b5d2b2ba833fe35cce6c  GCF_029169275.2_AcerK_1.0_genomic.fna.gz  ncbi=ee164e2dfe37b5d2b2ba833fe35cce6c  OK
+9d4ee249c601403af0d193238e34f4f0  GCF_029169275.2_AcerK_1.0_genomic.gff.gz  ncbi=9d4ee249c601403af0d193238e34f4f0  OK
+2be44474192685fe2661a6b71e3ff7f6  GCF_029169275.2_AcerK_1.0_protein.faa.gz  ncbi=2be44474192685fe2661a6b71e3ff7f6  OK

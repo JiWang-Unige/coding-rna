@@ -1,0 +1,78 @@
+{
+ "species": "aethina_tumida",
+ "organism": "Aethina tumida",
+ "accession": "GCF_024364675.1",
+ "contigs": {
+  "NC_065435.1": 80394605,
+  "NC_065436.1": 38819551,
+  "NC_065437.1": 36783356,
+  "NC_065438.1": 29747793,
+  "NC_065440.1": 19919672,
+  "NC_065441.1": 18230250,
+  "NC_065442.1": 7126875,
+  "NC_065439.1__val14M": 14000000
+ },
+ "split_of": {
+  "NC_065435.1": "train",
+  "NC_065436.1": "train",
+  "NC_065437.1": "train",
+  "NC_065438.1": "train",
+  "NC_065440.1": "train",
+  "NC_065441.1": "train",
+  "NC_065442.1": "train",
+  "NC_065439.1__val14M": "val"
+ },
+ "n_coding_genes_parsed": 12245,
+ "windows": {
+  "train": 37594,
+  "val": 2278
+ },
+ "nested_labeled_counts": {
+  "25": 2781,
+  "50": 5561
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 231022102,
+   "primary_coding_genes": 11719,
+   "cds_assessable_references": 11663,
+   "eligible_positive": 11122,
+   "eligible_per_Mb": 48.14257988181581,
+   "exon_hist": {
+    "1": 1131,
+    "2-5": 5968,
+    ">=6": 4564
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 773,
+   "nonstandard_splice_fraction": 0.012861184943839492,
+   "unsupported_reasons": {
+    "nonstandard_splice": 150,
+    "overlap_or_partial": 350,
+    "split_terminal_codon": 41
+   }
+  },
+  "val": {
+   "bp": 14000000,
+   "primary_coding_genes": 526,
+   "cds_assessable_references": 522,
+   "eligible_positive": 504,
+   "eligible_per_Mb": 36.0,
+   "exon_hist": {
+    "1": 84,
+    "2-5": 272,
+    ">=6": 166
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 41,
+   "nonstandard_splice_fraction": 0.017241379310344827,
+   "unsupported_reasons": {
+    "nonstandard_splice": 9,
+    "overlap_or_partial": 9
+   }
+  }
+ },
+ "seconds": 49.1221706867218
+}

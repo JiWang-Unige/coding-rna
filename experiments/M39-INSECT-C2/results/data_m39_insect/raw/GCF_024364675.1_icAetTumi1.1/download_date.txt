@@ -1,0 +1,2 @@
+2026-11-04T12:29:37+01:00
+ftp_base=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/024/364/675/GCF_024364675.1_icAetTumi1.1/GCF_024364675.1_icAetTumi1.1

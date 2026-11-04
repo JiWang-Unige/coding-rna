@@ -1,0 +1,3 @@
+0aef136010a33156ddb722536726e8ac  GCF_024364675.1_icAetTumi1.1_genomic.fna.gz  ncbi=0aef136010a33156ddb722536726e8ac  OK
+a5cbce4adf87c3381584c60ca08325b4  GCF_024364675.1_icAetTumi1.1_genomic.gff.gz  ncbi=a5cbce4adf87c3381584c60ca08325b4  OK
+a52caaa54d23c7a6ee29a3308b0ee386  GCF_024364675.1_icAetTumi1.1_protein.faa.gz  ncbi=a52caaa54d23c7a6ee29a3308b0ee386  OK

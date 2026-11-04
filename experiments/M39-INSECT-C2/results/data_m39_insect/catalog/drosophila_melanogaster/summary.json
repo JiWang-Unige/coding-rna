@@ -1,0 +1,71 @@
+{
+ "species": "drosophila_melanogaster",
+ "organism": "Drosophila melanogaster",
+ "accession": "GCF_000001215.4",
+ "contigs": {
+  "NT_033777.3": 32079331,
+  "NT_033779.5": 23513712,
+  "NT_037436.4": 28110227,
+  "NT_033778.4": 25286936
+ },
+ "split_of": {
+  "NT_033777.3": "train",
+  "NT_033779.5": "train",
+  "NT_037436.4": "train",
+  "NT_033778.4": "val"
+ },
+ "n_coding_genes_parsed": 11645,
+ "windows": {
+  "train": 13620,
+  "val": 4114
+ },
+ "nested_labeled_counts": {
+  "25": 2096,
+  "50": 4191
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 83703270,
+   "primary_coding_genes": 8794,
+   "cds_assessable_references": 8758,
+   "eligible_positive": 8382,
+   "eligible_per_Mb": 100.13945691727456,
+   "exon_hist": {
+    "1": 1860,
+    "2-5": 5100,
+    ">=6": 1798
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 282,
+   "nonstandard_splice_fraction": 0.003653802237953871,
+   "unsupported_reasons": {
+    "overlap_or_partial": 321,
+    "split_terminal_codon": 23,
+    "nonstandard_splice": 32
+   }
+  },
+  "val": {
+   "bp": 25286936,
+   "primary_coding_genes": 2851,
+   "cds_assessable_references": 2833,
+   "eligible_positive": 2700,
+   "eligible_per_Mb": 106.77450205908696,
+   "exon_hist": {
+    "1": 549,
+    "2-5": 1628,
+    ">=6": 656
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 90,
+   "nonstandard_splice_fraction": 0.0035298270384751147,
+   "unsupported_reasons": {
+    "nonstandard_splice": 10,
+    "split_terminal_codon": 6,
+    "overlap_or_partial": 117
+   }
+  }
+ },
+ "seconds": 20.916884422302246
+}

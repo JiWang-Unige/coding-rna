@@ -1,0 +1,67 @@
+{
+ "species": "aethina_tumida",
+ "role": "new",
+ "organism": "Aethina tumida",
+ "accession": "GCF_024364675.1",
+ "assembly": "GCF_024364675.1_icAetTumi1.1",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome or Linkage Group, Primary Assembly, >=5 Mb); NEW species: validation chromosome = lower-median length; crop = smallest whole-Mb length >= 8 Mb with >= 500 CDS-assessable primary references (genes wholly inside), capped at the whole chromosome; remainder discarded",
+ "main_chromosomes": {
+  "NC_065442.1": 7126875,
+  "NC_065441.1": 18230250,
+  "NC_065440.1": 19919672,
+  "NC_065439.1": 28945603,
+  "NC_065438.1": 29747793,
+  "NC_065437.1": 36783356,
+  "NC_065436.1": 38819551,
+  "NC_065435.1": 80394605
+ },
+ "main_chromosome_names": {
+  "NC_065442.1": "Chromosome8",
+  "NC_065441.1": "chromosome7",
+  "NC_065440.1": "Chromosome6",
+  "NC_065439.1": "Chromosome5",
+  "NC_065438.1": "Chromosome4",
+  "NC_065437.1": "Chromosome3",
+  "NC_065436.1": "Chromosome2",
+  "NC_065435.1": "Chromosome1"
+ },
+ "heldout_chromosome": "NC_065439.1",
+ "heldout_length": 28945603,
+ "validation_contig": "NC_065439.1__val14M",
+ "validation_crop": {
+  "chromosome": "NC_065439.1",
+  "start0": 0,
+  "end": 14000000,
+  "whole_chromosome": false,
+  "references_whole_chromosome": 1394,
+  "references_in_crop_estimate": 522
+ },
+ "heldout_d": [],
+ "discarded_bp": 14945603,
+ "train": [
+  "NC_065435.1",
+  "NC_065436.1",
+  "NC_065437.1",
+  "NC_065438.1",
+  "NC_065440.1",
+  "NC_065441.1",
+  "NC_065442.1"
+ ],
+ "lengths": {
+  "NC_065435.1": 80394605,
+  "NC_065436.1": 38819551,
+  "NC_065437.1": 36783356,
+  "NC_065438.1": 29747793,
+  "NC_065440.1": 19919672,
+  "NC_065441.1": 18230250,
+  "NC_065442.1": 7126875,
+  "NC_065439.1__val14M": 14000000
+ },
+ "train_bp": 231022102,
+ "main_bp": 259967705,
+ "assembly_bp": 259984281,
+ "dropped_sequences": 1,
+ "gff_features": 338465,
+ "gff_genes": 14038,
+ "prepared": "2026-11-04T12:32:16+01:00"
+}

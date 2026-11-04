@@ -1,0 +1,69 @@
+{
+ "species": "anopheles_gambiae",
+ "organism": "Anopheles gambiae",
+ "accession": "GCF_943734735.2",
+ "contigs": {
+  "NC_064600.1": 28097889,
+  "NC_064601.1": 118196952,
+  "NC_064602.1__val8M": 8000000
+ },
+ "split_of": {
+  "NC_064600.1": "train",
+  "NC_064601.1": "train",
+  "NC_064602.1__val8M": "val"
+ },
+ "n_coding_genes_parsed": 8243,
+ "windows": {
+  "train": 23808,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 1834,
+  "50": 3668
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 146294841,
+   "primary_coding_genes": 7713,
+   "cds_assessable_references": 7677,
+   "eligible_positive": 7336,
+   "eligible_per_Mb": 50.145308951803706,
+   "exon_hist": {
+    "1": 958,
+    "2-5": 4894,
+    ">=6": 1825
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 539,
+   "nonstandard_splice_fraction": 0.01211410707307542,
+   "unsupported_reasons": {
+    "overlap_or_partial": 232,
+    "nonstandard_splice": 93,
+    "split_terminal_codon": 16
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 530,
+   "cds_assessable_references": 529,
+   "eligible_positive": 509,
+   "eligible_per_Mb": 63.625,
+   "exon_hist": {
+    "1": 66,
+    "2-5": 347,
+    ">=6": 116
+   },
+   "median_exons": 3.0,
+   "spans_longer_than_window": 35,
+   "nonstandard_splice_fraction": 0.005671077504725898,
+   "unsupported_reasons": {
+    "overlap_or_partial": 16,
+    "nonstandard_splice": 3,
+    "split_terminal_codon": 1
+   }
+  }
+ },
+ "seconds": 38.30822944641113
+}

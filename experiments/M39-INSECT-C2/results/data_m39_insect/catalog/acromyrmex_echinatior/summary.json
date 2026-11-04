@@ -1,0 +1,101 @@
+{
+ "species": "acromyrmex_echinatior",
+ "organism": "Acromyrmex echinatior",
+ "accession": "GCF_024713525.1",
+ "contigs": {
+  "NC_141852.1": 28051681,
+  "NC_141853.1": 26956432,
+  "NC_141854.1": 24065950,
+  "NC_141855.1": 17115859,
+  "NC_141856.1": 16873798,
+  "NC_141857.1": 16587574,
+  "NC_141858.1": 15872526,
+  "NC_141859.1": 15111700,
+  "NC_141860.1": 14565228,
+  "NC_141862.1": 14203743,
+  "NC_141863.1": 13354688,
+  "NC_141864.1": 13052130,
+  "NC_141865.1": 11711263,
+  "NC_141866.1": 10808777,
+  "NC_141867.1": 10095005,
+  "NC_141868.1": 9974869,
+  "NC_141869.1": 8336083,
+  "NC_141870.1": 7757020,
+  "NC_141861.1__val14M": 14000000
+ },
+ "split_of": {
+  "NC_141852.1": "train",
+  "NC_141853.1": "train",
+  "NC_141854.1": "train",
+  "NC_141855.1": "train",
+  "NC_141856.1": "train",
+  "NC_141857.1": "train",
+  "NC_141858.1": "train",
+  "NC_141859.1": "train",
+  "NC_141860.1": "train",
+  "NC_141862.1": "train",
+  "NC_141863.1": "train",
+  "NC_141864.1": "train",
+  "NC_141865.1": "train",
+  "NC_141866.1": "train",
+  "NC_141867.1": "train",
+  "NC_141868.1": "train",
+  "NC_141869.1": "train",
+  "NC_141870.1": "train",
+  "NC_141861.1__val14M": "val"
+ },
+ "n_coding_genes_parsed": 11736,
+ "windows": {
+  "train": 44656,
+  "val": 2278
+ },
+ "nested_labeled_counts": {
+  "25": 2640,
+  "50": 5280
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 274494326,
+   "primary_coding_genes": 11221,
+   "cds_assessable_references": 11099,
+   "eligible_positive": 10559,
+   "eligible_per_Mb": 38.46709749475841,
+   "exon_hist": {
+    "1": 1000,
+    "2-5": 4891,
+    ">=6": 5208
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 1068,
+   "nonstandard_splice_fraction": 0.02189386431210019,
+   "unsupported_reasons": {
+    "nonstandard_splice": 243,
+    "split_terminal_codon": 32,
+    "overlap_or_partial": 266
+   }
+  },
+  "val": {
+   "bp": 14000000,
+   "primary_coding_genes": 515,
+   "cds_assessable_references": 507,
+   "eligible_positive": 486,
+   "eligible_per_Mb": 34.714285714285715,
+   "exon_hist": {
+    "1": 54,
+    "2-5": 218,
+    ">=6": 235
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 62,
+   "nonstandard_splice_fraction": 0.023668639053254437,
+   "unsupported_reasons": {
+    "split_terminal_codon": 3,
+    "nonstandard_splice": 12,
+    "overlap_or_partial": 6
+   }
+  }
+ },
+ "seconds": 65.26473689079285
+}

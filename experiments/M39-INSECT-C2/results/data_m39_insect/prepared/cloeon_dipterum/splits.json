@@ -1,0 +1,55 @@
+{
+ "species": "cloeon_dipterum",
+ "role": "new",
+ "organism": "Cloeon dipterum",
+ "accession": "GCF_949628265.1",
+ "assembly": "GCF_949628265.1_ieCloDipt1.1",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome or Linkage Group, Primary Assembly, >=5 Mb); NEW species: validation chromosome = lower-median length; crop = smallest whole-Mb length >= 8 Mb with >= 500 CDS-assessable primary references (genes wholly inside), capped at the whole chromosome; remainder discarded",
+ "main_chromosomes": {
+  "NC_088790.1": 33197927,
+  "NC_088789.1": 36396660,
+  "NC_088788.1": 37097636,
+  "NC_088787.1": 37456129,
+  "NC_088786.1": 43195403
+ },
+ "main_chromosome_names": {
+  "NC_088790.1": "SUPER_X",
+  "NC_088789.1": "SUPER_4",
+  "NC_088788.1": "SUPER_3",
+  "NC_088787.1": "SUPER_2",
+  "NC_088786.1": "SUPER_1"
+ },
+ "heldout_chromosome": "NC_088788.1",
+ "heldout_length": 37097636,
+ "validation_contig": "NC_088788.1__val9M",
+ "validation_crop": {
+  "chromosome": "NC_088788.1",
+  "start0": 0,
+  "end": 9000000,
+  "whole_chromosome": false,
+  "references_whole_chromosome": 2782,
+  "references_in_crop_estimate": 570
+ },
+ "heldout_d": [],
+ "discarded_bp": 28097636,
+ "train": [
+  "NC_088786.1",
+  "NC_088787.1",
+  "NC_088789.1",
+  "NC_088790.1"
+ ],
+ "lengths": {
+  "NC_088786.1": 43195403,
+  "NC_088787.1": 37456129,
+  "NC_088789.1": 36396660,
+  "NC_088790.1": 33197927,
+  "NC_088788.1__val9M": 9000000
+ },
+ "train_bp": 150246119,
+ "main_bp": 187343755,
+ "assembly_bp": 190140723,
+ "dropped_sequences": 6,
+ "gff_features": 439300,
+ "gff_genes": 12310,
+ "prepared": "2026-11-04T12:32:18+01:00"
+}

@@ -1,0 +1,2 @@
+2026-11-04T12:29:32+01:00
+ftp_base=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/097/725/GCF_016097725.1_UJ_Ityp_2.0/GCF_016097725.1_UJ_Ityp_2.0

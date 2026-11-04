@@ -1,0 +1,3 @@
+7a54834aa76b5f7ff706babf9c14a435  GCF_027563975.2_ilPloInte3.2_genomic.fna.gz  ncbi=7a54834aa76b5f7ff706babf9c14a435  OK
+1af85dc1794dd1d164d94057af5b09c0  GCF_027563975.2_ilPloInte3.2_genomic.gff.gz  ncbi=1af85dc1794dd1d164d94057af5b09c0  OK
+a9378f6806025dd5d2dd554450c1d0ee  GCF_027563975.2_ilPloInte3.2_protein.faa.gz  ncbi=a9378f6806025dd5d2dd554450c1d0ee  OK

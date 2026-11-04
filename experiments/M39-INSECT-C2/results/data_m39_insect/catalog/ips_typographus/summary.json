@@ -1,0 +1,94 @@
+{
+ "species": "ips_typographus",
+ "organism": "Ips typographus",
+ "accession": "GCF_016097725.1",
+ "contigs": {
+  "NC_138422.1": 31121059,
+  "NC_138423.1": 26547836,
+  "NC_138424.1": 22521065,
+  "NC_138425.1": 14410712,
+  "NC_138426.1": 14452831,
+  "NC_138427.1": 12144430,
+  "NC_138428.1": 9585165,
+  "NC_138429.1": 8697214,
+  "NC_138431.1": 8074229,
+  "NC_138432.1": 11013495,
+  "NC_138433.1": 10596154,
+  "NC_138434.1": 7770798,
+  "NC_138435.1": 7078474,
+  "NC_138436.1": 9526174,
+  "NC_138437.1": 9645974,
+  "NC_138430.1__val8M": 8000000
+ },
+ "split_of": {
+  "NC_138422.1": "train",
+  "NC_138423.1": "train",
+  "NC_138424.1": "train",
+  "NC_138425.1": "train",
+  "NC_138426.1": "train",
+  "NC_138427.1": "train",
+  "NC_138428.1": "train",
+  "NC_138429.1": "train",
+  "NC_138431.1": "train",
+  "NC_138432.1": "train",
+  "NC_138433.1": "train",
+  "NC_138434.1": "train",
+  "NC_138435.1": "train",
+  "NC_138436.1": "train",
+  "NC_138437.1": "train",
+  "NC_138430.1__val8M": "val"
+ },
+ "n_coding_genes_parsed": 12611,
+ "windows": {
+  "train": 33058,
+  "val": 1302
+ },
+ "nested_labeled_counts": {
+  "25": 2755,
+  "50": 5510
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 203185610,
+   "primary_coding_genes": 12037,
+   "cds_assessable_references": 11908,
+   "eligible_positive": 11019,
+   "eligible_per_Mb": 54.23120269196229,
+   "exon_hist": {
+    "1": 1040,
+    "2-5": 5154,
+    ">=6": 5714
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 915,
+   "nonstandard_splice_fraction": 0.03636210950621431,
+   "unsupported_reasons": {
+    "nonstandard_splice": 433,
+    "overlap_or_partial": 417,
+    "split_terminal_codon": 39
+   }
+  },
+  "val": {
+   "bp": 8000000,
+   "primary_coding_genes": 574,
+   "cds_assessable_references": 573,
+   "eligible_positive": 535,
+   "eligible_per_Mb": 66.875,
+   "exon_hist": {
+    "1": 46,
+    "2-5": 253,
+    ">=6": 274
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 40,
+   "nonstandard_splice_fraction": 0.03315881326352531,
+   "unsupported_reasons": {
+    "nonstandard_splice": 19,
+    "overlap_or_partial": 19
+   }
+  }
+ },
+ "seconds": 57.67040014266968
+}

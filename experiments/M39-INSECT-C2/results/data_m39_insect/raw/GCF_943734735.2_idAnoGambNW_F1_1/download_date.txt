@@ -1,0 +1,2 @@
+2026-11-04T12:28:58+01:00
+ftp_base=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/943/734/735/GCF_943734735.2_idAnoGambNW_F1_1/GCF_943734735.2_idAnoGambNW_F1_1

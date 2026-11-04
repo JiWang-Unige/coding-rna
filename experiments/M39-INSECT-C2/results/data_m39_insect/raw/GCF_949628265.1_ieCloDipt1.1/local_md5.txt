@@ -1,0 +1,3 @@
+c423fc4e8765cd9c2cafeca69f81328b  GCF_949628265.1_ieCloDipt1.1_genomic.fna.gz  ncbi=c423fc4e8765cd9c2cafeca69f81328b  OK
+760546a8c52d67610e1ba11e3e51044e  GCF_949628265.1_ieCloDipt1.1_genomic.gff.gz  ncbi=760546a8c52d67610e1ba11e3e51044e  OK
+d4c3e52d93a8fd554af7aa471d1c9d96  GCF_949628265.1_ieCloDipt1.1_protein.faa.gz  ncbi=d4c3e52d93a8fd554af7aa471d1c9d96  OK

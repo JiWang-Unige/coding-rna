@@ -1,0 +1,47 @@
+{
+ "species": "anopheles_gambiae",
+ "role": "new",
+ "organism": "Anopheles gambiae",
+ "accession": "GCF_943734735.2",
+ "assembly": "GCF_943734735.2_idAnoGambNW_F1_1",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome or Linkage Group, Primary Assembly, >=5 Mb); NEW species: validation chromosome = lower-median length; crop = smallest whole-Mb length >= 8 Mb with >= 500 CDS-assessable primary references (genes wholly inside), capped at the whole chromosome; remainder discarded",
+ "main_chromosomes": {
+  "NC_064600.1": 28097889,
+  "NC_064602.1": 99149756,
+  "NC_064601.1": 118196952
+ },
+ "main_chromosome_names": {
+  "NC_064600.1": "X",
+  "NC_064602.1": "3RL",
+  "NC_064601.1": "2RL"
+ },
+ "heldout_chromosome": "NC_064602.1",
+ "heldout_length": 99149756,
+ "validation_contig": "NC_064602.1__val8M",
+ "validation_crop": {
+  "chromosome": "NC_064602.1",
+  "start0": 0,
+  "end": 8000000,
+  "whole_chromosome": false,
+  "references_whole_chromosome": 4739,
+  "references_in_crop_estimate": 529
+ },
+ "heldout_d": [],
+ "discarded_bp": 91149756,
+ "train": [
+  "NC_064600.1",
+  "NC_064601.1"
+ ],
+ "lengths": {
+  "NC_064600.1": 28097889,
+  "NC_064601.1": 118196952,
+  "NC_064602.1__val8M": 8000000
+ },
+ "train_bp": 146294841,
+ "main_bp": 245444597,
+ "assembly_bp": 264466744,
+ "dropped_sequences": 188,
+ "gff_features": 331481,
+ "gff_genes": 9381,
+ "prepared": "2026-11-04T12:32:09+01:00"
+}

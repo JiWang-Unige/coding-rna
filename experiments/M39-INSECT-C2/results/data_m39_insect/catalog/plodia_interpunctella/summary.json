@@ -1,0 +1,118 @@
+{
+ "species": "plodia_interpunctella",
+ "organism": "Plodia interpunctella",
+ "accession": "GCF_027563975.2",
+ "contigs": {
+  "NC_071294.1": 12651329,
+  "NC_071295.1": 12514254,
+  "NC_071296.1": 12058152,
+  "NC_071297.1": 11860281,
+  "NC_071298.1": 11816407,
+  "NC_071299.1": 11742873,
+  "NC_071300.1": 11250008,
+  "NC_071301.1": 11154766,
+  "NC_071302.1": 10950421,
+  "NC_071303.1": 10819065,
+  "NC_071304.1": 10557213,
+  "NC_071305.1": 10311656,
+  "NC_071306.1": 10270740,
+  "NC_071308.1": 10226474,
+  "NC_071309.1": 10032087,
+  "NC_071310.1": 9622388,
+  "NC_071311.1": 9556803,
+  "NC_071312.1": 9133681,
+  "NC_071313.1": 8452395,
+  "NC_071314.1": 8343125,
+  "NC_071315.1": 7177523,
+  "NC_071316.1": 7121933,
+  "NC_071317.1": 7096637,
+  "NC_071318.1": 7039582,
+  "NC_071319.1": 6338195,
+  "NC_071320.1": 5272335,
+  "NC_071324.2": 13531594,
+  "NC_071307.1__valAll": 10242959
+ },
+ "split_of": {
+  "NC_071294.1": "train",
+  "NC_071295.1": "train",
+  "NC_071296.1": "train",
+  "NC_071297.1": "train",
+  "NC_071298.1": "train",
+  "NC_071299.1": "train",
+  "NC_071300.1": "train",
+  "NC_071301.1": "train",
+  "NC_071302.1": "train",
+  "NC_071303.1": "train",
+  "NC_071304.1": "train",
+  "NC_071305.1": "train",
+  "NC_071306.1": "train",
+  "NC_071308.1": "train",
+  "NC_071309.1": "train",
+  "NC_071310.1": "train",
+  "NC_071311.1": "train",
+  "NC_071312.1": "train",
+  "NC_071313.1": "train",
+  "NC_071314.1": "train",
+  "NC_071315.1": "train",
+  "NC_071316.1": "train",
+  "NC_071317.1": "train",
+  "NC_071318.1": "train",
+  "NC_071319.1": "train",
+  "NC_071320.1": "train",
+  "NC_071324.2": "train",
+  "NC_071307.1__valAll": "val"
+ },
+ "n_coding_genes_parsed": 12387,
+ "windows": {
+  "train": 43416,
+  "val": 1666
+ },
+ "nested_labeled_counts": {
+  "25": 2793,
+  "50": 5585
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 266901917,
+   "primary_coding_genes": 11911,
+   "cds_assessable_references": 11848,
+   "eligible_positive": 11170,
+   "eligible_per_Mb": 41.850579889240734,
+   "exon_hist": {
+    "1": 1514,
+    "2-5": 4496,
+    ">=6": 5838
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 1258,
+   "nonstandard_splice_fraction": 0.01738690074274139,
+   "unsupported_reasons": {
+    "nonstandard_splice": 206,
+    "overlap_or_partial": 429,
+    "split_terminal_codon": 44
+   }
+  },
+  "val": {
+   "bp": 10242959,
+   "primary_coding_genes": 476,
+   "cds_assessable_references": 475,
+   "eligible_positive": 461,
+   "eligible_per_Mb": 45.00652594626221,
+   "exon_hist": {
+    "1": 60,
+    "2-5": 197,
+    ">=6": 218
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 40,
+   "nonstandard_splice_fraction": 0.010526315789473684,
+   "unsupported_reasons": {
+    "overlap_or_partial": 9,
+    "nonstandard_splice": 5
+   }
+  }
+ },
+ "seconds": 70.1673858165741
+}

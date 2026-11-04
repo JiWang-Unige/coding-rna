@@ -1,0 +1,125 @@
+{
+ "species": "spodoptera_frugiperda",
+ "organism": "Spodoptera frugiperda",
+ "accession": "GCF_023101765.2",
+ "contigs": {
+  "NC_064212.1": 14577926,
+  "NC_064213.1": 13003764,
+  "NC_064214.1": 12691757,
+  "NC_064216.1": 12559537,
+  "NC_064217.1": 13237210,
+  "NC_064218.1": 12439639,
+  "NC_064219.1": 11852158,
+  "NC_064220.1": 11521312,
+  "NC_064221.1": 11349343,
+  "NC_064222.1": 11211927,
+  "NC_064223.1": 14568210,
+  "NC_064224.1": 10342656,
+  "NC_064225.1": 10386609,
+  "NC_064226.1": 15381117,
+  "NC_064227.1": 8966430,
+  "NC_064228.1": 8978084,
+  "NC_064229.1": 11537133,
+  "NC_064230.1": 7993554,
+  "NC_064231.1": 14350968,
+  "NC_064232.1": 7829940,
+  "NC_064233.1": 7784358,
+  "NC_064234.1": 14499729,
+  "NC_064235.1": 7068167,
+  "NC_064236.1": 22093432,
+  "NC_064237.1": 13945552,
+  "NC_064238.1": 13982692,
+  "NC_064239.1": 14028592,
+  "NC_064240.1": 13719107,
+  "NC_064241.1": 13599824,
+  "NC_064242.1": 13622178,
+  "NC_064215.1__valAll": 12638378
+ },
+ "split_of": {
+  "NC_064212.1": "train",
+  "NC_064213.1": "train",
+  "NC_064214.1": "train",
+  "NC_064216.1": "train",
+  "NC_064217.1": "train",
+  "NC_064218.1": "train",
+  "NC_064219.1": "train",
+  "NC_064220.1": "train",
+  "NC_064221.1": "train",
+  "NC_064222.1": "train",
+  "NC_064223.1": "train",
+  "NC_064224.1": "train",
+  "NC_064225.1": "train",
+  "NC_064226.1": "train",
+  "NC_064227.1": "train",
+  "NC_064228.1": "train",
+  "NC_064229.1": "train",
+  "NC_064230.1": "train",
+  "NC_064231.1": "train",
+  "NC_064232.1": "train",
+  "NC_064233.1": "train",
+  "NC_064234.1": "train",
+  "NC_064235.1": "train",
+  "NC_064236.1": "train",
+  "NC_064237.1": "train",
+  "NC_064238.1": "train",
+  "NC_064239.1": "train",
+  "NC_064240.1": "train",
+  "NC_064241.1": "train",
+  "NC_064242.1": "train",
+  "NC_064215.1__valAll": "val"
+ },
+ "n_coding_genes_parsed": 14542,
+ "windows": {
+  "train": 60044,
+  "val": 2056
+ },
+ "nested_labeled_counts": {
+  "25": 3231,
+  "50": 6461
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 369122905,
+   "primary_coding_genes": 14047,
+   "cds_assessable_references": 13930,
+   "eligible_positive": 12922,
+   "eligible_per_Mb": 35.007310099057655,
+   "exon_hist": {
+    "1": 1809,
+    "2-5": 5655,
+    ">=6": 6466
+   },
+   "median_exons": 5.0,
+   "spans_longer_than_window": 1706,
+   "nonstandard_splice_fraction": 0.032160804020100506,
+   "unsupported_reasons": {
+    "overlap_or_partial": 499,
+    "nonstandard_splice": 448,
+    "split_terminal_codon": 61
+   }
+  },
+  "val": {
+   "bp": 12638378,
+   "primary_coding_genes": 495,
+   "cds_assessable_references": 493,
+   "eligible_positive": 463,
+   "eligible_per_Mb": 36.63444786981368,
+   "exon_hist": {
+    "1": 79,
+    "2-5": 224,
+    ">=6": 190
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 45,
+   "nonstandard_splice_fraction": 0.02231237322515213,
+   "unsupported_reasons": {
+    "nonstandard_splice": 11,
+    "split_terminal_codon": 2,
+    "overlap_or_partial": 17
+   }
+  }
+ },
+ "seconds": 54.340147972106934
+}

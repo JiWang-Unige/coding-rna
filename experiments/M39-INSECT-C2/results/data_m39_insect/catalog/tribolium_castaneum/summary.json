@@ -1,0 +1,81 @@
+{
+ "species": "tribolium_castaneum",
+ "organism": "Tribolium castaneum",
+ "accession": "GCF_031307605.1",
+ "contigs": {
+  "NC_087394.1": 37460696,
+  "NC_087395.1": 26832998,
+  "NC_087396.1": 25071153,
+  "NC_087397.1": 23115473,
+  "NC_087398.1": 20636470,
+  "NC_087401.1": 17654693,
+  "NC_087402.1": 16193484,
+  "NC_087403.1": 12086266,
+  "NC_087399.1": 19586254
+ },
+ "split_of": {
+  "NC_087394.1": "train",
+  "NC_087395.1": "train",
+  "NC_087396.1": "train",
+  "NC_087397.1": "train",
+  "NC_087398.1": "train",
+  "NC_087401.1": "train",
+  "NC_087402.1": "train",
+  "NC_087403.1": "train",
+  "NC_087399.1": "val"
+ },
+ "n_coding_genes_parsed": 11313,
+ "windows": {
+  "train": 29134,
+  "val": 3186
+ },
+ "nested_labeled_counts": {
+  "25": 2384,
+  "50": 4767
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 179051233,
+   "primary_coding_genes": 10123,
+   "cds_assessable_references": 10083,
+   "eligible_positive": 9534,
+   "eligible_per_Mb": 53.247329494793256,
+   "exon_hist": {
+    "1": 813,
+    "2-5": 5471,
+    ">=6": 3799
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 634,
+   "nonstandard_splice_fraction": 0.019339482296935436,
+   "unsupported_reasons": {
+    "nonstandard_splice": 195,
+    "overlap_or_partial": 277,
+    "split_terminal_codon": 78
+   }
+  },
+  "val": {
+   "bp": 19586254,
+   "primary_coding_genes": 1190,
+   "cds_assessable_references": 1186,
+   "eligible_positive": 1128,
+   "eligible_per_Mb": 57.59141079248742,
+   "exon_hist": {
+    "1": 122,
+    "2-5": 716,
+    ">=6": 348
+   },
+   "median_exons": 4.0,
+   "spans_longer_than_window": 53,
+   "nonstandard_splice_fraction": 0.013490725126475547,
+   "unsupported_reasons": {
+    "nonstandard_splice": 16,
+    "split_terminal_codon": 11,
+    "overlap_or_partial": 31
+   }
+  }
+ },
+ "seconds": 46.473556995391846
+}

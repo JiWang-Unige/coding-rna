@@ -1,0 +1,3 @@
+869cf40e4f5c7ca27d04ca9ae7baee4f  GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz  ncbi=869cf40e4f5c7ca27d04ca9ae7baee4f  OK
+1de22f17786c44ae98d7922116967b4e  GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.gff.gz  ncbi=1de22f17786c44ae98d7922116967b4e  OK
+d0a81857fd1aa796ff9236cbd5105ab0  GCF_000001215.4_Release_6_plus_ISO1_MT_protein.faa.gz  ncbi=d0a81857fd1aa796ff9236cbd5105ab0  OK

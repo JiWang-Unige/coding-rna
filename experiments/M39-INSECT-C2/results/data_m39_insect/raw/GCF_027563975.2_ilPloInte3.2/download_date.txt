@@ -1,0 +1,2 @@
+2026-11-04T12:29:13+01:00
+ftp_base=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/027/563/975/GCF_027563975.2_ilPloInte3.2/GCF_027563975.2_ilPloInte3.2

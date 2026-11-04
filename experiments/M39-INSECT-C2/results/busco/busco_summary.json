@@ -1,0 +1,112 @@
+{
+ "drosophila_melanogaster": {
+  "lineage": "insecta_odb10",
+  "complete": 99.9,
+  "single": 98.9,
+  "duplicated": 1.0,
+  "fragmented": 0.0,
+  "missing": 0.1,
+  "n": 1367,
+  "one_line": "C:99.9%[S:98.9%,D:1.0%],F:0.0%,M:0.1%,n:1367",
+  "gate_ok": true
+ },
+ "tribolium_castaneum": {
+  "lineage": "insecta_odb10",
+  "complete": 99.2,
+  "single": 98.4,
+  "duplicated": 0.8,
+  "fragmented": 0.1,
+  "missing": 0.7,
+  "n": 1367,
+  "one_line": "C:99.2%[S:98.4%,D:0.8%],F:0.1%,M:0.7%,n:1367",
+  "gate_ok": true
+ },
+ "anopheles_gambiae": {
+  "lineage": "insecta_odb10",
+  "complete": 99.0,
+  "single": 97.8,
+  "duplicated": 1.2,
+  "fragmented": 0.1,
+  "missing": 0.9,
+  "n": 1367,
+  "one_line": "C:99.0%[S:97.8%,D:1.2%],F:0.1%,M:0.9%,n:1367",
+  "gate_ok": true
+ },
+ "spodoptera_frugiperda": {
+  "lineage": "insecta_odb10",
+  "complete": 99.6,
+  "single": 98.2,
+  "duplicated": 1.4,
+  "fragmented": 0.0,
+  "missing": 0.4,
+  "n": 1367,
+  "one_line": "C:99.6%[S:98.2%,D:1.4%],F:0.0%,M:0.4%,n:1367",
+  "gate_ok": true
+ },
+ "plodia_interpunctella": {
+  "lineage": "insecta_odb10",
+  "complete": 99.8,
+  "single": 99.0,
+  "duplicated": 0.8,
+  "fragmented": 0.0,
+  "missing": 0.2,
+  "n": 1367,
+  "one_line": "C:99.8%[S:99.0%,D:0.8%],F:0.0%,M:0.2%,n:1367",
+  "gate_ok": true
+ },
+ "apis_cerana": {
+  "lineage": "insecta_odb10",
+  "complete": 99.6,
+  "single": 98.9,
+  "duplicated": 0.7,
+  "fragmented": 0.1,
+  "missing": 0.4,
+  "n": 1367,
+  "one_line": "C:99.6%[S:98.9%,D:0.7%],F:0.1%,M:0.4%,n:1367",
+  "gate_ok": true
+ },
+ "acromyrmex_echinatior": {
+  "lineage": "insecta_odb10",
+  "complete": 99.9,
+  "single": 99.0,
+  "duplicated": 0.8,
+  "fragmented": 0.1,
+  "missing": 0.1,
+  "n": 1367,
+  "one_line": "C:99.9%[S:99.0%,D:0.8%],F:0.1%,M:0.1%,n:1367",
+  "gate_ok": true
+ },
+ "ips_typographus": {
+  "lineage": "insecta_odb10",
+  "complete": 99.4,
+  "single": 95.8,
+  "duplicated": 3.6,
+  "fragmented": 0.4,
+  "missing": 0.2,
+  "n": 1367,
+  "one_line": "C:99.4%[S:95.8%,D:3.6%],F:0.4%,M:0.2%,n:1367",
+  "gate_ok": true
+ },
+ "aethina_tumida": {
+  "lineage": "insecta_odb10",
+  "complete": 99.5,
+  "single": 96.9,
+  "duplicated": 2.6,
+  "fragmented": 0.0,
+  "missing": 0.5,
+  "n": 1367,
+  "one_line": "C:99.5%[S:96.9%,D:2.6%],F:0.0%,M:0.5%,n:1367",
+  "gate_ok": true
+ },
+ "cloeon_dipterum": {
+  "lineage": "insecta_odb10",
+  "complete": 98.0,
+  "single": 96.3,
+  "duplicated": 1.7,
+  "fragmented": 0.4,
+  "missing": 1.6,
+  "n": 1367,
+  "one_line": "C:98.0%[S:96.3%,D:1.7%],F:0.4%,M:1.6%,n:1367",
+  "gate_ok": true
+ }
+}

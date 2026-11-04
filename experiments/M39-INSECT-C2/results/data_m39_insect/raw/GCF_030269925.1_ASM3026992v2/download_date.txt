@@ -1,0 +1,2 @@
+2026-11-04T12:29:06+01:00
+ftp_base=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/030/269/925/GCF_030269925.1_ASM3026992v2/GCF_030269925.1_ASM3026992v2

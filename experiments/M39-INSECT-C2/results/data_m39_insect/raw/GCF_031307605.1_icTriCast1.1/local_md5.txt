@@ -1,0 +1,3 @@
+42e101d768c57e3273ba6c58c790137a  GCF_031307605.1_icTriCast1.1_genomic.fna.gz  ncbi=42e101d768c57e3273ba6c58c790137a  OK
+35af061e90bb08faa87258fc4a51e794  GCF_031307605.1_icTriCast1.1_genomic.gff.gz  ncbi=35af061e90bb08faa87258fc4a51e794  OK
+6c90a0fc6999198633de8669a8a1c22e  GCF_031307605.1_icTriCast1.1_protein.faa.gz  ncbi=6c90a0fc6999198633de8669a8a1c22e  OK

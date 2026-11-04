@@ -1,0 +1,74 @@
+{
+ "species": "drosophila_melanogaster",
+ "role": "old",
+ "organism": "Drosophila melanogaster",
+ "accession": "GCF_000001215.4",
+ "assembly": "GCF_000001215.4_Release_6_plus_ISO1_MT",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome or Linkage Group, Primary Assembly, >=5 Mb); OLD species: selection chromosome S = lower-median length, descriptive held-out D = next shorter, both whole",
+ "main_chromosomes": {
+  "NT_033779.5": 23513712,
+  "NC_004354.4": 23542271,
+  "NT_033778.4": 25286936,
+  "NT_037436.4": 28110227,
+  "NT_033777.3": 32079331
+ },
+ "main_chromosome_names": {
+  "NT_033779.5": "2L",
+  "NC_004354.4": "X",
+  "NT_033778.4": "2R",
+  "NT_037436.4": "3L",
+  "NT_033777.3": "3R"
+ },
+ "heldout_chromosome": "NT_033778.4",
+ "heldout_length": 25286936,
+ "validation_contig": "NT_033778.4",
+ "validation_crop": null,
+ "heldout_d": [
+  "NC_004354.4"
+ ],
+ "discarded_bp": 0,
+ "train": [
+  "NT_033777.3",
+  "NT_033779.5",
+  "NT_037436.4"
+ ],
+ "lengths": {
+  "NT_033777.3": 32079331,
+  "NT_033779.5": 23513712,
+  "NT_037436.4": 28110227,
+  "NT_033778.4": 25286936,
+  "NC_004354.4": 23542271
+ },
+ "train_bp": 83703270,
+ "main_bp": 132532477,
+ "assembly_bp": 143726002,
+ "dropped_sequences": 1865,
+ "dropped_trans_spliced_transcripts": [
+  "rna-NM_001104386.2",
+  "rna-NM_001104387.2",
+  "rna-NM_001260299.1",
+  "rna-NM_001260300.1",
+  "rna-NM_163880.2",
+  "rna-NM_163882.2",
+  "rna-NM_163883.2",
+  "rna-NM_163884.2",
+  "rna-NM_163885.2",
+  "rna-NM_163886.2",
+  "rna-NM_163887.2",
+  "rna-NM_163888.2",
+  "rna-NM_163890.2",
+  "rna-NM_163891.2",
+  "rna-NM_163893.2",
+  "rna-NM_163894.2",
+  "rna-NM_176521.1",
+  "rna-NM_176522.1",
+  "rna-NM_176523.1",
+  "rna-NM_176524.1",
+  "rna-NM_176525.1",
+  "rna-NM_176526.1",
+  "rna-NM_176527.1"
+ ],
+ "gff_features": 404985,
+ "gff_genes": 17312,
+ "prepared": "2026-11-04T12:39:01+01:00"
+}

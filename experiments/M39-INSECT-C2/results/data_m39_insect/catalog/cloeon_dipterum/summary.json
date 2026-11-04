@@ -1,0 +1,73 @@
+{
+ "species": "cloeon_dipterum",
+ "organism": "Cloeon dipterum",
+ "accession": "GCF_949628265.1",
+ "contigs": {
+  "NC_088786.1": 43195403,
+  "NC_088787.1": 37456129,
+  "NC_088789.1": 36396660,
+  "NC_088790.1": 33197927,
+  "NC_088788.1__val9M": 9000000
+ },
+ "split_of": {
+  "NC_088786.1": "train",
+  "NC_088787.1": "train",
+  "NC_088789.1": "train",
+  "NC_088790.1": "train",
+  "NC_088788.1__val9M": "val"
+ },
+ "n_coding_genes_parsed": 11049,
+ "windows": {
+  "train": 24450,
+  "val": 1464
+ },
+ "nested_labeled_counts": {
+  "25": 2505,
+  "50": 5009
+ },
+ "label_policy": "CDS_assessable_primary_R4 (primary-transcript catalog, as M30)",
+ "selection_seed": 20261017,
+ "stats": {
+  "train": {
+   "bp": 150246119,
+   "primary_coding_genes": 10471,
+   "cds_assessable_references": 10422,
+   "eligible_positive": 10017,
+   "eligible_per_Mb": 66.6706073119932,
+   "exon_hist": {
+    "1": 351,
+    "2-5": 4035,
+    ">=6": 6036
+   },
+   "median_exons": 6.0,
+   "spans_longer_than_window": 575,
+   "nonstandard_splice_fraction": 0.017079255421224335,
+   "unsupported_reasons": {
+    "nonstandard_splice": 178,
+    "split_terminal_codon": 53,
+    "overlap_or_partial": 176
+   }
+  },
+  "val": {
+   "bp": 9000000,
+   "primary_coding_genes": 578,
+   "cds_assessable_references": 570,
+   "eligible_positive": 556,
+   "eligible_per_Mb": 61.77777777777778,
+   "exon_hist": {
+    "1": 24,
+    "2-5": 227,
+    ">=6": 319
+   },
+   "median_exons": 6.0,
+   "spans_longer_than_window": 27,
+   "nonstandard_splice_fraction": 0.015789473684210527,
+   "unsupported_reasons": {
+    "nonstandard_splice": 9,
+    "overlap_or_partial": 4,
+    "split_terminal_codon": 1
+   }
+  }
+ },
+ "seconds": 36.215856075286865
+}

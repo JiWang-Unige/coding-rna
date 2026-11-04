@@ -1,0 +1,2 @@
+2026-11-04T12:28:52+01:00
+ftp_base=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/031/307/605/GCF_031307605.1_icTriCast1.1/GCF_031307605.1_icTriCast1.1

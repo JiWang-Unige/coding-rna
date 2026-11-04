@@ -1,0 +1,932 @@
+{
+ "species": {
+  "drosophila_melanogaster": {
+   "species": "drosophila_melanogaster",
+   "role": "old",
+   "V1": {
+    "heldout": "NT_033778.4",
+    "heldout_matches_protocol": true,
+    "d": [
+     "NC_004354.4"
+    ],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 5,
+    "main_bp": 132532477,
+    "assembly_bp": 143726002,
+    "main_coverage": 0.9221189983424155,
+    "train_contigs": 3,
+    "train_bp": 83703270,
+    "validation_contig": "NT_033778.4",
+    "validation_crop": null,
+    "discarded_bp": 0,
+    "dropped_trans_spliced_transcripts": 23
+   },
+   "V2": {
+    "primary_coding": 11645,
+    "assessable": 11591,
+    "eligible": 11082,
+    "eligible_over_assessable": 0.956086618928479,
+    "nonstandard_splice_fraction": 0.003623500992149081,
+    "cds_partial": 2,
+    "overlapping_primary": 443,
+    "failure_reasons": {
+     "overlap_or_partial": 438,
+     "split_terminal_codon": 29,
+     "nonstandard_splice": 42
+    },
+    "train_eligible": 8382,
+    "nested_labeled": {
+     "25": 2096,
+     "50": 4191
+    },
+    "n_coding_genes_parsed": 11645,
+    "ncbi_protein_coding": 13962,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 11082,
+    "span_median": 1487.0,
+    "span_p90": 7045.5999999999985,
+    "span_max": 1697480,
+    "le_12288": 0.941797509474824,
+    "le_24064": 0.9726583649160802,
+    "le_49152": 0.9916982494134633,
+    "gt_24064": 0.02734163508391987,
+    "gt_49152": 0.008301750586536726,
+    "exons_gt_128": 0,
+    "max_exons_eligible": 81,
+    "introns": 32276,
+    "introns_lt_20": 0,
+    "intron_min": 40,
+    "intron_median": 67.0,
+    "gate_ok": true
+   },
+   "V3": {
+    "n_coding_genes_parsed": 11645,
+    "ncbi_protein_coding": 13962,
+    "structure_failures": {
+     "split_terminal_codon": 29,
+     "non_ATG_start": 7,
+     "internal_stop": 47,
+     "length_not_mod3": 30,
+     "nonstandard_splice": 43,
+     "no_terminal_stop": 2
+    }
+   }
+  },
+  "tribolium_castaneum": {
+   "species": "tribolium_castaneum",
+   "role": "old",
+   "V1": {
+    "heldout": "NC_087399.1",
+    "heldout_matches_protocol": true,
+    "d": [
+     "NC_087400.1"
+    ],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 10,
+    "main_bp": 217354728,
+    "assembly_bp": 241861439,
+    "main_coverage": 0.8986745836735057,
+    "train_contigs": 8,
+    "train_bp": 179051233,
+    "validation_contig": "NC_087399.1",
+    "validation_crop": null,
+    "discarded_bp": 0,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 11313,
+    "assessable": 11269,
+    "eligible": 10662,
+    "eligible_over_assessable": 0.9461354157423019,
+    "nonstandard_splice_fraction": 0.018723932913301978,
+    "cds_partial": 17,
+    "overlapping_primary": 346,
+    "failure_reasons": {
+     "nonstandard_splice": 211,
+     "overlap_or_partial": 308,
+     "split_terminal_codon": 89
+    },
+    "train_eligible": 9534,
+    "nested_labeled": {
+     "25": 2384,
+     "50": 4767
+    },
+    "n_coding_genes_parsed": 11313,
+    "ncbi_protein_coding": 12172,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 10662,
+    "span_median": 2207.5,
+    "span_p90": 14461.099999999997,
+    "span_max": 380090,
+    "le_12288": 0.8837929093978616,
+    "le_24064": 0.9416619771149878,
+    "le_49152": 0.9766460326392797,
+    "gt_24064": 0.05833802288501219,
+    "gt_49152": 0.023353967360720315,
+    "exons_gt_128": 0,
+    "max_exons_eligible": 106,
+    "introns": 47187,
+    "introns_lt_20": 0,
+    "intron_min": 30,
+    "intron_median": 52.0,
+    "gate_ok": true
+   }
+  },
+  "anopheles_gambiae": {
+   "species": "anopheles_gambiae",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_064602.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 3,
+    "main_bp": 245444597,
+    "assembly_bp": 264466744,
+    "main_coverage": 0.9280735766157426,
+    "train_contigs": 2,
+    "train_bp": 146294841,
+    "validation_contig": "NC_064602.1__val8M",
+    "validation_crop": {
+     "chromosome": "NC_064602.1",
+     "start0": 0,
+     "end": 8000000,
+     "whole_chromosome": false,
+     "references_whole_chromosome": 4739,
+     "references_in_crop_estimate": 529
+    },
+    "discarded_bp": 91149756,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 8243,
+    "assessable": 8206,
+    "eligible": 7845,
+    "eligible_over_assessable": 0.956007799171338,
+    "nonstandard_splice_fraction": 0.011698757007068,
+    "cds_partial": 29,
+    "overlapping_primary": 272,
+    "failure_reasons": {
+     "overlap_or_partial": 248,
+     "nonstandard_splice": 96,
+     "split_terminal_codon": 17
+    },
+    "train_eligible": 7336,
+    "nested_labeled": {
+     "25": 1834,
+     "50": 3668
+    },
+    "n_coding_genes_parsed": 8243,
+    "ncbi_protein_coding": 12519,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 7845,
+    "span_median": 1957.0,
+    "span_p90": 15430.000000000011,
+    "span_max": 581559,
+    "le_12288": 0.877246653919694,
+    "le_24064": 0.9330783938814532,
+    "le_49152": 0.9715742511153601,
+    "gt_24064": 0.06692160611854685,
+    "gt_49152": 0.028425748884639897,
+    "exons_gt_128": 0,
+    "max_exons_eligible": 70,
+    "introns": 25273,
+    "introns_lt_20": 0,
+    "intron_min": 30,
+    "intron_median": 91.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_064602.1__val8M",
+    "crop_bp": 8000000,
+    "catalog_assessable": 529,
+    "catalog_eligible": 509,
+    "scored_references": 529,
+    "gate_ok": true
+   }
+  },
+  "spodoptera_frugiperda": {
+   "species": "spodoptera_frugiperda",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_064215.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 31,
+    "main_bp": 381761283,
+    "assembly_bp": 383923118,
+    "main_coverage": 0.9943690939705278,
+    "train_contigs": 30,
+    "train_bp": 369122905,
+    "validation_contig": "NC_064215.1__valAll",
+    "validation_crop": {
+     "chromosome": "NC_064215.1",
+     "start0": 0,
+     "end": 12638378,
+     "whole_chromosome": true,
+     "references_whole_chromosome": 493,
+     "references_in_crop_estimate": 493
+    },
+    "discarded_bp": 0,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 14542,
+    "assessable": 14423,
+    "eligible": 13385,
+    "eligible_over_assessable": 0.9280316161686195,
+    "nonstandard_splice_fraction": 0.03182416972890522,
+    "cds_partial": 63,
+    "overlapping_primary": 558,
+    "failure_reasons": {
+     "overlap_or_partial": 516,
+     "nonstandard_splice": 459,
+     "split_terminal_codon": 63
+    },
+    "train_eligible": 12922,
+    "nested_labeled": {
+     "25": 3231,
+     "50": 6461
+    },
+    "n_coding_genes_parsed": 14542,
+    "ncbi_protein_coding": 14679,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 13385,
+    "span_median": 4116.0,
+    "span_p90": 27299.000000000007,
+    "span_max": 565015,
+    "le_12288": 0.7758685095255884,
+    "le_24064": 0.8855435188644004,
+    "le_49152": 0.9515875980575271,
+    "gt_24064": 0.11445648113559956,
+    "gt_49152": 0.04841240194247292,
+    "exons_gt_128": 2,
+    "max_exons_eligible": 164,
+    "introns": 80001,
+    "introns_lt_20": 0,
+    "intron_min": 30,
+    "intron_median": 451.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_064215.1__valAll",
+    "crop_bp": 12638378,
+    "catalog_assessable": 493,
+    "catalog_eligible": 463,
+    "scored_references": 493,
+    "gate_ok": true
+   }
+  },
+  "plodia_interpunctella": {
+   "species": "plodia_interpunctella",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_071307.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 28,
+    "main_bp": 277144876,
+    "assembly_bp": 291332140,
+    "main_coverage": 0.9513020980108821,
+    "train_contigs": 27,
+    "train_bp": 266901917,
+    "validation_contig": "NC_071307.1__valAll",
+    "validation_crop": {
+     "chromosome": "NC_071307.1",
+     "start0": 0,
+     "end": 10242959,
+     "whole_chromosome": true,
+     "references_whole_chromosome": 475,
+     "references_in_crop_estimate": 475
+    },
+    "discarded_bp": 0,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 12387,
+    "assessable": 12323,
+    "eligible": 11631,
+    "eligible_over_assessable": 0.9438448429765479,
+    "nonstandard_splice_fraction": 0.017122453947902298,
+    "cds_partial": 58,
+    "overlapping_primary": 477,
+    "failure_reasons": {
+     "nonstandard_splice": 211,
+     "overlap_or_partial": 438,
+     "split_terminal_codon": 44
+    },
+    "train_eligible": 11170,
+    "nested_labeled": {
+     "25": 2793,
+     "50": 5585
+    },
+    "n_coding_genes_parsed": 12387,
+    "ncbi_protein_coding": 13255,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 11631,
+    "span_median": 4440.0,
+    "span_p90": 24449.0,
+    "span_max": 467843,
+    "le_12288": 0.7822199294987533,
+    "le_24064": 0.8978591694609234,
+    "le_49152": 0.9589889089502193,
+    "gt_24064": 0.1021408305390766,
+    "gt_49152": 0.041011091049780755,
+    "exons_gt_128": 2,
+    "max_exons_eligible": 157,
+    "introns": 75053,
+    "introns_lt_20": 0,
+    "intron_min": 30,
+    "intron_median": 481.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_071307.1__valAll",
+    "crop_bp": 10242959,
+    "catalog_assessable": 475,
+    "catalog_eligible": 461,
+    "scored_references": 475,
+    "gate_ok": true
+   }
+  },
+  "apis_cerana": {
+   "species": "apis_cerana",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_083861.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 16,
+    "main_bp": 216984282,
+    "assembly_bp": 440040761,
+    "main_coverage": 0.4931004153044813,
+    "train_contigs": 15,
+    "train_bp": 204549699,
+    "validation_contig": "NC_083861.1__val11M",
+    "validation_crop": {
+     "chromosome": "NC_083861.1",
+     "start0": 0,
+     "end": 11000000,
+     "whole_chromosome": false,
+     "references_whole_chromosome": 599,
+     "references_in_crop_estimate": 503
+    },
+    "discarded_bp": 1434583,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 9787,
+    "assessable": 9720,
+    "eligible": 9298,
+    "eligible_over_assessable": 0.9565843621399177,
+    "nonstandard_splice_fraction": 0.02345679012345679,
+    "cds_partial": 24,
+    "overlapping_primary": 178,
+    "failure_reasons": {
+     "nonstandard_splice": 228,
+     "overlap_or_partial": 165,
+     "split_terminal_codon": 29
+    },
+    "train_eligible": 8820,
+    "nested_labeled": {
+     "25": 2205,
+     "50": 4410
+    },
+    "n_coding_genes_parsed": 9787,
+    "ncbi_protein_coding": 9969,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 9298,
+    "span_median": 2775.0,
+    "span_p90": 20138.50000000006,
+    "span_max": 729855,
+    "le_12288": 0.8553452355345236,
+    "le_24064": 0.9144977414497741,
+    "le_49152": 0.9512798451279845,
+    "gt_24064": 0.08550225855022585,
+    "gt_49152": 0.04872015487201549,
+    "exons_gt_128": 3,
+    "max_exons_eligible": 175,
+    "introns": 56476,
+    "introns_lt_20": 0,
+    "intron_min": 38,
+    "intron_median": 115.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_083861.1__val11M",
+    "crop_bp": 11000000,
+    "catalog_assessable": 503,
+    "catalog_eligible": 478,
+    "scored_references": 503,
+    "gate_ok": true
+   }
+  },
+  "acromyrmex_echinatior": {
+   "species": "acromyrmex_echinatior",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_141861.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 19,
+    "main_bp": 288844765,
+    "assembly_bp": 296076762,
+    "main_coverage": 0.9755739121464724,
+    "train_contigs": 18,
+    "train_bp": 274494326,
+    "validation_contig": "NC_141861.1__val14M",
+    "validation_crop": {
+     "chromosome": "NC_141861.1",
+     "start0": 0,
+     "end": 14000000,
+     "whole_chromosome": false,
+     "references_whole_chromosome": 515,
+     "references_in_crop_estimate": 507
+    },
+    "discarded_bp": 350439,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 11736,
+    "assessable": 11606,
+    "eligible": 11045,
+    "eligible_over_assessable": 0.9516629329657074,
+    "nonstandard_splice_fraction": 0.02197139410649664,
+    "cds_partial": 51,
+    "overlapping_primary": 297,
+    "failure_reasons": {
+     "nonstandard_splice": 255,
+     "split_terminal_codon": 35,
+     "overlap_or_partial": 272
+    },
+    "train_eligible": 10559,
+    "nested_labeled": {
+     "25": 2640,
+     "50": 5280
+    },
+    "n_coding_genes_parsed": 11736,
+    "ncbi_protein_coding": 11947,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 11045,
+    "span_median": 3313.0,
+    "span_p90": 22221.600000000013,
+    "span_max": 738369,
+    "le_12288": 0.8387505658669081,
+    "le_24064": 0.9070167496604798,
+    "le_49152": 0.9520144861928475,
+    "gt_24064": 0.09298325033952015,
+    "gt_49152": 0.04798551380715256,
+    "exons_gt_128": 2,
+    "max_exons_eligible": 138,
+    "introns": 60808,
+    "introns_lt_20": 0,
+    "intron_min": 38,
+    "intron_median": 224.5,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_141861.1__val14M",
+    "crop_bp": 14000000,
+    "catalog_assessable": 507,
+    "catalog_eligible": 486,
+    "scored_references": 507,
+    "gate_ok": true
+   }
+  },
+  "ips_typographus": {
+   "species": "ips_typographus",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_138430.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 16,
+    "main_bp": 213048749,
+    "assembly_bp": 224976997,
+    "main_coverage": 0.9469801439300036,
+    "train_contigs": 15,
+    "train_bp": 203185610,
+    "validation_contig": "NC_138430.1__val8M",
+    "validation_crop": {
+     "chromosome": "NC_138430.1",
+     "start0": 0,
+     "end": 8000000,
+     "whole_chromosome": false,
+     "references_whole_chromosome": 803,
+     "references_in_crop_estimate": 573
+    },
+    "discarded_bp": 1863139,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 12611,
+    "assessable": 12481,
+    "eligible": 11554,
+    "eligible_over_assessable": 0.9257271051999039,
+    "nonstandard_splice_fraction": 0.03621504687124429,
+    "cds_partial": 39,
+    "overlapping_primary": 476,
+    "failure_reasons": {
+     "nonstandard_splice": 452,
+     "overlap_or_partial": 436,
+     "split_terminal_codon": 39
+    },
+    "train_eligible": 11019,
+    "nested_labeled": {
+     "25": 2755,
+     "50": 5510
+    },
+    "n_coding_genes_parsed": 12611,
+    "ncbi_protein_coding": 13153,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 11554,
+    "span_median": 2514.5,
+    "span_p90": 17856.4,
+    "span_max": 362983,
+    "le_12288": 0.8539899601869483,
+    "le_24064": 0.9283365068374589,
+    "le_49152": 0.9733425653453349,
+    "gt_24064": 0.07166349316254111,
+    "gt_49152": 0.026657434654665052,
+    "exons_gt_128": 0,
+    "max_exons_eligible": 85,
+    "introns": 66338,
+    "introns_lt_20": 0,
+    "intron_min": 30,
+    "intron_median": 60.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_138430.1__val8M",
+    "crop_bp": 8000000,
+    "catalog_assessable": 573,
+    "catalog_eligible": 535,
+    "scored_references": 573,
+    "gate_ok": true
+   }
+  },
+  "aethina_tumida": {
+   "species": "aethina_tumida",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_065439.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 8,
+    "main_bp": 259967705,
+    "assembly_bp": 259984281,
+    "main_coverage": 0.9999362422992027,
+    "train_contigs": 7,
+    "train_bp": 231022102,
+    "validation_contig": "NC_065439.1__val14M",
+    "validation_crop": {
+     "chromosome": "NC_065439.1",
+     "start0": 0,
+     "end": 14000000,
+     "whole_chromosome": false,
+     "references_whole_chromosome": 1394,
+     "references_in_crop_estimate": 522
+    },
+    "discarded_bp": 14945603,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 12245,
+    "assessable": 12185,
+    "eligible": 11626,
+    "eligible_over_assessable": 0.9541239228559705,
+    "nonstandard_splice_fraction": 0.013048830529339351,
+    "cds_partial": 37,
+    "overlapping_primary": 374,
+    "failure_reasons": {
+     "nonstandard_splice": 159,
+     "overlap_or_partial": 359,
+     "split_terminal_codon": 41
+    },
+    "train_eligible": 11122,
+    "nested_labeled": {
+     "25": 2781,
+     "50": 5561
+    },
+    "n_coding_genes_parsed": 12245,
+    "ncbi_protein_coding": 13131,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 11626,
+    "span_median": 1990.5,
+    "span_p90": 14183.0,
+    "span_max": 565581,
+    "le_12288": 0.8883536900051608,
+    "le_24064": 0.936779631859625,
+    "le_49152": 0.9671426113882676,
+    "gt_24064": 0.06322036814037502,
+    "gt_49152": 0.032857388611732326,
+    "exons_gt_128": 1,
+    "max_exons_eligible": 147,
+    "introns": 54323,
+    "introns_lt_20": 0,
+    "intron_min": 30,
+    "intron_median": 59.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_065439.1__val14M",
+    "crop_bp": 14000000,
+    "catalog_assessable": 522,
+    "catalog_eligible": 504,
+    "scored_references": 522,
+    "gate_ok": true
+   }
+  },
+  "cloeon_dipterum": {
+   "species": "cloeon_dipterum",
+   "role": "new",
+   "V1": {
+    "heldout": "NC_088788.1",
+    "heldout_matches_protocol": true,
+    "d": [],
+    "d_matches_protocol": true,
+    "raw_md5_ok": true,
+    "main_chromosomes": 5,
+    "main_bp": 187343755,
+    "assembly_bp": 190140723,
+    "main_coverage": 0.985290010704335,
+    "train_contigs": 4,
+    "train_bp": 150246119,
+    "validation_contig": "NC_088788.1__val9M",
+    "validation_crop": {
+     "chromosome": "NC_088788.1",
+     "start0": 0,
+     "end": 9000000,
+     "whole_chromosome": false,
+     "references_whole_chromosome": 2782,
+     "references_in_crop_estimate": 570
+    },
+    "discarded_bp": 28097636,
+    "dropped_trans_spliced_transcripts": 0
+   },
+   "V2": {
+    "primary_coding": 11049,
+    "assessable": 10992,
+    "eligible": 10573,
+    "eligible_over_assessable": 0.9618813682678311,
+    "nonstandard_splice_fraction": 0.017012372634643377,
+    "cds_partial": 27,
+    "overlapping_primary": 196,
+    "failure_reasons": {
+     "nonstandard_splice": 187,
+     "split_terminal_codon": 54,
+     "overlap_or_partial": 180
+    },
+    "train_eligible": 10017,
+    "nested_labeled": {
+     "25": 2505,
+     "50": 5009
+    },
+    "n_coding_genes_parsed": 11049,
+    "ncbi_protein_coding": 13282,
+    "gate_ok": true
+   },
+   "V4": {
+    "eligible": 10573,
+    "span_median": 2759.0,
+    "span_p90": 12897.000000000005,
+    "span_max": 367123,
+    "le_12288": 0.8952993473943063,
+    "le_24064": 0.9480752861061194,
+    "le_49152": 0.9792868627636433,
+    "gt_24064": 0.05192471389388064,
+    "gt_49152": 0.020713137236356757,
+    "exons_gt_128": 0,
+    "max_exons_eligible": 118,
+    "introns": 72930,
+    "introns_lt_20": 0,
+    "intron_min": 31,
+    "intron_median": 67.0,
+    "gate_ok": true
+   },
+   "V6": {
+    "validation_contig": "NC_088788.1__val9M",
+    "crop_bp": 9000000,
+    "catalog_assessable": 570,
+    "catalog_eligible": 556,
+    "scored_references": 570,
+    "gate_ok": true
+   }
+  }
+ },
+ "references": {
+  "NT_033778.4": {
+   "species": "drosophila_melanogaster",
+   "references": 2833,
+   "length": 25286936,
+   "read_ok": true
+  },
+  "NC_004354.4": {
+   "species": "drosophila_melanogaster",
+   "references": 2188,
+   "length": 23542271,
+   "read_ok": true
+  },
+  "NC_087399.1": {
+   "species": "tribolium_castaneum",
+   "references": 1186,
+   "length": 19586254,
+   "read_ok": true
+  },
+  "NC_087400.1": {
+   "species": "tribolium_castaneum",
+   "references": 745,
+   "length": 18717241,
+   "read_ok": true
+  },
+  "NC_064602.1__val8M": {
+   "species": "anopheles_gambiae",
+   "references": 529,
+   "length": 8000000,
+   "read_ok": true
+  },
+  "NC_064215.1__valAll": {
+   "species": "spodoptera_frugiperda",
+   "references": 493,
+   "length": 12638378,
+   "read_ok": true
+  },
+  "NC_071307.1__valAll": {
+   "species": "plodia_interpunctella",
+   "references": 475,
+   "length": 10242959,
+   "read_ok": true
+  },
+  "NC_083861.1__val11M": {
+   "species": "apis_cerana",
+   "references": 503,
+   "length": 11000000,
+   "read_ok": true
+  },
+  "NC_141861.1__val14M": {
+   "species": "acromyrmex_echinatior",
+   "references": 507,
+   "length": 14000000,
+   "read_ok": true
+  },
+  "NC_138430.1__val8M": {
+   "species": "ips_typographus",
+   "references": 573,
+   "length": 8000000,
+   "read_ok": true
+  },
+  "NC_065439.1__val14M": {
+   "species": "aethina_tumida",
+   "references": 522,
+   "length": 14000000,
+   "read_ok": true
+  },
+  "NC_088788.1__val9M": {
+   "species": "cloeon_dipterum",
+   "references": 570,
+   "length": 9000000,
+   "read_ok": true
+  }
+ },
+ "schedules": {
+  "I10_k50U": {
+   "md5": "12344839b0e8fa513bb2d9c5ddbbbc81",
+   "draws": 24576,
+   "unique_windows": 22847,
+   "labeled_genes_total": 59400,
+   "labeled_genes": {
+    "drosophila_melanogaster": 8382,
+    "tribolium_castaneum": 9534,
+    "anopheles_gambiae": 3668,
+    "spodoptera_frugiperda": 6461,
+    "plodia_interpunctella": 5585,
+    "apis_cerana": 4410,
+    "acromyrmex_echinatior": 5280,
+    "ips_typographus": 5510,
+    "aethina_tumida": 5561,
+    "cloeon_dipterum": 5009
+   },
+   "eligible_genes": {
+    "drosophila_melanogaster": 8382,
+    "tribolium_castaneum": 9534,
+    "anopheles_gambiae": 7336,
+    "spodoptera_frugiperda": 12922,
+    "plodia_interpunctella": 11170,
+    "apis_cerana": 8820,
+    "acromyrmex_echinatior": 10559,
+    "ips_typographus": 11019,
+    "aethina_tumida": 11122,
+    "cloeon_dipterum": 10017
+   },
+   "windows_with_positive_fraction": 0.5066731770833334,
+   "labeled_genes_exposed_unique": 16829,
+   "forbidden_hits": 0,
+   "max_width": 24576,
+   "species_within_5sd": true
+  },
+  "I10_k50F": {
+   "md5": "12344839b0e8fa513bb2d9c5ddbbbc81",
+   "draws": 24576,
+   "unique_windows": 22847,
+   "labeled_genes_total": 59400,
+   "labeled_genes": {
+    "drosophila_melanogaster": 8382,
+    "tribolium_castaneum": 9534,
+    "anopheles_gambiae": 3668,
+    "spodoptera_frugiperda": 6461,
+    "plodia_interpunctella": 5585,
+    "apis_cerana": 4410,
+    "acromyrmex_echinatior": 5280,
+    "ips_typographus": 5510,
+    "aethina_tumida": 5561,
+    "cloeon_dipterum": 5009
+   },
+   "eligible_genes": {
+    "drosophila_melanogaster": 8382,
+    "tribolium_castaneum": 9534,
+    "anopheles_gambiae": 7336,
+    "spodoptera_frugiperda": 12922,
+    "plodia_interpunctella": 11170,
+    "apis_cerana": 8820,
+    "acromyrmex_echinatior": 10559,
+    "ips_typographus": 11019,
+    "aethina_tumida": 11122,
+    "cloeon_dipterum": 10017
+   },
+   "windows_with_positive_fraction": 0.5066731770833334,
+   "labeled_genes_exposed_unique": 16829,
+   "forbidden_hits": 0,
+   "max_width": 24576,
+   "species_within_5sd": true
+  },
+  "I10_T": {
+   "md5": "67784705ae171ee77839de32a56787d2",
+   "draws": 24576,
+   "unique_windows": 23058,
+   "labeled_genes_total": 100881,
+   "labeled_genes": {
+    "drosophila_melanogaster": 8382,
+    "tribolium_castaneum": 9534,
+    "anopheles_gambiae": 7336,
+    "spodoptera_frugiperda": 12922,
+    "plodia_interpunctella": 11170,
+    "apis_cerana": 8820,
+    "acromyrmex_echinatior": 10559,
+    "ips_typographus": 11019,
+    "aethina_tumida": 11122,
+    "cloeon_dipterum": 10017
+   },
+   "eligible_genes": {
+    "drosophila_melanogaster": 8382,
+    "tribolium_castaneum": 9534,
+    "anopheles_gambiae": 7336,
+    "spodoptera_frugiperda": 12922,
+    "plodia_interpunctella": 11170,
+    "apis_cerana": 8820,
+    "acromyrmex_echinatior": 10559,
+    "ips_typographus": 11019,
+    "aethina_tumida": 11122,
+    "cloeon_dipterum": 10017
+   },
+   "windows_with_positive_fraction": 0.5628255208333334,
+   "labeled_genes_exposed_unique": 23021,
+   "forbidden_hits": 0,
+   "max_width": 24576,
+   "species_within_5sd": true
+  },
+  "U_F_identical_schedule": true
+ }
+}

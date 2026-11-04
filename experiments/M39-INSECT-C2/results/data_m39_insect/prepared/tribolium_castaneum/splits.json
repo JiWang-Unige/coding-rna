@@ -1,0 +1,69 @@
+{
+ "species": "tribolium_castaneum",
+ "role": "old",
+ "organism": "Tribolium castaneum",
+ "accession": "GCF_031307605.1",
+ "assembly": "GCF_031307605.1_icTriCast1.1",
+ "rule": "main nuclear chromosomes (assembled-molecule, Chromosome or Linkage Group, Primary Assembly, >=5 Mb); OLD species: selection chromosome S = lower-median length, descriptive held-out D = next shorter, both whole",
+ "main_chromosomes": {
+  "NC_087403.1": 12086266,
+  "NC_087402.1": 16193484,
+  "NC_087401.1": 17654693,
+  "NC_087400.1": 18717241,
+  "NC_087399.1": 19586254,
+  "NC_087398.1": 20636470,
+  "NC_087397.1": 23115473,
+  "NC_087396.1": 25071153,
+  "NC_087395.1": 26832998,
+  "NC_087394.1": 37460696
+ },
+ "main_chromosome_names": {
+  "NC_087403.1": "Chromosome10",
+  "NC_087402.1": "ptg000003l",
+  "NC_087401.1": "Chromosome9",
+  "NC_087400.1": "Chromosome7",
+  "NC_087399.1": "Chromosome6",
+  "NC_087398.1": "ptg000007l",
+  "NC_087397.1": "ptg000004l",
+  "NC_087396.1": "ptg000002l",
+  "NC_087395.1": "Chromosome2",
+  "NC_087394.1": "Chromosome1"
+ },
+ "heldout_chromosome": "NC_087399.1",
+ "heldout_length": 19586254,
+ "validation_contig": "NC_087399.1",
+ "validation_crop": null,
+ "heldout_d": [
+  "NC_087400.1"
+ ],
+ "discarded_bp": 0,
+ "train": [
+  "NC_087394.1",
+  "NC_087395.1",
+  "NC_087396.1",
+  "NC_087397.1",
+  "NC_087398.1",
+  "NC_087401.1",
+  "NC_087402.1",
+  "NC_087403.1"
+ ],
+ "lengths": {
+  "NC_087394.1": 37460696,
+  "NC_087395.1": 26832998,
+  "NC_087396.1": 25071153,
+  "NC_087397.1": 23115473,
+  "NC_087398.1": 20636470,
+  "NC_087401.1": 17654693,
+  "NC_087402.1": 16193484,
+  "NC_087403.1": 12086266,
+  "NC_087399.1": 19586254,
+  "NC_087400.1": 18717241
+ },
+ "train_bp": 179051233,
+ "main_bp": 217354728,
+ "assembly_bp": 241861439,
+ "dropped_sequences": 139,
+ "gff_features": 383599,
+ "gff_genes": 14764,
+ "prepared": "2026-11-04T12:32:04+01:00"
+}
