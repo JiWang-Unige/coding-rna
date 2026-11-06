@@ -1,9 +1,12 @@
 # sourced by the PANEL-P6 GPU drivers (p6_native.sh, p6_carbona.sh, p6_vipsania.sh, p6_queue.sh)
 # Paths, the event log, and the GPU gate.  Gate (checked before every GPU step, i.e. before every genome of every tool):
 #   1. $P6/GO exists (P6_GO overrides the file, e.g. GO_SMOKE for the smoke tests; written by hand once the ont slot is agreed with the maintenance session; $P6/STOP stops the queue between steps);
-#   2. no GPU process of the TE project (user rule 2026-11-07: P6 runs only when no TE job runs; never pre-empt): a GPU process is TE when its cwd or args contain
+#   2. no TE GPU claim file ($TE_CLAIM, written by the TE session before its GPU work and removed after it) and
+#      no GPU process of the TE project (user rule 2026-11-07: P6 runs only when no TE job runs; never pre-empt): a GPU process is TE when its cwd or args contain
 #      /work/te, ab-initio-TE, TE-GLM or te_benchmark, or when it runs inside an Apptainer/Singularity container that is not ours (our containers carry PANEL-P6 in their args);
-#   3. no other coding-rna GPU job (M34 / M39 queue: one coding-rna GPU job at a time) unless P6_SHARE_WITH_CODING_RNA=1;
+#      only nvidia-smi compute processes are examined (TE's CPU-only Apptainer jobs such as BRAKER never block);
+#   3. no other coding-rna GPU job and no live M34 / M39 queue driver (one coding-rna GPU job at a time; P6 does not slip into the gap between two queued arms)
+#      unless P6_SHARE_WITH_CODING_RNA=1;
 #   4. at least NEED MiB of GPU memory free (2 consecutive checks, 30 s apart).
 # While waiting the gate logs one gate_wait event per hour.
 P6=${P6_OUT:-$HOME/coding-rna/outputs/PANEL-P6}
@@ -41,13 +44,19 @@ gpu_blockers() {   # prints one line per GPU process that blocks us (TE, other c
       case "$pargs" in *PANEL-P6*) break;; *apptainer*|*singularity*|*starter*) echo "container pid=$pid parent=$par $pargs" | cut -c1-200; break;; esac
     done
   done
+  if [ -z "${P6_SHARE_WITH_CODING_RNA:-}" ]; then                           # the coding-rna queue drivers themselves (no GPU process between two arms, but the queue goes on)
+    pgrep -af 'm34_[a]fter_|m34_[s]tage.sh|m34_[s]upervise.sh|m39_[a]fter_|m39_[r]un_all' | cut -c1-160 | sed 's/^/coding-rna queue /'
+  fi
 }
+
+TE_CLAIM=${P6_TE_CLAIM:-$HOME/ab-initio-TE/outputs/TE_GPU_CLAIM}   # TE's GPU claim (TE session, 2026-11-07): present while TE owns the ont GPU
 
 gate() {   # NEED_MiB STEP : blocks until the gate is open; returns 1 if $P6/STOP appears
   local need=$1 step=$2 ok=0 last=0 f b
   while :; do
     [ -e $P6/STOP ] && { ev event=stopped step=$step; return 1; }
     b=$(gpu_blockers); f=$(gpu_free); f=${f:-0}
+    [ -e $TE_CLAIM ] && b="${b}TE_GPU_CLAIM: $(head -c 300 $TE_CLAIM | tr '\n' ' ')"$'\n'
     if [ -e ${P6_GO:-$P6/GO} ] && [ -z "$b" ] && [ "$f" -ge "$need" ] && [ "$(disk_free_gb)" -ge ${P6_MIN_DISK_GB:-120} ]; then
       ok=$((ok+1)); [ $ok -ge 2 ] && return 0; sleep 30; continue
     fi
