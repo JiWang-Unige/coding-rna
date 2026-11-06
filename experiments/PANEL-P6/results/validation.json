@@ -1,0 +1,606 @@
+{
+ "checks": {
+  "DEV ANNEVO rule off: pooled tp/pred/ref == published": {
+   "got": [
+    5644,
+    7183,
+    7728
+   ],
+   "expected": [
+    5644,
+    7183,
+    7728
+   ],
+   "ok": true
+  },
+  "DEV ANNEVO rule off: pooled F1 == published": {
+   "got": 75.70250150895312,
+   "expected": 75.70250150895312,
+   "ok": true
+  },
+  "DEV ANNEVO rule off: arabidopsis_thaliana tp/pred/ref == published": {
+   "got": [
+    3941,
+    4898,
+    5437
+   ],
+   "expected": [
+    3941,
+    4898,
+    5437
+   ],
+   "ok": true
+  },
+  "DEV ANNEVO rule off: oryza_sativa tp/pred/ref == published": {
+   "got": [
+    1703,
+    2285,
+    2291
+   ],
+   "expected": [
+    1703,
+    2285,
+    2291
+   ],
+   "ok": true
+  },
+  "DEV Tiberius rule off: pooled tp/pred/ref == published": {
+   "got": [
+    5441,
+    7427,
+    7728
+   ],
+   "expected": [
+    5441,
+    7427,
+    7728
+   ],
+   "ok": true
+  },
+  "DEV Tiberius rule off: pooled F1 == published": {
+   "got": 71.80468492246783,
+   "expected": 71.80468492246783,
+   "ok": true
+  },
+  "DEV Tiberius rule off: arabidopsis_thaliana tp/pred/ref == published": {
+   "got": [
+    3865,
+    4984,
+    5437
+   ],
+   "expected": [
+    3865,
+    4984,
+    5437
+   ],
+   "ok": true
+  },
+  "DEV Tiberius rule off: oryza_sativa tp/pred/ref == published": {
+   "got": [
+    1576,
+    2443,
+    2291
+   ],
+   "expected": [
+    1576,
+    2443,
+    2291
+   ],
+   "ok": true
+  },
+  "DEV Helixer rule off: pooled tp/pred/ref == published": {
+   "got": [
+    5112,
+    8539,
+    7728
+   ],
+   "expected": [
+    5112,
+    8539,
+    7728
+   ],
+   "ok": true
+  },
+  "DEV Helixer rule off: pooled F1 == published": {
+   "got": 62.85117108255978,
+   "expected": 62.85117108255979,
+   "ok": true
+  },
+  "DEV Helixer rule off: arabidopsis_thaliana tp/pred/ref == published": {
+   "got": [
+    3673,
+    5453,
+    5437
+   ],
+   "expected": [
+    3673,
+    5453,
+    5437
+   ],
+   "ok": true
+  },
+  "DEV Helixer rule off: oryza_sativa tp/pred/ref == published": {
+   "got": [
+    1439,
+    3086,
+    2291
+   ],
+   "expected": [
+    1439,
+    3086,
+    2291
+   ],
+   "ok": true
+  },
+  "DEV CarbonA_unf rule off: pooled tp/pred/ref == published": {
+   "got": [
+    5730,
+    7503,
+    7728
+   ],
+   "expected": [
+    5730,
+    7503,
+    7728
+   ],
+   "ok": true
+  },
+  "DEV CarbonA_unf: rule on == rule off (pipeline has its own >= 96 bp floor)": {
+   "got": 5730007503,
+   "expected": 5730007503,
+   "ok": true
+  },
+  "DEV CarbonA_filt rule off: pooled tp/pred/ref == published": {
+   "got": [
+    5687,
+    6966,
+    7728
+   ],
+   "expected": [
+    5687,
+    6966,
+    7728
+   ],
+   "ok": true
+  },
+  "DEV CarbonA_filt: rule on == rule off (pipeline has its own >= 96 bp floor)": {
+   "got": 5687006966,
+   "expected": 5687006966,
+   "ok": true
+  },
+  "DEV T2 (P5 model, rule on) pooled F1 == published 73.88": {
+   "got": 73.87819414948277,
+   "expected": 73.87819414948277,
+   "ok": true
+  },
+  "DEV Vipsania ft (rule on) pooled F1 == M38 69.47": {
+   "got": 69.4731124388919,
+   "expected": 69.4731124388919,
+   "ok": true
+  },
+  "set B NC_141367.1: panel reference keys == M30 reference keys (2886)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B NC_141369.1: panel reference keys == M30 reference keys (2481)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B NC_141371.1: panel reference keys == M30 reference keys (2186)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B NC_141373.1: panel reference keys == M30 reference keys (1955)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B NW_028238309.1: panel reference keys == M30 reference keys (4373)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B NW_028238461.1: panel reference keys == M30 reference keys (4508)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B NW_028238483.1: panel reference keys == M30 reference keys (3486)": {
+   "got": true,
+   "expected": true,
+   "ok": true
+  },
+  "set B T10 [pooled] tp/pred/ref == P2b": {
+   "got": [
+    15058,
+    22200,
+    21875
+   ],
+   "expected": [
+    15058,
+    22200,
+    21875
+   ],
+   "ok": true
+  },
+  "set B T10 [pooled] F1 == P2b": {
+   "got": 68.32898468519569,
+   "expected": 68.32898468519569,
+   "ok": true
+  },
+  "set B T10 [dryas_octopetala] tp/pred/ref == P2b": {
+   "got": [
+    6572,
+    9791,
+    9508
+   ],
+   "expected": [
+    6572,
+    9791,
+    9508
+   ],
+   "ok": true
+  },
+  "set B T10 [dryas_octopetala] F1 == P2b": {
+   "got": 68.10715581118193,
+   "expected": 68.10715581118193,
+   "ok": true
+  },
+  "set B T10 [eschscholzia_californica] tp/pred/ref == P2b": {
+   "got": [
+    8486,
+    12409,
+    12367
+   ],
+   "expected": [
+    8486,
+    12409,
+    12367
+   ],
+   "ok": true
+  },
+  "set B T10 [eschscholzia_californica] F1 == P2b": {
+   "got": 68.50177591217307,
+   "expected": 68.50177591217307,
+   "ok": true
+  },
+  "set B T2 [pooled] tp/pred/ref == P2b": {
+   "got": [
+    14947,
+    21785,
+    21875
+   ],
+   "expected": [
+    14947,
+    21785,
+    21875
+   ],
+   "ok": true
+  },
+  "set B T2 [pooled] F1 == P2b": {
+   "got": 68.46999541914796,
+   "expected": 68.46999541914796,
+   "ok": true
+  },
+  "set B T2 [dryas_octopetala] tp/pred/ref == P2b": {
+   "got": [
+    6594,
+    9725,
+    9508
+   ],
+   "expected": [
+    6594,
+    9725,
+    9508
+   ],
+   "ok": true
+  },
+  "set B T2 [dryas_octopetala] F1 == P2b": {
+   "got": 68.56964592107316,
+   "expected": 68.56964592107316,
+   "ok": true
+  },
+  "set B T2 [eschscholzia_californica] tp/pred/ref == P2b": {
+   "got": [
+    8353,
+    12060,
+    12367
+   ],
+   "expected": [
+    8353,
+    12060,
+    12367
+   ],
+   "ok": true
+  },
+  "set B T2 [eschscholzia_californica] F1 == P2b": {
+   "got": 68.3915339583248,
+   "expected": 68.3915339583248,
+   "ok": true
+  },
+  "set B bootstrap blocks == P2b": {
+   "got": 276,
+   "expected": 276,
+   "ok": true
+  },
+  "set B bootstrap T10 [pooled] CI95 == P2b": {
+   "got": [
+    67.26826077450681,
+    69.28571679042628
+   ],
+   "expected": [
+    67.26826077450681,
+    69.28571679042628
+   ],
+   "ok": true
+  },
+  "set B bootstrap T10 [dryas_octopetala] CI95 == P2b": {
+   "got": [
+    66.23030377548211,
+    69.72359234741745
+   ],
+   "expected": [
+    66.23030377548211,
+    69.72359234741745
+   ],
+   "ok": true
+  },
+  "set B bootstrap T10 [eschscholzia_californica] CI95 == P2b": {
+   "got": [
+    67.19541833272645,
+    69.66112536972173
+   ],
+   "expected": [
+    67.19541833272645,
+    69.66112536972173
+   ],
+   "ok": true
+  },
+  "set B bootstrap T2 [pooled] CI95 == P2b": {
+   "got": [
+    67.33107519432679,
+    69.49515240302505
+   ],
+   "expected": [
+    67.33107519432679,
+    69.49515240302505
+   ],
+   "ok": true
+  },
+  "set B bootstrap T2 [dryas_octopetala] CI95 == P2b": {
+   "got": [
+    66.55029107666502,
+    70.2049594377453
+   ],
+   "expected": [
+    66.55029107666502,
+    70.2049594377453
+   ],
+   "ok": true
+  },
+  "set B bootstrap T2 [eschscholzia_californica] CI95 == P2b": {
+   "got": [
+    66.97833887875113,
+    69.64717378969615
+   ],
+   "expected": [
+    66.97833887875113,
+    69.64717378969615
+   ],
+   "ok": true
+  },
+  "set B T10 - T2 [pooled] CI95 == P2b": {
+   "got": [
+    -0.5306050647246167,
+    0.27747104604582373
+   ],
+   "expected": [
+    -0.5306050647246167,
+    0.27747104604582373
+   ],
+   "ok": true
+  },
+  "set B T10 - T2 [dryas_octopetala] CI95 == P2b": {
+   "got": [
+    -1.0351974297245423,
+    0.15789853261443215
+   ],
+   "expected": [
+    -1.0351974297245423,
+    0.15789853261443215
+   ],
+   "ok": true
+  },
+  "set B T10 - T2 [eschscholzia_californica] CI95 == P2b": {
+   "got": [
+    -0.4179542772307531,
+    0.6683147005000337
+   ],
+   "expected": [
+    -0.4179542772307531,
+    0.6683147005000337
+   ],
+   "ok": true
+  },
+  "set B CarbonA_unf dryas_octopetala tp/pred/ref == M30/M33": {
+   "got": [
+    6885,
+    9532,
+    9508
+   ],
+   "expected": [
+    6885,
+    9532,
+    9508
+   ],
+   "ok": true
+  },
+  "set B CarbonA_unf eschscholzia_californica tp/pred/ref == M30/M33": {
+   "got": [
+    8683,
+    11838,
+    12367
+   ],
+   "expected": [
+    8683,
+    11838,
+    12367
+   ],
+   "ok": true
+  },
+  "set B CarbonA_filt dryas_octopetala tp/pred/ref == M30/M33": {
+   "got": [
+    6807,
+    8895,
+    9508
+   ],
+   "expected": [
+    6807,
+    8895,
+    9508
+   ],
+   "ok": true
+  },
+  "set B CarbonA_filt eschscholzia_californica tp/pred/ref == M30/M33": {
+   "got": [
+    8584,
+    11048,
+    12367
+   ],
+   "expected": [
+    8584,
+    11048,
+    12367
+   ],
+   "ok": true
+  },
+  "set B Vipsania pre [pooled] tp/pred/ref == M38": {
+   "got": [
+    13333,
+    21355,
+    21875
+   ],
+   "expected": [
+    13333,
+    21355,
+    21875
+   ],
+   "ok": true
+  },
+  "set B Vipsania pre [dryas_octopetala] tp/pred/ref == M38": {
+   "got": [
+    5931,
+    9669,
+    9508
+   ],
+   "expected": [
+    5931,
+    9669,
+    9508
+   ],
+   "ok": true
+  },
+  "set B Vipsania pre [eschscholzia_californica] tp/pred/ref == M38": {
+   "got": [
+    7402,
+    11686,
+    12367
+   ],
+   "expected": [
+    7402,
+    11686,
+    12367
+   ],
+   "ok": true
+  },
+  "C1 synthetic: gap 2, leads >= 4 -> \u6210\u7acb, no trigger": {
+   "got": [
+    "\u6210\u7acb",
+    false
+   ],
+   "expected": [
+    "\u6210\u7acb",
+    false
+   ],
+   "ok": true
+  },
+  "C1 synthetic: gap 7 -> \u90e8\u5206\u6210\u7acb, trigger (gap within 6 +- 2.5)": {
+   "got": [
+    "\u90e8\u5206\u6210\u7acb",
+    true
+   ],
+   "expected": [
+    "\u90e8\u5206\u6210\u7acb",
+    true
+   ],
+   "ok": true
+  },
+  "C1 synthetic: below Tiberius -> \u90e8\u5206\u6210\u7acb, trigger (lead < 2.5)": {
+   "got": [
+    "\u90e8\u5206\u6210\u7acb",
+    true
+   ],
+   "expected": [
+    "\u90e8\u5206\u6210\u7acb",
+    true
+   ],
+   "ok": true
+  },
+  "C1 synthetic: gap 10.5 -> \u4e0d\u6210\u7acb": {
+   "got": "\u4e0d\u6210\u7acb",
+   "expected": "\u4e0d\u6210\u7acb",
+   "ok": true
+  },
+  "C1 synthetic: gap 6.0, lead 2.4 -> \u6210\u7acb, trigger": {
+   "got": [
+    "\u6210\u7acb",
+    true
+   ],
+   "expected": [
+    "\u6210\u7acb",
+    true
+   ],
+   "ok": true
+  }
+ },
+ "dev_rule_on": {
+  "ANNEVO": {
+   "pooled": {
+    "tp": 5644,
+    "pred": 7175,
+    "ref": 7728,
+    "F1": 75.743138965309,
+    "precision": 78.66202090592334,
+    "recall": 73.03312629399586
+   },
+   "rule_effect": 0.04063745635588134
+  },
+  "Tiberius": {
+   "pooled": {
+    "tp": 5441,
+    "pred": 7427,
+    "ref": 7728,
+    "F1": 71.80468492246783,
+    "precision": 73.25972801938872,
+    "recall": 70.40631469979296
+   },
+   "rule_effect": 0.0
+  },
+  "Helixer": {
+   "pooled": {
+    "tp": 5110,
+    "pred": 8468,
+    "ref": 7728,
+    "F1": 63.10200049394912,
+    "precision": 60.3448275862069,
+    "recall": 66.1231884057971
+   },
+   "rule_effect": 0.2508294113893399
+  }
+ },
+ "ok": true,
+ "time": "2026-11-07T00:50:22"
+}

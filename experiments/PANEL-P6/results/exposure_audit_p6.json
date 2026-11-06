@@ -1,0 +1,672 @@
+{
+ "_legend": "S=同物种训练(含 Vipsania 的同装配序列预训练); V=仅验证; T=仅测试; G=同属; Tr=同族或同亚科; F=同科; O=仅同目; -=无。状态：已核实=读到原始来源并核对；推断=由相关事实推出但无直接记载；无法核实=来源未公开；沿用未重核=取自 experiments/PANEL-PREP/scripts/tool_exposure.json，本次未重做。读取日期 2026-11-07。",
+ "_tool_versions": {
+  "helixer_a0080": "land_plant_v0.3_a_0080.h5（沿用）",
+  "tiberius_angiosperms": "model_cfg/angiosperms.yaml @ Gaius-Augustus/Tiberius 871d4979568ae09e56de7eca5d7489046ee833ea（与 main b3ea48f2 相同）；预印本 10.64898/2026.04.24.720536 v3 补充表 S3/S32",
+  "annevo_current": "xjtu-omics/ANNEVO 42c920f70f52f96c7c06c665a639ec47d9304fff（v2.3.3），saved_model/ANNEVO_Magnoliopsida.pt blob 21487d877430abf8e552c509560fd1218f19305e",
+  "annevo_paper_ref": "Nature Methods 补充 XLSX Table 24（Embryophyta 论文版；仅供参考，不适用于现行权重）",
+  "carbon_a": "沿用",
+  "vipsania_j9m0cdmk": "Gaius-Augustus/Vipsania 397660e（docs/training_species.tsv、test_species.tsv 与会话副本逐字节相同）",
+  "genecad_plant": "HF plantcad/genecad_plant main 21c98c7f895a7f3c5b65f9e7c4c76b7ac7229963（2026-11-05，修订版 M seed 11）；旧版标签 released-2026-07-03 训练集未记载"
+ },
+ "dryas_octopetala": {
+  "helixer_a0080": {
+   "code": "F",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "F",
+   "status": "已核实",
+   "evidence": "S3 训练含 Fragaria vesca、Malus domestica（Rosaceae）；Rosaceae 无验证/测试种；无 Dryas。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "F",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Prunus persica、Rosa chinensis 训练。只作参考。"
+  },
+  "carbon_a": {
+   "code": "F",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "Rosales 内仅 Ficus carica（Moraceae）；无 Rosaceae。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：8 个微调种里无 Rosales。"
+  },
+  "genecad_plant_backbone": {
+   "code": "F",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "F",
+   "status": "推断",
+   "evidence": "微调 -（已核实）与骨干 F（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "eschscholzia_californica": {
+  "helixer_a0080": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "T",
+   "status": "已核实",
+   "evidence": "本种是 S3 测试种（Phytozome，Rössner 2026）。S32 最近训练种为 Aquilegia coerulea（目级 Ranunculales，107.9 Mya），即训练近缘码 O。注意：angiosperms.yaml 的 training_species 没有 Aquilegia coerulea（S3、S32 有），实际权重是否含它无法核实，保守按含。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Papaver somniferum 仅 Test，Ranunculales 无训练种。只作参考。"
+  },
+  "carbon_a": {
+   "code": "Tr",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "Papaver somniferum GCA_010119995.1（同亚科 Papaveroideae）；Corydalis saxicola 同科。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Aquilegia coerulea（Ranunculales）训练。"
+  },
+  "genecad_plant_backbone": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "微调 O（已核实）与骨干 O（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "akebia_trifoliata": {
+  "helixer_a0080": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "同目（Ranunculales）训练种仅 Aquilegia coerulea（S3）；Lardizabalaceae 无训练种。YAML 缺 Aquilegia 的不一致同 Eschscholzia；若权重实际不含则为 '-'，保守取 O。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Ranunculales 无训练种。只作参考。"
+  },
+  "carbon_a": {
+   "code": "O",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "S",
+   "status": "已核实",
+   "evidence": "训练表含 Akebia trifoliata GCA_017979445.1 = 面板 GCF_017979445.1 的配对 GCA（NCBI Datasets 核对）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Aquilegia coerulea（Ranunculales）训练。"
+  },
+  "genecad_plant_backbone": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "微调 O（已核实）与骨干 O（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "hakea_prostrata": {
+  "helixer_a0080": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "S3 训练/验证/测试都没有 Proteales（无 Proteaceae、Nelumbo、Platanus）。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Nelumbo nucifera 训练；Macadamia、Telopea 仅 Test。只作参考。"
+  },
+  "carbon_a": {
+   "code": "F",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "S",
+   "status": "已核实",
+   "evidence": "训练表含 Hakea prostrata GCA_041222555.2 = 面板 GCF_041222555.1 的配对 GCA（注意是 .2 版）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：无 Proteales。"
+  },
+  "genecad_plant_backbone": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "微调 -（已核实）与骨干 -（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "zizania_latifolia": {
+  "helixer_a0080": {
+   "code": "Tr",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "Oryza sativa（Kitaake v3.1）训练，同族 Oryzeae；无 Zizania。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Oryza sativa、O. brachyantha 训练。只作参考。"
+  },
+  "carbon_a": {
+   "code": "Tr",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "F",
+   "status": "已核实",
+   "evidence": "Poaceae 训练种：Holcus mollis、Panicum virgatum、Pharus latifolius；无 Oryzoideae。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Oryza sativa 训练+验证，同族 Oryzeae。"
+  },
+  "genecad_plant_backbone": {
+   "code": "Tr",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "Tr",
+   "status": "推断",
+   "evidence": "微调 Tr（已核实）与骨干 Tr（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "themeda_triandra": {
+  "helixer_a0080": {
+   "code": "Tr",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "Andropogoneae 训练种：Sorghum bicolor、Zea mays、Miscanthus sinensis；无 Themeda。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Panicum hallii、P. virgatum 训练（同亚科 Panicoideae）；Sorghum 为 Val&Test，Zea 为 Test。只作参考。"
+  },
+  "carbon_a": {
+   "code": "Tr",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "同亚科 Panicoideae：Panicum virgatum GCF_016808335.1；Andropogoneae 无训练种（Sorghum、Zea 只是 Vipsania 测试种）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "F",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Poaceae：Oryza、Hordeum、Triticum；无 Panicoideae（Zea mays 被明确排除）。"
+  },
+  "genecad_plant_backbone": {
+   "code": "Tr",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "Tr",
+   "status": "推断",
+   "evidence": "微调 F（已核实）与骨干 Tr（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "juncus_effusus": {
+  "helixer_a0080": {
+   "code": "O",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "Poales 训练 12 种（Joinvillea、Brocchinia、Pharus、Oryza、Zea 等）、验证 Typha latifolia；无 Juncaceae/Cyperaceae。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Poales 内无 Juncaceae。只作参考。"
+  },
+  "carbon_a": {
+   "code": "O",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "S",
+   "status": "已核实",
+   "evidence": "训练表含 Juncus effusus GCA_027726005.1 = 面板同一 accession；它同时是 Vipsania Streptophyta 测试种（预训练见过其序列）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Poales 内无 Juncaceae。"
+  },
+  "genecad_plant_backbone": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "微调 O（已核实）与骨干 O（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "rhynchospora_breviuscula": {
+  "helixer_a0080": {
+   "code": "O",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "同 Juncus：Poales 内无 Cyperaceae。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：无 Cyperaceae。只作参考。"
+  },
+  "carbon_a": {
+   "code": "Tr",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "Carex hirta GCA_965112215.1（同科、同亚科 Cyperoideae）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "O",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Poales 内无 Cyperaceae。"
+  },
+  "genecad_plant_backbone": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "O",
+   "status": "推断",
+   "evidence": "微调 O（已核实）与骨干 O（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "acorus_gramineus": {
+  "helixer_a0080": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "G",
+   "status": "已核实",
+   "evidence": "Acorus americanus 在 S3 训练表（Phytozome 586），YAML 亦有 Aamericanusv1.1；同属训练。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：无 Acorales。只作参考。"
+  },
+  "carbon_a": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "G",
+   "status": "已核实",
+   "evidence": "Acorus calamus GCA_030737845.1 同属训练；与面板 GCA_030737835.1 是相邻 accession，不是同一装配。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：无 Acorales。"
+  },
+  "genecad_plant_backbone": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "微调 -（已核实）与骨干 -（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "amborella_trichopoda": {
+  "helixer_a0080": {
+   "code": "V",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "Amborella 不在 Mesangiospermae（NCBI taxid 1437183；NCBI 谱系已核对），超出范围；S3 无 Amborella。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "T",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Amborella trichopoda（AMTR1.0）为 Test。只作参考。"
+  },
+  "carbon_a": {
+   "code": "S",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "S",
+   "status": "已核实",
+   "evidence": "训练表含 Amborella trichopoda GCA_054954075.1 = 面板 GCF_054954075.1 的配对 GCA（JGI v2.0 装配）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：Nymphaea colorata（Nymphaeales，ANA 级）不同目；无 Amborellales。"
+  },
+  "genecad_plant_backbone": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "微调 -（已核实）与骨干 -（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "chenopodium_album": {
+  "helixer_a0080": {
+   "code": "V/G",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "F",
+   "status": "已核实",
+   "evidence": "Beta vulgaris（Amaranthaceae）训练；无 Chenopodium。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "G",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：Chenopodium quinoa 为 Val&Test（验证）；Beta vulgaris 为 Test。只作参考。"
+  },
+  "carbon_a": {
+   "code": "G",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "Tr",
+   "status": "已核实",
+   "evidence": "Dysphania ambrosioides GCA_026401315.1（同亚科 Chenopodioideae）；Amaranthus hybridus 同科。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：无 Caryophyllales（Beta vulgaris 在 config.py 里但不在这 8 个里）。"
+  },
+  "genecad_plant_backbone": {
+   "code": "G",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "G",
+   "status": "推断",
+   "evidence": "微调 -（已核实）与骨干 G（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "dipteris_shenzhenensis": {
+  "helixer_a0080": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Helixer 补充表 S18/S23/S29）；本次未见冲突事实。"
+  },
+  "tiberius_angiosperms": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "蕨类，超出 Mesangiospermae 模型范围；S3 无蕨类。"
+  },
+  "annevo_current": {
+   "code": "无法核实",
+   "status": "无法核实",
+   "evidence": "现行 saved_model/ANNEVO_Magnoliopsida.pt（blob 21487d87，v2.2.3 起未变）的训练物种清单未公开；作者称排除模式生物（拟南芥、水稻），并采用未发表的新采样策略；名单只私下给过 M. Stanke（issue #30）。不得沿用论文 Table 24。"
+  },
+  "annevo_paper_ref": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "论文版 Embryophyta（Table 24）：蕨类，无。只作参考。"
+  },
+  "carbon_a": {
+   "code": "-",
+   "status": "沿用未重核",
+   "evidence": "沿用 tool_exposure.json（Carbon-A 技术报告：2,055 个 RefSeq GCF 训练快照）；本次未见冲突事实。"
+  },
+  "vipsania_j9m0cdmk": {
+   "code": "S",
+   "status": "已核实",
+   "evidence": "训练表含 Dipteris shenzhenensis GCA_047967505.1 = 面板 GCF_047967505.1 的配对 GCA（报告 28 §1 未列此敏感性物种）。 无监督：仅序列，无标签泄漏；`--finetune` 还会在目标基因组序列上继续训练。"
+  },
+  "genecad_plant_finetune": {
+   "code": "-",
+   "status": "已核实",
+   "evidence": "现行默认模型的 8 个微调物种（A. thaliana、O. sativa、G. max、H. vulgare、P. trichocarpa、A. coerulea、N. colorata、T. aestivum）：蕨类，超出被子植物范围。"
+  },
+  "genecad_plant_backbone": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "骨干 emarro/pcad2-200M-cnet-baseline 的预训练语料模型卡未写；按 PlantCAD2 的 65 属名单（无标签序列）推断。"
+  },
+  "genecad_plant": {
+   "code": "-",
+   "status": "推断",
+   "evidence": "微调 -（已核实）与骨干 -（推断）取较高者；骨干语料未核实，故整体记推断。旧版（released-2026-07-03）微调集未记载，论文 2026-05-12 版为 5 个物种（A. thaliana、G. max、H. vulgare、O. sativa、P. trichocarpa），整体码不变。"
+  }
+ },
+ "_cadb_coverage": {
+  "_note": "CADB = HF bucket HuggingFaceBio/genbank-annotations，路径 cds/<division>/<GCA>/{annotations.gff3.gz,cds.fna.gz,proteins.faa.gz,metadata.json}。2026-11-07 逐个探测；仅读 metadata.json，未下载 GFF。cds/plant 共 5,838 个装配。",
+  "dryas_octopetala": {
+   "present": true,
+   "cadb_accession": "GCA_963921425.1",
+   "panel_accession": "GCF_963921425.1",
+   "paired_comparison": "different",
+   "gene_count": 21654,
+   "uploaded": "2026-10-06"
+  },
+  "eschscholzia_californica": {
+   "present": false,
+   "tried": [
+    "GCA_041429995.1"
+   ]
+  },
+  "akebia_trifoliata": {
+   "present": true,
+   "cadb_accession": "GCA_017979445.1",
+   "panel_accession": "GCF_017979445.1",
+   "paired_comparison": "different",
+   "gene_count": 23445,
+   "uploaded": "2026-10-06"
+  },
+  "hakea_prostrata": {
+   "present": false,
+   "tried": [
+    "GCA_041222555.2",
+    "GCA_041222555.1"
+   ]
+  },
+  "zizania_latifolia": {
+   "present": false,
+   "tried": [
+    "GCA_048537475.1"
+   ]
+  },
+  "themeda_triandra": {
+   "present": false,
+   "tried": [
+    "GCA_057662145.1"
+   ]
+  },
+  "juncus_effusus": {
+   "present": true,
+   "cadb_accession": "GCA_027726005.1",
+   "panel_accession": "GCA_027726005.1",
+   "paired_comparison": "na (无 RefSeq)",
+   "gene_count": 20805,
+   "uploaded": "2026-10-07"
+  },
+  "rhynchospora_breviuscula": {
+   "present": true,
+   "cadb_accession": "GCA_027562975.1",
+   "panel_accession": "GCA_027562975.1",
+   "paired_comparison": "na (无 RefSeq)",
+   "gene_count": 23265,
+   "uploaded": "2026-10-12"
+  },
+  "acorus_gramineus": {
+   "present": true,
+   "cadb_accession": "GCA_030737835.1",
+   "panel_accession": "GCA_030737835.1",
+   "paired_comparison": "na (无 RefSeq)",
+   "gene_count": 22229,
+   "uploaded": "2026-10-07"
+  },
+  "amborella_trichopoda": {
+   "present": true,
+   "cadb_accession": "GCA_054954075.1",
+   "panel_accession": "GCF_054954075.1 (配对 GCA_054954075.1)",
+   "paired_comparison": "na（CADB 抓取时 GCF 尚未发布）",
+   "gene_count": 16086,
+   "uploaded": "2026-10-13",
+   "also_present": "GCA_000471905.1 (AMTR1.0，paired GCF_000471905.2 different，17122 基因)"
+  },
+  "chenopodium_album": {
+   "present": true,
+   "cadb_accession": "GCA_948465745.1",
+   "panel_accession": "GCF_948465745.1",
+   "paired_comparison": "different",
+   "gene_count": 78367,
+   "uploaded": "2026-10-06"
+  },
+  "dipteris_shenzhenensis": {
+   "present": false,
+   "tried": [
+    "GCA_047967505.1"
+   ]
+  },
+  "_common": {
+   "probability_model": "GenerTeam/GENERanno-eukaryote-1.2b-cds-annotator-preview（revision 未记录；Carbon-A-1.2B 的 model.safetensors 与该预览版字节相同，provenance.json 记 b0483c23）",
+   "postprocessing": "HuggingFaceBio/GENERanno-cds-annotation-pipeline rev 6ffa159；minimum_cds_length_bp 96；maximum_boundary_intron_length_bp 20000；含 confidence_network.pt",
+   "gff_confidence": "未读 GFF；metadata 记录了 confidence_network.pt，本地 Carbon-A 流程的 prediction.gff 每个基因带 confidence=；CADB GFF 是否同样带该属性：推断，未直接核实"
+  }
+ }
+}
