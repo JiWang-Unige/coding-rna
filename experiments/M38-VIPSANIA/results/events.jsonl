@@ -1,0 +1,50 @@
+{"event": "devb_start", "model": "j9m0cdmk", "genomes": "arabidopsis_thaliana dryas_octopetala oryza_sativa eschscholzia_californica", "cpus": "2,4,6,8,10,12,14,16-24", "gpu": "NVIDIAGeForceRTX4090,5986MiB,24564MiB", "time": "2026-11-04T18:05:02+0100"}
+{"event": "step_start", "step": "gpusmoke_pre", "gpu_free_mb": 18098, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/gpu_smoke/slice.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/gpu_smoke/pre/smoke.gff3", "time": "2026-11-04T18:05:13+0100"}
+{"event": "step_end", "step": "gpusmoke_pre", "time": "2026-11-04T18:05:37+0100", "rc": 0, "seconds": 24.1, "peak_rss_mb": 2283.8, "peak_gpu_mb": 14622, "killed": false}
+{"event": "step_start", "step": "gpusmoke_ft", "gpu_free_mb": 18098, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/gpu_smoke/slice.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/gpu_smoke/ft/smoke.gff3 --finetune --finetune_B 1 --finetune_epochs 1 -fo trainer.train_steps=512 -fo trainer.gradient_accumulation_steps=4", "time": "2026-11-04T18:05:37+0100"}
+{"event": "step_end", "step": "gpusmoke_ft", "time": "2026-11-04T18:09:18+0100", "rc": 0, "seconds": 221.1, "peak_rss_mb": 9944.9, "peak_gpu_mb": 14942, "killed": false}
+{"event": "gpu_smoke_done", "finetune_B": 1, "probe_windows": 512, "pre_seconds": 24.1, "ft_probe_seconds": 221.1, "sec_per_window_upper": 0.385, "projected_finetune_hours_per_genome_upper": 6.84, "peak_gpu_mb_pre": 14622, "peak_gpu_mb_ft": 14942, "time": "2026-11-04T18:09:18+0100"}
+{"event": "devb_aborted", "stage": "projection", "projected_finetune_hours_per_genome_upper": 6.84, "max": 6, "time": "2026-11-04T18:09:18+0100"}
+{"event": "devb_start", "model": "j9m0cdmk", "genomes": "arabidopsis_thaliana dryas_octopetala oryza_sativa eschscholzia_californica", "cpus": "2,4,6,8,10,12,14,16-24", "gpu": "NVIDIAGeForceRTX4090,5986MiB,24564MiB", "time": "2026-11-06T06:08:15+0100"}
+{"event": "step_skipped", "step": "gpu_smoke", "time": "2026-11-06T06:08:15+0100"}
+{"event": "step_start", "step": "arabidopsis_thaliana_pre", "gpu_free_mb": 18098, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/arabidopsis_thaliana.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/arabidopsis_thaliana/pre/vipsania.gff3", "time": "2026-11-06T06:08:25+0100"}
+{"event": "step_end", "step": "arabidopsis_thaliana_pre", "time": "2026-11-06T06:12:26+0100", "rc": 0, "seconds": 241.2, "peak_rss_mb": 4023.8, "peak_gpu_mb": 14622, "killed": false}
+{"event": "step_failed", "step": "arabidopsis_thaliana_pre", "attempt": 1, "rc": 0, "time": "2026-11-06T06:12:26+0100"}
+{"event": "step_start", "step": "arabidopsis_thaliana_pre", "gpu_free_mb": 18080, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/arabidopsis_thaliana.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/arabidopsis_thaliana/pre/vipsania.gff3", "time": "2026-11-06T06:13:37+0100"}
+{"event": "step_end", "step": "arabidopsis_thaliana_pre", "time": "2026-11-06T06:17:36+0100", "rc": 0, "seconds": 239.2, "peak_rss_mb": 4028.9, "peak_gpu_mb": 14622, "killed": false}
+{"event": "step_done", "step": "arabidopsis_thaliana_pre", "genes": 23910, "time": "2026-11-06T06:17:36+0100"}
+{"event": "step_start", "step": "arabidopsis_thaliana_ft", "gpu_free_mb": 24082, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/arabidopsis_thaliana.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/arabidopsis_thaliana/ft/vipsania.gff3 --finetune --finetune_B 1", "time": "2026-11-06T06:17:46+0100"}
+{"event": "step_end", "step": "arabidopsis_thaliana_ft", "time": "2026-11-06T09:41:58+0100", "rc": 0, "seconds": 12251.7, "peak_rss_mb": 12714.1, "peak_gpu_mb": 21952, "killed": false}
+{"event": "step_done", "step": "arabidopsis_thaliana_ft", "genes": 25153, "time": "2026-11-06T09:41:59+0100"}
+{"event": "genome_done", "genome": "arabidopsis_thaliana", "time": "2026-11-06T09:41:59+0100"}
+{"event": "step_start", "step": "dryas_octopetala_pre", "gpu_free_mb": 24082, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/dryas_octopetala.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/dryas_octopetala/pre/vipsania.gff3", "time": "2026-11-06T09:42:09+0100"}
+{"event": "step_end", "step": "dryas_octopetala_pre", "time": "2026-11-06T09:49:00+0100", "rc": 0, "seconds": 411.0, "peak_rss_mb": 5553.8, "peak_gpu_mb": 21634, "killed": false}
+{"event": "step_done", "step": "dryas_octopetala_pre", "genes": 21715, "time": "2026-11-06T09:49:00+0100"}
+{"event": "step_skipped", "step": "dryas_octopetala_ft", "reason": "not_in_FT_GENOMES", "time": "2026-11-06T09:49:00+0100"}
+{"event": "genome_done", "genome": "dryas_octopetala", "time": "2026-11-06T09:49:00+0100"}
+{"event": "step_start", "step": "oryza_sativa_pre", "gpu_free_mb": 24082, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/oryza_sativa.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/oryza_sativa/pre/vipsania.gff3", "time": "2026-11-06T09:49:10+0100"}
+{"event": "step_end", "step": "oryza_sativa_pre", "time": "2026-11-06T09:59:16+0100", "rc": 0, "seconds": 605.6, "peak_rss_mb": 7542.0, "peak_gpu_mb": 21634, "killed": false}
+{"event": "step_done", "step": "oryza_sativa_pre", "genes": 26982, "time": "2026-11-06T09:59:17+0100"}
+{"event": "step_start", "step": "oryza_sativa_ft", "gpu_free_mb": 24082, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/oryza_sativa.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/oryza_sativa/ft/vipsania.gff3 --finetune --finetune_B 1", "time": "2026-11-06T09:59:27+0100"}
+{"event": "step_end", "step": "oryza_sativa_ft", "time": "2026-11-06T13:33:04+0100", "rc": 0, "seconds": 12817.7, "peak_rss_mb": 16050.7, "peak_gpu_mb": 21952, "killed": false}
+{"event": "step_done", "step": "oryza_sativa_ft", "genes": 26033, "time": "2026-11-06T13:33:05+0100"}
+{"event": "genome_done", "genome": "oryza_sativa", "time": "2026-11-06T13:33:05+0100"}
+{"event": "step_start", "step": "eschscholzia_californica_pre", "gpu_free_mb": 18080, "cmd": "/home/ji/envs/vipsania_m38/bin/vipsania annotate j9m0cdmk /home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/eschscholzia_californica.nuclear.fa -o /home/ji/coding-rna/outputs/M38-VIPSANIA/runs/eschscholzia_californica/pre/vipsania.gff3", "time": "2026-11-06T13:33:15+0100"}
+{"event": "step_end", "step": "eschscholzia_californica_pre", "time": "2026-11-06T13:45:08+0100", "rc": 0, "seconds": 712.9, "peak_rss_mb": 7483.3, "peak_gpu_mb": 14624, "killed": false}
+{"event": "step_done", "step": "eschscholzia_californica_pre", "genes": 25123, "time": "2026-11-06T13:45:09+0100"}
+{"event": "step_skipped", "step": "eschscholzia_californica_ft", "reason": "not_in_FT_GENOMES", "time": "2026-11-06T13:45:09+0100"}
+{"event": "genome_done", "genome": "eschscholzia_californica", "time": "2026-11-06T13:45:09+0100"}
+{"event": "step_start", "step": "score_dev", "time": "2026-11-06T13:45:09+0100"}
+{"event": "step_end", "step": "score_dev", "rc": 1, "time": "2026-11-06T13:45:18+0100"}
+{"event": "devb_aborted", "stage": "score_dev", "time": "2026-11-06T13:45:18+0100"}
+{"event": "devb_start", "model": "j9m0cdmk", "genomes": "arabidopsis_thaliana dryas_octopetala oryza_sativa eschscholzia_californica", "cpus": "2,4,6,8,10,12,14,16-24", "gpu": "NVIDIAGeForceRTX4090,11035MiB,24564MiB", "time": "2026-11-06T13:53:49+0100"}
+{"event": "step_skipped", "step": "gpu_smoke", "time": "2026-11-06T13:53:49+0100"}
+{"event": "genome_skipped", "genome": "arabidopsis_thaliana", "time": "2026-11-06T13:53:49+0100"}
+{"event": "genome_skipped", "genome": "dryas_octopetala", "time": "2026-11-06T13:53:49+0100"}
+{"event": "genome_skipped", "genome": "oryza_sativa", "time": "2026-11-06T13:53:49+0100"}
+{"event": "genome_skipped", "genome": "eschscholzia_californica", "time": "2026-11-06T13:53:49+0100"}
+{"event": "step_start", "step": "score_dev", "time": "2026-11-06T13:53:49+0100"}
+{"event": "step_end", "step": "score_dev", "rc": 0, "time": "2026-11-06T13:54:26+0100"}
+{"event": "step_start", "step": "score_setb", "time": "2026-11-06T13:54:26+0100"}
+{"event": "step_end", "step": "score_setb", "rc": 0, "time": "2026-11-06T13:54:48+0100"}
+{"event": "devb_done", "time": "2026-11-06T13:54:48+0100"}

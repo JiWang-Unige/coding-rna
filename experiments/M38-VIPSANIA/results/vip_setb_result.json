@@ -1,0 +1,599 @@
+{
+ "label": "M38-VIPSANIA set B",
+ "protocol": "docs/review_20261016/19_M34_scaleup_plan.md section 3.1 P2b scoring; 13_M30_protocol.md section 2 (set B)",
+ "contigs": {
+  "dryas_octopetala": [
+   "NC_141367.1",
+   "NC_141369.1",
+   "NC_141371.1",
+   "NC_141373.1"
+  ],
+  "eschscholzia_californica": [
+   "NW_028238309.1",
+   "NW_028238461.1",
+   "NW_028238483.1"
+  ]
+ },
+ "converted": {
+  "VIP_pre": {
+   "NC_141367.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NC_141367.1/prediction/full_grammar.gff3",
+    "genes": 2902,
+    "transcripts": 2902,
+    "chains": 2902,
+    "chains_cds96": 2902
+   },
+   "NC_141369.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NC_141369.1/prediction/full_grammar.gff3",
+    "genes": 2495,
+    "transcripts": 2495,
+    "chains": 2495,
+    "chains_cds96": 2495
+   },
+   "NC_141371.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NC_141371.1/prediction/full_grammar.gff3",
+    "genes": 2231,
+    "transcripts": 2231,
+    "chains": 2231,
+    "chains_cds96": 2231
+   },
+   "NC_141373.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NC_141373.1/prediction/full_grammar.gff3",
+    "genes": 2041,
+    "transcripts": 2041,
+    "chains": 2041,
+    "chains_cds96": 2041
+   },
+   "NW_028238309.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NW_028238309.1/prediction/full_grammar.gff3",
+    "genes": 4033,
+    "transcripts": 4033,
+    "chains": 4033,
+    "chains_cds96": 4033
+   },
+   "NW_028238461.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NW_028238461.1/prediction/full_grammar.gff3",
+    "genes": 4338,
+    "transcripts": 4338,
+    "chains": 4338,
+    "chains_cds96": 4338
+   },
+   "NW_028238483.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/setb/runs/VIP_pre/NW_028238483.1/prediction/full_grammar.gff3",
+    "genes": 3315,
+    "transcripts": 3315,
+    "chains": 3315,
+    "chains_cds96": 3315
+   }
+  }
+ },
+ "inputs": {
+  "VIP_pre": {
+   "dryas_octopetala": {
+    "gff": "/home/ji/coding-rna/outputs/M38-VIPSANIA/runs/dryas_octopetala/pre/vipsania.gff3",
+    "sha256": "8e44746c2d1c280834830bcbf7af65a5c43cce62a4e07125e2e81be1523fe0dc",
+    "run_json": {
+     "genome": "dryas_octopetala",
+     "mode": "pre",
+     "model": "j9m0cdmk",
+     "fasta": "/home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/dryas_octopetala.nuclear.fa",
+     "genes": 21715,
+     "finetune_B": 0,
+     "annotate_B_flag": "auto",
+     "batch_log": "batch size for maximal chunk length: 9",
+     "peak_gpu_log": "peak GPU memory: 20.67 GiB",
+     "log_time": "time: 6m 45s",
+     "gff_sha256": "8e44746c2d1c280834830bcbf7af65a5c43cce62a4e07125e2e81be1523fe0dc",
+     "time": "2026-11-06T09:49:00+0100",
+     "rc": 0,
+     "seconds": 411.0,
+     "peak_rss_mb": 5553.8,
+     "peak_gpu_mb": 21634,
+     "killed": false
+    }
+   },
+   "eschscholzia_californica": {
+    "gff": "/home/ji/coding-rna/outputs/M38-VIPSANIA/runs/eschscholzia_californica/pre/vipsania.gff3",
+    "sha256": "b9e417b0567748a6be2f5791dca845b8c2dc3f182b82e32a6012aea21a6e485f",
+    "run_json": {
+     "genome": "eschscholzia_californica",
+     "mode": "pre",
+     "model": "j9m0cdmk",
+     "fasta": "/home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/eschscholzia_californica.nuclear.fa",
+     "genes": 25123,
+     "finetune_B": 0,
+     "annotate_B_flag": "auto",
+     "batch_log": "batch size for maximal chunk length: 6",
+     "peak_gpu_log": "peak GPU memory: 13.81 GiB",
+     "log_time": "time: 11m 45s",
+     "gff_sha256": "b9e417b0567748a6be2f5791dca845b8c2dc3f182b82e32a6012aea21a6e485f",
+     "time": "2026-11-06T13:45:09+0100",
+     "rc": 0,
+     "seconds": 712.9,
+     "peak_rss_mb": 7483.3,
+     "peak_gpu_mb": 14624,
+     "killed": false
+    }
+   }
+  }
+ },
+ "reference_runs": {
+  "T2": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/p2b/T2",
+  "T10": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/p2b/T10",
+  "T2_s2": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T2_s2/setB"
+ },
+ "variants": {
+  "VIP_pre": {
+   "table": {
+    "dryas_octopetala": {
+     "tp": 5931,
+     "pred": 9669,
+     "ref": 9508,
+     "F1": 61.855347551754704,
+     "precision": 61.340366118523114,
+     "recall": 62.37904922170804
+    },
+    "eschscholzia_californica": {
+     "tp": 7402,
+     "pred": 11686,
+     "ref": 12367,
+     "F1": 61.547416122728976,
+     "precision": 63.340749614923844,
+     "recall": 59.8528341554136
+    },
+    "pooled": {
+     "tp": 13333,
+     "pred": 21355,
+     "ref": 21875,
+     "F1": 61.684015729817254,
+     "precision": 62.43502692577851,
+     "recall": 60.950857142857146
+    },
+    "per_contig": {
+     "NC_141367.1": {
+      "tp": 1781,
+      "pred": 2902,
+      "ref": 2886,
+      "F1": 61.5411195577056
+     },
+     "NC_141369.1": {
+      "tp": 1526,
+      "pred": 2495,
+      "ref": 2481,
+      "F1": 61.334405144694536
+     },
+     "NC_141371.1": {
+      "tp": 1357,
+      "pred": 2231,
+      "ref": 2186,
+      "F1": 61.44441928911026
+     },
+     "NC_141373.1": {
+      "tp": 1267,
+      "pred": 2041,
+      "ref": 1955,
+      "F1": 63.413413413413416
+     },
+     "NW_028238309.1": {
+      "tp": 2509,
+      "pred": 4033,
+      "ref": 4373,
+      "F1": 59.695455626933146
+     },
+     "NW_028238461.1": {
+      "tp": 2800,
+      "pred": 4338,
+      "ref": 4508,
+      "F1": 63.30544879041375
+     },
+     "NW_028238483.1": {
+      "tp": 2093,
+      "pred": 3315,
+      "ref": 3486,
+      "F1": 61.54977209233936
+     }
+    }
+   },
+   "bootstrap_F1": {
+    "pooled": {
+     "F1": 61.684015729817254,
+     "CI95": [
+      60.7368912275918,
+      62.59015952948041
+     ]
+    },
+    "dryas_octopetala": {
+     "F1": 61.855347551754704,
+     "CI95": [
+      60.02959160861965,
+      63.377516188022014
+     ]
+    },
+    "eschscholzia_californica": {
+     "F1": 61.547416122728976,
+     "CI95": [
+      60.33610280025243,
+      62.634865435086944
+     ]
+    }
+   },
+   "paired_new_minus": {
+    "T2": {
+     "pooled": {
+      "point": -6.785979689330709,
+      "CI95": [
+       -7.409000396515828,
+       -6.126536108918183
+      ],
+      "frac_positive": 0.0
+     },
+     "dryas_octopetala": {
+      "point": -6.714298369318456,
+      "CI95": [
+       -7.583089053590873,
+       -5.764886222514326
+      ],
+      "frac_positive": 0.0
+     },
+     "eschscholzia_californica": {
+      "point": -6.844117835595824,
+      "CI95": [
+       -7.725412095801082,
+       -5.935677993629759
+      ],
+      "frac_positive": 0.0
+     }
+    },
+    "T10": {
+     "pooled": {
+      "point": -6.644968955378438,
+      "CI95": [
+       -7.301278794939565,
+       -5.982730048217127
+      ],
+      "frac_positive": 0.0
+     },
+     "dryas_octopetala": {
+      "point": -6.2518082594272215,
+      "CI95": [
+       -7.139181494767553,
+       -5.318026275358191
+      ],
+      "frac_positive": 0.0
+     },
+     "eschscholzia_californica": {
+      "point": -6.954359789444098,
+      "CI95": [
+       -7.8839359911168625,
+       -6.040491928656161
+      ],
+      "frac_positive": 0.0
+     }
+    },
+    "T2_s2": {
+     "pooled": {
+      "point": -5.175414875164954,
+      "CI95": [
+       -5.8646928604267226,
+       -4.4610117400529585
+      ],
+      "frac_positive": 0.0
+     },
+     "dryas_octopetala": {
+      "point": -5.236205306110747,
+      "CI95": [
+       -6.192059272945874,
+       -4.15950197238676
+      ],
+      "frac_positive": 0.0
+     },
+     "eschscholzia_californica": {
+      "point": -5.129836755397264,
+      "CI95": [
+       -6.079519210859565,
+       -4.132640372759489
+      ],
+      "frac_positive": 0.0
+     }
+    }
+   },
+   "others": {
+    "T2": {
+     "table": {
+      "dryas_octopetala": {
+       "tp": 6594,
+       "pred": 9725,
+       "ref": 9508,
+       "F1": 68.56964592107316,
+       "precision": 67.80462724935732,
+       "recall": 69.35212452671435
+      },
+      "eschscholzia_californica": {
+       "tp": 8353,
+       "pred": 12060,
+       "ref": 12367,
+       "F1": 68.3915339583248,
+       "precision": 69.2620232172471,
+       "recall": 67.5426538368238
+      },
+      "pooled": {
+       "tp": 14947,
+       "pred": 21785,
+       "ref": 21875,
+       "F1": 68.46999541914796,
+       "precision": 68.61142988294698,
+       "recall": 68.32914285714286
+      },
+      "per_contig": {
+       "NC_141367.1": {
+        "tp": 1951,
+        "pred": 2917,
+        "ref": 2886,
+        "F1": 67.24108219886266
+       },
+       "NC_141369.1": {
+        "tp": 1706,
+        "pred": 2535,
+        "ref": 2481,
+        "F1": 68.02232854864434
+       },
+       "NC_141371.1": {
+        "tp": 1527,
+        "pred": 2252,
+        "ref": 2186,
+        "F1": 68.81478143307797
+       },
+       "NC_141373.1": {
+        "tp": 1410,
+        "pred": 2021,
+        "ref": 1955,
+        "F1": 70.92555331991952
+       },
+       "NW_028238309.1": {
+        "tp": 2807,
+        "pred": 4153,
+        "ref": 4373,
+        "F1": 65.8456486042693
+       },
+       "NW_028238461.1": {
+        "tp": 3145,
+        "pred": 4485,
+        "ref": 4508,
+        "F1": 69.94328922495274
+       },
+       "NW_028238483.1": {
+        "tp": 2401,
+        "pred": 3422,
+        "ref": 3486,
+        "F1": 69.51360741169658
+       }
+      }
+     },
+     "bootstrap_F1": {
+      "pooled": {
+       "F1": 68.46999541914796,
+       "CI95": [
+        67.33107519432679,
+        69.49515240302505
+       ]
+      },
+      "dryas_octopetala": {
+       "F1": 68.56964592107316,
+       "CI95": [
+        66.55029107666502,
+        70.2049594377453
+       ]
+      },
+      "eschscholzia_californica": {
+       "F1": 68.3915339583248,
+       "CI95": [
+        66.97833887875113,
+        69.64717378969615
+       ]
+      }
+     }
+    },
+    "T10": {
+     "table": {
+      "dryas_octopetala": {
+       "tp": 6572,
+       "pred": 9791,
+       "ref": 9508,
+       "F1": 68.10715581118193,
+       "precision": 67.12286793994485,
+       "recall": 69.12074042911233
+      },
+      "eschscholzia_californica": {
+       "tp": 8486,
+       "pred": 12409,
+       "ref": 12367,
+       "F1": 68.50177591217307,
+       "precision": 68.38584898057861,
+       "recall": 68.61809654726288
+      },
+      "pooled": {
+       "tp": 15058,
+       "pred": 22200,
+       "ref": 21875,
+       "F1": 68.32898468519569,
+       "precision": 67.82882882882883,
+       "recall": 68.83657142857143
+      },
+      "per_contig": {
+       "NC_141367.1": {
+        "tp": 1970,
+        "pred": 2940,
+        "ref": 2886,
+        "F1": 67.62787504291109
+       },
+       "NC_141369.1": {
+        "tp": 1693,
+        "pred": 2545,
+        "ref": 2481,
+        "F1": 67.36967767608436
+       },
+       "NC_141371.1": {
+        "tp": 1512,
+        "pred": 2267,
+        "ref": 2186,
+        "F1": 67.90927464630586
+       },
+       "NC_141373.1": {
+        "tp": 1397,
+        "pred": 2039,
+        "ref": 1955,
+        "F1": 69.95493239859789
+       },
+       "NW_028238309.1": {
+        "tp": 2873,
+        "pred": 4324,
+        "ref": 4373,
+        "F1": 66.06875934230195
+       },
+       "NW_028238461.1": {
+        "tp": 3186,
+        "pred": 4580,
+        "ref": 4508,
+        "F1": 70.1144366197183
+       },
+       "NW_028238483.1": {
+        "tp": 2427,
+        "pred": 3505,
+        "ref": 3486,
+        "F1": 69.43212702045487
+       }
+      }
+     },
+     "bootstrap_F1": {
+      "pooled": {
+       "F1": 68.32898468519569,
+       "CI95": [
+        67.26826077450681,
+        69.28571679042628
+       ]
+      },
+      "dryas_octopetala": {
+       "F1": 68.10715581118193,
+       "CI95": [
+        66.23030377548211,
+        69.72359234741745
+       ]
+      },
+      "eschscholzia_californica": {
+       "F1": 68.50177591217307,
+       "CI95": [
+        67.19541833272645,
+        69.66112536972173
+       ]
+      }
+     }
+    },
+    "T2_s2": {
+     "table": {
+      "dryas_octopetala": {
+       "tp": 6632,
+       "pred": 10262,
+       "ref": 9508,
+       "F1": 67.09155285786545,
+       "precision": 64.62677840576886,
+       "recall": 69.75178796802693
+      },
+      "eschscholzia_californica": {
+       "tp": 8398,
+       "pred": 12823,
+       "ref": 12367,
+       "F1": 66.67725287812624,
+       "precision": 65.49169461124542,
+       "recall": 67.90652543058138
+      },
+      "pooled": {
+       "tp": 15030,
+       "pred": 23085,
+       "ref": 21875,
+       "F1": 66.85943060498221,
+       "precision": 65.10721247563353,
+       "recall": 68.70857142857143
+      },
+      "per_contig": {
+       "NC_141367.1": {
+        "tp": 1960,
+        "pred": 3070,
+        "ref": 2886,
+        "F1": 65.81598388179987
+       },
+       "NC_141369.1": {
+        "tp": 1729,
+        "pred": 2676,
+        "ref": 2481,
+        "F1": 67.05448904401784
+       },
+       "NC_141371.1": {
+        "tp": 1521,
+        "pred": 2370,
+        "ref": 2186,
+        "F1": 66.76909569798069
+       },
+       "NC_141373.1": {
+        "tp": 1422,
+        "pred": 2146,
+        "ref": 1955,
+        "F1": 69.34893928310169
+       },
+       "NW_028238309.1": {
+        "tp": 2839,
+        "pred": 4460,
+        "ref": 4373,
+        "F1": 64.28167100645307
+       },
+       "NW_028238461.1": {
+        "tp": 3144,
+        "pred": 4730,
+        "ref": 4508,
+        "F1": 68.06668109980515
+       },
+       "NW_028238483.1": {
+        "tp": 2415,
+        "pred": 3633,
+        "ref": 3486,
+        "F1": 67.84660766961652
+       }
+      }
+     },
+     "bootstrap_F1": {
+      "pooled": {
+       "F1": 66.85943060498221,
+       "CI95": [
+        65.64501486507274,
+        67.9573035147935
+       ]
+      },
+      "dryas_octopetala": {
+       "F1": 67.09155285786545,
+       "CI95": [
+        64.8656664988447,
+        68.86737276142007
+       ]
+      },
+      "eschscholzia_californica": {
+       "F1": 66.67725287812624,
+       "CI95": [
+        65.26482592238844,
+        67.89105197358667
+       ]
+      }
+     }
+    }
+   },
+   "bootstrap": {
+    "block_bp": 1000000,
+    "blocks": 276,
+    "draws": 2000,
+    "seed": 0,
+    "statistic": "200 tp/(pred+ref) of resampled 1-Mb blocks; same indices for all runs/scopes; 95% CI = 2.5/97.5 percentiles"
+   },
+   "ruler": "m30_score.Evaluator + load_gff_chains (exact CDS chain, CDS>=96 bp, no posterior filter)",
+   "score_seconds": 15.4
+  }
+ },
+ "time": "2026-11-06T13:54:48"
+}

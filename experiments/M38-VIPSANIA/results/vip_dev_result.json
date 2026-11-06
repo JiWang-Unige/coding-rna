@@ -1,0 +1,647 @@
+{
+ "label": "M38-VIPSANIA DEV",
+ "protocol": "docs/review_20261016/28_animal_C2_and_Vipsania_proposal.md section 6",
+ "ruler": "a1_eval.load_chains (unique exact chains, CDS>=96 bp) + a1_eval.summarize; refs = M26 CDS-assessable primaries (DEV 7,728)",
+ "contigs": {
+  "arabidopsis_thaliana": [
+   "NC_003074.8"
+  ],
+  "oryza_sativa": [
+   "NC_089041.1"
+  ]
+ },
+ "converted": {
+  "VIP_ft": {
+   "NC_003074.8": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/dev/runs/VIP_ft/NC_003074.8/prediction/full_grammar.gff3",
+    "genes": 4972,
+    "transcripts": 4972,
+    "chains": 4972,
+    "chains_cds96": 4971
+   },
+   "NC_089041.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/dev/runs/VIP_ft/NC_089041.1/prediction/full_grammar.gff3",
+    "genes": 2029,
+    "transcripts": 2029,
+    "chains": 2029,
+    "chains_cds96": 2029
+   }
+  },
+  "VIP_pre": {
+   "NC_003074.8": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/dev/runs/VIP_pre/NC_003074.8/prediction/full_grammar.gff3",
+    "genes": 4721,
+    "transcripts": 4721,
+    "chains": 4721,
+    "chains_cds96": 4721
+   },
+   "NC_089041.1": {
+    "file": "/home/ji/coding-rna/outputs/M38-VIPSANIA/results/dev/runs/VIP_pre/NC_089041.1/prediction/full_grammar.gff3",
+    "genes": 2102,
+    "transcripts": 2102,
+    "chains": 2102,
+    "chains_cds96": 2102
+   }
+  }
+ },
+ "inputs": {
+  "VIP_ft": {
+   "arabidopsis_thaliana": {
+    "gff": "/home/ji/coding-rna/outputs/M38-VIPSANIA/runs/arabidopsis_thaliana/ft/vipsania.gff3",
+    "sha256": "86767f8e99acfe52f1076af68934ec128a5065bb666f9437806f402e3485729b",
+    "run_json": {
+     "genome": "arabidopsis_thaliana",
+     "mode": "ft",
+     "model": "j9m0cdmk",
+     "fasta": "/home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/arabidopsis_thaliana.nuclear.fa",
+     "genes": 25153,
+     "finetune_B": 1,
+     "annotate_B_flag": "auto",
+     "batch_log": "batch size for maximal chunk length: 9",
+     "peak_gpu_log": "peak GPU memory: 20.95 GiB",
+     "log_time": "time: 3m 47s",
+     "gff_sha256": "86767f8e99acfe52f1076af68934ec128a5065bb666f9437806f402e3485729b",
+     "time": "2026-11-06T09:41:59+0100",
+     "rc": 0,
+     "seconds": 12251.7,
+     "peak_rss_mb": 12714.1,
+     "peak_gpu_mb": 21952,
+     "killed": false
+    }
+   },
+   "oryza_sativa": {
+    "gff": "/home/ji/coding-rna/outputs/M38-VIPSANIA/runs/oryza_sativa/ft/vipsania.gff3",
+    "sha256": "3941eda678589eabb64e1ae8356ba3315e1c436c712f55b0e3c972e1148e46f4",
+    "run_json": {
+     "genome": "oryza_sativa",
+     "mode": "ft",
+     "model": "j9m0cdmk",
+     "fasta": "/home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/oryza_sativa.nuclear.fa",
+     "genes": 26033,
+     "finetune_B": 1,
+     "annotate_B_flag": "auto",
+     "batch_log": "batch size for maximal chunk length: 9",
+     "peak_gpu_log": "peak GPU memory: 20.95 GiB",
+     "log_time": "time: 10m 7s",
+     "gff_sha256": "3941eda678589eabb64e1ae8356ba3315e1c436c712f55b0e3c972e1148e46f4",
+     "time": "2026-11-06T13:33:05+0100",
+     "rc": 0,
+     "seconds": 12817.7,
+     "peak_rss_mb": 16050.7,
+     "peak_gpu_mb": 21952,
+     "killed": false
+    }
+   }
+  },
+  "VIP_pre": {
+   "arabidopsis_thaliana": {
+    "gff": "/home/ji/coding-rna/outputs/M38-VIPSANIA/runs/arabidopsis_thaliana/pre/vipsania.gff3",
+    "sha256": "5d2145288b95e89685cd91f48e061f6e1f81b1686448670fb3d7d7339d538d47",
+    "run_json": {
+     "genome": "arabidopsis_thaliana",
+     "mode": "pre",
+     "model": "j9m0cdmk",
+     "fasta": "/home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/arabidopsis_thaliana.nuclear.fa",
+     "genes": 23910,
+     "finetune_B": 0,
+     "annotate_B_flag": "auto",
+     "batch_log": "batch size for maximal chunk length: 6",
+     "peak_gpu_log": "peak GPU memory: 13.81 GiB",
+     "log_time": "time: 3m 52s",
+     "gff_sha256": "5d2145288b95e89685cd91f48e061f6e1f81b1686448670fb3d7d7339d538d47",
+     "time": "2026-11-06T06:17:36+0100",
+     "rc": 0,
+     "seconds": 239.2,
+     "peak_rss_mb": 4028.9,
+     "peak_gpu_mb": 14622,
+     "killed": false
+    }
+   },
+   "oryza_sativa": {
+    "gff": "/home/ji/coding-rna/outputs/M38-VIPSANIA/runs/oryza_sativa/pre/vipsania.gff3",
+    "sha256": "6aa54ea91272997427091aeb4c9bc57d96c6fc25e1bda5f06168e957140c84d8",
+    "run_json": {
+     "genome": "oryza_sativa",
+     "mode": "pre",
+     "model": "j9m0cdmk",
+     "fasta": "/home/ji/coding-rna/outputs/M38-VIPSANIA/genomes/oryza_sativa.nuclear.fa",
+     "genes": 26982,
+     "finetune_B": 0,
+     "annotate_B_flag": "auto",
+     "batch_log": "batch size for maximal chunk length: 9",
+     "peak_gpu_log": "peak GPU memory: 20.67 GiB",
+     "log_time": "time: 10m",
+     "gff_sha256": "6aa54ea91272997427091aeb4c9bc57d96c6fc25e1bda5f06168e957140c84d8",
+     "time": "2026-11-06T09:59:16+0100",
+     "rc": 0,
+     "seconds": 605.6,
+     "peak_rss_mb": 7542.0,
+     "peak_gpu_mb": 21634,
+     "killed": false
+    }
+   }
+  }
+ },
+ "reference_runs": {
+  "T2": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T2/devM34_T2",
+  "T10": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T10/devM34_T10",
+  "k50U": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T10_k50U/devM34_T10_k50U",
+  "k50F": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T10_k50F/devM34_T10_k50F",
+  "T2_s2": "/home/ji/coding-rna/outputs/M34-NTV2-SCALEUP/pc2_T2_s2/devM34_T2_s2"
+ },
+ "variants": {
+  "VIP_ft": {
+   "pooled": {
+    "tp": 5116,
+    "pred": 7000,
+    "ref": 7728,
+    "F1": 69.4731124388919,
+    "precision": 73.08571428571429,
+    "recall": 66.2008281573499
+   },
+   "per_region": {
+    "NC_003074.8": {
+     "tp": 3715,
+     "pred": 4971,
+     "ref": 5437,
+     "F1": 71.38739431206764
+    },
+    "NC_089041.1": {
+     "tp": 1401,
+     "pred": 2029,
+     "ref": 2291,
+     "F1": 64.86111111111111
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "tp": 3715,
+     "pred": 4971,
+     "ref": 5437,
+     "F1": 71.38739431206764
+    },
+    "oryza_sativa": {
+     "tp": 1401,
+     "pred": 2029,
+     "ref": 2291,
+     "F1": 64.86111111111111
+    }
+   },
+   "by_strata": {
+    "1": {
+     "tp": 1248,
+     "pred": 1617,
+     "ref": 1886,
+     "F1": 71.25321153297173,
+     "recall": 66.17179215270414,
+     "precision": 77.1799628942486
+    },
+    "2-5": {
+     "tp": 2212,
+     "pred": 3030,
+     "ref": 3432,
+     "F1": 68.46177653977097,
+     "recall": 64.45221445221445,
+     "precision": 73.003300330033
+    },
+    ">=6": {
+     "tp": 1656,
+     "pred": 2353,
+     "ref": 2410,
+     "F1": 69.53600671845476,
+     "recall": 68.71369294605809,
+     "precision": 70.3782405439864
+    }
+   },
+   "pooled_no_cds96_rule": {
+    "tp": 5117,
+    "pred": 7001,
+    "ref": 7728,
+    "F1": 69.48197433634327,
+    "precision": 73.0895586344808,
+    "recall": 66.21376811594203
+   },
+   "bootstrap": {
+    "VIP_ft": {
+     "F1": 69.4731124388919,
+     "CI95": [
+      67.29166521708245,
+      71.27265953113206
+     ]
+    },
+    "VIP_pre": {
+     "F1": 66.07106040821937,
+     "CI95": [
+      64.19748707743032,
+      67.62573818721287
+     ],
+     "diff_ref_minus_this_point": 3.402052030672536,
+     "diff_ref_minus_this_CI95": [
+      2.6957172217027408,
+      4.093882770496441
+     ]
+    },
+    "T2": {
+     "F1": 73.87819414948277,
+     "CI95": [
+      71.79504656880682,
+      75.62986962064699
+     ],
+     "diff_ref_minus_this_point": -4.4050817105908635,
+     "diff_ref_minus_this_CI95": [
+      -5.392472333513577,
+      -3.3655050824906687
+     ]
+    },
+    "T10": {
+     "F1": 72.91357691789133,
+     "CI95": [
+      71.06346626437148,
+      74.50365488180942
+     ],
+     "diff_ref_minus_this_point": -3.4404644789994308,
+     "diff_ref_minus_this_CI95": [
+      -4.5252651332750915,
+      -2.3937610528382023
+     ]
+    },
+    "k50U": {
+     "F1": 71.63115889453202,
+     "CI95": [
+      69.43852342352832,
+      73.48138940853252
+     ],
+     "diff_ref_minus_this_point": -2.158046455640118,
+     "diff_ref_minus_this_CI95": [
+      -3.401816145338209,
+      -0.9740750844350362
+     ]
+    },
+    "k50F": {
+     "F1": 70.34455549710678,
+     "CI95": [
+      68.14833506300347,
+      72.25254291653091
+     ],
+     "diff_ref_minus_this_point": -0.8714430582148793,
+     "diff_ref_minus_this_CI95": [
+      -1.9101979802635145,
+      0.18739408099216406
+     ]
+    },
+    "T2_s2": {
+     "F1": 74.08644532032868,
+     "CI95": [
+      72.04954807954921,
+      75.84271856694293
+     ],
+     "diff_ref_minus_this_point": -4.613332881436776,
+     "diff_ref_minus_this_CI95": [
+      -5.607024184282438,
+      -3.673581622367559
+     ]
+    },
+    "GENERanno_fresh_joint": {
+     "F1": 70.10673826206535,
+     "CI95": [
+      67.74086945830204,
+      72.11466226387012
+     ],
+     "diff_ref_minus_this_point": -0.6336258231734462,
+     "diff_ref_minus_this_CI95": [
+      -1.5890349474850172,
+      0.4532546255375725
+     ]
+    },
+    "CarbonA_filtered": {
+     "F1": 77.40574384102355,
+     "CI95": [
+      75.59308480666522,
+      78.96654045602241
+     ],
+     "diff_ref_minus_this_point": -7.932631402131648,
+     "diff_ref_minus_this_CI95": [
+      -9.134870992529354,
+      -6.936143576688784
+     ]
+    },
+    "reference_run": "VIP_ft",
+    "blocks": 54,
+    "_seconds": 13.7
+   },
+   "paired_vs": {
+    "VIP_pre": {
+     "point": 3.402052030672536,
+     "CI95": [
+      2.6957172217027408,
+      4.093882770496441
+     ],
+     "F1_other": 66.07106040821937
+    },
+    "T2": {
+     "point": -4.4050817105908635,
+     "CI95": [
+      -5.392472333513577,
+      -3.3655050824906687
+     ],
+     "F1_other": 73.87819414948277
+    },
+    "T10": {
+     "point": -3.4404644789994308,
+     "CI95": [
+      -4.5252651332750915,
+      -2.3937610528382023
+     ],
+     "F1_other": 72.91357691789133
+    },
+    "k50U": {
+     "point": -2.158046455640118,
+     "CI95": [
+      -3.401816145338209,
+      -0.9740750844350362
+     ],
+     "F1_other": 71.63115889453202
+    },
+    "k50F": {
+     "point": -0.8714430582148793,
+     "CI95": [
+      -1.9101979802635145,
+      0.18739408099216406
+     ],
+     "F1_other": 70.34455549710678
+    },
+    "T2_s2": {
+     "point": -4.613332881436776,
+     "CI95": [
+      -5.607024184282438,
+      -3.673581622367559
+     ],
+     "F1_other": 74.08644532032868
+    },
+    "GENERanno_fresh_joint": {
+     "point": -0.6336258231734462,
+     "CI95": [
+      -1.5890349474850172,
+      0.4532546255375725
+     ],
+     "F1_other": 70.10673826206535
+    },
+    "CarbonA_filtered": {
+     "point": -7.932631402131648,
+     "CI95": [
+      -9.134870992529354,
+      -6.936143576688784
+     ],
+     "F1_other": 77.40574384102355
+    }
+   }
+  },
+  "VIP_pre": {
+   "pooled": {
+    "tp": 4807,
+    "pred": 6823,
+    "ref": 7728,
+    "F1": 66.07106040821937,
+    "precision": 70.45287996482486,
+    "recall": 62.20238095238095
+   },
+   "per_region": {
+    "NC_003074.8": {
+     "tp": 3415,
+     "pred": 4721,
+     "ref": 5437,
+     "F1": 67.23764520574916
+    },
+    "NC_089041.1": {
+     "tp": 1392,
+     "pred": 2102,
+     "ref": 2291,
+     "F1": 63.3735488276804
+    }
+   },
+   "by_species": {
+    "arabidopsis_thaliana": {
+     "tp": 3415,
+     "pred": 4721,
+     "ref": 5437,
+     "F1": 67.23764520574916
+    },
+    "oryza_sativa": {
+     "tp": 1392,
+     "pred": 2102,
+     "ref": 2291,
+     "F1": 63.3735488276804
+    }
+   },
+   "by_strata": {
+    "1": {
+     "tp": 1216,
+     "pred": 1596,
+     "ref": 1886,
+     "F1": 69.84491671453188,
+     "recall": 64.47507953340403,
+     "precision": 76.19047619047619
+    },
+    "2-5": {
+     "tp": 2093,
+     "pred": 2905,
+     "ref": 3432,
+     "F1": 66.05649360896324,
+     "recall": 60.984848484848484,
+     "precision": 72.04819277108433
+    },
+    ">=6": {
+     "tp": 1498,
+     "pred": 2322,
+     "ref": 2410,
+     "F1": 63.31360946745562,
+     "recall": 62.15767634854772,
+     "precision": 64.51335055986219
+    }
+   },
+   "pooled_no_cds96_rule": {
+    "tp": 4807,
+    "pred": 6823,
+    "ref": 7728,
+    "F1": 66.07106040821937,
+    "precision": 70.45287996482486,
+    "recall": 62.20238095238095
+   },
+   "bootstrap": {
+    "VIP_pre": {
+     "F1": 66.07106040821937,
+     "CI95": [
+      64.19748707743032,
+      67.62573818721287
+     ]
+    },
+    "VIP_ft": {
+     "F1": 69.4731124388919,
+     "CI95": [
+      67.29166521708245,
+      71.27265953113206
+     ],
+     "diff_ref_minus_this_point": -3.402052030672536,
+     "diff_ref_minus_this_CI95": [
+      -4.093882770496442,
+      -2.695717221702741
+     ]
+    },
+    "T2": {
+     "F1": 73.87819414948277,
+     "CI95": [
+      71.79504656880682,
+      75.62986962064699
+     ],
+     "diff_ref_minus_this_point": -7.807133741263399,
+     "diff_ref_minus_this_CI95": [
+      -8.729979203294914,
+      -6.802942351060556
+     ]
+    },
+    "T10": {
+     "F1": 72.91357691789133,
+     "CI95": [
+      71.06346626437148,
+      74.50365488180942
+     ],
+     "diff_ref_minus_this_point": -6.842516509671967,
+     "diff_ref_minus_this_CI95": [
+      -7.773252669419884,
+      -5.906861057824192
+     ]
+    },
+    "k50U": {
+     "F1": 71.63115889453202,
+     "CI95": [
+      69.43852342352832,
+      73.48138940853252
+     ],
+     "diff_ref_minus_this_point": -5.560098486312654,
+     "diff_ref_minus_this_CI95": [
+      -6.68785708290792,
+      -4.435310370269375
+     ]
+    },
+    "k50F": {
+     "F1": 70.34455549710678,
+     "CI95": [
+      68.14833506300347,
+      72.25254291653091
+     ],
+     "diff_ref_minus_this_point": -4.273495088887415,
+     "diff_ref_minus_this_CI95": [
+      -5.281184166326751,
+      -3.243333610527177
+     ]
+    },
+    "T2_s2": {
+     "F1": 74.08644532032868,
+     "CI95": [
+      72.04954807954921,
+      75.84271856694293
+     ],
+     "diff_ref_minus_this_point": -8.015384912109312,
+     "diff_ref_minus_this_CI95": [
+      -8.893318699180762,
+      -7.046712766501343
+     ]
+    },
+    "GENERanno_fresh_joint": {
+     "F1": 70.10673826206535,
+     "CI95": [
+      67.74086945830204,
+      72.11466226387012
+     ],
+     "diff_ref_minus_this_point": -4.035677853845982,
+     "diff_ref_minus_this_CI95": [
+      -5.1198168715826124,
+      -2.7507561664078346
+     ]
+    },
+    "CarbonA_filtered": {
+     "F1": 77.40574384102355,
+     "CI95": [
+      75.59308480666522,
+      78.96654045602241
+     ],
+     "diff_ref_minus_this_point": -11.334683432804184,
+     "diff_ref_minus_this_CI95": [
+      -12.360791026272043,
+      -10.431040763726113
+     ]
+    },
+    "reference_run": "VIP_pre",
+    "blocks": 54,
+    "_seconds": 13.0
+   },
+   "paired_vs": {
+    "VIP_ft": {
+     "point": -3.402052030672536,
+     "CI95": [
+      -4.093882770496442,
+      -2.695717221702741
+     ],
+     "F1_other": 69.4731124388919
+    },
+    "T2": {
+     "point": -7.807133741263399,
+     "CI95": [
+      -8.729979203294914,
+      -6.802942351060556
+     ],
+     "F1_other": 73.87819414948277
+    },
+    "T10": {
+     "point": -6.842516509671967,
+     "CI95": [
+      -7.773252669419884,
+      -5.906861057824192
+     ],
+     "F1_other": 72.91357691789133
+    },
+    "k50U": {
+     "point": -5.560098486312654,
+     "CI95": [
+      -6.68785708290792,
+      -4.435310370269375
+     ],
+     "F1_other": 71.63115889453202
+    },
+    "k50F": {
+     "point": -4.273495088887415,
+     "CI95": [
+      -5.281184166326751,
+      -3.243333610527177
+     ],
+     "F1_other": 70.34455549710678
+    },
+    "T2_s2": {
+     "point": -8.015384912109312,
+     "CI95": [
+      -8.893318699180762,
+      -7.046712766501343
+     ],
+     "F1_other": 74.08644532032868
+    },
+    "GENERanno_fresh_joint": {
+     "point": -4.035677853845982,
+     "CI95": [
+      -5.1198168715826124,
+      -2.7507561664078346
+     ],
+     "F1_other": 70.10673826206535
+    },
+    "CarbonA_filtered": {
+     "point": -11.334683432804184,
+     "CI95": [
+      -12.360791026272043,
+      -10.431040763726113
+     ],
+     "F1_other": 77.40574384102355
+    }
+   }
+  }
+ },
+ "time": "2026-11-06T13:54:25"
+}
