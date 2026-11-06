@@ -181,7 +181,8 @@ if [ -z "${VIP_SKIP_SCORE:-}" ]; then
     local ftarg=(); [ ${#ft[@]} -gt 0 ] && ftarg=(--ft "${ft[@]}")
     [ -e $M/results/$KIND/vip_${KIND}_result.json ] && { ev event=step_skipped step=score_$KIND; return 0; }
     ev event=step_start step=score_$KIND
-    CUDA_VISIBLE_DEVICES="" nice -n 10 taskset -c $SCPUS $PYG -I $HERE/vip_score.py $KIND --out $M/results/$KIND "${ftarg[@]}" --pre "${pre[@]}" >> $LOGS/m38-vipsania-score_$KIND.out 2>> $LOGS/m38-vipsania-score_$KIND.err
+    # env -u LD_LIBRARY_PATH: the CUDA wheel paths set for Vipsania above break the scorer env (scipy import failed, 2026-11-06)
+    env -u LD_LIBRARY_PATH CUDA_VISIBLE_DEVICES="" nice -n 10 taskset -c $SCPUS $PYG -I $HERE/vip_score.py $KIND --out $M/results/$KIND "${ftarg[@]}" --pre "${pre[@]}" >> $LOGS/m38-vipsania-score_$KIND.out 2>> $LOGS/m38-vipsania-score_$KIND.err
     local rc=$?
     ev event=step_end step=score_$KIND rc=$rc
     return $rc
