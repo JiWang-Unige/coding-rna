@@ -240,8 +240,23 @@ P6 打分后以下任一成立即触发：
 - 闸门只检查 nvidia-smi 的计算进程，TE 只用 CPU 的 Apptainer 作业（BRAKER）不会挡住它。
 - 闸门还会等 M34/M39 的队列脚本全部退出，所以 P6 不会插进 M39 两臂之间的空档。
 - M39 的续接脚本只看空闲显存，k25U 一结束就开跑。
-- 由此 P6 默认在 TE 声明解除与 M39 结束之后开始，约 11-10/11 起，约 4 天。是否改为先于 M39，已请发起会话或用户定。
-- `GO` 已于 11-07 写入；队列在闸门处等待。
+- 维护会话（`local_f7d86278`，ont 队列与看板的维护者）回复：
+  - P6 与 M39 的先后由用户定，看板决定卡 `ont-order-after-k25u`（推荐 P6 → P4 补 seed（若做）→ M39）；
+  - M39 的续接脚本已加"无 TE GPU 进程"检查（提交 773665c）；
+  - 在用户定之前不要自己往 ont 上排 GPU 作业，只做不占 ont GPU 的准备；win3090 一空出来可以先用。
+- 据此 ont 上的 `GO` 已撤回（改名 `GO.withdrawn-20261107`）。队列仍在 ont 上，停在闸门处：没有 GO 就不会使用 GPU。
+
+**win3090 准备**（不占 GPU）：
+- 范围：win3090 只跑 ANNEVO、Tiberius、Helixer。
+  - Vipsania 在 TE 的 win3090 运行里实测约 4 s/步，ont 4090 上是 0.185 s/步，所以 Vipsania 留在 ont。
+  - Carbon-A 依赖 ont 上的 generanno 环境与权重，也留在 ont。
+- 部署：
+  - conda-forge 装 apptainer 1.5.4（`~/envs/apptainer_p6`，与 ont 同版本）；
+  - ANNEVO 环境与 ont 同一组包版本；
+  - SIF、权重、ANNEVO 代码从 Baobab 经 Mac 流式传入，实测约 1.4 MB/s，约 3 h，逐字节相同；
+  - 大写基因组从 ont 流式传入，按清单 sha256 核对。
+- 闸门：在 win3090 上，任何以 `scripts/experiments/` 启动、工作目录在 ab-initio-TE 下的进程都算 TE 任务。TE 的 Vipsania 链在 GPU 臂之间有 CPU 准备阶段，只看 GPU 进程会插进空档。
+- 结果：GFF 传回 ont 的 `native/<tool>/<key>/`。ont 队列遇到已有 DONE 的物种会跳过，两台机器不会重复跑同一工具、同一物种。
 
 **CPU 工作**：建基因组、评分器验证、Carbon-A 后处理都绑核 25–31、nice 10。TE 的 GeneMark-ETP 在 ont 上用核 2–31，我们的 CPU 进程优先级较低。
 

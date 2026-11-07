@@ -433,6 +433,25 @@ def cmd_status(args):
     return 0
 
 
+def cmd_refs(args):
+    """build (cache) the references of the 119 panel sequences and compare the per-species CDS-assessable primary counts with report 25 (reference_stats.tsv);
+    reads only the reference annotation, scores nothing"""
+    want = {'dryas_octopetala': 21467, 'eschscholzia_californica': 26580, 'akebia_trifoliata': 23926, 'hakea_prostrata': 23486, 'zizania_latifolia': 35671,
+            'themeda_triandra': 41205, 'juncus_effusus': 17779, 'rhynchospora_breviuscula': 19976, 'acorus_gramineus': 21365, 'amborella_trichopoda': 16467}
+    out, ok = {}, True
+    for k in P.CORE10:
+        t0 = time.time()
+        n = sum(len(build_reference_panel(c)['refs']) for c in P.lengths(k))
+        out[k] = dict(refs=n, report25=want[k], equal=n == want[k], seconds=round(time.time() - t0, 1))
+        ok &= n == want[k]
+        print(f"{k}: {n} CDS-assessable primary references (report 25: {want[k]}) {'OK' if n == want[k] else 'DIFF'} {out[k]['seconds']} s", flush=True)
+    out['total'] = sum(v['refs'] for v in out.values())
+    P.RESULTS.mkdir(parents=True, exist_ok=True)
+    json.dump(out, open(P.RESULTS / 'panel_reference_counts.json', 'w'), indent=1)
+    print('REFS', 'EQUAL' if ok else 'DIFFER', out['total'])
+    return 0 if ok else 1
+
+
 def cmd_convert(args):
     o = convert_tool(args.tool, args.key)
     print(json.dumps(json.load(open(o / 'CONVERTED.json'))['contigs'])[:2000])
@@ -506,6 +525,7 @@ def main():
     p = sub.add_parser('convert'); p.add_argument('--tool', required=True, choices=TOOLS); p.add_argument('--key', required=True, choices=P.CORE10); p.set_defaults(fn=cmd_convert)
     p = sub.add_parser('validate'); p.set_defaults(fn=cmd_validate)
     p = sub.add_parser('status'); p.set_defaults(fn=cmd_status)
+    p = sub.add_parser('refs'); p.set_defaults(fn=cmd_refs)
     p = sub.add_parser('panel'); p.add_argument('--overwrite', action='store_true'); p.set_defaults(fn=cmd_panel)
     a = ap.parse_args()
     sys.exit(a.fn(a) or 0)

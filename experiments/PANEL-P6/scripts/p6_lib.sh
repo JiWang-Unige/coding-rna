@@ -4,7 +4,8 @@
 #   2. no TE GPU claim file ($TE_CLAIM, written by the TE session before its GPU work and removed after it) and
 #      no GPU process of the TE project (user rule 2026-11-07: P6 runs only when no TE job runs; never pre-empt): a GPU process is TE when its cwd or args contain
 #      /work/te, ab-initio-TE, TE-GLM or te_benchmark, or when it runs inside an Apptainer/Singularity container that is not ours (our containers carry PANEL-P6 in their args);
-#      only nvidia-smi compute processes are examined (TE's CPU-only Apptainer jobs such as BRAKER never block);
+#      only nvidia-smi compute processes are examined (TE's CPU-only Apptainer jobs such as BRAKER never block); on win3090 P6_TE_DRIVERS (a pgrep -f pattern,
+#      e.g. 'vipsania_[f]inetune|vipsania_[p]retrained') also blocks while a TE queue driver lives (cwd under ab-initio-TE);
 #   3. no other coding-rna GPU job and no live M34 / M39 queue driver (one coding-rna GPU job at a time; P6 does not slip into the gap between two queued arms)
 #      unless P6_SHARE_WITH_CODING_RNA=1;
 #   4. at least NEED MiB of GPU memory free (2 consecutive checks, 30 s apart).
@@ -15,7 +16,7 @@ A=$P6/assets
 G=$P6/genomes
 LOGS=${P6_LOGS:-$HOME/coding-rna/logs}
 EV=$P6/events.jsonl
-APPT=$HOME/envs/apptainer/bin/apptainer
+APPT=${P6_APPT:-$HOME/envs/apptainer/bin/apptainer}
 PYG=$HOME/envs/generanno/bin/python
 CPUS=${P6_CPUS:-2,4,6,8,10,12,14,16-24}               # the cores of the coding-rna GPU steps (M34 / M38)
 PCPUS=${P6_POST_CPUS:-25-31}                          # CPU-only side work (Carbon-A post-processing, conversion)
@@ -44,6 +45,12 @@ gpu_blockers() {   # prints one line per GPU process that blocks us (TE, other c
       case "$pargs" in *PANEL-P6*) break;; *apptainer*|*singularity*|*starter*) echo "container pid=$pid parent=$par $pargs" | cut -c1-200; break;; esac
     done
   done
+  if [ -n "${P6_TE_DRIVERS:-}" ]; then                                     # win3090: TE's queue drivers (its Vipsania chain has CPU stages between GPU arms)
+    local q
+    for q in $(pgrep -f "$P6_TE_DRIVERS"); do
+      case "$(readlink /proc/$q/cwd 2>/dev/null) $(tr '\0' ' ' < /proc/$q/cmdline 2>/dev/null)" in *PANEL-P6*) ;; *ab-initio-TE*|*/te/*) echo "TE driver pid=$q $(tr '\0' ' ' < /proc/$q/cmdline | cut -c1-140)";; esac
+    done
+  fi
   if [ -z "${P6_SHARE_WITH_CODING_RNA:-}" ]; then                           # the coding-rna queue drivers themselves (no GPU process between two arms, but the queue goes on)
     pgrep -af 'm34_[a]fter_|m34_[s]tage.sh|m34_[s]upervise.sh|m39_[a]fter_|m39_[r]un_all' | cut -c1-160 | sed 's/^/coding-rna queue /'
   fi
