@@ -1,7 +1,7 @@
 #!/bin/bash
 # usage: m34_supervise.sh <arm> <outdir> <stop_at> [extra m34_train_lora args...]
 # crash-resilient trainer launcher (as M31 c1_supervise_lora.sh): resumes from ckpt_latest.pt after any interruption (GPU OOM from other users, segfault, ...), logs each one in
-# interruptions.jsonl, waits while the GPU has < 7.5 GB free, and gives up (FATAL) when 4 consecutive attempts make no progress (a deterministic code error).
+# interruptions.jsonl, waits while the GPU has < 6.0 GB free (7.5 GB until 2026-11-07), and gives up (FATAL) when 4 consecutive attempts make no progress (a deterministic code error).
 ARM=$1; OUT=$2; STOP=$3; shift 3
 CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
 LOG=$HOME/coding-rna/logs/m34-train-$ARMPFX$ARM-$(date +%Y%m%d-%H%M%S)
@@ -12,7 +12,8 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HUB_OFFLINE=1 TRANSFO
 laststep=-1; noprog=0
 for attempt in $(seq 1 80); do
   free=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
-  if [ "$free" -lt 7500 ]; then echo "{\"event\":\"gpu_busy_wait\",\"free_mib\":$free,\"time\":\"$(date -Is)\"}" >> "$OUT/interruptions.jsonl"; sleep 120; continue; fi
+  # free-memory threshold: 7500 MiB until 2026-11-07; the pc2 arms use ~5.0 GB (k25U stalled at 6.8 GB free while TE + another user held the rest)
+  if [ "$free" -lt ${M34_MIN_FREE_MIB:-6000} ]; then echo "{\"event\":\"gpu_busy_wait\",\"free_mib\":$free,\"time\":\"$(date -Is)\"}" >> "$OUT/interruptions.jsonl"; sleep 120; continue; fi
   taskset -c $CPUS $PY m34_train_lora.py run --arm $ARM --out "$OUT" --steps 3072 --stop-at $STOP --batch 8 --workers 12 --cpus $CPUS --resume ${M34_LORA:+--lora $M34_LORA} "$@" >> $LOG.out 2>> $LOG.err < /dev/null &
   PID=$!
   echo "{\"event\":\"launch\",\"attempt\":$attempt,\"pid\":$PID,\"stop_at\":$STOP,\"time\":\"$(date -Is)\"}" >> "$OUT/interruptions.jsonl"

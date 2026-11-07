@@ -27,7 +27,7 @@ gpu_wait() {
   local ok=0 free
   while [ $ok -lt 3 ]; do
     free=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
-    if [ "${free:-0}" -ge 7500 ]; then ok=$((ok+1)); else ok=0; fi
+    if [ "${free:-0}" -ge ${M34_MIN_FREE_MIB:-6000} ]; then ok=$((ok+1)); else ok=0; fi   # 7500 until 2026-11-07 (k25U stalled at 6.8 GB free)
     sleep 120
   done
 }
