@@ -257,6 +257,12 @@ P6 打分后以下任一成立即触发：
   - 大写基因组从 ont 流式传入，按清单 sha256 核对。
 - 闸门：在 win3090 上，任何以 `scripts/experiments/` 启动、工作目录在 ab-initio-TE 下的进程都算 TE 任务。TE 的 Vipsania 链在 GPU 臂之间有 CPU 准备阶段，只看 GPU 进程会插进空档。
 - 结果：GFF 传回 ont 的 `native/<tool>/<key>/`。ont 队列遇到已有 DONE 的物种会跳过，两台机器不会重复跑同一工具、同一物种。
+- 11-07 核对：
+  - win3090 上的 2 个 SIF、Tiberius 与 Helixer 权重、ANNEVO 代码与权重、Tiberius 2.0.8 隔离安装目录（32 个文件），sha256 与 ont 副本全部相同；清单见 `experiments/PANEL-P6/results/assets.sha256`。
+  - 10 个大写基因组的 sha256 与 ont 清单相同。
+  - 闸门在 win3090 上正确识别 TE 的 GPU 进程与 `vipsania_finetune.sh` / `vipsania_pretrained.sh`。
+- 11-07 10:47（北京时间）：win3090 写入 GO，启动 `p6_win3090.sh`（冒烟 → ANNEVO → Tiberius → Helixer），停在闸门处等 TE 结束。
+- TE 在 ont 上的 GPU 声明延长到约 11-10 中午（TE 会话 11-07 通知）。
 
 **CPU 工作**：建基因组、评分器验证、Carbon-A 后处理都绑核 25–31、nice 10。TE 的 GeneMark-ETP 在 ont 上用核 2–31，我们的 CPU 进程优先级较低。
 
