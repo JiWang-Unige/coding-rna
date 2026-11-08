@@ -263,6 +263,10 @@ P6 打分后以下任一成立即触发：
   - 闸门在 win3090 上正确识别 TE 的 GPU 进程与 `vipsania_finetune.sh` / `vipsania_pretrained.sh`。
 - 11-07 10:47（北京时间）：win3090 写入 GO，启动 `p6_win3090.sh`（冒烟 → ANNEVO → Tiberius → Helixer），停在闸门处等 TE 结束。
 - TE 在 ont 上的 GPU 声明延长到约 11-10 中午（TE 会话 11-07 通知）。
+- 11-08 约 11:12–11:41（北京时间），TE 的家蚕微调把 WSL 内存撑爆，整个 WSL 被停，随后由 TE 会话拉起。
+  - 我们的 P6 队列当时还在闸门处、没用过 GPU，没有损失。11:44 重新挂上。
+  - 为防同类情况，win3090 上 P6 的资源守护内存上限设为 32 GB（ont 为 64 GB）。
+  - TE 作业现在跑在 MemoryMax=40G 的 systemd scope 里，闸门照样能认出。
 
 **CPU 工作**：建基因组、评分器验证、Carbon-A 后处理都绑核 25–31、nice 10。TE 的 GeneMark-ETP 在 ont 上用核 2–31，我们的 CPU 进程优先级较低。
 

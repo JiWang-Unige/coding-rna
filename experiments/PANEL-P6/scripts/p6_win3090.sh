@@ -8,6 +8,7 @@ export P6_APPT=$HOME/envs/apptainer_p6/bin/apptainer
 export P6_TE_DRIVERS=${P6_TE_DRIVERS:-'scripts/[e]xperiments/'}            # any TE driver or job started from its repo (cwd ab-initio-TE): user rule, no TE task running
 export P6_TE_CLAIM=${P6_TE_CLAIM:-$HOME/te/ab-initio-TE/outputs/TE_GPU_CLAIM}
 export P6_CPUS=${P6_CPUS:-2-21}
+export P6_MAX_RSS_GB=${P6_MAX_RSS_GB:-32}           # the WSL VM has 56 GB + 16 GB swap on a 64-GB host; the 11-08 TE out-of-memory stopped the whole VM
 export P6_STEPS=${P6_STEPS:-SMOKE ANNEVO Tiberius Helixer}
 export P6_SMOKE_TOOLS=${P6_SMOKE_TOOLS:-ANNEVO Tiberius Helixer}
 exec bash $HERE/p6_queue.sh
