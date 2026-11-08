@@ -267,6 +267,10 @@ P6 打分后以下任一成立即触发：
   - 我们的 P6 队列当时还在闸门处、没用过 GPU，没有损失。11:44 重新挂上。
   - 为防同类情况，win3090 上 P6 的资源守护内存上限设为 32 GB（ont 为 64 GB）。
   - TE 作业现在跑在 MemoryMax=40G 的 systemd scope 里，闸门照样能认出。
+- 11-08 用户定优先级（由论文 draft 会话转告）：TE 在 win3090、ont、CAU 上都排第一，P6 排在 TE 之后。
+  - win3090：TE 的 Vipsania 剩余臂暂停，先跑 G2（约 25 GPU-h）。
+  - ont：GENERanno 扫描之后接 G1（约 10 GPU-h）。
+  - P6 两个队列继续停在闸门处，TE 空出卡时会通知。
 
 **CPU 工作**：建基因组、评分器验证、Carbon-A 后处理都绑核 25–31、nice 10。TE 的 GeneMark-ETP 在 ont 上用核 2–31，我们的 CPU 进程优先级较低。
 
