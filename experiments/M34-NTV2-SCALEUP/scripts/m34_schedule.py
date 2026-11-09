@@ -30,6 +30,10 @@ ARMS = {
     # (sampling_seed) and the LoRA A-matrix initialisation (lora_seed) change.  The original T2 is seed 0 / sampling seed 1.
     'T2_s2': dict(species=LEGACY, new_k=1.0, treatment='FULL', sampling_seed=2, lora_seed=2),
     'T2_s3': dict(species=LEGACY, new_k=1.0, treatment='FULL', sampling_seed=3, lora_seed=3),
+    # seed replicates of the P4 pair (user decision p4-seed-robustness 2026-11-09): same labeled genes (selection seed unchanged), only the draw schedule and the
+    # LoRA initialisation change, as T2_s2.  The original k50U / k50F are seed 0 / sampling seed 1.
+    'T10_k50U_s2': dict(species=LEGACY + NEW, new_k=0.5, treatment='U', sampling_seed=2, lora_seed=2),
+    'T10_k50F_s2': dict(species=LEGACY + NEW, new_k=0.5, treatment='F', sampling_seed=2, lora_seed=2),
 }
 
 

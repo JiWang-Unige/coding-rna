@@ -100,7 +100,7 @@ def main():
     assert not any(r['seqid'] in forbidden for r in rows), 'schedule contains DEV / held-out / validation contigs'
     spec = T.arm_spec(args.arm)
     assert {r['species'] for r in rows} <= set(spec['species'])
-    for key in ('sampling_seed', 'lora_seed'):         # seed replicates (T2_s2 / T2_s3) only; the original arms carry neither key, so their config is unchanged
+    for key in ('sampling_seed', 'lora_seed'):         # seed replicates (T2_s2 / T2_s3, T10_k50U_s2 / T10_k50F_s2) only; the original arms carry neither key, so their config is unchanged
         if key in spec:
             CFG[key] = spec[key]
     sched_md5 = hashlib.md5(open(sched_path, 'rb').read()).hexdigest()
