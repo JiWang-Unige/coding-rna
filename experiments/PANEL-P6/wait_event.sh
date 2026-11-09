@@ -4,7 +4,8 @@
 W=${1:-/nonexistent}; HB=${2:-3000}; IV=${3:-600}; t0=$(date +%s)
 PAT=${4:-gate_wait}; MODE=${5:-exclude}     # default: any event except gate_wait;  routine runs: PAT='step_failed|aborted|tool_done|queue_done|oom_retry|smoke_failed' MODE=include
 cnt() { [ "$MODE" = include ] && echo "grep -Ec '$PAT'" || echo "grep -vEc '$PAT'"; }
-Q() { ssh baobab "ssh lab \"$1\" < /dev/null" 2>/dev/null; }
+CM="-o ControlMaster=auto -o ControlPath=$HOME/.ssh/cm-p6-%r@%h:%p -o ControlPersist=20m -o ConnectTimeout=20"   # one reused connection (the Baobab login node reset direct connections on 11-09)
+Q() { ssh $CM baobab "ssh lab \"$1; true\" < /dev/null" 2>/dev/null || ssh $CM -J bamboo baobab "ssh lab \"$1; true\" < /dev/null" 2>/dev/null; }   # "; true": a non-zero remote status must not trigger the fallback
 W3() { ssh -o ConnectTimeout=30 win3090-wsl "$1" < /dev/null 2>/dev/null; }      # win3090 queue (native tools)
 n0=$(Q "$(cnt) ~/coding-rna/outputs/PANEL-P6/events.jsonl")
 w0=$(W3 "$(cnt) ~/coding-rna/outputs/PANEL-P6/events.jsonl")
