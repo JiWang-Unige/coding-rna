@@ -52,7 +52,8 @@ gpu_blockers() {   # prints one line per GPU process that blocks us (TE, other c
     done
   fi
   if [ -z "${P6_SHARE_WITH_CODING_RNA:-}" ]; then                           # the coding-rna queue drivers themselves (no GPU process between two arms, but the queue goes on)
-    pgrep -af 'm34_[a]fter_|m34_[s]tage.sh|m34_[s]upervise.sh|m39_[a]fter_|m39_[r]un_all' | cut -c1-160 | sed 's/^/coding-rna queue /'
+    pgrep -af 'm34_[a]fter_|m34_[s]tage.sh|m34_[s]upervise.sh|m39_[a]fter_|m39_[r]un_all' | grep -v 'after_p6' | cut -c1-160 | sed 's/^/coding-rna queue /'
+    # (drivers named *after_p6* wait for P6 itself, e.g. the maintainer's m34_after_p6.sh = P4 seeds -> M39 after P6; counting them would deadlock)
   fi
 }
 

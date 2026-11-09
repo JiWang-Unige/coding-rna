@@ -48,7 +48,7 @@ one() {   # KEY FASTA_DIR FASTA_NAME RUN_DIR
   [ -e $D/DONE ] && { ev event=step_skipped step=$NAME; return 0; }
   for attempt in 1 2 3 4; do
     gate $NEED $NAME || return 3
-    rm -rf $D; mkdir -p $D
+    rm -rf $D; mkdir -p $D/temporary                    # ANNEVO needs --tmp_path to exist (the M28 DEV runner pre-created it)
     o0=$(fsize $LOGS/p6-$NAME.out); e0=$(fsize $LOGS/p6-$NAME.err)
     run_step $NAME $TO ${P6_MAX_RSS_GB:-64} $(cmd_for $K $FD $FN $D $B)
     rc=$?
