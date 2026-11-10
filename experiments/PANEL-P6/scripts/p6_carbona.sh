@@ -26,9 +26,16 @@ post() {   # KEY STEM OUTDIR : CPU post-processing of one file (background)
   $GUARD --max-rss-gb ${P6_POST_RSS_GB:-40} --timeout-s 21600 --interval 15 --out $P6/steps/carbon_post_${K}_${C}.res.json -- \
       nice -n 10 taskset -c $PCPUS $PYG post_processing.py --input $PQ --output $O/prediction --viterbi_backend numba --device cpu \
       >> $LOGS/p6-carbon-post-$K.out 2>> $LOGS/p6-carbon-post-$K.err < /dev/null
-  local rc=$?
+  local rc=$? W=""
+  # the pipeline renames <dir> to <dir>_WARNING (and appends to ../WARNINGS.txt) when few complete genes reach confidence 0.1 ("codon table probably does not match");
+  # the GFF is written as usual -> move the directory back so the layout stays <key>/<stem>/prediction.gff, and keep the warning in post.json and the events
+  if [ $rc -eq 0 ] && [ ! -e $O ] && [ -s ${O}_WARNING/prediction.gff ]; then
+    W=$(awk -F'\t' -v c="$C" '$2==c{w=$3} END{print w}' $(dirname $O)/WARNINGS.txt 2>/dev/null | tr -d '"')
+    mv ${O}_WARNING $O && PQ=$O/$(basename $PQ)
+    ev event=post_codon_warning key=$K file=$C "warning=$W"
+  fi
   if [ $rc -eq 0 ] && [ -s $O/prediction.gff ]; then
-    echo "{\"parquet\":\"$(basename $PQ)\",\"parquet_bytes\":$(fsize $PQ),\"gff_sha256\":\"$(sha256sum $O/prediction.gff | cut -d' ' -f1)\"}" > $O/post.json
+    echo "{\"parquet\":\"$(basename $PQ)\",\"parquet_bytes\":$(fsize $PQ),\"gff_sha256\":\"$(sha256sum $O/prediction.gff | cut -d' ' -f1)\",\"codon_table_warning\":\"$W\"}" > $O/post.json
     rm -f $PQ
     $EVT --merge $P6/steps/carbon_post_${K}_${C}.res.json event=post_done key=$K file=$C
   else
