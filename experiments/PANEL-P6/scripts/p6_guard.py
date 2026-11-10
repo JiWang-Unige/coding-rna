@@ -93,8 +93,18 @@ def main():
             break
         time.sleep(0.5)
     rc = proc.wait()
+    # leftovers of the group (2026-11-10: after a Carbon-A crash its multiprocessing-spawn GPU worker survived, reparented to init, holding 6.7 GB of GPU memory for hours)
+    orphans = [p for p in group_pids(pgid) if p != os.getpid()]
+    if orphans:
+        print(f'[p6_guard] killing {len(orphans)} leftover process(es) of group {pgid}: {orphans}', file=sys.stderr, flush=True)
+        try:
+            os.killpg(pgid, signal.SIGTERM)
+            time.sleep(5)
+            os.killpg(pgid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
     res = dict(cmd=cmd, rc=(137 if killed else rc), wall_seconds=round(time.time() - t0, 1), peak_rss_mb=round(peak_pss, 1), peak_rss_sum_mb=round(peak_rss, 1),
-               peak_gpu_mb=peak_gpu, killed=killed, reason=reason, time=time.strftime('%Y-%m-%dT%H:%M:%S'))
+               peak_gpu_mb=peak_gpu, killed=killed, reason=reason, orphans_killed=len(orphans), time=time.strftime('%Y-%m-%dT%H:%M:%S'))
     with open(a.out, 'w') as h:
         json.dump(res, h)
     print('[p6_guard] ' + json.dumps({k: v for k, v in res.items() if k != 'cmd'}), file=sys.stderr, flush=True)

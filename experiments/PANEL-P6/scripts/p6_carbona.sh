@@ -39,7 +39,7 @@ wait_slots() { while [ "$(jobs -rp | wc -l)" -ge $1 ]; do sleep 20; done; }
 
 infer() {   # KEY STEM FASTA OUTDIR : GPU inference of one file (up to 3 attempts) -> parquet
   local K=$1 C=$2 F=$3 O=$4 a
-  for a in 1 2 3; do
+  for a in 1 2 3 4 5; do                          # 2026-11-10: sporadic SIGSEGV after inference / a tokenizer TypeError, each cured by a plain retry
     gate $NEED carbon_${K}_${C} || return 3
     rm -rf $O; mkdir -p $O
     run_step carbon_${K}_${C} $TO ${P6_MAX_RSS_GB:-48} $PYG model_inference.py --input $F --output_path $O --model_name $MODEL --gpu_count 1 --batch_size 4 \
