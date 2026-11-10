@@ -27,6 +27,7 @@ mkdir -p $P6 $LOGS
 ev() { $EVT "$@"; }
 gpu_free() { nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits 2>/dev/null | head -1 | tr -dc 0-9; }
 fsize() { stat -c %s "$1" 2>/dev/null || echo 0; }
+# disk floor 30 GB (was 120 until 2026-11-10 17:30): P6 itself writes < 10 GB more; the 11-10 drop to 91 GB came from another project, and pausing P6 does not free it
 disk_free_gb() { df -BG --output=avail $HOME | tail -1 | tr -dc 0-9; }
 
 gpu_blockers() {   # prints one line per GPU process that blocks us (TE, other coding-rna jobs); empty = none
@@ -65,7 +66,7 @@ gate() {   # NEED_MiB STEP : blocks until the gate is open; returns 1 if $P6/STO
     [ -e $P6/STOP ] && { ev event=stopped step=$step; return 1; }
     b=$(gpu_blockers); f=$(gpu_free); f=${f:-0}
     [ -e $TE_CLAIM ] && b="${b}TE_GPU_CLAIM: $(head -c 300 $TE_CLAIM | tr '\n' ' ')"$'\n'
-    if [ -e ${P6_GO:-$P6/GO} ] && [ -z "$b" ] && [ "$f" -ge "$need" ] && [ "$(disk_free_gb)" -ge ${P6_MIN_DISK_GB:-120} ]; then
+    if [ -e ${P6_GO:-$P6/GO} ] && [ -z "$b" ] && [ "$f" -ge "$need" ] && [ "$(disk_free_gb)" -ge ${P6_MIN_DISK_GB:-30} ]; then
       ok=$((ok+1)); [ $ok -ge 2 ] && return 0; sleep 30; continue
     fi
     ok=0
