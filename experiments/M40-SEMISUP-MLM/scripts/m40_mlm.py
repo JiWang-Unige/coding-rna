@@ -1,6 +1,6 @@
 """M40 masked-language-model pieces (pure numpy / torch; no data paths, unit-tested on CPU).
 
-PlantCAD2-Small ships its MLM head (checked 2026-11-11 on ont, protocol 32 section 2): `lm_head.lm_head.weight` (8 x 768) is element-wise identical to the
+PlantCAD2-Small ships its MLM head (checked 2026-11-11 on ont, protocol 34 section 2): `lm_head.lm_head.weight` (8 x 768) is element-wise identical to the
 input embedding `backbone.embeddings.word_embeddings.embedding.weight` (tied), and the head is the Caduceus `RCPSLMHead`:
     logits(h) = h[:, :768] @ E^T  +  flip(h[:, 768:], channels) @ E[complement]^T          (h = last_hidden_state, 1,536 = forward | RC view)
 `AutoModel` (what M32/M34/M35 load) returns exactly that last_hidden_state, so the pre-trained MLM head is reproduced from the frozen embedding of the

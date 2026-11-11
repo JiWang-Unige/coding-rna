@@ -1,7 +1,7 @@
 #!/bin/bash
 # Vipsania (M38 env, Streptophyta model j9m0cdmk pinned, pretrained-only mode = author defaults, no finetuning) on the 8 new-species internal-validation
 # pseudo-contigs, scored by the unchanged M34 own_species ruler (m34_val.py).  Runs AFTER the three M40 arms (m40_run_all.sh calls it last).  ~3 GPU min (M38: Arabidopsis 119 Mb pretrained 240 s).
-# Overlap with Vipsania's own data (protocol 32 section 6): Dioscorea rotundata GCF_009730915.1 is in the Streptophyta TRAINING set (sequence only);
+# Overlap with Vipsania's own data (protocol 34 section 6): Dioscorea rotundata GCF_009730915.1 is in the Streptophyta TRAINING set (sequence only);
 # Solanum lycopersicum GCF_036512215.1 is in its TEST set; the other six are in neither.  Output: ~/coding-rna/outputs/M40-SEMISUP-MLM/vip_newsp/
 source $HOME/coding-rna-reorg/experiments/M40-SEMISUP-MLM/scripts/m40_env.sh
 PYPC2=$PY

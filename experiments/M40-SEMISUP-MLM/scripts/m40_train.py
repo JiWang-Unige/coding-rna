@@ -1,6 +1,6 @@
 """M40-SEMISUP-MLM trainer = the M34 pc2 trainer (`M34-NTV2-SCALEUP/scripts/m34_train_lora.py`: PlantCAD2-Small + M35 LoRA, C0 head warm-started from
 M32 runA, partition-function CRF loss with unknown positions marginalised, parallel window DP, 3,072-step cosine schedule) + a masked-language-model
-auxiliary loss on the unlabeled positions of the new species' draws (protocol docs/review_20261016/32_semisup_MLM_protocol.md).
+auxiliary loss on the unlabeled positions of the new species' draws (protocol docs/review_20261016/34_semisup_MLM_protocol.md).
 
 What is identical to M34 (imported, not copied): labelers / targets / example geometry (m34_train_common), encoder + LoRA + head (m34_backend, M35 pc2_lora),
 the DP pool, the optimiser groups and learning-rate schedule, checkpoint format (m34_ckpt), the stage / selection / validation / DEV tools.

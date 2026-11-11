@@ -1,4 +1,4 @@
-"""Vipsania external 0 % point on the 8 new-species internal-validation pseudo-contigs (protocol 32 section 6, decision m40-vipsania-newsp, user 2026-11-11).
+"""Vipsania external 0 % point on the 8 new-species internal-validation pseudo-contigs (protocol 34 section 6, decision m40-vipsania-newsp, user 2026-11-11).
   fasta  OUT.fa      write the 8 '<chrom>__val8M' pseudo-contigs (exactly the sequences the M34 validation reads) as one FASTA, headers = pseudo-contig names
   regions            print the comma-separated pseudo-contig list (= the own_species regions of every M34 / M40 arm)
   concat RUN OUT.gff concatenate RUN/<contig>/prediction/full_grammar.gff3 of the 8 contigs (CPU check of the convert + score path on an arm's own predictions)

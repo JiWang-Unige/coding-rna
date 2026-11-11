@@ -1,4 +1,4 @@
-"""M40-SEMISUP-MLM shared definitions (protocol docs/review_20261016/32_semisup_MLM_protocol.md).
+"""M40-SEMISUP-MLM shared definitions (protocol docs/review_20261016/34_semisup_MLM_protocol.md).
 
 Semi-supervised variant of the M34 pc2 trainer: labeled positions keep the partial-observation CRF likelihood (unknown positions marginalised, treatment U),
 and the UNLABELED positions of the NEW species' draws additionally carry a masked-language-model loss through PlantCAD2's own pre-trained (tied, frozen)
@@ -31,7 +31,7 @@ OUT40 = C.OUT.parent / 'M40-SEMISUP-MLM'      # ~/coding-rna/outputs/M40-SEMISUP
 REPEATS = OUT40 / 'repeats'
 SCHEDULES40 = OUT40 / 'schedules'
 
-# MLM configuration (protocol 32 section 3; fixed before any M40 training output).  Vipsania reference values in brackets.
+# MLM configuration (protocol 34 section 3; fixed before any M40 training output).  Vipsania reference values in brackets.
 MLM_CFG = dict(
     mlm_rate=0.05,              # Bernoulli masking rate per ACGT base of a new-species draw context  [Vipsania: at most 5 % of the bases]
     mlm_mask_frac=0.8,          # of the selected bases: 80 % -> [MASK], 10 % -> random base, 10 % unchanged  [PlantCAD2 pre-training 80/10/10]

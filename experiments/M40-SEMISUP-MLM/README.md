@@ -1,7 +1,7 @@
 # M40-SEMISUP-MLM
 
 Partial-label CRF (M34 pc2 trainer, unknown positions marginalised) + masked-language-model auxiliary loss on unlabeled new-species positions, through
-PlantCAD2-Small's own pre-trained tied RCPS LM head.  Protocol and pre-registered criteria: `docs/review_20261016/32_semisup_MLM_protocol.md`.
+PlantCAD2-Small's own pre-trained tied RCPS LM head.  Protocol and pre-registered criteria: `docs/review_20261016/34_semisup_MLM_protocol.md`.
 
 - `scripts/m40_common.py` arms (M40_k0, M40_k25U_MLM, M40_k50U_MLM) and MLM config; `m40_mlm.py` masking / LM head / lambda schedule;
   `m40_repeats.py` soft-mask index; `m40_schedule.py` k0 schedule; `m40_train.py` trainer.
