@@ -6,7 +6,7 @@
 #   2 arm     m41_stage.sh   -> outputs/M41-INTRON-LENGTH/pc2_T2_ILS/ARM_DONE (resumable; DEV once; set B)
 # Resumable: steps whose sentinel exists are skipped.  Events: ~/coding-rna/outputs/M41-INTRON-LENGTH/queue.jsonl
 # Options (env):  M41_AFTER="<file> <file> ..."  wait until all these sentinels exist (e.g. .../M39_GPU_DONE or M40's done sentinel)
-#                 M41_MIN_FREE_MB (default 30000) free GPU memory required for 3 checks 2 min apart, and no TE process / claim on the GPU
+#                 M41_MIN_FREE_MB (default 6000, as the M34 queue; the ont 4090 has 24,564 MiB in total) free GPU memory required for 3 checks 2 min apart, and no TE process / claim on the GPU
 # Launch (ont):   cd ~/coding-rna-reorg/experiments/M41-INTRON-LENGTH/scripts && \
 #                 (M41_AFTER="$HOME/coding-rna/outputs/M39-INSECT-C2/M39_GPU_DONE" setsid nohup bash m41_run_all.sh > ~/coding-rna/logs/m41-run-all.out 2>&1 < /dev/null &)
 S41=$(cd "$(dirname "$0")" && pwd)
@@ -30,7 +30,7 @@ gpu_wait() {
   local ok=0 n=0 free
   while [ $ok -lt 3 ]; do
     free=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
-    if ! te_on_gpu && [ "${free:-0}" -ge ${M41_MIN_FREE_MB:-30000} ]; then ok=$((ok+1)); else ok=0; fi
+    if ! te_on_gpu && [ "${free:-0}" -ge ${M41_MIN_FREE_MB:-6000} ]; then ok=$((ok+1)); else ok=0; fi
     [ $((n % 30)) -eq 0 ] && ev gpu_wait ",\"free_mb\":${free:-0},\"ok\":$ok"; n=$((n+1))
     [ $ok -lt 3 ] && sleep 120
   done
