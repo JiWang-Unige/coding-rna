@@ -66,6 +66,11 @@ gate() {   # NEED_MiB STEP : blocks until the gate is open; returns 1 if $P6/STO
     [ -e $P6/STOP ] && { ev event=stopped step=$step; return 1; }
     b=$(gpu_blockers); f=$(gpu_free); f=${f:-0}
     [ -e $TE_CLAIM ] && b="${b}TE_GPU_CLAIM: $(head -c 300 $TE_CLAIM | tr '\n' ' ')"$'\n'
+    # TE quiet period (2026-11-11): TE's claim vanished for 14 min between two of its arms and P6 slipped in; a long P6 step there would sit on TE's next arm
+    # (user priority: TE first).  So a new P6 step starts only P6_TE_QUIET_MIN (30) minutes after TE was last seen (claim, GPU process, driver, foreign container).
+    echo "$b" | grep -qE '^TE|TE_GPU_CLAIM|^container' && date +%s > $P6/.te_last_seen
+    local quiet=$(( $(date +%s) - $(cat $P6/.te_last_seen 2>/dev/null || echo 0) ))
+    [ -z "$b" ] && [ $quiet -lt $(( ${P6_TE_QUIET_MIN:-30} * 60 )) ] && b="TE quiet period: TE last seen ${quiet}s ago"$'\n'
     if [ -e ${P6_GO:-$P6/GO} ] && [ -z "$b" ] && [ "$f" -ge "$need" ] && [ "$(disk_free_gb)" -ge ${P6_MIN_DISK_GB:-30} ]; then
       ok=$((ok+1)); [ $ok -ge 2 ] && return 0; sleep 30; continue
     fi
