@@ -5,12 +5,12 @@
 #   -> select the final checkpoint among {1536, 2304, 3072} by the S pooled F1 only (m39_select.py)
 #   -> old-species held-out chromosomes D (Drosophila X + Tribolium chr 7) EXACTLY ONCE for the final checkpoint (sentinels d_started.json / D_DONE; tag heldout_d)
 #   No plant data (DEV / sealed / panel) is read.  P4-I is computed afterwards from metrics.jsonl (own_species lines of the two selected checkpoints).
-# usage: m39_stage.sh <arm>   (arms: I10_k50U, I10_k50F, I10_T)   output: ~/coding-rna/outputs/M39-INSECT-C2/<arm>/ (ARM_DONE marks the end)
+# usage: [M39_BACKEND=pc2] m39_stage.sh <arm>   (arms: I10_k50U, I10_k50F, I10_T)   output: ~/coding-rna/outputs/M39-INSECT-C2/<arm>/ (pc2: pc2_<arm>/) (ARM_DONE marks the end)
 ARM=$1
 ROOT=$HOME/coding-rna-reorg/experiments
 cd $ROOT/M39-INSECT-C2/scripts
-source ./m39_env.sh          # PY, ENC_EXP, OUTROOT
-O=$OUTROOT/$ARM
+source ./m39_env.sh          # M39_BACKEND (ntv2 | pc2) -> PY, ENC_EXP, ARMPFX, OUTROOT
+O=$OUTROOT/$ARMPFX$ARM
 mkdir -p $O $HOME/coding-rna/logs
 exec 9>$O/.stage.lock
 flock -n 9 || { echo "stage $ARM already running"; exit 3; }

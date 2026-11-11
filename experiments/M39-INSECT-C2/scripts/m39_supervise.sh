@@ -4,15 +4,16 @@
 # interruptions.jsonl, waits while the GPU has < 7.5 GB free, and gives up (FATAL) when 4 consecutive attempts make no progress (a deterministic code error).
 ARM=$1; OUT=$2; STOP=$3; shift 3
 CPUS=${M39_CPUS:-2,4,6,8,10,12,14,16-24}
-LOG=$HOME/coding-rna/logs/m39-train-$ARM-$(date +%Y%m%d-%H%M%S)
-mkdir -p "$OUT" $HOME/coding-rna/logs
 cd $HOME/coding-rna-reorg/experiments/M39-INSECT-C2/scripts
 source ./m39_env.sh
+LOG=$HOME/coding-rna/logs/m39-train-$ARMPFX$ARM-$(date +%Y%m%d-%H%M%S)
+mkdir -p "$OUT" $HOME/coding-rna/logs
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONUNBUFFERED=1
 laststep=-1; noprog=0
 for attempt in $(seq 1 80); do
   free=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
-  if [ "$free" -lt 7500 ]; then echo "{\"event\":\"gpu_busy_wait\",\"free_mib\":$free,\"time\":\"$(date -Is)\"}" >> "$OUT/interruptions.jsonl"; sleep 120; continue; fi
+  MINFREE=7500; [ "$M39_BACKEND" = pc2 ] && MINFREE=6000          # pc2 arms use ~5 GB (as m34_supervise.sh since 11-07); NT-v2 unchanged
+  if [ "$free" -lt $MINFREE ]; then echo "{\"event\":\"gpu_busy_wait\",\"free_mib\":$free,\"time\":\"$(date -Is)\"}" >> "$OUT/interruptions.jsonl"; sleep 120; continue; fi
   taskset -c $CPUS $PY m39_train_lora.py run --arm $ARM --out "$OUT" --steps 3072 --stop-at $STOP --batch 8 --workers 12 --cpus $CPUS --resume ${M39_LORA:+--lora $M39_LORA} "$@" >> $LOG.out 2>> $LOG.err < /dev/null &
   PID=$!
   echo "{\"event\":\"launch\",\"attempt\":$attempt,\"pid\":$PID,\"stop_at\":$STOP,\"time\":\"$(date -Is)\"}" >> "$OUT/interruptions.jsonl"

@@ -1,5 +1,6 @@
 #!/bin/bash
-# GPU smoke of M39 (copy of m34_smoke.sh; protocol 29 §5.4; <= 20 steps, NT-v2 backend).  Writes ~/coding-rna/outputs/M39-INSECT-C2/smoke/{summary.json, SMOKE_OK | SMOKE_FAIL}.
+# GPU smoke of M39 (copy of m34_smoke.sh; protocol 29 §5.4; <= 20 steps).  Writes ~/coding-rna/outputs/M39-INSECT-C2/smoke/{summary.json, SMOKE_OK | SMOKE_FAIL}
+#   (NT-v2 default; with M39_BACKEND=pc2: pc2_smoke/, PlantCAD2-Small + M35 LoRA, step-time limit 120 s as the M34 pc2 smoke, user 2026-10-23).
 #  (1) I10_T on a stress schedule (genes with the most exons / longest CDS span of all 10 species + real draws): 10 steps, stop, RESUME, 10 more steps
 #  (2) I10_k50U: 3 steps (treatment U on the GPU path);  I10_k50F: 3 steps (treatment F)
 #  (3) end-to-end inference + validation scoring of the 20-step model on a 300-kb slice of the first new species' validation crop
@@ -8,7 +9,7 @@
 CPUS=${M39_CPUS:-2,4,6,8,10,12,14,16-24}
 cd $HOME/coding-rna-reorg/experiments/M39-INSECT-C2/scripts
 source ./m39_env.sh
-O=$OUTROOT/smoke
+O=$OUTROOT/${ARMPFX}smoke
 mkdir -p $O $HOME/coding-rna/logs
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONUNBUFFERED=1
 rm -f $O/SMOKE_OK $O/SMOKE_FAIL
@@ -30,7 +31,7 @@ bash m39_infer_retry.sh $O/infer_slice $O/t/model_000020.pt $SLICE 2 || fail inf
 taskset -c 18-23 $PY m39_val.py $O/infer_slice 20 $SLICE --tag smoke --arm I10_T --metrics $O/metrics.jsonl >> $LOG.out 2>> $LOG.err || fail val
 $PY - <<PYEOF
 import json, statistics, os
-O = os.path.expanduser('~/coding-rna/outputs/M39-INSECT-C2/smoke')
+O = os.path.expanduser('~/coding-rna/outputs/M39-INSECT-C2/') + os.environ.get('ARMPFX', '') + 'smoke'
 def rows(d): return [json.loads(l) for l in open(f'{O}/{d}/training.jsonl')]
 t = rows('t')
 steps = [r['step'] for r in t]
@@ -45,7 +46,8 @@ out = dict(t_steps=len(t), resumed_continuous=resumed, step_s_median=statistics.
            k50U_infeasible=sum(r['infeasible'] for r in rows('k50U')), k50F_infeasible=sum(r['infeasible'] for r in rows('k50F')),
            slice_val=json.loads(open(f'{O}/metrics.jsonl').readlines()[-1]))
 out['projected_train_hours_3072_steps_at_median'] = out['step_s_median'] * 3072 / 3600
-out['step_s_limit'] = 60
+out['step_s_limit'] = 120 if os.environ.get('M39_BACKEND') == 'pc2' else 60
+out['backend'] = os.environ.get('M39_BACKEND', 'ntv2')
 ok = resumed and inf <= 16 and out['k50U_steps'] == 3 and out['k50F_steps'] == 3 and all(l == l and l < 5 for l in [out['loss_last']]) and out['step_s_median'] < out['step_s_limit']
 json.dump(out, open(f'{O}/summary.json', 'w'), indent=1)
 open(f'{O}/' + ('SMOKE_OK' if ok else 'SMOKE_FAIL'), 'w').write(json.dumps(out))

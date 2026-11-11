@@ -1,4 +1,4 @@
-"""Encoder backend of the M39 trainer / inference = a copy of `m34_backend.py`; M39 fixes the backend to ntv2 (`m39_train_common.BACKEND`).
+"""Encoder backend of the M39 trainer / inference = a copy of `m34_backend.py`; backend from env M39_BACKEND (`m39_train_common.BACKEND`; default ntv2 = protocol 29).
 Original M34 description: switchable encoder backend (ntv2 | pc2; chosen before the train-common module is imported).
 
   ntv2 : NT-v2-500M-multi-species (6-mer tokens, 12,288-bp windows, stride 6,144), hidden_states 21+27 concatenated, q/v LoRA on blocks 13..27 -- the M31 B recipe

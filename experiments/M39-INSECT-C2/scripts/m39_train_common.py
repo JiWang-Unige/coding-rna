@@ -1,4 +1,4 @@
-"""M39 shared training/inference helpers = a copy of `m34_train_common.py` for the insect species (NT-v2 backend only): multi-species labels (from the catalogs
+"""M39 shared training/inference helpers = a copy of `m34_train_common.py` for the insect species (NT-v2 = protocol 29; pc2 = decision pc2-insect-transfer, env M39_BACKEND): multi-species labels (from the catalogs
 written by m39_labels.py, no GFF re-parse), the draw -> example builder, and the registration of every M39 evaluation contig (old-species S and D chromosomes,
 new-species validation crops) in the frozen M29 helpers (reference builder / sequence reader), so the
 unchanged M31 inference (`c1_infer`) and validation scoring (`c1_val`) code paths work on them.  Frozen code and M31/M32/M33 files are only imported.
@@ -13,7 +13,8 @@ import os                                   # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 EXPS = HERE.parents[1]
-BACKEND = 'ntv2'                            # protocol 29 §4.3: NT-v2-500M + q/v LoRA (M31 B recipe; env generanno); the M34 pc2 branches below are never taken
+BACKEND = os.environ.get('M39_BACKEND', 'ntv2')         # 'ntv2' = protocol 29 §4.3 (NT-v2-500M + q/v LoRA, M31 B recipe; env generanno) | 'pc2' = PlantCAD2-Small + M35 LoRA
+assert BACKEND in ('ntv2', 'pc2'), BACKEND                 # (decision pc2-insect-transfer 11-11; env plantcad2).  M39_BACKEND, NOT M34_BACKEND: see m39_env.sh
 ENC_SCRIPTS = EXPS / ('M31-C1-NTV2' if BACKEND == 'ntv2' else 'M32-C1-PLANTCAD2') / 'scripts'
 for p in (str(ENC_SCRIPTS), str(HERE)):
     if p not in sys.path:
@@ -46,8 +47,8 @@ CACHE = OUT / '_cache'
 
 
 def arm_dir(arm):
-    """Output directory of an arm: <OUT>/<arm>."""
-    return OUT / arm
+    """Output directory of an arm.  NT-v2 keeps the protocol path <OUT>/<arm>; the PlantCAD2 variant lives next to it as <OUT>/pc2_<arm> (as M34)."""
+    return OUT / (arm if BACKEND == 'ntv2' else f'pc2_{arm}')
 
 
 # ------------------------------------------------------------------------------------------------------------------------------

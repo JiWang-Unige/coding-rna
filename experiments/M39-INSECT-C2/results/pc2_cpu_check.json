@@ -1,0 +1,193 @@
+{
+ "backend": "pc2",
+ "pc_width": 8192,
+ "pc_stride": 6144,
+ "head_width": 8196,
+ "init": "/home/ji/coding-rna-reorg/outputs/M32-C1-PLANTCAD2/runA/model_002048.pt",
+ "species": {
+  "acromyrmex_echinatior": {
+   "draws": 7161,
+   "windows_T": 19090,
+   "N_frac": 2e-05,
+   "GC": 0.331,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "aethina_tumida": {
+   "draws": 7176,
+   "windows_T": 19132,
+   "N_frac": 1e-05,
+   "GC": 0.2935,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "anopheles_gambiae": {
+   "draws": 7488,
+   "windows_T": 19968,
+   "N_frac": 5e-05,
+   "GC": 0.4552,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "apis_cerana": {
+   "draws": 7545,
+   "windows_T": 20115,
+   "N_frac": 0.0,
+   "GC": 0.3064,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "cloeon_dipterum": {
+   "draws": 7425,
+   "windows_T": 19798,
+   "N_frac": 3e-05,
+   "GC": 0.3987,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "drosophila_melanogaster": {
+   "draws": 7461,
+   "windows_T": 19894,
+   "N_frac": 0.0006,
+   "GC": 0.4245,
+   "windows_mostly_N": 6,
+   "windows_all_N": 5
+  },
+  "ips_typographus": {
+   "draws": 7440,
+   "windows_T": 19831,
+   "N_frac": 2e-05,
+   "GC": 0.3524,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "plodia_interpunctella": {
+   "draws": 7266,
+   "windows_T": 19359,
+   "N_frac": 1e-05,
+   "GC": 0.3547,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "spodoptera_frugiperda": {
+   "draws": 7407,
+   "windows_T": 19734,
+   "N_frac": 3e-05,
+   "GC": 0.3662,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  },
+  "tribolium_castaneum": {
+   "draws": 7359,
+   "windows_T": 19622,
+   "N_frac": 1e-05,
+   "GC": 0.3355,
+   "windows_mostly_N": 0,
+   "windows_all_N": 0
+  }
+ },
+ "problems": [],
+ "windows_per_draw_pc2": {
+  "6": 106,
+  "7": 25,
+  "8": 73597
+ },
+ "windows_per_draw_ntv2": {
+  "5": 102,
+  "6": 18,
+  "7": 73608
+ },
+ "shortest_training_window": 8192,
+ "regions": {
+  "NT_033778.4": {
+   "set": "S",
+   "length": 25286936,
+   "pc2_windows": 4116,
+   "shortest": 8192
+  },
+  "NC_087399.1": {
+   "set": "S",
+   "length": 19586254,
+   "pc2_windows": 3188,
+   "shortest": 8192
+  },
+  "NC_004354.4": {
+   "set": "D",
+   "length": 23542271,
+   "pc2_windows": 3832,
+   "shortest": 8192
+  },
+  "NC_087400.1": {
+   "set": "D",
+   "length": 18717241,
+   "pc2_windows": 3047,
+   "shortest": 8192
+  },
+  "NC_064602.1__val8M": {
+   "set": "val",
+   "length": 8000000,
+   "pc2_windows": 1302,
+   "shortest": 8192
+  },
+  "NC_064215.1__valAll": {
+   "set": "val",
+   "length": 12638378,
+   "pc2_windows": 2057,
+   "shortest": 8192
+  },
+  "NC_071307.1__valAll": {
+   "set": "val",
+   "length": 10242959,
+   "pc2_windows": 1667,
+   "shortest": 8192
+  },
+  "NC_083861.1__val11M": {
+   "set": "val",
+   "length": 11000000,
+   "pc2_windows": 1791,
+   "shortest": 8192
+  },
+  "NC_141861.1__val14M": {
+   "set": "val",
+   "length": 14000000,
+   "pc2_windows": 2279,
+   "shortest": 8192
+  },
+  "NC_138430.1__val8M": {
+   "set": "val",
+   "length": 8000000,
+   "pc2_windows": 1302,
+   "shortest": 8192
+  },
+  "NC_065439.1__val14M": {
+   "set": "val",
+   "length": 14000000,
+   "pc2_windows": 2279,
+   "shortest": 8192
+  },
+  "NC_088788.1__val9M": {
+   "set": "val",
+   "length": 9000000,
+   "pc2_windows": 1465,
+   "shortest": 8192
+  }
+ },
+ "tokenizer": {
+  "strings": 213,
+  "mismatches": 0,
+  "non_acgt_chars": 188,
+  "unk_id": 2,
+  "vocab": {
+   "a": 3,
+   "c": 4,
+   "g": 5,
+   "t": 6,
+   "A": 2,
+   "C": 2,
+   "G": 2,
+   "T": 2,
+   "N": 2
+  }
+ },
+ "ok": true
+}
