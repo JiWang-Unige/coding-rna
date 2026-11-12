@@ -11,6 +11,11 @@ Original M34 description: switchable encoder backend (ntv2 | pc2; chosen before 
          load_lora_state(model, state, cfg),  CFG (dict, JSON-able; stored in every checkpoint).  Without it (`--lora none`) the PlantCAD2 encoder stays frozen and only the head trains
          (= M32 recipe on the M34 multi-species schedule).
 
+  onehot: protocol 32 arm L (floor, user 11-12): NO language model.  Same pc2 geometry (8,192-bp windows, stride 6,144), same M32 head (width 8,196,
+         input 1,536) and same M32 runA head init as pc2; the token features of an ORIENTED window are the one-hot of its six bases (6 x 4 = 24 dims,
+         base j of the token -> dims 4j..4j+3 in A,C,G,T order) in the first 24 of the 1,536 input dims, everything else 0; N / padding -> all 0.
+         No encoder parameters (LoRA off, m39_env.sh sets M39_LORA=none).  Env: ~/envs/plantcad2 (only for the M32 imports; the model is never loaded).
+
 The trainer / inference call only the functions below.  Draw items carry `seqs` (oriented window strings, the head's DNA input) and `gen` (genomic strings, PlantCAD2 only).
 """
 import re
@@ -21,6 +26,8 @@ import m39_train_common as T
 
 A, MD, G, Q, M = T.A, T.MD, T.G, T.Q, T.M
 NT = T.BACKEND == 'ntv2'
+OH = T.BACKEND == 'onehot'
+OH_DIMS = 4 * A.KMER if OH else 0              # 24
 
 
 # ---- configuration / construction -----------------------------------------------------------------------------------------------------------
@@ -29,6 +36,9 @@ def encoder_cfg(init_cfg):
     if NT:
         return dict(backend='ntv2', encoder=A.MODEL, nt_width=A.NT_WIDTH, nt_stride=A.NT_STRIDE, layers=list(init_cfg['layers']),
                     layer_norm_per_layer=init_cfg['layer_norm_per_layer'], lora_r=8, lora_alpha=16, lora_encoder_layers=list(range(12, 27)))
+    if OH:
+        return dict(backend='onehot', encoder=None, pc_width=A.PC_WIDTH, pc_stride=A.PC_STRIDE, head_width=A.HEAD_W, layer=None,
+                    token_features=f'one-hot of the 6 bases of each oriented token (A,C,G,T) in dims 0..{OH_DIMS - 1} of {A.HIDDEN}, rest 0; N/padding 0')
     return dict(backend='pc2', encoder=A.MODEL, pc_width=A.PC_WIDTH, pc_stride=A.PC_STRIDE, head_width=A.HEAD_W, layer=init_cfg['layer'],
                 token_pool='mean over valid bases of aligned 6-base groups')
 
@@ -52,7 +62,7 @@ class Ctx:
             self.esm, self.vocab = enc
             self.layers, self.norm = tuple(cfg['layers']), cfg['layer_norm_per_layer']
         else:
-            self.layer = cfg['layer']
+            self.layer = cfg.get('layer')
 
 
 def _pc2_lora_api():
@@ -70,6 +80,9 @@ def _pc2_lora_api():
 
 def load(cfg, lora=True, device='cuda'):
     """-> (Ctx, trainable LoRA params list)."""
+    if OH:
+        assert not lora, 'onehot backend has no encoder: run with --lora none (m39_env.sh sets M39_LORA=none)'
+        return Ctx(None, cfg), []
     if NT:
         enc = A.load_ntv2(device)
         params = A.add_lora(enc[0], cfg['lora_encoder_layers'], cfg['lora_r'], cfg['lora_alpha']) if lora else []
@@ -87,7 +100,7 @@ def load(cfg, lora=True, device='cuda'):
 
 
 def lora_state(ctx):
-    return A.lora_state(ctx.esm) if NT else (ctx.lora_api.lora_state(ctx.enc) if ctx.lora_api else {})
+    return A.lora_state(ctx.esm) if NT else (ctx.lora_api.lora_state(ctx.enc) if ctx.lora_api else {})     # onehot: {}
 
 
 def copy_lora(ctx, state):
@@ -108,6 +121,7 @@ def apply_saved_lora(ctx, st):
             return True
         return False
     if st.get('lora'):
+        assert not OH, 'onehot model file carries a LoRA state'
         api = _pc2_lora_api()
         ctx.lora_api = api
         api.add_lora(ctx.enc, st['config']['lora'])
@@ -118,7 +132,7 @@ def apply_saved_lora(ctx, st):
 
 def load_for_inference(st, device='cuda'):
     cfg = st['config']
-    enc = A.load_ntv2(device) if NT else A.load_pc2(device)
+    enc = A.load_ntv2(device) if NT else (None if OH else A.load_pc2(device))
     ctx = Ctx(enc, cfg)
     apply_saved_lora(ctx, st)
     return ctx
@@ -134,7 +148,32 @@ def item_windows(chromosome, geo, strand):
     if NT:
         return dict(seqs=MD.oriented_windows(chromosome, geo, strand))
     gen = MD.genomic_window_strings(chromosome, geo)
+    if OH:
+        return dict(seqs=MD.orient_strings(gen, strand))
     return dict(seqs=MD.orient_strings(gen, strand), gen=gen)
+
+
+_OH_LUT = torch.full((256,), -1, dtype=torch.long)
+for _i, _c in enumerate('ACGT'):
+    _OH_LUT[ord(_c)] = _i
+    _OH_LUT[ord(_c.lower())] = _i
+
+
+def onehot_tokens(seqs, device='cuda'):
+    """Oriented window strings (len <= HEAD_W) -> list of [HEAD_TOKENS, HIDDEN] BF16 token features of arm L (see module docstring).  Token t covers oriented
+    bases 6t..6t+5, the same aligned six-base groups as `pc2_adapter.pool_tokens`."""
+    out = []
+    for s in seqs:
+        if not 0 < len(s) <= A.HEAD_W:
+            raise ValueError('Nonempty window of at most HEAD_W bp required')
+        x = torch.full((A.HEAD_W,), -1, dtype=torch.long)
+        x[:len(s)] = _OH_LUT[torch.frombuffer(bytearray(s.encode('ascii')), dtype=torch.uint8).long()]
+        x = x.view(A.HEAD_TOKENS, A.KMER)
+        oh = torch.nn.functional.one_hot(x.clamp(min=0), 4) * (x >= 0).unsqueeze(-1)        # [tokens, 6, 4]
+        f = torch.zeros(A.HEAD_TOKENS, A.HIDDEN, dtype=torch.bfloat16)
+        f[:, :OH_DIMS] = oh.reshape(A.HEAD_TOKENS, OH_DIMS).to(torch.bfloat16)
+        out.append(f.to(device))
+    return out
 
 
 def _pc2_encode(enc, strings, layer=-1, batch=8, grad=False, device='cuda'):
@@ -166,6 +205,8 @@ def window_pots(head, ctx, it, idx, grad, device='cuda'):
     seqs = [it['seqs'][i] for i in idx]
     if NT:
         feats = A.encode_windows(ctx.esm, ctx.vocab, seqs, ctx.layers, batch=len(idx), norm=ctx.norm, custom=True, grad=grad)
+    elif OH:
+        feats = onehot_tokens(seqs, device)
     else:
         gen = _pc2_encode(ctx.enc, [it['gen'][i] for i in idx], ctx.layer, batch=8, grad=grad)
         feats = A.oriented_tokens(gen, it['strand'])
@@ -175,7 +216,8 @@ def window_pots(head, ctx, it, idx, grad, device='cuda'):
 # ---- inference ---------------------------------------------------------------------------------------------------------------------------------------
 def region_potentials(head, ctx, sequence, strands, batch=4, device='cuda'):
     """{strand: oriented-region 15-role potentials [L,15] (CPU FP32)}, number of encoder windows.  Nearest-centre ownership via the frozen stitcher.
-    ntv2: the M31 `stitched_potentials` per strand (streams the windows).  pc2: the M32 scheme -- one forward per genomic window serves both strands."""
+    ntv2: the M31 `stitched_potentials` per strand (streams the windows).  pc2: the M32 scheme -- one forward per genomic window serves both strands.
+    onehot: the pc2 window grid and stitcher, token features from `onehot_tokens` of each oriented window."""
     if NT:
         import c1_infer as I                       # M31 (unchanged)
         out, n = {}, 0
@@ -190,10 +232,11 @@ def region_potentials(head, ctx, sequence, strands, batch=4, device='cuda'):
     with torch.inference_mode():
         for i in range(0, len(locations), batch):
             gen = [sequence[a:b] for a, b in locations[i:i + batch]]
-            feats = A.encode_windows(ctx.enc, gen, ctx.layer, batch=batch)
+            feats = None if OH else A.encode_windows(ctx.enc, gen, ctx.layer, batch=batch, device=device)
             for st in strands:
                 seqs = MD.orient_strings(gen, st)
-                for j, (s, lg) in enumerate(zip(seqs, MD.window_potentials(head, A.oriented_tokens(feats, st), seqs, device=device))):
+                tok = onehot_tokens(seqs, device) if OH else A.oriented_tokens(feats, st)
+                for j, (s, lg) in enumerate(zip(seqs, MD.window_potentials(head, tok, seqs, device=device))):
                     recs[st].append(dict(window_index=i + j, sequence=s, local_potentials=lg.float().cpu()))
             del feats
         out = {st: stitch_contig_emissions(sequence, locations, st, iter(recs[st]))['local_potentials'] for st in strands}

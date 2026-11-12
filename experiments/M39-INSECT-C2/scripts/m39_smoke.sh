@@ -20,7 +20,7 @@ SLICE=$($PY -c "import m39_train_common as T; print(T.val_contig(T.new_keys()[0]
 [ -n "$SLICE" ] || fail slice
 T() { # arm outdir stop [schedule]
   A=$1; D=$2; S=$3; SCH=$4; [ -n "$SCH" ] && SCH="--schedule $SCH"
-  taskset -c $CPUS $PY m39_train_lora.py run --arm $A --out $D --steps 3072 --stop-at $S --batch 8 --workers 12 --cpus $CPUS --ckpt-every 5 --keep-every 10 --resume $SCH >> $LOG.out 2>> $LOG.err < /dev/null
+  taskset -c $CPUS $PY m39_train_lora.py run --arm $A --out $D --steps 3072 --stop-at $S --batch 8 --workers 12 --cpus $CPUS --ckpt-every 5 --keep-every 10 --resume ${M39_LORA:+--lora $M39_LORA} $SCH >> $LOG.out 2>> $LOG.err < /dev/null
 }
 T I10_T $O/t 10 $O/schedule_smoke_I10_T.jsonl || fail train_t_a
 T I10_T $O/t 20 $O/schedule_smoke_I10_T.jsonl || fail train_t_resume

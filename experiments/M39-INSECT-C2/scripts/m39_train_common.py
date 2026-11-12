@@ -14,7 +14,8 @@ import os                                   # noqa: E402
 HERE = Path(__file__).resolve().parent
 EXPS = HERE.parents[1]
 BACKEND = os.environ.get('M39_BACKEND', 'ntv2')         # 'ntv2' = protocol 29 §4.3 (NT-v2-500M + q/v LoRA, M31 B recipe; env generanno) | 'pc2' = PlantCAD2-Small + M35 LoRA
-assert BACKEND in ('ntv2', 'pc2'), BACKEND                 # (decision pc2-insect-transfer 11-11; env plantcad2).  M39_BACKEND, NOT M34_BACKEND: see m39_env.sh
+assert BACKEND in ('ntv2', 'pc2', 'onehot'), BACKEND       # (decision pc2-insect-transfer 11-11; env plantcad2).  M39_BACKEND, NOT M34_BACKEND: see m39_env.sh
+# 'onehot' = protocol 32 arm L (user 11-12): no encoder; the pc2 geometry, M32 head plumbing and M32 head init, features = six-base one-hot (m39_backend)
 ENC_SCRIPTS = EXPS / ('M31-C1-NTV2' if BACKEND == 'ntv2' else 'M32-C1-PLANTCAD2') / 'scripts'
 for p in (str(ENC_SCRIPTS), str(HERE)):
     if p not in sys.path:
@@ -46,9 +47,12 @@ SCHEDULES = OUT / 'schedules'
 CACHE = OUT / '_cache'
 
 
+ARMPFX = {'ntv2': '', 'pc2': 'pc2_', 'onehot': 'oh_'}[BACKEND]       # = m39_env.sh ARMPFX
+
+
 def arm_dir(arm):
-    """Output directory of an arm.  NT-v2 keeps the protocol path <OUT>/<arm>; the PlantCAD2 variant lives next to it as <OUT>/pc2_<arm> (as M34)."""
-    return OUT / (arm if BACKEND == 'ntv2' else f'pc2_{arm}')
+    """Output directory of an arm.  NT-v2 keeps the protocol path <OUT>/<arm>; PlantCAD2 lives next to it as <OUT>/pc2_<arm> (as M34), the one-hot floor as <OUT>/oh_<arm>."""
+    return OUT / f'{ARMPFX}{arm}'
 
 
 # ------------------------------------------------------------------------------------------------------------------------------

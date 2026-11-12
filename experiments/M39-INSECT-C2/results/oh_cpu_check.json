@@ -1,0 +1,61 @@
+{
+ "backend": "onehot",
+ "init": "/home/ji/coding-rna-reorg/outputs/M32-C1-PLANTCAD2/runA/model_002048.pt",
+ "problems": [],
+ "features": {
+  "strings": 7,
+  "mismatches": 0,
+  "dims": 24
+ },
+ "encoder_cfg": {
+  "seed": 0,
+  "backend": "onehot",
+  "encoder": null,
+  "pc_width": 8192,
+  "pc_stride": 6144,
+  "head_width": 8196,
+  "layer": null,
+  "token_features": "one-hot of the 6 bases of each oriented token (A,C,G,T) in dims 0..23 of 1536, rest 0; N/padding 0"
+ },
+ "draws": [
+  {
+   "id": "tribolium_castaneum|NC_087394.1|31076352|+",
+   "species": "tribolium_castaneum",
+   "strand": "+",
+   "windows": 8,
+   "finite_shapes": true,
+   "grad_only_first_24": true
+  },
+  {
+   "id": "cloeon_dipterum|NC_088790.1|23986176|+",
+   "species": "cloeon_dipterum",
+   "strand": "+",
+   "windows": 8,
+   "finite_shapes": true,
+   "grad_only_first_24": true
+  },
+  {
+   "id": "apis_cerana|NC_083855.1|1093632|-",
+   "species": "apis_cerana",
+   "strand": "-",
+   "windows": 8,
+   "finite_shapes": true,
+   "grad_only_first_24": true
+  },
+  {
+   "id": "cloeon_dipterum|NC_088786.1|34394112|-",
+   "species": "cloeon_dipterum",
+   "strand": "-",
+   "windows": 8,
+   "finite_shapes": true,
+   "grad_only_first_24": true
+  }
+ ],
+ "region": {
+  "contig": "NC_064602.1__val8M",
+  "length": 20000,
+  "windows": 3,
+  "finite_shapes": true
+ },
+ "ok": true
+}

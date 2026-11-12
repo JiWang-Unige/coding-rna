@@ -11,7 +11,7 @@
 # Launch (ont): cd ~/coding-rna-reorg/experiments/M39-INSECT-C2/scripts && (setsid nohup bash m39_pc2_smoke_gate.sh > ~/coding-rna/logs/m39-pc2-smoke-gate.out 2>&1 < /dev/null &)
 # Status:       tail -n 3 ~/coding-rna/outputs/M39-INSECT-C2/pc2_smoke/gate.jsonl; cat ~/coding-rna/outputs/M39-INSECT-C2/pc2_smoke/summary.json
 cd $HOME/coding-rna-reorg/experiments/M39-INSECT-C2/scripts
-export M39_BACKEND=pc2
+export M39_BACKEND=${M39_BACKEND:-pc2}          # also used for the one-hot floor (M39_BACKEND=onehot -> oh_smoke/; protocol 32 arm L)
 source ./m39_env.sh
 O=$OUTROOT/${ARMPFX}smoke
 mkdir -p $O

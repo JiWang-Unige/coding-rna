@@ -1,4 +1,4 @@
-# 32 PlantCAD2 在昆虫上的迁移：完整对照臂预注册协议草案（M39-PC2；2026-11-11 起草，待用户确认）
+# 32 PlantCAD2 在昆虫上的迁移：完整对照臂预注册协议（M39-PC2；2026-11-11 起草，2026-11-12 用户按推荐项确认）
 
 来由：看板决定 `pc2-insect-transfer`。用户 11-11 提出：把只在植物上预训练的 PlantCAD2 拿到昆虫上微调，如果成功，说明关键在预训练学到的通用表示，而不在预训练覆盖了哪些物种。用户选了推荐项：先做约 1 GPU h 的冒烟测试，插在 TE 让出 GPU 的空隙里；通过后再定完整臂。
 
@@ -15,7 +15,7 @@
 | 主判据 | 在 8 个新物种的验证区段上算 pooled exact-chain F1：Q1 P − L ≥ +5.0 且 ≥ 7/8 物种同向；Q2 N − L ≥ +5.0 且 ≥ 7/8；Q3 P − N ≥ −2.0（非劣）。完整写法见 §3 |
 | 算力 | P 约 35–50 GPU h（上限 60；冒烟步时据此下调，§6）；L 约 6–12 GPU h（上限 15）；N 不另加。可选：再加 `pc2_I10_k50F`，约 35–45 h（§2.4） |
 | 冒烟 | **已通过**（11-12，ont，第 1 次尝试，13.5 分钟，未遇到 TE 回收）。I10_T 步时中位数 26.0 s，峰值显存 3.8 GB（分配）/ 4.2 GB（保留）。记录见 §8 |
-| 需要用户定的点 | §7 共 5 点 |
+| 用户决定（11-12） | §7 的 5 点全部按推荐项：k50U 配置；判据 +5.0 / 7/8 / CI 下限 > 0 与非劣界 −2.0；下限用 L（one-hot），不加 L1；不加 `pc2_I10_k50F`；新臂接在 M39 NT-v2 三臂之后，L 先跑、P 后跑 |
 
 ## 1. 背景与已知事实
 
@@ -135,7 +135,18 @@ L 不跑编码器，步时主要花在 CRF 动态规划上，预计 5–10 s/步
 - pc2 的输出都带 `pc2_` 前缀（`pc2_smoke/`、`pc2_<arm>/`），不碰 NT-v2 的 `smoke/` 和 `I10_*/`。
 - pc2 冒烟的步时门槛是 120 s，与 M34 pc2 冒烟相同（用户 2026-10-23）。pc2 训练的空闲显存门槛是 6 GB，与 `m34_supervise.sh` 相同。NT-v2 仍是 60 s 和 7.5 GB。
 - `m39_run_all.sh` 没有改，仍只跑 NT-v2。
-- L 臂（one-hot）的代码**还没写**：用户确认本协议后再加。需要在 `m39_backend.py` 里加一个分支，约 40 行，再做一次 CPU 单测。
+- L 臂（one-hot）代码已于 11-12 写好（用户确认后）：
+  - 开关为 `M39_BACKEND=onehot`。`m39_env.sh` 对它使用 plantcad2 环境（只为导入 M32 的几何和头的代码，不加载 PlantCAD2），前缀 `oh_`，并设 `M39_LORA=none`。
+  - `m39_backend.onehot_tokens`：对定向后的窗口，第 t 个 token 的第 j 个碱基（A、C、G、T）写进第 4j..4j+3 维，其余维为 0；N 和填充位全为 0。token 的划分与 `pc2_adapter.pool_tokens` 的 6 碱基分组相同。
+  - 训练和推理都用 pc2 的窗口网格与拼接器；头和初始化与 P 相同（M32 runA `model_002048.pt`）；没有编码器参数，`load(lora=True)` 会被拒绝。
+  - 空闲显存门槛为 3 GB；冒烟门槛与 NT-v2 相同（步时中位数 < 60 s）。`m39_smoke.sh` 现在会传 `M39_LORA`；`m39_pc2_smoke_gate.sh` 也可以用 `M39_BACKEND=onehot` 启动（输出 `oh_smoke/`）。
+  - CPU 单测 `m39_oh_cpu_check.py`（ont，11-12）全部通过：
+    - 7 个字符串（含 N、短窗口和全 N）与逐碱基的朴素构造逐位相同；
+    - 4 个真实抽样（两条链各 2 个，各 8 个窗口）得到有限的 [长度, 15] 势函数，损失梯度只流到投影层输入的前 24 列；
+    - 20 kb 片段上的区域推理（两条链）有限，形状正确。
+    - 结果在 `experiments/M39-INSECT-C2/results/oh_cpu_check.json`。
+  - 同时在 ont 上复核了三条路径：不设变量时（即使继承了 `M34_BACKEND=pc2`）解析为 ntv2，`I10_k50U`，M31 init；pc2 为 `pc2_I10_k50U`，M32 init；onehot 为 `oh_I10_k50U`，M32 init，LoRA 关闭。
+  - L 还没有跑过 GPU 冒烟。
 
 ### 5.2 冒烟（约 1 GPU h）
 
@@ -196,6 +207,9 @@ cd ~/coding-rna-reorg/experiments/M39-INSECT-C2/scripts && M39_BACKEND=pc2 bash 
   - 300 kb 片段（NC_064602.1 val8M:0-300000）上打分管线跑通。按 §5.2，片段 F1 不进入判据，不作解读。
   - 本次冒烟没有改动任何判据或臂的设计。
   - 原始记录：`experiments/M39-INSECT-C2/results/pc2_smoke_summary.json`、`pc2_smoke_gate.jsonl`；ont 上为 `~/coding-rna/outputs/M39-INSECT-C2/pc2_smoke/`。
+- 2026-11-12：用户按推荐项确认 §7 全部 5 点（见 §0）。本协议定稿，判据和臂的设计从此不再改动。
+  - L 臂代码写好，CPU 单测通过（§5.1）。
+  - 待做：L 的 GPU 冒烟（约 10 分钟）；把 L、P 两臂接进 ont 队列，排在 M39 NT-v2 三臂之后，由维护会话安排。
 
 ## 9. 来源与复现
 
