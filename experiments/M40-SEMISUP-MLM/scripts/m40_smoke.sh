@@ -7,7 +7,7 @@
 #  (c) M40_k0 with MLM on from step 0: 3 steps (new-species draws are MLM-only, legacy draws CRF)
 #  (d) inference + validation scoring of the (b) 10-step model on a 300-kb slice (checkpoint is readable by the unchanged M34 inference)
 source $HOME/coding-rna-reorg/experiments/M40-SEMISUP-MLM/scripts/m40_env.sh
-CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M34_CPUS:-2,4,6,10,12,14,16-24}
 O=$OUT40/smoke
 mkdir -p $O $HOME/coding-rna/logs
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONUNBUFFERED=1

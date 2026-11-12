@@ -8,7 +8,7 @@ PYPC2=$PY
 source $HOME/coding-rna-reorg/experiments/M38-VIPSANIA/scripts/vip_env.sh
 D=$OUT40/vip_newsp; mkdir -p $D $HOME/coding-rna/logs
 LOG=$HOME/coding-rna/logs/m40-vip-newsp
-CPUS=${VIP_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${VIP_CPUS:-2,4,6,10,12,14,16-24}
 ev() { echo "{\"event\":\"$1\",\"time\":\"$(date -Is)\"$2}" >> $D/events.jsonl; }
 [ -e $D/DONE ] && exit 0
 exec 9>$D/.lock; flock -n 9 || exit 3

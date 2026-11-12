@@ -3,7 +3,7 @@
 # = m34_supervise.sh with the M40 trainer: resumes from ckpt_latest.pt after any interruption, waits while the GPU has < 6.0 GB free, FATAL after 4 attempts without progress.
 ARM=$1; OUT=$2; STOP=$3; shift 3
 source $HOME/coding-rna-reorg/experiments/M40-SEMISUP-MLM/scripts/m40_env.sh
-CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M34_CPUS:-2,4,6,10,12,14,16-24}
 LOG=$HOME/coding-rna/logs/m40-train-$ARM-$(date +%Y%m%d-%H%M%S)
 mkdir -p "$OUT" $HOME/coding-rna/logs
 cd $M40S
