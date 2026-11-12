@@ -146,7 +146,7 @@ L 不跑编码器，步时主要花在 CRF 动态规划上，预计 5–10 s/步
     - 20 kb 片段上的区域推理（两条链）有限，形状正确。
     - 结果在 `experiments/M39-INSECT-C2/results/oh_cpu_check.json`。
   - 同时在 ont 上复核了三条路径：不设变量时（即使继承了 `M34_BACKEND=pc2`）解析为 ntv2，`I10_k50U`，M31 init；pc2 为 `pc2_I10_k50U`，M32 init；onehot 为 `oh_I10_k50U`，M32 init，LoRA 关闭。
-  - L 还没有跑过 GPU 冒烟。
+  - L 的 GPU 冒烟已于 11-12 通过（§8）。
 
 ### 5.2 冒烟（约 1 GPU h）
 
@@ -209,7 +209,20 @@ cd ~/coding-rna-reorg/experiments/M39-INSECT-C2/scripts && M39_BACKEND=pc2 bash 
   - 原始记录：`experiments/M39-INSECT-C2/results/pc2_smoke_summary.json`、`pc2_smoke_gate.jsonl`；ont 上为 `~/coding-rna/outputs/M39-INSECT-C2/pc2_smoke/`。
 - 2026-11-12：用户按推荐项确认 §7 全部 5 点（见 §0）。本协议定稿，判据和臂的设计从此不再改动。
   - L 臂代码写好，CPU 单测通过（§5.1）。
-  - 待做：L 的 GPU 冒烟（约 10 分钟）；把 L、P 两臂接进 ont 队列，排在 M39 NT-v2 三臂之后，由维护会话安排。
+  - 待做：把 L、P 两臂接进 ont 队列，排在 M39 NT-v2 三臂之后，由维护会话安排。
+- 2026-11-12：L 臂冒烟通过（`M39_BACKEND=onehot`，输出 `oh_smoke/`）。
+  - 闸门新增共享模式 `M39_GATE_SHARE=1`：允许和非 TE 进程共用 GPU，只要求空闲显存 ≥ 7.5 GB；TE 的规则不变。原因是 P6 面板队列一直占着 GPU（CARBON-A 推理，约 6.7–9.8 GB），维护会话 11-11 同意过冒烟与 P6 共用 GPU。
+  - 时间：12:34 闸门启动，12:59:11 开跑（第 1 次尝试；连续 6 次检查合格，覆盖 25 分钟），13:05:12 写出 `SMOKE_OK`，用时 6 分钟，没有发生让出。
+  - 开跑时 GPU 上只有 P6 的进程（6,710 MiB）。
+  - 门槛全部满足：
+    - 续训连续；160 个抽样，不可行 0 个；
+    - k50U 和 k50F 各跑满 3 步，不可行均为 0；
+    - loss 有限（0.095 → 0.107）；
+    - 步时中位数 10.6 s（最大 14.8 s），低于 60 s 的上限；
+    - 峰值显存 0.17 GB（分配）/ 0.21 GB（保留）。
+  - 步时是在与 P6 共用 CPU 2–24 的情况下测的，偏保守。外推 3,072 步训练约 9.0 h，加推理后仍在 §6 的 6–12 h 之内，估计不改。
+  - 300 kb 片段打分管线跑通（20 步时预测 315 条、参照 23 条）。按 §5.2，片段结果不作解读。
+  - 原始记录：`experiments/M39-INSECT-C2/results/oh_smoke_summary.json`、`oh_smoke_gate.jsonl`。
 
 ## 9. 来源与复现
 

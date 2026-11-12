@@ -28,14 +28,14 @@ te_on_gpu() {   # identical to m39_after_k25u.sh / m34_after_p6.sh
   done
   return 1
 }
-gpu_idle() {    # no compute process at all and >= 7.5 GB free
-  local free napps
+gpu_idle() {    # no compute process at all and >= 7.5 GB free.  M39_GATE_SHARE=1: other (non-TE) processes allowed, only >= 7.5 GB free
+  local free napps         # (share mode: maintenance session 11-11 OK'd sharing the GPU with P6 / k50U_s2; TE still blocks via te_on_gpu)
   free=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
   napps=$(nvidia-smi --query-compute-apps=pid --format=csv,noheader 2>/dev/null | grep -c .)
-  [ "${napps:-1}" -eq 0 ] && [ "${free:-0}" -ge 7500 ]
+  { [ "${M39_GATE_SHARE:-0}" = 1 ] || [ "${napps:-1}" -eq 0 ]; } && [ "${free:-0}" -ge 7500 ]
 }
 DEADLINE=$(( $(date +%s) + ${M39_GATE_HOURS:-72} * 3600 ))
-ev gate_start
+ev gate_start ",\"backend\":\"$M39_BACKEND\",\"share\":${M39_GATE_SHARE:-0}"
 for try in 1 2 3 4 5 6; do
   [ -f $O/SMOKE_OK ] && { ev smoke_ok_exists; exit 0; }
   ok=0; n=0
