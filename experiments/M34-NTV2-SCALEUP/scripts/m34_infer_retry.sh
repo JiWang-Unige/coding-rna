@@ -1,7 +1,7 @@
 #!/bin/bash
 # usage: m34_infer_retry.sh <outdir> <model.pt> <regions> [decode_workers]   retrying, resumable per (region, strand); waits while the GPU has < 5 GB free
 OUT=$1; MODEL=$2; REGIONS=$3; DW=${4:-4}
-CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M34_CPUS:-2,4,6,10,12,14,16-24}   # CPU 8 dropped 2026-11-12 (segfaults cluster on CPU 0 and 8, P6 dmesg)
 cd $HOME/coding-rna-reorg/experiments/M34-NTV2-SCALEUP/scripts
 source ./m34_env.sh
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 PYTHONUNBUFFERED=1

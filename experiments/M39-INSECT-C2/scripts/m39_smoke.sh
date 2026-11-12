@@ -6,7 +6,7 @@
 #  (3) end-to-end inference + validation scoring of the 20-step model on a 300-kb slice of the first new species' validation crop
 # Gate (unchanged from the M34 NT-v2 setting): resume continuous, infeasible <= 16, k50U / k50F ran 3 steps, final loss finite and < 5, median step time < 60 s.
 # Does NOT check the GPU queue: the caller (queue of the coordinating session) must start it only when no other coding-rna GPU job runs.
-CPUS=${M39_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M39_CPUS:-2,4,6,10,12,14,16-24}   # CPU 8 dropped 2026-11-12 (segfaults cluster on CPU 0 and 8, P6 dmesg)
 cd $HOME/coding-rna-reorg/experiments/M39-INSECT-C2/scripts
 source ./m39_env.sh
 O=$OUTROOT/${ARMPFX}smoke

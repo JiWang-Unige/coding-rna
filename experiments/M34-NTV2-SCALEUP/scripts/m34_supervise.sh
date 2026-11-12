@@ -3,7 +3,7 @@
 # crash-resilient trainer launcher (as M31 c1_supervise_lora.sh): resumes from ckpt_latest.pt after any interruption (GPU OOM from other users, segfault, ...), logs each one in
 # interruptions.jsonl, waits while the GPU has < 6.0 GB free (7.5 GB until 2026-11-07), and gives up (FATAL) when 4 consecutive attempts make no progress (a deterministic code error).
 ARM=$1; OUT=$2; STOP=$3; shift 3
-CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M34_CPUS:-2,4,6,10,12,14,16-24}   # CPU 8 dropped 2026-11-12 (segfaults cluster on CPU 0 and 8, P6 dmesg)
 LOG=$HOME/coding-rna/logs/m34-train-$ARMPFX$ARM-$(date +%Y%m%d-%H%M%S)
 mkdir -p "$OUT" $HOME/coding-rna/logs
 cd $HOME/coding-rna-reorg/experiments/M34-NTV2-SCALEUP/scripts

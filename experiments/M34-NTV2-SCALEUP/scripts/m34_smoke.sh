@@ -3,7 +3,7 @@
 #  (1) T10 on a stress schedule (genes with the most exons / longest CDS span of every species + real draws): 10 steps, stop, RESUME, 10 more steps (checkpoint-resume test)
 #  (2) T10_k50U: 3 steps (partial-label treatment U on the GPU path);  T10_k50F: 3 steps (treatment F)
 #  (3) end-to-end inference + validation scoring of the 20-step model on a 300-kb slice of a new-species validation pseudo-contig
-CPUS=${M34_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M34_CPUS:-2,4,6,10,12,14,16-24}   # CPU 8 dropped 2026-11-12 (segfaults cluster on CPU 0 and 8, P6 dmesg)
 cd $HOME/coding-rna-reorg/experiments/M34-NTV2-SCALEUP/scripts
 source ./m34_env.sh
 O=$OUTROOT/${ARMPFX}smoke
