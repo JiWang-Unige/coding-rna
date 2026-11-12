@@ -10,7 +10,7 @@ mkdir -p $O $LOGS
 export M34_BACKEND=pc2 M34_LORA=on HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONUNBUFFERED=1 \
        PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 cd $S34 && source ./m34_env.sh
-CPUS=${M41_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M41_CPUS:-2,4,6,10,12,14,16-24}
 REG=NC_003071.7:0-2000000
 taskset -c $CPUS $PY $S41/m41_train.py run --arm T2 --label T2_ILS_smoke --out $O/train --steps 3072 --stop-at 20 --batch 8 --workers 12 --cpus $CPUS \
   > $O/train.out 2> $O/train.err < /dev/null || { echo "train failed"; tail -5 $O/train.err; exit 1; }

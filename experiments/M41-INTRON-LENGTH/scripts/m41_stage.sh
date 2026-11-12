@@ -6,7 +6,7 @@
 #   -> DEV (NC_003074.8 + NC_089041.1) EXACTLY ONCE (sentinels dev_started.json / DEV_DONE): c1_eval + c1_boot (M32, unchanged) + m41_compare (paired, by stratum)
 #   -> evaluation set B zero-shot (m41_infer --setb) + m34_p2b_score (new T2_ILS vs old T2)  -> ARM_DONE
 # usage: m41_stage.sh            (one instance; GPU queue placement is the maintenance session's job)
-# env: M41_CPUS (default 2,4,6,8,10,12,14,16-24, as M34), M41_MIN_FREE_MIB (6000), M41_SHORT_STAGES (1, pre-registered)
+# env: M41_CPUS (default 2,4,6,10,12,14,16-24, as M34 d4fd396: CPU 0 and 8 excluded, segfaults on ont), M41_MIN_FREE_MIB (6000), M41_SHORT_STAGES (1, pre-registered)
 LABEL=T2_ILS; ARM=T2
 R=${M41_SHORT_STAGES:-1}
 EXPS=$HOME/coding-rna-reorg/experiments
@@ -21,7 +21,7 @@ export M34_BACKEND=pc2 M34_LORA=on HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKEN
        PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 cd $S34 && source ./m34_env.sh            # PY = plantcad2 env
 GPY=$HOME/envs/generanno/bin/python       # ruler env (m34_p2b_score, m41_compare)
-CPUS=${M41_CPUS:-2,4,6,8,10,12,14,16-24}
+CPUS=${M41_CPUS:-2,4,6,10,12,14,16-24}
 SEL=NC_003071.7,NC_089044.1
 DEVR=NC_003074.8,NC_089041.1
 REGB=NC_141367.1,NC_141369.1,NC_141371.1,NC_141373.1,NW_028238309.1,NW_028238461.1,NW_028238483.1
