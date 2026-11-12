@@ -18,7 +18,7 @@ LOGS=${P6_LOGS:-$HOME/coding-rna/logs}
 EV=$P6/events.jsonl
 APPT=${P6_APPT:-$HOME/envs/apptainer/bin/apptainer}
 PYG=$HOME/envs/generanno/bin/python
-CPUS=${P6_CPUS:-2,4,6,8,10,12,14,16-24}               # the cores of the coding-rna GPU steps (M34 / M38)
+CPUS=${P6_CPUS:-2,4,6,10,12,14,16-24}               # the M34 / M38 GPU-step cores minus CPU 8: on 11-10 three Carbon-A segfaults (and other projects' crashes) all hit CPUs 0 and 8 (i9-13900K favoured cores)
 PCPUS=${P6_POST_CPUS:-25-31}                          # CPU-only side work (Carbon-A post-processing, conversion)
 GUARD="python3.12 -I $P6S/p6_guard.py"                # = M38 vip_guard but limits the PSS sum (forked DataLoader workers share pages; see p6_guard.py)
 EVT="python3.12 -I $HOME/coding-rna-reorg/experiments/M38-VIPSANIA/scripts/vip_event.py --file $EV"
