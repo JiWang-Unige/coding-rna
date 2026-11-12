@@ -1,0 +1,55 @@
+{
+ "t_steps": 20,
+ "resumed_continuous": true,
+ "step_s_median": 26.010284344898537,
+ "step_s_mean": 26.823816721211188,
+ "step_s_max": 41.560628543025814,
+ "step_s_first": 41.98191105492879,
+ "infeasible": 0,
+ "skipped_all_unknown": 0,
+ "draws": 160,
+ "bwd_s_median": 18.409731684543658,
+ "dp_sum_s_median": 46.104051348986104,
+ "loss_first": 0.003582906215915235,
+ "loss_last": 0.0016053431041884853,
+ "peak_gpu_alloc_GB": 3.8024230003356934,
+ "peak_gpu_reserved_GB": 4.162109375,
+ "k50U_steps": 3,
+ "k50F_steps": 3,
+ "k50U_loss": [
+  0.0052749576972534774,
+  0.02368377326906269,
+  0.0028019788922331343
+ ],
+ "k50F_loss": [
+  0.0057582851382421635,
+  0.02362110834064085,
+  0.004627288127145256
+ ],
+ "k50U_infeasible": 0,
+ "k50F_infeasible": 0,
+ "slice_val": {
+  "arm": "I10_T",
+  "step": 20,
+  "tag": "smoke",
+  "pooled_F1": 20.408163265306122,
+  "pooled_tp": 5,
+  "pooled_pred": 26,
+  "pooled_ref": 23,
+  "pooled_precision": 19.23076923076923,
+  "pooled_recall": 21.73913043478261,
+  "per_region": {
+   "NC_064602.1__val8M:0-300000": {
+    "F1": 20.408,
+    "tp": 5,
+    "pred": 26,
+    "ref": 23
+   }
+  },
+  "time": "2026-11-12T11:27:18",
+  "score_seconds": 0.1
+ },
+ "projected_train_hours_3072_steps_at_median": 22.195442640980083,
+ "step_s_limit": 120,
+ "backend": "pc2"
+}
