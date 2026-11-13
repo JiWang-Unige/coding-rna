@@ -367,6 +367,12 @@ P6 打分后以下任一成立即触发：
 - B = 1 实测 177 ms/步，每个 epoch 约 19 分钟，10 个 epoch 约 3.2 h，与 M38 的 B = 2 用时相近。
 - 由于驱动在一次 OOM 后就保持 B = 1，之后各基因组都用 B = 1，各自记在 `run.json`。
 
+**11-13 Rhynchospora 注释阶段 OOM**：
+- 经过：Vipsania 微调已跑满 10 个 epoch（06:23–09:44）；随后的全基因组注释于 09:45 因显存不足失败，原因是 TE 的两个 GPU 作业（OPOSSUM 冒烟、te-glm release 检查）在 P6 这一步运行中启动。
+- 微调检查点 `finetuning_1/latest_checkpoint.weights.h5` 完整保留。
+- 补救：驱动新增"微调完成则只补注释"：若失败前日志已有 10 个 epoch 的结束行且检查点存在，就写 `FT_COMPLETE`，重试时只运行 `vipsania annotate finetuning_<k> <genome> --model_dir <dir>`。这与一次性 `--finetune` 调用用的是同一个微调后模型，`run.json` 记 `annotated_from_checkpoint`。
+- Rhynchospora 已手工照此标记，省去约 3.4 GPU h。
+
 **可信度核对**：P6 在 Dryas 四条 set B 染色体上的 Carbon-A 预测，与 M30 用同一模型、同一序列的输出逐条完全相同，共 2,844 / 2,480 / 2,220 / 1,988 条链，无任何差异。这只比较两份预测，不读参考。说明流程是确定的，重试成功的输出可信。
 
 ## 6. 面板结果与 C1 判定

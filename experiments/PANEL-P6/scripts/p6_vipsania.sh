@@ -32,31 +32,49 @@ wait_b2() {   # wait up to P6_VIP_WAIT_B2_H for >= 23,040 MiB free (finetune_B 2
 }
 
 annotate() {   # KEY MODE FASTA RUNDIR
-  local K=$1 MODE=$2 FA=$3 D=$4 NAME=vip_${1}_$2 TO rc e0 B=0 ann_b=() extra=() attempt f
+  # ft resume (2026-11-13): when an ft attempt failed only AFTER all finetuning epochs (e.g. the annotation that follows ran out of GPU memory because
+  # another project started on the card), $D/FT_COMPLETE names the finished checkpoint directory and the retry only annotates with it
+  # (`vipsania annotate finetuning_<k> <genome> --model_dir $D`, the same model the one-shot --finetune call would have used) instead of finetuning again.
+  local K=$1 MODE=$2 FA=$3 D=$4 NAME=vip_${1}_$2 TO rc e0 o0 B=0 ann_b=() extra=() attempt f ckpt="" model=$MODEL_ID
   [ -e $D/${MODE}_DONE ] && { ev event=step_skipped step=$NAME; return 0; }
   mkdir -p $D
   TO=$ANN_TO; [ $MODE = ft ] && TO=$FT_TO
   for attempt in 1 2 3 4; do
     gate 11520 $NAME || return 3
-    extra=()
-    if [ $MODE = ft ]; then
-      [ "$B" = 1 ] || { wait_b2; gate 11520 $NAME || return 3; }
-      f=$(gpu_free); B=1; [ "${f:-0}" -ge 23040 ] && [ "${FORCE_B1:-0}" = 0 ] && B=2
-      extra=(--finetune --finetune_B $B)
+    extra=(); model=$MODEL_ID
+    [ $MODE = ft ] && [ -s $D/FT_COMPLETE ] && ckpt=$(cat $D/FT_COMPLETE)
+    if [ -n "$ckpt" ]; then
+      model=$ckpt; extra=(--model_dir $D); TO=$ANN_TO
+      rm -rf $D/vipsania.gff3
+    else
+      if [ $MODE = ft ]; then
+        [ "$B" = 1 ] || { wait_b2; gate 11520 $NAME || return 3; }
+        f=$(gpu_free); B=1; [ "${f:-0}" -ge 23040 ] && [ "${FORCE_B1:-0}" = 0 ] && B=2
+        extra=(--finetune --finetune_B $B)
+      fi
+      rm -rf $D/vipsania.gff3 $D/vipsania.log $D/finetuning_*
     fi
-    rm -rf $D/vipsania.gff3 $D/vipsania.log $D/finetuning_*
-    e0=$(fsize $LOGS/p6-$NAME.err)
-    run_step $NAME $TO ${P6_VIP_MAX_RSS_GB:-48} $VIP annotate $MODEL_ID $FA -o $D/vipsania.gff3 "${ann_b[@]}" "${extra[@]}"
+    e0=$(fsize $LOGS/p6-$NAME.err); o0=$(fsize $LOGS/p6-$NAME.out)
+    run_step $NAME $TO ${P6_VIP_MAX_RSS_GB:-48} $VIP annotate $model $FA -o $D/vipsania.gff3 "${ann_b[@]}" "${extra[@]}"
     rc=$?
     if [ $rc -eq 0 ] && [ "$(genes_in $D/vipsania.gff3)" -ge $MIN_GENES ]; then
       python3.12 -I $HOME/coding-rna-reorg/experiments/M38-VIPSANIA/scripts/vip_event.py --file $D/run.json --write --merge $P6/steps/$NAME.res.json genome=$K mode=$MODE model=$MODEL_ID \
-          "fasta=$FA" genes=$(genes_in $D/vipsania.gff3) "finetune_B=$B" "annotate_B_flag=${ann_b[*]:-auto}" "batch_log=$(log_field $D/vipsania.log 'batch size for maximal chunk length')" \
+          "fasta=$FA" genes=$(genes_in $D/vipsania.gff3) "finetune_B=$B" "annotate_B_flag=${ann_b[*]:-auto}" "annotated_from_checkpoint=${ckpt:-none}" "batch_log=$(log_field $D/vipsania.log 'batch size for maximal chunk length')" \
           "peak_gpu_log=$(log_field $D/vipsania.log 'peak GPU memory')" "log_time=$(log_field $D/vipsania.log '> time:')" "gff_sha256=$(sha256sum $D/vipsania.gff3 | cut -d' ' -f1)"
       touch $D/${MODE}_DONE
       ev event=step_done step=$NAME genes=$(genes_in $D/vipsania.gff3) finetune_B=$B
       return 0
     fi
     ev event=step_failed step=$NAME attempt=$attempt rc=$rc genes=$(genes_in $D/vipsania.gff3)
+    if [ $MODE = ft ] && [ -z "$ckpt" ]; then              # were all finetuning epochs completed before the failure?
+      local ep d
+      ep=$(tail -c +$(( o0 + 1 )) $LOGS/p6-$NAME.out 2>/dev/null | tr '\r' '\n' | grep -cE '^[0-9]+/[0-9]+ - [0-9.]+s - .* - loss: ')
+      d=$(ls -d $D/finetuning_* 2>/dev/null | tail -1)
+      if [ "$ep" -ge ${P6_VIP_FT_EPOCHS:-10} ] && [ -s "$d/latest_checkpoint.weights.h5" ]; then
+        basename $d > $D/FT_COMPLETE; ckpt=$(basename $d)
+        ev event=ft_complete_resume step=$NAME checkpoint=$ckpt epochs_logged=$ep
+      fi
+    fi
     if oom_since $LOGS/p6-$NAME.err $e0; then
       if [ $MODE = ft ] && [ "$B" -gt 1 ]; then FORCE_B1=1; B=1; ev event=oom_retry step=$NAME finetune_B=1
       elif [ ${#ann_b[@]} -eq 0 ]; then ann_b=(-B 4); ev event=oom_retry step=$NAME annotate_B=4
