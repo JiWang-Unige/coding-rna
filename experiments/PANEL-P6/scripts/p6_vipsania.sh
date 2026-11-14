@@ -70,7 +70,9 @@ annotate() {   # KEY MODE FASTA RUNDIR
       local ep d
       ep=$(tail -c +$(( o0 + 1 )) $LOGS/p6-$NAME.out 2>/dev/null | tr '\r' '\n' | grep -cE '^[0-9]+/[0-9]+ - [0-9.]+s - .* - loss: ')
       d=$(ls -d $D/finetuning_* 2>/dev/null | tail -1)
-      if [ "$ep" -ge ${P6_VIP_FT_EPOCHS:-10} ] && [ -s "$d/latest_checkpoint.weights.h5" ]; then
+      # the checkpoint must be whole (2026-11-14: the disk filled up during a finetune; a truncated file must lead to a full re-finetune, not an annotation-only retry)
+      if [ "$ep" -ge ${P6_VIP_FT_EPOCHS:-10} ] && [ "$(fsize "$d/latest_checkpoint.weights.h5")" -ge 400000000 ] \
+         && $VENV/bin/python -c "import h5py, sys; h5py.File(sys.argv[1], 'r').close()" "$d/latest_checkpoint.weights.h5" 2>/dev/null; then
         basename $d > $D/FT_COMPLETE; ckpt=$(basename $d)
         ev event=ft_complete_resume step=$NAME checkpoint=$ckpt epochs_logged=$ep
       fi
