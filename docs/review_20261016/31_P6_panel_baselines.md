@@ -373,6 +373,12 @@ P6 打分后以下任一成立即触发：
 - 补救：驱动新增"微调完成则只补注释"：若失败前日志已有 10 个 epoch 的结束行且检查点存在，就写 `FT_COMPLETE`，重试时只运行 `vipsania annotate finetuning_<k> <genome> --model_dir <dir>`。这与一次性 `--finetune` 调用用的是同一个微调后模型，`run.json` 记 `annotated_from_checkpoint`。
 - Rhynchospora 已手工照此标记，省去约 3.4 GPU h。
 
+**11-13/14 Vipsania 进度**：
+- Rhynchospora：用 `finetuning_1` 只补做注释，18:53 完成。实际微调发生在第一次尝试，用的是 `--finetune_B 1`。
+- Zizania：B = 2 时显存不足，降到 B = 1 后 22:49 完成。
+- 11-14 00:59 TE 起了一个约 1 h 的推理，与 P6 的 Akebia 微调同卡并行（12.9 + 4.5 GB），没有冲突。
+- TE 随后排了 X2-BENCH（约 8 h）和 X1（约 22 h），接在 Akebia 之后。按"TE 优先"，P6 剩下的 Amborella、Hakea、Themeda（约 11 GPU h）约在 11-15 恢复。是否改变先后，已请维护会话交给用户定。
+
 **可信度核对**：P6 在 Dryas 四条 set B 染色体上的 Carbon-A 预测，与 M30 用同一模型、同一序列的输出逐条完全相同，共 2,844 / 2,480 / 2,220 / 1,988 条链，无任何差异。这只比较两份预测，不读参考。说明流程是确定的，重试成功的输出可信。
 
 ## 6. 面板结果与 C1 判定
