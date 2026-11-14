@@ -65,7 +65,8 @@ gate() {   # NEED_MiB STEP : blocks until the gate is open; returns 1 if $P6/STO
   while :; do
     [ -e $P6/STOP ] && { ev event=stopped step=$step; return 1; }
     b=$(gpu_blockers); f=$(gpu_free); f=${f:-0}
-    [ -e $TE_CLAIM ] && b="${b}TE_GPU_CLAIM: $(head -c 300 $TE_CLAIM | tr '\n' ' ')"$'\n'
+    # a claim counts only while the file has content: TE removes its own line when done, which can leave an empty file (11-14 22:09)
+    grep -q '[^[:space:]]' $TE_CLAIM 2>/dev/null && b="${b}TE_GPU_CLAIM: $(head -c 300 $TE_CLAIM | tr '\n' ' ')"$'\n'
     # TE quiet period (2026-11-11): TE's claim vanished for 14 min between two of its arms and P6 slipped in; a long P6 step there would sit on TE's next arm
     # (user priority: TE first).  So a new P6 step starts only P6_TE_QUIET_MIN (30) minutes after TE was last seen (claim, GPU process, driver, foreign container).
     echo "$b" | grep -qE '^TE|TE_GPU_CLAIM|^container' && date +%s > $P6/.te_last_seen
