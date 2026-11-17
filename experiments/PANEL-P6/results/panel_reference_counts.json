@@ -1,0 +1,63 @@
+{
+ "dryas_octopetala": {
+  "refs": 21467,
+  "report25": 21467,
+  "equal": true,
+  "seconds": 17.6
+ },
+ "eschscholzia_californica": {
+  "refs": 26580,
+  "report25": 26580,
+  "equal": true,
+  "seconds": 21.2
+ },
+ "akebia_trifoliata": {
+  "refs": 23926,
+  "report25": 23926,
+  "equal": true,
+  "seconds": 73.7
+ },
+ "hakea_prostrata": {
+  "refs": 23486,
+  "report25": 23486,
+  "equal": true,
+  "seconds": 48.8
+ },
+ "zizania_latifolia": {
+  "refs": 35671,
+  "report25": 35671,
+  "equal": true,
+  "seconds": 55.0
+ },
+ "themeda_triandra": {
+  "refs": 41205,
+  "report25": 41205,
+  "equal": true,
+  "seconds": 41.8
+ },
+ "juncus_effusus": {
+  "refs": 17779,
+  "report25": 17779,
+  "equal": true,
+  "seconds": 30.6
+ },
+ "rhynchospora_breviuscula": {
+  "refs": 19976,
+  "report25": 19976,
+  "equal": true,
+  "seconds": 16.7
+ },
+ "acorus_gramineus": {
+  "refs": 21365,
+  "report25": 21365,
+  "equal": true,
+  "seconds": 22.2
+ },
+ "amborella_trichopoda": {
+  "refs": 16467,
+  "report25": 16467,
+  "equal": true,
+  "seconds": 89.5
+ },
+ "total": 247922
+}
