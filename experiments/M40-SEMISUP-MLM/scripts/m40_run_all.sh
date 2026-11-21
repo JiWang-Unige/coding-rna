@@ -20,7 +20,7 @@ ev() { echo "{\"event\":\"$1\",\"time\":\"$(date -Is)\"$2}" >> $LOG; }
 ARMS=${@:-M40_k25U_MLM M40_k50U_MLM M40_k0}
 te_on_gpu() {   # 0 if a TE-project process holds the GPU or TE claims it (same test as m39_after_k25u.sh / m41_run_all.sh)
   local p
-  [ -e $HOME/ab-initio-TE/outputs/TE_GPU_CLAIM ] && return 0
+  [ -s $HOME/ab-initio-TE/outputs/TE_GPU_CLAIM ] && return 0   # empty file = no claim (TE appends / removes its own lines; as P6 134926f)
   for p in $(nvidia-smi --query-compute-apps=pid --format=csv,noheader 2>/dev/null); do
     tr '\0' ' ' < /proc/$p/cmdline 2>/dev/null | grep -qE 'ab-initio-TE|te_benchmark|TE-GLM|/work/te' && return 0
     readlink /proc/$p/cwd 2>/dev/null | grep -qE 'ab-initio-TE|TE-GLM|/work/te' && return 0

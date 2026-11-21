@@ -19,7 +19,7 @@ ev() { echo "{\"event\":\"$1\",\"time\":\"$(date -Is)\"$2}" >> $LOG; }
 
 te_on_gpu() {
   local p
-  [ -e $HOME/ab-initio-TE/outputs/TE_GPU_CLAIM ] && return 0
+  [ -s $HOME/ab-initio-TE/outputs/TE_GPU_CLAIM ] && return 0   # empty file = no claim (TE appends / removes its own lines; as P6 134926f)
   for p in $(nvidia-smi --query-compute-apps=pid --format=csv,noheader 2>/dev/null); do
     tr '\0' ' ' < /proc/$p/cmdline 2>/dev/null | grep -qE 'ab-initio-TE|te_benchmark|TE-GLM|/work/te' && return 0
     readlink /proc/$p/cwd 2>/dev/null | grep -qE 'ab-initio-TE|TE-GLM|/work/te' && return 0
