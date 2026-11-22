@@ -634,3 +634,12 @@ C2 是同一骨干内两种训练方式的配对比较。两臂的骨干暴露�
 - NT-v2 预训练清单：`https://huggingface.co/datasets/InstaDeepAI/multi_species_genomes`（`README.md`、`original_urls.csv`，850 条）。
 - Vipsania：`https://github.com/Gaius-Augustus/Vipsania` 的 `docs/training_species.tsv`（1,692 行）与 `docs/test_species.tsv`（Insecta 测试 9 种）。
 - 筛选脚本与全部中间表在会话共享笔记目录 `insect-c2-20261104/`。它们只读取上述公开元数据，可在任意联网机器上重跑；不入库。
+
+## 10. GPU 运行记录（描述；P4-I 判据只在两臂各自选定检查点后套用）
+
+- smoke 11-09 通过（中位 13.1 s/步，infeasible 0）。I10_k50U 11-09 13:28 开训，14:39 在第 320 步存点处按用户决定 `ont-order-after-k25u` 暂停（P6 优先）。
+- 11-22 21:52 由 ont 队列 `m34_after_p6b.sh`（M41 之后）续训，日志从第 320 步接上。TE 的 CPU 任务让 ont 负载在 60–70，实际约 18–20 s/步。
+
+| 臂 | 步 | select（S：果蝇 2R + 赤拟谷盗 6；P / R；预测 / 参考） | 果蝇 / 赤拟谷盗 | 8 个新物种验证区段（P / R；预测 / 参考） |
+|---|---|---|---|---|
+| I10_k50U | 768 | 58.69（58.5 / 58.8；4,040 / 4,019） | 64.09 / 46.75 | 45.17（42.5 / 48.2；4,736 / 4,172） |
