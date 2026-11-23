@@ -10,7 +10,12 @@
 - **两个关键批评（都已核实）：**
   1. **掩码借了完整真值。** C2 的 U 臂是用完整注释定位被删基因、再把那些位置标成未知（报告 19 §3.10，我们自己写了"上界设定"）。真实场景里不知道漏在哪。昆虫 M39 同样如此（协议 29 §4.5）。
   2. **部分标签几乎没有净增益。** 完全不用 8 个新物种标签的 T2 在这些物种上是 68.84（报告 20 §14），k50U 两个 seed 是 67.86 / 69.03，全标签 T10 是 69.62。所以现在能说的是"边缘化避免了填背景的损失（k50F 64.62 / 54.06）"，还不能说"部分标签让模型变好"。M30 同样：U 对未适配闸门 −0.32 / −0.79。
-- **还要注意的已有工作：** 部分标注 CRF 的边缘化训练不是新算法（Tsuboi 等，COLING 2008）；CRF 做基因结构也不是新的（Conrad 2007；GeneCAD = PlantCAD2 + CRF）。新颖性只能落在"完整基因语法 + 真实不完整基因组注释 + 现代 DNA 表示"带来的新能力上，GeneCAD 基线因此更重要。（文献待在 PubMed / ACL 核实。）
+- **还要注意的已有工作（2026-11-23 已核实）：**
+  - 部分标注 CRF 的边缘化训练：Tsuboi, Kashima, Mori, Oda, Matsumoto. *Training Conditional Random Fields Using Incomplete Annotations*. COLING 2008, pp. 897–904（ACL Anthology C08-1113；doi:10.3115/1599081.1599194）。对与不完整标注一致的所有标签序列求和，用于日语分词与词性标注——与我们的 U 是同一个目标函数。
+  - CRF 做基因预测：Vinson 等，*Comparative Gene Prediction using Conditional Random Fields*，NIPS 2006；DeCaprio 等，*Conrad: gene prediction using conditional random fields*，Genome Res 2007;17:1389–98（doi:10.1101/gr.6558107，半马尔可夫 CRF）；Bernal 等，*Global discriminative learning for higher-accuracy computational gene prediction*（CRAIG），PLoS Comput Biol 2007;3:e54（doi:10.1371/journal.pcbi.0030054）。
+  - DNA 基础模型 + CRF 做植物基因注释：Liu 等，*GeneCAD: Plant Genome Annotation with a DNA Foundation Model*，bioRxiv 2025（doi:10.1101/2025.10.31.685877；PlantCAD2 表示 + ModernBERT + 染色体级 CRF；五个留出被子植物上 transcript F1 比 Helixer、BRAKER3 高 8–10%）。
+  - 一次扩展检索没有找到在基因预测里对未注释区域做边缘化训练的工作；最接近的是 PU 学习（病理图像细胞检测）与自训练基因预测（GeneMark-ES）。这只说明没搜到，不等于不存在，写"首次"前要再查。
+  - 结论：CRF 做基因结构、部分标注 CRF 都不是新的，GeneCAD 已是 PlantCAD2 + CRF。新颖性只能落在"完整基因语法上的部分观测训练，用于真实的不完整基因组注释"这一组合带来的新能力上；GeneCAD 基线因此更重要。
 
 ## 2. 两条路线
 
@@ -68,6 +73,8 @@
 - isoform、泛基因组、长程记忆等新架构：留给下一篇，不要做成本篇的装饰性"应用"。
 
 ## 6. 需要用户定的事
+
+**2026-11-23 用户决定：** 关卡 0 与关卡 1 都做（路线 B）。
 
 1. 路线：B 的关卡 0 → 关卡 1 先做（推荐），还是直接走路线 A。
 2. 若走 B：关卡 0 的数据与掩码审计可以在本地 Mac 上做（下载新旧 GFF、证据比对），不碰 ont 的 CPU（ont 正为 TE 计时保留）。是否现在开始。
