@@ -138,4 +138,18 @@
 
 ## 9. 修订记录
 
-（空。）
+- **2026-11-24 物种筛选（§1，只用 NCBI 元数据；未下载任何 GFF）**。
+  - 来源：`annotation_releases/` 下 1,561 个 taxid，其中被子植物 205 个；逐个读取注释报告 XML 的 `AnnotationComparisonStats`，找"新版与上一版在同一装配 accession.version 上"的版本对。
+  - **偏离 §1 条件 3**：注释报告没有"新增蛋白编码基因"的直接计数，只有基因级 `Current-novel`（含非编码基因）和编码转录本级 `Current-novel`（可能含已有位点上的新转录本）。按基因级计数套用 ≥ 300 的门槛并排序，同时记录编码转录本级计数；两种计数下第一名相同。新版注释里的真实新增蛋白编码位点数在关卡 0 审计时（§3.4 第 1 项，只在 A 上）给出。
+  - **补充条件**：旧版 GFF 必须仍可下载。多数旧版（编号 100）不在 `annotation_releases/` 里，但在 `genomes/archive/old_refseq/<物种>/ARCHIVE/ANNOTATION_RELEASE.100/GFF/` 有存档；Medicago truncatula（旧版 100 未存档）因此排除。
+  - 满足条件 1–4 且旧版可下载的候选（基因级新增 / 编码转录本级新增；旧版 → 新版证据冻结日期；装配）：
+    | 物种 | 目 | 基因级 | 编码转录本级 | 旧版 → 新版 | 装配 |
+    |---|---|---|---|---|---|
+    | *Ziziphus jujuba* | Rosales | 3,619 | 1,712 | AR100（2016-03）→ AR101（2018-05） | GCF_000826755.1，染色体级，438 Mb |
+    | *Solanum pennellii* | Solanales | 3,606 | 961 | AR100（2015-12）→ AR101（2019-01） | GCF_001406875.1，染色体级，926 Mb |
+    | *Cicer arietinum* | Fabales | 3,388 | 846 | AR101 → AR102（2018-12） | GCF_000331145.1，染色体级，531 Mb |
+    | *Vigna radiata* | Fabales | 1,521 | 919 | AR100（2015-11）→ AR101（2017-10） | GCF_000741045.1，464 Mb |
+    | *Prunus mume* | Rosales | 1,276 | 789 | AR100（2014-06）→ AR101（2016-05） | GCF_000346735.1，234 Mb |
+    | *Sesamum indicum* | Lamiales | 1,036 | 498 | AR100（2015-01）→ AR101（2017-04） | GCF_000512975.1，275 Mb |
+  - 排除：Eucalyptus grandis（旧版装配为 scaffold 级）、Zea mays（> 1.5 Gb）、Setaria italica（本项目已作封存 / 其他用途）、Brassicales 与 Poales 物种（排在第二档，第一档已有足够候选），以及 scaffold 级或装配已被替换的物种。
+  - **按 §1 规则：D1 = *Ziziphus jujuba*，D2 = *Solanum pennellii***（与 D1 不同目的最高名）。两者都不在 PlantCAD2 预训练的 65 个基因组里（Solanaceae 整科被排除；Ziziphus 不在名单内，见报告 10 附录 A）。Ziziphus 在 Carbon-A 快照与 Vipsania、PlantGeneAnn 训练集中（只记录）。D2 的同属番茄在 T10 训练集里，但关卡 1 的初始化 T2 只用拟南芥和水稻。
