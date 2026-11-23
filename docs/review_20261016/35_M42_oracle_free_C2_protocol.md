@@ -153,3 +153,4 @@
     | *Sesamum indicum* | Lamiales | 1,036 | 498 | AR100（2015-01）→ AR101（2017-04） | GCF_000512975.1，275 Mb |
   - 排除：Eucalyptus grandis（旧版装配为 scaffold 级）、Zea mays（> 1.5 Gb）、Setaria italica（本项目已作封存 / 其他用途）、Brassicales 与 Poales 物种（排在第二档，第一档已有足够候选），以及 scaffold 级或装配已被替换的物种。
   - **按 §1 规则：D1 = *Ziziphus jujuba*，D2 = *Solanum pennellii***（与 D1 不同目的最高名）。两者都不在 PlantCAD2 预训练的 65 个基因组里（Solanaceae 整科被排除；Ziziphus 不在名单内，见报告 10 附录 A）。Ziziphus 在 Carbon-A 快照与 Vipsania、PlantGeneAnn 训练集中（只记录）。D2 的同属番茄在 T10 训练集里，但关卡 1 的初始化 T2 只用拟南芥和水稻。
+- **2026-11-24 用户决定 `m42-animal-species`（"按推荐来，关卡2加昆虫"）**：关卡 0 / 1 只用 D1（枣）不变；关卡 2 的确认阶段改为 **D2（潘那利番茄）+ 一个昆虫 D3**。D3 按 §1 同一套元数据规则选（昆虫纲；同一装配上有新旧两版 RefSeq 注释且旧版可下载；新版基因级新增 ≥ 300；染色体级；≤ 1.5 Gb），排除 M39 的 10 个昆虫物种与其他已用物种；骨干用 NT-v2（与 M39 同配方），零标签对照 Z 为只用果蝇 + 赤拟谷盗训练的 I2 源模型（约 20–36 GPU h），关卡 1 通过后才训练。决定时 D2、D3 的任何注释数据都未下载或查看。
