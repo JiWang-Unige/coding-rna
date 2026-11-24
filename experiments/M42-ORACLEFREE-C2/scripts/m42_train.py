@@ -105,8 +105,15 @@ def schedule(rows, lens, steps, batch):
     draws = SCH.draw_schedule(Z.SP, rows, lens, steps=steps, batch=batch)
     if path.exists():
         assert [json.loads(x) for x in open(path)] == draws, f'{path} differs from the schedule rebuilt from the frozen positives'
-    else:
-        SCH.write_schedule(draws, path)
+    else:                                                          # arms may start concurrently: per-process temp file, identical content
+        import os
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = Path(f'{path}.{os.getpid()}.tmp')
+        with open(tmp, 'w') as f:
+            for r in draws:
+                f.write(json.dumps(r) + '\n')
+        os.replace(tmp, path)
+        assert [json.loads(x) for x in open(path)] == draws
     return path, draws
 
 

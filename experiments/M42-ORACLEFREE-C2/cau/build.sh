@@ -6,6 +6,7 @@ G=$HOME/.cache/fontconfig-x2/g10; E=$G/env; mkdir -p $G/tmp
 export PATH=$E/bin:$PATH CUDA_HOME=$E TMPDIR=$G/tmp PIP_CACHE_DIR=$G/pipcache MAX_JOBS=${SLURM_CPUS_PER_TASK:-8} \
        MAMBA_FORCE_BUILD=TRUE CAUSAL_CONV1D_FORCE_BUILD=TRUE MAMBA_SKIP_CUDA_BUILD=FALSE CAUSAL_CONV1D_SKIP_CUDA_BUILD=FALSE \
        CC=$E/bin/x86_64-conda-linux-gnu-gcc CXX=$E/bin/x86_64-conda-linux-gnu-g++ CUDAHOSTCXX=$E/bin/x86_64-conda-linux-gnu-g++
+export CPATH=$E/targets/x86_64-linux/include LIBRARY_PATH=$E/targets/x86_64-linux/lib:$E/lib LD_LIBRARY_PATH=$E/targets/x86_64-linux/lib:$E/lib
 echo "== $(date)"; nvcc --version | tail -2; $CXX --version | head -1
 cd $G/src
 for p in causal_conv1d-1.6.0.tar.gz mamba_ssm-2.3.0.tar.gz; do
