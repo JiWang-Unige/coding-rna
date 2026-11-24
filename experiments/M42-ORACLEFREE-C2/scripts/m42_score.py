@@ -228,10 +228,10 @@ def main():
             dF, dN = dr['U'][0] - dr[n][0], dr['U'][1] - dr[n][1]
             res['paired_U_minus'][n] = dict(F1=f1(vec['U'], full) - f1(vec[n], full), F1_CI95=[float(np.percentile(dF, 2.5)), float(np.percentile(dF, 97.5))],
                                             novel_recall=nr(vec['U'], full) - nr(vec[n], full), novel_recall_CI95=[float(np.percentile(dN, 2.5)), float(np.percentile(dN, 97.5))])
-    if all(x in res['per_run'] for x in ('U', 'Z', 'L')):
+    if all(x in res['per_run'] for x in ('U', 'Z', 'F')):           # protocol 35 §9 (2026-11-24, user decision m42-L-arm): L dropped, rule = U vs Z and F
         p = res['per_run']
-        rule = dict(U_gt_Z=p['U']['F1'] > p['Z']['F1'], U_gt_L=p['U']['F1'] > p['L']['F1'],
-                    novel_U_gt_Z_and_L=p['U']['novel_recall'] > max(p['Z']['novel_recall'], p['L']['novel_recall']),
+        rule = dict(U_gt_Z=p['U']['F1'] > p['Z']['F1'], U_gt_F=p['U']['F1'] > p['F']['F1'],
+                    novel_U_gt_Z=p['U']['novel_recall'] > p['Z']['novel_recall'],
                     precision_not_below_Z_minus_2=p['U']['precision'] >= p['Z']['precision'] - 2.0)
         res['gate1_rule'] = dict(rule, continue_to_gate2=all(rule.values()))
     res['blocks'] = nb
