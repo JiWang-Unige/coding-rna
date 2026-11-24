@@ -1,0 +1,35 @@
+<section id="dropped" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Tested and dropped</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Nine directions failed bars we set in advance; each one narrowed the story rather than ending it</h2>
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:40%;text-align:left">Direction</th><th style="padding:8px 14px;width:30%;text-align:left">Test</th><th style="padding:8px 14px;width:30%;text-align:left">Result</th></tr>
+<tr><td style="padding:7px 14px;text-align:left">Beat Carbon-A with a residual head (M29)</td><td style="padding:7px 14px;text-align:left">DEV vs the Carbon-A gate</td><td style="padding:7px 14px;text-align:left">71.84 vs 74.85: dropped 17 Oct</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Adapt a head on frozen Carbon-A (M30)</td><td style="padding:7px 14px;text-align:left">U − filtered Carbon-A ≥ +3.0</td><td style="padding:7px 14px;text-align:left">−2.32 / −2.73: not met</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">More training species (M34 P2, P2b)</td><td style="padding:7px 14px;text-align:left">T10 − T2 ≥ +2.0</td><td style="padding:7px 14px;text-align:left">−0.96 DEV, −0.14 set B</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Self-training on the target genome (M36)</td><td style="padding:7px 14px;text-align:left">close ≥ 30% of the gap to Carbon-A</td><td style="padding:7px 14px;text-align:left">all 7 arms 1.5–7.7 below zero-shot</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Joint multi-assembly decoding (M37)</td><td style="padding:7px 14px;text-align:left">headroom ≥ 20%</td><td style="padding:7px 14px;text-align:left">10.3%: NO-GO</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Zero-shot near Carbon-A (C1 panel)</td><td style="padding:7px 14px;text-align:left">gap ≤ 6.0, ≥ Tiberius, Vipsania</td><td style="padding:7px 14px;text-align:left">−12.60: fails</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Intron-length states (M41)</td><td style="padding:7px 14px;text-align:left">≥ 6-segment gain ≥ +2.58</td><td style="padding:7px 14px;text-align:left">−0.74: no effect</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Partial labels on real data (M42)</td><td style="padding:7px 14px;text-align:left">U > Z and U > F</td><td style="padding:7px 14px;text-align:left">−2.01 and −0.37: stop</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Add model genes to old annotation</td><td style="padding:7px 14px;text-align:left">F1 not lower (post hoc)</td><td style="padding:7px 14px;text-align:left">−0.7 to −6.9</td></tr>
+</table>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Reports 11, 12, 14, 20, 24, 27, 31, 33, 35 · each criterion committed before its result, except the post-hoc merge rule (committed before running)</p>
+<p style="font-size:24px;color:#6B7380">27</p>
+</div>
+<aside>Each row: the question, its pre-registered bar, and the number.
+
+M29 (16–17 October): a residual head on Carbon-A's frozen offsets: DEV 71.84 below the Carbon-A gate 74.85 and filtered Carbon-A 77.41; temperature scaling (A2) also failed. We stopped competing on accuracy.
+M30 (17–19 October): adaptation on frozen Carbon-A features with 25% labels: U − filtered Carbon-A −2.32 [−2.72, −1.94] / −2.73 (needed ≥ +3.0). The mechanism part (U − F +16.50 / +14.15) held and became C2.
+M34 P2 / P2b (26 October): ten species instead of two: DEV −0.96 [−1.52, −0.29], set B −0.14 [−0.53, +0.28]. Arms T4 and T6 were withdrawn; result in Supp. S9.
+M36 (31 October): target-genome bootstrap with self-training seeds, protein seeds, their union and a fill control: every arm 1.5–7.7 below zero-shot; closure −26% / −63% (needed +30%); C2 withdrawn for pseudo-labels (F − S1 −0.94 [−1.61, −0.28], under the 2-point bar although F is significantly worse).
+M37 (22 October): joint decoding across assemblies: headroom 10.3% < 20%.
+C1 panel (17 November): −12.60 against filtered Carbon-A, also below Tiberius (−4.20) and Vipsania ft (−2.36).
+M41 (22 November): −0.74 [−1.71, +0.23] against the +2.58 bar.
+M42 gate 1 (24 November): U − Z −2.01 [−2.56, −1.50], U − F −0.37 [−0.75, +0.01]; missing-locus recall 15.70 vs 16.15.
+Merge (24 November, post hoc with rules committed first): F1 −0.7 to −6.9 against the old annotation.
+
+Earlier (June–September, M1–M27): fixed-caller cross-species transfer, CRF and Tversky losses on per-base models, the M25R structure head and many M28 candidate pools also failed their bars (report 03).
+
+Why keep them. Each is pre-registered, so they are honest negative results. Two of them (M36, M42) are directly relevant to C2's limits and belong in the paper; most others belong in the supplement.</aside>
+</section>

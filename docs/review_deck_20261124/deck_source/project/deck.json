@@ -1,0 +1,88 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T22:25:00Z"
+  },
+  "lists": "css",
+  "title": "coding-rna 系统梳理 · 2026-11-24",
+  "order": [
+    "cover",
+    "problem",
+    "journey",
+    "problems",
+    "changes",
+    "claims",
+    "method",
+    "c1-dev",
+    "c1-setb",
+    "c1-panelset",
+    "c1-panel",
+    "c2-m30",
+    "c2-p4",
+    "c2-dyn",
+    "c2-m36",
+    "c2-critique",
+    "c2-m42design",
+    "c2-m42",
+    "c2-merge",
+    "c3-calib",
+    "c3-rel",
+    "c3-sel",
+    "c4-strata",
+    "c4-replay",
+    "c4-long",
+    "c4-m41",
+    "dropped",
+    "integ-exposure",
+    "integ-truth",
+    "integ-stats",
+    "synthesis",
+    "status",
+    "branches",
+    "timeline",
+    "limits",
+    "questions"
+  ],
+  "sections": {
+    "s0": {
+      "description": "The problem, how we got here, the problems we hit, what changed, the claims and the model",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "C1: one grammar layer on several backbones; the panel verdict",
+      "start": "c1-dev"
+    },
+    "s2": {
+      "description": "C2: training on incomplete annotation, its critiques and the oracle-free test",
+      "start": "c2-m30"
+    },
+    "s3": {
+      "description": "C3: gene posteriors on the final model",
+      "start": "c3-calib"
+    },
+    "s4": {
+      "description": "C4: where the errors are; long genes",
+      "start": "c4-strata"
+    },
+    "s5": {
+      "description": "What was tested and dropped, and how far the evidence can be trusted",
+      "start": "dropped"
+    },
+    "s6": {
+      "description": "Synthesis, status, pending results, timeline, limits and the questions to settle",
+      "start": "synthesis"
+    }
+  },
+  "faces": {
+    "source-serif-4": {
+      "family": "Source Serif 4",
+      "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"
+    },
+    "ibm-plex-sans": {
+      "family": "IBM Plex Sans",
+      "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap"
+    }
+  },
+  "designSystems": []
+}

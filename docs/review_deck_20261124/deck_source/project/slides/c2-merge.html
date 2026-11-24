@@ -1,0 +1,28 @@
+<section id="c2-merge" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C2 · Could it help in practice? (post hoc)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Added on top of the old annotation, model genes in its gaps recover 7–20% of missing loci but lower F1, because only 5–15% of them are right</h2>
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:34%;text-align:left">Old annotation plus</th><th style="padding:8px 14px;width:16%;text-align:right">Added chains</th><th style="padding:8px 14px;width:18%;text-align:right">Right among added</th><th style="padding:8px 14px;width:14%;text-align:right">F1</th><th style="padding:8px 14px;width:18%;text-align:right">Missing loci found</th></tr>
+<tr><td style="padding:7px 14px;text-align:left">nothing</td><td style="padding:7px 14px;text-align:right">—</td><td style="padding:7px 14px;text-align:right">—</td><td style="padding:7px 14px;text-align:right"><b>74.68</b></td><td style="padding:7px 14px;text-align:right">0</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Z inside evidence regions</td><td style="padding:7px 14px;text-align:right">431</td><td style="padding:7px 14px;text-align:right">14.8%</td><td style="padding:7px 14px;text-align:right">73.75</td><td style="padding:7px 14px;text-align:right">9.5%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">U inside evidence regions</td><td style="padding:7px 14px;text-align:right">465</td><td style="padding:7px 14px;text-align:right">12.3%</td><td style="padding:7px 14px;text-align:right">73.57</td><td style="padding:7px 14px;text-align:right">8.4%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">F inside evidence regions</td><td style="padding:7px 14px;text-align:right">309</td><td style="padding:7px 14px;text-align:right">14.9%</td><td style="padding:7px 14px;text-align:right">74.01</td><td style="padding:7px 14px;text-align:right">6.8%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">U3 inside evidence regions</td><td style="padding:7px 14px;text-align:right">891</td><td style="padding:7px 14px;text-align:right">7.6%</td><td style="padding:7px 14px;text-align:right">72.21</td><td style="padding:7px 14px;text-align:right">10.1%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Z anywhere in the gaps</td><td style="padding:7px 14px;text-align:right">949</td><td style="padding:7px 14px;text-align:right">11.5%</td><td style="padding:7px 14px;text-align:right">72.40</td><td style="padding:7px 14px;text-align:right">16.2%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">U anywhere in the gaps</td><td style="padding:7px 14px;text-align:right">1,140</td><td style="padding:7px 14px;text-align:right">9.3%</td><td style="padding:7px 14px;text-align:right">71.73</td><td style="padding:7px 14px;text-align:right">15.7%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">U3 anywhere in the gaps</td><td style="padding:7px 14px;text-align:right">2,492</td><td style="padding:7px 14px;text-align:right">5.3%</td><td style="padding:7px 14px;text-align:right">67.77</td><td style="padding:7px 14px;text-align:right">19.7%</td></tr>
+</table>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Protocol 35 §8.4 · rules written before running · jujube E · old-identical genes kept at 98.0% in every row</p>
+<p style="font-size:24px;color:#6B7380">19</p>
+</div>
+<aside>Why this analysis (your decision "路线A加合并分析", 24 November). If the model cannot replace an old annotation, can it at least add the genes the old annotation missed, without harming the genes it already has right? The rules were written and committed (e2478e9) before running.
+
+Rules. Keep every old CDS chain on E. Add a model chain if no CDS base overlaps any old CDS on either strand (G0, "anywhere in the gaps"), or additionally only if its CDS span lies entirely inside the E evidence region, i.e. protein hits ±2 kb (G1, "inside evidence regions"; 64.6 Mb, 43% of E). Same ruler and bootstrap as gate 1.
+
+Results. Every merged set keeps 98.0% of the old-identical genes. Missing-locus recall rises to 6.8–19.7%, but the added chains are mostly wrong (5.3–14.9% hit a new-release chain exactly), so F1 drops 0.7 to 6.9 points below the old annotation. The pre-written "practical value" condition (F1 not lower and missing-locus recall higher) is not met.
+
+Paired differences (1-Mb blocks): old + U (G1) − old: F1 −1.11 [−1.29, −0.92], missing loci +8.44 [+5.99, +10.90]. old + U (G1) − old + Z (G1): −0.19 [−0.29, −0.08] and −1.04 [−2.00, −0.15]. old + U (G1) − old + F (G1): −0.44 and +1.63 [+0.78, +2.59]. old + U (G0) − old: −2.94 and +15.70. old + Z (G1) − old: −0.92 and +9.48.
+
+Reading. The evidence gate halves the additions and slightly raises their precision, but what it finds is almost only evidence-supported loci (0.7–2.2% of the evidence-free ones). U is again no better than the zero-shot model; it only beats F on missing loci (+1.63), consistent with gate 1. For the paper: an honest upper limit on recovering missed genes, and a stated limitation that model calls in annotation gaps are of low precision.</aside>
+</section>

@@ -1,0 +1,16 @@
+<section id="c3-sel" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C3 · Final model on the panel</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Ranking works: a threshold frozen on another backbone raises F1 in 10 of 10 species (+3.08 pooled); AUROC 0.77 against 0.58 for the decode gain</h2>
+<img src="/_blob/69dbe860b88b3e23b8e5f35d020ed682" alt="Left: risk-coverage, keeping 100, 90, 80, 70, 50 percent of chains by posterior: precision 53.4, 58.8, 64.0, 67.9, 73.1; F1 53.0, 55.3, 56.4, 55.4, 48.3; Carbon-A precision with its own confidence 73.9 at 70 percent and 78.4 at 50 percent. Right: F1 change from the frozen threshold per species, all positive: Hakea +7.7, Amborella +7.5, Akebia +5.0, Acorus +1.9, Zizania +1.7, Dryas +1.7, Rhynchospora +1.5, Eschscholzia +1.3, Juncus +1.3, Themeda +1.0." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 36 §7 · threshold log P ≥ −1.400 from M33 (NT-v2), not re-tuned for T2 · Carbon-A ranked by its own confidence</p>
+<p style="font-size:24px;color:#6B7380">22</p>
+</div>
+<aside>Ranking. AUROC of log P against exact-chain hit: 0.768 pooled (species 0.682–0.874), against 0.581 for the decoder's gain score; difference +0.187 [+0.182, +0.192] (1-Mb block bootstrap, 4,779 blocks). AP 0.736 against 0.572. Carbon-A's dedicated confidence network ranks its own predictions with AUROC 0.751 (ECE 0.079); the two AUROCs are on different prediction sets, so not strictly paired.
+
+Selective annotation. Keeping chains by posterior: precision 53.4 → 58.8 → 64.0 → 67.9 → 73.1 at 100 / 90 / 80 / 70 / 50% kept; F1 peaks at 80% (56.4 against 53.0). At 70% coverage T2's precision is 6.0 points below Carbon-A's at the same coverage [−6.3, −5.7]; this mostly reflects T2's weaker base predictions (unfiltered F1 7.4 points lower), not the posterior.
+
+Frozen threshold. log P ≥ −1.400 was chosen by M33 on NT-v2's internal validation and never re-tuned. On the panel it keeps 85% of T2's chains and raises F1 in 10 of 10 species: Hakea +7.68, Amborella +7.52, Akebia +5.01, then +0.97 to +1.90; pooled 53.04 → 56.12 (+3.08). Carbon-A's own conf ≥ 0.1 filter gains +1.61 (60.41 → 62.02). Filtered T2 (56.12) remains below filtered Carbon-A (62.02).
+
+What C3 can say. The gene-level posterior is a useful ranking score, far better than the decoder's gain and comparable to Carbon-A's separately trained confidence network; a threshold set on another backbone transferred to ten independent species. The probabilities themselves are over-confident and should not be read as error rates (previous slide).</aside>
+</section>

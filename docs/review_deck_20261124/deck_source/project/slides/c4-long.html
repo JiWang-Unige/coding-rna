@@ -1,0 +1,16 @@
+<section id="c4-long" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C4 · Where the errors are</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Half of T2’s recall gap to Carbon-A is genes longer than 10 kb: recall falls to 24%, 3% and 0%, and the main error is splitting</h2>
+<img src="/_blob/06735b9be30453b994200fe0f179ed9e" alt="Left: exact-chain recall by CDS span, T2 versus unfiltered Carbon-A: under 2 kb 49 vs 51, 2–5 kb 65 vs 68, 5–10 kb 53 vs 64, 10–20 kb 24 vs 59, 20–50 kb 3 vs 54, at least 50 kb 0 vs 46. Right: error type of genes T2 misses and Carbon-A finds: split 44 percent in Hakea, 39 in Amborella, 31 in Akebia, 8–9 in Dryas and Eschscholzia, where one shifted junction dominates." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 37 §C.2 (plan written before computing) · core-10 panel, 247,922 references · M29 R4 error rules · one run per tool</p>
+<p style="font-size:24px;color:#6B7380">25</p>
+</div>
+<aside>What was done (report 37 part B). For every panel reference (247,922, same ruler as report 31), whether T2 and unfiltered Carbon-A reproduce its exact chain, stratified by CDS span and by exon count; each miss is put into one structural error class with the M29 R4 rules (no call, wrong strand only, merge, split, endpoint only, exon missed, exon extra, one junction shifted, complex).
+
+Recall. Pooled T2 52.7, Carbon-A 59.1 (gap 6.5). By CDS span, T2 / Carbon-A: < 2 kb 49.1 / 50.9 (106,293 genes); 2–5 kb 65.4 / 67.9 (86,000); 5–10 kb 53.0 / 64.0 (34,891); 10–20 kb 24.1 / 59.2 (13,831); 20–50 kb 3.3 / 53.6 (5,800); ≥ 50 kb 0.0 / 45.6 (1,107). Genes ≥ 10 kb are 8.4% of the references but contribute 3.3 of the 6.5-point recall gap. By exon count the gap grows gradually (1: 50.2 / 52.7; 6–9: 56.9 / 65.8; 20+: 41.1 / 59.7); by span it falls off a cliff near 10 kb.
+
+Gap genes (T2 misses, Carbon-A hits; 25,900 pooled; the reverse 9,794). Pooled: one junction shifted 23%, split 23%, single-exon miss 12%, no call 11%, complex 11%. Hakea (4,493): split 44%; Amborella (4,184): 39%; Akebia (3,850): 31%. Controls Dryas (1,650) and Eschscholzia (2,105): one junction shifted 35% / 32%, split only 8–9%. Monocots Zizania and Themeda: single-exon misses (29%) and no calls.
+
+Reading. In the three species with the largest gap, long genes are cut into pieces: a long-range joining problem, consistent with the older C4 finding (errors are wrong joins). The grammar and decoder have no length cap (exact skyline decoding over whole sequences). A hypothesis, not tested: training windows have a 24,576-bp core, so genes longer than that were never seen complete in training. Short genes (2–5 kb) differ by only 2.5 points, mostly single shifted splice sites.</aside>
+</section>

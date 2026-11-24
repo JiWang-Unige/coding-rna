@@ -1,0 +1,22 @@
+<section id="c2-m36" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C2 · Where it stops</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">With pseudo-labels the advantage is gone: all seven adaptation arms end 1.5–7.7 points below zero-shot (M36 NO-GO)</h2>
+<img src="/_blob/a486041b6ed377b9d196d2e001f0fc9c" alt="Forest plot of adaptation arm minus zero-shot on set B with 95% CIs, all below zero. Dryas: S1 minus 2.39, S2 minus 5.81, S3 minus 1.53, F1 minus 3.33. Eschscholzia: S1 minus 4.84, S2 minus 7.65, S3 minus 3.04. Closure from minus 26% to minus 159%. Right: F1 minus S1 on Dryas is minus 0.94, inside the withdrawal zone of the C2 clause (at least minus 2.0)." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 27 §2–3 · set B, evaluated once · base model T10, 512 LoRA steps per arm, one seed · gene-unit bootstrap CI</p>
+<p style="font-size:24px;color:#6B7380">15</p>
+</div>
+<aside>What M36 asked. Can the model adapt to a new genome without reference labels, by training on its own confident predictions or on protein alignments as fine labels and marginalising everything else? On 21 October this was promoted to the paper’s first claim. Protocol 22 fixed the criteria before any output (ambiguities resolved on 26 October, decision m36-ambiguities).
+
+Design. Base model T10 (PlantCAD2 + LoRA, ten species, step 3,072). Arms: Z = zero-shot; S1 = self-training seeds (zero-shot chains with log P ≥ −1.400 and CDS ≥ 96 bp); S2 = miniprot protein-alignment chains; S3 = S1 ∪ S2; F1 = S1 seeds with the rest filled as background (Dryas only). 512 LoRA steps each. Scored once on set B (Dryas: 4 chromosomes; Eschscholzia: 3 scaffolds). Main statistic: paired bootstrap over gene units plus 100 kb orphan bins; the 1-Mb block bootstrap gives the same verdict.
+
+Criteria. GO: S1 or S3 closes at least 30% of the gap between Z and filtered Carbon-A in both species, with the CI of (arm − Z) above 0. GO-strong: S2 or S3 within 2.0 points of filtered Carbon-A in both species. NO-GO: no S arm reaches 30% closure in a species. C2 withdrawal clause: if F1 − S1 ≥ −2.0, the marginalise-beats-fill claim is withdrawn for this setting.
+
+Result (report 27, 31 October). Every arm is below Z: Dryas S1 −2.39, S2 −5.81, S3 −1.53, F1 −3.33; Eschscholzia S1 −4.84, S2 −7.65, S3 −3.04; every CI is entirely below 0. The best closure is S3 at −26% and −63%. NO-GO. F1 − S1 = −0.94 [−1.61, −0.28]: fill is still worse, but by less than 2 points, so the withdrawal clause is triggered.
+
+How it fails (descriptive, report 27 §4). Marginalised arms keep the same number of correct chains but predict more (Dryas Z 9,791 predictions; adapted arms up to about +29%): unknown regions do not penalise extra calls. F1 under-calls instead (5,827 correct versus 6,572). The seeds were noisy: S1 precision 0.746 / 0.729 and recall 0.677 / 0.665; S2 precision 0.77–0.78 but recall only 0.234 / 0.146. Posterior filtering lifts every arm but all stay below filtered Z. Self-training also breaks calibration: S1 ECE 0.187 / 0.208 versus 0.059 / 0.089 for Z.
+
+Consequences. The bootstrap direction is dropped and reported as a pre-registered negative result (draft Supp. S10). C2 is narrowed to reference labels that are correct but incomplete (previous two slides). In the draft outline revision, Nature Methods is no longer a target because the only route to it was a GO-strong M36. The outline of 17 November adopted that revision.
+
+If asked “so is marginalisation wrong?” — no: with correct labels it avoids the recall loss (M30, P4); with noisy positive labels it lets errors in unknown regions go unpunished. Usable incomplete supervision is “correct but partial”, not “plentiful but noisy”.</aside>
+</section>

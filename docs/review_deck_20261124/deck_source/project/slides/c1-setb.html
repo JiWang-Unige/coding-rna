@@ -1,0 +1,25 @@
+<section id="c1-setb" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C1 · Zero-shot on new plants</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Zero-shot on two time-held-out plants, T2 is 5.4 and 4.9 points below filtered Carbon-A; with NT-v2 the gap was 24 and 29</h2>
+<img src="/_blob/a929f5dad6dd70d1e9b33086b0a279ba" alt="Zero-shot exact-chain F1 on set B. Filtered Carbon-A 73.98 Dryas and 73.32 Eschscholzia; unfiltered 72.32 and 71.75; T2 68.57 and 68.39; T10 68.11 and 68.50; NT-v2 plus LoRA 49.92 and 44.09. Gaps to filtered Carbon-A: T2 minus 5.41 and minus 4.93, NT-v2 minus 24.05 and minus 29.23. Hollow diamonds give each model's DEV score." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 20 §10 (P2b) and report 18 §3 · set B scored once per model · no posterior filter on our models · one seed</p>
+<p style="font-size:24px;color:#6B7380">9</p>
+</div>
+<aside>What set B is. Held-out chromosomes of two plants whose genome releases postdate the training data of the tools we compare against (time-held-out; M30 protocol 13 §2): Dryas octopetala, 4 chromosomes, 102.8 Mb, 9,508 reference genes; Eschscholzia californica, 3 scaffolds, 170.5 Mb, 12,367 genes. Neither species is in PlantCAD2’s pretraining or in any of our training sets. Each model is scored once, zero-shot, without our posterior filter.
+
+Numbers (Dryas / Eschscholzia).
+- T2 (PlantCAD2 + LoRA, trained on Arabidopsis + rice only): 68.57 [66.55, 70.20] / 68.39 [66.98, 69.65].
+- T10 (same recipe, ten species): 68.11 / 68.50.
+- NT-v2 + LoRA (M31 B): 49.92 [48.95, 50.95] / 44.09 [43.17, 45.02]; with its posterior filter 52.40 / 46.39.
+- Carbon-A unfiltered 72.32 / 71.75; filtered 73.98 / 73.32 (recomputed three times with identical results: M30, M33 and M36).
+- Gaps to filtered Carbon-A: T2 −5.41 / −4.93; T10 −5.87 / −4.82; NT-v2 + LoRA −24.05 / −29.23 (paired, report 18); unfiltered minus filtered Carbon-A −1.66 / −1.58. Against unfiltered Carbon-A, T2 is −3.75 / −3.36. (The outline of 21 October paired the unfiltered NT-v2 scores with the filtered-NT-v2 gaps, 21.6 / 26.9; the unfiltered gaps are 24.05 / 29.23.)
+
+Yardsticks. T2 and T10 CIs come from a 1-Mb block bootstrap; NT-v2 and Carbon-A CIs from the gene-unit bootstrap used in M33. There is no paired CI for T2 versus Carbon-A on set B yet; the gaps above are point differences.
+
+What changed the picture. On 21 October (M33) the cross-species result looked like a collapse: NT-v2 + LoRA lost 13.7 and 19.5 points from DEV to set B, against 2.9 and 3.5 for Carbon-A. Swapping in the plant-pretrained backbone moved set B from 49.9 / 44.1 to 68.6 / 68.4 under the same grammar and the same two training species. So the collapse came mostly from the backbone, not from the number of training species (ten species did not help either; see Tested and dropped).
+
+What it does not show. The drop from DEV to set B for T2 (−5.3 / −5.5) mixes generalisation with exposure: the DEV species are in PlantCAD2’s pretraining and the set B species are not. Two species are not a panel; on the ten-plant panel the gap to filtered Carbon-A widened to 12.60 points (the verdict slide). Posterior filtering is not applied here; on T10 it adds +2.03 / +1.47 (68.11 to 70.14, 68.50 to 69.97; report 27 §4), which would leave T10 3.8 / 3.4 points below filtered Carbon-A. T2’s filtered set B numbers have not been computed.
+
+The sentence in the outline (draft): “trained only on Arabidopsis and rice annotation, PlantCAD2 + LoRA approaches Carbon-A zero-shot on time-held-out plants not in its pretraining” — this sentence is withdrawn: the panel criterion failed on 17 November.</aside>
+</section>

@@ -1,0 +1,24 @@
+<section id="questions" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Questions to settle together</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Before writing, we need to agree on the story; these are the choices I see, with my view</h2>
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:22%;text-align:left">Question</th><th style="padding:8px 14px;width:50%;text-align:left">Options</th><th style="padding:8px 14px;width:28%;text-align:left">My view</th></tr>
+<tr><td style="padding:7px 14px;text-align:left">1. What is the paper about?</td><td style="padding:7px 14px;text-align:left">(a) a method: training on incomplete labels + gene confidence, with an honest benchmark; (b) an analysis: what limits DNA-LM gene annotators (backbone, labels, length)</td><td style="padding:7px 14px;text-align:left">(a), with (b)’s findings as its second half</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">2. Is Genome Biology right?</td><td style="padding:7px 14px;text-align:left">GB · NAR GB · Bioinformatics</td><td style="padding:7px 14px;text-align:left">GB is a stretch without a biological result; NAR GB fits</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">3. Add an experiment?</td><td style="padding:7px 14px;text-align:left">GeneCAD (240–340 yuan) · long-window training for long genes · nothing</td><td style="padding:7px 14px;text-align:left">GeneCAD yes; long windows only if it is the headline</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">4. Where do negatives go?</td><td style="padding:7px 14px;text-align:left">M42 and M36 in main text (C2’s limits); M41, M34, M29 in supplement</td><td style="padding:7px 14px;text-align:left">as listed</td></tr>
+</table>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Writing skill rules: no core claim, no article; journal, title and authors are your decisions</p>
+<p style="font-size:24px;color:#6B7380">36</p>
+</div>
+<aside>1. The story. Option (a), a method paper: "a probabilistic gene grammar lets DNA language models learn from incomplete annotations without being taught that missing genes are background, and gives a gene-level confidence; on independent plants it is honest about where it falls short (long genes)". Option (b), an analysis paper: "what limits DNA language model gene annotators: the backbone sets accuracy, incomplete labels hurt unless marginalised but do not add information, and long genes break". My view: (a) with the findings of (b) as its second half; it matches the evidence and keeps C2 as the core claim in its narrow form.
+
+2. Journal. You chose Genome Biology on 24 November. Genome Biology editors usually want a biological result or a broadly useful tool; we have neither a state-of-the-art tool nor a new biological finding. NAR Genomics and Bioinformatics fits a method-plus-benchmark paper with negative results. I would keep GB only if we add something that changes the story (question 3).
+
+3. Experiments. GeneCAD makes the benchmark table complete and answers the most likely reviewer question (same backbone, different head); about 240–340 yuan on CAU or free on Baobab after 1 December. A long-window training run could test the long-gene hypothesis and, if it worked, would be a real result; it is new GPU work (several days) and would need its own protocol. M39 runs anyway when ont returns.
+
+4. Negatives. M42 and M36 define C2's limits and belong in the main text; M41, the multi-species result, M29/M30 accuracy attempts and M37 go to the supplement as pre-registered negatives.
+
+After we settle these, I will write the story architecture again and start with figures and Results.</aside>
+</section>

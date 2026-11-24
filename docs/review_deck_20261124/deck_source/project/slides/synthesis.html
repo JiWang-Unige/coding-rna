@@ -1,0 +1,34 @@
+<section id="synthesis" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Synthesis</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">What the evidence supports: a safe way to train on incomplete labels and a useful gene confidence score, not a more accurate annotator</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#E4ECF3;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Holds</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">One grammar layer trains on three backbones; the backbone sets accuracy (+8.6 PlantCAD2 over NT-v2)</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Posteriors rank genes (AUROC 0.77); a frozen threshold helps 10 of 10 species</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F2F0EA;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Holds with limits</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Marginalising beats filling when missing genes are known (M30; P4 in 2 seeds), but training is unstable</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Posteriors are over-confident across species</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F5E6DC;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Failed</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Zero-shot near Carbon-A (−12.6 on the panel)</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Partial labels on a real incomplete annotation (M42)</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">More species, self-training, intron states</p>
+</div>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#3D4757;border-left:6px solid #1F5F8B;padding:6px 0 6px 24px"><b style="color:#1B2430">The shared weakness:</b> long genes. Above 10 kb T2 recalls 0–24% of genes against Carbon-A’s 46–59%, mostly by splitting them.</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">All claims slides · reports 20, 21, 31, 35, 36, 37</p>
+<p style="font-size:24px;color:#6B7380">31</p>
+</div>
+<aside>How the pieces fit. The grammar layer gives two properties that the competing tools do not have by construction: training with unknown positions summed out, and gene-level posteriors from the partition function. Accuracy, on the other hand, comes from the backbone: swapping NT-v2 for PlantCAD2 under the same layer moved DEV by +8.6 and set B by about +20 points, while adding species, self-training or a richer intron model did not help.
+
+The properties hold in a narrow form. Marginalising is safer than filling whenever we know which genes are unlabelled (M30, P4 two seeds); but the oracle-free test M42 shows that, with a real old annotation and protein evidence, training on the target genome does not beat the zero-shot model, and M36 showed the same with pseudo-labels. The posterior is a good ranking score and a portable filter, but not a calibrated probability across species.
+
+The accuracy gap to Carbon-A on the independent panel (12.6 points median) is concentrated in long genes, which T2 splits. That is the clearest target for future work and the most likely reviewer question.
+
+What this means for the story (to discuss on the questions slide). The honest paper is about how to learn gene structure from the incomplete annotations that real genomes have, and what that buys and does not buy: a method plus an honest benchmark. It is not a new state of the art.</aside>
+</section>

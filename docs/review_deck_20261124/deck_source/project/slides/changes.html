@@ -1,0 +1,33 @@
+<section id="changes" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">What changed since 2 November</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">C1 failed on the panel, C2 survived only where the missing genes are known, and C3 and C4 have their final numbers</h2>
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:20%;text-align:left"></th><th style="padding:8px 14px;width:30%;text-align:left">2 November</th><th style="padding:8px 14px;width:50%;text-align:left">24 November</th></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C1</b> zero-shot</td><td style="padding:7px 14px;text-align:left">waiting for the panel</td><td style="padding:7px 14px;text-align:left">fails: median 55.05 vs 67.65 (−12.60)</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C2</b> P4</td><td style="padding:7px 14px;text-align:left">+3.24, one seed</td><td style="padding:7px 14px;text-align:left">holds in two seeds (+3.24, +14.97); unstable</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C2</b> in reality</td><td style="padding:7px 14px;text-align:left">not tested</td><td style="padding:7px 14px;text-align:left">M42 stops: U − zero-shot −2.01</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C3</b> posteriors</td><td style="padding:7px 14px;text-align:left">NT-v2 only</td><td style="padding:7px 14px;text-align:left">T2 panel: AUROC 0.77, ECE 0.088, over-confident</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C4</b> errors</td><td style="padding:7px 14px;text-align:left">segment strata on DEV</td><td style="padding:7px 14px;text-align:left">genes ≥ 10 kb: recall 0–24% vs 46–59%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Seeds</td><td style="padding:7px 14px;text-align:left">one run per model</td><td style="padding:7px 14px;text-align:left">T2 three runs; P4 two runs per arm</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Target</td><td style="padding:7px 14px;text-align:left">NC if C1 holds</td><td style="padding:7px 14px;text-align:left">Genome Biology (your choice, 24 Nov)</td></tr>
+</table>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Reports 20 §16, 31 §6, 35 §8, 36 §7, 37 · presubmission plan 20261123 · dashboard decisions of 24 Nov</p>
+<p style="font-size:24px;color:#6B7380">5</p>
+</div>
+<aside>Seven changes, in the order they arrived.
+
+1. C1 (17 November, report 31 §6). The pre-registered panel criterion needed T2's median on the core-10 panel to be at least the medians of Helixer, Tiberius and Vipsania fine-tuned, and within 6.0 points of filtered Carbon-A. Result: T2 55.05 [54.23, 55.78]; Helixer 42.10, Tiberius 59.25, Vipsania ft 57.41, ANNEVO 63.08, Carbon-A unfiltered 65.73 and filtered 67.65 [67.05, 68.25]; T2 − filtered Carbon-A = −12.60 [−13.65, −11.65]. Fails. The Nature Communications route closed; the outline of 17 November moved C2 to the lead.
+
+2. P4 seed 2 (21 November, report 20 §16.2). Registered on 9 November before any seed-2 output: the two-seed mean of k50U − k50F ≥ +2.0 and the per-species mean positive in ≥ 6 of 8. Seed 2: 69.03 − 54.06 = +14.97, 8 of 8. Mean +9.10, 8 of 8. Holds. Most of seed 2's margin is k50F_s2 under-calling (recall 43.7%).
+
+3. Outside review (23 November). ChatGPT read the repository; I verified two critiques: the unknown mask in M30/P4 was placed with the complete annotation (report 19 §3.10 already called it an upper bound), and T2 trained with zero labels of the eight new species scores 68.84 on them, against k50U 67.86 / 69.03.
+
+4. M42 (24 November). Route B, gates 0 and 1, your decision. Gate 0 passed; gate 1 stopped: U − Z = −2.01 [−2.56, −1.50]. You then chose route A plus a merge analysis.
+
+5. C3 (report 36). T2's posteriors on the panel: AUROC 0.768, ECE 0.088; the P ≥ 0.9 bin is right 77% of the time.
+
+6. C4 (report 37). Recall of genes with CDS span 10–20, 20–50 and ≥ 50 kb: T2 24.1, 3.3, 0.0; Carbon-A 59.2, 53.6, 45.6.
+
+7. Seeds and target. T2 now has three runs (DEV 73.88 / 74.09 / 71.65); P4 two per arm. You chose Genome Biology on 24 November and asked for this review before deciding the story.</aside>
+</section>

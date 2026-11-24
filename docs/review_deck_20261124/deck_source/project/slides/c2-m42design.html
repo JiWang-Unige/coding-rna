@@ -1,0 +1,40 @@
+<section id="c2-m42design" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C2 · Oracle-free test (M42)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">M42 tests C2 on a real incomplete annotation: the 2016 RefSeq release of jujube as labels, the 2018 release as truth</h2>
+<div style="display:flex;flex-direction:row;gap:36px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:25px;line-height:1.35;color:#3D4757"><b style="color:#1B2430">Data:</b> Ziziphus jujuba, one assembly, two releases (AR100 2016 → AR101 2018); 6 chromosomes train (A), 6 evaluate (E)</p>
+<p style="font-size:25px;line-height:1.35;color:#3D4757"><b style="color:#1B2430">Labels:</b> 10,472 complete old genes on A as positives</p>
+<p style="font-size:25px;line-height:1.35;color:#3D4757"><b style="color:#1B2430">Unknown:</b> cross-species protein hits ±2 kb (V1), or everything (V3)</p>
+<p style="font-size:25px;line-height:1.35;color:#3D4757"><b style="color:#1B2430">Arms:</b> Z zero-shot T2 · U marginalise · F fill · U3 all unknown; 512 LoRA steps from T2</p>
+<p style="font-size:25px;line-height:1.35;color:#3D4757"><b style="color:#1B2430">Rules:</b> written before results (protocol 35); new release read only at the end</p>
+</div>
+<div style="flex:1">
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:40%;text-align:left">Gate 0 audit on A</th><th style="padding:8px 14px;width:34%;text-align:left">Missing loci fully unknown</th><th style="padding:8px 14px;width:26%;text-align:left">Unknown share</th></tr>
+<tr><td style="padding:7px 14px;text-align:left">V1 evidence ±2 kb</td><td style="padding:7px 14px;text-align:left"><b>32.8%</b> (247 / 753)</td><td style="padding:7px 14px;text-align:left">24.4%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Random, like V1</td><td style="padding:7px 14px;text-align:left">11.2%</td><td style="padding:7px 14px;text-align:left">21.2%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">V2 evidence ±10 kb</td><td style="padding:7px 14px;text-align:left">57.1%</td><td style="padding:7px 14px;text-align:left">56.5% ✗</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">V3 all unknown</td><td style="padding:7px 14px;text-align:left">81.7%</td><td style="padding:7px 14px;text-align:left">100%</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Oracle (as in P4)</td><td style="padding:7px 14px;text-align:left">100%</td><td style="padding:7px 14px;text-align:left">1.7%</td></tr>
+</table>
+</div>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#3D4757;border-left:6px solid #1F5F8B;padding:6px 0 6px 24px">Gate 0 passed with V1: it covers missing genes 2.9× better than chance, but two thirds of them still sit partly in background.</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Protocol 35 §1–§7 · GCF_000826755.1 · audit on training chromosomes A only · 753 missing loci on A</p>
+<p style="font-size:24px;color:#6B7380">17</p>
+</div>
+<aside>Design (protocol 35, committed before any data were downloaded). Species chosen from NCBI metadata only: same assembly accession with an older and a newer RefSeq annotation release, chromosome level, not in PlantCAD2's pretraining, enough newly added genes. First choice Ziziphus jujuba (Rosales; AR100 March 2016 → AR101 May 2018; 438 Mb); confirmation species Solanum pennellii; an insect added for gate 2 by your decision.
+
+Split. Twelve chromosomes ranked by length; odd ranks train (A), even ranks evaluate (E).
+Positives. Old-release representative transcripts on A that are complete and valid (start/stop, frame, canonical splice sites, no gaps): 10,472 of 11,271 genes.
+Evidence. miniprot alignments of the same ten species' proteins used in M36 (not jujube's own): hits with ≥ 50% coverage and ≥ 40% identity.
+Masks frozen before the new release was opened: V1 = evidence spans ±2 kb; V2 = ±10 kb; V3 = every non-positive base. Positives ±1 kb are never unknown.
+
+Gate 0 audit (A only, new release read after freezing). 753 genes are new in AR101 (no CDS overlap with AR100); 1,734 revised; 8,996 identical; positives cover 91.7% of identical genes. Missing loci fully inside the unknown region: V1 32.8% (random mask of V1's size 11.2%), V2 57.1% but 56.5% of non-positive bases unknown (rule ≤ 30%: fails), V3 81.7%, oracle 100% with only 1.7% unknown. Rule: V1 passes (≥ 2× random, ≤ 30% unknown) and goes to gate 1; V3 runs as the no-negative-constraint reference.
+
+Gate 1 arms. Z = T2 zero-shot. U = positives + V1 unknown + rest background. F = positives + everything else background. U3 = positives + V3. L (per-position cross-entropy) was dropped after it collapsed in the smoke test, before any scoring (your decision). Continue rule after that revision: U − Z > 0 and U − F > 0 in F1, U's missing-locus recall above Z's, and U's precision not more than 2 points below Z's.
+
+Compute. CAU ChaoBaiHe 4090 (hhbgroup02), about 41.5 yuan in total.</aside>
+</section>

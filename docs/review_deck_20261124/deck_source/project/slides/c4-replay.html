@@ -1,0 +1,22 @@
+<section id="c4-replay" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C4 · Where the errors are</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Errors are wrong joins more than missed genes, and most misses lose to a competing chain; both shown only on older backbones</h2>
+<img src="/_blob/d4393738d5b27bc89448746f274ebba6" alt="Left: fate of each reference gene on set B. For genes with six or more segments, filtered Carbon-A matches 73% exactly, 16% overlap without matching, 10% missed; NT-v2 plus LoRA matches 35%, 58% overlap without matching. Right: of 7,762 TRAIN genes missed by an M28 GENERanno model with joint encoding, 5,067 (65%) scored positive but lost to a competing chain, 2,486 (32%) scored below background, 209 (3%) were not allowed by the grammar." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">M33 failure-mode JSON (set B, NT-v2 + LoRA vs filtered Carbon-A) · report 04 replay (TRAIN, M28 joint encoding) · one seed</p>
+<p style="font-size:24px;color:#6B7380">24</p>
+</div>
+<aside>Left panel: where each reference gene of set B ends up (Dryas and Eschscholzia pooled, weighted by genes; raw file experiments/M33-NTV2-FOLLOWUP/results/diag_failure_modes.json). Three outcomes: an exact predicted chain; a predicted chain that overlaps but differs in at least one segment; no overlapping prediction.
+- One segment (4,145 genes): Carbon-A 68% exact; NT-v2 + LoRA 65%. Misses dominate the errors for both (27–28%).
+- 2–5 segments (9,667): Carbon-A 69% exact, 11% overlapping; NT-v2 47% exact, 26% overlapping.
+- ≥6 segments (8,063): Carbon-A 73% exact, 16% overlapping, 10% missed; NT-v2 35% exact, 58% overlapping, about 7% missed.
+So for multi-exon genes NT-v2 finds the gene (it overlaps something) but joins the exons wrongly. Report 18 states the overall share of “overlapping but not exact” as 33.6% and 35.0% for NT-v2, against 11–13% for Carbon-A.
+
+Right panel: the matched final-update score replay of an M28 GENERanno model with joint encoding (24,576-bp windows, DEV 66.62; not the final fresh-joint model of 16 October, DEV 70.11) on TRAIN (report 04; experiments/M28/full_grammar/reports/full_grammar_matched_energy_diagnostic.md). Of 7,762 reference genes it missed, 5,067 (65%) could be represented by the grammar and scored above background but lost to an overlapping competitor in the decoded set; 2,486 (32%) scored below background; 209 (3%) were not allowed by the grammar. That is why C4 says “scoring competition, not grammar capacity”: the grammar almost never excludes the right answer.
+
+Limits. Both panels come from backbones we no longer use as the final model: NT-v2 on set B and GENERanno on TRAIN (training data, so in-sample). The same breakdown for T2 has not been made. It compares predictions with references (M33’s diagnostic script), and T2 was run on set B for P2b, so it should be a CPU job if those predictions are still on ont (not checked here). The replay also needs the model’s energies; for T2 these would have to be recomputed, or taken from the panel inference while its potentials are still kept.
+
+Why it matters for the paper. C4 is the explanation section: it tells the reader why a plant-pretrained backbone helps (previous slide) and where a better backbone or decoder would have to improve. As it stands it is evidence about the method in general, measured on older backbones; the outline marks the PlantCAD2 replay as [to fill].
+
+What I would write today: “Most errors of the grammar layer are wrong exon joins rather than missed genes; in an M28 GENERanno model, 65% of missed genes were representable and scored positive but lost to a competing chain. A plant-pretrained backbone reduced the multi-exon deficit most (strata, slide 16).”</aside>
+</section>

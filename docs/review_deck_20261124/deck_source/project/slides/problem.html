@@ -1,0 +1,42 @@
+<section id="problem" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">The problem</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Deep gene annotators share four limits; this project targets them with one probabilistic gene-grammar layer</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:24px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Complete labels assumed</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Unannotated positions are trained as background, so a reference covering only some genes teaches the model that the rest are not genes</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:24px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">No principled gene posterior</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Carbon-A adds a separate confidence network; Tiberius, Helixer and ANNEVO give none</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:24px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">One transcript per gene</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Output and evaluation use the longest transcript only</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:24px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Tied to one backbone</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Pretraining, scale and decoder cannot be compared under control</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-left:6px solid #1F5F8B;padding:8px 0 8px 28px">
+<p style="font-size:30px;line-height:1.35;color:#1B2430"><b>Proposition.</b> A full-CDS-grammar CRF on top of any DNA language model: trained with a partial-observation likelihood (unknown positions are summed over), decoded exactly over whole contigs, with gene posteriors from the same partition function.</p>
+<p style="font-size:26px;line-height:1.35;color:#3D4757"><b>Not claimed:</b> best accuracy. Carbon-A stays ahead of our final model by 3.53 points on DEV and by 4.9–5.4 points zero-shot on set B.</p>
+</div>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Outline 20261027 §2 Introduction ¶2 (limit 1 as worded in the 1 Nov revision draft) · gaps vs Carbon-A: outline §0</p>
+<p style="font-size:24px;color:#6B7380">2</p>
+</div>
+<aside>Why the project exists, in the form the paper will argue it. The outline’s Introduction (docs/paper_outline_20261027.md §2, paragraph 2) lists four limits shared by the deep ab initio annotators (Helixer, Tiberius, ANNEVO, Carbon-A, and the plant-specific GeneCAD and PlantGeneAnn). Each limit still needs a citation; the statements about other tools come from our literature notes (review 05) and must be re-checked against their current papers and releases before submission.
+
+1. Complete labels assumed. Training treats every unannotated position as background. When a new species’ reference covers only some genes, the unlabelled true genes become negatives. The 1 November revision draft narrows this sentence: it no longer promises training from BUSCO, protein or Iso-Seq evidence, because M36 showed that noisy evidence seeds do not work (C2 slides).
+2. No principled gene-level posterior. Carbon-A trains a separate confidence network; the others report none.
+3. One transcript per gene. Outputs and benchmarks use the longest transcript. Our planned application (decision “app”, 22 October) is isoform-aware output ranked by posterior, checked against RNA-seq splice evidence; it has not started.
+4. Tied to one backbone. Each tool couples its own pretrained model, scale and decoder, so their contributions cannot be separated. Our controlled comparison (same head, grammar, data and sampling) across NT-v2, PlantCAD2 and GENERanno is claim C1.
+
+The proposition. One layer: a conditional random field over the full CDS grammar (start, stop, phase, splice sites, legality), trained by maximising the probability of the labels that are known while summing over positions that are unknown, decoded exactly over whole contigs, and giving gene posteriors from the same partition function. Any per-base DNA language model can feed it.
+
+What we do not claim. We do not claim the best accuracy. On DEV, our final model T2 (PlantCAD2 + LoRA, trained on Arabidopsis and rice) is 3.53 points below filtered Carbon-A (paired CI −4.41 to −2.76). Zero-shot on the two time-held-out plants of set B it is 5.41 (Dryas) and 4.93 (Eschscholzia) points below filtered Carbon-A. Carbon-A shares its main weights with the GENERanno preview we used until mid-October, and it was trained at a scale we cannot match on one shared GPU.
+
+How this framing came about. On 16 October the goal was to beat Carbon-A. On 17 October, after M29 showed that residual heads on frozen Carbon-A features add nothing, the user dropped the accuracy race. On 19 October the paper was repositioned as a backbone-agnostic probabilistic framework. The changes slide lists what moved since.</aside>
+</section>

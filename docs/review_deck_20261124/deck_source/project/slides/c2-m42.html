@@ -1,0 +1,25 @@
+<section id="c2-m42" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C2 · Oracle-free test (M42)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Gate 1 stops: on real missing genes U is 2.0 points below zero-shot T2 and finds no more of them; it beats fill-background only on missing loci</h2>
+<img src="/_blob/9926d6180d1a7887e5dc330b77aa53e6" alt="Two bar charts on jujube evaluation chromosomes. F1: Z 59.75, U 57.74, F 58.11, U3 55.28; old annotation used as prediction 74.68. Missing-locus recall (675 loci): Z 16.15, U 15.70, F 13.48, U3 19.70." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Protocol 35 §8.3 · jujube E chromosomes, 10,266 references, 675 missing loci · one run per arm</p>
+<p style="font-size:24px;color:#6B7380">18</p>
+</div>
+<aside>Result (24 November, scored once on the Mac; the new release never left it). References on E: 10,266 CDS-assessable primaries of AR101, of which 675 are missing from AR100 (274 with protein evidence, 401 without), 7,848 identical and 1,743 revised.
+
+F1 / precision / recall / missing-locus recall (with evidence / without) / recall of old-identical genes / predictions overlapping no gene:
+Z 59.75 / 60.10 / 59.41 / 16.15 (22.3 / 12.0) / 72.2 / 407.
+U 57.74 / 57.24 / 58.25 / 15.70 (20.1 / 12.7) / 71.0 / 477.
+F 58.11 / 60.56 / 55.85 / 13.48 (16.4 / 11.5) / 68.4 / 282.
+U3 55.28 / 50.76 / 60.68 / 19.70 (21.9 / 18.2) / 73.5 / 1,501.
+Old annotation used as a prediction: 74.68 / 74.46 / 74.90 / 0 / 98.0 / 225.
+
+Paired differences, 1-Mb block bootstrap (154 blocks, 2,000 draws): U − Z F1 −2.01 [−2.56, −1.50], missing-locus recall −0.44 [−1.98, +1.20]. U − F −0.37 [−0.75, +0.01] and +2.22 [+0.91, +3.62]. U − U3 +2.46 [+2.04, +2.95] and −4.00 [−5.75, −2.35].
+
+Verdict: stop. None of the three continue conditions holds (U − Z and U − F both ≤ 0; U's missing-locus recall 15.70 ≤ 16.15; precision 2.86 below Z).
+
+Reading (descriptive). (1) 512 steps of adaptation with the old annotation lowered F1 in all three trained arms (−1.6 to −4.5), as in M36. (2) The only detectable advantage of marginalising over filling is on missing loci (+2.2). (3) Without negatives (U3) the model finds more missing loci (19.7%, even 18.2% without evidence) at the cost of 21% more predictions. (4) Every model is far below simply keeping the old annotation (74.68): in practice a model could only add new loci.
+
+Consequence (protocol 35 §4.4). C2 is written as "partial observation when the missing positions are known" (upper bound); route A; no gate 2.</aside>
+</section>

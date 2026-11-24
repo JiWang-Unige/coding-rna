@@ -1,0 +1,45 @@
+<section id="problems" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">How we got here · problems</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Most delays were compute: one shared GPU with TE priority, a frozen cluster, a fragile host, and two of our own bugs</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">One shared GPU</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">ont's RTX 4090 is shared with the TE project, which has priority. Our queue was paused on 27 Oct, 7 Nov and since 23 Nov (M39).</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Frozen cluster</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Baobab credits fell below threshold in October: no jobs until 1 December. Modal stayed with TE. All baselines ran on ont.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Fragile host</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">ont restarted on 4, 5 and 18 Nov; CPU cores 0 and 8 segfault; the disk filled twice; OOMs in Carbon-A and Vipsania.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Our bugs</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">A gate read an empty TE-claim file as busy: 17 h idle (fixed 21 Nov). Missed waiter notices left the GPU idle 2.7 h.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">New cluster (CAU)</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Prebuilt mamba kernels need GLIBC 2.32, CAU has 2.28: built from source. M42 gate 1 cost 41.5 yuan.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Design surprises</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Arm L collapsed after 8 steps; P4's margin depends on the checkpoint; DEV was never a test of generalisation.</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Reports 00, 20, 29, 31, 33, 35 · commits 7f28143, f185c89, 0a4bb60, 01e56f6 · memory notes · verification/D_history.md</p>
+<p style="font-size:24px;color:#6B7380">4</p>
+</div>
+<aside>Compute (the main constraint). One RTX 4090 on ont, shared with the TE project, which has priority by your rule. Pauses: M34 against M36 on 27 October (SIGSTOP/SIGCONT); TE claimed the GPU from 7 November for about 2.5 days (the panel gate was changed to yield); since 23 November TE's timing benchmark has the GPU and M39 (insects) is stopped at step 2,304 of I10_k50U, expected to resume between 29 November and 2 December. Other users' jobs also blocked k50F (5.4 GB free against a 7.5 GB gate) and k25U.
+
+Baobab. Credits were 147,263 on 16 October, under the 200k threshold, so no Baobab jobs until the billing year resets on 1 December (asked first each time). Modal is reserved for TE. All six panel baselines therefore ran on ont (about 85 GPU hours) between 9 and 15 November.
+
+Host problems. ont crashed on 4 November (21:55) and shut down on 5 November (05:17), and rebooted hard on 18 November during k50F_s2 step 4. Cores 0 and 8 of the i9-13900K segfault, so they were removed from our CPU sets (11–12 November). The disk filled on 10 and 13–14 November (other users), pausing panel fine-tuning. Carbon-A crashed and retried; Rhynchospora ran out of memory; Vipsania needed batch size 1.
+
+Our own bugs. The M41 gate tested the TE claim with -e (exists) instead of -s (non-empty), so an empty claim file kept the queue waiting 17 hours (fixed in 7f28143; the panel gate had the same bug, fixed on 14 November). Three waiter notifications were missed on 9–10 November, leaving the GPU idle 1.7, 0.5 and 0.5 hours. On 24 November two CAU jobs wrote the same schedule file at once (fixed).
+
+CAU (24 November). You allocated the CAU HPC account hhbgroup02 to coding-rna. The prebuilt mamba-ssm 2.3.0 and causal-conv1d 1.6.0 wheels need GLIBC 2.32 and CAU has 2.28, so both were compiled from source with the same versions; numba and pandas were matched to ont's environment. M42 gate 1 cost about 41.5 yuan (16.85 GPU hours plus about 1.1 yuan of smoke tests and builds).
+
+Design surprises. M42's arm L (per-position cross-entropy with the CRF decoder) collapsed to zero predicted genes after 8 training steps: a small per-base shift is multiplied by gene length in the CRF score. We found this before any evaluation and dropped the arm (your decision). P4's margin depends heavily on the checkpoint (C2 slides). DEV is in both PlantCAD2's pretraining and Carbon-A's training, so it only ranks models.</aside>
+</section>

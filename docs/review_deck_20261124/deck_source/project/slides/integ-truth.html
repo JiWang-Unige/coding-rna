@@ -1,0 +1,37 @@
+<section id="integ-truth" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Integrity · how good is the truth</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">The truth is one reference transcript per gene, mostly from gene-finding pipelines, with no independent second truth</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">What counts as correct</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">One primary CDS-assessable transcript per gene (longest CDS). A hit needs the same strand and every CDS coordinate equal; phase is not compared</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Where the truth comes from</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">RefSeq: TAIR/Araport for Arabidopsis; NCBI Gnomon for rice, set B and 5 core panel species; the other 5 use submitter annotation of undisclosed method</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Second truth</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Only Arabidopsis DEV has one (Araport11), from the same lineage: 7,970 chains identical, so it confirms nothing independently</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:22px 26px">
+<h3 style="font-size:30px;font-weight:600;color:#1B2430">Known problems</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Dioscorea 10.8% non-canonical splicing; Themeda 45.6% of proteins without a hit; fern BUSCO 90.1; Gnomon style may favour Carbon-A</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">common_ruler.py, same_scope.py · reports 10, 14 §5, 19, 25 · M26 reference-pair result</p>
+<p style="font-size:24px;color:#6B7380">29</p>
+</div>
+<aside>Why this slide. Exact-chain F1 is unforgiving: one shifted splice site makes a gene wrong. So the quality of the reference decides how much any number means, and the reference here is itself the output of a gene finder.
+
+What counts as correct (code: pipeline/m28/scripts/common_ruler.py, same_scope.py; scorer a1_eval.py / a1_compare.py). For every reference gene, one primary transcript is kept: the CDS-assessable one with the longest CDS, ties broken by transcript ID. A predicted chain is a hit when it is on the same contig and strand and every CDS segment has identical coordinates; phase is not compared. Pooled F1 adds true positives, predictions and references over chromosomes. Predictions shorter than 96 bp of CDS are not scored. Alternative isoforms are invisible to this ruler: a correct alternative transcript counts as a false positive and a miss.
+
+Where the truth comes from. DEV: RefSeq GCF_000001735.4 (TAIR10.1, attributed to TAIR and Araport) and GCF_034140825.1 (AGIS 1.0, release RS_2024_06). Set B and five of the core panel species (Dryas, Eschscholzia, Akebia, Hakea, Amborella): RefSeq releases from July to October 2026 produced by NCBI’s Gnomon pipeline. The other five core species (Zizania, Themeda, Juncus, Rhynchospora, Acorus) carry GenBank submitter annotations whose method is not disclosed; report 25 says they have not passed the planned BUSCO or RNA-seq qualification. M30’s report (§5) states the obvious: these are computed annotations, not experimental truth.
+
+Second truth. Only the Arabidopsis DEV chromosome has another annotation (Araport11). It shares the lineage of the RefSeq annotation, and all 7,970 chains are identical, so it is a consistency check, not an independent truth. There is no second truth for rice, set B or the panel.
+
+Known problems. Dioscorea rotundata (one of the eight added species) has 10.8% non-canonical splice sites; Themeda has 45.6% of proteins with no homology hit, which suggests a noisy annotation; the fern’s reference reaches BUSCO 90.1, the lowest of the panel. Report 10 notes that RefSeq / Gnomon models and Carbon-A’s labels share a style, which could favour Carbon-A in exactly the comparison C1 rests on. This has not been measured.
+
+What could fool us, and what would help. A model that learns RefSeq’s habits will score well against RefSeq. Two checks would help before submission: an RNA-seq splice-junction check of a sample of disagreements on two or three panel species (CPU, and also needed for the C5 application), and BUSCO completeness of predictions versus references on the panel. Neither is planned yet.</aside>
+</section>

@@ -1,0 +1,40 @@
+<section id="limits" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Limits</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Six limits any reviewer will raise, each with its number</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Few runs</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">P4 margin +3.24 vs +14.97 between seeds; T2 runs span 3 points; most models one run</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Upper-bound setting</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">C2’s tests placed the unknown mask with the full truth; the real test (M42) failed</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Behind the best tools</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Panel median 12.6 below filtered Carbon-A, 4.2 below Tiberius</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Long genes</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">Recall 24%, 3% and 0% for 10–20, 20–50 and ≥ 50 kb, against 59, 54 and 46%</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Over-confident posteriors</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">P ≥ 0.9 bin right 77% pooled, 58% in Themeda</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#F2F0EA;border:2px solid #D9D6CC;border-radius:8px;padding:20px 24px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">Computed truth, small compute</h3>
+<p style="font-size:26px;line-height:1.35;color:#3D4757">RefSeq or submitter models, no second truth; one shared GPU</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Reports 20, 31, 35, 36, 37 · integrity slides</p>
+<p style="font-size:24px;color:#6B7380">35</p>
+</div>
+<aside>1. Runs. T2 three runs: DEV 73.88 / 74.09 / 71.65, new-species regions 68.84 / 67.28 / 65.83, set B 68.47 / 66.86 / 65.93. P4 two runs per arm with very different margins. Everything else one run. Seed spread (1.3–1.5 SD) is as large as several effects (T10 − T2 −0.96, M41 −0.74).
+2. Upper bound. M30 and P4 marked exactly the removed genes as unknown. M42 replaced that with protein evidence on a real old annotation and stopped; M36 with pseudo-labels failed too.
+3. Accuracy. Panel medians: T2 55.05, Tiberius 59.25, Vipsania ft 57.41, ANNEVO 63.08, filtered Carbon-A 67.65. On submitter-annotated species T2 is level with Tiberius and Vipsania (56.6 vs 53.3 and 56.4).
+4. Long genes. 8.4% of panel genes, half of the recall gap; splitting dominates in Hakea, Amborella, Akebia.
+5. Calibration. Pooled ECE 0.088; five species miss the high-confidence bin by more than 0.15.
+6. Truth and compute. The truth is one transcript per gene from RefSeq (Gnomon) or submitters, no RNA-seq or second truth; DEV is in PlantCAD2 pretraining and Carbon-A training. One shared RTX 4090; panel baselines run once.</aside>
+</section>

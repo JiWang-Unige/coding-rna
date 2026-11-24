@@ -1,0 +1,30 @@
+<section id="c2-critique" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C2 · Two critiques (23 November)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">An outside review found two weak points: the unknown mask was placed with the full truth, and partial labels added nothing over zero-shot</h2>
+<div style="display:flex;flex-direction:row;gap:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F2F0EA;border-radius:8px;padding:26px 30px">
+<h3 style="font-size:32px;font-weight:600;color:#1B2430">1 · The mask borrowed the truth</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4757">In M30 and P4 the positions of the unlabelled genes came from the complete annotation and were then marked unknown.</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4757">A real genome does not say where its missing genes are. These tests measure an upper bound; report 19 §3.10 already called it that.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F2F0EA;border-radius:8px;padding:26px 30px">
+<h3 style="font-size:32px;font-weight:600;color:#1B2430">2 · No net gain from partial labels</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4757">On the eight new species: T2 with <b>no</b> labels of them 68.84; k50U 67.86 / 69.03; full labels (T10) 69.62.</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4757">What C2 shows is that marginalising avoids the loss of filling (k50F 64.62 / 54.06), not that partial labels help.</p>
+</div>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#3D4757;border-left:6px solid #1F5F8B;padding:6px 0 6px 24px"><b style="color:#1B2430">Response:</b> M42 tests C2 on a real incomplete annotation (next slides). Caveat on critique 2: T2’s three runs span 65.83–68.84 on these regions, so the comparison depends on which T2 run is used.</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Presubmission plan 20261123 §1 · reports 19 §3.10, 20 §13–16 · checked by me against the reports</p>
+<p style="font-size:24px;color:#6B7380">16</p>
+</div>
+<aside>Where this came from. On 23 November, at your request, the repository was pushed and ChatGPT ("看论文" project) assessed whether the results make a Nature-family story. I verified every point before writing it down (presubmission plan §1). Two critiques were correct and material.
+
+Critique 1. The U arm in M30 and P4 takes the complete reference annotation, removes a fraction of genes from the labels, and marks exactly those genes' loci as unknown. In a newly sequenced genome nobody knows where the missing genes are: they sit somewhere in the unannotated background. So M30 and P4 test "partial observation when the missing positions are known". Our own report 19 §3.10 had labelled this an upper-bound setting; the paper outline had not.
+
+Critique 2. If partial labels are useful, a model trained with them should beat a model that never saw the species. On the same eight validation regions: T2 (trained only on Arabidopsis + rice, zero labels of the eight species) 68.84; k50U 67.86 (seed 1) and 69.03 (seed 2); T10 (all labels) 69.62; k50F 64.62 and 54.06. So half the labels plus marginalisation is roughly as good as no labels at all, while half the labels plus filling is clearly worse. The claim that survives is defensive: marginalising prevents a loss.
+
+Verification note (24 November): T2's three seeds give 68.84 / 67.28 / 65.83 on these regions (mean 67.32); the two-seed k50U mean is 68.45, 1.1 above that T2 mean. So "no net gain" holds against the best T2 run and becomes a small gain against the average run: the comparison is within seed variation either way.
+
+Response chosen. Route B, gates 0 and 1 (your decision, 23 November): build an oracle-free test where the labels and the unknown mask come only from information available in practice. That is M42 (next three slides). Literature checked at the same time: partial-label CRF training is not new (Tsuboi et al., COLING 2008, the same objective); CRFs for gene prediction exist (Conrad, CRAIG); GeneCAD already combines PlantCAD2 with a CRF. Novelty can only come from what the combination enables on real incomplete annotation.</aside>
+</section>

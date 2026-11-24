@@ -1,0 +1,20 @@
+<section id="c3-rel" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C3 · Final model on the panel</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">T2’s posteriors rank chains well but are over-confident everywhere: the P ≥ 0.9 bin is right 77% of the time, and 58% in Themeda</h2>
+<img src="/_blob/23b5110e4e722d5afb7a452becdbb7ba" alt="Left: pooled reliability curve, observed hit rate below predicted in every bin; P at least 0.9 bin predicted 0.94, observed 0.77; ECE 0.088. Right: observed hit rate of the P at least 0.9 bin per species against predicted about 0.94: Dryas 0.86, Eschscholzia 0.82, Akebia 0.82, Amborella 0.81, Zizania 0.81, Hakea 0.77, Juncus 0.75, Rhynchospora 0.74, Acorus 0.70, Themeda 0.58." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 36 §7 (plan written before computing) · core-10 panel, 244,268 chains · τ = 1 · exact-chain hit · one run</p>
+<p style="font-size:24px;color:#6B7380">21</p>
+</div>
+<aside>What was done (report 36; plan committed 8d2f82d before computing). Every gene chain T2 predicted on the core-10 panel has a posterior P(g) = exp(log_p) at τ = 1 (the temperature M33 chose). A chain is a hit if its exact CDS chain is in the panel reference (same ruler as report 31). Counts were checked first: per-species F1 of T2 and Carbon-A equal the panel table exactly.
+
+Pooled reliability (10 equal-width bins). Observed hit rate is below the mean prediction in every bin, and the gap grows with confidence: 0.45 → 0.42, 0.75 → 0.67, 0.94 → 0.77. Ranking is monotone. ECE 0.088 [0.084, 0.091]; Brier 0.199.
+
+Per species. ECE 0.047 (Dryas) to 0.219 (Themeda) and 0.214 (Acorus). The P ≥ 0.9 bin is predicted at about 0.94 in every species; observed: Dryas 0.86, Eschscholzia 0.82, Akebia 0.82, Amborella 0.81, Zizania 0.81, Hakea 0.77, Juncus 0.75, Rhynchospora 0.74, Acorus 0.70, Themeda 0.58.
+
+The rule written before computing (report 36 §6): if pooled ECE > 0.10, or any species' high-confidence bin is more than 0.15 below its prediction, the main text must say "calibration is not reliable across species". Pooled ECE 0.088 does not trigger it; five species do (exact gaps: Themeda 0.353, Acorus 0.249, Juncus 0.199, Rhynchospora 0.197, Hakea 0.169). So: not reliable across species, systematically over-confident.
+
+History. M33 (NT-v2 + LoRA): DEV ECE 0.031. T10 on set B (M36 §4): 0.059 / 0.089. The final model on new species is in the same range as T10 on set B, worse than NT-v2 on DEV.
+
+Not done. T2 posteriors on DEV (would need GPU). A temperature refit on T2's internal validation (CPU) could reduce ECE but would not fix the species-to-species spread.</aside>
+</section>

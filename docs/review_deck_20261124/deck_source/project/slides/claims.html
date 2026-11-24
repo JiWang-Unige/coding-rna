@@ -1,0 +1,26 @@
+<section id="claims" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Claims map</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Each claim survives in a narrower form; the accuracy claim (C1 zero-shot) and the real-annotation test of C2 failed</h2>
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:24%;text-align:left">Claim</th><th style="padding:8px 14px;width:38%;text-align:left">What survives</th><th style="padding:8px 14px;width:28%;text-align:left">What failed</th><th style="padding:8px 14px;width:10%;text-align:left">Slides</th></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C1</b> One grammar layer, any backbone</td><td style="padding:7px 14px;text-align:left">Trains on NT-v2, PlantCAD2 and GENERanno; the backbone sets accuracy (DEV, controlled)</td><td style="padding:7px 14px;text-align:left">Zero-shot near Carbon-A: panel −12.60</td><td style="padding:7px 14px;text-align:left">C1</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C2</b> Training on incomplete annotation</td><td style="padding:7px 14px;text-align:left">Marginalising beats filling when missing genes are known: M30, P4 in 2 seeds</td><td style="padding:7px 14px;text-align:left">Real old → new annotation (M42): no gain over zero-shot</td><td style="padding:7px 14px;text-align:left">C2</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C3</b> Gene-level posteriors</td><td style="padding:7px 14px;text-align:left">Rank chains well (AUROC 0.77); frozen threshold helps 10 of 10 species</td><td style="padding:7px 14px;text-align:left">Calibration across species: over-confident</td><td style="padding:7px 14px;text-align:left">C3</td></tr>
+<tr><td style="padding:7px 14px;text-align:left"><b>C4</b> Where errors are</td><td style="padding:7px 14px;text-align:left">Genes ≥ 10 kb are split; errors are wrong joins more than missed genes</td><td style="padding:7px 14px;text-align:left">Intron-length states (M41) did not fix it</td><td style="padding:7px 14px;text-align:left">C4</td></tr>
+</table>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Outline 20261117 · presubmission plan 20261123 · reports 20, 31, 35, 36, 37 · status of 24 November</p>
+<p style="font-size:24px;color:#6B7380">6</p>
+</div>
+<aside>This slide is the table of contents and the honest scorecard.
+
+C1, as registered on 27 October: "the same grammar layer works on several backbones, and with a plant-pretrained backbone it approaches Carbon-A zero-shot on new plants". The first half holds on DEV under a controlled comparison (same head, grammar, sampling): NT-v2 + LoRA 63.61, PlantCAD2 + LoRA 72.22, GENERanno 70.11; final T2 73.88. The second half failed on the panel (median gap −12.60; also below Tiberius by 4.20 and Vipsania ft by 2.36).
+
+C2: "partial-observation training (marginalise unknown positions) beats filling them with background". Holds in M30 (Carbon-A features, +16.50 / +14.15) and P4 (PlantCAD2, two seeds +3.24 / +14.97, 8 of 8 species each). Both placed the unknown mask using the complete annotation, so they are an upper-bound setting. M42, the realistic version (old RefSeq release as labels, protein evidence as the unknown mask, new release as truth), stopped at gate 1: U is 2.01 points below the zero-shot model and only beats fill-background on missing-locus recall (+2.22). M36 earlier showed the same with pseudo-labels.
+
+C3: "the partition-function model gives calibrated gene posteriors for selective annotation". The ranking part holds on the final model across the panel; the calibration part does not (pooled ECE 0.088 is under 0.10, but five species miss the P ≥ 0.9 bin by more than 0.15, which by the rule written before computing must be stated in the main text).
+
+C4: descriptive. The panel gap to Carbon-A is concentrated in long genes: half of the recall gap comes from the 8.4% of genes with CDS span ≥ 10 kb, mostly through splitting. M41, the one grammar change aimed at this, had no detectable effect.
+
+What would refute each claim now: C1 backbone part, a backbone comparison where the ranking flips with seeds; C2 upper-bound part, M39 insects (paused) failing P4-I; C3 ranking part, another evaluation where the frozen threshold lowers F1; C4, a long-gene analysis on another truth.</aside>
+</section>

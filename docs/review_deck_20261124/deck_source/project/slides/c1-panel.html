@@ -1,0 +1,20 @@
+<section id="c1-panel" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C1 · The test that decided</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">C1 fails: on the ten-plant panel T2’s median is 55.05, 12.60 below filtered Carbon-A and below Tiberius and Vipsania</h2>
+<img src="/_blob/7d347652b5c3682f85a14d2258105b14" alt="Dot plot of exact-chain F1 for ten panel species and six tools. Medians: Helixer 42.10, T2 55.05, Vipsania ft 57.41, Tiberius 59.25, ANNEVO 63.08, filtered Carbon-A 67.65. T2 minus filtered Carbon-A per species: Amborella −28.0, Hakea −21.7, Akebia −17.1, Zizania −5.8, Dryas −5.2, Eschscholzia −5.0, Juncus −4.3, Acorus −4.2, Rhynchospora −3.5, Themeda −3.1; median −12.6." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 31 §6 · core-10 panel, whole sequences · exact-chain F1, CDS ≥ 96 bp · one run per tool, scored once on 17 Nov</p>
+<p style="font-size:24px;color:#6B7380">11</p>
+</div>
+<aside>The rule (registered 27 October, report 28 §6; tiers in outline §0 and report 31 §2.4). On the core-10 panel, zero-shot, no posterior filter: C1 holds if T2's species median is at least the medians of Helixer a0080, Tiberius and Vipsania fine-tuned (added by your decision vipsania-c1-criterion on 4 November, before any Vipsania number), and within θ = 6.0 points of filtered Carbon-A. Partly holds: gap 6–10, or below one of those tools. Fails: gap over 10.
+
+Result (17 November, scored once). Medians: T2 55.05 [54.23, 55.78]; Helixer 42.10; Tiberius 59.25; Vipsania ft 57.41 (pre-trained 54.69); ANNEVO 63.08; Carbon-A unfiltered 65.73, filtered 67.65 [67.05, 68.25]. T2 − filtered Carbon-A = −12.60 [−13.65, −11.65]; T2 − Tiberius −4.20; T2 − Vipsania ft −2.36. Verdict: fails.
+
+Where the gap is. Three RefSeq species with long, many-exon genes: Amborella −28.0 [−28.96, −27.11], Hakea −21.7, Akebia −17.1. On the five submitter-annotated (GenBank) species the medians are T2 56.61, Tiberius 53.32, Vipsania ft 56.39, filtered Carbon-A 62.45 (gap 5.8); on the five RefSeq species T2 53.49 against 70.69 (gap 17.2). The C4 long-gene slides explain most of the RefSeq gap.
+
+The seed rule (registered 7 November) was triggered: T2_s2 and T2_s3 should be run on the panel. They have not run; they would only report the spread and do not change the verdict.
+
+What it means for the paper. The accuracy claim is gone; zero-shot numbers become an honest benchmark and a limitation. The outline of 17 November moved C2 to the lead and set Genome Biology or NAR Genomics and Bioinformatics as targets.
+
+Caveats. One run per tool. Dryas and Eschscholzia contain the set B chromosomes that T2 had been scored on. Amborella is in Carbon-A's training data (older assembly). GeneCAD (PlantCAD2 + CRF, the closest published method) is missing from the table; whether to run it is on the questions slide.</aside>
+</section>

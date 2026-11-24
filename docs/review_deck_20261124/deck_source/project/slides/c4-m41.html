@@ -1,0 +1,25 @@
+<section id="c4-m41" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C4 · A fix that did not work</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">Separate long- and short-intron states (M41) did not close the multi-exon gap: −0.74 on genes with ≥ 6 segments, and 12% over-calling on set B</h2>
+<table style="font-size:24px;color:#1B2430;font-variant-numeric:tabular-nums">
+<tr style="background:#F2F0EA"><th style="padding:8px 14px;width:36%;text-align:left"></th><th style="padding:8px 14px;width:16%;text-align:right">T2</th><th style="padding:8px 14px;width:22%;text-align:right">M41</th><th style="padding:8px 14px;width:26%;text-align:left">M41 − T2 [95% CI]</th></tr>
+<tr><td style="padding:7px 14px;text-align:left">DEV, all genes</td><td style="padding:7px 14px;text-align:right">73.88</td><td style="padding:7px 14px;text-align:right">73.26</td><td style="padding:7px 14px;text-align:left">−0.62 [−1.19, −0.03]</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">DEV, ≥ 6 segments</td><td style="padding:7px 14px;text-align:right">71.69</td><td style="padding:7px 14px;text-align:right">70.95</td><td style="padding:7px 14px;text-align:left"><b>−0.74 [−1.71, +0.23]</b></td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Set B, pooled</td><td style="padding:7px 14px;text-align:right">68.47</td><td style="padding:7px 14px;text-align:right">65.06</td><td style="padding:7px 14px;text-align:left">−3.41 [−3.78, −3.05]</td></tr>
+<tr><td style="padding:7px 14px;text-align:left">Set B predictions / references</td><td style="padding:7px 14px;text-align:right">—</td><td style="padding:7px 14px;text-align:right">24,590 / 21,875</td><td style="padding:7px 14px;text-align:left">+12% over-calling</td></tr>
+</table>
+<p style="font-size:26px;line-height:1.4;color:#3D4757;border-left:6px solid #A14E1C;padding:6px 0 6px 24px">Criterion, registered before results: d(≥ 6 segments) ≥ +2.58 (twice the T2 seed SD). Verdict: no detectable effect.</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Protocol 33 §8–9 · DEV and set B · 1-Mb block paired bootstrap · one run</p>
+<p style="font-size:24px;color:#6B7380">26</p>
+</div>
+<aside>Why M41 was run (protocol 33, registered 11 November). The panel had shown that T2 falls behind on long, many-exon genes. If the grammar's single intron state could not represent both short and very long introns, splitting it into a short-intron and a long-intron state (with their own length behaviour) might help many-exon genes. This was the one grammar-side change we tried for C4.
+
+Criterion (verbatim in protocol 33): the main endpoint is d(≥ 6), the difference in DEV exact-chain F1 on genes with six or more CDS segments between M41 and T2, with the threshold at twice T2's seed standard deviation (2.58 points).
+
+Results (21–22 November, protocol 33 §9). DEV 73.26 overall, 70.95 on ≥ 6-segment genes. Against T2: d(≥ 6) −0.74 [−1.71, +0.23]; overall −0.62 [−1.19, −0.03]. Set B: 65.06, 3.41 below T2 [−3.78, −3.05], with 24,590 predicted chains against 21,875 references (12% over-calling). Verdict: no detectable effect.
+
+What it tells us. The multi-exon and long-gene gap is not fixed by a richer intron length model in the grammar. Together with the long-gene stratification (previous slide), this points to the potentials (backbone features and training geometry) rather than the grammar's capacity, which is what the older C4 replay suggested too. The cost was about one training run on ont; a 17-hour delay came from the TE-gate bug.
+
+Not tried. Training with longer windows so that long genes are seen complete; a decoder that uses evidence across windows. Either would be a new experiment (GPU) and is listed on the questions slide.</aside>
+</section>

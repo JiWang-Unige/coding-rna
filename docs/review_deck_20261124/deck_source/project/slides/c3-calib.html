@@ -1,0 +1,25 @@
+<section id="c3-calib" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C3 · Calibrated gene posteriors</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">At τ = 1 the NT-v2 posteriors are calibrated (DEV ECE 0.031), and a threshold frozen before DEV adds +1.7 to +2.5 points</h2>
+<img src="/_blob/172a43748d26efdfff61ef22a3c576ce" alt="Left: reliability diagram at temperature 1; DEV ECE 0.031, Dryas 0.043, Eschscholzia 0.093. Middle: internal-validation ECE over temperatures 0.2 to 2, lowest at 1 (0.031). Right: gain from posterior filtering, DEV +1.68, Dryas +2.47, Eschscholzia +2.31, all CIs above zero." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 18 (M33) and its raw JSON · τ and threshold chosen on internal validation · NT-v2 + LoRA only · one seed</p>
+<p style="font-size:24px;color:#6B7380">20</p>
+</div>
+<aside>What C3 claims. The partition function that trains the model also gives, for every predicted gene, the probability that it is exactly right. If those probabilities are calibrated, a user can trade precision for recall with a threshold, and no separate confidence network is needed (Carbon-A trains one).
+
+How M33 tested it (NT-v2 + LoRA, the M31 B model). Every rule was fixed on internal-validation regions of Arabidopsis and rice before DEV or set B was opened: the temperature τ minimises pooled ECE over a grid (0.2 to 2), and the threshold on log P was fixed on the same regions (two chromosomes, 5,216 decoded chains, the same regions that chose the M31 checkpoint). Result: τ = 1, which means the trained energies need no rescaling, and the threshold is log P ≥ −1.400.
+
+Numbers (chain-level posterior against exact-chain hit, 10 equal-width bins).
+- Internal validation: ECE 0.031, AUROC 0.820 (the selection set).
+- DEV: ECE 0.031, AUROC 0.817, AP 0.888; filtering keeps 88.6% of chains and moves F1 from 63.61 to 65.29, +1.68 [+1.31, +2.09].
+- Set B Dryas: ECE 0.043, AUROC 0.785; filtering +2.47 [+2.12, +2.80].
+- Set B Eschscholzia: ECE 0.093, AUROC 0.760; filtering +2.31 [+1.95, +2.70].
+- The frozen threshold is close to the best possible on the new species: 52.40 versus 52.46 (Dryas) and 46.39 versus 46.43 (Eschscholzia) for the threshold that would have been best on that species.
+
+How this changed since 16 October. Then C3 said the posteriors are “naturally calibrated”. The phase 0/1 diagnostics (report 09, on TRAIN) showed the GENERanno-based posterior was badly over-confident (ECE 0.156), so on 16 October C3 was reworded to “calibratable”. M29-A2 showed that the gate model, whose energies carry Carbon-A offsets, saturates at τ = 1 (95% of gene posteriors exactly 1, AUROC 0.587) and that rescaling to τ = 0.03 brings it to ECE 0.086. M33 then found the NT-v2 + LoRA model calibrated at τ = 1 without any rescaling. Why the 16 October GENERanno posterior was over-confident was not diagnosed separately.
+
+What it does not show. This is NT-v2, not the final PlantCAD2 model; the next two slides show the final model on the panel. ECE drifts across species: 0.031 on DEV, 0.093 on Eschscholzia, three times larger. AUROC 0.76–0.82 means the posterior ranks genes usefully but is far from a perfect separator. Filtering cannot repair structural errors: the filtered NT-v2 model is still 21.6 and 26.9 points below filtered Carbon-A on set B (24.05 and 29.23 before filtering).
+
+What the paper would say: “Gene posteriors from the partition function were calibrated without temperature scaling on the development species (ECE 0.031) and remained usable on time-held-out species (ECE 0.043–0.093); a threshold fixed on internal validation added 1.7–2.5 F1 points.” The C3 figure needs the PlantCAD2 / T2 version of these numbers.</aside>
+</section>

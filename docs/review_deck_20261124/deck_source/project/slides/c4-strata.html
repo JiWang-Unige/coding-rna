@@ -1,0 +1,25 @@
+<section id="c4-strata" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C4 · Where the errors are</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">The gap is in many-exon genes: at ≥6 segments the plant backbone adds 15–18 points over NT-v2, and ten species add nothing</h2>
+<img src="/_blob/361a4a4ba6561d9bb456e5e179cc34df" alt="Left: DEV F1 by number of CDS segments. Carbon-A filtered stays near 76 to 80; T2 falls from 78.6 to 71.7; T10 to 69.8; GENERanno to 65.8; NT-v2 plus LoRA to 54.0. Right: F1 on genes with six or more segments: NT-v2 frozen 36.0, PlantCAD2 frozen 50.9, NT-v2 plus LoRA 54.0, GENERanno 65.8, PlantCAD2 plus LoRA 68.7, T10 69.8, T2 71.7, Carbon-A 74.4 unfiltered and 76.5 filtered." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Reports 15, 17, 20, 21 · DEV, strata by CDS segments of the reference gene · one seed · descriptive, not controlled</p>
+<p style="font-size:24px;color:#6B7380">23</p>
+</div>
+<aside>What C4 says now. On 16 October, C4 was “the annotator’s main errors come from scoring competition between multi-exon structures, not from missing grammar capacity”, supported by a replay on TRAIN (next slide). Since then the strata on DEV have added a second, simpler reading: the gap to Carbon-A opens with the number of CDS segments, and it is the backbone, not the number of training species, that closes it.
+
+Numbers (DEV exact-chain F1 for genes with 1 / 2–5 / ≥6 CDS segments; reference = one primary CDS-assessable transcript per gene).
+- Carbon-A filtered 80.49 / 76.23 / 76.49; unfiltered 79.41 / 73.41 / 74.42.
+- T2 78.56 / 72.92 / 71.69; T10 78.90 / 71.87 / 69.80.
+- PlantCAD2 + LoRA (M35) 77.85 / 71.61 / 68.74; PlantCAD2 frozen 75.86 / 57.79 / 50.87.
+- GENERanno (16 October model) 79.85 / 67.75 / 65.81.
+- NT-v2 + LoRA 75.71 / 63.71 / 53.98; NT-v2 frozen 70.00 / 50.93 / 35.96.
+
+Reading. For single-segment genes the five models in the left panel are within 5 points of each other (frozen NT-v2, not plotted there, is 10.5 below filtered Carbon-A). At ≥6 segments, swapping NT-v2 for PlantCAD2 under the same recipe adds 14.8 points (M35) and the final recipe 17.7 points (T2). Ten training species instead of two lower the ≥6 stratum by 1.9 (69.80 versus 71.69). The remaining gap of T2 to filtered Carbon-A at ≥6 segments is 4.8 points; at one segment it is 1.9.
+
+So the candidate mechanism in the outline is now: “the connection-competition gap is set mainly by the backbone representation (a plant-pretrained backbone recovers about 15–18 points at ≥6 segments), not by the number of training species”. This is a description of strata, not a controlled decomposition; the outline says so explicitly.
+
+What is still open. The matched replay that supported the original C4 (next slide) was run on the GENERanno model on TRAIN; it has not been repeated on PlantCAD2 + LoRA. Without it, “scoring competition, not grammar capacity” is a statement about the 16 October model. The replay needs CPU only.
+
+If asked whether the strata are confounded: yes, partly. Genes with many segments are longer and differ in composition, and the strata come from one development chromosome per species. NT-v2 stays below PlantCAD2 in all three strata, which is the main point; GENERanno is the exception to a fixed ranking (best of our models at one segment, 79.85, but below the PlantCAD2 models from two segments on).</aside>
+</section>

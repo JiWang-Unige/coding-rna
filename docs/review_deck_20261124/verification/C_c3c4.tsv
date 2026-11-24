@@ -1,0 +1,180 @@
+item	value	source	note
+C3 dryas_octopetala T2 F1	69.47	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 dryas_octopetala ECE	0.047	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala Brier	0.169	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala AUROC(log_p)	0.761	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala AUROC(gain)	0.631	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala hiconf mean P / hit rate	0.944 / 0.863	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.081; n=5830
+C3 dryas_octopetala T2 P@70	81.3	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala CarbonA P@70	85.5	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala CarbonA AUROC(conf)	0.805	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 dryas_octopetala frozen thr dF1 / kept	+1.69 / 92.3%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica T2 F1	67.94	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 eschscholzia_californica ECE	0.065	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica Brier	0.183	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica AUROC(log_p)	0.718	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica AUROC(gain)	0.660	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica hiconf mean P / hit rate	0.944 / 0.818	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.125; n=6622
+C3 eschscholzia_californica T2 P@70	79.7	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica CarbonA P@70	86.0	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica CarbonA AUROC(conf)	0.816	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 eschscholzia_californica frozen thr dF1 / kept	+1.30 / 92.8%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata T2 F1	53.49	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 akebia_trifoliata ECE	0.052	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata Brier	0.165	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata AUROC(log_p)	0.831	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata AUROC(gain)	0.610	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata hiconf mean P / hit rate	0.943 / 0.818	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.124; n=4486
+C3 akebia_trifoliata T2 P@70	69.2	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata CarbonA P@70	83.5	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata CarbonA AUROC(conf)	0.809	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 akebia_trifoliata frozen thr dF1 / kept	+5.01 / 78.0%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata T2 F1	49.03	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 hakea_prostrata ECE	0.075	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata Brier	0.161	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata AUROC(log_p)	0.845	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata AUROC(gain)	0.581	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata hiconf mean P / hit rate	0.942 / 0.773	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.169; n=4409
+C3 hakea_prostrata T2 P@70	60.7	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata CarbonA P@70	81.3	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata CarbonA AUROC(conf)	0.810	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 hakea_prostrata frozen thr dF1 / kept	+7.68 / 70.5%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia T2 F1	56.61	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 zizania_latifolia ECE	0.057	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia Brier	0.194	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia AUROC(log_p)	0.742	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia AUROC(gain)	0.519	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia hiconf mean P / hit rate	0.938 / 0.809	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.128; n=5836
+C3 zizania_latifolia T2 P@70	73.8	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia CarbonA P@70	75.8	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia CarbonA AUROC(conf)	0.703	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 zizania_latifolia frozen thr dF1 / kept	+1.72 / 90.0%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra T2 F1	34.96	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 themeda_triandra ECE	0.219	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra Brier	0.276	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra AUROC(log_p)	0.682	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra AUROC(gain)	0.567	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra hiconf mean P / hit rate	0.938 / 0.585	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.353; n=5118
+C3 themeda_triandra T2 P@70	51.7	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra CarbonA P@70	51.4	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra CarbonA AUROC(conf)	0.709	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 themeda_triandra frozen thr dF1 / kept	+0.97 / 88.7%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus T2 F1	64.06	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 juncus_effusus ECE	0.092	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus Brier	0.222	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus AUROC(log_p)	0.688	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus AUROC(gain)	0.629	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus hiconf mean P / hit rate	0.944 / 0.746	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.199; n=4876
+C3 juncus_effusus T2 P@70	70.3	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus CarbonA P@70	74.2	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus CarbonA AUROC(conf)	0.760	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 juncus_effusus frozen thr dF1 / kept	+1.29 / 92.6%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula T2 F1	60.96	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 rhynchospora_breviuscula ECE	0.090	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula Brier	0.221	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula AUROC(log_p)	0.699	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula AUROC(gain)	0.599	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula hiconf mean P / hit rate	0.941 / 0.744	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.197; n=4684
+C3 rhynchospora_breviuscula T2 P@70	69.1	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula CarbonA P@70	71.4	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula CarbonA AUROC(conf)	0.753	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 rhynchospora_breviuscula frozen thr dF1 / kept	+1.54 / 91.9%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus T2 F1	40.87	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 acorus_gramineus ECE	0.214	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus Brier	0.253	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus AUROC(log_p)	0.745	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus AUROC(gain)	0.490	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus hiconf mean P / hit rate	0.944 / 0.695	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.249; n=4182
+C3 acorus_gramineus T2 P@70	53.5	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus CarbonA P@70	55.7	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus CarbonA AUROC(conf)	0.694	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 acorus_gramineus frozen thr dF1 / kept	+1.90 / 86.6%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda T2 F1	38.91	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 amborella_trichopoda ECE	0.088	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda Brier	0.145	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda AUROC(log_p)	0.874	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda AUROC(gain)	0.597	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda hiconf mean P / hit rate	0.940 / 0.813	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.127; n=2054
+C3 amborella_trichopoda T2 P@70	49.3	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda CarbonA P@70	78.7	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda CarbonA AUROC(conf)	0.776	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 amborella_trichopoda frozen thr dF1 / kept	+7.52 / 63.1%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED T2 F1	53.04	experiments/C3-CALIB/results/c3_result.json per_species.F1; docs/review_20261016/36_C3_final_calibration.md:56-66	report matches
+C3 POOLED ECE	0.088	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED Brier	0.199	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED AUROC(log_p)	0.768	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED AUROC(gain)	0.581	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED hiconf mean P / hit rate	0.942 / 0.768	experiments/C3-CALIB/results/c3_result.json	gap(mean P - hit)=0.174; n=48097
+C3 POOLED T2 P@70	67.9	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED CarbonA P@70	73.9	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED CarbonA AUROC(conf)	0.751	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 POOLED frozen thr dF1 / kept	+3.08 / 84.7%	experiments/C3-CALIB/results/c3_result.json	report matches
+C3 pooled T2 chains / CarbonA chains / CA conf NA	244268 / 237543 / 58	experiments/C3-CALIB/results/c3_result.json; docs/review_20261016/36_C3_final_calibration.md:51	matches
+C3 pooled CarbonA ECE(conf)	0.079	experiments/C3-CALIB/results/c3_result.json; docs/review_20261016/36_C3_final_calibration.md:84	report 0.079
+C3 pooled CarbonA P@50 / T2 P@50	78.4 / 73.1	experiments/C3-CALIB/results/c3_result.json	P@50 not in report text except T2 73.2 in table
+C3 pooled AP(log_p) / AP(gain)	0.736 / 0.572	experiments/C3-CALIB/results/c3_result.json; docs/review_20261016/36_C3_final_calibration.md:83	report 0.736 / 0.572 matches
+C3 CarbonA unfiltered F1 -> conf>=0.1 filtered F1	60.41 -> 62.02 (kept 92.1%, prec 66.1)	experiments/C3-CALIB/results/c3_result.json; docs/review_20261016/36_C3_final_calibration.md:86	matches; +1.61
+C3 T2 post-filter F1	56.12	experiments/C3-CALIB/results/c3_result.json; docs/review_20261016/36_C3_final_calibration.md:86	matches 56.12; threshold log_p>=-1.400
+C3 pooled reliability bin 0.0-0.1	n=16583 pred=0.048 hit=0.037	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.1-0.2	n=14357 pred=0.150 hit=0.093	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.2-0.3	n=13887 pred=0.250 hit=0.180	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.3-0.4	n=14900 pred=0.351 hit=0.303	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.4-0.5	n=18230 pred=0.452 hit=0.418	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.5-0.6	n=20943 pred=0.550 hit=0.510	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.6-0.7	n=23504 pred=0.651 hit=0.600	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.7-0.8	n=30126 pred=0.753 hit=0.675	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.8-0.9	n=43641 pred=0.854 hit=0.731	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled reliability bin 0.9-1.0	n=48097 pred=0.942 hit=0.768	experiments/C3-CALIB/results/c3_result.json pooled.bins	docs/review_20261016/36_C3_final_calibration.md:69-73 only cites 0.4-0.5 (0.45/0.42), 0.7-0.8 (0.75/0.67), 0.9-1.0 (0.94/0.77): all match; all bins hit<pred: true
+C3 pooled risk-coverage 100%	kept=244268 P=53.4 R=52.7 F1=53.0	experiments/C3-CALIB/results/c3_result.json pooled.coverage	docs/review_20261016/36_C3_final_calibration.md:76-80 matches
+C3 pooled risk-coverage 90%	kept=219841 P=58.8 R=52.2 F1=55.3	experiments/C3-CALIB/results/c3_result.json pooled.coverage	docs/review_20261016/36_C3_final_calibration.md:76-80 matches
+C3 pooled risk-coverage 80%	kept=195414 P=64.0 R=50.4 F1=56.4	experiments/C3-CALIB/results/c3_result.json pooled.coverage	docs/review_20261016/36_C3_final_calibration.md:76-80 matches
+C3 pooled risk-coverage 70%	kept=170988 P=67.9 R=46.8 F1=55.4	experiments/C3-CALIB/results/c3_result.json pooled.coverage	docs/review_20261016/36_C3_final_calibration.md:76-80 matches
+C3 pooled risk-coverage 50%	kept=122134 P=73.1 R=36.0 F1=48.3	experiments/C3-CALIB/results/c3_result.json pooled.coverage	docs/review_20261016/36_C3_final_calibration.md:76-80 matches
+C3 bootstrap blocks/draws	4779/2000	experiments/C3-CALIB/results/c3_result.json bootstrap	docs/review_20261016/36_C3_final_calibration.md:82 matches
+C3 ECE CI95	0.0844-0.0910	experiments/C3-CALIB/results/c3_result.json	report [0.084,0.091] matches
+C3 AUROC diff (logp-gain) [CI]	0.187 [0.182,0.192]	experiments/C3-CALIB/results/c3_result.json	report +0.187 [+0.182,+0.192] matches
+C3 P@70 T2 - CarbonA [CI]	-6.02 [-6.31,-5.73]	experiments/C3-CALIB/results/c3_result.json	report -6.0 [-6.3,-5.7] matches
+C3 s6 rule verbatim	若合并 ECE > 0.10，或任何物种高置信箱的命中率比预测低 0.15 以上，必须在正文写明"跨物种校准不可靠"，不能只放在补充材料。	docs/review_20261016/36_C3_final_calibration.md:47	also :45 "本分析是描述性的，不设成立 / 不成立判据"; :46 C3 may only be written as "后验提供可用的排序与一定程度的校准"
+C3 s6 triggering species (gap mean P - hit, from json)	Themeda 0.353; Acorus 0.249; Hakea 0.169; Juncus 0.199; Rhynchospora 0.197 (also pooled 0.174; Akebia 0.124, Eschscholzia 0.125 not triggered)	experiments/C3-CALIB/results/c3_result.json	report :89 says Themeda 0.36, Acorus 0.24, Rhyn 0.20, Juncus 0.19, Hakea 0.17: computed from rounded 0.94-hit (minor rounding; exact: 0.35,0.25,0.20,0.20,0.17). Same 5 species, conclusion unchanged. Pooled ECE 0.088<0.10 not triggered
+C3 report range of hi-conf hit	58-86%	docs/review_20261016/36_C3_final_calibration.md:93	json 0.585 (Themeda) to 0.863 (Dryas) matches
+M33 NT-v2 internal-val ECE / AUROC at tau=1	0.031 / 0.820	docs/review_20261016/18_M33_ntv2_followup.md:11,41	thr* log P>=-1.400
+M33 DEV ECE / AUROC / AP	0.031 / 0.817 / 0.888 (CarbonA conf ECE 0.067)	docs/review_20261016/18_M33_ntv2_followup.md:12,111	
+M33 DEV filter gain	63.61 -> 65.29 (+1.68, CI +1.31..+2.09), kept 88.6%	docs/review_20261016/18_M33_ntv2_followup.md:12	
+M33 new-species filter gain	+2.47 [+2.12,+2.80] Dryas / +2.31 [+1.95,+2.70] Esch	docs/review_20261016/18_M33_ntv2_followup.md:15,99	inventory :49 matches
+M33 new-species posterior AUROC/ECE	Dryas 0.785/0.043; Esch 0.760/0.093	docs/review_20261016/18_M33_ntv2_followup.md:~111-113	
+T10 (PlantCAD2) set B ECE / AUROC	0.059/0.089 ; 0.773/0.728 (Dryas/Esch)	docs/review_20261016/27_M36_results.md:53	filter +2.03/+1.47 same line; inventory :50 matches; report 27 itself says C3 numbers must be remeasured with T2
+inventory C3 section	M33 ECE 0.031 AUROC 0.82; gap says T2 reliability not yet done	docs/results_inventory_20261123.md:47-52	STALE: gap bullet (:51) predates report 36, which now fills it; also still lacks the over-confidence finding
+C4 long-gene reference count / pooled recall T2 / CA	247922 / 52.65 / 59.15 (gap 6.50)	experiments/C3-CALIB/results/long_gene_result.json (recomputed from species)	report 37 :98 says 52.7 / 59.1 / gap 6.4; exact gap 6.496 (6.5), 6.4 is from rounded values; contributions sum 6.50
+C4 pooled by_span <2kb	n=106293 T2=49.1 CA=50.9 contrib=0.76	experiments/C3-CALIB/results/long_gene_result.json pooled.by_span	report 37 :100-117 matches
+C4 pooled by_span 2-5kb	n=86000 T2=65.4 CA=67.9 contrib=0.86	experiments/C3-CALIB/results/long_gene_result.json pooled.by_span	report 37 :100-117 matches
+C4 pooled by_span 5-10kb	n=34891 T2=53.0 CA=64.0 contrib=1.54	experiments/C3-CALIB/results/long_gene_result.json pooled.by_span	report 37 :100-117 matches
+C4 pooled by_span 10-20kb	n=13831 T2=24.1 CA=59.2 contrib=1.96	experiments/C3-CALIB/results/long_gene_result.json pooled.by_span	report 37 :100-117 matches
+C4 pooled by_span 20-50kb	n=5800 T2=3.3 CA=53.6 contrib=1.18	experiments/C3-CALIB/results/long_gene_result.json pooled.by_span	report 37 :100-117 matches
+C4 pooled by_span >=50kb	n=1107 T2=0.0 CA=45.6 contrib=0.20	experiments/C3-CALIB/results/long_gene_result.json pooled.by_span	report 37 :100-117 matches
+C4 pooled by_exons 1	n=53153 T2=50.2 CA=52.7 contrib=0.53	experiments/C3-CALIB/results/long_gene_result.json pooled.by_exons	report 37 :100-117 matches
+C4 pooled by_exons 2	n=39556 T2=48.6 CA=52.5 contrib=0.63	experiments/C3-CALIB/results/long_gene_result.json pooled.by_exons	report 37 :100-117 matches
+C4 pooled by_exons 3-5	n=71608 T2=54.5 CA=60.5 contrib=1.73	experiments/C3-CALIB/results/long_gene_result.json pooled.by_exons	report 37 :100-117 matches
+C4 pooled by_exons 6-9	n=45600 T2=56.9 CA=65.8 contrib=1.64	experiments/C3-CALIB/results/long_gene_result.json pooled.by_exons	report 37 :100-117 matches
+C4 pooled by_exons 10-19	n=32642 T2=53.4 CA=65.3 contrib=1.57	experiments/C3-CALIB/results/long_gene_result.json pooled.by_exons	report 37 :100-117 matches
+C4 pooled by_exons 20+	n=5363 T2=41.1 CA=59.7 contrib=0.40	experiments/C3-CALIB/results/long_gene_result.json pooled.by_exons	report 37 :100-117 matches
+C4 >=10kb share of refs / contribution	8.4% (22,738/247,922) / 3.34 of 6.50 pts (51%)	experiments/C3-CALIB/results/long_gene_result.json	report "约一半(3.3/6.4)": ok, denominator should be 6.5
+C4 gap genes T2 miss & CA hit / reverse	25900 / 9794	experiments/C3-CALIB/results/long_gene_result.json	report 25,900 / 9,794 matches
+C4 gap categories pooled	single_junction_shift 23%, split 23%, single_exon_miss 12%, absent_no_call 11%, complex_chain 11%, exon_missed 8%	experiments/C3-CALIB/results/long_gene_result.json	report matches
+C4 gap dryas_octopetala	n=1650; single_junction_shift 35%, endpoint_only 12%, absent_no_call 10%, single_exon_miss 10%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap eschscholzia_californica	n=2105; single_junction_shift 32%, absent_no_call 17%, single_exon_miss 10%, exon_missed 9%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap akebia_trifoliata	n=3850; split 31%, single_junction_shift 21%, complex_chain 13%, exon_missed 10%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap hakea_prostrata	n=4493; split 44%, single_junction_shift 16%, complex_chain 13%, exon_missed 6%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap zizania_latifolia	n=2880; single_exon_miss 29%, single_junction_shift 26%, split 11%, complex_chain 8%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap themeda_triandra	n=2357; single_exon_miss 29%, absent_no_call 26%, single_junction_shift 18%, exon_missed 6%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap juncus_effusus	n=1489; single_junction_shift 24%, absent_no_call 24%, exon_missed 15%, endpoint_only 12%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap rhynchospora_breviuscula	n=1708; single_junction_shift 32%, absent_no_call 17%, single_exon_miss 15%, endpoint_only 12%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap acorus_gramineus	n=1184; single_junction_shift 31%, split 17%, single_exon_miss 12%, complex_chain 11%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 gap amborella_trichopoda	n=4184; split 39%, single_junction_shift 17%, complex_chain 17%, exon_missed 9%	experiments/C3-CALIB/results/long_gene_result.json	report: Hakea 4,493 split44/shift16/complex13; Amborella 4,184 39/17/17; Akebia 3,850 31/21/13; Dryas 1,650 & Esch 2,105 shift 35/32, split 8/8.5; Zizania/Themeda single_exon_miss 29% - all match
+C4 older: >=6 segment exact-chain F1 NT-v2+LoRA (M31 B)	53.98	docs/review_20261016/15_M31_C1_ntv2_pilot.md:118,153	DEV; 1/2-5/>=6 = 75.71/63.71/53.98
+C4 older: >=6 seg T2	71.69	docs/review_20261016/33_M41_intron_length_states_protocol.md:100,108,202	DEV, final T2; 1/2-5/>=6 78.56/72.92/71.69 (docs/paper_outline_20261027.md:96,142)
+C4 older: >=6 seg M35 PlantCAD2+LoRA / GENERanno	68.74 / 65.81	docs/review_20261016/21_M35_plantcad2_lora_result.md:14	
+C4 older: >=6 seg Carbon-A filtered	76.49	docs/review_20261016/15_M31_C1_ntv2_pilot.md:125; 17_M32:91; 33_M41:100	1/2-5/>=6 80.49/76.23/76.49
+C4 older: T10 >=6 seg	69.80	docs/review_20261016/20_M34_stage1_results.md:121	
+C4 older: M41 ILS >=6 seg	70.95 vs T2 71.69, -0.74 [-1.71,+0.23]	docs/review_20261016/33_M41_intron_length_states_protocol.md:202	
+C4 matched replay	7,762 missed = 2,486 negative-energy + 5,067 positive-but-outcompeted (65.3%) + 209 grammar-unsupported	experiments/M28/full_grammar/reports/full_grammar_matched_energy_diagnostic.md:61,63; docs/review_20261016/04_M28_current_state.md:131	CAVEAT: GENERanno joint-encoding M28 model on TRAIN (DEV 66.62), NOT NT-v2 or T2; descriptive, not causal (04:252). 5,067+2,486=7,553 =97.307%
+C4 older: wording issue	paper_outline_20261027.md:96 labels the strata numbers "CDS 碱基 F1" but 33_M41:100 and 15_M31 call them exact-chain F1; CDS-base F1 overall is 93.22 (NT-v2)	docs/paper_outline_20261027.md:96 vs docs/review_20261016/33_M41_intron_length_states_protocol.md:100	use "exact-chain F1" on slides

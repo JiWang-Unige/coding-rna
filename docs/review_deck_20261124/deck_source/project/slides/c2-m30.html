@@ -1,0 +1,23 @@
+<section id="c2-m30" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C2 · Learning from incomplete annotation</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">On frozen Carbon-A features, marginalising the unlabelled genes avoided the recall collapse of fill-background (+16.5 / +14.2) but gained nothing</h2>
+<img src="/_blob/9f5686de8d3fb832259eca1113868520" alt="M30 on set B. Dryas: filtered Carbon-A 73.98, gate 71.97, adapted with all genes 69.58, 25% labelled and marginalised 71.65, 25% labelled with background 55.15; U minus F plus 16.50. Eschscholzia: 73.32, 71.38, 68.21, 70.59 and 56.44; U minus F plus 14.15." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Report 14 §2–4 (protocol 13, fixed 17 Oct) · set B, scored once · head-only adaptation · gene-unit bootstrap · one seed</p>
+<p style="font-size:24px;color:#6B7380">12</p>
+</div>
+<aside>What M30 asked (17–19 October, right after the pivot away from the accuracy race). On a new species with only part of its genes annotated, does adapting the grammar layer on top of frozen Carbon-A features beat Carbon-A itself, and is marginalising the unlabelled genes better than calling them background? Protocol 13 was written before any new-species output. Training used other chromosomes of the same two set-B species; the B chromosomes were scored once.
+
+Arms. The gate is our grammar decoding Carbon-A’s own frozen per-base outputs with no adaptation. U and F adapt the head with 25% of the species’ genes labelled; U marks the other genes’ loci as unknown, F calls them background. k = 100% adapts with every gene labelled. The k = 10% arms were cancelled by decision.
+
+Criteria and verdicts (report 14 §4).
+- Direction, main endpoint: k = 25% U minus filtered Carbon-A ≥ +3.0 in both species. Result −2.32 [−2.72, −1.94] and −2.73 [−3.17, −2.36]. Not met.
+- Direction, secondary: U with Carbon-A’s confidence filter minus filtered Carbon-A ≥ +3.0. Result −0.53 and −0.79. Not met.
+- Mechanism: U − F ≥ +2.0, same sign in both species. Result +16.50 [+15.65, +17.37] and +14.15 [+13.47, +14.82]. Met.
+
+What happened. F collapses recall: 44.4% and 46.6% of reference genes recovered, against 71.4% and 68.7% for U, because a quarter-labelled genome teaches that most genes are background. But U is no better than not adapting at all: U − gate = −0.32 [−0.69, +0.05] and −0.79 [−1.19, −0.39]. Even full labels (k = 100%) are 2.40 and 3.16 points below the gate. A 366k-parameter head on frozen Carbon-A features has nothing new to learn; the M29 runs on Arabidopsis and rice had already suggested this.
+
+What this left us with on 19 October. The second layer of C2 (marginalise beats fill) held; the first layer (adaptation beats Carbon-A) did not. Because the features were frozen and annotation-supervised, it was unclear whether marginalisation helps when the backbone can actually learn. That question became P4 on the PlantCAD2 backbone (the P4 slides), where it held as well.
+
+Yardsticks. Set B, scored once per arm. CIs from the gene-unit + 100 kb orphan-bin bootstrap (2,000 draws). Each arm trained once. ANNEVO and Helixer were not run on set B (no environment on ont).</aside>
+</section>

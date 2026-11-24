@@ -1,0 +1,24 @@
+<section id="c1-dev" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">C1 · One layer, several backbones</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">On DEV, LoRA adds about 12 points to both self-supervised backbones under the same grammar; the final PlantCAD2 recipe reaches 73.88</h2>
+<img src="/_blob/cfeb655ab2c75ebf69ff0b54fe8a7043" alt="DEV exact-chain F1 by model. PlantCAD2 frozen 59.88, with LoRA 72.22, final recipe T2 73.88. NT-v2 frozen 50.92, with LoRA 63.61, with posterior filter 65.29. GENERanno preview frozen 70.11. Other tools: Helixer 62.85, Tiberius 71.81, ANNEVO 75.70, Carbon-A 75.24 unfiltered and 77.41 filtered." style="width:1664px;height:560px;object-fit:contain">
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Reports 15, 17, 18, 20 §7, 21 · DEV is in PlantCAD2 pretraining and Carbon-A training: an upper bound · one seed</p>
+<p style="font-size:24px;color:#6B7380">8</p>
+</div>
+<aside>What the slide shows. DEV exact-chain F1 for every backbone we have run under the same head, the same full CDS grammar and the same window sampling, with the other tools for reference. DEV is one reused development chromosome each of Arabidopsis and rice. It is an upper bound for every model on the slide: both species are in PlantCAD2’s pretraining set and in Carbon-A’s training data, and DEV has been used across many milestones. It ranks models; it does not test generalisation (set B and the panel slides do).
+
+Numbers (pooled; Arabidopsis / rice in brackets; 95% CI from a 1-Mb block bootstrap, 54 blocks, 2,000 draws).
+- NT-v2 frozen 50.92 (54.49 / 42.53); with LoRA 63.61 [61.17, 65.62] (66.62 / 56.35); with the M33 posterior filter 65.29 [62.95, 67.17].
+- PlantCAD2-Small frozen 59.875 [56.48, 62.45] (65.21 / 48.06); with LoRA (M35, 1,536 steps) 72.22 [70.05, 73.97] (74.05 / 67.84); final recipe T2 (M34 sampler, 3,072 steps, step 2,304 chosen on internal validation) 73.88 [71.80, 75.63] (75.38 / 70.22).
+- GENERanno preview, frozen, the 16 October model (M28 fresh-joint): 70.107 [67.74, 72.11].
+- Other tools: Helixer 0.3.7 62.851, Tiberius 2.0.8 71.805, ANNEVO 2.3.3 75.703 (earlier DEV values, not rerun, so no strata or CIs); Carbon-A 75.241 unfiltered and 77.406 filtered (recomputed with our functions, identical to the earlier values).
+
+Paired differences (same bootstrap). LoRA gain: NT-v2 +12.7 (point difference); PlantCAD2 +12.34 [+10.81, +14.29]. Backbone at equal recipe: M35 − NT-v2 + LoRA = +8.61 [+7.57, +9.80]; this was the pre-registered rule that picked PlantCAD2 for M34. M35 − GENERanno = +2.11 [+1.28, +3.05], the first time a purely self-supervised backbone beat the annotation-supervised one under our grammar. T2 − NT-v2 + LoRA = +10.27 [9.21, 11.46]; T2 − GENERanno = +3.77 [2.80, 4.88]; T2 − filtered Carbon-A = −3.53 [−4.41, −2.76].
+
+How to read it. The claim is “backbone-agnostic”: the grammar layer works on a non-plant self-supervised model (NT-v2), a plant self-supervised model (PlantCAD2) and an annotation-supervised model (GENERanno), and LoRA helps both self-supervised backbones by the same amount. The ranking among backbones is a controlled comparison, which the literature notes (review 05 §3.2) list as missing. T2 against M35 (+1.66) is not a controlled comparison: the sampler and the number of steps both changed.
+
+Caveats. T2 now has three runs: DEV 73.88 / 74.09 / 71.65 (mean 73.21 ± 1.35, report 20 §14); every other model one run. The tools ran their own pipelines with plant weights: Helixer 0.3.7 land_plant_v0.3_a_0080, Tiberius 2.0.8 angiosperm weights (inside a 2.0.7 container), ANNEVO 2.3.3 Magnoliopsida; they were run once on Baobab on 3 October and their DEV values were not rescored since. Scoring asymmetry found in this review: our arms drop predicted chains with less than 96 bp of CDS before scoring, the tools’ rows do not. For our models this changed F1 by 0 to +0.23; for the tools it was never measured. The panel scoring (report 31) applied the rule to every tool and also reports the rule-off value. GENERanno and Carbon-A share their main weights, and Carbon-A was trained with annotation of both DEV species, as were Helixer’s and (for rice) Tiberius’s weights.
+
+Changed since 16 October. Then, the method line was the GENERanno model at 70.107 and the goal was to beat Carbon-A on accuracy. Now GENERanno is one of three backbones, and PlantCAD2 + LoRA is the final recipe.</aside>
+</section>

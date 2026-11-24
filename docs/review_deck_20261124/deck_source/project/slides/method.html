@@ -1,0 +1,59 @@
+<section id="method" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">The model · final recipe T2</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;font-weight:600;line-height:1.18;color:#1B2430;padding-bottom:22px;border-bottom:2px solid #D9D6CC">A per-base backbone feeds a full-CDS-grammar CRF that learns only from known labels and is decoded exactly over whole contigs</h2>
+<div style="display:flex;flex-direction:row;align-items:stretch;gap:12px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:20px 20px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">1 · Sequence</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Whole chromosome or region; 8,192-bp windows, stride 6,144; both strands per pass</p>
+</div>
+<x-shape kind="arrow-right" style="width:28px;height:22px;background:#9DBBD6;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:20px 20px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">2 · Backbone</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">PlantCAD2-Small, 88 M; LoRA rank 8 on blocks 12–23 (0.60 M trained)</p>
+</div>
+<x-shape kind="arrow-right" style="width:28px;height:22px;background:#9DBBD6;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:20px 20px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">3 · Head</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">6-bp pooling, BiGRU + convolution, 15 per-base roles (0.30 M)</p>
+</div>
+<x-shape kind="arrow-right" style="width:28px;height:22px;background:#9DBBD6;align-self:center"></x-shape>
+<div style="flex:1.25;display:flex;flex-direction:column;gap:10px;background:#E4ECF3;border:2px solid #1F5F8B;border-radius:8px;padding:18px 20px">
+<h3 style="font-size:28px;font-weight:600;color:#1F5F8B">4 · Grammar CRF</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Start, stop, phase, splice sites; loss log Z(all) − log Z(observed): known labels fixed, unknown summed over</p>
+</div>
+<x-shape kind="arrow-right" style="width:28px;height:22px;background:#9DBBD6;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:20px 20px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">5 · Decoding</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Exact max-only search over the whole region, per strand; chains written as GFF3</p>
+</div>
+<x-shape kind="arrow-right" style="width:28px;height:22px;background:#9DBBD6;align-self:center"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#F2F0EA;border-radius:8px;padding:20px 20px">
+<h3 style="font-size:28px;font-weight:600;color:#1B2430">6 · Posterior</h3>
+<p style="font-size:24px;line-height:1.35;color:#3D4757">Gene log P at τ = 1 from the same partition function; optional filter ≥ −1.400</p>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<p style="font-size:26px;line-height:1.4;color:#3D4757"><b style="color:#1B2430">T2 training.</b> Arabidopsis + rice: 4 training chromosomes, checkpoint chosen on 2 others, DEV on 2 more. 3,072 steps, batch 8, cosine schedule; step 2,304 selected.</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4757"><b style="color:#1B2430">Unchanged since 16 October:</b> grammar, loss and decoder. <b style="color:#1B2430">Changed:</b> backbone (frozen GENERanno to PlantCAD2 + LoRA), head (366 k to 301 k parameters), window length.</p>
+</div>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;color:#6B7380">Code: pipeline/m28 + experiments/M32, M34, M35 scripts (verified at 6308d32) · τ and threshold from M33 (NT-v2)</p>
+<p style="font-size:24px;color:#6B7380">7</p>
+</div>
+<aside>How the final model works, checked against the code at commit 6308d32 (the code that trained T2 differs only by an 1 November seed hook).
+
+1. Input. A whole chromosome or region, cut into 8,192-bp windows with stride 6,144 (PlantCAD2 needs windows of about 8 kb); one forward pass gives features for both strands.
+2. Backbone. PlantCAD2-Small: 24 Mamba2 blocks, width 768, about 88 M parameters, 1,536 features per base. LoRA of rank 8 (alpha 16) on the in- and out-projections of blocks 12–23, shared between strands: 604,416 trainable parameters.
+3. Head. Features are mean-pooled over 6 bp, then a linear layer, a bidirectional GRU (64 × 2) and a DNA convolution give energies for 15 per-base roles. 300,655 parameters, warm-started from the M32 frozen-PlantCAD2 run. The README and the method figure still say “~366k”; that number belongs to the 2,048-wide GENERanno/NT-v2 head.
+4. Training objective. A conditional random field over the full CDS grammar (start and stop codons, phase, donor and acceptor sites, legal exon chains). The loss is log Z over all parses minus log Z over parses consistent with the observations: fine labels are hard constraints, a coarse region channel has ε = 0.1, and unknown positions allow all 15 roles, so they are summed over (marginalised). Windows of stitched emissions (24,576 bp core plus neighbours) are run on 12 CPU dynamic-programming processes.
+5. Decoding. Windows are stitched by nearest window centre, then one exact max-only “skyline” search (exon budget cap 128) runs over the whole region per strand, not window by window. Output: CDS chains as GFF3. The CDS ≥ 96 bp rule is not in the decoder: the scorer applies it, and so far only to our models (integrity · statistics).
+6. Posterior. With τ = 1, the same partition function gives log P for every decoded gene; an optional filter keeps log P ≥ −1.400. τ and this threshold were chosen by M33 on the NT-v2 model and have not been re-selected for T2.
+
+T2’s data. Arabidopsis and rice only. Training chromosomes NC_003070.9, NC_003076.8, NC_089043.1, NC_089046.1; checkpoint selection on NC_003071.7 and NC_089044.1; DEV on NC_003074.8 and NC_089041.1. 3,072 steps, batch 8, learning rate 1e-4 for the head and 3e-4 for LoRA with 5% warm-up and cosine decay to 1e-5; half of the windows uniform, half gene-centred. Step 2,304 had the best internal-validation score (72.67).
+
+Compute. One RTX 4090 (24 GB), shared with other users. M35 (1,536 steps) took about 21 h and T10 (3,072 steps) 38.2 h. Inference runs at about 20–21 kbp/s on set B and 36 kbp/s on DEV.
+
+What changed since 16 October. The grammar, the loss and the decoder are the same code. The backbone, the head width and the window length changed. The paper figure paper/figures/M28_full_grammar_model.svg and its caption still show the GENERanno version (frozen backbone, 24,576/12,288 windows, 2,048 channels, “only the head is updated”); the Methods draft has the same stale lines. Both need redrawing before submission.
+
+One claim in the outline to recheck: it says PlantCAD2 inference is 5–10 times slower than NT-v2. The NT-v2 figure of 162–207 kbp/s equals exactly 4 × (genome bases / wall-clock time) in report 18; per genome base it is 40.5–51.8 kbp/s, which would make PlantCAD2 only about 1.1–2.2 times slower. Where the factor 4 comes from is inferred, not confirmed (the ont DONE files would settle it).</aside>
+</section>

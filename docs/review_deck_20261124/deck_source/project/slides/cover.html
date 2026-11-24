@@ -1,0 +1,18 @@
+<section id="cover" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<div style="position:absolute;left:0;top:0;width:24px;height:1080px;background:#1F5F8B"></div>
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1F5F8B">Systematic review · 24 November 2026</p>
+<h1 style="font-family:'Source Serif 4', Georgia, serif;font-size:76px;font-weight:600;line-height:1.12;color:#1B2430;max-width:1500px">A gene grammar for DNA language models: what held, what failed</h1>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-style:italic;line-height:1.3;color:#3D4757;padding-bottom:36px;border-bottom:2px solid #D9D6CC">What we did since June, the problems we hit, the results that did not work, and the claims that survive</p>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:600;color:#1B2430">Ji Wang</p>
+<p style="font-size:26px;color:#6B7380">University of Geneva · coding-rna project</p>
+</div>
+<p style="position:absolute;right:128px;bottom:64px;width:1100px;text-align:right;font-size:24px;color:#6B7380">Draft v2 · repository main, 24 November · updates the 2 November review</p>
+<aside>Purpose. This deck is for you, not for an audience: it lays out the whole project so that we can decide together what story the paper tells. It updates the review of 2 November (28 slides). Since then the decisive tests came in: the ten-plant panel (C1), a second seed for P4 (C2), an outside review of the claims, a test of C2 on a real incomplete annotation (M42), and the final analyses of the posteriors (C3) and of long genes (C4).
+
+How to read it. The blue kicker says which part a slide belongs to. The title states the conclusion with its key number. The footer gives the source (report and section), the evaluation region and the number of runs. Every number was checked against the repository on 24 November by four read-only verification passes (verification/ folder); figures are redrawn from result files with asserts on the report lines.
+
+Order. Slides 2–6: the problem, how we got here, the problems we hit, what changed, and the claims map. Then the evidence for each claim (C1–C4), the list of what was tested and dropped, the integrity checks, and finally status, pending branches, limits and the questions I want to settle with you.
+
+Yardsticks. F1 is exact-chain F1: a predicted gene counts only if every CDS segment matches the reference. DEV = one reused development chromosome each of Arabidopsis and rice (an upper bound: both are in PlantCAD2 pretraining and Carbon-A training). Set B = held-out chromosomes of Dryas octopetala and Eschscholzia californica, scored once per model. Panel = ten independent plant genomes, scored once per tool on 17 November.</aside>
+</section>
