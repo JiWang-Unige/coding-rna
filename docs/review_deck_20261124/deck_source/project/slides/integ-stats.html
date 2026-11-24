@@ -9,13 +9,13 @@
 <tr><td style="padding:8px 14px"><b>Checkpoint</b></td><td style="padding:8px 14px">Best Arabidopsis + rice validation among 3 stop points</td><td style="padding:8px 14px">All M34 arms</td></tr>
 <tr><td style="padding:8px 14px"><b>τ and threshold</b></td><td style="padding:8px 14px">Chosen on internal validation of NT-v2 (M33), reused</td><td style="padding:8px 14px">M33, M36, panel</td></tr>
 <tr><td style="padding:8px 14px"><b>Criteria</b></td><td style="padding:8px 14px">Git shows them before results for M34, M36, M37, C1; θ set after set B</td><td style="padding:8px 14px">M30, M34, M36, M37, C1</td></tr>
-<tr><td style="padding:8px 14px"><b>Short chains</b></td><td style="padding:8px 14px">CDS &lt; 96 bp dropped for every model and tool on the panel</td><td style="padding:8px 14px">DEV tool rows; fix before the panel</td></tr>
+<tr><td style="padding:8px 14px"><b>Short chains</b></td><td style="padding:8px 14px">CDS &lt; 96 bp dropped for every model and tool on the panel</td><td style="padding:8px 14px">DEV tool rows only; panel uniform</td></tr>
 </table>
 <div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
 <p style="font-size:24px;color:#6B7380">c1_boot.py, m30_score.py, m34_select.py, m33 selection.json · protocols 13, 19, 22, 23 · git history of the criteria</p>
 <p style="font-size:24px;color:#6B7380">30</p>
 </div>
-<aside>Seeds. Every model in the deck was trained once. For T2 the head initialisation seed is 0 and the sampling seed is 1; T2_s2 and T2_s3 change the sampling order and the LoRA A-matrix initialisation. They will give seed spread for T2 on DEV and set B only, not on the panel, and not for the k-arms. Every CI in the deck therefore measures resampling of genes or regions, not training variance.
+<aside>Seeds. Most models in the deck were trained once; T2 three times, the P4 arms twice. For T2 the head initialisation seed is 0 and the sampling seed is 1; T2_s2 and T2_s3 change the sampling order and the LoRA A-matrix initialisation. They give seed spread for T2 on DEV, the new-species regions and set B; the panel seed runs (triggered by the rule of 7 November) have not run yet. Every CI in the deck therefore measures resampling of genes or regions, not training variance.
 
 Two bootstrap schemes. DEV: paired bootstrap over 54 blocks of 1 Mb (contig, first CDS start divided by 1 Mb), 2,000 draws, random generator seed 0 (c1_boot.py). Set B in M30, M33 and M36: reference genes plus 100-kb bins for orphan predictions are the resampling units (m30_score.py). P2b on set B used 1-Mb blocks instead. The schemes give different widths for the same comparison; the deck labels which one each number uses, and set B CIs of T2/T10 should not be compared directly with those of Carbon-A or NT-v2.
 
@@ -27,7 +27,7 @@ Criteria. Git proves “registered before the result” for M34 P1–P4 (plan 19
 
 Two undocumented deviations from plan 19, found in this review. (1) Plan 19 set an advance rule: if Dioscorea’s T10 internal-validation F1 fell more than 15 points below the median of the other new species, replace it with Ananas comosus and rerun. It fell 18.6 points below (53.46 against 72.09); nothing records a decision, and Dioscorea stayed in T10, k50U and k50F. P4 is not at risk (Dioscorea was the smallest margin, +0.20), but the deviation should be written down. (2) The plan’s seed rule asked for two more T10 seeds once P1 passed; the queue has two T2 seeds instead, which is sensible since T2 is the final model, but no revision entry says so.
 
-Short chains. The scorer drops predicted chains with less than 96 bp of CDS for our arms only; the Helixer, Tiberius and ANNEVO rows on DEV were never rescored with that rule. On our models the rule moved F1 by 0 to +0.23 points; on the tools the effect is unknown. Harmless for most comparisons, but it must be applied uniformly before the panel is scored.
+Short chains. The scorer drops predicted chains with less than 96 bp of CDS for our arms only; the Helixer, Tiberius and ANNEVO rows on DEV were never rescored with that rule. On our models the rule moved F1 by 0 to +0.23 points; on the tools the effect is unknown. Harmless for most comparisons; the panel scoring (report 31) applied it to every tool.
 
 Paired CIs exist only against Carbon-A and GENERanno on DEV; there are none against Tiberius, Helixer or ANNEVO, and on set B T2 and T10 have only point differences to Carbon-A.
 

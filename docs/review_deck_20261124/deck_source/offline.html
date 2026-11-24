@@ -243,7 +243,7 @@ What would refute each claim now: C1 backbone part, a backbone comparison where 
 2. Backbone. PlantCAD2-Small: 24 Mamba2 blocks, width 768, about 88 M parameters, 1,536 features per base. LoRA of rank 8 (alpha 16) on the in- and out-projections of blocks 12–23, shared between strands: 604,416 trainable parameters.
 3. Head. Features are mean-pooled over 6 bp, then a linear layer, a bidirectional GRU (64 × 2) and a DNA convolution give energies for 15 per-base roles. 300,655 parameters, warm-started from the M32 frozen-PlantCAD2 run. The README and the method figure still say “~366k”; that number belongs to the 2,048-wide GENERanno/NT-v2 head.
 4. Training objective. A conditional random field over the full CDS grammar (start and stop codons, phase, donor and acceptor sites, legal exon chains). The loss is log Z over all parses minus log Z over parses consistent with the observations: fine labels are hard constraints, a coarse region channel has ε = 0.1, and unknown positions allow all 15 roles, so they are summed over (marginalised). Windows of stitched emissions (24,576 bp core plus neighbours) are run on 12 CPU dynamic-programming processes.
-5. Decoding. Windows are stitched by nearest window centre, then one exact max-only “skyline” search (exon budget cap 128) runs over the whole region per strand, not window by window. Output: CDS chains as GFF3. The CDS ≥ 96 bp rule is not in the decoder: the scorer applies it, and so far only to our models (integrity · statistics).
+5. Decoding. Windows are stitched by nearest window centre, then one exact max-only “skyline” search (exon budget cap 128) runs over the whole region per strand, not window by window. Output: CDS chains as GFF3. The CDS ≥ 96 bp rule is not in the decoder: the scorer applies it; on DEV only to our models, on the panel to every tool (integrity · statistics).
 6. Posterior. With τ = 1, the same partition function gives log P for every decoded gene; an optional filter keeps log P ≥ −1.400. τ and this threshold were chosen by M33 on the NT-v2 model and have not been re-selected for T2.
 
 T2’s data. Arabidopsis and rice only. Training chromosomes NC_003070.9, NC_003076.8, NC_089043.1, NC_089046.1; checkpoint selection on NC_003071.7 and NC_089044.1; DEV on NC_003074.8 and NC_089041.1. 3,072 steps, batch 8, learning rate 1e-4 for the head and 3e-4 for LoRA with 5% warm-up and cosine decay to 1e-5; half of the windows uniform, half gene-centred. Step 2,304 had the best internal-validation score (72.67).
@@ -335,7 +335,7 @@ Columns. Mb = main nuclear sequence length used. ≥70% id = share of the specie
 Things to keep in mind when reading the numbers.
 1. Dryas and Eschscholzia contain the set B chromosomes, which T2 has already been scored on (68.57 and 68.39). Two of ten species are therefore partly known.
 2. Zizania is in rice’s tribe: 72% of its proteins have a ≥70% match in T2’s training data. It is the most familiar species for T2 and should be expected to score high; report 10 had planned it as the “close relative” layer.
-3. Amborella’s species is in Carbon-A’s training data (older assembly), so Carbon-A has an advantage there. Plan 19 and report 10 disagree on whether Amborella counts in the C1 median; settle it before scoring.
+3. Amborella’s species is in Carbon-A’s training data (older assembly), so Carbon-A has an advantage there. Plan 19 and report 10 disagreed on whether Amborella counts in the C1 median; the scored median includes all ten core species.
 4. Themeda: 46% of reference proteins have no hit at all, and the submitter lists many more protein-coding genes than usual; low scores there may say more about the reference than the models.
 5. Acorus: Tiberius has a species of the same genus in training.
 6. Baselines’ training sets were not homology-audited, only listed by species.
@@ -691,7 +691,7 @@ Limits. Both panels come from backbones we no longer use as the final model: NT-
 
 Why it matters for the paper. C4 is the explanation section: it tells the reader why a plant-pretrained backbone helps (previous slide) and where a better backbone or decoder would have to improve. As it stands it is evidence about the method in general, measured on older backbones; the outline marks the PlantCAD2 replay as [to fill].
 
-What I would write today: “Most errors of the grammar layer are wrong exon joins rather than missed genes; in an M28 GENERanno model, 65% of missed genes were representable and scored positive but lost to a competing chain. A plant-pretrained backbone reduced the multi-exon deficit most (strata, slide 16).”</aside>
+What I would write today: “Most errors of the grammar layer are wrong exon joins rather than missed genes; in an M28 GENERanno model, 65% of missed genes were representable and scored positive but lost to a competing chain. A plant-pretrained backbone reduced the multi-exon deficit most (strata, previous slide).”</aside>
 </section>
 
 <section id="c4-long" data-transition="fade" style="background:#FAF9F5;color:#1B2430;font-family:'IBM Plex Sans', Arial, sans-serif;padding:104px 128px 160px;display:flex;flex-direction:column;gap:28px">
@@ -780,7 +780,7 @@ Why keep them. Each is pre-registered, so they are honest negative results. Two 
 <tr style="background:#F2F0EA"><th style="padding:8px 14px;width:22%;text-align:left">Evaluation set</th><th style="padding:8px 14px;width:19%;text-align:left">PlantCAD2 pretraining</th><th style="padding:8px 14px;width:17%;text-align:left">Carbon-A training</th><th style="padding:8px 14px;width:18%;text-align:left">Our training</th><th style="padding:8px 14px;width:24%;text-align:left">Looked at so far</th></tr>
 <tr><td style="padding:8px 14px"><b>DEV</b>: 1 chromosome each of Arabidopsis, rice</td><td style="padding:8px 14px">Yes, both species</td><td style="padding:8px 14px">Yes</td><td style="padding:8px 14px">Other chromosomes of both</td><td style="padding:8px 14px">Every model; 8 since M31</td></tr>
 <tr><td style="padding:8px 14px"><b>Set B</b>: Dryas, Eschscholzia held-out chromosomes</td><td style="padding:8px 14px">No; family or order relatives</td><td style="padding:8px 14px">Not by date (inferred)</td><td style="padding:8px 14px">No; M30 adapted on their other chromosomes</td><td style="padding:8px 14px">12 and 11 models or arms</td></tr>
-<tr><td style="padding:8px 14px"><b>Panel</b>: 10 core species, 4.79 Gb</td><td style="padding:8px 14px">No at species level</td><td style="padding:8px 14px">Amborella yes (older assembly)</td><td style="padding:8px 14px">No</td><td style="padding:8px 14px">Nothing scored; Dryas and Eschscholzia are in it</td></tr>
+<tr><td style="padding:8px 14px"><b>Panel</b>: 10 core species, 4.79 Gb</td><td style="padding:8px 14px">No at species level</td><td style="padding:8px 14px">Amborella yes (older assembly)</td><td style="padding:8px 14px">No</td><td style="padding:8px 14px">Scored once on 17 Nov; Dryas and Eschscholzia are in it</td></tr>
 <tr><td style="padding:8px 14px"><b>New-species regions</b> (T10, k-arms)</td><td style="padding:8px 14px">5 of 8 species or genera</td><td style="padding:8px 14px">Unknown</td><td style="padding:8px 14px">Other chromosomes</td><td style="padding:8px 14px">Stop validations of each arm</td></tr>
 </table>
 <div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
@@ -849,13 +849,13 @@ What could fool us, and what would help. A model that learns RefSeq’s habits w
 <tr><td style="padding:8px 14px"><b>Checkpoint</b></td><td style="padding:8px 14px">Best Arabidopsis + rice validation among 3 stop points</td><td style="padding:8px 14px">All M34 arms</td></tr>
 <tr><td style="padding:8px 14px"><b>τ and threshold</b></td><td style="padding:8px 14px">Chosen on internal validation of NT-v2 (M33), reused</td><td style="padding:8px 14px">M33, M36, panel</td></tr>
 <tr><td style="padding:8px 14px"><b>Criteria</b></td><td style="padding:8px 14px">Git shows them before results for M34, M36, M37, C1; θ set after set B</td><td style="padding:8px 14px">M30, M34, M36, M37, C1</td></tr>
-<tr><td style="padding:8px 14px"><b>Short chains</b></td><td style="padding:8px 14px">CDS &lt; 96 bp dropped for every model and tool on the panel</td><td style="padding:8px 14px">DEV tool rows; fix before the panel</td></tr>
+<tr><td style="padding:8px 14px"><b>Short chains</b></td><td style="padding:8px 14px">CDS &lt; 96 bp dropped for every model and tool on the panel</td><td style="padding:8px 14px">DEV tool rows only; panel uniform</td></tr>
 </table>
 <div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between">
 <p style="font-size:24px;color:#6B7380">c1_boot.py, m30_score.py, m34_select.py, m33 selection.json · protocols 13, 19, 22, 23 · git history of the criteria</p>
 <p style="font-size:24px;color:#6B7380">30</p>
 </div>
-<aside data-label="Speaker notes · slide 30 · integ-stats">Seeds. Every model in the deck was trained once. For T2 the head initialisation seed is 0 and the sampling seed is 1; T2_s2 and T2_s3 change the sampling order and the LoRA A-matrix initialisation. They will give seed spread for T2 on DEV and set B only, not on the panel, and not for the k-arms. Every CI in the deck therefore measures resampling of genes or regions, not training variance.
+<aside data-label="Speaker notes · slide 30 · integ-stats">Seeds. Most models in the deck were trained once; T2 three times, the P4 arms twice. For T2 the head initialisation seed is 0 and the sampling seed is 1; T2_s2 and T2_s3 change the sampling order and the LoRA A-matrix initialisation. They give seed spread for T2 on DEV, the new-species regions and set B; the panel seed runs (triggered by the rule of 7 November) have not run yet. Every CI in the deck therefore measures resampling of genes or regions, not training variance.
 
 Two bootstrap schemes. DEV: paired bootstrap over 54 blocks of 1 Mb (contig, first CDS start divided by 1 Mb), 2,000 draws, random generator seed 0 (c1_boot.py). Set B in M30, M33 and M36: reference genes plus 100-kb bins for orphan predictions are the resampling units (m30_score.py). P2b on set B used 1-Mb blocks instead. The schemes give different widths for the same comparison; the deck labels which one each number uses, and set B CIs of T2/T10 should not be compared directly with those of Carbon-A or NT-v2.
 
@@ -867,7 +867,7 @@ Criteria. Git proves “registered before the result” for M34 P1–P4 (plan 19
 
 Two undocumented deviations from plan 19, found in this review. (1) Plan 19 set an advance rule: if Dioscorea’s T10 internal-validation F1 fell more than 15 points below the median of the other new species, replace it with Ananas comosus and rerun. It fell 18.6 points below (53.46 against 72.09); nothing records a decision, and Dioscorea stayed in T10, k50U and k50F. P4 is not at risk (Dioscorea was the smallest margin, +0.20), but the deviation should be written down. (2) The plan’s seed rule asked for two more T10 seeds once P1 passed; the queue has two T2 seeds instead, which is sensible since T2 is the final model, but no revision entry says so.
 
-Short chains. The scorer drops predicted chains with less than 96 bp of CDS for our arms only; the Helixer, Tiberius and ANNEVO rows on DEV were never rescored with that rule. On our models the rule moved F1 by 0 to +0.23 points; on the tools the effect is unknown. Harmless for most comparisons, but it must be applied uniformly before the panel is scored.
+Short chains. The scorer drops predicted chains with less than 96 bp of CDS for our arms only; the Helixer, Tiberius and ANNEVO rows on DEV were never rescored with that rule. On our models the rule moved F1 by 0 to +0.23 points; on the tools the effect is unknown. Harmless for most comparisons; the panel scoring (report 31) applied it to every tool.
 
 Paired CIs exist only against Carbon-A and GENERanno on DEV; there are none against Tiberius, Helixer or ANNEVO, and on set B T2 and T10 have only point differences to Carbon-A.
 

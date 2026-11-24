@@ -460,8 +460,16 @@ patch("integ-stats", [
     ("Every number is one training run; the CIs resample genes or 1-Mb blocks, never seeds", "Most numbers are one run; T2 and P4 now have seeds, and their spread (up to 3 points) matches several effects"),
     ("One training run per model; two more T2 seeds queued", "T2: three runs (DEV 71.65–74.09); P4: two per arm; the rest one run"),
     ("dropped for our models, not for the tools", "dropped for every model and tool on the panel"),
+    ("DEV tool rows; fix before the panel", "DEV tool rows only; panel uniform"),
+    ("Harmless for most comparisons, but it must be applied uniformly before the panel is scored.", "Harmless for most comparisons; the panel scoring (report 31) applied it to every tool."),
+    ("Every model in the deck was trained once.", "Most models in the deck were trained once; T2 three times, the P4 arms twice."),
+    ("They will give seed spread for T2 on DEV and set B only, not on the panel, and not for the k-arms.", "They give seed spread for T2 on DEV, the new-species regions and set B; the panel seed runs (triggered by the rule of 7 November) have not run yet."),
 ])
-patch("integ-exposure", [("and only the panel is fresh; even it contains set B’s two species", "and the panel was fresh when scored; it contains set B’s two species")])
+patch("integ-exposure", [("and only the panel is fresh; even it contains set B’s two species", "and the panel was fresh when scored; it contains set B’s two species"),
+                          ("Nothing scored; Dryas and Eschscholzia are in it", "Scored once on 17 Nov; Dryas and Eschscholzia are in it")])
+patch("c1-panelset", [("Plan 19 and report 10 disagree on whether Amborella counts in the C1 median; settle it before scoring.", "Plan 19 and report 10 disagreed on whether Amborella counts in the C1 median; the scored median includes all ten core species.")])
+patch("c4-replay", [("(strata, slide 16)", "(strata, previous slide)")])
+patch("method", [("the scorer applies it, and so far only to our models (integrity · statistics).", "the scorer applies it; on DEV only to our models, on the panel to every tool (integrity · statistics).")])
 
 # ===================================================================================================== synthesis
 write("synthesis", head("Synthesis", "What the evidence supports: a safe way to train on incomplete labels and a useful gene confidence score, not a more accurate annotator")
