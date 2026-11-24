@@ -31,6 +31,7 @@ def foot(text):
 
 
 def write(sid, body, notes, bg=BG):
+    notes = notes.replace("<", "&lt;").replace(">", "&gt;")      # notes are plain text; a raw "<" would end the aside
     assert len(notes) <= 4000, (sid, len(notes))
     html = f'<section id="{sid}" data-transition="fade" style="{SEC.replace(BG, bg, 1)}">\n{body}<aside>{notes}</aside>\n</section>\n'
     open(os.path.join(S, f"{sid}.html"), "w").write(html)

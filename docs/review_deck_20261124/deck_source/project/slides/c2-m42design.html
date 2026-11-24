@@ -34,7 +34,7 @@ Masks frozen before the new release was opened: V1 = evidence spans ±2 kb; V2 =
 
 Gate 0 audit (A only, new release read after freezing). 753 genes are new in AR101 (no CDS overlap with AR100); 1,734 revised; 8,996 identical; positives cover 91.7% of identical genes. Missing loci fully inside the unknown region: V1 32.8% (random mask of V1's size 11.2%), V2 57.1% but 56.5% of non-positive bases unknown (rule ≤ 30%: fails), V3 81.7%, oracle 100% with only 1.7% unknown. Rule: V1 passes (≥ 2× random, ≤ 30% unknown) and goes to gate 1; V3 runs as the no-negative-constraint reference.
 
-Gate 1 arms. Z = T2 zero-shot. U = positives + V1 unknown + rest background. F = positives + everything else background. U3 = positives + V3. L (per-position cross-entropy) was dropped after it collapsed in the smoke test, before any scoring (your decision). Continue rule after that revision: U − Z > 0 and U − F > 0 in F1, U's missing-locus recall above Z's, and U's precision not more than 2 points below Z's.
+Gate 1 arms. Z = T2 zero-shot. U = positives + V1 unknown + rest background. F = positives + everything else background. U3 = positives + V3. L (per-position cross-entropy) was dropped after it collapsed in the smoke test, before any scoring (your decision). Continue rule after that revision: U − Z &gt; 0 and U − F &gt; 0 in F1, U's missing-locus recall above Z's, and U's precision not more than 2 points below Z's.
 
 Compute. CAU ChaoBaiHe 4090 (hhbgroup02), about 41.5 yuan in total.</aside>
 </section>

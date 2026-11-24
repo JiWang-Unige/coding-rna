@@ -521,7 +521,7 @@ Masks frozen before the new release was opened: V1 = evidence spans ±2 kb; V2 =
 
 Gate 0 audit (A only, new release read after freezing). 753 genes are new in AR101 (no CDS overlap with AR100); 1,734 revised; 8,996 identical; positives cover 91.7% of identical genes. Missing loci fully inside the unknown region: V1 32.8% (random mask of V1's size 11.2%), V2 57.1% but 56.5% of non-positive bases unknown (rule ≤ 30%: fails), V3 81.7%, oracle 100% with only 1.7% unknown. Rule: V1 passes (≥ 2× random, ≤ 30% unknown) and goes to gate 1; V3 runs as the no-negative-constraint reference.
 
-Gate 1 arms. Z = T2 zero-shot. U = positives + V1 unknown + rest background. F = positives + everything else background. U3 = positives + V3. L (per-position cross-entropy) was dropped after it collapsed in the smoke test, before any scoring (your decision). Continue rule after that revision: U − Z > 0 and U − F > 0 in F1, U's missing-locus recall above Z's, and U's precision not more than 2 points below Z's.
+Gate 1 arms. Z = T2 zero-shot. U = positives + V1 unknown + rest background. F = positives + everything else background. U3 = positives + V3. L (per-position cross-entropy) was dropped after it collapsed in the smoke test, before any scoring (your decision). Continue rule after that revision: U − Z &gt; 0 and U − F &gt; 0 in F1, U's missing-locus recall above Z's, and U's precision not more than 2 points below Z's.
 
 Compute. CAU ChaoBaiHe 4090 (hhbgroup02), about 41.5 yuan in total.</aside>
 </section>
@@ -621,7 +621,7 @@ Pooled reliability (10 equal-width bins). Observed hit rate is below the mean pr
 
 Per species. ECE 0.047 (Dryas) to 0.219 (Themeda) and 0.214 (Acorus). The P ≥ 0.9 bin is predicted at about 0.94 in every species; observed: Dryas 0.86, Eschscholzia 0.82, Akebia 0.82, Amborella 0.81, Zizania 0.81, Hakea 0.77, Juncus 0.75, Rhynchospora 0.74, Acorus 0.70, Themeda 0.58.
 
-The rule written before computing (report 36 §6): if pooled ECE > 0.10, or any species' high-confidence bin is more than 0.15 below its prediction, the main text must say "calibration is not reliable across species". Pooled ECE 0.088 does not trigger it; five species do (exact gaps: Themeda 0.353, Acorus 0.249, Juncus 0.199, Rhynchospora 0.197, Hakea 0.169). So: not reliable across species, systematically over-confident.
+The rule written before computing (report 36 §6): if pooled ECE &gt; 0.10, or any species' high-confidence bin is more than 0.15 below its prediction, the main text must say "calibration is not reliable across species". Pooled ECE 0.088 does not trigger it; five species do (exact gaps: Themeda 0.353, Acorus 0.249, Juncus 0.199, Rhynchospora 0.197, Hakea 0.169). So: not reliable across species, systematically over-confident.
 
 History. M33 (NT-v2 + LoRA): DEV ECE 0.031. T10 on set B (M36 §4): 0.059 / 0.089. The final model on new species is in the same range as T10 on set B, worse than NT-v2 on DEV.
 
@@ -704,7 +704,7 @@ What I would write today: “Most errors of the grammar layer are wrong exon joi
 </div>
 <aside data-label="Speaker notes · slide 25 · c4-long">What was done (report 37 part B). For every panel reference (247,922, same ruler as report 31), whether T2 and unfiltered Carbon-A reproduce its exact chain, stratified by CDS span and by exon count; each miss is put into one structural error class with the M29 R4 rules (no call, wrong strand only, merge, split, endpoint only, exon missed, exon extra, one junction shifted, complex).
 
-Recall. Pooled T2 52.7, Carbon-A 59.1 (gap 6.5). By CDS span, T2 / Carbon-A: < 2 kb 49.1 / 50.9 (106,293 genes); 2–5 kb 65.4 / 67.9 (86,000); 5–10 kb 53.0 / 64.0 (34,891); 10–20 kb 24.1 / 59.2 (13,831); 20–50 kb 3.3 / 53.6 (5,800); ≥ 50 kb 0.0 / 45.6 (1,107). Genes ≥ 10 kb are 8.4% of the references but contribute 3.3 of the 6.5-point recall gap. By exon count the gap grows gradually (1: 50.2 / 52.7; 6–9: 56.9 / 65.8; 20+: 41.1 / 59.7); by span it falls off a cliff near 10 kb.
+Recall. Pooled T2 52.7, Carbon-A 59.1 (gap 6.5). By CDS span, T2 / Carbon-A: &lt; 2 kb 49.1 / 50.9 (106,293 genes); 2–5 kb 65.4 / 67.9 (86,000); 5–10 kb 53.0 / 64.0 (34,891); 10–20 kb 24.1 / 59.2 (13,831); 20–50 kb 3.3 / 53.6 (5,800); ≥ 50 kb 0.0 / 45.6 (1,107). Genes ≥ 10 kb are 8.4% of the references but contribute 3.3 of the 6.5-point recall gap. By exon count the gap grows gradually (1: 50.2 / 52.7; 6–9: 56.9 / 65.8; 20+: 41.1 / 59.7); by span it falls off a cliff near 10 kb.
 
 Gap genes (T2 misses, Carbon-A hits; 25,900 pooled; the reverse 9,794). Pooled: one junction shifted 23%, split 23%, single-exon miss 12%, no call 11%, complex 11%. Hakea (4,493): split 44%; Amborella (4,184): 39%; Akebia (3,850): 31%. Controls Dryas (1,650) and Eschscholzia (2,105): one junction shifted 35% / 32%, split only 8–9%. Monocots Zizania and Themeda: single-exon misses (29%) and no calls.
 
@@ -762,7 +762,7 @@ M29 (16–17 October): a residual head on Carbon-A's frozen offsets: DEV 71.84 b
 M30 (17–19 October): adaptation on frozen Carbon-A features with 25% labels: U − filtered Carbon-A −2.32 [−2.72, −1.94] / −2.73 (needed ≥ +3.0). The mechanism part (U − F +16.50 / +14.15) held and became C2.
 M34 P2 / P2b (26 October): ten species instead of two: DEV −0.96 [−1.52, −0.29], set B −0.14 [−0.53, +0.28]. Arms T4 and T6 were withdrawn; result in Supp. S9.
 M36 (31 October): target-genome bootstrap with self-training seeds, protein seeds, their union and a fill control: every arm 1.5–7.7 below zero-shot; closure −26% / −63% (needed +30%); C2 withdrawn for pseudo-labels (F − S1 −0.94 [−1.61, −0.28], under the 2-point bar although F is significantly worse).
-M37 (22 October): joint decoding across assemblies: headroom 10.3% < 20%.
+M37 (22 October): joint decoding across assemblies: headroom 10.3% &lt; 20%.
 C1 panel (17 November): −12.60 against filtered Carbon-A, also below Tiberius (−4.20) and Vipsania ft (−2.36).
 M41 (22 November): −0.74 [−1.71, +0.23] against the +2.58 bar.
 M42 gate 1 (24 November): U − Z −2.01 [−2.56, −1.50], U − F −0.37 [−0.75, +0.01]; missing-locus recall 15.70 vs 16.15.
@@ -983,7 +983,7 @@ What this means for the story (to discuss on the questions slide). The honest pa
 <p style="font-size:24px;color:#6B7380">Protocol 29 §4.1 (P4-I, registered before the insect runs) · report 28 §7 · GeneCAD: no criterion registered</p>
 <p style="font-size:24px;color:#6B7380">33</p>
 </div>
-<aside data-label="Speaker notes · slide 33 · branches">M39 (protocol 29 §4.1, registered before the insect runs). P4-I: on the eight new insects' validation regions, k50U − k50F ≥ +2.0 pooled and the same sign in ≥ 6 of 8 (≥ 3/4 if species had to be replaced). Wording under each outcome, as registered: both conditions met → "the C2 advantage replicates in insects (NT-v2, one seed)"; 0 < pooled < +2.0 with enough species → "same direction, below the bar"; otherwise not replicated. Note in the protocol: insects change both the backbone (NT-v2) and the lineage, so a failure cannot be attributed without an NT-v2 plant pair (about 50 GPU hours, not planned). Also: the M39 insect arms use the same oracle mask as P4, so even a success stays an upper-bound result.
+<aside data-label="Speaker notes · slide 33 · branches">M39 (protocol 29 §4.1, registered before the insect runs). P4-I: on the eight new insects' validation regions, k50U − k50F ≥ +2.0 pooled and the same sign in ≥ 6 of 8 (≥ 3/4 if species had to be replaced). Wording under each outcome, as registered: both conditions met → "the C2 advantage replicates in insects (NT-v2, one seed)"; 0 &lt; pooled &lt; +2.0 with enough species → "same direction, below the bar"; otherwise not replicated. Note in the protocol: insects change both the backbone (NT-v2) and the lineage, so a failure cannot be attributed without an NT-v2 plant pair (about 50 GPU hours, not planned). Also: the M39 insect arms use the same oracle mask as P4, so even a success stays an upper-bound result.
 
 GeneCAD. No criterion has been written, and it should be before the result: I suggest it is descriptive only (a row in the panel table and the long-gene stratification), because it shares our backbone (PlantCAD2) and adds a different head and a chromosome-wide CRF. Readings I would write: if GeneCAD is near Carbon-A, our gap is in the grammar layer or training, not the backbone; if near T2, the backbone limits both.
 
